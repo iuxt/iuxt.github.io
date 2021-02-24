@@ -23,14 +23,14 @@
   <meta name="description" content="❤别浪费时间❤">
 <meta property="og:type" content="website">
 <meta property="og:title" content="飞机师的风衣">
-<meta property="og:url" content="https://iuxt.gitee.com/index.html">
+<meta property="og:url" content="https://iuxt.gitee.com/page/4/index.html">
 <meta property="og:site_name" content="飞机师的风衣">
 <meta property="og:description" content="❤别浪费时间❤">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="张理坤">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://iuxt.gitee.com/">
+<link rel="canonical" href="https://iuxt.gitee.com/page/4/">
 
 
 <script id="page-configurations">
@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.com/2021/02/21/selenium-web%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.com/2021/02/19/docker%E5%B8%B8%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/21/selenium-web%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">selenium--web自动化工具</a>
+            <a href="/2021/02/19/docker%E5%B8%B8%E7%94%A8/" class="post-title-link" itemprop="url">docker常用</a>
         </h2>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-21 21:30:56" itemprop="dateCreated datePublished" datetime="2021-02-21T21:30:56+08:00">2021-02-21</time>
+              <time title="创建时间：2021-02-19 12:14:59" itemprop="dateCreated datePublished" datetime="2021-02-19T12:14:59+08:00">2021-02-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -254,16 +254,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>selenium是一个web自动化工具，它可以控制chrome浏览器实现我们想要的功能，跟爬虫不同的是：它是模拟人类的操作。</p>
-</blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载对应版本的chromedriver"><a href="#下载对应版本的chromedriver" class="headerlink" title="下载对应版本的chromedriver"></a>下载对应版本的chromedriver</h3><p><a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/chromedriver">http://npm.taobao.org/mirrors/chromedriver</a>放到环境变量里</p>
-<h3 id="安装python包"><a href="#安装python包" class="headerlink" title="安装python包"></a>安装python包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install selenium -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+          <h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><h3 id="官方安装脚本"><a href="#官方安装脚本" class="headerlink" title="官方安装脚本"></a>官方安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br></pre></td></tr></table></figure>
 
-<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><blockquote>
-<p>这里以gitee自动发布pages为例<br>获取xpath可以按下F12，ctrl shift c 点击按钮， 高亮的地方右键复制 full xpath</p>
+<h3 id="阿里云安装（centos）"><a href="#阿里云安装（centos）" class="headerlink" title="阿里云安装（centos）"></a>阿里云安装（centos）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo systemctl start docker.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/bin/docker-compose &amp;&amp; sudo chmod +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="免root执行docker命令"><a href="#免root执行docker命令" class="headerlink" title="免root执行docker命令"></a>免root执行docker命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>顺便确定一下sock文件有没有权限（默认是有的）, 退出账户重新登录一下即可生效</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.alert <span class="keyword">import</span> Alert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模拟浏览器打开到gitee登录界面</span></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&#x27;https://gitee.com/login&#x27;</span>)</span><br><span class="line"><span class="comment"># 将窗口最大化</span></span><br><span class="line">driver.maximize_window()</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入账号--通过html的id属性定位输入位置--改为你的账号</span></span><br><span class="line">driver.find_element_by_id(<span class="string">&#x27;user_login&#x27;</span>).send_keys(<span class="string">&quot;这里写你的用户名&quot;</span>)</span><br><span class="line"><span class="comment"># 输入密码--通过html的id属性定位输入位置--改为你的密码</span></span><br><span class="line">driver.find_element_by_id(<span class="string">&#x27;user_password&#x27;</span>).send_keys(<span class="string">&quot;这里写上你的密码&quot;</span>)</span><br><span class="line"><span class="comment"># 点击登录按钮--通过xpath确定点击位置</span></span><br><span class="line">driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;/html/body/div[2]/div[2]/div[1]/div/div[2]/div/form[1]/div[2]/div/div/div[4]/input&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到gitee pages界面--改为you_gitee_id</span></span><br><span class="line">driver.get(<span class="string">&#x27;这里写你的gitee-pages页面地址，我的是https://gitee.com/iuxt/iuxt/pages&#x27;</span>)</span><br><span class="line"><span class="comment"># 点击更新按钮--通过xpath确定点击位置</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">&#x27;/html/body/div[3]/div[2]/div/div[2]/div[1]/form/div[7]&#x27;</span>).click()</span><br><span class="line"><span class="comment"># 确认更新提示框--这个函数的作用是确认提示框</span></span><br><span class="line">Alert(driver).accept()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待5秒更新</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个print其实没事什么用,如果真的要测试脚本是否运行成功，可以用try来抛出异常</span></span><br><span class="line">print(<span class="string">&quot;成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 脚本运行成功,退出浏览器</span></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+<h2 id="阿里云Docker加速"><a href="#阿里云Docker加速" class="headerlink" title="阿里云Docker加速"></a>阿里云Docker加速</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker &amp;&amp; tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="一次性删除所有的容器"><a href="#一次性删除所有的容器" class="headerlink" title="一次性删除所有的容器"></a>一次性删除所有的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f `docker ps -aq`</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除所有的镜像"><a href="#一次性删除所有的镜像" class="headerlink" title="一次性删除所有的镜像"></a>一次性删除所有的镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi `docker image ls | awk <span class="string">&#x27;&#123;print $1 &quot;:&quot; $2&#125;&#x27;</span>`</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除未打标签的镜像"><a href="#一次性删除未打标签的镜像" class="headerlink" title="一次性删除未打标签的镜像"></a>一次性删除未打标签的镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image ls | grep none | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span> | xargs docker rmi</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除所有volume"><a href="#一次性删除所有volume" class="headerlink" title="一次性删除所有volume"></a>一次性删除所有volume</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume rm `docker volume ls -q`</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker进入容器"><a href="#Docker进入容器" class="headerlink" title="Docker进入容器"></a>Docker进入容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name test_ubuntu -it ubuntu /bin/bash</span><br><span class="line">启动一个容器并打开shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重看容器详情</span></span><br><span class="line">docker inspect 容器id或名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重看docker详情</span></span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it 镜像名字 /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入一个运行中的容器"><a href="#进入一个运行中的容器" class="headerlink" title="进入一个运行中的容器"></a>进入一个运行中的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="打tag"><a href="#打tag" class="headerlink" title="打tag"></a>打tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag 镜像id oldboy1103/alpine:latest</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器备份还原"><a href="#容器备份还原" class="headerlink" title="容器备份还原"></a>容器备份还原</h2><h3 id="镜像的备份还原"><a href="#镜像的备份还原" class="headerlink" title="镜像的备份还原"></a>镜像的备份还原</h3><ol>
+<li><p>commit将容器保存成镜像</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将镜像导出成tar (镜像是分层的,可以回滚,)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o ./backup.tar gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从tar导入镜像（镜像备份下来的tar）</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i ./backup.tar</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>注意：以上会备份镜像的多层。</p>
+</blockquote>
+<h3 id="容器的备份还原"><a href="#容器的备份还原" class="headerlink" title="容器的备份还原"></a>容器的备份还原</h3><ol>
+<li><p>备份容器</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> php &gt; phprongqi.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还原成镜像</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker import ./phprongqi.tar php</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>注意：备份的只是一层镜像</p>
+</blockquote>
 
       
     </div>
@@ -282,7 +333,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
