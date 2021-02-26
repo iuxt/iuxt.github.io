@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>diskpart</title>
+    <url>/2021/02/26/diskpart/</url>
+    <content><![CDATA[<h2 id="创建EFI-分区"><a href="#创建EFI-分区" class="headerlink" title="创建EFI 分区"></a>创建EFI 分区</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">diskpart</span><br><span class="line">list disk</span><br><span class="line">select disk x </span><br><span class="line">create partition efi size=<span class="number">100</span></span><br><span class="line">assign letter=b</span><br><span class="line"><span class="built_in">format</span> quick <span class="built_in">fs</span>=FAT32</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="创建msr分区"><a href="#创建msr分区" class="headerlink" title="创建msr分区"></a>创建msr分区</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">create partition msr size=<span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建Recovery-分区-WindowsRE"><a href="#创建Recovery-分区-WindowsRE" class="headerlink" title="创建Recovery 分区 (WindowsRE)"></a>创建Recovery 分区 (WindowsRE)</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">create partition primary size=<span class="number">450</span></span><br><span class="line"><span class="built_in">format</span> quick <span class="built_in">fs</span>=ntfs <span class="built_in">label</span>=&quot;Recovery&quot;</span><br><span class="line">assign letter=&quot;R&quot;</span><br><span class="line"><span class="built_in">set</span> id=&quot;de94bba4-<span class="number">06</span>d1-<span class="number">4</span>d40-a16a-bfd50179d6ac&quot;</span><br><span class="line">gpt attributes=<span class="number">0</span>x8000000000000001</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>瞎捣鼓</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>centos常用</title>
     <url>/2021/02/09/centos%E5%B8%B8%E7%94%A8/</url>
     <content><![CDATA[<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens**</span><br></pre></td></tr></table></figure>
@@ -54,92 +71,6 @@
       <tags>
         <tag>centos</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo</title>
-    <url>/2021/02/02/hexo/</url>
-    <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>首先安装nodejs，然后修改成国内源<br><code>npm config set registry https://registry.npm.taobao.org</code></p>
-<p>安装hexo<br><code>npm install -g hexo-cli</code></p>
-<p>初始化<br><code>hexo init new</code></p>
-<p>修改为中文<br>vim _config.yml</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">张理坤的博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;杂烩饭好吃&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;别浪费时间&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">张理坤</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><p>github地址：<a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></p>
-<p><code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code></p>
-<p>修改theme配置文件 vim next/_config.yml<br><code>scheme: Pisces</code></p>
-<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>然后主题配置文件next/_config.yml<br><code>local_search:</code>标签，配置参数<code>enable: true</code></p>
-<p>将以下参数增加到Hexo的主配置文件中（./_config.yml）</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span>   <span class="comment">#在public目录的根目录下生成search.xml 文件，用于存储网站文章的文字数据.</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h2><blockquote>
-<p>git 地址： <a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md</a></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br><span class="line">npm install --save live2d-widget-model-epsilon2_1</span><br></pre></td></tr></table></figure>
-
-<p>添加配置文件根目录下的_config.yml，需要保证包安装上了</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">log:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-epsilon2_1</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">react:</span></span><br><span class="line">    <span class="attr">opacity:</span> <span class="number">0.7</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>module.use里面的和你安装的要一样</p>
-</blockquote>
-<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><ul>
-<li>将图片放入 博客目录/themes/next/source/images，并重命名为 avatar.[格式]</li>
-<li>编辑主题配置文件_config.yml<br><code>vim 博客目录/themes/next/_config.yml</code></li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span> <span class="string">/images/avatar.png</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="添加分类和标签"><a href="#添加分类和标签" class="headerlink" title="添加分类和标签"></a>添加分类和标签</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><code>hexo new page categories</code><br>成功后会提示：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/categories/index.md</span><br></pre></td></tr></table></figure>
-
-<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>添加type: “categories”到内容中，添加后是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>保存并关闭文件。</p>
-<p>给文章添加“categories”属性<br>打开需要添加分类的文章，为其添加categories属性。<br>注意：hexo一篇文章只能属于一个分类，如果写两个分类，则是给分类嵌套</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> DevOps</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。<br>当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>生成“标签”页并添加tpye属性<br>打开命令行，进入博客所在文件夹。执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
-
-<p>成功后会提示：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/tags/index.md</span><br></pre></td></tr></table></figure>
-
-<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2017-05-27 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>添加type: “tags”到内容中，添加后是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>保存并关闭文件。</p>
-<p>给文章添加“tags”属性<br>打开需要添加标签的文章，为其添加tags属性。下方的tags:下方的- jQuery-表格-表单验证就是这篇文章的标签了</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> web前端</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> jQuery</span><br><span class="line"><span class="bullet">-</span> 表格</span><br><span class="line"><span class="bullet">-</span> 表单验证</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>至此，成功给文章添加分类，点击首页的“标签”可以看到该标签下的所有文章。<br>当然，只有添加了tags: xxx的文章才会被收录到首页的“标签”中。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="新创建文章"><a href="#新创建文章" class="headerlink" title="新创建文章"></a>新创建文章</h3><p><code>hexo new &lt;标题&gt;</code></p>
-<p>然后编辑 <code>vim source/_posts/&lt;标题&gt;.md</code></p>
-<h3 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h3><p><code>hexo s</code></p>
-<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>安装git插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>修改hexo配置文件 vim hexo/_config.yml，配置git地址</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">&#x27;git@gitee.com:iuxt/iuxt.git&#x27;</span>, <span class="string">&#x27;git@github.com:iuxt/iuxt.github.io.git&#x27;</span>]</span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">&#x27;hexo update&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>发布</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>私人</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -215,6 +146,89 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo</title>
+    <url>/2021/02/02/hexo/</url>
+    <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>首先安装nodejs，然后修改成国内源<br><code>npm config set registry https://registry.npm.taobao.org</code></p>
+<p>安装hexo<br><code>npm install -g hexo-cli</code></p>
+<p>初始化<br><code>hexo init new</code></p>
+<p>修改为中文<br>vim _config.yml</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">张理坤的博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;杂烩饭好吃&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;别浪费时间&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">张理坤</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><p>github地址：<a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></p>
+<p><code>git clone https://github.com/theme-next/hexo-theme-next themes/next</code></p>
+<p>修改theme配置文件 vim next/_config.yml<br><code>scheme: Pisces</code></p>
+<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>然后主题配置文件next/_config.yml<br><code>local_search:</code>标签，配置参数<code>enable: true</code></p>
+<h2 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h2><blockquote>
+<p>git 地址： <a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br><span class="line">npm install --save live2d-widget-model-epsilon2_1</span><br></pre></td></tr></table></figure>
+
+<p>在 next/_config.yml 添加下面配置</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">log:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-epsilon2_1</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">react:</span></span><br><span class="line">    <span class="attr">opacity:</span> <span class="number">0.7</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>module.use里面的和你安装的要一样</p>
+</blockquote>
+<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><ul>
+<li>将图片放入 博客目录/themes/next/source/images，并重命名为 avatar.[格式]</li>
+<li>编辑主题配置文件_config.yml<br><code>vim 博客目录/themes/next/_config.yml</code></li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span> <span class="string">/images/avatar.png</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加分类和标签"><a href="#添加分类和标签" class="headerlink" title="添加分类和标签"></a>添加分类和标签</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><code>hexo new page categories</code><br>成功后会提示：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/categories/index.md</span><br></pre></td></tr></table></figure>
+
+<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加type: “categories”到内容中，添加后是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<p>给文章添加“categories”属性<br>打开需要添加分类的文章，为其添加categories属性。<br>注意：hexo一篇文章只能属于一个分类，如果写两个分类，则是给分类嵌套</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> DevOps</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。<br>当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>生成“标签”页并添加tpye属性<br>打开命令行，进入博客所在文件夹。执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>成功后会提示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/tags/index.md</span><br></pre></td></tr></table></figure>
+
+<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2017-05-27 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加type: “tags”到内容中，添加后是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<p>给文章添加“tags”属性<br>打开需要添加标签的文章，为其添加tags属性。下方的tags:下方的- jQuery-表格-表单验证就是这篇文章的标签了</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> web前端</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> jQuery</span><br><span class="line"><span class="bullet">-</span> 表格</span><br><span class="line"><span class="bullet">-</span> 表单验证</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>至此，成功给文章添加分类，点击首页的“标签”可以看到该标签下的所有文章。<br>当然，只有添加了tags: xxx的文章才会被收录到首页的“标签”中。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="新创建文章"><a href="#新创建文章" class="headerlink" title="新创建文章"></a>新创建文章</h3><p><code>hexo new &lt;标题&gt;</code></p>
+<p>然后编辑 <code>vim source/_posts/&lt;标题&gt;.md</code></p>
+<h3 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h3><p><code>hexo s</code></p>
+<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>安装git插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>修改hexo配置文件 vim hexo/_config.yml，配置git地址</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">&#x27;git@gitee.com:iuxt/iuxt.git&#x27;</span>, <span class="string">&#x27;git@github.com:iuxt/iuxt.github.io.git&#x27;</span>]</span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">&#x27;hexo update&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>发布</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>瞎捣鼓</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sed命令详解</title>
     <url>/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><blockquote>
@@ -252,27 +266,6 @@
       <tags>
         <tag>linux</tag>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>selenium--web自动化工具</title>
-    <url>/2021/02/21/selenium-web%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</url>
-    <content><![CDATA[<blockquote>
-<p>selenium是一个web自动化工具，它可以控制chrome浏览器实现我们想要的功能，跟爬虫不同的是：它是模拟人类的操作。</p>
-</blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载对应版本的chromedriver"><a href="#下载对应版本的chromedriver" class="headerlink" title="下载对应版本的chromedriver"></a>下载对应版本的chromedriver</h3><p><a href="http://npm.taobao.org/mirrors/chromedriver">http://npm.taobao.org/mirrors/chromedriver</a>放到环境变量里</p>
-<h3 id="安装python包"><a href="#安装python包" class="headerlink" title="安装python包"></a>安装python包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install selenium -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
-<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><blockquote>
-<p>这里以gitee自动发布pages为例<br>获取xpath可以按下F12，ctrl shift c 点击按钮， 高亮的地方右键复制 full xpath</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.alert <span class="keyword">import</span> Alert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模拟浏览器打开到gitee登录界面</span></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&#x27;https://gitee.com/login&#x27;</span>)</span><br><span class="line"><span class="comment"># 将窗口最大化</span></span><br><span class="line">driver.maximize_window()</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入账号--通过html的id属性定位输入位置--改为你的账号</span></span><br><span class="line">driver.find_element_by_id(<span class="string">&#x27;user_login&#x27;</span>).send_keys(<span class="string">&quot;这里写你的用户名&quot;</span>)</span><br><span class="line"><span class="comment"># 输入密码--通过html的id属性定位输入位置--改为你的密码</span></span><br><span class="line">driver.find_element_by_id(<span class="string">&#x27;user_password&#x27;</span>).send_keys(<span class="string">&quot;这里写上你的密码&quot;</span>)</span><br><span class="line"><span class="comment"># 点击登录按钮--通过xpath确定点击位置</span></span><br><span class="line">driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;/html/body/div[2]/div[2]/div[1]/div/div[2]/div/form[1]/div[2]/div/div/div[4]/input&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到gitee pages界面--改为you_gitee_id</span></span><br><span class="line">driver.get(<span class="string">&#x27;这里写你的gitee-pages页面地址，我的是https://gitee.com/iuxt/iuxt/pages&#x27;</span>)</span><br><span class="line"><span class="comment"># 点击更新按钮--通过xpath确定点击位置</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">&#x27;/html/body/div[3]/div[2]/div/div[2]/div[1]/form/div[7]&#x27;</span>).click()</span><br><span class="line"><span class="comment"># 确认更新提示框--这个函数的作用是确认提示框</span></span><br><span class="line">Alert(driver).accept()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待5秒更新</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个print其实没事什么用,如果真的要测试脚本是否运行成功，可以用try来抛出异常</span></span><br><span class="line">print(<span class="string">&quot;成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 脚本运行成功,退出浏览器</span></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>devops</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -343,76 +336,24 @@
       </tags>
   </entry>
   <entry>
-    <title>常用bat脚本</title>
-    <url>/2021/02/26/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
-
-<h2 id="bat脚本获取管理员权限"><a href="#bat脚本获取管理员权限" class="headerlink" title="bat脚本获取管理员权限"></a>bat脚本获取管理员权限</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="输出控制台不换行"><a href="#输出控制台不换行" class="headerlink" title="输出控制台不换行"></a>输出控制台不换行</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="隐藏bat窗口"><a href="#隐藏bat窗口" class="headerlink" title="隐藏bat窗口"></a>隐藏bat窗口</h2><ul>
-<li>第一种方法:<br>在你写的批处理文件，开头加上以下三行代码即可</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;hide&quot; <span class="keyword">goto</span> CmdBegin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~<span class="number">0</span>&quot;&quot; hide&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:CmdBegin</span><br><span class="line"><span class="comment">REM 脚本内容</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>第二种解决办法:<br>比如你的批处理文件，名字为 test.bat</li>
-</ul>
-<p>创建 backrun.vbs</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">createobject(&quot;wscript.shell&quot;).run &quot;test.bat&quot;,<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>可以打开任务管理器，会发现有一个 叫 cmd 的进程在运行，就是我们批处理文件的进程了；结束进程的话，直接在任务管理器上，结束该 cmd 进程即可</p>
-<h2 id="杀进程，停服务"><a href="#杀进程，停服务" class="headerlink" title="杀进程，停服务"></a>杀进程，停服务</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">sc config AcronisActiveProtectionService <span class="built_in">start</span>= disabled</span><br><span class="line">sc stop mmsminisrv</span><br><span class="line"></span><br><span class="line"><span class="built_in">taskkill</span> /f /im Xshell*</span><br></pre></td></tr></table></figure>
-<p>windows服务操作命令有sc和net 两个命令;</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">sc stop serviceName</span><br><span class="line">sc <span class="built_in">start</span> serviceName</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop serviceName</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> serviceName</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>虽然2个都能达到停止服务和启动服务的效果，但是在重启服务时，就是使用批处理先stop后start来实现重启时，如果服务处于启动状态使用sc的stop后start，结果服务不能启动，因为sc命令在执行stop后不会等待，而是继续执行批处理下面的语句，这时服务正在处于停止操作状态，所以start命令不能启动。net命令在stop时会停止等待，在服务完全停止后再继续执行批处理后面的语句，所以net的重启命令就会正常。</p>
+    <title>selenium--web自动化工具</title>
+    <url>/2021/02/21/selenium-web%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<blockquote>
+<p>selenium是一个web自动化工具，它可以控制chrome浏览器实现我们想要的功能，跟爬虫不同的是：它是模拟人类的操作。</p>
 </blockquote>
-<h2 id="删除注册表"><a href="#删除注册表" class="headerlink" title="删除注册表"></a>删除注册表</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Microsoft\NetLicense&quot; /f</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Classes\.xdts&quot; /f /ve /d &quot;Xmanager.session&quot; &gt;<span class="built_in">NUL</span> <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载对应版本的chromedriver"><a href="#下载对应版本的chromedriver" class="headerlink" title="下载对应版本的chromedriver"></a>下载对应版本的chromedriver</h3><p><a href="http://npm.taobao.org/mirrors/chromedriver">http://npm.taobao.org/mirrors/chromedriver</a>放到环境变量里</p>
+<h3 id="安装python包"><a href="#安装python包" class="headerlink" title="安装python包"></a>安装python包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install selenium -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 
-<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rd</span>/s/q &quot;<span class="variable">%ProgramData%</span>\FLEXnet&quot; <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br><span class="line"><span class="built_in">rmdir</span>/s/q &quot;<span class="variable">%CommonProgramFiles%</span>\Macrovision Shared&quot;<span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>rd就是rmdir</p>
+<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><blockquote>
+<p>这里以gitee自动发布pages为例<br>获取xpath可以按下F12，ctrl shift c 点击按钮， 高亮的地方右键复制 full xpath</p>
 </blockquote>
-<h2 id="判断有没有目录"><a href="#判断有没有目录" class="headerlink" title="判断有没有目录"></a>判断有没有目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot; <span class="built_in">md</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> f|<span class="built_in">xcopy</span> /e/i/c/y &quot;Data\NetSarang Computer&quot; &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="带空格路径的处理"><a href="#带空格路径的处理" class="headerlink" title="带空格路径的处理"></a>带空格路径的处理</h2><blockquote>
-<p>用””引起来，不方便用””的可以用下面的短名称，或者用变量的形式表示</p>
-</blockquote>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">start</span> C:\Progra~<span class="number">1</span>\Notepad++\notepad++.exe C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.alert <span class="keyword">import</span> Alert</span><br><span class="line"></span><br><span class="line"><span class="comment"># 模拟浏览器打开到gitee登录界面</span></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&#x27;https://gitee.com/login&#x27;</span>)</span><br><span class="line"><span class="comment"># 将窗口最大化</span></span><br><span class="line">driver.maximize_window()</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入账号--通过html的id属性定位输入位置--改为你的账号</span></span><br><span class="line">driver.find_element_by_id(<span class="string">&#x27;user_login&#x27;</span>).send_keys(<span class="string">&quot;这里写你的用户名&quot;</span>)</span><br><span class="line"><span class="comment"># 输入密码--通过html的id属性定位输入位置--改为你的密码</span></span><br><span class="line">driver.find_element_by_id(<span class="string">&#x27;user_password&#x27;</span>).send_keys(<span class="string">&quot;这里写上你的密码&quot;</span>)</span><br><span class="line"><span class="comment"># 点击登录按钮--通过xpath确定点击位置</span></span><br><span class="line">driver.find_element_by_xpath(</span><br><span class="line">    <span class="string">&#x27;/html/body/div[2]/div[2]/div[1]/div/div[2]/div/form[1]/div[2]/div/div/div[4]/input&#x27;</span>).click()</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到gitee pages界面--改为you_gitee_id</span></span><br><span class="line">driver.get(<span class="string">&#x27;这里写你的gitee-pages页面地址，我的是https://gitee.com/iuxt/iuxt/pages&#x27;</span>)</span><br><span class="line"><span class="comment"># 点击更新按钮--通过xpath确定点击位置</span></span><br><span class="line">driver.find_element_by_xpath(<span class="string">&#x27;/html/body/div[3]/div[2]/div/div[2]/div[1]/form/div[7]&#x27;</span>).click()</span><br><span class="line"><span class="comment"># 确认更新提示框--这个函数的作用是确认提示框</span></span><br><span class="line">Alert(driver).accept()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待5秒更新</span></span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个print其实没事什么用,如果真的要测试脚本是否运行成功，可以用try来抛出异常</span></span><br><span class="line">print(<span class="string">&quot;成功&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 脚本运行成功,退出浏览器</span></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>devops</category>
       </categories>
       <tags>
-        <tag>windows</tag>
-        <tag>bat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速搭建环境</title>
-    <url>/2021/02/25/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="java-环境"><a href="#java-环境" class="headerlink" title="java 环境"></a>java 环境</h2><p>官方网站：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载解压,创建软连接</span></span><br><span class="line">wget https://code.aliyun.com/iuxt/src/raw/master/jdk-8u271-linux-x64.tar.gz</span><br><span class="line">tar xf jdk-8u271-linux-x64.tar.gz -C /usr/<span class="built_in">local</span>/</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/jdk1.8.0_271/ /usr/<span class="built_in">local</span>/java</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># JAVA环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="golang-环境"><a href="#golang-环境" class="headerlink" title="golang 环境"></a>golang 环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://golang.org/dl/go1.16.linux-amd64.tar.gz  &amp;&amp; tar -C /usr/<span class="built_in">local</span> -xzf go1.16.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># golang 环境</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/go/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里云加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="PHP环境，基于Docker"><a href="#PHP环境，基于Docker" class="headerlink" title="PHP环境，基于Docker"></a>PHP环境，基于Docker</h2><blockquote>
-<p>以部署wordpress为例</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建账户、代码位置</span></span><br><span class="line">sudo useradd -s /usr/sbin/nologin www-data</span><br><span class="line">sudo mkdir -p /data/wwwroot</span><br><span class="line">sudo chown -R www-data:www-data /data/wwwroot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建docker网络</span></span><br><span class="line">docker network create -d bridge lnmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个MySQL</span></span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=com.012 --restart=always --network lnmp -p 3306:3306 -d mysql:5.7.32</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个php-fpm</span></span><br><span class="line">docker run --name php74 --restart=always --network lnmp -p 9000:9000 -v /data/wwwroot:/data/wwwroot -d iuxt/php-fpm7.4:ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个nginx</span></span><br><span class="line">docker run --name nginx --restart=always --network lnmp -p 80:80 -v /data/wwwroot:/data/wwwroot -d iuxt/nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line">docker run --rm --network lnmp mysql:5.7.32 mysql -uroot -hmysql -pcom.012 -e <span class="string">&#x27;CREATE DATABASE `wordpress` CHARACTER SET &#x27;</span>utf8mb4<span class="string">&#x27; COLLATE &#x27;</span>utf8mb4_general_ci<span class="string">&#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>devops</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>shell</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -458,6 +399,82 @@
       </categories>
       <tags>
         <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速搭建环境</title>
+    <url>/2021/02/25/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="java-环境"><a href="#java-环境" class="headerlink" title="java 环境"></a>java 环境</h2><p>官方网站：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载解压,创建软连接</span></span><br><span class="line">wget https://code.aliyun.com/iuxt/src/raw/master/jdk-8u271-linux-x64.tar.gz</span><br><span class="line">tar xf jdk-8u271-linux-x64.tar.gz -C /usr/<span class="built_in">local</span>/</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/jdk1.8.0_271/ /usr/<span class="built_in">local</span>/java</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># JAVA环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="golang-环境"><a href="#golang-环境" class="headerlink" title="golang 环境"></a>golang 环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://golang.org/dl/go1.16.linux-amd64.tar.gz  &amp;&amp; tar -C /usr/<span class="built_in">local</span> -xzf go1.16.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># golang 环境</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/go/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里云加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="PHP环境，基于Docker"><a href="#PHP环境，基于Docker" class="headerlink" title="PHP环境，基于Docker"></a>PHP环境，基于Docker</h2><blockquote>
+<p>以部署wordpress为例</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建账户、代码位置</span></span><br><span class="line">sudo useradd -s /usr/sbin/nologin www-data</span><br><span class="line">sudo mkdir -p /data/wwwroot</span><br><span class="line">sudo chown -R www-data:www-data /data/wwwroot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建docker网络</span></span><br><span class="line">docker network create -d bridge lnmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个MySQL</span></span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=com.012 --restart=always --network lnmp -p 3306:3306 -d mysql:5.7.32</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个php-fpm</span></span><br><span class="line">docker run --name php74 --restart=always --network lnmp -p 9000:9000 -v /data/wwwroot:/data/wwwroot -d iuxt/php-fpm7.4:ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个nginx</span></span><br><span class="line">docker run --name nginx --restart=always --network lnmp -p 80:80 -v /data/wwwroot:/data/wwwroot -d iuxt/nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line">docker run --rm --network lnmp mysql:5.7.32 mysql -uroot -hmysql -pcom.012 -e <span class="string">&#x27;CREATE DATABASE `wordpress` CHARACTER SET &#x27;</span>utf8mb4<span class="string">&#x27; COLLATE &#x27;</span>utf8mb4_general_ci<span class="string">&#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用bat脚本</title>
+    <url>/2021/02/26/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
+
+<h2 id="bat脚本获取管理员权限"><a href="#bat脚本获取管理员权限" class="headerlink" title="bat脚本获取管理员权限"></a>bat脚本获取管理员权限</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输出控制台不换行"><a href="#输出控制台不换行" class="headerlink" title="输出控制台不换行"></a>输出控制台不换行</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="隐藏bat窗口"><a href="#隐藏bat窗口" class="headerlink" title="隐藏bat窗口"></a>隐藏bat窗口</h2><ul>
+<li>第一种方法:<br>在你写的批处理文件，开头加上以下三行代码即可</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;hide&quot; <span class="keyword">goto</span> CmdBegin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~<span class="number">0</span>&quot;&quot; hide&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:CmdBegin</span><br><span class="line"><span class="comment">REM 脚本内容</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种解决办法:<br>比如你的批处理文件，名字为 test.bat</li>
+</ul>
+<p>创建 backrun.vbs</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">createobject(&quot;wscript.shell&quot;).run &quot;test.bat&quot;,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>可以打开任务管理器，会发现有一个 叫 cmd 的进程在运行，就是我们批处理文件的进程了；结束进程的话，直接在任务管理器上，结束该 cmd 进程即可</p>
+<h2 id="服务操作"><a href="#服务操作" class="headerlink" title="服务操作"></a>服务操作</h2><blockquote>
+<p>windows服务操作命令有sc和net 两个命令;</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">sc stop serviceName</span><br><span class="line">sc <span class="built_in">start</span> serviceName</span><br><span class="line">sc config AcronisActiveProtectionService <span class="built_in">start</span>= disabled</span><br><span class="line">sc create npc <span class="built_in">start</span>=auto binPath=&quot;C:\<span class="number">1</span>\npc\npc.exe -server=note.iuxt.top:<span class="number">10000</span> -vkey=ibtbrp5e3uc9lonq -<span class="built_in">type</span>=tcp&quot; DisplayName=&quot;npc内网穿透服务&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop serviceName</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> serviceName</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>虽然2个都能达到停止服务和启动服务的效果，但是在重启服务时，就是使用批处理先stop后start来实现重启时，如果服务处于启动状态使用sc的stop后start，结果服务不能启动，因为sc命令在执行stop后不会等待，而是继续执行批处理下面的语句，这时服务正在处于停止操作状态，所以start命令不能启动。net命令在stop时会停止等待，在服务完全停止后再继续执行批处理后面的语句，所以net的重启命令就会正常。</p>
+</blockquote>
+<h2 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /f /im Xshell*</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除注册表"><a href="#删除注册表" class="headerlink" title="删除注册表"></a>删除注册表</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Microsoft\NetLicense&quot; /f</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Classes\.xdts&quot; /f /ve /d &quot;Xmanager.session&quot; &gt;<span class="built_in">NUL</span> <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rd</span>/s/q &quot;<span class="variable">%ProgramData%</span>\FLEXnet&quot; <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br><span class="line"><span class="built_in">rmdir</span>/s/q &quot;<span class="variable">%CommonProgramFiles%</span>\Macrovision Shared&quot;<span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>rd就是rmdir</p>
+</blockquote>
+<h2 id="判断有没有目录"><a href="#判断有没有目录" class="headerlink" title="判断有没有目录"></a>判断有没有目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot; <span class="built_in">md</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> f|<span class="built_in">xcopy</span> /e/i/c/y &quot;Data\NetSarang Computer&quot; &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="带空格路径的处理"><a href="#带空格路径的处理" class="headerlink" title="带空格路径的处理"></a>带空格路径的处理</h2><blockquote>
+<p>用””引起来，不方便用””的可以用下面的短名称，或者用变量的形式表示</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">start</span> C:\Progra~<span class="number">1</span>\Notepad++\notepad++.exe C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>bat</tag>
       </tags>
   </entry>
 </search>
