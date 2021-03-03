@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"iuxt.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="参数说明 -e  &lt; script &gt;或–expression&#x3D;&lt; script &gt; 以选项中指定的script来处理输入的文本文件。-f  &lt;script文件&gt;或–file&#x3D;&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。-h  或–help 显示帮助。-n  或–quiet或–silent 仅显示script处理后的结果">
+  <meta name="description" content="termux 是安卓平台模拟linux环境的工具，可以运行常用的linux工具  常用配置修改安装源1termux-change-repo  修改用户环境变量123cat &gt; ~&#x2F;.profile &lt;&lt;-&amp;#x27;EOF&amp;#x27;alias ll&#x3D;&amp;#x27;ls -al&amp;#x27;EOF  虚拟根目录1cd $PREFIX  安装zsh1sh -c &quot;$(cur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sed命令详解">
-<meta property="og:url" content="https://iuxt.gitee.io/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:title" content="termux">
+<meta property="og:url" content="https://iuxt.gitee.io/2021/03/01/termux/index.html">
 <meta property="og:site_name" content="飞机师的风衣">
-<meta property="og:description" content="参数说明 -e  &lt; script &gt;或–expression&#x3D;&lt; script &gt; 以选项中指定的script来处理输入的文本文件。-f  &lt;script文件&gt;或–file&#x3D;&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。-h  或–help 显示帮助。-n  或–quiet或–silent 仅显示script处理后的结果">
+<meta property="og:description" content="termux 是安卓平台模拟linux环境的工具，可以运行常用的linux工具  常用配置修改安装源1termux-change-repo  修改用户环境变量123cat &gt; ~&#x2F;.profile &lt;&lt;-&amp;#x27;EOF&amp;#x27;alias ll&#x3D;&amp;#x27;ls -al&amp;#x27;EOF  虚拟根目录1cd $PREFIX  安装zsh1sh -c &quot;$(cur">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-20T06:59:24.000Z">
-<meta property="article:modified_time" content="2021-02-26T07:26:00.711Z">
+<meta property="article:published_time" content="2021-03-01T07:53:39.000Z">
+<meta property="article:modified_time" content="2021-03-03T01:18:34.165Z">
 <meta property="article:author" content="张理坤">
 <meta property="article:tag" content="linux">
-<meta property="article:tag" content="shell">
+<meta property="article:tag" content="android">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://iuxt.gitee.io/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+<link rel="canonical" href="https://iuxt.gitee.io/2021/03/01/termux/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>sed命令详解 | 飞机师的风衣</title>
+  <title>termux | 飞机师的风衣</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/03/01/termux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          sed命令详解
+          termux
         </h1>
 
         <div class="post-meta">
@@ -228,14 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-20 14:59:24" itemprop="dateCreated datePublished" datetime="2021-02-20T14:59:24+08:00">2021-02-20</time>
+              <time title="创建时间：2021-03-01 15:53:39" itemprop="dateCreated datePublished" datetime="2021-03-01T15:53:39+08:00">2021-03-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-26 15:26:00" itemprop="dateModified" datetime="2021-02-26T15:26:00+08:00">2021-02-26</time>
+                <time title="修改时间：2021-03-03 09:18:34" itemprop="dateModified" datetime="2021-03-03T09:18:34+08:00">2021-03-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,12 +243,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index"><span itemprop="name">devops</span></a>
+                  <a href="/categories/%E7%9E%8E%E6%8D%A3%E9%BC%93/" itemprop="url" rel="index"><span itemprop="name">瞎捣鼓</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="sed命令详解" title="阅读次数">
+            <span id="/2021/03/01/termux/" class="post-meta-item leancloud_visitors" data-flag-title="termux" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -263,8 +263,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/20/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/01/termux/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/01/termux/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -279,34 +279,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><blockquote>
-<p>-e  &lt; script &gt;或–expression=&lt; script &gt; 以选项中指定的script来处理输入的文本文件。<br>-f  &lt;script文件&gt;或–file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。<br>-h  或–help 显示帮助。<br>-n  或–quiet或–silent 仅显示script处理后的结果。<br>-V  或–version 显示版本信息。<br>-i  直接修改文件内容</p>
+        <blockquote>
+<p>termux 是安卓平台模拟linux环境的工具，可以运行常用的linux工具</p>
 </blockquote>
-<h2 id="动作说明"><a href="#动作说明" class="headerlink" title="动作说明"></a>动作说明</h2><blockquote>
-<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</p>
-</blockquote>
-<h2 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h2><h3 id="查看400-500行的内容"><a href="#查看400-500行的内容" class="headerlink" title="查看400-500行的内容"></a>查看400-500行的内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed  -n  <span class="string">&#x27;400,500p&#x27;</span>  file文件名</span><br></pre></td></tr></table></figure>
+<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><h3 id="修改安装源"><a href="#修改安装源" class="headerlink" title="修改安装源"></a>修改安装源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-change-repo</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改用户环境变量"><a href="#修改用户环境变量" class="headerlink" title="修改用户环境变量"></a>修改用户环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; ~/.profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -al&#x27;</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h3 id="虚拟根目录"><a href="#虚拟根目录" class="headerlink" title="虚拟根目录"></a>虚拟根目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$PREFIX</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)</span>&quot;</span>  </span><br></pre></td></tr></table></figure>
+
+<h3 id="登录提示语"><a href="#登录提示语" class="headerlink" title="登录提示语"></a>登录提示语</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="variable">$PREFIX</span>/etc/motd</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>^表示行首<br>$表示行尾<br>&amp;表示一整行</p>
+<p>可以配合screenfetch食用</p>
 </blockquote>
-<h3 id="删除一个文件中行号为奇数的行"><a href="#删除一个文件中行号为奇数的行" class="headerlink" title="删除一个文件中行号为奇数的行"></a>删除一个文件中行号为奇数的行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;1~2&#x27;</span>d  file</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install screenfetch</span><br></pre></td></tr></table></figure>
 
-<h3 id="删除一个文件中指定行（只打印，不修改）"><a href="#删除一个文件中指定行（只打印，不修改）" class="headerlink" title="删除一个文件中指定行（只打印，不修改）"></a>删除一个文件中指定行（只打印，不修改）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;300,400&#x27;</span>d file</span><br></pre></td></tr></table></figure>
+<h3 id="定制屏幕上的按键"><a href="#定制屏幕上的按键" class="headerlink" title="定制屏幕上的按键"></a>定制屏幕上的按键</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.termux/termux.properties</span><br><span class="line"></span><br><span class="line">extra-keys = [ \</span><br><span class="line"> [<span class="string">&#x27;ESC&#x27;</span>,<span class="string">&#x27;|&#x27;</span>,<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27;`&#x27;</span>,<span class="string">&#x27;UP&#x27;</span>,<span class="string">&#x27;QUOTE&#x27;</span>,<span class="string">&#x27;APOSTROPHE&#x27;</span>], \</span><br><span class="line"> [<span class="string">&#x27;TAB&#x27;</span>,<span class="string">&#x27;CTRL&#x27;</span>,<span class="string">&#x27;~&#x27;</span>,<span class="string">&#x27;LEFT&#x27;</span>,<span class="string">&#x27;DOWN&#x27;</span>,<span class="string">&#x27;RIGHT&#x27;</span>,<span class="string">&#x27;ENTER&#x27;</span>] \</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<h3 id="在testfile文件的第四行后添加一行，并将结果输出到标准输出："><a href="#在testfile文件的第四行后添加一行，并将结果输出到标准输出：" class="headerlink" title="在testfile文件的第四行后添加一行，并将结果输出到标准输出："></a>在testfile文件的第四行后添加一行，并将结果输出到标准输出：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -e 4a\newLine testfile</span><br></pre></td></tr></table></figure>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><h3 id="pkg"><a href="#pkg" class="headerlink" title="pkg"></a>pkg</h3><blockquote>
+<p>Termux除了支持apt命令外,还在此基础上封装了pkg命令,pkg命令向下兼容apt命令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pkg search &lt;query&gt;              搜索包</span><br><span class="line">pkg install &lt;package&gt;           安装包</span><br><span class="line">pkg uninstall &lt;package&gt;         卸载包</span><br><span class="line">pkg reinstall &lt;package&gt;         重新安装包</span><br><span class="line">pkg update                      更新源</span><br><span class="line">pkg upgrade                     升级软件包</span><br><span class="line">pkg list-all                    列出可供安装的所有包</span><br><span class="line">pkg list-installed              列出已经安装的包</span><br><span class="line">pkg shoe &lt;package&gt;              显示某个包的详细信息</span><br><span class="line">pkg files &lt;package&gt;             显示某个包的相关文件夹路径</span><br></pre></td></tr></table></figure>
 
-<h3 id="删除空行"><a href="#删除空行" class="headerlink" title="删除空行"></a>删除空行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;/^$/d&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h3><p>参考 ubuntu 的 apt</p>
+<h3 id="安装常用工具"><a href="#安装常用工具" class="headerlink" title="安装常用工具"></a>安装常用工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg install -y git vim openssh curl wget python proot tar</span><br></pre></td></tr></table></figure>
 
-<h3 id="删除指定的字符"><a href="#删除指定的字符" class="headerlink" title="删除指定的字符"></a>删除指定的字符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&#123;abc&#125;:\&quot;&quot;</span> | sed <span class="string">&#x27;s/[&#123;&#125;&quot;:]//g&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="sed-替换-字符串"><a href="#sed-替换-字符串" class="headerlink" title="sed 替换 字符串"></a>sed 替换 字符串</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git_url=$(<span class="built_in">echo</span> <span class="variable">$4</span> | sed <span class="string">&#x27;s/http/https/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="将某一行加注释"><a href="#将某一行加注释" class="headerlink" title="将某一行加注释"></a>将某一行加注释</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/^nameserver/#&amp;/&#x27;</span> /etc/resolv.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除空格"><a href="#删除空格" class="headerlink" title="删除空格"></a>删除空格</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;   12 345   &#x27;</span> | sed <span class="string">&#x27;s/ //g&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="替换文件里面的内容"><a href="#替换文件里面的内容" class="headerlink" title="替换文件里面的内容"></a>替换文件里面的内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/archive.ubuntu.com/mirrors.aliyun.com/g&quot;</span> /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 如果要替换的文本里含有/可以换成#、@</span></span><br><span class="line">sed -i <span class="string">&quot;s#security.ubuntu.com#mirrors.aliyun.com#g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="其他玩法"><a href="#其他玩法" class="headerlink" title="其他玩法"></a>其他玩法</h2><h3 id="安装ubuntu系统"><a href="#安装ubuntu系统" class="headerlink" title="安装ubuntu系统"></a><del>安装ubuntu系统</del></h3><blockquote>
+<p>感觉没什么必要安装ubuntu了</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install wget openssl-tool proot -y &amp;&amp; <span class="built_in">hash</span> -r &amp;&amp; wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh &amp;&amp; bash ubuntu.sh</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -317,7 +321,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/linux/" rel="tag"># linux</a>
-              <a href="/tags/shell/" rel="tag"># shell</a>
+              <a href="/tags/android/" rel="tag"># android</a>
           </div>
 
         
@@ -326,13 +330,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/19/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/" rel="prev" title="常用shell组合命令">
-      <i class="fa fa-chevron-left"></i> 常用shell组合命令
+    <a href="/2021/02/26/diskpart/" rel="prev" title="diskpart">
+      <i class="fa fa-chevron-left"></i> diskpart
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/02/21/selenium-web%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/" rel="next" title="selenium--web自动化工具">
-      selenium--web自动化工具 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -392,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">动作说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90"><span class="nav-number">3.</span> <span class="nav-text">一些例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B400-500%E8%A1%8C%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">3.1.</span> <span class="nav-text">查看400-500行的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E8%A1%8C%E5%8F%B7%E4%B8%BA%E5%A5%87%E6%95%B0%E7%9A%84%E8%A1%8C"><span class="nav-number">3.2.</span> <span class="nav-text">删除一个文件中行号为奇数的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E6%8C%87%E5%AE%9A%E8%A1%8C%EF%BC%88%E5%8F%AA%E6%89%93%E5%8D%B0%EF%BC%8C%E4%B8%8D%E4%BF%AE%E6%94%B9%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">删除一个文件中指定行（只打印，不修改）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8testfile%E6%96%87%E4%BB%B6%E7%9A%84%E7%AC%AC%E5%9B%9B%E8%A1%8C%E5%90%8E%E6%B7%BB%E5%8A%A0%E4%B8%80%E8%A1%8C%EF%BC%8C%E5%B9%B6%E5%B0%86%E7%BB%93%E6%9E%9C%E8%BE%93%E5%87%BA%E5%88%B0%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%EF%BC%9A"><span class="nav-number">3.4.</span> <span class="nav-text">在testfile文件的第四行后添加一行，并将结果输出到标准输出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%A9%BA%E8%A1%8C"><span class="nav-number">3.5.</span> <span class="nav-text">删除空行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AD%97%E7%AC%A6"><span class="nav-number">3.6.</span> <span class="nav-text">删除指定的字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-%E6%9B%BF%E6%8D%A2-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.7.</span> <span class="nav-text">sed 替换 字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E6%9F%90%E4%B8%80%E8%A1%8C%E5%8A%A0%E6%B3%A8%E9%87%8A"><span class="nav-number">3.8.</span> <span class="nav-text">将某一行加注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%A9%BA%E6%A0%BC"><span class="nav-number">3.9.</span> <span class="nav-text">删除空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E9%87%8C%E9%9D%A2%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">3.10.</span> <span class="nav-text">替换文件里面的内容</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">常用配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AE%89%E8%A3%85%E6%BA%90"><span class="nav-number">1.1.</span> <span class="nav-text">修改安装源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">修改用户环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟根目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85zsh"><span class="nav-number">1.4.</span> <span class="nav-text">安装zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%8F%90%E7%A4%BA%E8%AF%AD"><span class="nav-number">1.5.</span> <span class="nav-text">登录提示语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E5%88%B6%E5%B1%8F%E5%B9%95%E4%B8%8A%E7%9A%84%E6%8C%89%E9%94%AE"><span class="nav-number">1.6.</span> <span class="nav-text">定制屏幕上的按键</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">包管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pkg"><span class="nav-number">2.1.</span> <span class="nav-text">pkg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt"><span class="nav-number">2.2.</span> <span class="nav-text">apt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">2.3.</span> <span class="nav-text">安装常用工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%8E%A9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">其他玩法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ubuntu%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.1.</span> <span class="nav-text">安装ubuntu系统</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
