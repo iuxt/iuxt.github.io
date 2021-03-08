@@ -129,6 +129,44 @@
       </tags>
   </entry>
   <entry>
+    <title>kubernetes搭建</title>
+    <url>/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/</a></p>
+<h2 id="国内下载镜像"><a href="#国内下载镜像" class="headerlink" title="国内下载镜像"></a>国内下载镜像</h2><ul>
+<li>修改配置文件解决</li>
+</ul>
+<p>生成配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config <span class="built_in">print</span> init-defaults &gt; kubeadm.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改仓库地址</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">imageRepository: registry.aliyuncs.com/google_containers</span><br></pre></td></tr></table></figure>
+
+<p>下载镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images pull --config kubeadm.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>手动拉取</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images list</span><br></pre></td></tr></table></figure>
+
+<p>然后自己上dockerhub找找，pull下来镜像</p>
+<ul>
+<li>直接指定源</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images pull \</span><br><span class="line">--image-repository registry.aliyuncs.com/google_containers \</span><br><span class="line">--kubernetes-version v1.18.5</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新给镜像打tag"><a href="#重新给镜像打tag" class="headerlink" title="重新给镜像打tag"></a>重新给镜像打tag</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-apiserver:v1.20.0 k8s.gcr.io/kube-apiserver:v1.20.0</span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-controller-manager:v1.20.0 k8s.gcr.io/kube-controller-manager:v1.20.0</span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-scheduler:v1.20.0 k8s.gcr.io/kube-scheduler:v1.20.0</span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-proxy:v1.20.0 k8s.gcr.io/kube-proxy:v1.20.0</span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/pause:3.2 k8s.gcr.io/pause:3.2</span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/etcd:3.4.13-0 k8s.gcr.io/etcd:3.4.13-0</span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/coredns:1.7.0 k8s.gcr.io/coredns:1.7.0</span><br><span class="line"></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-apiserver:v1.20.0</span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-controller-manager:v1.20.0</span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-scheduler:v1.20.0</span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-proxy:v1.20.0</span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/pause:3.2</span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/etcd:3.4.13-0</span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/coredns:1.7.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建master节点"><a href="#创建master节点" class="headerlink" title="创建master节点"></a>创建master节点</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm init --kubernetes-version=v1.20.0 --apiserver-advertise-address=10.0.0.71 --pod-network-cidr=172.16.0.0/16</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sed命令详解</title>
     <url>/2021/02/20/DevOps/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><blockquote>
@@ -168,36 +206,6 @@
       <tags>
         <tag>linux</tag>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubernetes搭建</title>
-    <url>/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="kubectl-init-无法下载镜像"><a href="#kubectl-init-无法下载镜像" class="headerlink" title="kubectl init 无法下载镜像"></a>kubectl init 无法下载镜像</h2><h3 id="修改配置文件解决"><a href="#修改配置文件解决" class="headerlink" title="修改配置文件解决"></a>修改配置文件解决</h3><ul>
-<li>生成配置文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config <span class="built_in">print</span> init-defaults &gt; kubeadm.conf</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改仓库地址</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">imageRepository: registry.aliyuncs.com/google_containers</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>下载镜像</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images pull --config kubeadm.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="手动拉取"><a href="#手动拉取" class="headerlink" title="手动拉取"></a>手动拉取</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images list</span><br></pre></td></tr></table></figure>
-
-<p>然后自己上dockerhub找找，pull下来镜像，修改tag</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag kubeimage/kube-apiserver-amd64:v1.19.4 k8s.gcr.io/kube-apiserver:v1.19.4</span><br><span class="line">docker rmi kubeimage/kube-apiserver-amd64:v1.19.4</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>devops</category>
-      </categories>
-      <tags>
-        <tag>容器</tag>
       </tags>
   </entry>
   <entry>
@@ -289,6 +297,51 @@
       </tags>
   </entry>
   <entry>
+    <title>常用shell组合命令</title>
+    <url>/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="批量添加user1-user2…-seq-w-可以生成01-02-03-等"><a href="#批量添加user1-user2…-seq-w-可以生成01-02-03-等" class="headerlink" title="批量添加user1 user2….     seq -w 可以生成01  02  03 等"></a>批量添加user1 user2….     seq -w 可以生成01  02  03 等</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 1 10);<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> user<span class="variable">$i</span></span><br><span class="line">        useradd user<span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="判断并创建目录"><a href="#判断并创建目录" class="headerlink" title="判断并创建目录"></a>判断并创建目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ -d /tmp/111 ] || &#123; mkdir /tmp/111; <span class="built_in">cd</span> /tmp/111; <span class="built_in">pwd</span>; &#125;    <span class="comment">#  每条命令以；结尾</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="判断包不包含字符串"><a href="#判断包不包含字符串" class="headerlink" title="判断包不包含字符串"></a>判断包不包含字符串</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NAMESPACE=xxxgryxxx</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NAMESPACE</span> =~ prod ]] || [[ <span class="variable">$NAMESPACE</span> =~ gray ]]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;包含&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;不包含&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="脚本里的交互命令"><a href="#脚本里的交互命令" class="headerlink" title="脚本里的交互命令"></a>脚本里的交互命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">passwd ubuntu&lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">ubuntu</span><br><span class="line">ubuntu</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="自动执行fdisk"><a href="#自动执行fdisk" class="headerlink" title="自动执行fdisk"></a>自动执行fdisk</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;n</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">w</span></span><br><span class="line"><span class="string">&quot;</span> | fdisk /dev/vdb &amp;&amp; mkfs.ext4 /dev/vdb1</span><br></pre></td></tr></table></figure>
+
+<h2 id="只保留最近10个jar版本"><a href="#只保留最近10个jar版本" class="headerlink" title="只保留最近10个jar版本"></a>只保留最近10个jar版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -t *.jar | awk <span class="string">&#x27;NR&gt;20&#x27;</span> | xargs rm -f</span><br></pre></td></tr></table></figure>
+
+<h2 id="多行写入，多行追加"><a href="#多行写入，多行追加" class="headerlink" title="多行写入，多行追加"></a>多行写入，多行追加</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">cat&gt;filename.txt&lt;&lt;-<span class="string">&#x27;EOF&#x27;</span>                这样写法不处理变量</span><br><span class="line">hello</span><br><span class="line">world</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">cat&gt;&gt;filename.txt&lt;&lt;<span class="string">EOF            这样的可以处理变量</span></span><br><span class="line"><span class="string">$hello</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="写入内容控制台看得见"><a href="#写入内容控制台看得见" class="headerlink" title="写入内容控制台看得见"></a>写入内容控制台看得见</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行5s自动退出"><a href="#运行5s自动退出" class="headerlink" title="运行5s自动退出"></a>运行5s自动退出</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">sleep 5 &amp;&amp; <span class="built_in">kill</span> $$ &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#start code</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;<span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$RANDOM</span> ; sleep 1;<span class="keyword">done</span>      <span class="comment"># 小技巧  命令写在一行可以用; 分开</span></span><br><span class="line"><span class="comment">#end code</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取shell所在目录"><a href="#获取shell所在目录" class="headerlink" title="获取shell所在目录"></a>获取shell所在目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">dir=$(<span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$( dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span> )</span>&quot;</span> &amp;&amp; <span class="built_in">pwd</span> )</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$dir</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="备份-env文件"><a href="#备份-env文件" class="headerlink" title="备份.env文件"></a>备份.env文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line">Now=$(date <span class="string">&#x27;+%Y%m%d-%H:%M:%S&#x27;</span>)</span><br><span class="line">[ <span class="variable">$#</span> -eq 1 ]||&#123; <span class="built_in">echo</span> <span class="string">&quot; bak or restore&quot;</span>; <span class="built_in">exit</span> 1;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dir=$(<span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$( dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span> )</span>&quot;</span> &amp;&amp; <span class="built_in">pwd</span> )</span><br><span class="line"><span class="function"><span class="title">bak</span></span>()&#123;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(find /data/wwwroot -name .env) ;<span class="keyword">do</span></span><br><span class="line">    dest=<span class="variable">$&#123;dir&#125;</span>/bak<span class="variable">$i</span>-<span class="variable">$Now</span></span><br><span class="line">    folder=`<span class="built_in">echo</span> <span class="variable">$dest</span> | awk -F <span class="string">&#x27;.env&#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>`</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$folder</span></span><br><span class="line">    mkdir -p <span class="variable">$folder</span></span><br><span class="line">    cp <span class="variable">$i</span> <span class="variable">$dest</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="同时输入文件，同时打在控制台"><a href="#同时输入文件，同时打在控制台" class="headerlink" title="同时输入文件，同时打在控制台"></a>同时输入文件，同时打在控制台</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat 1.log | tee 2.log</span><br></pre></td></tr></table></figure>
+
+<h2 id="批量启动服务"><a href="#批量启动服务" class="headerlink" title="批量启动服务"></a>批量启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls /data/wwwroot/`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">cd</span> /data/wwwroot/<span class="variable">$i</span> &amp;&amp; ./restart.sh</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取服务IP"><a href="#获取服务IP" class="headerlink" title="获取服务IP"></a>获取服务IP</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Server_IP=`ip addr | grep inet | egrep -v <span class="string">&#x27;(127.0.0.1|inet6|docker)&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | tr -d <span class="string">&quot;addr:&quot;</span> | head -n 1 | cut -d / -f1`</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断里面有变量，用双中括号"><a href="#判断里面有变量，用双中括号" class="headerlink" title="判断里面有变量，用双中括号"></a>判断里面有变量，用双中括号</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$&#123;refs&#125;</span>&quot;</span> == refs/tags/shp-* ]];<span class="keyword">then</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="sudo-追加文件用tee命令"><a href="#sudo-追加文件用tee命令" class="headerlink" title="sudo 追加文件用tee命令"></a>sudo 追加文件用tee命令</h2><p><code>sudo echo &quot;xxx&quot; &gt; 文件名</code>   是会报错的，应该：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">xxx</span></span><br><span class="line"><span class="string">yyy</span></span><br><span class="line"><span class="string">&quot;</span> | sudo tee /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<h2 id="sed-打印两个字符之间的-所有行"><a href="#sed-打印两个字符之间的-所有行" class="headerlink" title="sed 打印两个字符之间的 所有行"></a>sed 打印两个字符之间的 所有行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -n <span class="string">&#x27;/-----BEGIN RSA PRIVATE KEY-----/,/-----END RSA PRIVATE KEY-----/p&#x27;</span> ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用bat脚本</title>
     <url>/2021/02/26/DevOps/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
@@ -335,51 +388,6 @@
       <tags>
         <tag>windows</tag>
         <tag>bat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用shell组合命令</title>
-    <url>/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="批量添加user1-user2…-seq-w-可以生成01-02-03-等"><a href="#批量添加user1-user2…-seq-w-可以生成01-02-03-等" class="headerlink" title="批量添加user1 user2….     seq -w 可以生成01  02  03 等"></a>批量添加user1 user2….     seq -w 可以生成01  02  03 等</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 1 10);<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> user<span class="variable">$i</span></span><br><span class="line">        useradd user<span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="判断并创建目录"><a href="#判断并创建目录" class="headerlink" title="判断并创建目录"></a>判断并创建目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ -d /tmp/111 ] || &#123; mkdir /tmp/111; <span class="built_in">cd</span> /tmp/111; <span class="built_in">pwd</span>; &#125;    <span class="comment">#  每条命令以；结尾</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="判断包不包含字符串"><a href="#判断包不包含字符串" class="headerlink" title="判断包不包含字符串"></a>判断包不包含字符串</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NAMESPACE=xxxgryxxx</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NAMESPACE</span> =~ prod ]] || [[ <span class="variable">$NAMESPACE</span> =~ gray ]]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;包含&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;不包含&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="脚本里的交互命令"><a href="#脚本里的交互命令" class="headerlink" title="脚本里的交互命令"></a>脚本里的交互命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">passwd ubuntu&lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">ubuntu</span><br><span class="line">ubuntu</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<h2 id="自动执行fdisk"><a href="#自动执行fdisk" class="headerlink" title="自动执行fdisk"></a>自动执行fdisk</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;n</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">w</span></span><br><span class="line"><span class="string">&quot;</span> | fdisk /dev/vdb &amp;&amp; mkfs.ext4 /dev/vdb1</span><br></pre></td></tr></table></figure>
-
-<h2 id="只保留最近10个jar版本"><a href="#只保留最近10个jar版本" class="headerlink" title="只保留最近10个jar版本"></a>只保留最近10个jar版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -t *.jar | awk <span class="string">&#x27;NR&gt;20&#x27;</span> | xargs rm -f</span><br></pre></td></tr></table></figure>
-
-<h2 id="多行写入，多行追加"><a href="#多行写入，多行追加" class="headerlink" title="多行写入，多行追加"></a>多行写入，多行追加</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">cat&gt;filename.txt&lt;&lt;-<span class="string">&#x27;EOF&#x27;</span>                这样写法不处理变量</span><br><span class="line">hello</span><br><span class="line">world</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">cat&gt;&gt;filename.txt&lt;&lt;<span class="string">EOF            这样的可以处理变量</span></span><br><span class="line"><span class="string">$hello</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="写入内容控制台看得见"><a href="#写入内容控制台看得见" class="headerlink" title="写入内容控制台看得见"></a>写入内容控制台看得见</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行5s自动退出"><a href="#运行5s自动退出" class="headerlink" title="运行5s自动退出"></a>运行5s自动退出</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">sleep 5 &amp;&amp; <span class="built_in">kill</span> $$ &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#start code</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;<span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$RANDOM</span> ; sleep 1;<span class="keyword">done</span>      <span class="comment"># 小技巧  命令写在一行可以用; 分开</span></span><br><span class="line"><span class="comment">#end code</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="获取shell所在目录"><a href="#获取shell所在目录" class="headerlink" title="获取shell所在目录"></a>获取shell所在目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">dir=$(<span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$( dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span> )</span>&quot;</span> &amp;&amp; <span class="built_in">pwd</span> )</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$dir</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="备份-env文件"><a href="#备份-env文件" class="headerlink" title="备份.env文件"></a>备份.env文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line">Now=$(date <span class="string">&#x27;+%Y%m%d-%H:%M:%S&#x27;</span>)</span><br><span class="line">[ <span class="variable">$#</span> -eq 1 ]||&#123; <span class="built_in">echo</span> <span class="string">&quot; bak or restore&quot;</span>; <span class="built_in">exit</span> 1;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dir=$(<span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$( dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span> )</span>&quot;</span> &amp;&amp; <span class="built_in">pwd</span> )</span><br><span class="line"><span class="function"><span class="title">bak</span></span>()&#123;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(find /data/wwwroot -name .env) ;<span class="keyword">do</span></span><br><span class="line">    dest=<span class="variable">$&#123;dir&#125;</span>/bak<span class="variable">$i</span>-<span class="variable">$Now</span></span><br><span class="line">    folder=`<span class="built_in">echo</span> <span class="variable">$dest</span> | awk -F <span class="string">&#x27;.env&#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>`</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$folder</span></span><br><span class="line">    mkdir -p <span class="variable">$folder</span></span><br><span class="line">    cp <span class="variable">$i</span> <span class="variable">$dest</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="同时输入文件，同时打在控制台"><a href="#同时输入文件，同时打在控制台" class="headerlink" title="同时输入文件，同时打在控制台"></a>同时输入文件，同时打在控制台</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat 1.log | tee 2.log</span><br></pre></td></tr></table></figure>
-
-<h2 id="批量启动服务"><a href="#批量启动服务" class="headerlink" title="批量启动服务"></a>批量启动服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls /data/wwwroot/`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">cd</span> /data/wwwroot/<span class="variable">$i</span> &amp;&amp; ./restart.sh</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="获取服务IP"><a href="#获取服务IP" class="headerlink" title="获取服务IP"></a>获取服务IP</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Server_IP=`ip addr | grep inet | egrep -v <span class="string">&#x27;(127.0.0.1|inet6|docker)&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | tr -d <span class="string">&quot;addr:&quot;</span> | head -n 1 | cut -d / -f1`</span><br></pre></td></tr></table></figure>
-
-<h2 id="判断里面有变量，用双中括号"><a href="#判断里面有变量，用双中括号" class="headerlink" title="判断里面有变量，用双中括号"></a>判断里面有变量，用双中括号</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$&#123;refs&#125;</span>&quot;</span> == refs/tags/shp-* ]];<span class="keyword">then</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="sudo-追加文件用tee命令"><a href="#sudo-追加文件用tee命令" class="headerlink" title="sudo 追加文件用tee命令"></a>sudo 追加文件用tee命令</h2><p><code>sudo echo &quot;xxx&quot; &gt; 文件名</code>   是会报错的，应该：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">xxx</span></span><br><span class="line"><span class="string">yyy</span></span><br><span class="line"><span class="string">&quot;</span> | sudo tee /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<h2 id="sed-打印两个字符之间的-所有行"><a href="#sed-打印两个字符之间的-所有行" class="headerlink" title="sed 打印两个字符之间的 所有行"></a>sed 打印两个字符之间的 所有行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -n <span class="string">&#x27;/-----BEGIN RSA PRIVATE KEY-----/,/-----END RSA PRIVATE KEY-----/p&#x27;</span> ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>devops</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
