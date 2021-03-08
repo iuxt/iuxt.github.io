@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"iuxt.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="❤别浪费时间❤">
-<meta property="og:type" content="website">
-<meta property="og:title" content="飞机师的风衣">
-<meta property="og:url" content="https://iuxt.gitee.io/index.html">
+  <meta name="description" content="kubectl init 无法下载镜像修改配置文件解决 生成配置文件  1kubeadm config print init-defaults &gt; kubeadm.conf   修改仓库地址  1imageRepository: registry.aliyuncs.com&#x2F;google_containers   下载镜像  1kubeadm config images pull --conf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubernetes搭建">
+<meta property="og:url" content="https://iuxt.gitee.io/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="飞机师的风衣">
-<meta property="og:description" content="❤别浪费时间❤">
+<meta property="og:description" content="kubectl init 无法下载镜像修改配置文件解决 生成配置文件  1kubeadm config print init-defaults &gt; kubeadm.conf   修改仓库地址  1imageRepository: registry.aliyuncs.com&#x2F;google_containers   下载镜像  1kubeadm config images pull --conf">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-08T14:33:41.000Z">
+<meta property="article:modified_time" content="2021-03-08T14:39:52.428Z">
 <meta property="article:author" content="张理坤">
+<meta property="article:tag" content="容器">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://iuxt.gitee.io/">
+<link rel="canonical" href="https://iuxt.gitee.io/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>飞机师的风衣</title>
+  <title>kubernetes搭建 | 飞机师的风衣</title>
   
 
 
@@ -194,9 +197,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -212,10 +216,9 @@
       <meta itemprop="name" content="飞机师的风衣">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">kubernetes搭建</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          kubernetes搭建
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -269,7 +272,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="kubectl-init-无法下载镜像"><a href="#kubectl-init-无法下载镜像" class="headerlink" title="kubectl init 无法下载镜像"></a>kubectl init 无法下载镜像</h2><h3 id="修改配置文件解决"><a href="#修改配置文件解决" class="headerlink" title="修改配置文件解决"></a>修改配置文件解决</h3><ul>
+        <h2 id="kubectl-init-无法下载镜像"><a href="#kubectl-init-无法下载镜像" class="headerlink" title="kubectl init 无法下载镜像"></a>kubectl init 无法下载镜像</h2><h3 id="修改配置文件解决"><a href="#修改配置文件解决" class="headerlink" title="修改配置文件解决"></a>修改配置文件解决</h3><ul>
 <li>生成配置文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm config <span class="built_in">print</span> init-defaults &gt; kubeadm.conf</span><br></pre></td></tr></table></figure>
@@ -289,30 +292,40 @@
 <p>然后自己上dockerhub找找，pull下来镜像，修改tag</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker tag kubeimage/kube-apiserver-amd64:v1.19.4 k8s.gcr.io/kube-apiserver:v1.19.4</span><br><span class="line">docker rmi kubeimage/kube-apiserver-amd64:v1.19.4</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag"># 容器</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/05/%E7%9E%8E%E6%8D%A3%E9%BC%93/oh%20my%20zsh/" rel="prev" title="oh my zsh">
+      <i class="fa fa-chevron-left"></i> oh my zsh
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -359,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kubectl-init-%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">kubectl init 无法下载镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E5%86%B3"><span class="nav-number">1.1.</span> <span class="nav-text">修改配置文件解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%8B%89%E5%8F%96"><span class="nav-number">1.2.</span> <span class="nav-text">手动拉取</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
