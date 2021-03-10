@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/09/DevOps/centos%E5%B8%B8%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/18/DevOps/ubuntu%E5%B8%B8%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/09/DevOps/centos%E5%B8%B8%E7%94%A8/" class="post-title-link" itemprop="url">centos常用</a>
+            <a href="/2021/02/18/DevOps/ubuntu%E5%B8%B8%E7%94%A8/" class="post-title-link" itemprop="url">ubuntu常用</a>
         </h2>
 
         <div class="post-meta">
@@ -224,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-09 16:50:58" itemprop="dateCreated datePublished" datetime="2021-02-09T16:50:58+08:00">2021-02-09</time>
+              <time title="创建时间：2021-02-18 18:35:12" itemprop="dateCreated datePublished" datetime="2021-02-18T18:35:12+08:00">2021-02-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-05 22:15:57" itemprop="dateModified" datetime="2021-03-05T22:15:57+08:00">2021-03-05</time>
+                <time title="修改时间：2021-03-10 16:50:54" itemprop="dateModified" datetime="2021-03-10T16:50:54+08:00">2021-03-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
             </span>
 
           
-            <span id="/2021/02/09/DevOps/centos%E5%B8%B8%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="centos常用" title="阅读次数">
+            <span id="/2021/02/18/DevOps/ubuntu%E5%B8%B8%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="ubuntu常用" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -259,8 +259,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/02/09/DevOps/centos%E5%B8%B8%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/09/DevOps/centos%E5%B8%B8%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/02/18/DevOps/ubuntu%E5%B8%B8%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/18/DevOps/ubuntu%E5%B8%B8%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -275,50 +275,62 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens**</span><br></pre></td></tr></table></figure>
+          <h2 id="编译环境安装"><a href="#编译环境安装" class="headerlink" title="编译环境安装"></a>编译环境安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y build-essential tcl gcc make zlib1g-dev libssl-dev libncursesw5-dev libgdbm-dev libc6-dev libffi-dev openssl libxml2-dev libpcre3 libpcre3-dev libncurses5-dev libicu-dev libmcrypt-dev curl libcurl4-gnutls-dev libjpeg-dev libpng-dev libxslt1-dev</span><br></pre></td></tr></table></figure>
 
-<h3 id="固定ip配置"><a href="#固定ip配置" class="headerlink" title="固定ip配置"></a>固定ip配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TYPE&#x3D;&quot;Ethernet&quot;</span><br><span class="line">BOOTPROTO&#x3D;&quot;none&quot;</span><br><span class="line">DEVICE&#x3D;&quot;ens32&quot;</span><br><span class="line">ONBOOT&#x3D;&quot;yes&quot;</span><br><span class="line">IPADDR&#x3D;&quot;10.0.0.7&quot;</span><br><span class="line">PREFIX&#x3D;&quot;24&quot;</span><br><span class="line">GATEWAY&#x3D;&quot;10.0.0.2&quot;</span><br><span class="line">DNS1&#x3D;&quot;10.0.0.2&quot;</span><br><span class="line">DNS2&#x3D;&quot;223.5.5.5&quot;</span><br><span class="line">DOMAIN&#x3D;&quot;10.0.0.2&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="切换语言环境"><a href="#切换语言环境" class="headerlink" title="切换语言环境"></a>切换语言环境</h2><p><code>dpkg-reconfigure locales</code></p>
+<h2 id="Ubuntu-网卡配置文件"><a href="#Ubuntu-网卡配置文件" class="headerlink" title="Ubuntu 网卡配置文件"></a>Ubuntu 网卡配置文件</h2><h3 id="查看网卡硬件信息"><a href="#查看网卡硬件信息" class="headerlink" title="查看网卡硬件信息"></a>查看网卡硬件信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lshw -short | grep network</span><br><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
 
-<h3 id="DHCP配置"><a href="#DHCP配置" class="headerlink" title="DHCP配置"></a>DHCP配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TYPE&#x3D;&quot;Ethernet&quot;</span><br><span class="line">BOOTPROTO&#x3D;&quot;dhcp&quot;</span><br><span class="line">PERSISTENT_DHCLIENT&#x3D;&quot;yes&quot;</span><br><span class="line">NAME&#x3D;&quot;ens33&quot;</span><br><span class="line">DEVICE&#x3D;&quot;ens33&quot;</span><br><span class="line">ONBOOT&#x3D;&quot;yes&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="临时修改IP（重启失效）"><a href="#临时修改IP（重启失效）" class="headerlink" title="临时修改IP（重启失效）"></a>临时修改IP（重启失效）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 192.168.120.56</span><br><span class="line">ifconfig eth0 192.168.120.56 netmask 255.255.255.0</span><br><span class="line">ifconfig eth0 192.168.120.56 netmask 255.255.255.0 broadcast 192.168.120.255</span><br></pre></td></tr></table></figure>
-
-<h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2><h3 id="关闭-selinux"><a href="#关闭-selinux" class="headerlink" title="关闭 selinux"></a>关闭 selinux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s#SELINUX=enforcing#SELINUX=disabled#g&#x27;</span> /etc/sysconfig/selinux &amp;&amp; setenforce 0</span><br></pre></td></tr></table></figure>
-
-<h3 id="timedatectl命令"><a href="#timedatectl命令" class="headerlink" title="timedatectl命令"></a>timedatectl命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">timedatectl list-timezones 列出所有时区</span><br><span class="line">timedatectl set-local-rtc 1 将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间</span><br><span class="line">timedatectl set-timezone Asia/Shanghai 设置系统时区为上海</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">只设置时间的话可以使用set-time开关以及HH：MM：SS（小时，分，秒）的时间格式。</span><br><span class="line">timedatectl set-time 15:58:30</span><br><span class="line"></span><br><span class="line">只设置日期的话可以使用set-time开关以及YY：MM：DD（年，月，日）的日期格式。</span><br><span class="line">timedatectl set-time 20151120</span><br><span class="line"></span><br><span class="line">设置日期和时间：</span><br><span class="line">timedatectl set-time <span class="string">&#x27;16:10:40 2015-11-20&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="ntp时间同步"><a href="#ntp时间同步" class="headerlink" title="ntp时间同步"></a>ntp时间同步</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install ntp ntpdate -y </span><br><span class="line"></span><br><span class="line">systemctl start ntpdate</span><br><span class="line"></span><br><span class="line">ntpdate time.windows.com</span><br></pre></td></tr></table></figure>
+<h3 id="网卡配置文件-16版本及以下-etc-network-interfaces-文件内容如下"><a href="#网卡配置文件-16版本及以下-etc-network-interfaces-文件内容如下" class="headerlink" title="网卡配置文件(16版本及以下):/etc/network/interfaces 文件内容如下"></a>网卡配置文件(16版本及以下):/etc/network/interfaces 文件内容如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.111.14</span><br><span class="line">gateway 192.168.111.2</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">dns-nameservers 192.168.111.2</span><br><span class="line"></span><br><span class="line"><span class="comment">#network 192.168.111.0</span></span><br><span class="line"><span class="comment">#broadcast 192.168.111.255</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>ntp只会同步系统时间而不会同步硬件时间，若服务器重启则系统时间会失效，依旧从硬件时间开始计时，所以使用ntp同步系统时间后需要将系统时间同步到硬件时间 hwclock -w</p>
+<p>注意：如果Ubuntu系统采用的是desktop版，由于desktop版安装了NetworkManager，修改完interfaces文档中的内容后，不会生效。需要先修改/etc/NetworkManager/NetworkManager.conf文档中的managed参数，使之为true ，并重启系统， 然后在修改/etc/network/interfaces文件，设置静态IP。</p>
 </blockquote>
-<h3 id="修改内核参数"><a href="#修改内核参数" class="headerlink" title="修改内核参数"></a>修改内核参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br></pre></td></tr></table></figure>
+<h3 id="重启网卡使配置生效"><a href="#重启网卡使配置生效" class="headerlink" title="重启网卡使配置生效"></a>重启网卡使配置生效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/networking restart</span><br></pre></td></tr></table></figure>
 
-<h3 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">重启,在grub2界面 先按↑停在这个界面,然后按e进入编辑模式</span><br><span class="line">找到linux16 那一行, 在后面添加 init=/bin/sh</span><br><span class="line">按ctrl + x 重启系统</span><br><span class="line"></span><br><span class="line">mount -o remount,rw /</span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line">运行命令“touch /.autorelabel”使selinux生效，否则可能无法正常启动，然后运行“<span class="built_in">exec</span> /sbin/init”重启系统即可</span><br><span class="line">touch /.autorelabel</span><br><span class="line"><span class="built_in">exec</span> /sbin/init</span><br></pre></td></tr></table></figure>
+<p>如果上面命令无法令ubuntu重启网络，则使用下面命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ifdown eth0 &amp;&amp; sudo ifup eth0</span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">service networking restart</span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">ifconfig eth0 down &amp;&amp; ifconfig eth0 up</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改时区"><a href="#修改时区" class="headerlink" title="修改时区"></a>修改时区</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/localtime</span><br><span class="line">ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s@LANG=.*$@LANG=&quot;en_US.UTF-8&quot;@g&#x27;</span> /etc/locale.conf</span><br></pre></td></tr></table></figure>
+<h3 id="网卡配置文件-17-10-etc-netplan-01-netcfg-yaml"><a href="#网卡配置文件-17-10-etc-netplan-01-netcfg-yaml" class="headerlink" title="网卡配置文件(17.10+):/etc/netplan/01-netcfg.yaml"></a>网卡配置文件(17.10+):/etc/netplan/01-netcfg.yaml</h3><blockquote>
+<p>ubuntu从17.10开始，已放弃在/etc/network/interfaces里固定IP的配置，而是改成netplan方式，配置写在/etc/netplan/01-netcfg.yaml或者类似名称的yaml文件里</p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file describes the network interfaces available on your system</span></span><br><span class="line"><span class="comment"># For more information, see netplan(5).</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">renderer:</span> <span class="string">networkd</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">addresses:</span> [ <span class="number">10.0</span><span class="number">.0</span><span class="number">.51</span><span class="string">/24</span> ]</span><br><span class="line">      <span class="attr">gateway4:</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.2</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">          <span class="attr">addresses:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;10.0.0.2&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="安装相应字体"><a href="#安装相应字体" class="headerlink" title="安装相应字体"></a>安装相应字体</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dejavu-lgc-sans-fonts</span><br></pre></td></tr></table></figure>
+<p>dhcp配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file describes the network interfaces available on your system</span></span><br><span class="line"><span class="comment"># For more information, see netplan(5).</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">renderer:</span> <span class="string">networkd</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens32:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="全局代理"><a href="#全局代理" class="headerlink" title="全局代理"></a>全局代理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://10.0.0.1:21882&quot;</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>然后执行<code>netplan apply</code>使配置生效,不用重启网卡.</p>
+<h3 id="临时修改网卡DNS地址"><a href="#临时修改网卡DNS地址" class="headerlink" title="临时修改网卡DNS地址"></a>临时修改网卡DNS地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolv.conf(不建议直接修改)</span><br><span class="line">nameserver 223.5.5.5 <span class="comment">#修改成你的主DNS</span></span><br><span class="line">nameserver 223.6.6.6 <span class="comment">#修改成你的备用DNS</span></span><br><span class="line">search localhost <span class="comment">#你的域名</span></span><br><span class="line">修改后:wq退出，配置会实时生效，但是重启系统后会丢失配置。</span><br></pre></td></tr></table></figure>
 
-<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-units                    <span class="comment">##列出当前系统服务的状态</span></span><br><span class="line">systemctl list-unit-files               <span class="comment">##列出服务的开机状态</span></span><br><span class="line">systemctl status sshd                   <span class="comment">##查看指定服务的状态</span></span><br><span class="line">systemctl stop sshd                     <span class="comment">##关闭指定服务</span></span><br><span class="line">systemctl start sshd                    <span class="comment">##开启指定服务</span></span><br><span class="line">systemctl restart sshd                  <span class="comment">##从新启动服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> sshd                   <span class="comment">##设定指定服务开机开启</span></span><br><span class="line">systemctl <span class="built_in">disable</span> sshd                  <span class="comment">##设定指定服务开机关闭</span></span><br><span class="line">systemctl reload sshd                   <span class="comment">##使指定服务从新加载配置</span></span><br><span class="line">systemctl list-dependencies sshd        <span class="comment">##查看指定服务的倚赖关系</span></span><br><span class="line">systemctl mask  sshd                    <span class="comment">##冻结指定服务</span></span><br><span class="line">systemctl unmask sshd                   <span class="comment">##启用服务</span></span><br><span class="line">systemctl set-default multi-user.target <span class="comment">##开机不开启图形</span></span><br><span class="line">systemctl set-default graphical.target  <span class="comment">##开机启动图形</span></span><br><span class="line">setterm                                 <span class="comment">##文本界面设定color</span></span><br></pre></td></tr></table></figure>
+<h3 id="永久修改网卡DNS"><a href="#永久修改网卡DNS" class="headerlink" title="永久修改网卡DNS"></a>永久修改网卡DNS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/resolvconf/resolv.conf.d/base</span><br><span class="line">添加如下内容</span><br><span class="line"></span><br><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 8.8.4.4</span><br><span class="line"></span><br><span class="line">刷新DNS使生效</span><br><span class="line"></span><br><span class="line">resolvconf -u</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看所有的service"><a href="#查看所有的service" class="headerlink" title="查看所有的service"></a>查看所有的service</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll /usr/lib/systemd/system/</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>resolv.conf文件就是根据/etc/resolvconf/resolv.conf.d目录中的这几个文件生成的。</p>
+</blockquote>
+<h3 id="查看现在正在使用的DNS"><a href="#查看现在正在使用的DNS" class="headerlink" title="查看现在正在使用的DNS"></a>查看现在正在使用的DNS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemd-resolve --status</span><br></pre></td></tr></table></figure>
 
-<h3 id="查看开机自启的service"><a href="#查看开机自启的service" class="headerlink" title="查看开机自启的service"></a>查看开机自启的service</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files | grep enabled</span><br><span class="line">ll /etc/systemd/system/multi-user.target.wants/</span><br></pre></td></tr></table></figure>
+<h3 id="检查设备加载情况"><a href="#检查设备加载情况" class="headerlink" title="检查设备加载情况"></a>检查设备加载情况</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmesg | grep eth</span><br></pre></td></tr></table></figure>
 
-<h3 id="hostnamectl命令"><a href="#hostnamectl命令" class="headerlink" title="hostnamectl命令"></a>hostnamectl命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname centos1</span><br></pre></td></tr></table></figure>
+<h3 id="修改默认编辑器"><a href="#修改默认编辑器" class="headerlink" title="修改默认编辑器"></a>修改默认编辑器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config editor   <span class="comment"># 用于 visudo 等</span></span><br><span class="line">sudo select-editor                         <span class="comment"># 用于 crontab -e 等</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service</span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
+<h3 id="图形界面乱码问题"><a href="#图形界面乱码问题" class="headerlink" title="图形界面乱码问题"></a>图形界面乱码问题</h3><ol>
+<li>安装相应字体：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install font-manager</span><br><span class="line">sudo apt install fonts-arphic-ukai</span><br><span class="line">sudo apt install ttf-wqy-zenhei xfonts-wqy ttf-wqy-microhei</span><br><span class="line">sudo apt install fonts-cwtex-fs</span><br><span class="line">sudo apt install ttf-hanazono</span><br><span class="line">sudo apt install ttf-mscorefonts-installer</span><br></pre></td></tr></table></figure>
 
-<h2 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h2><h3 id="yum-只下载不安装"><a href="#yum-只下载不安装" class="headerlink" title="yum 只下载不安装"></a>yum 只下载不安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install --downloadonly --downloaddir=/root gcc-c++</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>安装中文语言包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install  language-pack-zh-han*</span><br></pre></td></tr></table></figure>
 
-<h3 id="阿里云源"><a href="#阿里云源" class="headerlink" title="阿里云源"></a>阿里云源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS 7</span></span><br><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="comment"># 非阿里云ECS用户</span></span><br><span class="line">sed -i -e <span class="string">&#x27;/mirrors.cloud.aliyuncs.com/d&#x27;</span> -e <span class="string">&#x27;/mirrors.aliyuncs.com/d&#x27;</span> /etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># epel(RHEL 7)</span></span><br><span class="line">curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>安装gnome包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install   language-pack-gnome-zh-han*</span><br></pre></td></tr></table></figure>
 
-<h3 id="Remi源"><a href="#Remi源" class="headerlink" title="Remi源"></a>Remi源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install https://mirrors.aliyun.com/remi/enterprise/remi-release-7.rpm</span><br><span class="line"></span><br><span class="line">yum install php74-php-fpm</span><br></pre></td></tr></table></figure>
-
-<h3 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall <span class="string">&quot;Development Tools&quot;</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>安装kde包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install   language-pack-kde-zh-han*</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -337,7 +349,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -405,7 +417,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
