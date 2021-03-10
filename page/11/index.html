@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">快速搭建环境</a>
+            <a href="/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">常用bat脚本</a>
         </h2>
 
         <div class="post-meta">
@@ -224,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-25 13:42:08" itemprop="dateCreated datePublished" datetime="2021-02-25T13:42:08+08:00">2021-02-25</time>
+              <time title="创建时间：2021-02-26 15:24:30" itemprop="dateCreated datePublished" datetime="2021-02-26T15:24:30+08:00">2021-02-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-05 22:15:58" itemprop="dateModified" datetime="2021-03-05T22:15:58+08:00">2021-03-05</time>
+                <time title="修改时间：2021-03-10 16:52:18" itemprop="dateModified" datetime="2021-03-10T16:52:18+08:00">2021-03-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,12 +239,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index"><span itemprop="name">devops</span></a>
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="快速搭建环境" title="阅读次数">
+            <span id="/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="常用bat脚本" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -259,8 +259,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -275,17 +275,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="java-环境"><a href="#java-环境" class="headerlink" title="java 环境"></a>java 环境</h2><p>官方网站：<a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载解压,创建软连接</span></span><br><span class="line">wget https://code.aliyun.com/iuxt/src/raw/master/jdk-8u271-linux-x64.tar.gz</span><br><span class="line">tar xf jdk-8u271-linux-x64.tar.gz -C /usr/<span class="built_in">local</span>/</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/jdk1.8.0_271/ /usr/<span class="built_in">local</span>/java</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># JAVA环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
 
-<h2 id="golang-环境"><a href="#golang-环境" class="headerlink" title="golang 环境"></a>golang 环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://golang.org/dl/go1.16.linux-amd64.tar.gz  &amp;&amp; tar -C /usr/<span class="built_in">local</span> -xzf go1.16.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># golang 环境</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/go/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="bat脚本获取管理员权限"><a href="#bat脚本获取管理员权限" class="headerlink" title="bat脚本获取管理员权限"></a>bat脚本获取管理员权限</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里云加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+<h2 id="输出控制台不换行"><a href="#输出控制台不换行" class="headerlink" title="输出控制台不换行"></a>输出控制台不换行</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="PHP环境，基于Docker"><a href="#PHP环境，基于Docker" class="headerlink" title="PHP环境，基于Docker"></a>PHP环境，基于Docker</h2><blockquote>
-<p>以部署wordpress为例</p>
+<h2 id="隐藏bat窗口"><a href="#隐藏bat窗口" class="headerlink" title="隐藏bat窗口"></a>隐藏bat窗口</h2><ul>
+<li>第一种方法:<br>在你写的批处理文件，开头加上以下三行代码即可</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;hide&quot; <span class="keyword">goto</span> CmdBegin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~<span class="number">0</span>&quot;&quot; hide&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:CmdBegin</span><br><span class="line"><span class="comment">REM 脚本内容</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种解决办法:<br>比如你的批处理文件，名字为 test.bat</li>
+</ul>
+<p>创建 backrun.vbs</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">createobject(&quot;wscript.shell&quot;).run &quot;test.bat&quot;,<span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">可以打开任务管理器，会发现有一个 叫 <span class="built_in">cmd</span> 的进程在运行，就是我们批处理文件的进程了；结束进程的话，直接在任务管理器上，结束该 <span class="built_in">cmd</span> 进程即可</span><br><span class="line"></span><br><span class="line">## 服务操作</span><br><span class="line"></span><br><span class="line">&gt; windows服务操作命令有sc和<span class="built_in">net</span> 两个命令;</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">sc stop serviceName</span><br><span class="line">sc <span class="built_in">start</span> serviceName</span><br><span class="line">sc config AcronisActiveProtectionService <span class="built_in">start</span>= disabled</span><br><span class="line">sc create npc <span class="built_in">start</span>=auto binPath=&quot;C:\<span class="number">1</span>\npc\npc.exe -server=note.iuxt.top:<span class="number">10000</span> -vkey=ibtbrp5e3uc9lonq -<span class="built_in">type</span>=tcp&quot; DisplayName=&quot;npc内网穿透服务&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop serviceName</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> serviceName</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>虽然2个都能达到停止服务和启动服务的效果，但是在重启服务时，就是使用批处理先stop后start来实现重启时，如果服务处于启动状态使用sc的stop后start，结果服务不能启动，因为sc命令在执行stop后不会等待，而是继续执行批处理下面的语句，这时服务正在处于停止操作状态，所以start命令不能启动。net命令在stop时会停止等待，在服务完全停止后再继续执行批处理后面的语句，所以net的重启命令就会正常。</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建账户、代码位置</span></span><br><span class="line">sudo useradd -s /usr/sbin/nologin www-data</span><br><span class="line">sudo mkdir -p /data/wwwroot</span><br><span class="line">sudo chown -R www-data:www-data /data/wwwroot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建docker网络</span></span><br><span class="line">docker network create -d bridge lnmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个MySQL</span></span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=com.012 --restart=always --network lnmp -p 3306:3306 -d mysql:5.7.32</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个php-fpm</span></span><br><span class="line">docker run --name php74 --restart=always --network lnmp -p 9000:9000 -v /data/wwwroot:/data/wwwroot -d iuxt/php-fpm7.4:ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个nginx</span></span><br><span class="line">docker run --name nginx --restart=always --network lnmp -p 80:80 -v /data/wwwroot:/data/wwwroot -d iuxt/nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line">docker run --rm --network lnmp mysql:5.7.32 mysql -uroot -hmysql -pcom.012 -e <span class="string">&#x27;CREATE DATABASE `wordpress` CHARACTER SET &#x27;</span>utf8mb4<span class="string">&#x27; COLLATE &#x27;</span>utf8mb4_general_ci<span class="string">&#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /f /im Xshell*</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除注册表"><a href="#删除注册表" class="headerlink" title="删除注册表"></a>删除注册表</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Microsoft\NetLicense&quot; /f</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Classes\.xdts&quot; /f /ve /d &quot;Xmanager.session&quot; &gt;<span class="built_in">NUL</span> <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rd</span>/s/q &quot;<span class="variable">%ProgramData%</span>\FLEXnet&quot; <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br><span class="line"><span class="built_in">rmdir</span>/s/q &quot;<span class="variable">%CommonProgramFiles%</span>\Macrovision Shared&quot;<span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>rd就是rmdir</p>
+</blockquote>
+<h2 id="判断有没有目录"><a href="#判断有没有目录" class="headerlink" title="判断有没有目录"></a>判断有没有目录</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot; <span class="built_in">md</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> f|<span class="built_in">xcopy</span> /e/i/c/y &quot;Data\NetSarang Computer&quot; &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="带空格路径的处理"><a href="#带空格路径的处理" class="headerlink" title="带空格路径的处理"></a>带空格路径的处理</h2><blockquote>
+<p>用””引起来，不方便用””的可以用下面的短名称，或者用变量的形式表示</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> C:\Progra~<span class="number">1</span>\Notepad++\notepad++.exe C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -304,7 +330,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -372,7 +398,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
