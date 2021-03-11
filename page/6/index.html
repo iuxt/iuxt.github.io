@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/03/10/Windows/windows-RE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">包管理</a>
+            <a href="/2021/03/10/Windows/windows-RE/" class="post-title-link" itemprop="url">windows RE</a>
         </h2>
 
         <div class="post-meta">
@@ -225,7 +225,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-10 11:17:18 / 修改时间：15:38:50" itemprop="dateCreated datePublished" datetime="2021-03-10T11:17:18+08:00">2021-03-10</time>
+              <time title="创建时间：2021-03-10 17:30:10 / 修改时间：17:44:34" itemprop="dateCreated datePublished" datetime="2021-03-10T17:30:10+08:00">2021-03-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,12 +233,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index"><span itemprop="name">devops</span></a>
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="包管理" title="阅读次数">
+            <span id="/2021/03/10/Windows/windows-RE/" class="post-meta-item leancloud_visitors" data-flag-title="windows RE" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -253,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/10/Windows/windows-RE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/10/Windows/windows-RE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,29 +269,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="yum-和-rpm"><a href="#yum-和-rpm" class="headerlink" title="yum 和 rpm"></a>yum 和 rpm</h2><blockquote>
-<p>yum 是用python写的</p>
+          <h2 id="reagentc-命令"><a href="#reagentc-命令" class="headerlink" title="reagentc 命令"></a>reagentc 命令</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reagentc /disable       禁用windowsRE</span><br><span class="line">reagentc /enable        启用windowsRE</span><br><span class="line">reagentc /info          查看windowsRE状态</span><br><span class="line">reagentc /boottore      将系统配置为在下次系统启动时启动 Windows RE</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新启用windowsRE"><a href="#重新启用windowsRE" class="headerlink" title="重新启用windowsRE"></a>重新启用windowsRE</h2><blockquote>
+<p>因为各种原因，使用 reagentc /info 查看发现RE已经没有了，可以手动创建RE</p>
 </blockquote>
-<p>查看一个包有哪些文件组成</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql yum</span><br></pre></td></tr></table></figure>
-
-<p>查看所有包列表</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa</span><br></pre></td></tr></table></figure>
-
-<p>本地安装包,会自动处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall ./xxx.rpm</span><br></pre></td></tr></table></figure>
-
-<p>本地安装包，不处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh ./xxx.rpm</span><br></pre></td></tr></table></figure>
-
-<h2 id="apt-和-dpkg"><a href="#apt-和-dpkg" class="headerlink" title="apt 和 dpkg"></a>apt 和 dpkg</h2><p>安装本地包，不处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i ./xxx.deb</span><br></pre></td></tr></table></figure>
-
-<p>安装本地包，并自动处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install ./xxx.deb</span><br></pre></td></tr></table></figure>
-
-<p>查看一个包有哪些文件组成</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -L vim</span><br></pre></td></tr></table></figure>
+<p>windows原版ISO镜像，打开其中的sources目录，用解压缩软件打开install.wim文件，然后再定位到windows/system32/recovery目录，提取 WinRE.wim 到 Recovery 分区 x:\Recovery\WindowsRE</p>
+<p>然后执行：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reagentc /setreimage /<span class="built_in">path</span> x:\Recovery\WindowsRE</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -310,7 +295,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -378,7 +363,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -391,7 +376,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

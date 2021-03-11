@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/03/10/DevOps/%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5openvpn/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/03/11/Windows/wsl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/10/DevOps/%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5openvpn/" class="post-title-link" itemprop="url">自动连接openvpn</a>
+            <a href="/2021/03/11/Windows/wsl/" class="post-title-link" itemprop="url">wsl</a>
         </h2>
 
         <div class="post-meta">
@@ -225,7 +225,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-10 20:08:12 / 修改时间：21:47:14" itemprop="dateCreated datePublished" datetime="2021-03-10T20:08:12+08:00">2021-03-10</time>
+              <time title="创建时间：2021-03-11 11:21:46 / 修改时间：11:42:58" itemprop="dateCreated datePublished" datetime="2021-03-11T11:21:46+08:00">2021-03-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,12 +233,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index"><span itemprop="name">devops</span></a>
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">windows</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/03/10/DevOps/%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5openvpn/" class="post-meta-item leancloud_visitors" data-flag-title="自动连接openvpn" title="阅读次数">
+            <span id="/2021/03/11/Windows/wsl/" class="post-meta-item leancloud_visitors" data-flag-title="wsl" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -253,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/10/DevOps/%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5openvpn/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/10/DevOps/%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5openvpn/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/11/Windows/wsl/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/11/Windows/wsl/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,22 +269,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <blockquote>
-<p>在公司想连接线上服务器步骤：打开openvpn软件，输入静态密码，掏出手机，解锁，打开totp软件，输入totp软件的开启密码，记下6位数动态密码，输入到电脑里，完成连接，锁定手机。非常麻烦<br>而且因为时间同步问题，可能还有10秒就刷新动态密码了，还需要等待刷新后再输入新的密码，更麻烦的是openvpn会修改系统的路由，导致有些公司内部网站上不了，就会出现连接vpn—做A事情，断开vpn做B事情。</p>
+          <h2 id="文件共享访问"><a href="#文件共享访问" class="headerlink" title="文件共享访问"></a>文件共享访问</h2><h3 id="windows-访问-wsl"><a href="#windows-访问-wsl" class="headerlink" title="windows 访问 wsl"></a>windows 访问 wsl</h3><p>win + r 输入 <code>\\wsl$</code></p>
+<h3 id="wsl-访问-windows"><a href="#wsl-访问-windows" class="headerlink" title="wsl 访问 windows"></a>wsl 访问 windows</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --export centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动指定发行版"><a href="#启动指定发行版" class="headerlink" title="启动指定发行版"></a>启动指定发行版</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定用户启动"><a href="#指定用户启动" class="headerlink" title="指定用户启动"></a>指定用户启动</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -d ubuntu -u root</span><br></pre></td></tr></table></figure>
+
+<h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>win+r  输入 <code>shell:startup</code>写一个<code>wsl_start.bat</code>内容如下</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -d Ubuntu -u root /etc/init.d/ssh <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改默认用户为root"><a href="#修改默认用户为root" class="headerlink" title="修改默认用户为root"></a>修改默认用户为root</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">%localappdata%</span>\Microsoft\WindowsApps\ubuntu.exe config --default-user root</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据你的发行版决定</p>
 </blockquote>
-<p>这里提供一个脚本，一键连接openvpn，适用于windows</p>
-<h2 id="1-安装openvpn软件"><a href="#1-安装openvpn软件" class="headerlink" title="1. 安装openvpn软件"></a>1. 安装openvpn软件</h2><p>软件安装到默认位置，需要安装tap driver<br>打开一次软件（为了生成配置文件目录），以后就可以不用启动</p>
-<h2 id="脚本内容"><a href="#脚本内容" class="headerlink" title="脚本内容"></a>脚本内容</h2><p>start.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyotp</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line">totp = pyotp.TOTP(<span class="string">&#x27;&lt;TOTP seed&gt;&#x27;</span>)  <span class="comment"># 这里要填写的totp的seed，一般解析一下二维码就能获得</span></span><br><span class="line">password = <span class="string">&quot;&lt;你的固定密码&gt;&quot;</span> + totp.now()         <span class="comment"># 固定密码</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;C:\Users\iuxt\OpenVPN\config\password.txt&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:   <span class="comment"># 这里是password.txt文件位置</span></span><br><span class="line">    f.write(<span class="string">&quot;&lt;这里写你的用户名&gt;\n%s&quot;</span> % password)</span><br><span class="line">    </span><br><span class="line">subprocess.run([<span class="string">r&quot;C:\Program Files\OpenVPN\bin\openvpn.exe&quot;</span>, <span class="string">r&quot;C:\Users\iuxt\OpenVPN\config\win.ovpn&quot;</span>])  <span class="comment"># vpn可执行位置和vpn配置文件位置</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="安装想要的发行版"><a href="#安装想要的发行版" class="headerlink" title="安装想要的发行版"></a>安装想要的发行版</h2><blockquote>
+<p>这里以centos为例</p>
+</blockquote>
+<p>首先需要docker环境，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name centos7 centos:centos7</span><br></pre></td></tr></table></figure>
 
-<p>start.bat</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br><span class="line"><span class="comment">rem 上面这段是获取管理员权限👆</span></span><br><span class="line"></span><br><span class="line">python <span class="built_in">start</span>.py</span><br></pre></td></tr></table></figure>
+<p>然后将容器导出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> centos7 &gt; centos7.tar</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-脚本拷贝到配置文件目录"><a href="#2-脚本拷贝到配置文件目录" class="headerlink" title="2. 脚本拷贝到配置文件目录"></a>2. 脚本拷贝到配置文件目录</h2><p>将<code>start.py</code> <code>start.bat</code> <code>win.ovpn</code> 拷贝到配置文件目录<code>C:\Users\iuxt\OpenVPN\config</code></p>
-<p><code>start.py</code>需要修改一下注释位置</p>
-<p><code>win.ovpn</code>需要修改<code>auth-user-pass C:\\Users\\iuxt\\OpenVPN\\config\\password.txt</code>需要和<code>start.py</code>里面路径保持一致</p>
-<h2 id="3-启动和关闭"><a href="#3-启动和关闭" class="headerlink" title="3. 启动和关闭"></a>3. 启动和关闭</h2><p>双击<code>start.bat</code>即可自动连接</p>
-<p>叉掉窗口即可关闭</p>
+<p>然后在windows上导入</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<p>启动发行版</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
+
+<p>卸载发行版</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister centos7</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -303,7 +323,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -371,7 +391,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -384,7 +404,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
