@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>oh my zsh</title>
+    <url>/2021/03/05/%E7%9E%8E%E6%8D%A3%E9%BC%93/oh%20my%20zsh/</url>
+    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>github地址：<a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install zsh</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>vim ~/.zshrc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h3 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h3><p>oh my zsh 很多主题需要的字体，github地址：<br><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
+<p>powerline 字体预览<br><a href="https://github.com/powerline/fonts/blob/master/samples/All.md">https://github.com/powerline/fonts/blob/master/samples/All.md</a></p>
+<p>快速安装</p>
+<ul>
+<li>linux</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install fonts-powerline</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>windows</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/powerline/fonts.git</span><br><span class="line">执行 install.ps1</span><br></pre></td></tr></table></figure>
+
+<h3 id="cascadia-code"><a href="#cascadia-code" class="headerlink" title="cascadia-code"></a>cascadia-code</h3><p>来自微软官方的字体，github地址：<br><a href="https://github.com/microsoft/cascadia-code">https://github.com/microsoft/cascadia-code</a></p>
+<blockquote>
+<p>名字带<code>PL</code>的才是powerline字体</p>
+</blockquote>
+<h2 id="windows-terminal配置"><a href="#windows-terminal配置" class="headerlink" title="windows terminal配置"></a>windows terminal配置</h2><ul>
+<li>改字体</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;fontFace&quot;: &quot;Cascadia Code PL&quot;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改配色</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;ayu&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#ff3333&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#b8cc52&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#e7c547&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#36a3d9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#f07178&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#95e6cb&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#323232&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#ff6565&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#eafe84&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#fff779&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#68d5ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#ffa3aa&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#c7fffd&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#0f1419&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#e6e1cf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#f29718&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selectionBackground&quot;</span>: <span class="string">&quot;#253340&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h2><p>修改字体为<code>Cascadia Mono PL</code>并重启</p>
+]]></content>
+      <categories>
+        <category>瞎捣鼓</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo</title>
+    <url>/2021/02/02/%E7%9E%8E%E6%8D%A3%E9%BC%93/hexo/</url>
+    <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>首先安装nodejs，然后修改成国内源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>安装hexo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>初始化</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init new</span><br></pre></td></tr></table></figure>
+
+<p>修改为中文<br>vim _config.yml</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">张理坤的博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;杂烩饭好吃&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;别浪费时间&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">张理坤</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><p>github地址：<a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>修改theme配置文件 vim next/_config.yml<br><code>scheme: Pisces</code></p>
+<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>然后主题配置文件next/_config.yml<br><code>local_search:</code>标签，配置参数<code>enable: true</code></p>
+<h2 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h2><blockquote>
+<p>git 地址： <a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br><span class="line">npm install --save live2d-widget-model-epsilon2_1</span><br></pre></td></tr></table></figure>
+
+<p>在 next/_config.yml 添加下面配置</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">log:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-epsilon2_1</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">react:</span></span><br><span class="line">    <span class="attr">opacity:</span> <span class="number">0.7</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>module.use里面的和你安装的要一样</p>
+</blockquote>
+<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><ul>
+<li>将图片放入 博客目录/themes/next/source/images，并重命名为 avatar.[格式]</li>
+<li>编辑主题配置文件_config.yml<br><code>vim 博客目录/themes/next/_config.yml</code></li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span> <span class="string">/images/avatar.png</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加分类和标签"><a href="#添加分类和标签" class="headerlink" title="添加分类和标签"></a>添加分类和标签</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><code>hexo new page categories</code><br>成功后会提示：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/categories/index.md</span><br></pre></td></tr></table></figure>
+
+<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加type: “categories”到内容中，添加后是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<p>给文章添加“categories”属性<br>打开需要添加分类的文章，为其添加categories属性。<br>注意：hexo一篇文章只能属于一个分类，如果写两个分类，则是给分类嵌套</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> DevOps</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。<br>当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>生成“标签”页并添加tpye属性<br>打开命令行，进入博客所在文件夹。执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>成功后会提示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/tags/index.md</span><br></pre></td></tr></table></figure>
+
+<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2017-05-27 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>添加type: “tags”到内容中，添加后是这样的：</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭文件。</p>
+<p>给文章添加“tags”属性<br>打开需要添加标签的文章，为其添加tags属性。下方的tags:下方的- jQuery-表格-表单验证就是这篇文章的标签了</p>
+<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> web前端</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> jQuery</span><br><span class="line"><span class="bullet">-</span> 表格</span><br><span class="line"><span class="bullet">-</span> 表单验证</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>至此，成功给文章添加分类，点击首页的“标签”可以看到该标签下的所有文章。<br>当然，只有添加了tags: xxx的文章才会被收录到首页的“标签”中。</p>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><ol>
+<li><p>在<code>source</code>目录添加<code>CNAME</code>文件，文件内容是你的域名</p>
+</li>
+<li><p>添加解析CNAME到github的域名</p>
+</li>
+</ol>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="新创建文章"><a href="#新创建文章" class="headerlink" title="新创建文章"></a>新创建文章</h3><p><code>hexo new &lt;标题&gt;</code></p>
+<p>然后编辑 <code>vim source/_posts/&lt;标题&gt;.md</code></p>
+<h3 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h3><p><code>hexo s</code></p>
+<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>安装git插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>修改hexo配置文件 vim hexo/_config.yml，配置git地址</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">&#x27;git@gitee.com:iuxt/iuxt.git&#x27;</span>, <span class="string">&#x27;git@github.com:iuxt/iuxt.github.io.git&#x27;</span>]</span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">&#x27;hexo update&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>发布</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>瞎捣鼓</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>awk</title>
     <url>/2021/03/14/DevOps/awk/</url>
     <content><![CDATA[<h2 id="awk-交换一个文件的两列"><a href="#awk-交换一个文件的两列" class="headerlink" title="awk 交换一个文件的两列"></a>awk 交换一个文件的两列</h2><p>比如文件<code>test.txt</code></p>
@@ -66,80 +208,52 @@
         <category>devops</category>
       </categories>
       <tags>
-        <tag>centos</tag>
         <tag>linux</tag>
+        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
-    <title>docker常用</title>
-    <url>/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><h3 id="官方安装脚本"><a href="#官方安装脚本" class="headerlink" title="官方安装脚本"></a>官方安装脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br></pre></td></tr></table></figure>
+    <title>termux</title>
+    <url>/2021/03/01/%E7%9E%8E%E6%8D%A3%E9%BC%93/termux/</url>
+    <content><![CDATA[<blockquote>
+<p>termux 是安卓平台模拟linux环境的工具，可以运行常用的linux工具</p>
+</blockquote>
+<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><h3 id="修改安装源"><a href="#修改安装源" class="headerlink" title="修改安装源"></a>修改安装源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">termux-change-repo</span><br></pre></td></tr></table></figure>
 
-<h3 id="阿里云安装（centos）"><a href="#阿里云安装（centos）" class="headerlink" title="阿里云安装（centos）"></a>阿里云安装（centos）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo systemctl start docker.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="修改用户环境变量"><a href="#修改用户环境变量" class="headerlink" title="修改用户环境变量"></a>修改用户环境变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; ~/.profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -al&#x27;</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
-<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/bin/docker-compose &amp;&amp; sudo chmod +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h3 id="虚拟根目录"><a href="#虚拟根目录" class="headerlink" title="虚拟根目录"></a>虚拟根目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$PREFIX</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="免root执行docker命令"><a href="#免root执行docker命令" class="headerlink" title="免root执行docker命令"></a>免root执行docker命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)</span>&quot;</span>  </span><br></pre></td></tr></table></figure>
+
+<h3 id="登录提示语"><a href="#登录提示语" class="headerlink" title="登录提示语"></a>登录提示语</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim <span class="variable">$PREFIX</span>/etc/motd</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>顺便确定一下sock文件有没有权限（默认是有的）, 退出账户重新登录一下即可生效</p>
+<p>可以配合screenfetch食用</p>
 </blockquote>
-<h2 id="阿里云Docker加速"><a href="#阿里云Docker加速" class="headerlink" title="阿里云Docker加速"></a>阿里云Docker加速</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/docker &amp;&amp; tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg install screenfetch</span><br></pre></td></tr></table></figure>
 
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h3 id="定制屏幕上的按键"><a href="#定制屏幕上的按键" class="headerlink" title="定制屏幕上的按键"></a>定制屏幕上的按键</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.termux/termux.properties</span><br><span class="line"></span><br><span class="line">extra-keys = [ \</span><br><span class="line"> [<span class="string">&#x27;ESC&#x27;</span>,<span class="string">&#x27;|&#x27;</span>,<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27;`&#x27;</span>,<span class="string">&#x27;UP&#x27;</span>,<span class="string">&#x27;$&#x27;</span>,<span class="string">&#x27;APOSTROPHE&#x27;</span>], \</span><br><span class="line"> [<span class="string">&#x27;TAB&#x27;</span>,<span class="string">&#x27;CTRL&#x27;</span>,<span class="string">&#x27;~&#x27;</span>,<span class="string">&#x27;LEFT&#x27;</span>,<span class="string">&#x27;DOWN&#x27;</span>,<span class="string">&#x27;RIGHT&#x27;</span>,<span class="string">&#x27;ENTER&#x27;</span>] \</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="一次性删除所有的容器"><a href="#一次性删除所有的容器" class="headerlink" title="一次性删除所有的容器"></a>一次性删除所有的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rm -f `docker ps -aq`</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次性删除所有的镜像"><a href="#一次性删除所有的镜像" class="headerlink" title="一次性删除所有的镜像"></a>一次性删除所有的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rmi `docker image ls | awk <span class="string">&#x27;&#123;print $1 &quot;:&quot; $2&#125;&#x27;</span>`</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次性删除未打标签的镜像"><a href="#一次性删除未打标签的镜像" class="headerlink" title="一次性删除未打标签的镜像"></a>一次性删除未打标签的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker image ls | grep none | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span> | xargs docker rmi</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次性删除所有volume"><a href="#一次性删除所有volume" class="headerlink" title="一次性删除所有volume"></a>一次性删除所有volume</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker volume rm `docker volume ls -q`</span><br></pre></td></tr></table></figure>
-
-<h3 id="Docker进入容器"><a href="#Docker进入容器" class="headerlink" title="Docker进入容器"></a>Docker进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name test_ubuntu -it ubuntu /bin/bash</span><br><span class="line">启动一个容器并打开shell</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重看容器详情</span></span><br><span class="line">docker inspect 容器id或名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重看docker详情</span></span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it 镜像名字 /bin/sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="进入一个运行中的容器"><a href="#进入一个运行中的容器" class="headerlink" title="进入一个运行中的容器"></a>进入一个运行中的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="打tag"><a href="#打tag" class="headerlink" title="打tag"></a>打tag</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag 镜像id oldboy1103/alpine:latest</span><br></pre></td></tr></table></figure>
-
-<h2 id="容器备份还原"><a href="#容器备份还原" class="headerlink" title="容器备份还原"></a>容器备份还原</h2><h3 id="镜像的备份还原"><a href="#镜像的备份还原" class="headerlink" title="镜像的备份还原"></a>镜像的备份还原</h3><ol>
-<li><p>commit将容器保存成镜像</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将镜像导出成tar (镜像是分层的,可以回滚,)</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker save -o ./backup.tar gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从tar导入镜像（镜像备份下来的tar）</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker load -i ./backup.tar</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<blockquote>
-<p>注意：以上会备份镜像的多层。</p>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><h3 id="pkg"><a href="#pkg" class="headerlink" title="pkg"></a>pkg</h3><blockquote>
+<p>Termux除了支持apt命令外,还在此基础上封装了pkg命令,pkg命令向下兼容apt命令</p>
 </blockquote>
-<h3 id="容器的备份还原"><a href="#容器的备份还原" class="headerlink" title="容器的备份还原"></a>容器的备份还原</h3><ol>
-<li><p>备份容器</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> php &gt; phprongqi.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>还原成镜像</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker import ./phprongqi.tar php</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg search &lt;query&gt;              搜索包</span><br><span class="line">pkg install &lt;package&gt;           安装包</span><br><span class="line">pkg uninstall &lt;package&gt;         卸载包</span><br><span class="line">pkg reinstall &lt;package&gt;         重新安装包</span><br><span class="line">pkg update                      更新源</span><br><span class="line">pkg upgrade                     升级软件包</span><br><span class="line">pkg list-all                    列出可供安装的所有包</span><br><span class="line">pkg list-installed              列出已经安装的包</span><br><span class="line">pkg shoe &lt;package&gt;              显示某个包的详细信息</span><br><span class="line">pkg files &lt;package&gt;             显示某个包的相关文件夹路径</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<blockquote>
-<p>注意：备份的只是一层镜像</p>
+<h3 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h3><p>参考 ubuntu 的 apt</p>
+<h3 id="安装常用工具"><a href="#安装常用工具" class="headerlink" title="安装常用工具"></a>安装常用工具</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg install -y git vim openssh curl wget python tar</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他玩法"><a href="#其他玩法" class="headerlink" title="其他玩法"></a>其他玩法</h2><h3 id="安装ubuntu系统"><a href="#安装ubuntu系统" class="headerlink" title="安装ubuntu系统"></a><del>安装ubuntu系统</del></h3><blockquote>
+<p>感觉没什么必要安装ubuntu了</p>
 </blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg install wget openssl-tool proot -y &amp;&amp; <span class="built_in">hash</span> -r &amp;&amp; wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh &amp;&amp; bash ubuntu.sh</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>devops</category>
+        <category>瞎捣鼓</category>
       </categories>
       <tags>
-        <tag>容器</tag>
+        <tag>linux</tag>
+        <tag>android</tag>
       </tags>
   </entry>
   <entry>
@@ -161,51 +275,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kubernetes搭建问题</title>
-    <url>/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>官方文档：<a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/</a></p>
-<blockquote>
-<p>官方文档非常棒，不用看其他教程，不过国内有些地方需要注意。</p>
-</blockquote>
-<h2 id="下载镜像失败"><a href="#下载镜像失败" class="headerlink" title="下载镜像失败"></a>下载镜像失败</h2><blockquote>
-<p>是因为 <code>k8s.gcr.io</code> 在国内不可用, 以下方法选一个就行</p>
-</blockquote>
-<p>修改配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- 生成配置文件</span><br><span class="line">kubeadm config <span class="built_in">print</span> init-defaults &gt; kubeadm.conf</span><br><span class="line"></span><br><span class="line">- 修改仓库地址</span><br><span class="line">imageRepository: registry.aliyuncs.com/google_containers</span><br><span class="line"></span><br><span class="line">- 下载镜像</span><br><span class="line">kubeadm config images pull --config kubeadm.conf</span><br></pre></td></tr></table></figure>
-
-<p>手动拉取</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images list</span><br><span class="line"></span><br><span class="line">然后自己上dockerhub找找，pull下来镜像</span><br></pre></td></tr></table></figure>
-
-<p>直接指定源拉取</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images pull \</span><br><span class="line">--image-repository registry.aliyuncs.com/google_containers \</span><br></pre></td></tr></table></figure>
-
-<h2 id="重新给镜像打tag"><a href="#重新给镜像打tag" class="headerlink" title="重新给镜像打tag"></a>重新给镜像打tag</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">k8s_version=v1.20.4</span><br><span class="line">pause_version=3.2</span><br><span class="line">etcd_version=3.4.13-0</span><br><span class="line">coredns_version=1.7.0</span><br><span class="line"></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-apiserver:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-apiserver:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-controller-manager:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-controller-manager:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-scheduler:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-scheduler:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-proxy:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-proxy:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/pause:<span class="variable">$pause_version</span> k8s.gcr.io/pause:<span class="variable">$pause_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/etcd:<span class="variable">$etcd_version</span> k8s.gcr.io/etcd:<span class="variable">$etcd_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/coredns:<span class="variable">$coredns_version</span> k8s.gcr.io/coredns:<span class="variable">$coredns_version</span></span><br><span class="line"></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-apiserver:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-controller-manager:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-scheduler:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-proxy:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/pause:<span class="variable">$pause_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/etcd:<span class="variable">$etcd_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/coredns:<span class="variable">$coredns_version</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="创建master节点"><a href="#创建master节点" class="headerlink" title="创建master节点"></a>创建master节点</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm init --kubernetes-version=<span class="variable">$k8s_version</span> --apiserver-advertise-address=10.0.0.71 --pod-network-cidr=172.16.0.0/16</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>如果出现警告 [WARNING IsDockerSystemdCheck]: detected “cgroupfs” as the Docker cgroup driver. The recommended driver is “systemd”. Please follow the guide at <a href="https://kubernetes.io/docs/setup/cri/">https://kubernetes.io/docs/setup/cri/</a>, 需要修改配置文件</p>
-</blockquote>
-<p>/etc/docker/daemon.json 添加一行</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>然后重启docker</p>
-<h2 id="kubectl-执行报错"><a href="#kubectl-执行报错" class="headerlink" title="kubectl 执行报错"></a>kubectl 执行报错</h2><blockquote>
-<p>The connection to the server localhost:8080 was refused - did you specify the right host or port?<br>这个问题一般执行 <code>export KUBECONFIG=/etc/kubernetes/admin.conf</code> 即可</p>
-</blockquote>
-<h2 id="get-nodes-一直显示-not-ready"><a href="#get-nodes-一直显示-not-ready" class="headerlink" title="get nodes 一直显示 not ready"></a>get nodes 一直显示 not ready</h2><blockquote>
-<p>一般是没有安装网络插件</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">安装flanno</span><br><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br><span class="line"></span><br><span class="line">或者安装calico</span><br><span class="line">kubectl apply -f https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>devops</category>
-      </categories>
-      <tags>
-        <tag>容器</tag>
       </tags>
   </entry>
   <entry>
@@ -311,6 +380,74 @@
       </tags>
   </entry>
   <entry>
+    <title>kubernetes搭建问题</title>
+    <url>/2021/03/08/DevOps/kubernetes%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>官方文档：<a href="https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/</a></p>
+<blockquote>
+<p>官方文档非常棒，不用看其他教程，不过国内有些地方需要注意。</p>
+</blockquote>
+<h2 id="下载镜像失败"><a href="#下载镜像失败" class="headerlink" title="下载镜像失败"></a>下载镜像失败</h2><blockquote>
+<p>是因为 <code>k8s.gcr.io</code> 在国内不可用, 以下方法选一个就行</p>
+</blockquote>
+<p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">- 生成配置文件</span><br><span class="line">kubeadm config <span class="built_in">print</span> init-defaults &gt; kubeadm.conf</span><br><span class="line"></span><br><span class="line">- 修改仓库地址</span><br><span class="line">imageRepository: registry.aliyuncs.com/google_containers</span><br><span class="line"></span><br><span class="line">- 下载镜像</span><br><span class="line">kubeadm config images pull --config kubeadm.conf</span><br></pre></td></tr></table></figure>
+
+<p>手动拉取</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images list</span><br><span class="line"></span><br><span class="line">然后自己上dockerhub找找，pull下来镜像</span><br></pre></td></tr></table></figure>
+
+<p>直接指定源拉取</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm config images pull \</span><br><span class="line">--image-repository registry.aliyuncs.com/google_containers \</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新给镜像打tag"><a href="#重新给镜像打tag" class="headerlink" title="重新给镜像打tag"></a>重新给镜像打tag</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">k8s_version=v1.20.4</span><br><span class="line">pause_version=3.2</span><br><span class="line">etcd_version=3.4.13-0</span><br><span class="line">coredns_version=1.7.0</span><br><span class="line"></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-apiserver:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-apiserver:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-controller-manager:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-controller-manager:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-scheduler:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-scheduler:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/kube-proxy:<span class="variable">$k8s_version</span> k8s.gcr.io/kube-proxy:<span class="variable">$k8s_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/pause:<span class="variable">$pause_version</span> k8s.gcr.io/pause:<span class="variable">$pause_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/etcd:<span class="variable">$etcd_version</span> k8s.gcr.io/etcd:<span class="variable">$etcd_version</span></span><br><span class="line">docker tag registry.aliyuncs.com/google_containers/coredns:<span class="variable">$coredns_version</span> k8s.gcr.io/coredns:<span class="variable">$coredns_version</span></span><br><span class="line"></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-apiserver:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-controller-manager:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-scheduler:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/kube-proxy:<span class="variable">$k8s_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/pause:<span class="variable">$pause_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/etcd:<span class="variable">$etcd_version</span></span><br><span class="line">docker rmi registry.aliyuncs.com/google_containers/coredns:<span class="variable">$coredns_version</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建master节点"><a href="#创建master节点" class="headerlink" title="创建master节点"></a>创建master节点</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm init --kubernetes-version=<span class="variable">$k8s_version</span> --apiserver-advertise-address=10.0.0.71 --pod-network-cidr=172.16.0.0/16</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果出现警告 [WARNING IsDockerSystemdCheck]: detected “cgroupfs” as the Docker cgroup driver. The recommended driver is “systemd”. Please follow the guide at <a href="https://kubernetes.io/docs/setup/cri/">https://kubernetes.io/docs/setup/cri/</a>, 需要修改配置文件</p>
+</blockquote>
+<p>/etc/docker/daemon.json 添加一行</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>然后重启docker</p>
+<h2 id="kubectl-执行报错"><a href="#kubectl-执行报错" class="headerlink" title="kubectl 执行报错"></a>kubectl 执行报错</h2><blockquote>
+<p>The connection to the server localhost:8080 was refused - did you specify the right host or port?<br>这个问题一般执行 <code>export KUBECONFIG=/etc/kubernetes/admin.conf</code> 即可</p>
+</blockquote>
+<h2 id="get-nodes-一直显示-not-ready"><a href="#get-nodes-一直显示-not-ready" class="headerlink" title="get nodes 一直显示 not ready"></a>get nodes 一直显示 not ready</h2><blockquote>
+<p>一般是没有安装网络插件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">安装flanno</span><br><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br><span class="line"></span><br><span class="line">或者安装calico</span><br><span class="line">kubectl apply -f https://kuboard.cn/install-script/calico/calico-3.13.1.yaml</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速搭建环境</title>
+    <url>/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="java-环境"><a href="#java-环境" class="headerlink" title="java 环境"></a>java 环境</h2><p>官方网站：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载解压,创建软连接</span></span><br><span class="line">wget https://code.aliyun.com/iuxt/src/raw/master/jdk-8u271-linux-x64.tar.gz</span><br><span class="line">tar xf jdk-8u271-linux-x64.tar.gz -C /usr/<span class="built_in">local</span>/</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/jdk1.8.0_271/ /usr/<span class="built_in">local</span>/java</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># JAVA环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="golang-环境"><a href="#golang-环境" class="headerlink" title="golang 环境"></a>golang 环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://golang.org/dl/go1.16.linux-amd64.tar.gz  &amp;&amp; tar -C /usr/<span class="built_in">local</span> -xzf go1.16.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># golang 环境</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/go/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里云加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="PHP环境，基于Docker"><a href="#PHP环境，基于Docker" class="headerlink" title="PHP环境，基于Docker"></a>PHP环境，基于Docker</h2><blockquote>
+<p>以部署wordpress为例</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建账户、代码位置</span></span><br><span class="line">sudo useradd -s /usr/sbin/nologin www-data</span><br><span class="line">sudo mkdir -p /data/wwwroot</span><br><span class="line">sudo chown -R www-data:www-data /data/wwwroot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建docker网络</span></span><br><span class="line">docker network create -d bridge lnmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个MySQL</span></span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=com.012 --restart=always --network lnmp -p 3306:3306 -d mysql:5.7.32</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个php-fpm</span></span><br><span class="line">docker run --name php74 --restart=always --network lnmp -p 9000:9000 -v /data/wwwroot:/data/wwwroot -d iuxt/php-fpm7.4:ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个nginx</span></span><br><span class="line">docker run --name nginx --restart=always --network lnmp -p 80:80 -v /data/wwwroot:/data/wwwroot -d iuxt/nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line">docker run --rm --network lnmp mysql:5.7.32 mysql -uroot -hmysql -pcom.012 -e <span class="string">&#x27;CREATE DATABASE `wordpress` CHARACTER SET &#x27;</span>utf8mb4<span class="string">&#x27; COLLATE &#x27;</span>utf8mb4_general_ci<span class="string">&#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用shell组合命令</title>
     <url>/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="批量添加user1-user2…-seq-w-可以生成01-02-03-等"><a href="#批量添加user1-user2…-seq-w-可以生成01-02-03-等" class="headerlink" title="批量添加user1 user2….     seq -w 可以生成01  02  03 等"></a>批量添加user1 user2….     seq -w 可以生成01  02  03 等</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 1 10);<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> user<span class="variable">$i</span></span><br><span class="line">        useradd user<span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
@@ -356,29 +493,6 @@
       </tags>
   </entry>
   <entry>
-    <title>快速搭建环境</title>
-    <url>/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="java-环境"><a href="#java-环境" class="headerlink" title="java 环境"></a>java 环境</h2><p>官方网站：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载解压,创建软连接</span></span><br><span class="line">wget https://code.aliyun.com/iuxt/src/raw/master/jdk-8u271-linux-x64.tar.gz</span><br><span class="line">tar xf jdk-8u271-linux-x64.tar.gz -C /usr/<span class="built_in">local</span>/</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/jdk1.8.0_271/ /usr/<span class="built_in">local</span>/java</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># JAVA环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使变量生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="golang-环境"><a href="#golang-环境" class="headerlink" title="golang 环境"></a>golang 环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://golang.org/dl/go1.16.linux-amd64.tar.gz  &amp;&amp; tar -C /usr/<span class="built_in">local</span> -xzf go1.16.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">cat &gt;&gt; /etc/profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment"># golang 环境</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/go/bin</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里云加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="PHP环境，基于Docker"><a href="#PHP环境，基于Docker" class="headerlink" title="PHP环境，基于Docker"></a>PHP环境，基于Docker</h2><blockquote>
-<p>以部署wordpress为例</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建账户、代码位置</span></span><br><span class="line">sudo useradd -s /usr/sbin/nologin www-data</span><br><span class="line">sudo mkdir -p /data/wwwroot</span><br><span class="line">sudo chown -R www-data:www-data /data/wwwroot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建docker网络</span></span><br><span class="line">docker network create -d bridge lnmp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个MySQL</span></span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=com.012 --restart=always --network lnmp -p 3306:3306 -d mysql:5.7.32</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个php-fpm</span></span><br><span class="line">docker run --name php74 --restart=always --network lnmp -p 9000:9000 -v /data/wwwroot:/data/wwwroot -d iuxt/php-fpm7.4:ubuntu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速启动一个nginx</span></span><br><span class="line">docker run --name nginx --restart=always --network lnmp -p 80:80 -v /data/wwwroot:/data/wwwroot -d iuxt/nginx:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line">docker run --rm --network lnmp mysql:5.7.32 mysql -uroot -hmysql -pcom.012 -e <span class="string">&#x27;CREATE DATABASE `wordpress` CHARACTER SET &#x27;</span>utf8mb4<span class="string">&#x27; COLLATE &#x27;</span>utf8mb4_general_ci<span class="string">&#x27;;&#x27;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>devops</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>自动连接openvpn</title>
     <url>/2021/03/10/DevOps/%E8%87%AA%E5%8A%A8%E8%BF%9E%E6%8E%A5openvpn/</url>
     <content><![CDATA[<blockquote>
@@ -403,6 +517,38 @@
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dism和imagex</title>
+    <url>/2021/03/10/Windows/dism%E5%92%8Cimagex/</url>
+    <content><![CDATA[<blockquote>
+<p>imagex 和 dism 都是windows官方处理windows安装镜像wim文件的工具，其中dism是自带的，imagex是单文件，依赖简单</p>
+</blockquote>
+<h2 id="imagex"><a href="#imagex" class="headerlink" title="imagex"></a>imagex</h2><blockquote>
+<p>以下以将windows32位安装镜像和64位安装镜像整合为例</p>
+</blockquote>
+<h3 id="镜像导出合并"><a href="#镜像导出合并" class="headerlink" title="镜像导出合并"></a>镜像导出合并</h3><blockquote>
+<p>将64位镜像导出写入到32位镜像里</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /export install64.wim <span class="number">1</span> install32.wim &quot;Win7 homebasic x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">2</span> install32.wim &quot;win7 homepremium x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">3</span> install32.wim &quot;win7 professional x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">4</span> install32.wim &quot;win7 ultimate x64&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改镜像描述信息"><a href="#修改镜像描述信息" class="headerlink" title="修改镜像描述信息"></a>修改镜像描述信息</h3><blockquote>
+<p>修改前可以使用dism /get-wiminfo /wimfile:C:\xxxxxx.wim 查看镜像信息</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /info install32.wim <span class="number">1</span> &quot;Windows <span class="number">7</span> STARTER X86&quot; &quot;Windows <span class="number">7</span> 简易版&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">2</span> &quot;Windows <span class="number">7</span> HOMEBASIC X86&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">3</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X86&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">4</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X86&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">5</span> &quot;Windows <span class="number">7</span> ULTIMATE X86&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">6</span> &quot;Windows <span class="number">7</span> HOMEBASIC X64&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">7</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X64&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">8</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X64&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">9</span> &quot;Windows <span class="number">7</span> ULTIMATE X64&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">64</span>位&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dism"><a href="#dism" class="headerlink" title="dism"></a>dism</h2><h3 id="按大小拆分wim镜像"><a href="#按大小拆分wim镜像" class="headerlink" title="按大小拆分wim镜像"></a>按大小拆分wim镜像</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">dism /Split-Image /ImageFile:F:\sources\install.wim /SWMFile:D:\install.swm /FileSize:<span class="number">4096</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>swm是微软映像拆分文件</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>
@@ -443,54 +589,21 @@
         <category>devops</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>shell</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>dism和imagex</title>
-    <url>/2021/03/10/Windows/dism%E5%92%8Cimagex/</url>
-    <content><![CDATA[<blockquote>
-<p>imagex 和 dism 都是windows官方处理windows安装镜像wim文件的工具，其中dism是自带的，imagex是单文件，依赖简单</p>
+    <title>windows RE</title>
+    <url>/2021/03/10/Windows/windows-RE/</url>
+    <content><![CDATA[<h2 id="reagentc-命令"><a href="#reagentc-命令" class="headerlink" title="reagentc 命令"></a>reagentc 命令</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /disable       禁用windowsRE</span><br><span class="line">reagentc /enable        启用windowsRE</span><br><span class="line">reagentc /info          查看windowsRE状态</span><br><span class="line">reagentc /boottore      将系统配置为在下次系统启动时启动 Windows RE</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新启用windowsRE"><a href="#重新启用windowsRE" class="headerlink" title="重新启用windowsRE"></a>重新启用windowsRE</h2><blockquote>
+<p>因为各种原因，使用 reagentc /info 查看发现RE已经没有了，可以手动创建RE</p>
 </blockquote>
-<h2 id="imagex"><a href="#imagex" class="headerlink" title="imagex"></a>imagex</h2><blockquote>
-<p>以下以将windows32位安装镜像和64位安装镜像整合为例</p>
-</blockquote>
-<h3 id="镜像导出合并"><a href="#镜像导出合并" class="headerlink" title="镜像导出合并"></a>镜像导出合并</h3><blockquote>
-<p>将64位镜像导出写入到32位镜像里</p>
-</blockquote>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /export install64.wim <span class="number">1</span> install32.wim &quot;Win7 homebasic x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">2</span> install32.wim &quot;win7 homepremium x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">3</span> install32.wim &quot;win7 professional x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">4</span> install32.wim &quot;win7 ultimate x64&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改镜像描述信息"><a href="#修改镜像描述信息" class="headerlink" title="修改镜像描述信息"></a>修改镜像描述信息</h3><blockquote>
-<p>修改前可以使用dism /get-wiminfo /wimfile:C:\xxxxxx.wim 查看镜像信息</p>
-</blockquote>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /info install32.wim <span class="number">1</span> &quot;Windows <span class="number">7</span> STARTER X86&quot; &quot;Windows <span class="number">7</span> 简易版&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">2</span> &quot;Windows <span class="number">7</span> HOMEBASIC X86&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">3</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X86&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">4</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X86&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">5</span> &quot;Windows <span class="number">7</span> ULTIMATE X86&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">6</span> &quot;Windows <span class="number">7</span> HOMEBASIC X64&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">7</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X64&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">8</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X64&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">9</span> &quot;Windows <span class="number">7</span> ULTIMATE X64&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">64</span>位&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="dism"><a href="#dism" class="headerlink" title="dism"></a>dism</h2><h3 id="按大小拆分wim镜像"><a href="#按大小拆分wim镜像" class="headerlink" title="按大小拆分wim镜像"></a>按大小拆分wim镜像</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">dism /Split-Image /ImageFile:F:\sources\install.wim /SWMFile:D:\install.swm /FileSize:<span class="number">4096</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>swm是微软映像拆分文件</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-      <tags>
-        <tag>cmd</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows常用</title>
-    <url>/2021/03/10/Windows/windows%E5%B8%B8%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="smb操作"><a href="#smb操作" class="headerlink" title="smb操作"></a>smb操作</h2><h3 id="挂载smb"><a href="#挂载smb" class="headerlink" title="挂载smb"></a>挂载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: \\<span class="number">192</span>.<span class="number">168</span>.<span class="number">10</span>.<span class="number">163</span>\share &quot;&lt;密码&gt;&quot; /user:&quot;&lt;计算机名\用户名&gt;&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="卸载smb"><a href="#卸载smb" class="headerlink" title="卸载smb"></a>卸载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: /<span class="built_in">del</span> /y</span><br></pre></td></tr></table></figure>
-
-<h2 id="写入剪切板"><a href="#写入剪切板" class="headerlink" title="写入剪切板"></a>写入剪切板</h2><p>从文件写入</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">clip &lt; C:\Users\iuxt\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>直接写入</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">222</span> | clip</span><br></pre></td></tr></table></figure>
+<p>windows原版ISO镜像，打开其中的sources目录，用解压缩软件打开install.wim文件，然后再定位到windows/system32/recovery目录，提取 WinRE.wim 到 Recovery 分区 x:\Recovery\WindowsRE</p>
+<p>然后执行：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /setreimage /<span class="built_in">path</span> x:\Recovery\WindowsRE</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>windows</category>
@@ -519,16 +632,89 @@
       </tags>
   </entry>
   <entry>
-    <title>windows RE</title>
-    <url>/2021/03/10/Windows/windows-RE/</url>
-    <content><![CDATA[<h2 id="reagentc-命令"><a href="#reagentc-命令" class="headerlink" title="reagentc 命令"></a>reagentc 命令</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /disable       禁用windowsRE</span><br><span class="line">reagentc /enable        启用windowsRE</span><br><span class="line">reagentc /info          查看windowsRE状态</span><br><span class="line">reagentc /boottore      将系统配置为在下次系统启动时启动 Windows RE</span><br></pre></td></tr></table></figure>
+    <title>docker常用</title>
+    <url>/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><h3 id="官方安装脚本"><a href="#官方安装脚本" class="headerlink" title="官方安装脚本"></a>官方安装脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br></pre></td></tr></table></figure>
 
-<h2 id="重新启用windowsRE"><a href="#重新启用windowsRE" class="headerlink" title="重新启用windowsRE"></a>重新启用windowsRE</h2><blockquote>
-<p>因为各种原因，使用 reagentc /info 查看发现RE已经没有了，可以手动创建RE</p>
+<h3 id="阿里云安装（centos）"><a href="#阿里云安装（centos）" class="headerlink" title="阿里云安装（centos）"></a>阿里云安装（centos）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo systemctl start docker.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/bin/docker-compose &amp;&amp; sudo chmod +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="免root执行docker命令"><a href="#免root执行docker命令" class="headerlink" title="免root执行docker命令"></a>免root执行docker命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>顺便确定一下sock文件有没有权限（默认是有的）, 退出账户重新登录一下即可生效</p>
 </blockquote>
-<p>windows原版ISO镜像，打开其中的sources目录，用解压缩软件打开install.wim文件，然后再定位到windows/system32/recovery目录，提取 WinRE.wim 到 Recovery 分区 x:\Recovery\WindowsRE</p>
-<p>然后执行：</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /setreimage /<span class="built_in">path</span> x:\Recovery\WindowsRE</span><br></pre></td></tr></table></figure>
+<h2 id="阿里云Docker加速"><a href="#阿里云Docker加速" class="headerlink" title="阿里云Docker加速"></a>阿里云Docker加速</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/docker &amp;&amp; tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="一次性删除所有的容器"><a href="#一次性删除所有的容器" class="headerlink" title="一次性删除所有的容器"></a>一次性删除所有的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rm -f `docker ps -aq`</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除所有的镜像"><a href="#一次性删除所有的镜像" class="headerlink" title="一次性删除所有的镜像"></a>一次性删除所有的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rmi `docker image ls | awk <span class="string">&#x27;&#123;print $1 &quot;:&quot; $2&#125;&#x27;</span>`</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除未打标签的镜像"><a href="#一次性删除未打标签的镜像" class="headerlink" title="一次性删除未打标签的镜像"></a>一次性删除未打标签的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker image ls | grep none | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span> | xargs docker rmi</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除所有volume"><a href="#一次性删除所有volume" class="headerlink" title="一次性删除所有volume"></a>一次性删除所有volume</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker volume rm `docker volume ls -q`</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker进入容器"><a href="#Docker进入容器" class="headerlink" title="Docker进入容器"></a>Docker进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name test_ubuntu -it ubuntu /bin/bash</span><br><span class="line">启动一个容器并打开shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重看容器详情</span></span><br><span class="line">docker inspect 容器id或名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重看docker详情</span></span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it 镜像名字 /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入一个运行中的容器"><a href="#进入一个运行中的容器" class="headerlink" title="进入一个运行中的容器"></a>进入一个运行中的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="打tag"><a href="#打tag" class="headerlink" title="打tag"></a>打tag</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag 镜像id oldboy1103/alpine:latest</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器备份还原"><a href="#容器备份还原" class="headerlink" title="容器备份还原"></a>容器备份还原</h2><h3 id="镜像的备份还原"><a href="#镜像的备份还原" class="headerlink" title="镜像的备份还原"></a>镜像的备份还原</h3><ol>
+<li><p>commit将容器保存成镜像</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将镜像导出成tar (镜像是分层的,可以回滚,)</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker save -o ./backup.tar gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从tar导入镜像（镜像备份下来的tar）</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker load -i ./backup.tar</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>注意：以上会备份镜像的多层。</p>
+</blockquote>
+<h3 id="容器的备份还原"><a href="#容器的备份还原" class="headerlink" title="容器的备份还原"></a>容器的备份还原</h3><ol>
+<li><p>备份容器</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> php &gt; phprongqi.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还原成镜像</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker import ./phprongqi.tar php</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>注意：备份的只是一层镜像</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>devops</category>
+      </categories>
+      <tags>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows常用</title>
+    <url>/2021/03/10/Windows/windows%E5%B8%B8%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="smb操作"><a href="#smb操作" class="headerlink" title="smb操作"></a>smb操作</h2><h3 id="挂载smb"><a href="#挂载smb" class="headerlink" title="挂载smb"></a>挂载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: \\<span class="number">192</span>.<span class="number">168</span>.<span class="number">10</span>.<span class="number">163</span>\share &quot;&lt;密码&gt;&quot; /user:&quot;&lt;计算机名\用户名&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载smb"><a href="#卸载smb" class="headerlink" title="卸载smb"></a>卸载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: /<span class="built_in">del</span> /y</span><br></pre></td></tr></table></figure>
+
+<h2 id="写入剪切板"><a href="#写入剪切板" class="headerlink" title="写入剪切板"></a>写入剪切板</h2><p>从文件写入</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">clip &lt; C:\Users\iuxt\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>直接写入</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">222</span> | clip</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>windows</category>
@@ -585,6 +771,70 @@
       </tags>
   </entry>
   <entry>
+    <title>wsl</title>
+    <url>/2021/03/11/Windows/wsl/</url>
+    <content><![CDATA[<h2 id="文件共享访问"><a href="#文件共享访问" class="headerlink" title="文件共享访问"></a>文件共享访问</h2><h3 id="windows-访问-wsl"><a href="#windows-访问-wsl" class="headerlink" title="windows 访问 wsl"></a>windows 访问 wsl</h3><p>win + r 输入 <code>\\wsl$</code></p>
+<h3 id="wsl-访问-windows"><a href="#wsl-访问-windows" class="headerlink" title="wsl 访问 windows"></a>wsl 访问 windows</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --export centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动指定发行版"><a href="#启动指定发行版" class="headerlink" title="启动指定发行版"></a>启动指定发行版</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定用户启动"><a href="#指定用户启动" class="headerlink" title="指定用户启动"></a>指定用户启动</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d ubuntu -u root</span><br></pre></td></tr></table></figure>
+
+<h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>win+r  输入 <code>shell:startup</code>写一个<code>wsl_start.bat</code>内容如下</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d Ubuntu -u root /etc/init.d/ssh <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改默认用户为root"><a href="#修改默认用户为root" class="headerlink" title="修改默认用户为root"></a>修改默认用户为root</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="variable">%localappdata%</span>\Microsoft\WindowsApps\ubuntu.exe config --default-user root</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据你的发行版决定</p>
+</blockquote>
+<h2 id="安装想要的发行版"><a href="#安装想要的发行版" class="headerlink" title="安装想要的发行版"></a>安装想要的发行版</h2><blockquote>
+<p>这里以centos为例</p>
+</blockquote>
+<p>首先需要docker环境，执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name centos7 centos:centos7</span><br></pre></td></tr></table></figure>
+
+<p>然后将容器导出</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> centos7 &gt; centos7.tar</span><br></pre></td></tr></table></figure>
+
+<p>然后在windows上导入</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<p>启动发行版</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
+
+<p>卸载发行版</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --unregister centos7</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>右键菜单添加md5、sha1校验</title>
+    <url>/2021/03/11/Windows/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0md5%E3%80%81sha1%E6%A0%A1%E9%AA%8C/</url>
+    <content><![CDATA[<blockquote>
+<p>此方法依赖powershell, win10没问题，win7没测试</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验文件 Hash&quot;</span><br><span class="line">&quot;SubCommands&quot;=&quot;&quot;</span><br><span class="line">&quot;Icon&quot;=&quot;PowerShell.exe&quot;</span><br><span class="line"></span><br><span class="line">; SHA1</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA1&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA256</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA256&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA384</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA384&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA512</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA512&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MACTripleDES</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MACTripleDES&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MD5</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MD5&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; RIPEMD160</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;RIPEMD160&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; Allget-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu]</span><br><span class="line">&quot;CommandFlags&quot;=dword:<span class="number">00000020</span></span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验全部&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不过要注意的是，自己复制代码保存时，编码必须选择“<strong>UTF-16 LE</strong>”格式，否则右键菜单的中文会乱码。</p>
+</blockquote>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[-HKEY_CLASSES_ROOT\*\shell\hash]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>reg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用bat脚本</title>
     <url>/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
@@ -630,256 +880,6 @@
       </categories>
       <tags>
         <tag>bat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wsl</title>
-    <url>/2021/03/11/Windows/wsl/</url>
-    <content><![CDATA[<h2 id="文件共享访问"><a href="#文件共享访问" class="headerlink" title="文件共享访问"></a>文件共享访问</h2><h3 id="windows-访问-wsl"><a href="#windows-访问-wsl" class="headerlink" title="windows 访问 wsl"></a>windows 访问 wsl</h3><p>win + r 输入 <code>\\wsl$</code></p>
-<h3 id="wsl-访问-windows"><a href="#wsl-访问-windows" class="headerlink" title="wsl 访问 windows"></a>wsl 访问 windows</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --export centos7 centos7.tar</span><br></pre></td></tr></table></figure>
-
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动指定发行版"><a href="#启动指定发行版" class="headerlink" title="启动指定发行版"></a>启动指定发行版</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
-
-<h3 id="指定用户启动"><a href="#指定用户启动" class="headerlink" title="指定用户启动"></a>指定用户启动</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d ubuntu -u root</span><br></pre></td></tr></table></figure>
-
-<h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>win+r  输入 <code>shell:startup</code>写一个<code>wsl_start.bat</code>内容如下</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d Ubuntu -u root /etc/init.d/ssh <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改默认用户为root"><a href="#修改默认用户为root" class="headerlink" title="修改默认用户为root"></a>修改默认用户为root</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="variable">%localappdata%</span>\Microsoft\WindowsApps\ubuntu.exe config --default-user root</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>根据你的发行版决定</p>
-</blockquote>
-<h2 id="安装想要的发行版"><a href="#安装想要的发行版" class="headerlink" title="安装想要的发行版"></a>安装想要的发行版</h2><blockquote>
-<p>这里以centos为例</p>
-</blockquote>
-<p>首先需要docker环境，执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name centos7 centos:centos7</span><br></pre></td></tr></table></figure>
-
-<p>然后将容器导出</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> centos7 &gt; centos7.tar</span><br></pre></td></tr></table></figure>
-
-<p>然后在windows上导入</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
-
-<p>启动发行版</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
-
-<p>卸载发行版</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --unregister centos7</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>oh my zsh</title>
-    <url>/2021/03/05/%E7%9E%8E%E6%8D%A3%E9%BC%93/oh%20my%20zsh/</url>
-    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>github地址：<a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install zsh</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>vim ~/.zshrc</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h3 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h3><p>oh my zsh 很多主题需要的字体，github地址：<br><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
-<p>powerline 字体预览<br><a href="https://github.com/powerline/fonts/blob/master/samples/All.md">https://github.com/powerline/fonts/blob/master/samples/All.md</a></p>
-<p>快速安装</p>
-<ul>
-<li>linux</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install fonts-powerline</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>windows</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/powerline/fonts.git</span><br><span class="line">执行 install.ps1</span><br></pre></td></tr></table></figure>
-
-<h3 id="cascadia-code"><a href="#cascadia-code" class="headerlink" title="cascadia-code"></a>cascadia-code</h3><p>来自微软官方的字体，github地址：<br><a href="https://github.com/microsoft/cascadia-code">https://github.com/microsoft/cascadia-code</a></p>
-<blockquote>
-<p>名字带<code>PL</code>的才是powerline字体</p>
-</blockquote>
-<h2 id="windows-terminal配置"><a href="#windows-terminal配置" class="headerlink" title="windows terminal配置"></a>windows terminal配置</h2><ul>
-<li>改字体</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;fontFace&quot;: &quot;Cascadia Code PL&quot;,</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>改配色</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;ayu&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#ff3333&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#b8cc52&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#e7c547&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#36a3d9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#f07178&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#95e6cb&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#323232&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#ff6565&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#eafe84&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#fff779&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#68d5ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#ffa3aa&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#c7fffd&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#0f1419&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#e6e1cf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#f29718&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selectionBackground&quot;</span>: <span class="string">&quot;#253340&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h2><p>修改字体为<code>Cascadia Mono PL</code>并重启</p>
-]]></content>
-      <categories>
-        <category>瞎捣鼓</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>右键菜单添加md5、sha1校验</title>
-    <url>/2021/03/11/Windows/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0md5%E3%80%81sha1%E6%A0%A1%E9%AA%8C/</url>
-    <content><![CDATA[<blockquote>
-<p>此方法依赖powershell, win10没问题，win7没测试</p>
-</blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验文件 Hash&quot;</span><br><span class="line">&quot;SubCommands&quot;=&quot;&quot;</span><br><span class="line">&quot;Icon&quot;=&quot;PowerShell.exe&quot;</span><br><span class="line"></span><br><span class="line">; SHA1</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA1&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA256</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA256&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA384</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA384&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA512</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA512&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MACTripleDES</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MACTripleDES&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MD5</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MD5&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; RIPEMD160</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;RIPEMD160&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; Allget-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu]</span><br><span class="line">&quot;CommandFlags&quot;=dword:<span class="number">00000020</span></span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验全部&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>不过要注意的是，自己复制代码保存时，编码必须选择“<strong>UTF-16 LE</strong>”格式，否则右键菜单的中文会乱码。</p>
-</blockquote>
-<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[-HKEY_CLASSES_ROOT\*\shell\hash]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>windows</category>
-      </categories>
-      <tags>
-        <tag>reg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo</title>
-    <url>/2021/02/02/%E7%9E%8E%E6%8D%A3%E9%BC%93/hexo/</url>
-    <content><![CDATA[<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>首先安装nodejs，然后修改成国内源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<p>安装hexo</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>初始化</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init new</span><br></pre></td></tr></table></figure>
-
-<p>修改为中文<br>vim _config.yml</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">张理坤的博客</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;杂烩饭好吃&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;别浪费时间&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">张理坤</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h2><p>github地址：<a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-
-<p>修改theme配置文件 vim next/_config.yml<br><code>scheme: Pisces</code></p>
-<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>然后主题配置文件next/_config.yml<br><code>local_search:</code>标签，配置参数<code>enable: true</code></p>
-<h2 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h2><blockquote>
-<p>git 地址： <a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md">https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md</a></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br><span class="line">npm install --save live2d-widget-model-epsilon2_1</span><br></pre></td></tr></table></figure>
-
-<p>在 next/_config.yml 添加下面配置</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">log:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-epsilon2_1</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">react:</span></span><br><span class="line">    <span class="attr">opacity:</span> <span class="number">0.7</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>module.use里面的和你安装的要一样</p>
-</blockquote>
-<h2 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h2><ul>
-<li>将图片放入 博客目录/themes/next/source/images，并重命名为 avatar.[格式]</li>
-<li>编辑主题配置文件_config.yml<br><code>vim 博客目录/themes/next/_config.yml</code></li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span> <span class="string">/images/avatar.png</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="添加分类和标签"><a href="#添加分类和标签" class="headerlink" title="添加分类和标签"></a>添加分类和标签</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p><code>hexo new page categories</code><br>成功后会提示：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/categories/index.md</span><br></pre></td></tr></table></figure>
-
-<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>添加type: “categories”到内容中，添加后是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>保存并关闭文件。</p>
-<p>给文章添加“categories”属性<br>打开需要添加分类的文章，为其添加categories属性。<br>注意：hexo一篇文章只能属于一个分类，如果写两个分类，则是给分类嵌套</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> DevOps</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。<br>当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>生成“标签”页并添加tpye属性<br>打开命令行，进入博客所在文件夹。执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
-
-<p>成功后会提示：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/<span class="built_in">source</span>/tags/index.md</span><br></pre></td></tr></table></figure>
-
-<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2017-05-27 14:22:08</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>添加type: “tags”到内容中，添加后是这样的：</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2017-05-27 13:47:40</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>保存并关闭文件。</p>
-<p>给文章添加“tags”属性<br>打开需要添加标签的文章，为其添加tags属性。下方的tags:下方的- jQuery-表格-表单验证就是这篇文章的标签了</p>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: jQuery对表单的操作及更多应用</span><br><span class="line">date: 2017-05-26 12:12:57</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> web前端</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> jQuery</span><br><span class="line"><span class="bullet">-</span> 表格</span><br><span class="line"><span class="bullet">-</span> 表单验证</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>至此，成功给文章添加分类，点击首页的“标签”可以看到该标签下的所有文章。<br>当然，只有添加了tags: xxx的文章才会被收录到首页的“标签”中。</p>
-<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><ol>
-<li><p>在<code>source</code>目录添加<code>CNAME</code>文件，文件内容是你的域名</p>
-</li>
-<li><p>添加解析CNAME到github的域名</p>
-</li>
-</ol>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="新创建文章"><a href="#新创建文章" class="headerlink" title="新创建文章"></a>新创建文章</h3><p><code>hexo new &lt;标题&gt;</code></p>
-<p>然后编辑 <code>vim source/_posts/&lt;标题&gt;.md</code></p>
-<h3 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h3><p><code>hexo s</code></p>
-<h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>安装git插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>修改hexo配置文件 vim hexo/_config.yml，配置git地址</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">&#x27;git@gitee.com:iuxt/iuxt.git&#x27;</span>, <span class="string">&#x27;git@github.com:iuxt/iuxt.github.io.git&#x27;</span>]</span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">&#x27;hexo update&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>发布</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>瞎捣鼓</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>termux</title>
-    <url>/2021/03/01/%E7%9E%8E%E6%8D%A3%E9%BC%93/termux/</url>
-    <content><![CDATA[<blockquote>
-<p>termux 是安卓平台模拟linux环境的工具，可以运行常用的linux工具</p>
-</blockquote>
-<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><h3 id="修改安装源"><a href="#修改安装源" class="headerlink" title="修改安装源"></a>修改安装源</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">termux-change-repo</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改用户环境变量"><a href="#修改用户环境变量" class="headerlink" title="修改用户环境变量"></a>修改用户环境变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; ~/.profile &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -al&#x27;</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<h3 id="虚拟根目录"><a href="#虚拟根目录" class="headerlink" title="虚拟根目录"></a>虚拟根目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$PREFIX</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://github.com/Cabbagec/termux-ohmyzsh/raw/master/install.sh)</span>&quot;</span>  </span><br></pre></td></tr></table></figure>
-
-<h3 id="登录提示语"><a href="#登录提示语" class="headerlink" title="登录提示语"></a>登录提示语</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim <span class="variable">$PREFIX</span>/etc/motd</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以配合screenfetch食用</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg install screenfetch</span><br></pre></td></tr></table></figure>
-
-<h3 id="定制屏幕上的按键"><a href="#定制屏幕上的按键" class="headerlink" title="定制屏幕上的按键"></a>定制屏幕上的按键</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.termux/termux.properties</span><br><span class="line"></span><br><span class="line">extra-keys = [ \</span><br><span class="line"> [<span class="string">&#x27;ESC&#x27;</span>,<span class="string">&#x27;|&#x27;</span>,<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27;`&#x27;</span>,<span class="string">&#x27;UP&#x27;</span>,<span class="string">&#x27;$&#x27;</span>,<span class="string">&#x27;APOSTROPHE&#x27;</span>], \</span><br><span class="line"> [<span class="string">&#x27;TAB&#x27;</span>,<span class="string">&#x27;CTRL&#x27;</span>,<span class="string">&#x27;~&#x27;</span>,<span class="string">&#x27;LEFT&#x27;</span>,<span class="string">&#x27;DOWN&#x27;</span>,<span class="string">&#x27;RIGHT&#x27;</span>,<span class="string">&#x27;ENTER&#x27;</span>] \</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><h3 id="pkg"><a href="#pkg" class="headerlink" title="pkg"></a>pkg</h3><blockquote>
-<p>Termux除了支持apt命令外,还在此基础上封装了pkg命令,pkg命令向下兼容apt命令</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg search &lt;query&gt;              搜索包</span><br><span class="line">pkg install &lt;package&gt;           安装包</span><br><span class="line">pkg uninstall &lt;package&gt;         卸载包</span><br><span class="line">pkg reinstall &lt;package&gt;         重新安装包</span><br><span class="line">pkg update                      更新源</span><br><span class="line">pkg upgrade                     升级软件包</span><br><span class="line">pkg list-all                    列出可供安装的所有包</span><br><span class="line">pkg list-installed              列出已经安装的包</span><br><span class="line">pkg shoe &lt;package&gt;              显示某个包的详细信息</span><br><span class="line">pkg files &lt;package&gt;             显示某个包的相关文件夹路径</span><br></pre></td></tr></table></figure>
-
-<h3 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h3><p>参考 ubuntu 的 apt</p>
-<h3 id="安装常用工具"><a href="#安装常用工具" class="headerlink" title="安装常用工具"></a>安装常用工具</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg update &amp;&amp; pkg install -y git vim openssh curl wget python tar</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他玩法"><a href="#其他玩法" class="headerlink" title="其他玩法"></a>其他玩法</h2><h3 id="安装ubuntu系统"><a href="#安装ubuntu系统" class="headerlink" title="安装ubuntu系统"></a><del>安装ubuntu系统</del></h3><blockquote>
-<p>感觉没什么必要安装ubuntu了</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg install wget openssl-tool proot -y &amp;&amp; <span class="built_in">hash</span> -r &amp;&amp; wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh &amp;&amp; bash ubuntu.sh</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>瞎捣鼓</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>android</tag>
       </tags>
   </entry>
 </search>
