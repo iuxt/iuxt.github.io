@@ -1,233 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>dism和imagex</title>
-    <url>/2021/03/10/Windows/dism%E5%92%8Cimagex/</url>
-    <content><![CDATA[<blockquote>
-<p>imagex 和 dism 都是windows官方处理windows安装镜像wim文件的工具，其中dism是自带的，imagex是单文件，依赖简单</p>
-</blockquote>
-<h2 id="imagex"><a href="#imagex" class="headerlink" title="imagex"></a>imagex</h2><blockquote>
-<p>以下以将windows32位安装镜像和64位安装镜像整合为例</p>
-</blockquote>
-<h3 id="镜像导出合并"><a href="#镜像导出合并" class="headerlink" title="镜像导出合并"></a>镜像导出合并</h3><blockquote>
-<p>将64位镜像导出写入到32位镜像里</p>
-</blockquote>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /export install64.wim <span class="number">1</span> install32.wim &quot;Win7 homebasic x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">2</span> install32.wim &quot;win7 homepremium x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">3</span> install32.wim &quot;win7 professional x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">4</span> install32.wim &quot;win7 ultimate x64&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改镜像描述信息"><a href="#修改镜像描述信息" class="headerlink" title="修改镜像描述信息"></a>修改镜像描述信息</h3><blockquote>
-<p>修改前可以使用dism /get-wiminfo /wimfile:C:\xxxxxx.wim 查看镜像信息</p>
-</blockquote>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /info install32.wim <span class="number">1</span> &quot;Windows <span class="number">7</span> STARTER X86&quot; &quot;Windows <span class="number">7</span> 简易版&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">2</span> &quot;Windows <span class="number">7</span> HOMEBASIC X86&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">3</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X86&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">4</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X86&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">5</span> &quot;Windows <span class="number">7</span> ULTIMATE X86&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">6</span> &quot;Windows <span class="number">7</span> HOMEBASIC X64&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">7</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X64&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">8</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X64&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">9</span> &quot;Windows <span class="number">7</span> ULTIMATE X64&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">64</span>位&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="dism"><a href="#dism" class="headerlink" title="dism"></a>dism</h2><h3 id="按大小拆分wim镜像"><a href="#按大小拆分wim镜像" class="headerlink" title="按大小拆分wim镜像"></a>按大小拆分wim镜像</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">dism /Split-Image /ImageFile:F:\sources\install.wim /SWMFile:D:\install.swm /FileSize:<span class="number">4096</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>swm是微软映像拆分文件</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>cmd</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows RE</title>
-    <url>/2021/03/10/Windows/windows-RE/</url>
-    <content><![CDATA[<h2 id="reagentc-命令"><a href="#reagentc-命令" class="headerlink" title="reagentc 命令"></a>reagentc 命令</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /disable       禁用windowsRE</span><br><span class="line">reagentc /enable        启用windowsRE</span><br><span class="line">reagentc /info          查看windowsRE状态</span><br><span class="line">reagentc /boottore      将系统配置为在下次系统启动时启动 Windows RE</span><br></pre></td></tr></table></figure>
-
-<h2 id="重新启用windowsRE"><a href="#重新启用windowsRE" class="headerlink" title="重新启用windowsRE"></a>重新启用windowsRE</h2><blockquote>
-<p>因为各种原因，使用 reagentc /info 查看发现RE已经没有了，可以手动创建RE</p>
-</blockquote>
-<p>windows原版ISO镜像，打开其中的sources目录，用解压缩软件打开install.wim文件，然后再定位到windows/system32/recovery目录，提取 WinRE.wim 到 Recovery 分区 x:\Recovery\WindowsRE</p>
-<p>然后执行：</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /setreimage /<span class="built_in">path</span> x:\Recovery\WindowsRE</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>wsl</title>
-    <url>/2021/03/11/Windows/wsl/</url>
-    <content><![CDATA[<h2 id="文件共享访问"><a href="#文件共享访问" class="headerlink" title="文件共享访问"></a>文件共享访问</h2><h3 id="windows-访问-wsl"><a href="#windows-访问-wsl" class="headerlink" title="windows 访问 wsl"></a>windows 访问 wsl</h3><p>win + r 输入 <code>\\wsl$</code></p>
-<h3 id="wsl-访问-windows"><a href="#wsl-访问-windows" class="headerlink" title="wsl 访问 windows"></a>wsl 访问 windows</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --export centos7 centos7.tar</span><br></pre></td></tr></table></figure>
-
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动指定发行版"><a href="#启动指定发行版" class="headerlink" title="启动指定发行版"></a>启动指定发行版</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
-
-<h3 id="指定用户启动"><a href="#指定用户启动" class="headerlink" title="指定用户启动"></a>指定用户启动</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d ubuntu -u root</span><br></pre></td></tr></table></figure>
-
-<h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>win+r  输入 <code>shell:startup</code>写一个<code>wsl_start.bat</code>内容如下</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d Ubuntu -u root /etc/init.d/ssh <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改默认用户为root"><a href="#修改默认用户为root" class="headerlink" title="修改默认用户为root"></a>修改默认用户为root</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="variable">%localappdata%</span>\Microsoft\WindowsApps\ubuntu.exe config --default-user root</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>根据你的发行版决定</p>
-</blockquote>
-<h2 id="安装想要的发行版"><a href="#安装想要的发行版" class="headerlink" title="安装想要的发行版"></a>安装想要的发行版</h2><blockquote>
-<p>这里以centos为例</p>
-</blockquote>
-<p>首先需要docker环境，执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name centos7 centos:centos7</span><br></pre></td></tr></table></figure>
-
-<p>然后将容器导出</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> centos7 &gt; centos7.tar</span><br></pre></td></tr></table></figure>
-
-<p>然后在windows上导入</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
-
-<p>启动发行版</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
-
-<p>卸载发行版</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --unregister centos7</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>awk</title>
-    <url>/2021/03/14/DevOps/awk/</url>
-    <content><![CDATA[<h2 id="awk-交换一个文件的两列"><a href="#awk-交换一个文件的两列" class="headerlink" title="awk 交换一个文件的两列"></a>awk 交换一个文件的两列</h2><p>比如文件<code>test.txt</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a;b;c</span><br><span class="line">d;e;f</span><br><span class="line">1;2;3</span><br><span class="line">4;5;6</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk -F <span class="string">&#x27;;&#x27;</span> <span class="string">&#x27;&#123;printf(&quot;%s;%s;%s\n&quot;,$3,$2,$1)&#125;&#x27;</span> test.txt</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk -F <span class="string">&#x27;;&#x27;</span> <span class="string">&#x27;&#123;temp = $3 ; $3 = $1; $1 = temp&#125;1&#x27;</span> OFS=<span class="string">&#x27;;&#x27;</span> test.txt</span><br><span class="line"></span><br><span class="line">这里的1 和 &#123;<span class="built_in">print</span>&#125;是一样的, OFS代表分隔符。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows系统文件目录</title>
-    <url>/2021/03/10/Windows/windows%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="开始菜单"><a href="#开始菜单" class="headerlink" title="开始菜单"></a>开始菜单</h2><p>全局位置：<code>C:\ProgramData\Microsoft\Windows\Start Menu</code><br>个人位置：<code>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu</code></p>
-<h2 id="windows-update-更新缓存"><a href="#windows-update-更新缓存" class="headerlink" title="windows update 更新缓存"></a>windows update 更新缓存</h2><p><code>C:\Windows\SoftwareDistribution\Download</code></p>
-<h2 id="oem-信息"><a href="#oem-信息" class="headerlink" title="oem 信息"></a>oem 信息</h2><h3 id="添加oem信息"><a href="#添加oem信息" class="headerlink" title="添加oem信息"></a>添加oem信息</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> logo.bmp <span class="variable">%windir%</span>\media\logo.bmp</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportURL&quot; /t REG_SZ /d &quot;http://blog.sina.com.cn/iuxt&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;Model&quot; /t REG_SZ /d &quot;iuxt&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportHours&quot; /t REG_SZ /d &quot;<span class="number">8</span>:<span class="number">00</span>-<span class="number">22</span>:<span class="number">00</span>&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportPhone&quot; /t REG_SZ /d &quot;<span class="number">17621268822</span>&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;Logo&quot; /t REG_SZ /d &quot;C:\Windows\Media\logo.bmp&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;Manufacturer&quot; /t REG_SZ /d &quot;张理坤&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除OEM信息"><a href="#删除OEM信息" class="headerlink" title="删除OEM信息"></a>删除OEM信息</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f</span><br></pre></td></tr></table></figure>
-
-<h2 id="侧边栏的网盘链接（OneDrive等）"><a href="#侧边栏的网盘链接（OneDrive等）" class="headerlink" title="侧边栏的网盘链接（OneDrive等）"></a>侧边栏的网盘链接（OneDrive等）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace</span><br></pre></td></tr></table></figure>
-
-<h2 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h2><h3 id="注册表位置"><a href="#注册表位置" class="headerlink" title="注册表位置"></a>注册表位置</h3><h4 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br></pre></td></tr></table></figure>
-
-<h4 id="个人"><a href="#个人" class="headerlink" title="个人"></a>个人</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</span><br></pre></td></tr></table></figure>
-
-<h4 id="只运行一次"><a href="#只运行一次" class="headerlink" title="只运行一次"></a>只运行一次</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>新建字符串值–数值名称任意,数值数据为要启动的程序路径,如C:\Program Files (x86)\WinHotKey\WinHotKey.exe<br>或者命令行创建 <code>reg add &quot;HKLM\Software\Microsoft\Windows\CurrentVersion\Run&quot; /f /v &quot;数值名称&quot; /t REG_SZ /d &quot;程序启动路径&quot;</code></p>
-</blockquote>
-<h3 id="文件位置（开始菜单的startup文件夹）"><a href="#文件位置（开始菜单的startup文件夹）" class="headerlink" title="文件位置（开始菜单的startup文件夹）"></a>文件位置（开始菜单的startup文件夹）</h3><h4 id="系统启动文件夹"><a href="#系统启动文件夹" class="headerlink" title="系统启动文件夹"></a>系统启动文件夹</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</span><br></pre></td></tr></table></figure>
-
-<h4 id="个人启动文件夹"><a href="#个人启动文件夹" class="headerlink" title="个人启动文件夹"></a>个人启动文件夹</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\你的Windows用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>快速进入 startup 文件夹<br>win+r 输入 shell:startup</p>
-</blockquote>
-<h2 id="登录界面不显示用户"><a href="#登录界面不显示用户" class="headerlink" title="登录界面不显示用户"></a>登录界面不显示用户</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList]</span><br><span class="line">&quot;administrator&quot;&#x3D;dword:00000000</span><br></pre></td></tr></table></figure>
-
-<h2 id="IE主页"><a href="#IE主页" class="headerlink" title="IE主页"></a>IE主页</h2><h3 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main&quot; /v &quot;<span class="built_in">Start</span> Page&quot; /t reg_sz /d http://www.<span class="number">2345</span>.com/?k393991732 /f</span><br></pre></td></tr></table></figure>
-
-<h3 id="系统主页"><a href="#系统主页" class="headerlink" title="系统主页"></a>系统主页</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKU\.DEFAULT\Software\Microsoft\Internet Explorer\Main&quot; /f /v &quot;<span class="built_in">Start</span> Page&quot; /t REG_SZ /d &quot;http://www.<span class="number">2345</span>.com/?k393991732&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="默认主页"><a href="#默认主页" class="headerlink" title="默认主页"></a>默认主页</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main&quot; /v &quot;Default_Page_URL&quot; /t reg_sz /d http://www.<span class="number">2345</span>.com/?k393991732 /f</span><br></pre></td></tr></table></figure>
-
-<h2 id="Windows-Defender"><a href="#Windows-Defender" class="headerlink" title="Windows Defender"></a>Windows Defender</h2><p>关闭Windows Defender</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender&quot; /v &quot;DisableAntiSpyware&quot; /d <span class="number">1</span> /t REG_DWORD /f</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这种方法和直接修改组策略是一样的，家庭版不支持组策略可以使用这种方式</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>cmd</tag>
-        <tag>注册表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>右键菜单添加md5、sha1校验</title>
-    <url>/2021/03/11/Windows/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0md5%E3%80%81sha1%E6%A0%A1%E9%AA%8C/</url>
-    <content><![CDATA[<blockquote>
-<p>此方法依赖powershell, win10没问题，win7没测试</p>
-</blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验文件 Hash&quot;</span><br><span class="line">&quot;SubCommands&quot;=&quot;&quot;</span><br><span class="line">&quot;Icon&quot;=&quot;PowerShell.exe&quot;</span><br><span class="line"></span><br><span class="line">; SHA1</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA1&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA256</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA256&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA384</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA384&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA512</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA512&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MACTripleDES</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MACTripleDES&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MD5</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MD5&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; RIPEMD160</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;RIPEMD160&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; Allget-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu]</span><br><span class="line">&quot;CommandFlags&quot;=dword:<span class="number">00000020</span></span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验全部&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>不过要注意的是，自己复制代码保存时，编码必须选择“<strong>UTF-16 LE</strong>”格式，否则右键菜单的中文会乱码。</p>
-</blockquote>
-<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[-HKEY_CLASSES_ROOT\*\shell\hash]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>reg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用bat脚本</title>
-    <url>/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
-
-<h2 id="bat脚本获取管理员权限"><a href="#bat脚本获取管理员权限" class="headerlink" title="bat脚本获取管理员权限"></a>bat脚本获取管理员权限</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="输出控制台不换行"><a href="#输出控制台不换行" class="headerlink" title="输出控制台不换行"></a>输出控制台不换行</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="隐藏bat窗口"><a href="#隐藏bat窗口" class="headerlink" title="隐藏bat窗口"></a>隐藏bat窗口</h2><ul>
-<li>第一种方法:<br>在你写的批处理文件，开头加上以下三行代码即可</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;hide&quot; <span class="keyword">goto</span> CmdBegin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~<span class="number">0</span>&quot;&quot; hide&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:CmdBegin</span><br><span class="line"><span class="comment">REM 脚本内容</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>第二种解决办法:<br>比如你的批处理文件，名字为 test.bat</li>
-</ul>
-<p>创建 backrun.vbs</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">createobject(&quot;wscript.shell&quot;).run &quot;test.bat&quot;,<span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">可以打开任务管理器，会发现有一个 叫 <span class="built_in">cmd</span> 的进程在运行，就是我们批处理文件的进程了；结束进程的话，直接在任务管理器上，结束该 <span class="built_in">cmd</span> 进程即可</span><br><span class="line"></span><br><span class="line">## 服务操作</span><br><span class="line"></span><br><span class="line">&gt; windows服务操作命令有sc和<span class="built_in">net</span> 两个命令;</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">sc stop serviceName</span><br><span class="line">sc <span class="built_in">start</span> serviceName</span><br><span class="line">sc config AcronisActiveProtectionService <span class="built_in">start</span>= disabled</span><br><span class="line">sc create npc <span class="built_in">start</span>=auto binPath=&quot;C:\<span class="number">1</span>\npc\npc.exe -server=note.iuxt.top:<span class="number">10000</span> -vkey=ibtbrp5e3uc9lonq -<span class="built_in">type</span>=tcp&quot; DisplayName=&quot;npc内网穿透服务&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop serviceName</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> serviceName</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>虽然2个都能达到停止服务和启动服务的效果，但是在重启服务时，就是使用批处理先stop后start来实现重启时，如果服务处于启动状态使用sc的stop后start，结果服务不能启动，因为sc命令在执行stop后不会等待，而是继续执行批处理下面的语句，这时服务正在处于停止操作状态，所以start命令不能启动。net命令在stop时会停止等待，在服务完全停止后再继续执行批处理后面的语句，所以net的重启命令就会正常。</p>
-</blockquote>
-<h2 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /f /im Xshell*</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除注册表"><a href="#删除注册表" class="headerlink" title="删除注册表"></a>删除注册表</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Microsoft\NetLicense&quot; /f</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Classes\.xdts&quot; /f /ve /d &quot;Xmanager.session&quot; &gt;<span class="built_in">NUL</span> <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rd</span>/s/q &quot;<span class="variable">%ProgramData%</span>\FLEXnet&quot; <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br><span class="line"><span class="built_in">rmdir</span>/s/q &quot;<span class="variable">%CommonProgramFiles%</span>\Macrovision Shared&quot;<span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>rd就是rmdir</p>
-</blockquote>
-<h2 id="判断有没有目录"><a href="#判断有没有目录" class="headerlink" title="判断有没有目录"></a>判断有没有目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot; <span class="built_in">md</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> f|<span class="built_in">xcopy</span> /e/i/c/y &quot;Data\NetSarang Computer&quot; &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="带空格路径的处理"><a href="#带空格路径的处理" class="headerlink" title="带空格路径的处理"></a>带空格路径的处理</h2><blockquote>
-<p>用””引起来，不方便用””的可以用下面的短名称，或者用变量的形式表示</p>
-</blockquote>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">start</span> C:\Progra~<span class="number">1</span>\Notepad++\notepad++.exe C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>bat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>centos常用</title>
     <url>/2021/02/09/DevOps/centos%E5%B8%B8%E7%94%A8/</url>
     <content><![CDATA[<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens**</span><br></pre></td></tr></table></figure>
@@ -284,62 +57,92 @@
       </tags>
   </entry>
   <entry>
-    <title>windows常用</title>
-    <url>/2021/03/10/Windows/windows%E5%B8%B8%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="smb操作"><a href="#smb操作" class="headerlink" title="smb操作"></a>smb操作</h2><h3 id="挂载smb"><a href="#挂载smb" class="headerlink" title="挂载smb"></a>挂载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: \\<span class="number">192</span>.<span class="number">168</span>.<span class="number">10</span>.<span class="number">163</span>\share &quot;&lt;密码&gt;&quot; /user:&quot;&lt;计算机名\用户名&gt;&quot;</span><br></pre></td></tr></table></figure>
+    <title>awk</title>
+    <url>/2021/03/14/DevOps/awk/</url>
+    <content><![CDATA[<h2 id="awk-交换一个文件的两列"><a href="#awk-交换一个文件的两列" class="headerlink" title="awk 交换一个文件的两列"></a>awk 交换一个文件的两列</h2><p>比如文件<code>test.txt</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">a;b;c</span><br><span class="line">d;e;f</span><br><span class="line">1;2;3</span><br><span class="line">4;5;6</span><br></pre></td></tr></table></figure>
 
-<h3 id="卸载smb"><a href="#卸载smb" class="headerlink" title="卸载smb"></a>卸载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: /<span class="built_in">del</span> /y</span><br></pre></td></tr></table></figure>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk -F <span class="string">&#x27;;&#x27;</span> <span class="string">&#x27;&#123;printf(&quot;%s;%s;%s\n&quot;,$3,$2,$1)&#125;&#x27;</span> test.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="写入剪切板"><a href="#写入剪切板" class="headerlink" title="写入剪切板"></a>写入剪切板</h2><p>从文件写入</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">clip &lt; C:\Users\iuxt\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<p>直接写入</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">222</span> | clip</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>sed命令详解</title>
-    <url>/2021/02/20/DevOps/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><blockquote>
-<p>-e  &lt; script &gt;或–expression=&lt; script &gt; 以选项中指定的script来处理输入的文本文件。<br>-f  &lt;script文件&gt;或–file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。<br>-h  或–help 显示帮助。<br>-n  或–quiet或–silent 仅显示script处理后的结果。<br>-V  或–version 显示版本信息。<br>-i  直接修改文件内容</p>
-</blockquote>
-<h2 id="动作说明"><a href="#动作说明" class="headerlink" title="动作说明"></a>动作说明</h2><blockquote>
-<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</p>
-</blockquote>
-<h2 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h2><h3 id="查看400-500行的内容"><a href="#查看400-500行的内容" class="headerlink" title="查看400-500行的内容"></a>查看400-500行的内容</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed  -n  <span class="string">&#x27;400,500p&#x27;</span>  file文件名</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>^表示行首<br>$表示行尾<br>&amp;表示一整行</p>
-</blockquote>
-<h3 id="删除一个文件中行号为奇数的行"><a href="#删除一个文件中行号为奇数的行" class="headerlink" title="删除一个文件中行号为奇数的行"></a>删除一个文件中行号为奇数的行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;1~2&#x27;</span>d  file</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除一个文件中指定行（只打印，不修改）"><a href="#删除一个文件中指定行（只打印，不修改）" class="headerlink" title="删除一个文件中指定行（只打印，不修改）"></a>删除一个文件中指定行（只打印，不修改）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;300,400&#x27;</span>d file</span><br></pre></td></tr></table></figure>
-
-<h3 id="在testfile文件的第四行后添加一行，并将结果输出到标准输出："><a href="#在testfile文件的第四行后添加一行，并将结果输出到标准输出：" class="headerlink" title="在testfile文件的第四行后添加一行，并将结果输出到标准输出："></a>在testfile文件的第四行后添加一行，并将结果输出到标准输出：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -e 4a\newLine testfile</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除空行"><a href="#删除空行" class="headerlink" title="删除空行"></a>删除空行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;/^$/d&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="删除指定的字符"><a href="#删除指定的字符" class="headerlink" title="删除指定的字符"></a>删除指定的字符</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&#123;abc&#125;:\&quot;&quot;</span> | sed <span class="string">&#x27;s/[&#123;&#125;&quot;:]//g&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="sed-替换-字符串"><a href="#sed-替换-字符串" class="headerlink" title="sed 替换 字符串"></a>sed 替换 字符串</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git_url=$(<span class="built_in">echo</span> <span class="variable">$4</span> | sed <span class="string">&#x27;s/http/https/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="将某一行加注释"><a href="#将某一行加注释" class="headerlink" title="将某一行加注释"></a>将某一行加注释</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/^nameserver/#&amp;/&#x27;</span> /etc/resolv.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/aaa=.*/aaa=123456/g&quot;</span> config.ini</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除空格"><a href="#删除空格" class="headerlink" title="删除空格"></a>删除空格</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;   12 345   &#x27;</span> | sed <span class="string">&#x27;s/ //g&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="替换文件里面的内容"><a href="#替换文件里面的内容" class="headerlink" title="替换文件里面的内容"></a>替换文件里面的内容</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/archive.ubuntu.com/mirrors.aliyun.com/g&quot;</span> /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 如果要替换的文本里含有/可以换成#、@</span></span><br><span class="line">sed -i <span class="string">&quot;s#security.ubuntu.com#mirrors.aliyun.com#g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk -F <span class="string">&#x27;;&#x27;</span> <span class="string">&#x27;&#123;temp = $3 ; $3 = $1; $1 = temp&#125;1&#x27;</span> OFS=<span class="string">&#x27;;&#x27;</span> test.txt</span><br><span class="line"></span><br><span class="line">这里的1 和 &#123;<span class="built_in">print</span>&#125;是一样的, OFS代表分隔符。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>DevOps</category>
       </categories>
       <tags>
         <tag>shell</tag>
-        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker常用</title>
+    <url>/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><h3 id="官方安装脚本"><a href="#官方安装脚本" class="headerlink" title="官方安装脚本"></a>官方安装脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="阿里云安装（centos）"><a href="#阿里云安装（centos）" class="headerlink" title="阿里云安装（centos）"></a>阿里云安装（centos）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo systemctl start docker.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/bin/docker-compose &amp;&amp; sudo chmod +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="免root执行docker命令"><a href="#免root执行docker命令" class="headerlink" title="免root执行docker命令"></a>免root执行docker命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>顺便确定一下sock文件有没有权限（默认是有的）, 退出账户重新登录一下即可生效</p>
+</blockquote>
+<h2 id="阿里云Docker加速"><a href="#阿里云Docker加速" class="headerlink" title="阿里云Docker加速"></a>阿里云Docker加速</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/docker &amp;&amp; tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="一次性删除所有的容器"><a href="#一次性删除所有的容器" class="headerlink" title="一次性删除所有的容器"></a>一次性删除所有的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rm -f `docker ps -aq`</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除所有的镜像"><a href="#一次性删除所有的镜像" class="headerlink" title="一次性删除所有的镜像"></a>一次性删除所有的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rmi `docker image ls | awk <span class="string">&#x27;&#123;print $1 &quot;:&quot; $2&#125;&#x27;</span>`</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除未打标签的镜像"><a href="#一次性删除未打标签的镜像" class="headerlink" title="一次性删除未打标签的镜像"></a>一次性删除未打标签的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker image ls | grep none | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span> | xargs docker rmi</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次性删除所有volume"><a href="#一次性删除所有volume" class="headerlink" title="一次性删除所有volume"></a>一次性删除所有volume</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker volume rm `docker volume ls -q`</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker进入容器"><a href="#Docker进入容器" class="headerlink" title="Docker进入容器"></a>Docker进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name test_ubuntu -it ubuntu /bin/bash</span><br><span class="line">启动一个容器并打开shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重看容器详情</span></span><br><span class="line">docker inspect 容器id或名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重看docker详情</span></span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it 镜像名字 /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入一个运行中的容器"><a href="#进入一个运行中的容器" class="headerlink" title="进入一个运行中的容器"></a>进入一个运行中的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="打tag"><a href="#打tag" class="headerlink" title="打tag"></a>打tag</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag 镜像id oldboy1103/alpine:latest</span><br></pre></td></tr></table></figure>
+
+<h2 id="容器备份还原"><a href="#容器备份还原" class="headerlink" title="容器备份还原"></a>容器备份还原</h2><h3 id="镜像的备份还原"><a href="#镜像的备份还原" class="headerlink" title="镜像的备份还原"></a>镜像的备份还原</h3><ol>
+<li><p>commit将容器保存成镜像</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将镜像导出成tar (镜像是分层的,可以回滚,)</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker save -o ./backup.tar gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从tar导入镜像（镜像备份下来的tar）</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker load -i ./backup.tar</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>注意：以上会备份镜像的多层。</p>
+</blockquote>
+<h3 id="容器的备份还原"><a href="#容器的备份还原" class="headerlink" title="容器的备份还原"></a>容器的备份还原</h3><ol>
+<li><p>备份容器</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> php &gt; phprongqi.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还原成镜像</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker import ./phprongqi.tar php</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>注意：备份的只是一层镜像</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>容器</tag>
       </tags>
   </entry>
   <entry>
@@ -406,40 +209,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>包管理</title>
-    <url>/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h2 id="yum-和-rpm"><a href="#yum-和-rpm" class="headerlink" title="yum 和 rpm"></a>yum 和 rpm</h2><blockquote>
-<p>yum 是用python写的</p>
-</blockquote>
-<p>查看一个包有哪些文件组成</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ql yum</span><br></pre></td></tr></table></figure>
-
-<p>查看所有包列表</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -qa</span><br></pre></td></tr></table></figure>
-
-<p>本地安装包,会自动处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum localinstall ./xxx.rpm</span><br></pre></td></tr></table></figure>
-
-<p>本地安装包，不处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh ./xxx.rpm</span><br></pre></td></tr></table></figure>
-
-<h2 id="apt-和-dpkg"><a href="#apt-和-dpkg" class="headerlink" title="apt 和 dpkg"></a>apt 和 dpkg</h2><p>安装本地包，不处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -i ./xxx.deb</span><br></pre></td></tr></table></figure>
-
-<p>安装本地包，并自动处理依赖</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install ./xxx.deb</span><br></pre></td></tr></table></figure>
-
-<p>查看一个包有哪些文件组成</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -L vim</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -556,6 +325,82 @@
       </tags>
   </entry>
   <entry>
+    <title>sed命令详解</title>
+    <url>/2021/02/20/DevOps/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><blockquote>
+<p>-e  &lt; script &gt;或–expression=&lt; script &gt; 以选项中指定的script来处理输入的文本文件。<br>-f  &lt;script文件&gt;或–file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。<br>-h  或–help 显示帮助。<br>-n  或–quiet或–silent 仅显示script处理后的结果。<br>-V  或–version 显示版本信息。<br>-i  直接修改文件内容</p>
+</blockquote>
+<h2 id="动作说明"><a href="#动作说明" class="headerlink" title="动作说明"></a>动作说明</h2><blockquote>
+<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</p>
+</blockquote>
+<h2 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h2><h3 id="查看400-500行的内容"><a href="#查看400-500行的内容" class="headerlink" title="查看400-500行的内容"></a>查看400-500行的内容</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed  -n  <span class="string">&#x27;400,500p&#x27;</span>  file文件名</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>^表示行首<br>$表示行尾<br>&amp;表示一整行</p>
+</blockquote>
+<h3 id="删除一个文件中行号为奇数的行"><a href="#删除一个文件中行号为奇数的行" class="headerlink" title="删除一个文件中行号为奇数的行"></a>删除一个文件中行号为奇数的行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;1~2&#x27;</span>d  file</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除一个文件中指定行（只打印，不修改）"><a href="#删除一个文件中指定行（只打印，不修改）" class="headerlink" title="删除一个文件中指定行（只打印，不修改）"></a>删除一个文件中指定行（只打印，不修改）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;300,400&#x27;</span>d file</span><br></pre></td></tr></table></figure>
+
+<h3 id="在testfile文件的第四行后添加一行，并将结果输出到标准输出："><a href="#在testfile文件的第四行后添加一行，并将结果输出到标准输出：" class="headerlink" title="在testfile文件的第四行后添加一行，并将结果输出到标准输出："></a>在testfile文件的第四行后添加一行，并将结果输出到标准输出：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -e 4a\newLine testfile</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除空行"><a href="#删除空行" class="headerlink" title="删除空行"></a>删除空行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;/^$/d&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除指定的字符"><a href="#删除指定的字符" class="headerlink" title="删除指定的字符"></a>删除指定的字符</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&#123;abc&#125;:\&quot;&quot;</span> | sed <span class="string">&#x27;s/[&#123;&#125;&quot;:]//g&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-替换-字符串"><a href="#sed-替换-字符串" class="headerlink" title="sed 替换 字符串"></a>sed 替换 字符串</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git_url=$(<span class="built_in">echo</span> <span class="variable">$4</span> | sed <span class="string">&#x27;s/http/https/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="将某一行加注释"><a href="#将某一行加注释" class="headerlink" title="将某一行加注释"></a>将某一行加注释</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/^nameserver/#&amp;/&#x27;</span> /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/aaa=.*/aaa=123456/g&quot;</span> config.ini</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除空格"><a href="#删除空格" class="headerlink" title="删除空格"></a>删除空格</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;   12 345   &#x27;</span> | sed <span class="string">&#x27;s/ //g&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="替换文件里面的内容"><a href="#替换文件里面的内容" class="headerlink" title="替换文件里面的内容"></a>替换文件里面的内容</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/archive.ubuntu.com/mirrors.aliyun.com/g&quot;</span> /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 如果要替换的文本里含有/可以换成#、@</span></span><br><span class="line">sed -i <span class="string">&quot;s#security.ubuntu.com#mirrors.aliyun.com#g&quot;</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>包管理</title>
+    <url>/2021/03/10/DevOps/%E5%8C%85%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h2 id="yum-和-rpm"><a href="#yum-和-rpm" class="headerlink" title="yum 和 rpm"></a>yum 和 rpm</h2><blockquote>
+<p>yum 是用python写的</p>
+</blockquote>
+<p>查看一个包有哪些文件组成</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ql yum</span><br></pre></td></tr></table></figure>
+
+<p>查看所有包列表</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -qa</span><br></pre></td></tr></table></figure>
+
+<p>本地安装包,会自动处理依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum localinstall ./xxx.rpm</span><br></pre></td></tr></table></figure>
+
+<p>本地安装包，不处理依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh ./xxx.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-和-dpkg"><a href="#apt-和-dpkg" class="headerlink" title="apt 和 dpkg"></a>apt 和 dpkg</h2><p>安装本地包，不处理依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -i ./xxx.deb</span><br></pre></td></tr></table></figure>
+
+<p>安装本地包，并自动处理依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install ./xxx.deb</span><br></pre></td></tr></table></figure>
+
+<p>查看一个包有哪些文件组成</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -L vim</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速搭建环境</title>
     <url>/2021/02/25/DevOps/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<h2 id="java-环境"><a href="#java-环境" class="headerlink" title="java 环境"></a>java 环境</h2><p>官方网站：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
@@ -574,59 +419,8 @@
         <category>DevOps</category>
       </categories>
       <tags>
-        <tag>shell</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>oh my zsh</title>
-    <url>/2021/03/05/%E7%9E%8E%E6%8D%A3%E9%BC%93/oh%20my%20zsh/</url>
-    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>github地址：<a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install zsh</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>vim ~/.zshrc</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
-<p>修改配置 <code>vim ~/.zshrc</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">    git</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h3 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h3><p>oh my zsh 很多主题需要的字体，github地址：<br><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
-<p>powerline 字体预览<br><a href="https://github.com/powerline/fonts/blob/master/samples/All.md">https://github.com/powerline/fonts/blob/master/samples/All.md</a></p>
-<p>快速安装</p>
-<ul>
-<li>linux</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install fonts-powerline</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>windows</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/powerline/fonts.git</span><br><span class="line">执行 install.ps1</span><br></pre></td></tr></table></figure>
-
-<h3 id="cascadia-code"><a href="#cascadia-code" class="headerlink" title="cascadia-code"></a>cascadia-code</h3><p>来自微软官方的字体，github地址：<br><a href="https://github.com/microsoft/cascadia-code">https://github.com/microsoft/cascadia-code</a></p>
-<blockquote>
-<p>名字带<code>PL</code>的才是powerline字体</p>
-</blockquote>
-<h2 id="windows-terminal配置"><a href="#windows-terminal配置" class="headerlink" title="windows terminal配置"></a>windows terminal配置</h2><ul>
-<li>改字体</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;fontFace&quot;: &quot;Cascadia Code PL&quot;,</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>改配色</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;ayu&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#ff3333&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#b8cc52&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#e7c547&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#36a3d9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#f07178&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#95e6cb&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#323232&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#ff6565&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#eafe84&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#fff779&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#68d5ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#ffa3aa&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#c7fffd&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#0f1419&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#e6e1cf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#f29718&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selectionBackground&quot;</span>: <span class="string">&quot;#253340&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h2><p>修改字体为<code>Cascadia Mono PL</code>并重启</p>
-]]></content>
-      <categories>
-        <category>瞎捣鼓</category>
-      </categories>
-      <tags>
         <tag>shell</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -647,7 +441,8 @@
 <p><code>start.py</code>需要修改一下注释位置</p>
 <p><code>win.ovpn</code>需要修改<code>auth-user-pass C:\\Users\\iuxt\\OpenVPN\\config\\password.txt</code>需要和<code>start.py</code>里面路径保持一致</p>
 <h2 id="3-启动和关闭"><a href="#3-启动和关闭" class="headerlink" title="3. 启动和关闭"></a>3. 启动和关闭</h2><p>双击<code>start.bat</code>即可自动连接</p>
-<p>叉掉窗口即可关闭</p>
+<p>ctrl + c 即可关闭</p>
+<p>如果有隐藏cmd窗口的需求，可以看看这篇<a href="https://iuxt.gitee.io/2021/03/15/Windows/%E9%9A%90%E8%97%8Fcmd%E7%AA%97%E5%8F%A3/">隐藏cmd窗口</a></p>
 ]]></content>
       <categories>
         <category>DevOps</category>
@@ -657,75 +452,35 @@
       </tags>
   </entry>
   <entry>
-    <title>docker常用</title>
-    <url>/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><h3 id="官方安装脚本"><a href="#官方安装脚本" class="headerlink" title="官方安装脚本"></a>官方安装脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br></pre></td></tr></table></figure>
-
-<h3 id="阿里云安装（centos）"><a href="#阿里云安装（centos）" class="headerlink" title="阿里云安装（centos）"></a>阿里云安装（centos）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo systemctl start docker.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/bin/docker-compose &amp;&amp; sudo chmod +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<h2 id="免root执行docker命令"><a href="#免root执行docker命令" class="headerlink" title="免root执行docker命令"></a>免root执行docker命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>顺便确定一下sock文件有没有权限（默认是有的）, 退出账户重新登录一下即可生效</p>
+    <title>dism和imagex</title>
+    <url>/2021/03/10/Windows/dism%E5%92%8Cimagex/</url>
+    <content><![CDATA[<blockquote>
+<p>imagex 和 dism 都是windows官方处理windows安装镜像wim文件的工具，其中dism是自带的，imagex是单文件，依赖简单</p>
 </blockquote>
-<h2 id="阿里云Docker加速"><a href="#阿里云Docker加速" class="headerlink" title="阿里云Docker加速"></a>阿里云Docker加速</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/docker &amp;&amp; tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="一次性删除所有的容器"><a href="#一次性删除所有的容器" class="headerlink" title="一次性删除所有的容器"></a>一次性删除所有的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rm -f `docker ps -aq`</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次性删除所有的镜像"><a href="#一次性删除所有的镜像" class="headerlink" title="一次性删除所有的镜像"></a>一次性删除所有的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker rmi `docker image ls | awk <span class="string">&#x27;&#123;print $1 &quot;:&quot; $2&#125;&#x27;</span>`</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次性删除未打标签的镜像"><a href="#一次性删除未打标签的镜像" class="headerlink" title="一次性删除未打标签的镜像"></a>一次性删除未打标签的镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker image ls | grep none | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span> | xargs docker rmi</span><br></pre></td></tr></table></figure>
-
-<h3 id="一次性删除所有volume"><a href="#一次性删除所有volume" class="headerlink" title="一次性删除所有volume"></a>一次性删除所有volume</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker volume rm `docker volume ls -q`</span><br></pre></td></tr></table></figure>
-
-<h3 id="Docker进入容器"><a href="#Docker进入容器" class="headerlink" title="Docker进入容器"></a>Docker进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name test_ubuntu -it ubuntu /bin/bash</span><br><span class="line">启动一个容器并打开shell</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重看容器详情</span></span><br><span class="line">docker inspect 容器id或名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重看docker详情</span></span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it 镜像名字 /bin/sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="进入一个运行中的容器"><a href="#进入一个运行中的容器" class="headerlink" title="进入一个运行中的容器"></a>进入一个运行中的容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="打tag"><a href="#打tag" class="headerlink" title="打tag"></a>打tag</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker tag 镜像id oldboy1103/alpine:latest</span><br></pre></td></tr></table></figure>
-
-<h2 id="容器备份还原"><a href="#容器备份还原" class="headerlink" title="容器备份还原"></a>容器备份还原</h2><h3 id="镜像的备份还原"><a href="#镜像的备份还原" class="headerlink" title="镜像的备份还原"></a>镜像的备份还原</h3><ol>
-<li><p>commit将容器保存成镜像</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将镜像导出成tar (镜像是分层的,可以回滚,)</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker save -o ./backup.tar gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从tar导入镜像（镜像备份下来的tar）</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker load -i ./backup.tar</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<blockquote>
-<p>注意：以上会备份镜像的多层。</p>
+<h2 id="imagex"><a href="#imagex" class="headerlink" title="imagex"></a>imagex</h2><blockquote>
+<p>以下以将windows32位安装镜像和64位安装镜像整合为例</p>
 </blockquote>
-<h3 id="容器的备份还原"><a href="#容器的备份还原" class="headerlink" title="容器的备份还原"></a>容器的备份还原</h3><ol>
-<li><p>备份容器</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> php &gt; phprongqi.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>还原成镜像</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker import ./phprongqi.tar php</span><br></pre></td></tr></table></figure>
+<h3 id="镜像导出合并"><a href="#镜像导出合并" class="headerlink" title="镜像导出合并"></a>镜像导出合并</h3><blockquote>
+<p>将64位镜像导出写入到32位镜像里</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /export install64.wim <span class="number">1</span> install32.wim &quot;Win7 homebasic x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">2</span> install32.wim &quot;win7 homepremium x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">3</span> install32.wim &quot;win7 professional x64&quot;</span><br><span class="line">imagex /export install64.wim <span class="number">4</span> install32.wim &quot;win7 ultimate x64&quot;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
+<h3 id="修改镜像描述信息"><a href="#修改镜像描述信息" class="headerlink" title="修改镜像描述信息"></a>修改镜像描述信息</h3><blockquote>
+<p>修改前可以使用dism /get-wiminfo /wimfile:C:\xxxxxx.wim 查看镜像信息</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">imagex /info install32.wim <span class="number">1</span> &quot;Windows <span class="number">7</span> STARTER X86&quot; &quot;Windows <span class="number">7</span> 简易版&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">2</span> &quot;Windows <span class="number">7</span> HOMEBASIC X86&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">3</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X86&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">4</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X86&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">5</span> &quot;Windows <span class="number">7</span> ULTIMATE X86&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">32</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">6</span> &quot;Windows <span class="number">7</span> HOMEBASIC X64&quot; &quot;Windows <span class="number">7</span> 家庭普通版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">7</span> &quot;Windows <span class="number">7</span> HOMEPREMIUM X64&quot; &quot;Windows <span class="number">7</span> 家庭高级版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">8</span> &quot;Windows <span class="number">7</span> PROFESSIONAL X64&quot; &quot;Windows <span class="number">7</span> 专业版 <span class="number">64</span>位&quot;</span><br><span class="line">imagex /info install32.wim <span class="number">9</span> &quot;Windows <span class="number">7</span> ULTIMATE X64&quot; &quot;Windows <span class="number">7</span> 旗舰版 <span class="number">64</span>位&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dism"><a href="#dism" class="headerlink" title="dism"></a>dism</h2><h3 id="按大小拆分wim镜像"><a href="#按大小拆分wim镜像" class="headerlink" title="按大小拆分wim镜像"></a>按大小拆分wim镜像</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">dism /Split-Image /ImageFile:F:\sources\install.wim /SWMFile:D:\install.swm /FileSize:<span class="number">4096</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>注意：备份的只是一层镜像</p>
+<p>swm是微软映像拆分文件</p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>DevOps</category>
+        <category>Windows</category>
       </categories>
       <tags>
-        <tag>容器</tag>
+        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>
@@ -748,6 +503,223 @@
       </categories>
       <tags>
         <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows RE</title>
+    <url>/2021/03/10/Windows/windows-RE/</url>
+    <content><![CDATA[<h2 id="reagentc-命令"><a href="#reagentc-命令" class="headerlink" title="reagentc 命令"></a>reagentc 命令</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /disable       禁用windowsRE</span><br><span class="line">reagentc /enable        启用windowsRE</span><br><span class="line">reagentc /info          查看windowsRE状态</span><br><span class="line">reagentc /boottore      将系统配置为在下次系统启动时启动 Windows RE</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新启用windowsRE"><a href="#重新启用windowsRE" class="headerlink" title="重新启用windowsRE"></a>重新启用windowsRE</h2><blockquote>
+<p>因为各种原因，使用 reagentc /info 查看发现RE已经没有了，可以手动创建RE</p>
+</blockquote>
+<p>windows原版ISO镜像，打开其中的sources目录，用解压缩软件打开install.wim文件，然后再定位到windows/system32/recovery目录，提取 WinRE.wim 到 Recovery 分区 x:\Recovery\WindowsRE</p>
+<p>然后执行：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reagentc /setreimage /<span class="built_in">path</span> x:\Recovery\WindowsRE</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>windows常用</title>
+    <url>/2021/03/10/Windows/windows%E5%B8%B8%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="smb操作"><a href="#smb操作" class="headerlink" title="smb操作"></a>smb操作</h2><h3 id="挂载smb"><a href="#挂载smb" class="headerlink" title="挂载smb"></a>挂载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: \\<span class="number">192</span>.<span class="number">168</span>.<span class="number">10</span>.<span class="number">163</span>\share &quot;&lt;密码&gt;&quot; /user:&quot;&lt;计算机名\用户名&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载smb"><a href="#卸载smb" class="headerlink" title="卸载smb"></a>卸载smb</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> use z: /<span class="built_in">del</span> /y</span><br></pre></td></tr></table></figure>
+
+<h2 id="写入剪切板"><a href="#写入剪切板" class="headerlink" title="写入剪切板"></a>写入剪切板</h2><p>从文件写入</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">clip &lt; C:\Users\iuxt\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>直接写入</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="number">222</span> | clip</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>windows系统文件目录</title>
+    <url>/2021/03/10/Windows/windows%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="开始菜单"><a href="#开始菜单" class="headerlink" title="开始菜单"></a>开始菜单</h2><p>全局位置：<code>C:\ProgramData\Microsoft\Windows\Start Menu</code><br>个人位置：<code>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu</code></p>
+<h2 id="windows-update-更新缓存"><a href="#windows-update-更新缓存" class="headerlink" title="windows update 更新缓存"></a>windows update 更新缓存</h2><p><code>C:\Windows\SoftwareDistribution\Download</code></p>
+<h2 id="oem-信息"><a href="#oem-信息" class="headerlink" title="oem 信息"></a>oem 信息</h2><h3 id="添加oem信息"><a href="#添加oem信息" class="headerlink" title="添加oem信息"></a>添加oem信息</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> logo.bmp <span class="variable">%windir%</span>\media\logo.bmp</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportURL&quot; /t REG_SZ /d &quot;http://blog.sina.com.cn/iuxt&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;Model&quot; /t REG_SZ /d &quot;iuxt&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportHours&quot; /t REG_SZ /d &quot;<span class="number">8</span>:<span class="number">00</span>-<span class="number">22</span>:<span class="number">00</span>&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportPhone&quot; /t REG_SZ /d &quot;<span class="number">17621268822</span>&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;Logo&quot; /t REG_SZ /d &quot;C:\Windows\Media\logo.bmp&quot;</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;Manufacturer&quot; /t REG_SZ /d &quot;张理坤&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除OEM信息"><a href="#删除OEM信息" class="headerlink" title="删除OEM信息"></a>删除OEM信息</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f</span><br></pre></td></tr></table></figure>
+
+<h2 id="侧边栏的网盘链接（OneDrive等）"><a href="#侧边栏的网盘链接（OneDrive等）" class="headerlink" title="侧边栏的网盘链接（OneDrive等）"></a>侧边栏的网盘链接（OneDrive等）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace</span><br></pre></td></tr></table></figure>
+
+<h2 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h2><h3 id="注册表位置"><a href="#注册表位置" class="headerlink" title="注册表位置"></a>注册表位置</h3><h4 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</span><br></pre></td></tr></table></figure>
+
+<h4 id="个人"><a href="#个人" class="headerlink" title="个人"></a>个人</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</span><br></pre></td></tr></table></figure>
+
+<h4 id="只运行一次"><a href="#只运行一次" class="headerlink" title="只运行一次"></a>只运行一次</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>新建字符串值–数值名称任意,数值数据为要启动的程序路径,如C:\Program Files (x86)\WinHotKey\WinHotKey.exe<br>或者命令行创建 <code>reg add &quot;HKLM\Software\Microsoft\Windows\CurrentVersion\Run&quot; /f /v &quot;数值名称&quot; /t REG_SZ /d &quot;程序启动路径&quot;</code></p>
+</blockquote>
+<h3 id="文件位置（开始菜单的startup文件夹）"><a href="#文件位置（开始菜单的startup文件夹）" class="headerlink" title="文件位置（开始菜单的startup文件夹）"></a>文件位置（开始菜单的startup文件夹）</h3><h4 id="系统启动文件夹"><a href="#系统启动文件夹" class="headerlink" title="系统启动文件夹"></a>系统启动文件夹</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</span><br></pre></td></tr></table></figure>
+
+<h4 id="个人启动文件夹"><a href="#个人启动文件夹" class="headerlink" title="个人启动文件夹"></a>个人启动文件夹</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\你的Windows用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>快速进入 startup 文件夹<br>win+r 输入 shell:startup</p>
+</blockquote>
+<h2 id="登录界面不显示用户"><a href="#登录界面不显示用户" class="headerlink" title="登录界面不显示用户"></a>登录界面不显示用户</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList]</span><br><span class="line">&quot;administrator&quot;&#x3D;dword:00000000</span><br></pre></td></tr></table></figure>
+
+<h2 id="IE主页"><a href="#IE主页" class="headerlink" title="IE主页"></a>IE主页</h2><h3 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main&quot; /v &quot;<span class="built_in">Start</span> Page&quot; /t reg_sz /d http://www.<span class="number">2345</span>.com/?k393991732 /f</span><br></pre></td></tr></table></figure>
+
+<h3 id="系统主页"><a href="#系统主页" class="headerlink" title="系统主页"></a>系统主页</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKU\.DEFAULT\Software\Microsoft\Internet Explorer\Main&quot; /f /v &quot;<span class="built_in">Start</span> Page&quot; /t REG_SZ /d &quot;http://www.<span class="number">2345</span>.com/?k393991732&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="默认主页"><a href="#默认主页" class="headerlink" title="默认主页"></a>默认主页</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main&quot; /v &quot;Default_Page_URL&quot; /t reg_sz /d http://www.<span class="number">2345</span>.com/?k393991732 /f</span><br></pre></td></tr></table></figure>
+
+<h2 id="Windows-Defender"><a href="#Windows-Defender" class="headerlink" title="Windows Defender"></a>Windows Defender</h2><p>关闭Windows Defender</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender&quot; /v &quot;DisableAntiSpyware&quot; /d <span class="number">1</span> /t REG_DWORD /f</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这种方法和直接修改组策略是一样的，家庭版不支持组策略可以使用这种方式</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>cmd</tag>
+        <tag>注册表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wsl</title>
+    <url>/2021/03/11/Windows/wsl/</url>
+    <content><![CDATA[<h2 id="文件共享访问"><a href="#文件共享访问" class="headerlink" title="文件共享访问"></a>文件共享访问</h2><h3 id="windows-访问-wsl"><a href="#windows-访问-wsl" class="headerlink" title="windows 访问 wsl"></a>windows 访问 wsl</h3><p>win + r 输入 <code>\\wsl$</code></p>
+<h3 id="wsl-访问-windows"><a href="#wsl-访问-windows" class="headerlink" title="wsl 访问 windows"></a>wsl 访问 windows</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --export centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动指定发行版"><a href="#启动指定发行版" class="headerlink" title="启动指定发行版"></a>启动指定发行版</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定用户启动"><a href="#指定用户启动" class="headerlink" title="指定用户启动"></a>指定用户启动</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d ubuntu -u root</span><br></pre></td></tr></table></figure>
+
+<h2 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h2><p>win+r  输入 <code>shell:startup</code>写一个<code>wsl_start.bat</code>内容如下</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d Ubuntu -u root /etc/init.d/ssh <span class="built_in">start</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改默认用户为root"><a href="#修改默认用户为root" class="headerlink" title="修改默认用户为root"></a>修改默认用户为root</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="variable">%localappdata%</span>\Microsoft\WindowsApps\ubuntu.exe config --default-user root</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据你的发行版决定</p>
+</blockquote>
+<h2 id="安装想要的发行版"><a href="#安装想要的发行版" class="headerlink" title="安装想要的发行版"></a>安装想要的发行版</h2><blockquote>
+<p>这里以centos为例</p>
+</blockquote>
+<p>首先需要docker环境，执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name centos7 centos:centos7</span><br></pre></td></tr></table></figure>
+
+<p>然后将容器导出</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">export</span> centos7 &gt; centos7.tar</span><br></pre></td></tr></table></figure>
+
+<p>然后在windows上导入</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --import centos7 C:\centos7 centos7.tar</span><br></pre></td></tr></table></figure>
+
+<p>启动发行版</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl -d centos7</span><br></pre></td></tr></table></figure>
+
+<p>卸载发行版</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">wsl --unregister centos7</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>隐藏cmd窗口</title>
+    <url>/2021/03/15/Windows/%E9%9A%90%E8%97%8Fcmd%E7%AA%97%E5%8F%A3/</url>
+    <content><![CDATA[<p>1.使用vbs实现（推荐）</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">CreateObject(&quot;WScript.Shell&quot;).Run &quot;D:\syncthing\syncthing.exe&quot;,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>或者批量运行：</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set</span> ws = CreateObject(&quot;Wscript.Shell&quot;)</span><br><span class="line">ws.run &quot;<span class="built_in">cmd</span> /c <span class="built_in">start</span> <span class="number">1</span>.exe&quot;,vbhide</span><br><span class="line">ws.run &quot;<span class="built_in">cmd</span> /c <span class="built_in">start</span> <span class="number">2</span>.exe&quot;,vbhide</span><br><span class="line">ws.run &quot;<span class="built_in">cmd</span> /c <span class="built_in">start</span> <span class="number">3</span>.exe&quot;,vbhide</span><br></pre></td></tr></table></figure>
+
+<p>复制保存成vbs文件即可。</p>
+<p>2.使用cmd实现（会有一闪而过的黑窗）</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;h&quot; <span class="keyword">goto</span> begin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~nx0&quot;&quot; h&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:begin</span><br><span class="line">::以下为正常批处理命令，不可含有<span class="built_in">pause</span> <span class="built_in">set</span>/p等交互命令</span><br></pre></td></tr></table></figure>
+
+<p>复制保存为bat文件即可。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用bat脚本</title>
+    <url>/2021/02/26/Windows/%E5%B8%B8%E7%94%A8bat%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="自动输入y"><a href="#自动输入y" class="headerlink" title="自动输入y"></a>自动输入y</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
+
+<h2 id="bat脚本获取管理员权限"><a href="#bat脚本获取管理员权限" class="headerlink" title="bat脚本获取管理员权限"></a>bat脚本获取管理员权限</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输出控制台不换行"><a href="#输出控制台不换行" class="headerlink" title="输出控制台不换行"></a>输出控制台不换行</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="隐藏bat窗口"><a href="#隐藏bat窗口" class="headerlink" title="隐藏bat窗口"></a>隐藏bat窗口</h2><ul>
+<li>第一种方法:<br>在你写的批处理文件，开头加上以下三行代码即可</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;hide&quot; <span class="keyword">goto</span> CmdBegin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~<span class="number">0</span>&quot;&quot; hide&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:CmdBegin</span><br><span class="line"><span class="comment">REM 脚本内容</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种解决办法:<br>比如你的批处理文件，名字为 test.bat</li>
+</ul>
+<p>创建 backrun.vbs</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">createobject(&quot;wscript.shell&quot;).run &quot;test.bat&quot;,<span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">可以打开任务管理器，会发现有一个 叫 <span class="built_in">cmd</span> 的进程在运行，就是我们批处理文件的进程了；结束进程的话，直接在任务管理器上，结束该 <span class="built_in">cmd</span> 进程即可</span><br><span class="line"></span><br><span class="line">## 服务操作</span><br><span class="line"></span><br><span class="line">&gt; windows服务操作命令有sc和<span class="built_in">net</span> 两个命令;</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">sc stop serviceName</span><br><span class="line">sc <span class="built_in">start</span> serviceName</span><br><span class="line">sc config AcronisActiveProtectionService <span class="built_in">start</span>= disabled</span><br><span class="line">sc create npc <span class="built_in">start</span>=auto binPath=&quot;C:\<span class="number">1</span>\npc\npc.exe -server=note.iuxt.top:<span class="number">10000</span> -vkey=ibtbrp5e3uc9lonq -<span class="built_in">type</span>=tcp&quot; DisplayName=&quot;npc内网穿透服务&quot;</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop serviceName</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> serviceName</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>虽然2个都能达到停止服务和启动服务的效果，但是在重启服务时，就是使用批处理先stop后start来实现重启时，如果服务处于启动状态使用sc的stop后start，结果服务不能启动，因为sc命令在执行stop后不会等待，而是继续执行批处理下面的语句，这时服务正在处于停止操作状态，所以start命令不能启动。net命令在stop时会停止等待，在服务完全停止后再继续执行批处理后面的语句，所以net的重启命令就会正常。</p>
+</blockquote>
+<h2 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /f /im Xshell*</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除注册表"><a href="#删除注册表" class="headerlink" title="删除注册表"></a>删除注册表</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Microsoft\NetLicense&quot; /f</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Classes\.xdts&quot; /f /ve /d &quot;Xmanager.session&quot; &gt;<span class="built_in">NUL</span> <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rd</span>/s/q &quot;<span class="variable">%ProgramData%</span>\FLEXnet&quot; <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br><span class="line"><span class="built_in">rmdir</span>/s/q &quot;<span class="variable">%CommonProgramFiles%</span>\Macrovision Shared&quot;<span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>rd就是rmdir</p>
+</blockquote>
+<h2 id="判断有没有目录"><a href="#判断有没有目录" class="headerlink" title="判断有没有目录"></a>判断有没有目录</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot; <span class="built_in">md</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> f|<span class="built_in">xcopy</span> /e/i/c/y &quot;Data\NetSarang Computer&quot; &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="带空格路径的处理"><a href="#带空格路径的处理" class="headerlink" title="带空格路径的处理"></a>带空格路径的处理</h2><blockquote>
+<p>用””引起来，不方便用””的可以用下面的短名称，或者用变量的形式表示</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">start</span> C:\Progra~<span class="number">1</span>\Notepad++\notepad++.exe C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>bat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>右键菜单添加md5、sha1校验</title>
+    <url>/2021/03/11/Windows/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0md5%E3%80%81sha1%E6%A0%A1%E9%AA%8C/</url>
+    <content><![CDATA[<blockquote>
+<p>此方法依赖powershell, win10没问题，win7没测试</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验文件 Hash&quot;</span><br><span class="line">&quot;SubCommands&quot;=&quot;&quot;</span><br><span class="line">&quot;Icon&quot;=&quot;PowerShell.exe&quot;</span><br><span class="line"></span><br><span class="line">; SHA1</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA1&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">01</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA256</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA256&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">02</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA384</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA384&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">03</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; SHA512</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;SHA512&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">04</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MACTripleDES</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MACTripleDES&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">05</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; MD5</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;MD5&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">06</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; RIPEMD160</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu]</span><br><span class="line">&quot;MUIVerb&quot;=&quot;RIPEMD160&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">07</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br><span class="line"></span><br><span class="line">; Allget-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu]</span><br><span class="line">&quot;CommandFlags&quot;=dword:<span class="number">00000020</span></span><br><span class="line">&quot;MUIVerb&quot;=&quot;校验全部&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\hash\shell\<span class="number">08</span>menu\command]</span><br><span class="line">@=&quot;powershell -noexit get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA1 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA256 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA384 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm SHA512 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MACTripleDES | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm MD5 | <span class="built_in">format</span>-list;get-filehash -literalpath &#x27;%<span class="number">1</span>&#x27; -algorithm RIPEMD160 | <span class="built_in">format</span>-list&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不过要注意的是，自己复制代码保存时，编码必须选择“<strong>UTF-16 LE</strong>”格式，否则右键菜单的中文会乱码。</p>
+</blockquote>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span></span><br><span class="line"></span><br><span class="line">[-HKEY_CLASSES_ROOT\*\shell\hash]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>reg</tag>
       </tags>
   </entry>
   <entry>
@@ -888,6 +860,57 @@
       <tags>
         <tag>linux</tag>
         <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>oh my zsh</title>
+    <url>/2021/03/05/%E7%9E%8E%E6%8D%A3%E9%BC%93/oh%20my%20zsh/</url>
+    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>github地址：<a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install zsh</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>vim ~/.zshrc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>修改配置 <code>vim ~/.zshrc</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">    git</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h3 id="powerline"><a href="#powerline" class="headerlink" title="powerline"></a>powerline</h3><p>oh my zsh 很多主题需要的字体，github地址：<br><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
+<p>powerline 字体预览<br><a href="https://github.com/powerline/fonts/blob/master/samples/All.md">https://github.com/powerline/fonts/blob/master/samples/All.md</a></p>
+<p>快速安装</p>
+<ul>
+<li>linux</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install fonts-powerline</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>windows</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/powerline/fonts.git</span><br><span class="line">执行 install.ps1</span><br></pre></td></tr></table></figure>
+
+<h3 id="cascadia-code"><a href="#cascadia-code" class="headerlink" title="cascadia-code"></a>cascadia-code</h3><p>来自微软官方的字体，github地址：<br><a href="https://github.com/microsoft/cascadia-code">https://github.com/microsoft/cascadia-code</a></p>
+<blockquote>
+<p>名字带<code>PL</code>的才是powerline字体</p>
+</blockquote>
+<h2 id="windows-terminal配置"><a href="#windows-terminal配置" class="headerlink" title="windows terminal配置"></a>windows terminal配置</h2><ul>
+<li>改字体</li>
+</ul>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;fontFace&quot;: &quot;Cascadia Code PL&quot;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改配色</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;ayu&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#ff3333&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#b8cc52&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#e7c547&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#36a3d9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#f07178&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#95e6cb&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#323232&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#ff6565&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#eafe84&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#fff779&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#68d5ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#ffa3aa&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#c7fffd&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#ffffff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#0f1419&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#e6e1cf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#f29718&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selectionBackground&quot;</span>: <span class="string">&quot;#253340&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h2><p>修改字体为<code>Cascadia Mono PL</code>并重启</p>
+]]></content>
+      <categories>
+        <category>瞎捣鼓</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
 </search>

@@ -200,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://iuxt.gitee.io/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/" class="post-title-link" itemprop="url">docker常用</a>
+            <a href="/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">常用shell组合命令</a>
         </h2>
 
         <div class="post-meta">
@@ -224,14 +224,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-19 12:14:59" itemprop="dateCreated datePublished" datetime="2021-02-19T12:14:59+08:00">2021-02-19</time>
+              <time title="创建时间：2021-02-19 18:37:48" itemprop="dateCreated datePublished" datetime="2021-02-19T18:37:48+08:00">2021-02-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-15 10:15:09" itemprop="dateModified" datetime="2021-03-15T10:15:09+08:00">2021-03-15</time>
+                <time title="修改时间：2021-03-15 10:15:12" itemprop="dateModified" datetime="2021-03-15T10:15:12+08:00">2021-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +244,7 @@
             </span>
 
           
-            <span id="/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="docker常用" title="阅读次数">
+            <span id="/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="常用shell组合命令" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -259,8 +259,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/19/DevOps/docker%E5%B8%B8%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/19/DevOps/%E5%B8%B8%E7%94%A8shell%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -275,67 +275,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h2><h3 id="官方安装脚本"><a href="#官方安装脚本" class="headerlink" title="官方安装脚本"></a>官方安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br></pre></td></tr></table></figure>
+          <h2 id="批量添加user1-user2…-seq-w-可以生成01-02-03-等"><a href="#批量添加user1-user2…-seq-w-可以生成01-02-03-等" class="headerlink" title="批量添加user1 user2….     seq -w 可以生成01  02  03 等"></a>批量添加user1 user2….     seq -w 可以生成01  02  03 等</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(seq 1 1 10);<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> user<span class="variable">$i</span></span><br><span class="line">        useradd user<span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="阿里云安装（centos）"><a href="#阿里云安装（centos）" class="headerlink" title="阿里云安装（centos）"></a>阿里云安装（centos）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 添加软件源信息</span></span><br><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 更新并安装Docker-CE</span></span><br><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置阿里加速</span></span><br><span class="line">mkdir -p /etc/docker &amp;&amp; sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 开启Docker服务</span></span><br><span class="line">sudo systemctl start docker.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="判断并创建目录"><a href="#判断并创建目录" class="headerlink" title="判断并创建目录"></a>判断并创建目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -d /tmp/111 ] || &#123; mkdir /tmp/111; <span class="built_in">cd</span> /tmp/111; <span class="built_in">pwd</span>; &#125;    <span class="comment">#  每条命令以；结尾</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="docker-compose-安装"><a href="#docker-compose-安装" class="headerlink" title="docker-compose 安装"></a>docker-compose 安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/bin/docker-compose &amp;&amp; sudo chmod +x /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h2 id="判断包不包含字符串"><a href="#判断包不包含字符串" class="headerlink" title="判断包不包含字符串"></a>判断包不包含字符串</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAMESPACE=xxxgryxxx</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NAMESPACE</span> =~ prod ]] || [[ <span class="variable">$NAMESPACE</span> =~ gray ]]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;包含&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;不包含&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="免root执行docker命令"><a href="#免root执行docker命令" class="headerlink" title="免root执行docker命令"></a>免root执行docker命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+<h2 id="脚本里的交互命令"><a href="#脚本里的交互命令" class="headerlink" title="脚本里的交互命令"></a>脚本里的交互命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">passwd ubuntu&lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">ubuntu</span><br><span class="line">ubuntu</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>顺便确定一下sock文件有没有权限（默认是有的）, 退出账户重新登录一下即可生效</p>
-</blockquote>
-<h2 id="阿里云Docker加速"><a href="#阿里云Docker加速" class="headerlink" title="阿里云Docker加速"></a>阿里云Docker加速</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/docker &amp;&amp; tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="自动执行fdisk"><a href="#自动执行fdisk" class="headerlink" title="自动执行fdisk"></a>自动执行fdisk</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;n</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">w</span></span><br><span class="line"><span class="string">&quot;</span> | fdisk /dev/vdb &amp;&amp; mkfs.ext4 /dev/vdb1</span><br></pre></td></tr></table></figure>
 
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h2 id="只保留最近10个jar版本"><a href="#只保留最近10个jar版本" class="headerlink" title="只保留最近10个jar版本"></a>只保留最近10个jar版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -t *.jar | awk <span class="string">&#x27;NR&gt;20&#x27;</span> | xargs rm -f</span><br></pre></td></tr></table></figure>
 
-<h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="一次性删除所有的容器"><a href="#一次性删除所有的容器" class="headerlink" title="一次性删除所有的容器"></a>一次性删除所有的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f `docker ps -aq`</span><br></pre></td></tr></table></figure>
+<h2 id="多行写入，多行追加"><a href="#多行写入，多行追加" class="headerlink" title="多行写入，多行追加"></a>多行写入，多行追加</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">cat&gt;filename.txt&lt;&lt;-<span class="string">&#x27;EOF&#x27;</span>                这样写法不处理变量</span><br><span class="line">hello</span><br><span class="line">world</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">cat&gt;&gt;filename.txt&lt;&lt;<span class="string">EOF            这样的可以处理变量</span></span><br><span class="line"><span class="string">$hello</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="一次性删除所有的镜像"><a href="#一次性删除所有的镜像" class="headerlink" title="一次性删除所有的镜像"></a>一次性删除所有的镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi `docker image ls | awk <span class="string">&#x27;&#123;print $1 &quot;:&quot; $2&#125;&#x27;</span>`</span><br></pre></td></tr></table></figure>
+<h2 id="写入内容控制台看得见"><a href="#写入内容控制台看得见" class="headerlink" title="写入内容控制台看得见"></a>写入内容控制台看得见</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tee /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://go38p9zi.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
-<h3 id="一次性删除未打标签的镜像"><a href="#一次性删除未打标签的镜像" class="headerlink" title="一次性删除未打标签的镜像"></a>一次性删除未打标签的镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image ls | grep none | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span> | xargs docker rmi</span><br></pre></td></tr></table></figure>
+<h2 id="运行5s自动退出"><a href="#运行5s自动退出" class="headerlink" title="运行5s自动退出"></a>运行5s自动退出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">sleep 5 &amp;&amp; <span class="built_in">kill</span> $$ &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#start code</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;<span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$RANDOM</span> ; sleep 1;<span class="keyword">done</span>      <span class="comment"># 小技巧  命令写在一行可以用; 分开</span></span><br><span class="line"><span class="comment">#end code</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="一次性删除所有volume"><a href="#一次性删除所有volume" class="headerlink" title="一次性删除所有volume"></a>一次性删除所有volume</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume rm `docker volume ls -q`</span><br></pre></td></tr></table></figure>
+<h2 id="获取shell所在目录"><a href="#获取shell所在目录" class="headerlink" title="获取shell所在目录"></a>获取shell所在目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">dir=$(<span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$( dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span> )</span>&quot;</span> &amp;&amp; <span class="built_in">pwd</span> )</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$dir</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Docker进入容器"><a href="#Docker进入容器" class="headerlink" title="Docker进入容器"></a>Docker进入容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --name test_ubuntu -it ubuntu /bin/bash</span><br><span class="line">启动一个容器并打开shell</span><br></pre></td></tr></table></figure>
+<h2 id="备份-env文件"><a href="#备份-env文件" class="headerlink" title="备份.env文件"></a>备份.env文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line">Now=$(date <span class="string">&#x27;+%Y%m%d-%H:%M:%S&#x27;</span>)</span><br><span class="line">[ <span class="variable">$#</span> -eq 1 ]||&#123; <span class="built_in">echo</span> <span class="string">&quot; bak or restore&quot;</span>; <span class="built_in">exit</span> 1;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dir=$(<span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$( dirname <span class="string">&quot;<span class="variable">$&#123;BASH_SOURCE[0]&#125;</span>&quot;</span> )</span>&quot;</span> &amp;&amp; <span class="built_in">pwd</span> )</span><br><span class="line"><span class="function"><span class="title">bak</span></span>()&#123;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(find /data/wwwroot -name .env) ;<span class="keyword">do</span></span><br><span class="line">    dest=<span class="variable">$&#123;dir&#125;</span>/bak<span class="variable">$i</span>-<span class="variable">$Now</span></span><br><span class="line">    folder=`<span class="built_in">echo</span> <span class="variable">$dest</span> | awk -F <span class="string">&#x27;.env&#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>`</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$folder</span></span><br><span class="line">    mkdir -p <span class="variable">$folder</span></span><br><span class="line">    cp <span class="variable">$i</span> <span class="variable">$dest</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$1</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重看容器详情</span></span><br><span class="line">docker inspect 容器id或名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重看docker详情</span></span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<h2 id="同时输入文件，同时打在控制台"><a href="#同时输入文件，同时打在控制台" class="headerlink" title="同时输入文件，同时打在控制台"></a>同时输入文件，同时打在控制台</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat 1.log | tee 2.log</span><br></pre></td></tr></table></figure>
 
-<h3 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it 镜像名字 /bin/sh</span><br></pre></td></tr></table></figure>
+<h2 id="批量启动服务"><a href="#批量启动服务" class="headerlink" title="批量启动服务"></a>批量启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls /data/wwwroot/`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">cd</span> /data/wwwroot/<span class="variable">$i</span> &amp;&amp; ./restart.sh</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="进入一个运行中的容器"><a href="#进入一个运行中的容器" class="headerlink" title="进入一个运行中的容器"></a>进入一个运行中的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器id /bin/sh</span><br></pre></td></tr></table></figure>
+<h2 id="获取服务IP"><a href="#获取服务IP" class="headerlink" title="获取服务IP"></a>获取服务IP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server_IP=`ip addr | grep inet | egrep -v <span class="string">&#x27;(127.0.0.1|inet6|docker)&#x27;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | tr -d <span class="string">&quot;addr:&quot;</span> | head -n 1 | cut -d / -f1`</span><br></pre></td></tr></table></figure>
 
-<h3 id="打tag"><a href="#打tag" class="headerlink" title="打tag"></a>打tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag 镜像id oldboy1103/alpine:latest</span><br></pre></td></tr></table></figure>
+<h2 id="判断里面有变量，用双中括号"><a href="#判断里面有变量，用双中括号" class="headerlink" title="判断里面有变量，用双中括号"></a>判断里面有变量，用双中括号</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> [[ <span class="string">&quot;<span class="variable">$&#123;refs&#125;</span>&quot;</span> == refs/tags/shp-* ]];<span class="keyword">then</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="容器备份还原"><a href="#容器备份还原" class="headerlink" title="容器备份还原"></a>容器备份还原</h2><h3 id="镜像的备份还原"><a href="#镜像的备份还原" class="headerlink" title="镜像的备份还原"></a>镜像的备份还原</h3><ol>
-<li><p>commit将容器保存成镜像</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将镜像导出成tar (镜像是分层的,可以回滚,)</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o ./backup.tar gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从tar导入镜像（镜像备份下来的tar）</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i ./backup.tar</span><br></pre></td></tr></table></figure>
+<h2 id="sudo-追加文件用tee命令"><a href="#sudo-追加文件用tee命令" class="headerlink" title="sudo 追加文件用tee命令"></a>sudo 追加文件用tee命令</h2><p><code>sudo echo &quot;xxx&quot; &gt; 文件名</code>   是会报错的，应该：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;</span></span><br><span class="line"><span class="string">xxx</span></span><br><span class="line"><span class="string">yyy</span></span><br><span class="line"><span class="string">&quot;</span> | sudo tee /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<blockquote>
-<p>注意：以上会备份镜像的多层。</p>
-</blockquote>
-<h3 id="容器的备份还原"><a href="#容器的备份还原" class="headerlink" title="容器的备份还原"></a>容器的备份还原</h3><ol>
-<li><p>备份容器</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> php &gt; phprongqi.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>还原成镜像</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker import ./phprongqi.tar php</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<blockquote>
-<p>注意：备份的只是一层镜像</p>
-</blockquote>
+<h2 id="sed-打印两个字符之间的-所有行"><a href="#sed-打印两个字符之间的-所有行" class="headerlink" title="sed 打印两个字符之间的 所有行"></a>sed 打印两个字符之间的 所有行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">&#x27;/-----BEGIN RSA PRIVATE KEY-----/,/-----END RSA PRIVATE KEY-----/p&#x27;</span> ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -354,7 +327,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -422,7 +395,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
