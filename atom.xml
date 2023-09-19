@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>杂烩饭</title>
+  <icon>https://zahui.fan/icon.png</icon>
+  <subtitle>张理坤的博客 - 运维技术分享</subtitle>
+  <link href="https://zahui.fan/atom.xml" rel="self"/>
+  
+  <link href="https://zahui.fan/"/>
+  <updated>2023-09-18T08:39:03.000Z</updated>
+  <id>https://zahui.fan/</id>
+  
+  <author>
+    <name>张理坤</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用RedisShake进行Redis迁移</title>
+    <link href="https://zahui.fan/posts/lmojvw5l/"/>
+    <id>https://zahui.fan/posts/lmojvw5l/</id>
+    <published>2023-09-18T07:14:06.000Z</published>
+    <updated>2023-09-18T08:39:03.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;对于自建的redis, 我们可以将rdb&amp;#x2F;aof文件拷贝到目的redis, 启动恢复, 但是云redis或者某些特殊情况, 比如没有云平台的权限等等情况, 可以使用工具来进行迁移.&lt;/p&gt;
+&lt;p&gt;RedisShake 是阿里云 Tair 团队</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
+    
+    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL查询出所有没有主键的表</title>
+    <link href="https://zahui.fan/posts/lmoa36fz/"/>
+    <id>https://zahui.fan/posts/lmoa36fz/</id>
+    <published>2023-09-18T02:39:50.000Z</published>
+    <updated>2023-09-18T04:39:02.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;作者：May22Night&lt;br&gt;链接：&lt;a href=&quot;https://www.jianshu.com/p/f484c63e5c96&quot;&gt;https://www.jianshu.com/p/f484c63e5c96&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;压缩版&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Windows下实现一个快速转换音乐格式的小工具</title>
+    <link href="https://zahui.fan/posts/lmm46hng/"/>
+    <id>https://zahui.fan/posts/lmm46hng/</id>
+    <published>2023-09-16T14:18:54.000Z</published>
+    <updated>2023-09-16T14:31:29.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;搞点歌在车里听，但是早年10w的合资车只能听mp3格式，所以把需要我珍藏的音乐转换成mp3拷进U盘， 转换格式工具当然是选择ffmpeg了。搜了下命令是：&lt;/p&gt;
+&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+    <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
+    
+    <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
+    
+    <category term="cmd" scheme="https://zahui.fan/tags/cmd/"/>
+    
+    <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSL2 配置记录</title>
+    <link href="https://zahui.fan/posts/lmeiruso/"/>
+    <id>https://zahui.fan/posts/lmeiruso/</id>
+    <published>2023-09-11T06:45:16.000Z</published>
+    <updated>2023-09-16T23:47:51.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基础环境配置&quot;&gt;&lt;a href=&quot;#基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;基础环境配置&quot;&gt;&lt;/a&gt;基础环境配置&lt;/h2&gt;&lt;h3 id=&quot;更换源&quot;&gt;&lt;a href=&quot;#更换源&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Windows" scheme="https://zahui.fan/tags/Windows/"/>
+    
+    <category term="WSL" scheme="https://zahui.fan/tags/WSL/"/>
+    
+    <category term="wsl2" scheme="https://zahui.fan/tags/wsl2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux终端复用器Screen和tmux</title>
+    <link href="https://zahui.fan/posts/lm9yw00q/"/>
+    <id>https://zahui.fan/posts/lm9yw00q/</id>
+    <published>2023-09-08T02:17:32.000Z</published>
+    <updated>2023-09-08T03:33:24.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考阮一峰的博客&lt;a href=&quot;https://www.ruanyifeng.com/blog/2019/10/tmux.html&quot;&gt;https://www.ruanyifeng.com/blog/2019/10/tmux.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
+    
+    <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
+    
+    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins pipeline中正确使用git</title>
+    <link href="https://zahui.fan/posts/lm8t2usn/"/>
+    <id>https://zahui.fan/posts/lm8t2usn/</id>
+    <published>2023-09-07T06:47:08.000Z</published>
+    <updated>2023-09-07T07:42:19.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;看到很多jenkins使用都是直接执行git clone命令, 这么做有以下几个缺点.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;需要耗费时间去处理git分支, 代码冲突等工作, 还需要判断是使用 git clone 还是 git</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="jenkins" scheme="https://zahui.fan/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins升级插件引发的血案</title>
+    <link href="https://zahui.fan/posts/lm784jlv/"/>
+    <id>https://zahui.fan/posts/lm784jlv/</id>
+    <published>2023-09-06T04:12:49.000Z</published>
+    <updated>2023-09-06T06:18:41.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我们公司用的jenkins是老版本, 不知道什么时候谁点了升级插件, 但是没有重启jenkins, 一直用者好好的, 突然有一天有个倒霉蛋重启了jenkins,然后就报错了.&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="jenkins" scheme="https://zahui.fan/tags/jenkins/"/>
+    
+    <category term="升级版本" scheme="https://zahui.fan/tags/%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录一次生产环境数据库迁移</title>
+    <link href="https://zahui.fan/posts/73848ed5/"/>
+    <id>https://zahui.fan/posts/73848ed5/</id>
+    <published>2023-08-31T20:03:38.000Z</published>
+    <updated>2023-09-08T06:28:52.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;迁移要求&quot;&gt;&lt;a href=&quot;#迁移要求&quot; class=&quot;headerlink&quot; title=&quot;迁移要求&quot;&gt;&lt;/a&gt;迁移要求&lt;/h2&gt;&lt;p&gt;不要清理目标数据&lt;/p&gt;
+&lt;p&gt;迁移是老环境迁移到新环境， 新环境之前有过使用记录了， 要求不删除现有的数据，</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+    <category term="mysql" scheme="https://zahui.fan/tags/mysql/"/>
+    
+    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac下实现快速登陆带有两步验证的ssh跳板机</title>
+    <link href="https://zahui.fan/posts/ee380870/"/>
+    <id>https://zahui.fan/posts/ee380870/</id>
+    <published>2023-08-24T10:19:01.000Z</published>
+    <updated>2023-08-29T02:06:07.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我们有个堡垒机当前的登陆流程是： ssh username@ip -p port –&amp;gt; 输入密码 –&amp;gt; 打开手机 –&amp;gt; 查看两部验证码 –&amp;gt; 输入 –&amp;gt; 连接成功&lt;/p&gt;
+&lt;h2 id=&quot;解决输入密码的问题&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="mac" scheme="https://zahui.fan/tags/mac/"/>
+    
+    <category term="python" scheme="https://zahui.fan/tags/python/"/>
+    
+    <category term="pyotp" scheme="https://zahui.fan/tags/pyotp/"/>
+    
+    <category term="效率工具" scheme="https://zahui.fan/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用echo server测试ingress-nginx服务</title>
+    <link href="https://zahui.fan/posts/635c073a/"/>
+    <id>https://zahui.fan/posts/635c073a/</id>
+    <published>2023-08-11T06:10:29.000Z</published>
+    <updated>2023-08-11T11:09:55.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这个是&lt;a href=&quot;/posts/c86b58e3&quot;&gt;灰度的方案&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;创建正式环境的服务&quot;&gt;&lt;a href=&quot;#创建正式环境的服务&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="echo-server" scheme="https://zahui.fan/tags/echo-server/"/>
+    
+    <category term="测试" scheme="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Prometheus标签处理</title>
+    <link href="https://zahui.fan/posts/prometheus_tag/"/>
+    <id>https://zahui.fan/posts/prometheus_tag/</id>
+    <published>2023-07-28T07:07:00.000Z</published>
+    <updated>2023-09-15T14:03:51.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;元标签&quot;&gt;&lt;a href=&quot;#元标签&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
+    
+    
+    <category term="Prometheus" scheme="https://zahui.fan/tags/Prometheus/"/>
+    
+    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
+    
+    <category term="监控" scheme="https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Windows下以服务方式运行MySQL</title>
+    <link href="https://zahui.fan/posts/c1f1096a/"/>
+    <id>https://zahui.fan/posts/c1f1096a/</id>
+    <published>2023-07-24T14:41:51.000Z</published>
+    <updated>2023-07-24T14:48:25.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h2&gt;&lt;p&gt;本文安装的是zip包, 安装方式更灵活&lt;/p&gt;
+&lt;p&gt;下载地址: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="服务" scheme="https://zahui.fan/tags/%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="mysqld" scheme="https://zahui.fan/tags/mysqld/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译安装Redis记录</title>
+    <link href="https://zahui.fan/posts/1da8e73d/"/>
+    <id>https://zahui.fan/posts/1da8e73d/</id>
+    <published>2023-07-21T08:37:32.000Z</published>
+    <updated>2023-07-21T08:53:36.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;下载解压&quot;&gt;&lt;a href=&quot;#下载解压&quot; class=&quot;headerlink&quot; title=&quot;下载解压&quot;&gt;&lt;/a&gt;下载解压&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="编译" scheme="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes的3中探针readinessProbe、livenessProbe和startupProbe</title>
+    <link href="https://zahui.fan/posts/af97998/"/>
+    <id>https://zahui.fan/posts/af97998/</id>
+    <published>2023-07-20T08:41:33.000Z</published>
+    <updated>2023-08-24T14:54:58.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;探针&quot;&gt;&lt;a href=&quot;#探针&quot; class=&quot;headerlink&quot; title=&quot;探针&quot;&gt;&lt;/a&gt;探针&lt;/h2&gt;&lt;p&gt;K8S 提供了3种探针&lt;/p&gt;
+&lt;p&gt;startupProbe    启动检查（1.16版本新增）&lt;br&gt;livenessProbe  </summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="生命周期" scheme="https://zahui.fan/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL慢查询日志</title>
+    <link href="https://zahui.fan/posts/d7f12bf0/"/>
+    <id>https://zahui.fan/posts/d7f12bf0/</id>
+    <published>2023-07-20T08:31:08.000Z</published>
+    <updated>2023-07-20T08:40:37.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;开启慢查询会带来一定的性能影响。&lt;br&gt;参考: &lt;a href=&quot;http://c.biancheng.net/view/7782.html&quot;&gt;http://c.biancheng.net/view/7782.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+    <category term="mysql" scheme="https://zahui.fan/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webdav使用记录</title>
+    <link href="https://zahui.fan/posts/1e91b84d/"/>
+    <id>https://zahui.fan/posts/1e91b84d/</id>
+    <published>2023-07-03T23:23:12.000Z</published>
+    <updated>2023-07-03T23:34:11.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;在windows挂载到z盘&quot;&gt;&lt;a href=&quot;#在windows挂载到z盘&quot; class=&quot;headerlink&quot; title=&quot;在windows挂载到z盘&quot;&gt;&lt;/a&gt;在windows挂载到z盘&lt;/h2&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
+    
+    <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="webdav" scheme="https://zahui.fan/tags/webdav/"/>
+    
+    <category term="curl" scheme="https://zahui.fan/tags/curl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python处理字符串</title>
+    <link href="https://zahui.fan/posts/5d196648/"/>
+    <id>https://zahui.fan/posts/5d196648/</id>
+    <published>2023-06-30T11:50:38.000Z</published>
+    <updated>2023-07-01T23:26:36.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;读取多行字符串&quot;&gt;&lt;a href=&quot;#读取多行字符串&quot; class=&quot;headerlink&quot; title=&quot;读取多行字符串&quot;&gt;&lt;/a&gt;读取多行字符串&lt;/h2&gt;&lt;p&gt;使用字符串的splitlines方法&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="python" scheme="https://zahui.fan/tags/python/"/>
+    
+    <category term="字符串" scheme="https://zahui.fan/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在ubuntu22.04或LinuxMint21上安装深信服Easyconnect</title>
+    <link href="https://zahui.fan/posts/6f69bd6/"/>
+    <id>https://zahui.fan/posts/6f69bd6/</id>
+    <published>2023-06-28T11:01:53.000Z</published>
+    <updated>2023-08-24T14:54:58.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;正常在ubuntu22.04或者linuxmint21上安装Easyconnect, 可以安装, 但是无法启动.&lt;/p&gt;
+&lt;p&gt;是因为pango这个库版本较高导致. 需要手动将低版本的动态链接库放到easyconnect程序目录下.&lt;/p&gt;
+&lt;p&gt;只想安装的朋友,</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="深信服" scheme="https://zahui.fan/tags/%E6%B7%B1%E4%BF%A1%E6%9C%8D/"/>
+    
+    <category term="ubuntu" scheme="https://zahui.fan/tags/ubuntu/"/>
+    
+    <category term="linuxmint" scheme="https://zahui.fan/tags/linuxmint/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python列表操作</title>
+    <link href="https://zahui.fan/posts/e367d008/"/>
+    <id>https://zahui.fan/posts/e367d008/</id>
+    <published>2023-06-27T07:36:51.000Z</published>
+    <updated>2023-07-01T23:26:17.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;列表去除空值&quot;&gt;&lt;a href=&quot;#列表去除空值&quot; class=&quot;headerlink&quot; title=&quot;列表去除空值&quot;&gt;&lt;/a&gt;列表去除空值&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="python" scheme="https://zahui.fan/tags/python/"/>
+    
+    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="Pyhton" scheme="https://zahui.fan/tags/Pyhton/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kubernetes节点维护流程</title>
+    <link href="https://zahui.fan/posts/52feaa76/"/>
+    <id>https://zahui.fan/posts/52feaa76/</id>
+    <published>2023-06-26T15:06:49.000Z</published>
+    <updated>2023-06-26T15:23:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;节点设置为&lt;code&gt;SchedulingDisabled&lt;/code&gt; 其实就是打上污点</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="kubernetes" scheme="https://zahui.fan/tags/kubernetes/"/>
+    
+    <category term="滚动" scheme="https://zahui.fan/tags/%E6%BB%9A%E5%8A%A8/"/>
+    
+  </entry>
+  
+</feed>
