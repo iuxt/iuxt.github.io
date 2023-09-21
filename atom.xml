@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-09-18T08:39:03.000Z</updated>
+  <updated>2023-09-21T06:34:53.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows下使用bat脚本来新增环境变量</title>
+    <link href="https://zahui.fan/posts/lmsslh3g/"/>
+    <id>https://zahui.fan/posts/lmsslh3g/</id>
+    <published>2023-09-21T06:29:01.000Z</published>
+    <updated>2023-09-21T06:34:53.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;自己创建了一个bin目录用于存放一些exe或者bat用于快速调用, 把它加到PATH环境变量中就可以在任意路径来调用了.&lt;/p&gt;
+&lt;h2 id=&quot;查看环境变量&quot;&gt;&lt;a href=&quot;#查看环境变量&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+    <category term="cmd" scheme="https://zahui.fan/tags/cmd/"/>
+    
+    <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k8s解除service端口限制</title>
+    <link href="https://zahui.fan/posts/lmri345s/"/>
+    <id>https://zahui.fan/posts/lmri345s/</id>
+    <published>2023-09-20T08:47:02.000Z</published>
+    <updated>2023-09-20T09:05:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我自己写了一个svc的yaml文件，部署的时候报错，不在默认的范围内，默认范围是: &lt;code&gt;30000-32767&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;kubectl apply -f</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+  </entry>
   
   <entry>
     <title>使用RedisShake进行Redis迁移</title>
@@ -94,9 +150,9 @@
     
     <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
     
-    <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
-    
     <category term="cmd" scheme="https://zahui.fan/tags/cmd/"/>
+    
+    <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
     
     <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
     
@@ -540,67 +596,6 @@
     <category term="ubuntu" scheme="https://zahui.fan/tags/ubuntu/"/>
     
     <category term="linuxmint" scheme="https://zahui.fan/tags/linuxmint/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python列表操作</title>
-    <link href="https://zahui.fan/posts/e367d008/"/>
-    <id>https://zahui.fan/posts/e367d008/</id>
-    <published>2023-06-27T07:36:51.000Z</published>
-    <updated>2023-07-01T23:26:17.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;列表去除空值&quot;&gt;&lt;a href=&quot;#列表去除空值&quot; class=&quot;headerlink&quot; title=&quot;列表去除空值&quot;&gt;&lt;/a&gt;列表去除空值&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="python" scheme="https://zahui.fan/tags/python/"/>
-    
-    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-    
-    <category term="Pyhton" scheme="https://zahui.fan/tags/Pyhton/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>kubernetes节点维护流程</title>
-    <link href="https://zahui.fan/posts/52feaa76/"/>
-    <id>https://zahui.fan/posts/52feaa76/</id>
-    <published>2023-06-26T15:06:49.000Z</published>
-    <updated>2023-06-26T15:23:14.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;节点设置为&lt;code&gt;SchedulingDisabled&lt;/code&gt; 其实就是打上污点</summary>
-        
-      
-    
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
-    
-    
-    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
-    <category term="kubernetes" scheme="https://zahui.fan/tags/kubernetes/"/>
-    
-    <category term="滚动" scheme="https://zahui.fan/tags/%E6%BB%9A%E5%8A%A8/"/>
     
   </entry>
   
