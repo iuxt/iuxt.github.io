@@ -1,4 +1,4 @@
-name: dingtalk_notify
+name: notify
 
 on:
   push:                                 # 在收到push的时候触发
@@ -9,6 +9,38 @@ jobs:
   dingtalk_notify:
     runs-on: ubuntu-latest              # 用ubuntu系统来执行
     steps:
+      - name: wechat_notify
+        run: |
+          python <<END
+          import sys
+          import json
+          import requests
+          from datetime import datetime
+  
+          currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+  
+          url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send"
+          key = "${{ secrets.WECHAT_KEY }}"
+  
+          headers = {
+              'Content-Type': 'application/json'
+          }
+  
+          parameters = {
+              'key': key
+          }
+  
+          data = {
+              "msgtype": "text",
+              "text": {
+                  "content": currentTime + ":    " + sys.argv[1]
+              }
+          }
+  
+          req = requests.post(url=url, headers=headers, params=parameters, data=json.dumps(data))
+          print(req.text)
+          END
+    
       - name: dingtalk_notify
         run: |
           python <<END
