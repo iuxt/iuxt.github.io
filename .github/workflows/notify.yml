@@ -33,7 +33,7 @@ jobs:
           data = {
               "msgtype": "text",
               "text": {
-                  "content": currentTime + ":    " + sys.argv[1]
+                  "content": currentTime + ":    杂烩饭通过GitHub Actions发布成功"
               }
           }
   
