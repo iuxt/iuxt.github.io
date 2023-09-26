@@ -1,4 +1,4 @@
-https://zahui.fan/posts/0/
+https://zahui.fan/posts/4bc23141/
 https://zahui.fan/posts/73848ed5/
 https://zahui.fan/posts/3b23b5cb/
 https://zahui.fan/posts/5e168f7e/
@@ -235,6 +235,7 @@ https://zahui.fan/tags/Container/
 https://zahui.fan/tags/CICD/
 https://zahui.fan/tags/%E7%BC%96%E7%A0%81/
 https://zahui.fan/tags/Build/
+https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/
 https://zahui.fan/tags/ingress/
 https://zahui.fan/tags/nginx/
 https://zahui.fan/tags/Ingress/
@@ -250,7 +251,6 @@ https://zahui.fan/tags/RBAC/
 https://zahui.fan/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
 https://zahui.fan/tags/Scheduler/
 https://zahui.fan/tags/Ubuntu/
-https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/
 https://zahui.fan/tags/Linux/
 https://zahui.fan/tags/kubectl/
 https://zahui.fan/tags/kubernetes/
