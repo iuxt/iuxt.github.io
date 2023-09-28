@@ -1,3 +1,5 @@
+https://zahui.fan/posts/026f1c74/
+https://zahui.fan/posts/e367d008/
 https://zahui.fan/posts/5e168f7e/
 https://zahui.fan/posts/ee708f6b/
 https://zahui.fan/about/
@@ -61,7 +63,6 @@ https://zahui.fan/posts/1e91b84d/
 https://zahui.fan/link/
 https://zahui.fan/posts/6c12bda4/
 https://zahui.fan/posts/5d196648/
-https://zahui.fan/posts/e367d008/
 https://zahui.fan/posts/fe29bf0b/
 https://zahui.fan/posts/b19de2c2/
 https://zahui.fan/posts/9f75a5fc/
@@ -157,7 +158,6 @@ https://zahui.fan/posts/ca1596c5/
 https://zahui.fan/posts/8e3fdb74/
 https://zahui.fan/posts/28913a98/
 https://zahui.fan/posts/f2ce6df5/
-https://zahui.fan/posts/026f1c74/
 https://zahui.fan/posts/7a4b3586/
 https://zahui.fan/posts/ac395656/
 https://zahui.fan/posts/666e547f/
@@ -384,7 +384,6 @@ https://zahui.fan/tags/mysql/
 https://zahui.fan/tags/Flask/
 https://zahui.fan/tags/Python/
 https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/
-https://zahui.fan/tags/Pyhton/
 https://zahui.fan/tags/%E6%96%87%E4%BB%B6/
 https://zahui.fan/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/
 https://zahui.fan/tags/xml/
