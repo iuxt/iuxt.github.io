@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/280100fb/</loc>
+    
+    <lastmod>2023-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/lnd7yqpw/</loc>
+    
+    <lastmod>2023-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/ln38vw8d/</loc>
     
     <lastmod>2023-09-29</lastmod>
@@ -1559,15 +1577,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/280100fb/</loc>
-    
-    <lastmod>2023-06-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/posts/8b932a1b/</loc>
     
     <lastmod>2023-06-08</lastmod>
@@ -2985,6 +2994,13 @@
   
   <url>
     <loc>https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2023-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
