@@ -321,8 +321,8 @@ https://zahui.fan/tags/Proxy/
 https://zahui.fan/tags/proxy/
 https://zahui.fan/tags/Auth/
 https://zahui.fan/tags/SSL/
-https://zahui.fan/tags/Puppet/
 https://zahui.fan/tags/redis/
+https://zahui.fan/tags/Puppet/
 https://zahui.fan/tags/vnc/
 https://zahui.fan/tags/RemoteControl/
 https://zahui.fan/tags/adb/
