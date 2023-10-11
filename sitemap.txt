@@ -362,11 +362,11 @@ https://zahui.fan/tags/PHP/
 https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/
 https://zahui.fan/tags/%E8%84%9A%E6%9C%AC/
 https://zahui.fan/tags/ArchLinux/
-https://zahui.fan/tags/Vagrant/
 https://zahui.fan/tags/mac/
 https://zahui.fan/tags/python/
 https://zahui.fan/tags/pyotp/
 https://zahui.fan/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/
+https://zahui.fan/tags/Vagrant/
 https://zahui.fan/tags/webdav/
 https://zahui.fan/tags/curl/
 https://zahui.fan/tags/hexo/
