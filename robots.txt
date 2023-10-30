@@ -1,7 +1,4 @@
 User-agent: *
-Disallow: /page/
-Disallow: /archives/
-Disallow: /tags/
-Disallow: /categories/
+Allow: /
 
 Sitemap: https://zahui.fan/sitemap.xml
