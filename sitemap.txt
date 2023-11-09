@@ -398,10 +398,10 @@ https://zahui.fan/tags/binlog/
 https://zahui.fan/tags/database/
 https://zahui.fan/tags/SQL/
 https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/
-https://zahui.fan/tags/Kafka/
-https://zahui.fan/tags/MQ/
 https://zahui.fan/tags/log/
 https://zahui.fan/tags/ELK/
+https://zahui.fan/tags/Kafka/
+https://zahui.fan/tags/MQ/
 https://zahui.fan/tags/Log/
 https://zahui.fan/tags/Prometheus/
 https://zahui.fan/tags/prometheus/
