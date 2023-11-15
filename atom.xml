@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-10-25T03:37:56.000Z</updated>
+  <updated>2023-11-15T02:22:20.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用tailscale打通内网</title>
+    <link href="https://zahui.fan/posts/loz4xrye/"/>
+    <id>https://zahui.fan/posts/loz4xrye/</id>
+    <published>2023-11-15T02:20:32.000Z</published>
+    <updated>2023-11-15T02:22:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;家里有一台群晖nas, 通过quickconnect连接太慢了, 并且有些操作不能通过quickconnect, 比如直接smb挂载目录&lt;/p&gt;
+&lt;h2 id=&quot;群晖nas安装&quot;&gt;&lt;a href=&quot;#群晖nas安装&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="网络" scheme="https://zahui.fan/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>查看kubernetes节点的硬件配置</title>
@@ -575,35 +601,6 @@
     <category term="echo-server" scheme="https://zahui.fan/tags/echo-server/"/>
     
     <category term="测试" scheme="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Prometheus标签处理</title>
-    <link href="https://zahui.fan/posts/prometheus_tag/"/>
-    <id>https://zahui.fan/posts/prometheus_tag/</id>
-    <published>2023-07-28T07:07:00.000Z</published>
-    <updated>2023-09-15T14:03:51.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;元标签&quot;&gt;&lt;a href=&quot;#元标签&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
-    
-    
-    <category term="Prometheus" scheme="https://zahui.fan/tags/Prometheus/"/>
-    
-    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
-    
-    <category term="监控" scheme="https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/"/>
     
   </entry>
   
