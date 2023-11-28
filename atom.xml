@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-11-21T06:01:49.000Z</updated>
+  <updated>2023-11-28T06:15:14.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将ova或qcow2导入到PVE虚拟机</title>
+    <link href="https://zahui.fan/posts/lphwqhtr/"/>
+    <id>https://zahui.fan/posts/lphwqhtr/</id>
+    <published>2023-11-28T05:38:33.000Z</published>
+    <updated>2023-11-28T06:15:14.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;比如我们从VMware Workstation导出的虚拟机镜像(ova或者ovf), 如果我想要导入到proxmox中, proxmox默认是不支持导入OVA虚拟机的, 可以通过转换虚拟机虚拟磁盘的方法将虚拟磁盘附加到现有的pve虚拟机中.&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="虚拟化" scheme="https://zahui.fan/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+    
+    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+    <category term="proxmox" scheme="https://zahui.fan/tags/proxmox/"/>
+    
+  </entry>
   
   <entry>
     <title>使用tailscale打通内网</title>
@@ -538,9 +570,9 @@
     
     <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
     
-    <category term="mysql" scheme="https://zahui.fan/tags/mysql/"/>
-    
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+    <category term="mysql" scheme="https://zahui.fan/tags/mysql/"/>
     
   </entry>
   
@@ -573,34 +605,6 @@
     <category term="pyotp" scheme="https://zahui.fan/tags/pyotp/"/>
     
     <category term="效率工具" scheme="https://zahui.fan/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用echo server测试ingress-nginx服务</title>
-    <link href="https://zahui.fan/posts/635c073a/"/>
-    <id>https://zahui.fan/posts/635c073a/</id>
-    <published>2023-08-11T06:10:29.000Z</published>
-    <updated>2023-08-11T11:09:55.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;这个是&lt;a href=&quot;/posts/c86b58e3&quot;&gt;灰度的方案&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;创建正式环境的服务&quot;&gt;&lt;a href=&quot;#创建正式环境的服务&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
-    
-    
-    <category term="echo-server" scheme="https://zahui.fan/tags/echo-server/"/>
-    
-    <category term="测试" scheme="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
