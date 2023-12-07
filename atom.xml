@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-12-01T07:35:47.000Z</updated>
+  <updated>2023-12-07T09:20:41.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前后端跨域问题</title>
+    <link href="https://zahui.fan/posts/lpuzlvhd/"/>
+    <id>https://zahui.fan/posts/lpuzlvhd/</id>
+    <published>2023-12-07T09:19:56.000Z</published>
+    <updated>2023-12-07T09:20:41.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;啥是跨域&quot;&gt;&lt;a href=&quot;#啥是跨域&quot; class=&quot;headerlink&quot; title=&quot;啥是跨域&quot;&gt;&lt;/a&gt;啥是跨域&lt;/h2&gt;&lt;p&gt;跨源资源共享（CORS，或通俗地译为跨域资源共享）是一种基于 HTTP</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="编码" scheme="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
+    
+    <category term="浏览器" scheme="https://zahui.fan/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+    <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>将ova或qcow2导入到PVE虚拟机</title>
@@ -573,38 +606,6 @@
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
     
     <category term="mysql" scheme="https://zahui.fan/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac下实现快速登陆带有两步验证的ssh跳板机</title>
-    <link href="https://zahui.fan/posts/ee380870/"/>
-    <id>https://zahui.fan/posts/ee380870/</id>
-    <published>2023-08-24T10:19:01.000Z</published>
-    <updated>2023-08-29T02:06:07.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我们有个堡垒机当前的登陆流程是： ssh username@ip -p port –&amp;gt; 输入密码 –&amp;gt; 打开手机 –&amp;gt; 查看两部验证码 –&amp;gt; 输入 –&amp;gt; 连接成功&lt;/p&gt;
-&lt;h2 id=&quot;解决输入密码的问题&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="mac" scheme="https://zahui.fan/tags/mac/"/>
-    
-    <category term="python" scheme="https://zahui.fan/tags/python/"/>
-    
-    <category term="pyotp" scheme="https://zahui.fan/tags/pyotp/"/>
-    
-    <category term="效率工具" scheme="https://zahui.fan/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
