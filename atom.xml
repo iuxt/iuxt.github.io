@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-12-07T09:20:41.000Z</updated>
+  <updated>2023-12-11T14:39:29.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用kubeadm部署一套高可用k8s 1.26集群 for AlmaLinux9</title>
+    <link href="https://zahui.fan/posts/lq0y87n5/"/>
+    <id>https://zahui.fan/posts/lq0y87n5/</id>
+    <published>2023-12-11T13:44:33.000Z</published>
+    <updated>2023-12-11T14:39:29.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;基于AlmaLinux9使用kubeadm搭建集群， &lt;a href=&quot;/posts/526ffc9a/&quot;&gt;ubuntu部署文档&lt;/a&gt;, 有疑问的地方可以看&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="Container" scheme="https://zahui.fan/tags/Container/"/>
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>前后端跨域问题</title>
@@ -576,36 +608,6 @@
     <category term="jenkins" scheme="https://zahui.fan/tags/jenkins/"/>
     
     <category term="升级版本" scheme="https://zahui.fan/tags/%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记录一次生产环境数据库迁移</title>
-    <link href="https://zahui.fan/posts/73848ed5/"/>
-    <id>https://zahui.fan/posts/73848ed5/</id>
-    <published>2023-08-31T20:03:38.000Z</published>
-    <updated>2023-09-28T09:32:27.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;迁移要求&quot;&gt;&lt;a href=&quot;#迁移要求&quot; class=&quot;headerlink&quot; title=&quot;迁移要求&quot;&gt;&lt;/a&gt;迁移要求&lt;/h2&gt;&lt;p&gt;不要清理目标数据&lt;/p&gt;
-&lt;p&gt;迁移是老环境迁移到新环境， 新环境之前有过使用记录了， 要求不删除现有的数据，</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
-    
-    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
-    
-    <category term="mysql" scheme="https://zahui.fan/tags/mysql/"/>
     
   </entry>
   
