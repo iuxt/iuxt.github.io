@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-12-11T14:39:29.000Z</updated>
+  <updated>2023-12-12T12:09:15.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kubernetes使用存储挂载单个文件</title>
+    <link href="https://zahui.fan/posts/lq292e56/"/>
+    <id>https://zahui.fan/posts/lq292e56/</id>
+    <published>2023-12-12T11:19:07.000Z</published>
+    <updated>2023-12-12T12:09:15.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一般来说, 挂载存储都是把一个PV挂载到一个路径, 挂载后此路径下原来的文件就会不见, 只能看到挂载后的文件, 和在Linux下挂载磁盘是一样的. 那么现在有个需求: &lt;/p&gt;
+&lt;h2 id=&quot;需求&quot;&gt;&lt;a href=&quot;#需求&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="挂载" scheme="https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>使用kubeadm部署一套高可用k8s 1.26集群 for AlmaLinux9</title>
@@ -581,33 +611,6 @@
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
     <category term="jenkins" scheme="https://zahui.fan/tags/jenkins/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins升级插件引发的血案</title>
-    <link href="https://zahui.fan/posts/lm784jlv/"/>
-    <id>https://zahui.fan/posts/lm784jlv/</id>
-    <published>2023-09-06T04:12:49.000Z</published>
-    <updated>2023-09-28T09:32:27.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我们公司用的jenkins是老版本, 不知道什么时候谁点了升级插件, 但是没有重启jenkins, 一直用者好好的, 突然有一天有个倒霉蛋重启了jenkins,然后就报错了.&lt;br&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="jenkins" scheme="https://zahui.fan/tags/jenkins/"/>
-    
-    <category term="升级版本" scheme="https://zahui.fan/tags/%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/"/>
     
   </entry>
   

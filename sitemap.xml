@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/lq292e56/</loc>
+    
+    <lastmod>2023-12-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/4b677f68/</loc>
+    
+    <lastmod>2023-12-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/lq0y87n5/</loc>
     
     <lastmod>2023-12-11</lastmod>
@@ -74,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/lo47lj11/</loc>
+    <loc>https://zahui.fan/posts/lo57b8gx/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -83,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/lo57b8gx/</loc>
+    <loc>https://zahui.fan/posts/lo47lj11/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -1775,15 +1793,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/4b677f68/</loc>
-    
-    <lastmod>2023-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/posts/23ada041/</loc>
     
     <lastmod>2023-05-25</lastmod>
@@ -2279,6 +2288,20 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -2287,13 +2310,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/RBAC/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2391,13 +2407,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/tags/configmap/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -2468,14 +2477,28 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/VirtualMachine/</loc>
+    <loc>https://zahui.fan/tags/Windows/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/Windows/</loc>
+    <loc>https://zahui.fan/tags/WSL/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/wsl2/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/VirtualMachine/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2497,20 +2520,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/Hyper-V/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/WSL/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/wsl2/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
