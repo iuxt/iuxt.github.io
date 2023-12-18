@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-12-12T12:09:15.000Z</updated>
+  <updated>2023-12-18T03:31:34.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用kubectl进行多集群管理</title>
+    <link href="https://zahui.fan/posts/lqacdmqv/"/>
+    <id>https://zahui.fan/posts/lqacdmqv/</id>
+    <published>2023-12-18T03:13:59.000Z</published>
+    <updated>2023-12-18T03:31:34.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;平常使用跳板机来管理, 经常多个环境多套集群, 那么如何用一个kubectl如何管理这些集群.&lt;/p&gt;
+&lt;h2 id=&quot;使用不同的kubeconfig管理&quot;&gt;&lt;a href=&quot;#使用不同的kubeconfig管理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="权限管理" scheme="https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
+    
+  </entry>
   
   <entry>
     <title>Kubernetes使用存储挂载单个文件</title>
@@ -582,35 +614,6 @@
     <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
     
     <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins pipeline中正确使用git</title>
-    <link href="https://zahui.fan/posts/lm8t2usn/"/>
-    <id>https://zahui.fan/posts/lm8t2usn/</id>
-    <published>2023-09-07T06:47:08.000Z</published>
-    <updated>2023-09-07T07:42:19.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;看到很多jenkins使用都是直接执行git clone命令, 这么做有以下几个缺点.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;需要耗费时间去处理git分支, 代码冲突等工作, 还需要判断是使用 git clone 还是 git</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="jenkins" scheme="https://zahui.fan/tags/jenkins/"/>
     
   </entry>
   
