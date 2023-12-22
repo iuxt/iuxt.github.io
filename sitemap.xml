@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/lqgfuqik/</loc>
+    
+    <lastmod>2023-12-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/lqevsmdb/</loc>
     
     <lastmod>2023-12-21</lastmod>
@@ -2586,14 +2595,21 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
+    <loc>https://zahui.fan/tags/Script/</loc>
     <lastmod>2023-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/Script/</loc>
+    <loc>https://zahui.fan/tags/%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2023-12-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
     <lastmod>2023-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3028,13 +3044,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/MySQL/</loc>
-    <lastmod>2023-12-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2023-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
