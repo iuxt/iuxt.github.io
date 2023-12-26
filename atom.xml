@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-12-22T10:06:43.000Z</updated>
+  <updated>2023-12-26T14:19:54.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django RestFramework 使用router生成路由</title>
+    <link href="https://zahui.fan/posts/lqmfi6wc/"/>
+    <id>https://zahui.fan/posts/lqmfi6wc/</id>
+    <published>2023-12-26T14:14:45.000Z</published>
+    <updated>2023-12-26T14:19:54.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;django使用的是模块化结构，每个app都可以独立拆分，那么注册路由的时候也可以灵活一点， 使用drf框架提供的router来自动生成路由&lt;/p&gt;
+&lt;p&gt;应用级 urls.py&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="drf" scheme="https://zahui.fan/tags/drf/"/>
+    
+    <category term="django" scheme="https://zahui.fan/tags/django/"/>
+    
+  </entry>
   
   <entry>
     <title>bat命令修改windows环境变量</title>
@@ -282,9 +311,9 @@
     <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="游戏" scheme="https://zahui.fan/tags/%E6%B8%B8%E6%88%8F/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -524,9 +553,9 @@
     <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
-    
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+    <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
     
   </entry>
   
@@ -585,37 +614,6 @@
     <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
     
     <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WSL2 配置记录</title>
-    <link href="https://zahui.fan/posts/lmeiruso/"/>
-    <id>https://zahui.fan/posts/lmeiruso/</id>
-    <published>2023-09-11T06:45:16.000Z</published>
-    <updated>2023-10-23T02:58:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;基础环境配置&quot;&gt;&lt;a href=&quot;#基础环境配置&quot; class=&quot;headerlink&quot; title=&quot;基础环境配置&quot;&gt;&lt;/a&gt;基础环境配置&lt;/h2&gt;&lt;h3 id=&quot;更换源&quot;&gt;&lt;a href=&quot;#更换源&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="Windows" scheme="https://zahui.fan/tags/Windows/"/>
-    
-    <category term="WSL" scheme="https://zahui.fan/tags/WSL/"/>
-    
-    <category term="wsl2" scheme="https://zahui.fan/tags/wsl2/"/>
     
   </entry>
   
