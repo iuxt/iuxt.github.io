@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2023-12-26T14:20:36.000Z</updated>
+  <updated>2023-12-28T07:06:38.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>查看Navicat保存的密码</title>
+    <link href="https://zahui.fan/posts/lqoui8yg/"/>
+    <id>https://zahui.fan/posts/lqoui8yg/</id>
+    <published>2023-12-28T06:50:14.000Z</published>
+    <updated>2023-12-28T07:06:38.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Navicat密码一旦保存, 再次编辑就没法查看密码是什么了, 包括之前可以使用的星号密码查看器也看不到密码, 我们可以通过导出链接文件, 然后通过解密被加密的密码来获取密码原文.&lt;/p&gt;
+&lt;h2 id=&quot;导出加密密码&quot;&gt;&lt;a href=&quot;#导出加密密码&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+    <category term="PHP" scheme="https://zahui.fan/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>Django RestFramework 使用router生成路由</title>
@@ -582,38 +612,6 @@
     
     
     <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Windows下实现一个快速转换音乐格式的小工具</title>
-    <link href="https://zahui.fan/posts/lmm46hng/"/>
-    <id>https://zahui.fan/posts/lmm46hng/</id>
-    <published>2023-09-16T14:18:54.000Z</published>
-    <updated>2023-09-16T14:31:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;搞点歌在车里听，但是早年10w的合资车只能听mp3格式，所以把需要我珍藏的音乐转换成mp3拷进U盘， 转换格式工具当然是选择ffmpeg了。搜了下命令是：&lt;/p&gt;
-&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
-    
-    
-    <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
-    
-    <category term="cmd" scheme="https://zahui.fan/tags/cmd/"/>
-    
-    <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
-    
-    <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
