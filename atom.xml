@@ -341,9 +341,9 @@
     <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="游戏" scheme="https://zahui.fan/tags/%E6%B8%B8%E6%88%8F/"/>
-    
     <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="游戏" scheme="https://zahui.fan/tags/%E6%B8%B8%E6%88%8F/"/>
     
   </entry>
   
@@ -583,9 +583,9 @@
     <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
-    
     <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
+    
+    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
     
   </entry>
   
