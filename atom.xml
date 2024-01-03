@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-01-01T12:57:03.000Z</updated>
+  <updated>2024-01-03T06:34:16.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用openssl对文件进行加密</title>
+    <link href="https://zahui.fan/posts/lqxdtb6m/"/>
+    <id>https://zahui.fan/posts/lqxdtb6m/</id>
+    <published>2024-01-03T06:12:53.000Z</published>
+    <updated>2024-01-03T06:34:16.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;使用密码加密&quot;&gt;&lt;a href=&quot;#使用密码加密&quot; class=&quot;headerlink&quot; title=&quot;使用密码加密&quot;&gt;&lt;/a&gt;使用密码加密&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="加密" scheme="https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/"/>
+    
+    <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
+    
+  </entry>
   
   <entry>
     <title>查看Navicat保存的密码</title>
@@ -586,32 +613,6 @@
     <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
     
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL查询出所有没有主键的表</title>
-    <link href="https://zahui.fan/posts/lmoa36fz/"/>
-    <id>https://zahui.fan/posts/lmoa36fz/</id>
-    <published>2023-09-18T02:39:50.000Z</published>
-    <updated>2023-09-28T09:32:27.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;作者：May22Night&lt;br&gt;链接：&lt;a href=&quot;https://www.jianshu.com/p/f484c63e5c96&quot;&gt;https://www.jianshu.com/p/f484c63e5c96&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;压缩版&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
     
   </entry>
   
