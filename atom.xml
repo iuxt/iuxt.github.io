@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-01-04T10:57:20.000Z</updated>
+  <updated>2024-01-04T14:38:09.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -21,14 +21,15 @@
     <link href="https://zahui.fan/posts/lqz1imdm/"/>
     <id>https://zahui.fan/posts/lqz1imdm/</id>
     <published>2024-01-04T10:04:11.000Z</published>
-    <updated>2024-01-04T10:57:20.000Z</updated>
+    <updated>2024-01-04T14:38:09.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;先看一下原始数据&quot;&gt;&lt;a href=&quot;#先看一下原始数据&quot; class=&quot;headerlink&quot; title=&quot;先看一下原始数据&quot;&gt;&lt;/a&gt;先看一下原始数据&lt;/h2&gt;&lt;figure class=&quot;highlight json&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;p&gt;有的时候序列化出来的字段并不是我们想要的， 比如说返回的用户id，而我们想要返回的是用户名， 这个时候可以用到django rest framework的自定义字段功能。&lt;/p&gt;
+&lt;h2 id=&quot;先看一下原始数据&quot;&gt;&lt;a href=&quot;#先看一下原始数据&quot;</summary>
         
       
     
@@ -50,7 +51,7 @@
     <link href="https://zahui.fan/posts/lqyxid2z/"/>
     <id>https://zahui.fan/posts/lqyxid2z/</id>
     <published>2024-01-04T08:12:00.000Z</published>
-    <updated>2024-01-04T08:43:44.000Z</updated>
+    <updated>2024-01-04T14:38:09.000Z</updated>
     
     
       
@@ -109,7 +110,7 @@
     <link href="https://zahui.fan/posts/lqxdtb6m/"/>
     <id>https://zahui.fan/posts/lqxdtb6m/</id>
     <published>2024-01-03T06:12:53.000Z</published>
-    <updated>2024-01-03T06:34:16.000Z</updated>
+    <updated>2024-01-04T14:38:09.000Z</updated>
     
     
       
@@ -166,7 +167,7 @@
     <link href="https://zahui.fan/posts/lqmfi6wc/"/>
     <id>https://zahui.fan/posts/lqmfi6wc/</id>
     <published>2023-12-26T14:14:45.000Z</published>
-    <updated>2024-01-04T10:57:20.000Z</updated>
+    <updated>2024-01-04T14:38:09.000Z</updated>
     
     
       
