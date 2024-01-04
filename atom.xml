@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-01-03T07:46:25.000Z</updated>
+  <updated>2024-01-04T08:43:44.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>curl常用操作记录</title>
+    <link href="https://zahui.fan/posts/lqyxid2z/"/>
+    <id>https://zahui.fan/posts/lqyxid2z/</id>
+    <published>2024-01-04T08:12:00.000Z</published>
+    <updated>2024-01-04T08:43:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。&lt;/p&gt;
+&lt;p&gt;它的功能非常强大，命令行参数多达几十种。如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。&lt;/p&gt;
+&lt;p&gt;参考文章: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="curl" scheme="https://zahui.fan/tags/curl/"/>
+    
+  </entry>
   
   <entry>
     <title>检查域名支持的HTTPS协议版本</title>
@@ -585,34 +616,6 @@
     <category term="cmd" scheme="https://zahui.fan/tags/cmd/"/>
     
     <category term="bat" scheme="https://zahui.fan/tags/bat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>k8s解除service端口限制</title>
-    <link href="https://zahui.fan/posts/lmri345s/"/>
-    <id>https://zahui.fan/posts/lmri345s/</id>
-    <published>2023-09-20T08:47:02.000Z</published>
-    <updated>2023-09-20T09:05:44.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我自己写了一个svc的yaml文件，部署的时候报错，不在默认的范围内，默认范围是: &lt;code&gt;30000-32767&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;kubectl apply -f</summary>
-        
-      
-    
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
-    
-    
-    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
   </entry>
   

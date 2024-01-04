@@ -1,3 +1,4 @@
+https://zahui.fan/posts/lqyxid2z/
 https://zahui.fan/posts/25938561/
 https://zahui.fan/posts/lqxf8k8u/
 https://zahui.fan/posts/lqxdtb6m/
@@ -352,6 +353,7 @@ https://zahui.fan/tags/bash/
 https://zahui.fan/tags/shell/
 https://zahui.fan/tags/CentOS/
 https://zahui.fan/tags/Systemd/
+https://zahui.fan/tags/curl/
 https://zahui.fan/tags/Git/
 https://zahui.fan/tags/gpg/
 https://zahui.fan/tags/harbor/
@@ -385,7 +387,6 @@ https://zahui.fan/tags/pyotp/
 https://zahui.fan/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/
 https://zahui.fan/tags/Vagrant/
 https://zahui.fan/tags/webdav/
-https://zahui.fan/tags/curl/
 https://zahui.fan/tags/hexo/
 https://zahui.fan/tags/vscode/
 https://zahui.fan/tags/%E6%B7%B1%E4%BF%A1%E6%9C%8D/
