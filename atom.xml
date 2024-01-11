@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-01-09T08:06:16.000Z</updated>
+  <updated>2024-01-11T10:58:07.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu内核相关操作</title>
+    <link href="https://zahui.fan/posts/lr8yc0vu/"/>
+    <id>https://zahui.fan/posts/lr8yc0vu/</id>
+    <published>2024-01-11T08:32:46.000Z</published>
+    <updated>2024-01-11T10:58:07.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;更换内核版本&quot;&gt;&lt;a href=&quot;#更换内核版本&quot; class=&quot;headerlink&quot; title=&quot;更换内核版本&quot;&gt;&lt;/a&gt;更换内核版本&lt;/h2&gt;&lt;h3 id=&quot;查看当前在用的内核版本&quot;&gt;&lt;a href=&quot;#查看当前在用的内核版本&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Ubuntu" scheme="https://zahui.fan/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>获取Kubernetes的token</title>
@@ -50,7 +77,7 @@
     <link href="https://zahui.fan/posts/lr01lzch/"/>
     <id>https://zahui.fan/posts/lr01lzch/</id>
     <published>2024-01-05T02:54:34.000Z</published>
-    <updated>2024-01-05T03:30:23.000Z</updated>
+    <updated>2024-01-11T10:58:07.000Z</updated>
     
     
       
@@ -83,7 +110,7 @@
     <link href="https://zahui.fan/posts/lqz1imdm/"/>
     <id>https://zahui.fan/posts/lqz1imdm/</id>
     <published>2024-01-04T10:04:11.000Z</published>
-    <updated>2024-01-04T14:38:09.000Z</updated>
+    <updated>2024-01-11T10:58:07.000Z</updated>
     
     
       
@@ -113,7 +140,7 @@
     <link href="https://zahui.fan/posts/lqyxid2z/"/>
     <id>https://zahui.fan/posts/lqyxid2z/</id>
     <published>2024-01-04T08:12:00.000Z</published>
-    <updated>2024-01-04T14:38:09.000Z</updated>
+    <updated>2024-01-11T10:58:07.000Z</updated>
     
     
       
@@ -144,7 +171,7 @@
     <link href="https://zahui.fan/posts/lqxf8k8u/"/>
     <id>https://zahui.fan/posts/lqxf8k8u/</id>
     <published>2024-01-03T06:52:44.000Z</published>
-    <updated>2024-01-04T10:57:20.000Z</updated>
+    <updated>2024-01-11T10:58:07.000Z</updated>
     
     
       
@@ -172,7 +199,7 @@
     <link href="https://zahui.fan/posts/lqxdtb6m/"/>
     <id>https://zahui.fan/posts/lqxdtb6m/</id>
     <published>2024-01-03T06:12:53.000Z</published>
-    <updated>2024-01-04T14:38:09.000Z</updated>
+    <updated>2024-01-11T10:58:07.000Z</updated>
     
     
       
@@ -229,7 +256,7 @@
     <link href="https://zahui.fan/posts/lqmfi6wc/"/>
     <id>https://zahui.fan/posts/lqmfi6wc/</id>
     <published>2023-12-26T14:14:45.000Z</published>
-    <updated>2024-01-04T14:38:09.000Z</updated>
+    <updated>2024-01-11T10:58:07.000Z</updated>
     
     
       
@@ -586,39 +613,6 @@
     <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
     
     <category term="Crontab" scheme="https://zahui.fan/tags/Crontab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自动清理日志脚本</title>
-    <link href="https://zahui.fan/posts/lnd7yqpw/"/>
-    <id>https://zahui.fan/posts/lnd7yqpw/</id>
-    <published>2023-10-05T13:34:38.000Z</published>
-    <updated>2024-01-09T08:06:16.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;公司的业务服务会打日志到磁盘, 程序已经做了日志切割, 时间一长磁盘占满会导致业务异常, 普通的清理逻辑是使用crontab定时删除文件, 比如每天1点删除创建日期超过30天的日志文件, 大部分情况下工作是OK的, 但是执行周期太长, 如果当天日志暴增,</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
-    
-    <category term="Crontab" scheme="https://zahui.fan/tags/Crontab/"/>
-    
-    <category term="脚本" scheme="https://zahui.fan/tags/%E8%84%9A%E6%9C%AC/"/>
-    
-    <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
-    
-    <category term="bash" scheme="https://zahui.fan/tags/bash/"/>
     
   </entry>
   
