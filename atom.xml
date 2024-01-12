@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-01-11T14:57:33.000Z</updated>
+  <updated>2024-01-12T03:21:55.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux大文件分割与合并</title>
+    <link href="https://zahui.fan/posts/lra06cl1/"/>
+    <id>https://zahui.fan/posts/lra06cl1/</id>
+    <published>2024-01-12T02:12:07.000Z</published>
+    <updated>2024-01-12T03:21:55.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;服务器上有个文件需要下载到本地, 但是文件较大, 我们都是通过jumpserver连接的, 通过jumpserver下载难免会遇到网络波动等导致下载失败, 我们可以通过分割大文件成一个个小文件, 然后下载后再在本地合并. 用到的命令是split&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="cli" scheme="https://zahui.fan/tags/cli/"/>
+    
+    <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
+    
+    <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="文件" scheme="https://zahui.fan/tags/%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu内核相关操作</title>
     <link href="https://zahui.fan/posts/lr8yc0vu/"/>
     <id>https://zahui.fan/posts/lr8yc0vu/</id>
     <published>2024-01-11T08:32:46.000Z</published>
-    <updated>2024-01-11T14:57:33.000Z</updated>
+    <updated>2024-01-12T03:21:55.000Z</updated>
     
     
       
@@ -40,6 +72,8 @@
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
     <category term="Ubuntu" scheme="https://zahui.fan/tags/Ubuntu/"/>
+    
+    <category term="Kernel" scheme="https://zahui.fan/tags/Kernel/"/>
     
   </entry>
   
@@ -584,35 +618,6 @@
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux里安装crontab并运行</title>
-    <link href="https://zahui.fan/posts/lnmt2t0q/"/>
-    <id>https://zahui.fan/posts/lnmt2t0q/</id>
-    <published>2023-10-12T06:35:35.000Z</published>
-    <updated>2023-10-12T07:38:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;常见的linux发行版都自带了crontab服务, 但是我们常用的容器镜像是没有的, 不要问我为什么要在容器里运行crontab…&lt;br&gt;&lt;a href=&quot;/posts/2de1df7e/&quot;&gt;Linux定时执行任务crontab&lt;/a&gt;&lt;br&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
-    
-    <category term="Crontab" scheme="https://zahui.fan/tags/Crontab/"/>
     
   </entry>
   
