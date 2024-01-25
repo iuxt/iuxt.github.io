@@ -1,3 +1,4 @@
+https://zahui.fan/posts/lrt00szc/
 https://zahui.fan/posts/5a398dc9/
 https://zahui.fan/posts/5e168f7e/
 https://zahui.fan/posts/b4ed6a46/
@@ -366,6 +367,7 @@ https://zahui.fan/tags/shell/
 https://zahui.fan/tags/CentOS/
 https://zahui.fan/tags/Systemd/
 https://zahui.fan/tags/curl/
+https://zahui.fan/tags/cdn/
 https://zahui.fan/tags/Git/
 https://zahui.fan/tags/gpg/
 https://zahui.fan/tags/harbor/

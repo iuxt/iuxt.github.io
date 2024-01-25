@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-01-24T07:41:43.000Z</updated>
+  <updated>2024-01-25T10:14:22.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fail2ban配合cloudflare cdn使用</title>
+    <link href="https://zahui.fan/posts/lrt00szc/"/>
+    <id>https://zahui.fan/posts/lrt00szc/</id>
+    <published>2024-01-25T09:15:25.000Z</published>
+    <updated>2024-01-25T10:14:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Cloudflare 是一家全球最著名的 CDN 加速服务商，提供了免费和付费的网站加速和保护服务。即使是免费版，也提供了比较全面和强大的功能，非常不错。&lt;/p&gt;
+&lt;p&gt;通过使用 Cloudflare CDN</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="fail2ban" scheme="https://zahui.fan/tags/fail2ban/"/>
+    
+    <category term="cc攻击" scheme="https://zahui.fan/tags/cc%E6%94%BB%E5%87%BB/"/>
+    
+    <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    
+    <category term="cdn" scheme="https://zahui.fan/tags/cdn/"/>
+    
+  </entry>
   
   <entry>
     <title>制作macOS启动盘和dmg镜像</title>
@@ -590,32 +622,6 @@
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
     
     <category term="proxmox" scheme="https://zahui.fan/tags/proxmox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用tailscale打通内网</title>
-    <link href="https://zahui.fan/posts/loz4xrye/"/>
-    <id>https://zahui.fan/posts/loz4xrye/</id>
-    <published>2023-11-15T02:20:32.000Z</published>
-    <updated>2023-11-21T06:01:49.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;家里有一台群晖nas, 通过quickconnect连接太慢了, 并且有些操作不能通过quickconnect, 比如直接smb挂载目录&lt;/p&gt;
-&lt;h2 id=&quot;群晖nas安装&quot;&gt;&lt;a href=&quot;#群晖nas安装&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="网络" scheme="https://zahui.fan/tags/%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
