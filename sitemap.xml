@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/d90d2aa0/</loc>
+    
+    <lastmod>2024-02-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/prometheus_tag/</loc>
     
     <lastmod>2024-02-22</lastmod>
@@ -1785,15 +1794,6 @@
   
   <url>
     <loc>https://zahui.fan/posts/b82d63c2/</loc>
-    
-    <lastmod>2023-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/d90d2aa0/</loc>
     
     <lastmod>2023-06-13</lastmod>
     
