@@ -15,7 +15,8 @@ jobs:
           export DEBIAN_FRONTEND=noninteractive
           sudo apt update
           sudo apt install -y tzdata
-          dpkg-reconfigure --frontend noninteractive tzdata
+          whoami
+          sudo dpkg-reconfigure --frontend noninteractive tzdata
       - name: wechat_notify
         run: |
           python <<END
