@@ -15,10 +15,10 @@ jobs:
           export DEBIAN_FRONTEND=noninteractive
           sudo apt update
           sudo apt install -y tzdata
-          sudo -E 'ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime'
-          sudo -E 'echo ${TZ} > /etc/timezone'
-          sudo -E 'dpkg-reconfigure --frontend noninteractive tzdata'
-          sudo -E 'rm -rf /var/lib/apt/lists/*'
+          su -c ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime
+          su -c echo ${TZ} > /etc/timezone
+          su -c dpkg-reconfigure --frontend noninteractive tzdata
+          su -c rm -rf /var/lib/apt/lists/*
       - name: wechat_notify
         run: |
           python <<END
