@@ -9,6 +9,16 @@ jobs:
   dingtalk_notify:
     runs-on: ubuntu-latest              # 用ubuntu系统来执行
     steps:
+      - name: set_timezone
+        run: |
+          export TZ=Asia/Shanghai
+          export DEBIAN_FRONTEND=noninteractive
+          apt update
+          apt install -y tzdata
+          ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime
+          echo ${TZ} > /etc/timezone
+          dpkg-reconfigure --frontend noninteractive tzdata
+          rm -rf /var/lib/apt/lists/*
       - name: wechat_notify
         run: |
           python <<END
