@@ -3527,6 +3527,13 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/tags/binlog/</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/tags/database/</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -3535,13 +3542,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/SQL/</loc>
-    <lastmod>2024-02-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/binlog/</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
