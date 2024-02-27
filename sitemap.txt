@@ -427,9 +427,9 @@ https://zahui.fan/tags/mysql/
 https://zahui.fan/tags/Flask/
 https://zahui.fan/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/
 https://zahui.fan/tags/xml/
-https://zahui.fan/tags/binlog/
 https://zahui.fan/tags/database/
 https://zahui.fan/tags/SQL/
+https://zahui.fan/tags/binlog/
 https://zahui.fan/tags/log/
 https://zahui.fan/tags/ELK/
 https://zahui.fan/tags/Kafka/
