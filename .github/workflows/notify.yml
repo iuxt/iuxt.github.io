@@ -11,32 +11,10 @@ jobs:
   dingtalk_notify:
     runs-on: ubuntu-latest              # 用ubuntu系统来执行
     steps:
-      - name: Check the current timezone database
-        run: |
-          ls /usr/share/zoneinfo
-          echo "---"
-          date
-          echo "---"
-  
-      - name: Add the custom timezone database file
-        run: |
-          sudo mkdir -p /usr/share/zoneinfo/Asia
-          sudo cp /tmp/Asia/Shanghai /usr/share/zoneinfo/Asia/
-          sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-  
       - name: Show the timezone
         run: |
           echo "The timezone is $TZ"
           date
-
-      - name: set_timezone
-        run: |
-          export TZ=Asia/Shanghai
-          export DEBIAN_FRONTEND=noninteractive
-          sudo apt update
-          sudo apt install -y tzdata
-          whoami
-          sudo dpkg-reconfigure --frontend noninteractive tzdata
       - name: wechat_notify
         run: |
           python <<END
