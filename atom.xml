@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-03-11T10:23:07.000Z</updated>
+  <updated>2024-03-13T09:06:26.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RustDesk安装记录</title>
+    <link href="https://zahui.fan/posts/cb24765f/"/>
+    <id>https://zahui.fan/posts/cb24765f/</id>
+    <published>2024-03-13T08:20:02.000Z</published>
+    <updated>2024-03-13T09:06:26.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;RustDesk是一个远程控制工具，开源跨平台，可以使用官方的服务器，也可以自建服务器使用。服务器分为开源版oss和付费版pro，我使用的是开源版。&lt;/p&gt;
+&lt;h2 id=&quot;部署服务器&quot;&gt;&lt;a href=&quot;#部署服务器&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="uncategorized" scheme="https://zahui.fan/categories/uncategorized/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>Django Restframework 实现根据字段过滤</title>
@@ -276,7 +308,7 @@
     <link href="https://zahui.fan/posts/lrr6ze9h/"/>
     <id>https://zahui.fan/posts/lrr6ze9h/</id>
     <published>2024-01-24T02:54:44.000Z</published>
-    <updated>2024-03-12T08:25:33.000Z</updated>
+    <updated>2024-03-13T09:06:26.000Z</updated>
     
     
       
@@ -565,36 +597,6 @@
     <category term="加密" scheme="https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/"/>
     
     <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>查看Navicat保存的密码</title>
-    <link href="https://zahui.fan/posts/lqoui8yg/"/>
-    <id>https://zahui.fan/posts/lqoui8yg/</id>
-    <published>2023-12-28T06:50:14.000Z</published>
-    <updated>2024-01-01T12:57:03.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Navicat密码一旦保存, 再次编辑就没法查看密码是什么了, 包括之前可以使用的星号密码查看器也看不到密码, 我们可以通过导出链接文件, 然后通过解密被加密的密码来获取密码原文.&lt;/p&gt;
-&lt;h2 id=&quot;导出加密密码&quot;&gt;&lt;a href=&quot;#导出加密密码&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
-    
-    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
-    
-    <category term="PHP" scheme="https://zahui.fan/tags/PHP/"/>
     
   </entry>
   
