@@ -452,7 +452,6 @@ https://zahui.fan/categories/Kubernetes/
 https://zahui.fan/categories/Windows/
 https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/
 https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/
-https://zahui.fan/categories/uncategorized/
 https://zahui.fan/categories/%E5%BC%80%E5%8F%91/
 https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/
 https://zahui.fan/categories/%E6%97%A5%E5%BF%97/
