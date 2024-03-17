@@ -284,7 +284,7 @@ gtag('config', 'G-YN0WWZGVYN');
 
   const loadGiscus = () => {
     const config = Object.assign({
-      src: 'https://giscus.app/client.js',
+      src: 'https://giscus.babudiu.com/client.js',
       'data-repo': 'iuxt/iuxt.github.io',
       'data-repo-id': 'MDEwOlJlcG9zaXRvcnkzOTAwMjMzMzQ=',
       'data-category-id': 'DIC_kwDOFz9Ips4B_jcP',
@@ -306,7 +306,7 @@ gtag('config', 'G-YN0WWZGVYN');
     const sendMessage = message => {
       const iframe = document.querySelector('iframe.giscus-frame')
       if (!iframe) return
-      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.babudiu.com')
     }
 
     sendMessage({
