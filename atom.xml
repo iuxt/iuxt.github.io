@@ -78,30 +78,6 @@
   </entry>
   
   <entry>
-    <title>Windows硬件特征</title>
-    <link href="https://zahui.fan/posts/ltfd14pe/"/>
-    <id>https://zahui.fan/posts/ltfd14pe/</id>
-    <published>2024-03-06T05:30:14.000Z</published>
-    <updated>2024-03-07T07:03:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;查看序列号&lt;/p&gt;
-&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>使用kubeadm部署的集群证书过期后处理</title>
     <link href="https://zahui.fan/posts/ltckjzor/"/>
     <id>https://zahui.fan/posts/ltckjzor/</id>
@@ -597,6 +573,36 @@
     <category term="加密" scheme="https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/"/>
     
     <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>查看Navicat保存的密码</title>
+    <link href="https://zahui.fan/posts/lqoui8yg/"/>
+    <id>https://zahui.fan/posts/lqoui8yg/</id>
+    <published>2023-12-28T06:50:14.000Z</published>
+    <updated>2024-01-01T12:57:03.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Navicat密码一旦保存, 再次编辑就没法查看密码是什么了, 包括之前可以使用的星号密码查看器也看不到密码, 我们可以通过导出链接文件, 然后通过解密被加密的密码来获取密码原文.&lt;/p&gt;
+&lt;h2 id=&quot;导出加密密码&quot;&gt;&lt;a href=&quot;#导出加密密码&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+    <category term="PHP" scheme="https://zahui.fan/tags/PHP/"/>
     
   </entry>
   
