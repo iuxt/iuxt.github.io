@@ -1,3 +1,4 @@
+https://zahui.fan/posts/lu96kcpp/
 https://zahui.fan/posts/57e7c794/
 https://zahui.fan/posts/23f4c55d/
 https://zahui.fan/posts/lrr6ze9h/
@@ -284,9 +285,9 @@ https://zahui.fan/tags/HA/
 https://zahui.fan/tags/keepalived/
 https://zahui.fan/tags/NFS/
 https://zahui.fan/tags/Service/
-https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/
 https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/
 https://zahui.fan/tags/RBAC/
+https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/
 https://zahui.fan/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
 https://zahui.fan/tags/Scheduler/
 https://zahui.fan/tags/Ubuntu/
@@ -402,6 +403,8 @@ https://zahui.fan/tags/build/
 https://zahui.fan/tags/%E7%BC%96%E8%AF%91/
 https://zahui.fan/tags/PHP/
 https://zahui.fan/tags/ArchLinux/
+https://zahui.fan/tags/hexo/
+https://zahui.fan/tags/seo/
 https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/
 https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/
 https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/
@@ -412,7 +415,6 @@ https://zahui.fan/tags/python/
 https://zahui.fan/tags/pyotp/
 https://zahui.fan/tags/Vagrant/
 https://zahui.fan/tags/webdav/
-https://zahui.fan/tags/hexo/
 https://zahui.fan/tags/vscode/
 https://zahui.fan/tags/%E6%B7%B1%E4%BF%A1%E6%9C%8D/
 https://zahui.fan/tags/ubuntu/

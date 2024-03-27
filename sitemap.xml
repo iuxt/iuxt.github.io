@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/lu96kcpp/</loc>
+    
+    <lastmod>2024-03-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/57e7c794/</loc>
     
     <lastmod>2024-03-27</lastmod>
@@ -2540,13 +2549,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/</loc>
-    <lastmod>2024-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -2555,6 +2557,13 @@
   
   <url>
     <loc>https://zahui.fan/tags/RBAC/</loc>
+    <lastmod>2024-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3366,6 +3375,20 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/tags/hexo/</loc>
+    <lastmod>2024-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/seo/</loc>
+    <lastmod>2024-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -3430,13 +3453,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/webdav/</loc>
-    <lastmod>2024-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/hexo/</loc>
     <lastmod>2024-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
