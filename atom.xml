@@ -51,6 +51,36 @@
   </entry>
   
   <entry>
+    <title>MySQL基于GTID的主从复制</title>
+    <link href="https://zahui.fan/posts/luwwdbjr/"/>
+    <id>https://zahui.fan/posts/luwwdbjr/</id>
+    <published>2024-04-12T16:43:22.000Z</published>
+    <updated>2024-04-16T10:49:46.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;没开启GTID的MySQL数据库增加从库请看：&lt;a href=&quot;/posts/86a9c8f5/&quot;&gt;优雅地给正在运行的MySQL添加从库&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;自动同步连接主库-方法一&quot;&gt;&lt;a href=&quot;#自动同步连接主库-方法一&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="mysqld" scheme="https://zahui.fan/tags/mysqld/"/>
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+    <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>WSL新的网络模式-mirrored镜像网络</title>
     <link href="https://zahui.fan/posts/luam6g8o/"/>
     <id>https://zahui.fan/posts/luam6g8o/</id>
@@ -582,37 +612,6 @@
     <category term="django" scheme="https://zahui.fan/tags/django/"/>
     
     <category term="Python" scheme="https://zahui.fan/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>curl常用操作记录</title>
-    <link href="https://zahui.fan/posts/lqyxid2z/"/>
-    <id>https://zahui.fan/posts/lqyxid2z/</id>
-    <published>2024-01-04T08:12:00.000Z</published>
-    <updated>2024-01-11T10:58:07.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。&lt;/p&gt;
-&lt;p&gt;它的功能非常强大，命令行参数多达几十种。如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。&lt;/p&gt;
-&lt;p&gt;参考文章: &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-    
-    <category term="curl" scheme="https://zahui.fan/tags/curl/"/>
     
   </entry>
   
