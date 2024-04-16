@@ -40,13 +40,13 @@
     
     <category term="mysqld" scheme="https://zahui.fan/tags/mysqld/"/>
     
-    <category term="CentOS" scheme="https://zahui.fan/tags/CentOS/"/>
-    
     <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
     
     <category term="运行库" scheme="https://zahui.fan/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/"/>
     
     <category term="RHEL" scheme="https://zahui.fan/tags/RHEL/"/>
+    
+    <category term="CentOS" scheme="https://zahui.fan/tags/CentOS/"/>
     
   </entry>
   
@@ -74,9 +74,9 @@
     
     <category term="mysqld" scheme="https://zahui.fan/tags/mysqld/"/>
     
-    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
-    
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
     
   </entry>
   
@@ -366,11 +366,11 @@
     <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
     
     
+    <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+    
     <category term="fail2ban" scheme="https://zahui.fan/tags/fail2ban/"/>
     
     <category term="cc攻击" scheme="https://zahui.fan/tags/cc%E6%94%BB%E5%87%BB/"/>
-    
-    <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
     
     <category term="cdn" scheme="https://zahui.fan/tags/cdn/"/>
     
