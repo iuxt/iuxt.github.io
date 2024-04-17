@@ -1,3 +1,4 @@
+https://zahui.fan/posts/sc2yhw/
 https://zahui.fan/posts/913ca09b/
 https://zahui.fan/posts/90ca4905/
 https://zahui.fan/posts/luwwdbjr/
@@ -291,6 +292,7 @@ https://zahui.fan/tags/Service/
 https://zahui.fan/tags/%E6%8C%82%E8%BD%BD/
 https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/
 https://zahui.fan/tags/RBAC/
+https://zahui.fan/tags/secret/
 https://zahui.fan/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
 https://zahui.fan/tags/Scheduler/
 https://zahui.fan/tags/Ubuntu/
