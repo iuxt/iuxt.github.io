@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/751c3cf9/</loc>
+    
+    <lastmod>2024-04-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/b428e1a3/</loc>
     
     <lastmod>2024-04-22</lastmod>
@@ -1472,15 +1481,6 @@
     <loc>https://zahui.fan/posts/1da8e73d/</loc>
     
     <lastmod>2023-07-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/751c3cf9/</loc>
-    
-    <lastmod>2023-07-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
