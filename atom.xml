@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-04-18T07:15:48.000Z</updated>
+  <updated>2024-04-24T06:28:21.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>centos删除swap后无法启动</title>
+    <link href="https://zahui.fan/posts/scfoaz/"/>
+    <id>https://zahui.fan/posts/scfoaz/</id>
+    <published>2024-04-24T06:20:58.000Z</published>
+    <updated>2024-04-24T06:28:21.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;删除了CentOS的swap分区后，重启系统报错，提示 &lt;code&gt;Warning: /dev/centos/swap does not exist&lt;/code&gt;，如图：&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="CentOS" scheme="https://zahui.fan/tags/CentOS/"/>
+    
+    <category term="磁盘" scheme="https://zahui.fan/tags/%E7%A3%81%E7%9B%98/"/>
+    
+    <category term="分区" scheme="https://zahui.fan/tags/%E5%88%86%E5%8C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>docker官方私有仓库registry部署与使用</title>
@@ -583,35 +613,6 @@
     <category term="Ubuntu" scheme="https://zahui.fan/tags/Ubuntu/"/>
     
     <category term="Kernel" scheme="https://zahui.fan/tags/Kernel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>获取Kubernetes的token</title>
-    <link href="https://zahui.fan/posts/lr0clio1/"/>
-    <id>https://zahui.fan/posts/lr0clio1/</id>
-    <published>2024-01-05T08:02:08.000Z</published>
-    <updated>2024-01-09T08:06:16.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;获取admin的token&quot;&gt;&lt;a href=&quot;#获取admin的token&quot; class=&quot;headerlink&quot; title=&quot;获取admin的token&quot;&gt;&lt;/a&gt;获取admin的token&lt;/h2&gt;&lt;p&gt;如果有这个secret,</summary>
-        
-      
-    
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
