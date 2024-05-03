@@ -1,3 +1,5 @@
+https://zahui.fan/posts/526ffc9a/
+https://zahui.fan/posts/scx23m/
 https://zahui.fan/posts/lqxdtb6m/
 https://zahui.fan/posts/lqyxid2z/
 https://zahui.fan/posts/cfedbd03/
@@ -83,7 +85,6 @@ https://zahui.fan/link/
 https://zahui.fan/posts/67853ccb/
 https://zahui.fan/posts/fe29bf0b/
 https://zahui.fan/posts/lq0y87n5/
-https://zahui.fan/posts/526ffc9a/
 https://zahui.fan/posts/10cef768/
 https://zahui.fan/posts/0cebb8ae/
 https://zahui.fan/posts/5fdc91d7/
@@ -314,6 +315,7 @@ https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/
 https://zahui.fan/tags/configmap/
 https://zahui.fan/tags/volume/
 https://zahui.fan/tags/Nginx/
+https://zahui.fan/tags/%E5%AD%98%E5%82%A8/
 https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/
 https://zahui.fan/tags/docker/
 https://zahui.fan/tags/timezone/
