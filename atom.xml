@@ -502,9 +502,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
-    
     <category term="监控" scheme="https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/"/>
+    
+    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
     
   </entry>
   
