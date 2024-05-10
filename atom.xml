@@ -104,15 +104,15 @@
     
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
-    <category term="ElasticSearch" scheme="https://zahui.fan/tags/ElasticSearch/"/>
-    
-    <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
+    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
-    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
+    <category term="ElasticSearch" scheme="https://zahui.fan/tags/ElasticSearch/"/>
+    
+    <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
     
   </entry>
   
@@ -173,9 +173,9 @@
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
-    <category term="仓库" scheme="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/"/>
-    
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="仓库" scheme="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/"/>
     
   </entry>
   
@@ -233,9 +233,9 @@
     
     <category term="mysqld" scheme="https://zahui.fan/tags/mysqld/"/>
     
-    <category term="CentOS" scheme="https://zahui.fan/tags/CentOS/"/>
-    
     <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
+    
+    <category term="CentOS" scheme="https://zahui.fan/tags/CentOS/"/>
     
     <category term="运行库" scheme="https://zahui.fan/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/"/>
     
@@ -267,9 +267,9 @@
     
     <category term="mysqld" scheme="https://zahui.fan/tags/mysqld/"/>
     
-    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
-    
     <category term="数据迁移" scheme="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/"/>
+    
+    <category term="MySQL" scheme="https://zahui.fan/tags/MySQL/"/>
     
   </entry>
   
@@ -357,11 +357,11 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
+    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
+    
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
-    
-    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
