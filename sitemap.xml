@@ -3808,7 +3808,7 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/</loc>
+    <loc>https://zahui.fan/tags/Prometheus/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3816,13 +3816,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/prometheus/</loc>
-    <lastmod>2024-05-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/Prometheus/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3837,6 +3830,13 @@
   
   <url>
     <loc>https://zahui.fan/tags/monitor/</loc>
+    <lastmod>2024-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
