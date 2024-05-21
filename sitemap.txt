@@ -464,6 +464,7 @@ https://zahui.fan/tags/ELK/
 https://zahui.fan/tags/Kafka/
 https://zahui.fan/tags/MQ/
 https://zahui.fan/tags/Log/
+https://zahui.fan/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/
 https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/
 https://zahui.fan/tags/prometheus/
 https://zahui.fan/tags/Prometheus/
