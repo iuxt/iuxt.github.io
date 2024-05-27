@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/8a7e6530/</loc>
+    
+    <lastmod>2024-05-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/6d586ed1/</loc>
+    
+    <lastmod>2024-05-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/scfoaz/</loc>
+    
+    <lastmod>2024-05-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/6cc59126/</loc>
+    
+    <lastmod>2024-05-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/5a398dc9/</loc>
+    
+    <lastmod>2024-05-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/b670229a/</loc>
     
     <lastmod>2024-05-27</lastmod>
@@ -695,24 +740,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/scfoaz/</loc>
-    
-    <lastmod>2024-04-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/6cc59126/</loc>
-    
-    <lastmod>2024-04-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/posts/sc3b39/</loc>
     
     <lastmod>2024-04-25</lastmod>
@@ -1163,15 +1190,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/5a398dc9/</loc>
-    
-    <lastmod>2024-01-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/posts/b4ed6a46/</loc>
     
     <lastmod>2024-01-25</lastmod>
@@ -1247,15 +1265,6 @@
     <loc>https://zahui.fan/posts/lefa6qhl/</loc>
     
     <lastmod>2024-01-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/8a7e6530/</loc>
-    
-    <lastmod>2024-01-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -2451,15 +2460,6 @@
   
   <url>
     <loc>https://zahui.fan/posts/e8243516/</loc>
-    
-    <lastmod>2022-11-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/6d586ed1/</loc>
     
     <lastmod>2022-11-03</lastmod>
     
@@ -3716,6 +3716,55 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/tags/drf/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/django/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/Python/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/mysql/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/Flask/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/xml/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/tags/binlog/</loc>
     <lastmod>2024-05-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -3731,13 +3780,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/SQL/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/mysql/</loc>
     <lastmod>2024-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3834,48 +3876,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://zahui.fan/tags/drf/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/django/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/Python/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/Flask/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/xml/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -3907,6 +3907,13 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/categories/%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2024-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-05-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -3922,13 +3929,6 @@
   
   <url>
     <loc>https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/</loc>
-    <lastmod>2024-05-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/categories/%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2024-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
