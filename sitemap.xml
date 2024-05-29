@@ -875,15 +875,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/fa013442/</loc>
-    
-    <lastmod>2024-05-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/posts/d7f12bf0/</loc>
     
     <lastmod>2024-05-27</lastmod>
@@ -893,7 +884,7 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/posts/lmoa36fz/</loc>
+    <loc>https://zahui.fan/posts/fa013442/</loc>
     
     <lastmod>2024-05-27</lastmod>
     
@@ -903,6 +894,15 @@
   
   <url>
     <loc>https://zahui.fan/posts/913ca09b/</loc>
+    
+    <lastmod>2024-05-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/posts/lmoa36fz/</loc>
     
     <lastmod>2024-05-27</lastmod>
     
@@ -3660,13 +3660,6 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/vagrant/</loc>
-    <lastmod>2024-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zahui.fan/tags/Windows-Terminal/</loc>
     <lastmod>2024-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -3675,6 +3668,13 @@
   
   <url>
     <loc>https://zahui.fan/tags/lrzsz/</loc>
+    <lastmod>2024-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/vagrant/</loc>
     <lastmod>2024-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
