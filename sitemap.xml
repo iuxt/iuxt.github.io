@@ -2801,6 +2801,13 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2024-05-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/tags/configmap/</loc>
     <lastmod>2024-05-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -3348,13 +3355,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/curl/</loc>
-    <lastmod>2024-05-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2024-05-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

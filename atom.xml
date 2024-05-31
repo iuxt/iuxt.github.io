@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-05-31T03:15:29.000Z</updated>
+  <updated>2024-05-31T03:25:37.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zahui.fan/posts/sebxm6/"/>
     <id>https://zahui.fan/posts/sebxm6/</id>
     <published>2024-05-31T02:58:54.000Z</published>
-    <updated>2024-05-31T03:15:29.000Z</updated>
+    <updated>2024-05-31T03:25:37.000Z</updated>
     
     
       
@@ -37,6 +37,14 @@
     
     <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
     
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   
@@ -188,11 +196,11 @@
     
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
     <category term="ElasticSearch" scheme="https://zahui.fan/tags/ElasticSearch/"/>
     
     <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
-    
-    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
