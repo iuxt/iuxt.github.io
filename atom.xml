@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-06-05T02:45:59.000Z</updated>
+  <updated>2024-06-05T02:49:25.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://zahui.fan/posts/0/"/>
+    <id>https://zahui.fan/posts/0/</id>
+    <published>2024-06-05T02:49:46.255Z</published>
+    <updated>2024-06-05T02:49:25.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;注意：本文不适用于将其他格式转换成 svg ，只适用于原生 svg&lt;/p&gt;
+&lt;p&gt;svg全名叫可缩放矢量图形，就算放大也不会失真，下面是个对比：&lt;/p&gt;
+&lt;h2 id=&quot;svg示例&quot;&gt;&lt;a href=&quot;#svg示例&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Python 使用 Easyocr 进行图像识别</title>
@@ -597,36 +620,6 @@
     <category term="容器" scheme="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/"/>
     
     <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Grafana 监控面板配置</title>
-    <link href="https://zahui.fan/posts/lswszwbz/"/>
-    <id>https://zahui.fan/posts/lswszwbz/</id>
-    <published>2024-02-22T05:49:33.000Z</published>
-    <updated>2024-05-28T02:16:30.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;安装-grafana&quot;&gt;&lt;a href=&quot;#安装-grafana&quot; class=&quot;headerlink&quot; title=&quot;安装 grafana&quot;&gt;&lt;/a&gt;安装 grafana&lt;/h2&gt;&lt;p&gt;oss：开源版本&lt;/p&gt;
-&lt;p&gt;enterprise:</summary>
-        
-      
-    
-    
-    
-    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="监控" scheme="https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/"/>
-    
-    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
     
   </entry>
   
