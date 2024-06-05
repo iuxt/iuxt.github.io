@@ -1,4 +1,4 @@
-https://zahui.fan/posts/0/
+https://zahui.fan/posts/sel6im/
 https://zahui.fan/posts/026f1c74/
 https://zahui.fan/posts/e367d008/
 https://zahui.fan/posts/fe29bf0b/
@@ -436,6 +436,9 @@ https://zahui.fan/tags/python/
 https://zahui.fan/tags/pyotp/
 https://zahui.fan/tags/Vagrant/
 https://zahui.fan/tags/webdav/
+https://zahui.fan/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/
+https://zahui.fan/tags/svg/
+https://zahui.fan/tags/%E7%9F%A2%E9%87%8F%E5%9B%BE/
 https://zahui.fan/tags/vscode/
 https://zahui.fan/tags/%E6%B7%B1%E4%BF%A1%E6%9C%8D/
 https://zahui.fan/tags/ubuntu/
