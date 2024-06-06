@@ -198,9 +198,9 @@
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
-    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
-    
     <category term="存储" scheme="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/"/>
+    
+    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
     
   </entry>
   
