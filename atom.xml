@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-06-05T09:13:51.000Z</updated>
+  <updated>2024-06-07T15:26:09.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kubeadm 部署的集群 常见问题汇总</title>
+    <link href="https://zahui.fan/posts/sepu3k/"/>
+    <id>https://zahui.fan/posts/sepu3k/</id>
+    <published>2024-06-07T15:09:19.000Z</published>
+    <updated>2024-06-07T15:26:09.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;扩容节点&quot;&gt;&lt;a href=&quot;#扩容节点&quot; class=&quot;headerlink&quot; title=&quot;扩容节点&quot;&gt;&lt;/a&gt;扩容节点&lt;/h2&gt;&lt;h3 id=&quot;扩容Worker节点&quot;&gt;&lt;a href=&quot;#扩容Worker节点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>Windows将网络修改为专用网络或公用网络</title>
@@ -104,9 +137,9 @@
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -260,11 +293,11 @@
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
     <category term="ElasticSearch" scheme="https://zahui.fan/tags/ElasticSearch/"/>
     
     <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
-    
-    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
     <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
@@ -323,13 +356,13 @@
     
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
-    <category term="镜像" scheme="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/"/>
-    
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
-    <category term="仓库" scheme="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/"/>
-    
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="镜像" scheme="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/"/>
+    
+    <category term="仓库" scheme="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/"/>
     
   </entry>
   
@@ -599,36 +632,6 @@
     <category term="Windows" scheme="https://zahui.fan/tags/Windows/"/>
     
     <category term="注册表" scheme="https://zahui.fan/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过docker容器查看run命令</title>
-    <link href="https://zahui.fan/posts/lt41mupw/"/>
-    <id>https://zahui.fan/posts/lt41mupw/</id>
-    <published>2024-02-27T07:25:44.000Z</published>
-    <updated>2024-05-27T14:35:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;公司有一台服务器上运行着一个服务，通过 &lt;code&gt;docker start&lt;/code&gt; 启动，已经没有文档记录如何搭建的了。现在需要迁移，记录一下获取docker run命令的方法&lt;/p&gt;
-&lt;div class=&quot;tabs&quot; id=&quot;tabname&quot;&gt;&lt;ul</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
-    
-    <category term="容器" scheme="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/"/>
-    
-    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
