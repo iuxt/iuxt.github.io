@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>杂烩饭</title>
   <icon>https://zahui.fan/icon.png</icon>
-  <subtitle>张理坤的博客 - 运维技术分享</subtitle>
+  <subtitle>张理坤 - 运维技术分享</subtitle>
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
