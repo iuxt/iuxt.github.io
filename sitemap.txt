@@ -428,7 +428,6 @@ https://zahui.fan/tags/OpenLDAP/
 https://zahui.fan/tags/git/
 https://zahui.fan/tags/%E5%A4%87%E4%BB%BD%E8%BF%98%E5%8E%9F/
 https://zahui.fan/tags/MySQL/
-https://zahui.fan/tags/samba/
 https://zahui.fan/tags/%E5%9F%9F%E5%90%8D/
 https://zahui.fan/tags/DNS/
 https://zahui.fan/tags/regexp/
@@ -488,6 +487,7 @@ https://zahui.fan/tags/prometheus/
 https://zahui.fan/tags/Prometheus/
 https://zahui.fan/tags/node-exporter/
 https://zahui.fan/tags/monitor/
+https://zahui.fan/tags/samba/
 https://zahui.fan/categories/Kubernetes/
 https://zahui.fan/categories/Windows/
 https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/
