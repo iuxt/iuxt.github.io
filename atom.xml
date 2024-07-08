@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-06-28T03:01:25.000Z</updated>
+  <updated>2024-07-08T06:51:20.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Kubernetes中部署nacos 2.3.2</title>
+    <link href="https://zahui.fan/posts/sgajkk/"/>
+    <id>https://zahui.fan/posts/sgajkk/</id>
+    <published>2024-07-08T06:05:08.000Z</published>
+    <updated>2024-07-08T06:51:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;其他版本参考文档 &lt;a href=&quot;/posts/sebxm6/&quot;&gt;在Kubernetes中部署nacos</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Kubernetes中的静态Pod</title>
@@ -233,15 +264,15 @@
     <link href="https://zahui.fan/posts/sebxm6/"/>
     <id>https://zahui.fan/posts/sebxm6/</id>
     <published>2024-05-31T02:58:54.000Z</published>
-    <updated>2024-06-27T07:21:45.000Z</updated>
+    <updated>2024-07-08T06:51:20.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;本次在 Kubernetes 上部署 nacos 2.1.0 版本， 部署3节点集群，不做数据持久化（nacos的配置管理是存储MySQL数据库的，服务发现是需要本地存储的）&lt;/p&gt;
-&lt;h2 id=&quot;MySQL数据库准备&quot;&gt;&lt;a href=&quot;#MySQL数据库准备&quot;</summary>
+    <summary type="html">&lt;p&gt;本次在 Kubernetes 上部署 nacos 2.1.0 版本， 部署3节点集群，不做数据持久化（nacos的配置管理是存储MySQL数据库的，服务发现是需要本地存储的）新版本nacos部署参考：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -607,35 +638,6 @@
     <category term="效率工具" scheme="https://zahui.fan/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/"/>
     
     <category term="命令行工具" scheme="https://zahui.fan/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客更换url结构后配置自动跳转</title>
-    <link href="https://zahui.fan/posts/lu96kcpp/"/>
-    <id>https://zahui.fan/posts/lu96kcpp/</id>
-    <published>2024-03-27T02:22:18.000Z</published>
-    <updated>2024-04-28T03:34:49.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;因为修改过博客的链接规则， 原来的链接是 &lt;code&gt;https://zahui.fan/xxx/&lt;/code&gt; 修改成了 &lt;code&gt;https://zahui.fan/posts/xxx/&lt;/code&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="Blog" scheme="https://zahui.fan/tags/Blog/"/>
-    
-    <category term="hexo" scheme="https://zahui.fan/tags/hexo/"/>
-    
-    <category term="seo" scheme="https://zahui.fan/tags/seo/"/>
     
   </entry>
   
