@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/75a76e3b/</loc>
+    
+    <lastmod>2024-07-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/sgch4h/</loc>
     
     <lastmod>2024-07-09</lastmod>
@@ -1479,15 +1488,6 @@
   
   <url>
     <loc>https://zahui.fan/posts/52feaa76/</loc>
-    
-    <lastmod>2024-05-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/75a76e3b/</loc>
     
     <lastmod>2024-05-27</lastmod>
     
@@ -3464,14 +3464,14 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/shell/</loc>
+    <loc>https://zahui.fan/tags/CentOS/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/CentOS/</loc>
+    <loc>https://zahui.fan/tags/shell/</loc>
     <lastmod>2024-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
