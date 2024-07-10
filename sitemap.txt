@@ -1,3 +1,4 @@
+https://zahui.fan/posts/lo4f92df/
 https://zahui.fan/posts/75a76e3b/
 https://zahui.fan/posts/sgch4h/
 https://zahui.fan/posts/sgba64/
@@ -25,7 +26,6 @@ https://zahui.fan/posts/b1ffa547/
 https://zahui.fan/posts/sfbpoq/
 https://zahui.fan/posts/60a9e345/
 https://zahui.fan/posts/sds4db/
-https://zahui.fan/posts/lo4f92df/
 https://zahui.fan/posts/90ca4905/
 https://zahui.fan/posts/801c62c9/
 https://zahui.fan/posts/a7c8660c/
@@ -408,8 +408,8 @@ https://zahui.fan/tags/adb/
 https://zahui.fan/tags/Android/
 https://zahui.fan/tags/Alpine/
 https://zahui.fan/tags/Ansible/
-https://zahui.fan/tags/CentOS/
 https://zahui.fan/tags/shell/
+https://zahui.fan/tags/CentOS/
 https://zahui.fan/tags/%E7%A3%81%E7%9B%98/
 https://zahui.fan/tags/%E5%88%86%E5%8C%BA/
 https://zahui.fan/tags/Systemd/
