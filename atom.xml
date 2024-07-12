@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-07-12T08:55:30.000Z</updated>
+  <updated>2024-07-12T11:26:49.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -21,19 +21,18 @@
     <link href="https://zahui.fan/posts/sghymc/"/>
     <id>https://zahui.fan/posts/sghymc/</id>
     <published>2024-07-12T06:13:23.000Z</published>
-    <updated>2024-07-12T08:55:30.000Z</updated>
+    <updated>2024-07-12T11:26:49.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;连接香橙派一般有以下几种方法：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;连接香橙派（树莓派等其他派也类似）一般有以下几种方法：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;插显示器、键盘鼠标直接进行操作&lt;/li&gt;
 &lt;li&gt;使用串口连接电脑，通过串口访问终端&lt;/li&gt;
-&lt;li&gt;通过网线连接路由器（路由器会通过DHCP分配一个IP给香橙派）从路由器后台获取到IP地址进行连接&lt;/li&gt;
-&lt;l</summary>
+&lt;li&gt;通过网线连接路由器（路由器会通过DHCP分配一个IP给香橙派）从路由器后台获取到IP地址</summary>
         
       
     
@@ -44,6 +43,8 @@
     
     <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
     
+    <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
+    
   </entry>
   
   <entry>
@@ -51,7 +52,7 @@
     <link href="https://zahui.fan/posts/sghylv/"/>
     <id>https://zahui.fan/posts/sghylv/</id>
     <published>2024-07-12T06:13:06.000Z</published>
-    <updated>2024-07-12T08:55:30.000Z</updated>
+    <updated>2024-07-12T11:26:49.000Z</updated>
     
     
       
@@ -69,6 +70,8 @@
     
     
     <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
+    
+    <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
     
   </entry>
   
@@ -524,11 +527,11 @@
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
+    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
+    
     <category term="ElasticSearch" scheme="https://zahui.fan/tags/ElasticSearch/"/>
     
     <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
-    
-    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
