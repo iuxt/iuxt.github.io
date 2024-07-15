@@ -52,15 +52,14 @@
     <link href="https://zahui.fan/posts/sghylv/"/>
     <id>https://zahui.fan/posts/sghylv/</id>
     <published>2024-07-12T06:13:06.000Z</published>
-    <updated>2024-07-12T11:26:49.000Z</updated>
+    <updated>2024-07-15T06:48:56.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;全程使用 &lt;code&gt;orangepi&lt;/code&gt; 用户执行&lt;/p&gt;
-&lt;h2 id=&quot;安装依赖包&quot;&gt;&lt;a href=&quot;#安装依赖包&quot; class=&quot;headerlink&quot; title=&quot;安装依赖包&quot;&gt;&lt;/a&gt;安装依赖包&lt;/h2&gt;&lt;figure</summary>
+    <summary type="html">&lt;p&gt;vnc大致可以分为两种，一种直接查看 &lt;code&gt;TTY&lt;/code&gt; 上正在显示的桌面（和插上显示器显示的一致），另一种是创建一个新的桌面（即</summary>
         
       
     
@@ -527,11 +526,11 @@
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
-    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
-    
     <category term="ElasticSearch" scheme="https://zahui.fan/tags/ElasticSearch/"/>
     
     <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
+    
+    <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
