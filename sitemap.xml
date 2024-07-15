@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/posts/b1ffa547/</loc>
+    
+    <lastmod>2024-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/sghylv/</loc>
     
     <lastmod>2024-07-15</lastmod>
@@ -266,15 +275,6 @@
     <loc>https://zahui.fan/posts/ae8cd9d9/</loc>
     
     <lastmod>2024-06-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/b1ffa547/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -3426,14 +3426,14 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/Puppet/</loc>
+    <loc>https://zahui.fan/tags/redis/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zahui.fan/tags/redis/</loc>
+    <loc>https://zahui.fan/tags/Puppet/</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

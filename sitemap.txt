@@ -1,4 +1,5 @@
 https://zahui.fan/posts/bd65d26a/
+https://zahui.fan/posts/b1ffa547/
 https://zahui.fan/posts/sghylv/
 https://zahui.fan/posts/sghymc/
 https://zahui.fan/posts/8e3fdb74/
@@ -28,7 +29,6 @@ https://zahui.fan/posts/luam6g8o/
 https://zahui.fan/posts/6f952944/
 https://zahui.fan/posts/sfo7gw/
 https://zahui.fan/posts/ae8cd9d9/
-https://zahui.fan/posts/b1ffa547/
 https://zahui.fan/posts/sfbpoq/
 https://zahui.fan/posts/60a9e345/
 https://zahui.fan/posts/sds4db/
@@ -402,8 +402,8 @@ https://zahui.fan/tags/proxy/
 https://zahui.fan/tags/Auth/
 https://zahui.fan/tags/SSL/
 https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/
-https://zahui.fan/tags/Puppet/
 https://zahui.fan/tags/redis/
+https://zahui.fan/tags/Puppet/
 https://zahui.fan/tags/vnc/
 https://zahui.fan/tags/RemoteControl/
 https://zahui.fan/tags/adb/
