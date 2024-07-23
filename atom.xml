@@ -345,14 +345,14 @@
     <link href="https://zahui.fan/posts/sebxm6/"/>
     <id>https://zahui.fan/posts/sebxm6/</id>
     <published>2024-05-31T02:58:54.000Z</published>
-    <updated>2024-07-08T06:51:20.000Z</updated>
+    <updated>2024-07-23T08:45:12.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;本次在 Kubernetes 上部署 nacos 2.1.0 版本， 部署3节点集群，不做数据持久化（nacos的配置管理是存储MySQL数据库的，服务发现是需要本地存储的）新版本nacos部署参考：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;本次在 Kubernetes 上部署 nacos 2.1.0 版本， 部署 3 节点集群，不做数据持久化（nacos 的配置管理是存储 MySQL 数据库的，服务发现是需要本地存储的）新版本 nacos 部署参考：&lt;/p&gt;
 &lt;p&gt;&lt;a</summary>
         
       
