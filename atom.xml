@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-07-17T15:15:42.000Z</updated>
+  <updated>2024-07-25T14:33:29.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zahui.fan/posts/sghymc/"/>
     <id>https://zahui.fan/posts/sghymc/</id>
     <published>2024-07-12T06:13:23.000Z</published>
-    <updated>2024-07-17T15:15:42.000Z</updated>
+    <updated>2024-07-25T14:33:29.000Z</updated>
     
     
       
@@ -32,7 +32,7 @@
 &lt;ol&gt;
 &lt;li&gt;插显示器、键盘鼠标直接进行操作&lt;/li&gt;
 &lt;li&gt;使用串口连接电脑，通过串口访问终端&lt;/li&gt;
-&lt;li&gt;通过网线连接路由器（路由器会通过DHCP分配一个IP给香橙派）从路由器后台获取到IP地址</summary>
+&lt;li&gt;通过网线连接路由器（路由器会通过 DHCP 分配一个 IP</summary>
         
       
     
@@ -52,14 +52,15 @@
     <link href="https://zahui.fan/posts/sghylv/"/>
     <id>https://zahui.fan/posts/sghylv/</id>
     <published>2024-07-12T06:13:06.000Z</published>
-    <updated>2024-07-15T06:48:56.000Z</updated>
+    <updated>2024-07-25T14:33:29.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;vnc大致可以分为两种，一种直接查看 &lt;code&gt;TTY&lt;/code&gt; 上正在显示的桌面（和插上显示器显示的一致），另一种是创建一个新的桌面（即</summary>
+    <summary type="html">&lt;p&gt;vnc 大致可以分为两种，一种直接查看 &lt;code&gt;TTY&lt;/code&gt; 上正在显示的桌面（和插上显示器显示的一致），另一种是创建一个新的桌面（即 可以在一台 linux 上打开若干个桌面供若干用户使用）&lt;/p&gt;
+&lt;p&gt;这里使用虚拟桌面 VNC，用的是</summary>
         
       
     
