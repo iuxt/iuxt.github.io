@@ -502,15 +502,14 @@
     <link href="https://zahui.fan/posts/scpj14/"/>
     <id>https://zahui.fan/posts/scpj14/</id>
     <published>2024-04-29T14:03:03.000Z</published>
-    <updated>2024-06-28T03:01:25.000Z</updated>
+    <updated>2024-07-26T09:25:14.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;如果是个多节点的集群，更换一台master节点的ip有个更简单的办法，那就是先把这台机器下线，然后再扩容一台新的master，安全无副作用，如果是单节点更换ip地址（如果旧ip不用回收，那么可以直接在网卡上再绑定一个ip地址，不用对k8s进行修改）&lt;/p&gt;
-&lt;p&gt;和&lt;a</summary>
+    <summary type="html">&lt;p&gt;如果是个多节点的集群，更换一台 master 节点的 ip 有个更简单的办法，那就是先把这台机器下线，然后再扩容一台新的 master，安全无副作用，如果是单节点更换 ip 地址（如果旧 ip 不用回收，那么可以直接在网卡上再绑定一个 ip 地址，不用对 k8s</summary>
         
       
     
