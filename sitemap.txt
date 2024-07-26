@@ -1,3 +1,4 @@
+https://zahui.fan/posts/sh7n7f/
 https://zahui.fan/posts/bd65d26a/
 https://zahui.fan/posts/sghymc/
 https://zahui.fan/posts/sghylv/
@@ -310,8 +311,9 @@ https://zahui.fan/tags/nginx/
 https://zahui.fan/tags/Ingress/
 https://zahui.fan/tags/ssl/
 https://zahui.fan/tags/Kubernetes/
-https://zahui.fan/tags/Service/
 https://zahui.fan/tags/k8s/
+https://zahui.fan/tags/java/
+https://zahui.fan/tags/Service/
 https://zahui.fan/tags/HA/
 https://zahui.fan/tags/keepalived/
 https://zahui.fan/tags/NFS/
