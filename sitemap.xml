@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zahui.fan/posts/luam6g8o/</loc>
+    
+    <lastmod>2024-08-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/posts/6f952944/</loc>
     
     <lastmod>2024-08-02</lastmod>
@@ -579,15 +588,6 @@
   
   <url>
     <loc>https://zahui.fan/posts/eee9a081/</loc>
-    
-    <lastmod>2024-06-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/posts/luam6g8o/</loc>
     
     <lastmod>2024-06-27</lastmod>
     
@@ -3948,6 +3948,48 @@
   </url>
   
   <url>
+    <loc>https://zahui.fan/tags/binlog/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/database/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/SQL/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/mysql/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zahui.fan/tags/RHEL/</loc>
+    <lastmod>2024-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zahui.fan/tags/django/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -3963,13 +4005,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/drf/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/mysql/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3998,41 +4033,6 @@
   
   <url>
     <loc>https://zahui.fan/tags/xml/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/binlog/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/database/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/SQL/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/</loc>
-    <lastmod>2024-08-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zahui.fan/tags/RHEL/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -4132,14 +4132,14 @@
   </url>
   
   <url>
-    <loc>https://zahui.fan/categories/%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://zahui.fan/categories/%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2024-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
