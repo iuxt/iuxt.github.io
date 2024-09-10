@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>杂烩饭 - 张理坤的博客 - 运维技术分享</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="张理坤的个人技术博客, 致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Shell脚本、MySQL、Prometheus、ElasticSearch、虚拟化、Django、vue等内容。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="杂烩饭">
+<meta property="og:url" content="https://zahui.fan/page/2/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="张理坤的个人技术博客, 致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Shell脚本、MySQL、Prometheus、ElasticSearch、虚拟化、Django、vue等内容。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/dog.svg">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="Kubernetes,Prometheus,ElasticSearch,OPS,DevOps,运维,MySQL,Linux,云原生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/dog.svg"><link rel="shortcut icon" href="https://static.zahui.fan/public/boob.svg"><link rel="canonical" href="https://zahui.fan/page/2/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YN0WWZGVYN');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '杂烩饭',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-10 11:10:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">309</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">204</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url('/img/top_img.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="杂烩饭"><img class="site-icon" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/boob.svg"/><span class="site-name">杂烩饭</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">杂烩饭</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sh7n7f/" title="Java程序被停止前自动dump内存快照"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202407261107971.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java程序被停止前自动dump内存快照"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sh7n7f/" title="Java程序被停止前自动dump内存快照">Java程序被停止前自动dump内存快照</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-26T03:04:26.000Z" title="发表于 2024-07-26 11:04:26">2024-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Kubernetes/">Kubernetes</a></span></div><div class="content">线上业务偶尔会出现重启现象，为了排查这个问题，决定在 OOM 的时候自动进行 dump 内存快照用于分析
+
+针对 JVM OOM 的情况OOM 全称 “Out Of Memory”，表示内存耗尽。当 JVM 因为没有足够的内存来为对象分配空间，并且垃圾回收器也已经没有空间可回收时，就会抛出这个错误，解决 OOM 问题的一个思路:
+假设发生 OOM 了，必然说明系统中某个区域的对象太多了，塞满了那个区域，而且一定是无法回收掉那些对象，最终才会导致内存溢出的，首先就得知道到底是什么对象太多了导致 OOM ，就必须得有一份 JVM 发生 OOM 时的 dump 内存快照有了 dump 内存快照，就可以用 MAT 之类的工具，或者在线工具来分析：https://memory.console.heapdump.cn/JVM 在发生 OOM 的时候并不是直接挂掉的， 而是在 OOM 之前会尽量去 GC 腾出来一些内存空间，如果 GC 后还是没有空间，放不下对象， 才会触发内存溢出的。JVM 给我们提供了一些参数可以在发生 OOM 的时候进行自动 dump 内存快照。： -XX:+HeapDumpO ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sghymc/" title="无显示器环境下连接香橙派"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202407121921031.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无显示器环境下连接香橙派"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sghymc/" title="无显示器环境下连接香橙派">无显示器环境下连接香橙派</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-12T06:13:23.000Z" title="发表于 2024-07-12 14:13:23">2024-07-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">连接香橙派（树莓派等其他派也类似）一般有以下几种方法：
+
+插显示器、键盘鼠标直接进行操作
+使用串口连接电脑，通过串口访问终端
+通过网线连接路由器（路由器会通过 DHCP 分配一个 IP 给香橙派）从路由器后台获取到 IP 地址进行连接
+通过网线直连电脑，电脑运行一个 DHCP 服务分配 IP 给香橙派，通过 IP 地址进行连接
+通过官方的 orangepi_first_run.txt 文件来自动配置一个网口 IP 地址，电脑固定一个同网段的 IP，然后通过 IP 地址进行访问
+
+我这里使用 tftpd64 来实现一个简单的 DHCP 服务。
+配置如下：
+
+设置好了以后，通过网线将香橙派和电脑直接连起来，这里就能看到有设备获取到了 IP 地址了。（不要设置 Def router，因为我们需要让网络使用 Wi-Fi 的网卡，有线网卡只是为了内网连接。）
+
+192.168.88.1 就是香橙派的 IP 地址。可以用 ssh 连接了。
+联网：
+手机开热点，使用 nmtui 命令连接 Wi-Fi
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sghylv/" title="香橙派配置VNC Server"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202407121920445.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="香橙派配置VNC Server"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sghylv/" title="香橙派配置VNC Server">香橙派配置VNC Server</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-12T06:13:06.000Z" title="发表于 2024-07-12 14:13:06">2024-07-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">vnc 大致可以分为两种，一种直接查看 TTY 上正在显示的桌面（和插上显示器显示的一致），另一种是创建一个新的桌面（即 可以在一台 linux 上打开若干个桌面供若干用户使用）
+这里使用虚拟桌面 VNC，用的是 tigervncserver, 全程使用 orangepi 用户, 香橙派安装的是 Ubuntu 22.04 系统, 如果需要直接转发显示器的内容，请查看 Ubuntu安装配置VNC直接转发桌面显示
+安装依赖包12345sudo apt-get updatesudo apt-get upgradesudo apt-get -y install xorg lightdm xfce4 tango-icon-theme gnome-icon-theme dbus-x11sudo apt-get install xfonts-base tightvncserver
+
+启动 VNC Server1vncserver :1
+
+display :1 refers to port 5901
+重启 VNC Server12vncserver -kill :1vncserver :1
+
+开机自启 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sgch4h/" title="在Kubernetes环境下快速部署MySQL"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Kubernetes环境下快速部署MySQL"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sgch4h/" title="在Kubernetes环境下快速部署MySQL">在Kubernetes环境下快速部署MySQL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-09T07:07:29.000Z" title="发表于 2024-07-09 15:07:29">2024-07-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">收到个需求，开发团队希望快速启动一套业务环境，包括所有业务服务（部署在 Kubernetes 中）、MySQL 数据库、Redis 等中间件也一并创建出来并初始化，业务也需要自动连接上这些中间件。
+本文记录一下在 Kubernetes 中部署 MySQL 并完成初始化操作（设置密码、创建数据库）
+遇到的问题表名大小写敏感问题我们的业务需要数据库设置为表名大小写不敏感，即无论大小写都转换为小写，需要设置参数：
+12[mysqld]lower_case_table_names=1
+
+那么在容器中，参考官方文档，可以将 cnf 文件挂载到 /etc/mysql/conf.d/ 中。
+
+创建多个数据库业务需要用到多个库，检查官方环境变量，有个 MYSQL_DATABASE 不过我测试可以创建一个库，不满足我们的需求。并且除了建库，可能还有其他的操作。
+
+可以将你需要的 sql 文件放到 /docker-entrypoint-initdb.d 目录中，初始化的时候会自动执行。
+完整的 yaml 文件1234567891011121314151617181920212223242526272829 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sgajkk/" title="在Kubernetes中部署nacos 2.3.2"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/Nacos.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Kubernetes中部署nacos 2.3.2"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sgajkk/" title="在Kubernetes中部署nacos 2.3.2">在Kubernetes中部署nacos 2.3.2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-08T06:05:08.000Z" title="发表于 2024-07-08 14:05:08">2024-07-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Kubernetes/">Kubernetes</a></span></div><div class="content">其他版本参考文档 在Kubernetes中部署nacos 2.1.0
+nacos 官方文档写的太敷衍了，很多东西都需要自己去找，比如容器运行的时候，必须的环境变量都没有写全，遇到的一些坑整理了出来。
+新版的变化鉴权逻辑优化官方说明：https://nacos.io/zh-cn/docs/v2/guide/user/auth.html
+2.2.2 版本之前的 Nacos 默认控制台，无论服务端是否开启鉴权，都会存在一个登录页；这导致很多用户被误导认为 Nacos 默认是存在鉴权的。在社区安全工程师的建议下，Nacos 自 2.2.2 版本开始，在未开启鉴权时，默认控制台将不需要登录即可访问，同时在控制台中给予提示，提醒用户当前集群未开启鉴权。
+部分环境变量默认值删除nacos 新版（2.2.1 之后删除了默认值）
+
+可以查看 /home/nacos/conf/application.properties 这个文件，如果有环境变量名不确认也可以到这个文件里查询：
+
+比如： server.port=$&#123;NACOS_APPLICATION_PORT:8848&#125; NACOS_ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sfrqkr/" title="Kubernetes中的静态Pod"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/Kubeadm.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Kubernetes中的静态Pod"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sfrqkr/" title="Kubernetes中的静态Pod">Kubernetes中的静态Pod</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-28T02:22:03.000Z" title="发表于 2024-06-28 10:22:03">2024-06-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Kubernetes/">Kubernetes</a></span></div><div class="content">啥是静态 Pod静态 pod 就是不通过 Kubernetes 控制器直接运行的 pod，比如下面是一个 nginx 的静态 pod
+123456789101112apiVersion: v1kind: Podmetadata:  name: static-webspec:  containers:    - name: web      image: registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.27.0      ports:        - name: web          containerPort: 80          protocol: TCP
+
+这种 pod 如果通过 kubectl delete pod static-web 来删除， 那么就直接删除了，不会像控制器一样重建 pod。
+kubeadm 集群的组件二进制运行的组件二进制运行的组件就是不通过容器化，直接在机器上运行的组件，有 3 个组件 kubeadm kubelet kubectl ，其中：
+
+kubectl 这个是客户端程序，不是必须的，如果需要用 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sfo7gw/" title="K8S的headless service"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/kubernetes.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="K8S的headless service"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sfo7gw/" title="K8S的headless service">K8S的headless service</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-26T04:36:32.000Z" title="发表于 2024-06-26 12:36:32">2024-06-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Kubernetes/">Kubernetes</a></span></div><div class="content">什么是 headless serviceheadless service 是配合 statefulset 控制器使用的，就是一个没有 ip 地址的普通 service
+yml 配置12345678910111213141516171819202122apiVersion: v1kind: Servicemetadata:  name: zk-hs  labels:    app: zookeeperspec:  ports:    - name: tcp-client      protocol: TCP      port: 2181      targetPort: 2181    - name: tcp-follower      port: 2888      targetPort: 2888    - name: tcp-election      port: 3888      targetPort: 3888  selector:    app: zookeeper  clusterIP: None  type: ClusterIP
+
+在 statefulset 里指定  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sfbpoq/" title="在Kubernetes中部署zookeeper集群"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/apache_zookeeper.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Kubernetes中部署zookeeper集群"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sfbpoq/" title="在Kubernetes中部署zookeeper集群">在Kubernetes中部署zookeeper集群</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-19T10:41:14.000Z" title="发表于 2024-06-19 18:41:14">2024-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Kubernetes/">Kubernetes</a></span></div><div class="content">部署遇到的问题挂载目录没有写入权限
+修改容器启动命令，查看到用户 id 是 1001
+
+官方也有说明
+解决方法 1: 使用 initcontainer 授权12345678initContainers:- name: init  image: busybox:1.28  command: [&#x27;sh&#x27;, &#x27;-c&#x27;, &quot;chown -R 1001:1001 /bitnami/&quot;]  volumeMounts:    - name: data      mountPath: /bitnami/zookeeper
+
+
+解决方法 2： 增加安全上下文，使用 root 用户这么做会降低容器的安全性，不推荐！
+123securityContext:  runAsUser: 0  runAsGroup: 0
+
+
+最终的 yaml 文件1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sewhsk/" title="Windows 配置自动登录"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/Windows.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 配置自动登录"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sewhsk/" title="Windows 配置自动登录">Windows 配置自动登录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-11T05:26:43.000Z" title="发表于 2024-06-11 13:26:43">2024-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Windows/">Windows</a></span></div><div class="content">windows 中有部分应用程序需要登录当前账户才可以自动启动，或者嫌输密码麻烦，都可以设置自动登录，不用删除开机密码（删除开机密码也要鼠标点一下登录才可以登录）
+修改注册表旧版本 windows 10 或者 windows 7 可以直接设置，但是新版本 windows 没有了这个选项，需要修改注册表配置
+将下面文本保存成 reg 文件，双击导入。
+1234Windows Registry Editor Version 5.00[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]&quot;DevicePasswordLessBuildVersion&quot;=dword:00000000
+
+netplwiz 配置win + R 输入 netplwiz 打开用户管理界面。
+
+取消勾选 要使用本计算机，用户必须输入用户名和密码 选项， 在弹出的框中输入当前用户密码。
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/sepu3k/" title="kubeadm 部署的集群 常见问题汇总"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/Kubeadm.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kubeadm 部署的集群 常见问题汇总"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/sepu3k/" title="kubeadm 部署的集群 常见问题汇总">kubeadm 部署的集群 常见问题汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-07T15:09:19.000Z" title="发表于 2024-06-07 23:09:19">2024-06-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Kubernetes/">Kubernetes</a></span></div><div class="content">扩容节点扩容 Worker 节点
+kubeadm init 后会输出在终端上, 有效期 2 小时, 超时后可以重新生成
+
+生成添加命令:
+1kubeadm token create --print-join-command
+
+扩容 Master 节点生成加入命令12345678# 生成证书, 记录 certificate keykubeadm init phase upload-certs --upload-certs# 获取加入命令kubeadm token create --print-join-command# 将上面的输出结果拼接，这个就是加入 master 的命令，在新的 master 上执行echo &quot;$(kubeadm token create --print-join-command) --control-plane --certificate-key $(kubeadm init phase upload-certs --upload-certs | tail -1)&quot;
+
+修改负载均衡配置扩容完 master 节点不要忘了将新的节点增加到 Apis ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/#content-inner">31</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张理坤</div><div class="author-info__description">张理坤</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">309</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">204</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。
+本站内容若出现语句磕磕绊绊、错字连篇、胡言乱语等问题，皆系本人文化水平低之缘故，与所用输入法无关，特此声明。
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/sjcnkn/" title="fail2ban失效排查">fail2ban失效排查</a><time datetime="2024-09-10T03:04:43.000Z" title="更新于 2024-09-10 11:04:43">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/siid4q/" title="Alpine容器文件后缀浏览器下载变成zip">Alpine容器文件后缀浏览器下载变成zip</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/be10bdea/" title="Containerd的管理工具">Containerd的管理工具</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/lmucp5lg/" title="Dockerfile中ADD文件的路径问题">Dockerfile中ADD文件的路径问题</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/581a1bd9/" title="Docker不支持中文解决方案">Docker不支持中文解决方案</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Kubernetes/"><span class="card-category-list-name">Kubernetes</span><span class="card-category-list-count">58</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows/"><span class="card-category-list-name">Windows</span><span class="card-category-list-count">46</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">基础运维</span><span class="card-category-list-count">116</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">工具</span><span class="card-category-list-count">37</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">开发</span><span class="card-category-list-count">20</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%BF%97/"><span class="card-category-list-name">日志</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9B%91%E6%8E%A7/"><span class="card-category-list-name">监控</span><span class="card-category-list-count">10</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/drf/" style="font-size: 1.25em; color: #999fa7">drf</a> <a href="/tags/Markdown/" style="font-size: 1.1em; color: #999">Markdown</a> <a href="/tags/containerd/" style="font-size: 1.1em; color: #999">containerd</a> <a href="/tags/Windows/" style="font-size: 1.46em; color: #99a8bc">Windows</a> <a href="/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/" style="font-size: 1.1em; color: #999">软路由</a> <a href="/tags/%E7%BB%BF%E8%89%B2%E8%BD%AF%E4%BB%B6/" style="font-size: 1.1em; color: #999">绿色软件</a> <a href="/tags/wsl2/" style="font-size: 1.14em; color: #999a9c">wsl2</a> <a href="/tags/Crontab/" style="font-size: 1.39em; color: #99a5b5">Crontab</a> <a href="/tags/%E6%8C%82%E8%BD%BD/" style="font-size: 1.14em; color: #999a9c">挂载</a> <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" style="font-size: 1.21em; color: #999da3">反向代理</a> <a href="/tags/Python/" style="font-size: 1.43em; color: #99a6b8">Python</a> <a href="/tags/ingress/" style="font-size: 1.28em; color: #99a0aa">ingress</a> <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999a9c">权限管理</a> <a href="/tags/Elasticsearch/" style="font-size: 1.25em; color: #999fa7">Elasticsearch</a> <a href="/tags/%E6%9C%8D%E5%8A%A1/" style="font-size: 1.14em; color: #999a9c">服务</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 1.17em; color: #999ca0">监控</a> <a href="/tags/service/" style="font-size: 1.1em; color: #999">service</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 1.35em; color: #99a3b1">部署</a> <a href="/tags/NTP/" style="font-size: 1.1em; color: #999">NTP</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 1.1em; color: #999">游戏</a> <a href="/tags/Network/" style="font-size: 1.32em; color: #99a2ae">Network</a> <a href="/tags/cmd/" style="font-size: 1.21em; color: #999da3">cmd</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">安全</a> <a href="/tags/mysqld/" style="font-size: 1.17em; color: #999ca0">mysqld</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 1.17em; color: #999ca0">脚本</a> <a href="/tags/Ubuntu/" style="font-size: 1.21em; color: #999da3">Ubuntu</a> <a href="/tags/windows/" style="font-size: 1.1em; color: #999">windows</a> <a href="/tags/Tools/" style="font-size: 1.1em; color: #999">Tools</a> <a href="/tags/Bash/" style="font-size: 1.14em; color: #999a9c">Bash</a> <a href="/tags/prometheus/" style="font-size: 1.39em; color: #99a5b5">prometheus</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.1em; color: #999">阿里云</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/webdav/" style="font-size: 1.1em; color: #999">webdav</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 1.14em; color: #999a9c">配置文件</a> <a href="/tags/%E4%BB%93%E5%BA%93/" style="font-size: 1.1em; color: #999">仓库</a> <a href="/tags/Prometheus/" style="font-size: 1.28em; color: #99a0aa">Prometheus</a> <a href="/tags/proxmox/" style="font-size: 1.1em; color: #999">proxmox</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/NFS/" style="font-size: 1.14em; color: #999a9c">NFS</a> <a href="/tags/seo/" style="font-size: 1.1em; color: #999">seo</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">309</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-10T03:10:02.422Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('/pluginsSrc/typed.js/dist/typed.umd.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["♥ Do have faith in what you're doing.","欲穷千里目，更上一层楼。","学而不思则罔，思而不学则殆。"])
+  } else {
+    document.getElementById("subtitle").textContent = "♥ Do have faith in what you're doing."
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

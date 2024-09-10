@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>macOS终端工具iTerm2配置lrzsz上传下载 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="lrzsz 是个很古老的软件了， 上次更新是 1998 年， 距今已经 20 多年历史了，那为啥还要用这么古老的软件呢，lrzsz 利用终端来传输文件，相比于 scp、sftp 等来说方便倒是其次，想象一下 我的电脑 --&gt; 跳板机A --&gt; 跳板机B --&gt; 目标机器 并且很多跳板机都有各种限制，不一定支持上传文件，这个时候通过终端来传文件就是唯一的选择了。 官方介绍：http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS终端工具iTerm2配置lrzsz上传下载">
+<meta property="og:url" content="https://zahui.fan/posts/sgpjuj/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="lrzsz 是个很古老的软件了， 上次更新是 1998 年， 距今已经 20 多年历史了，那为啥还要用这么古老的软件呢，lrzsz 利用终端来传输文件，相比于 scp、sftp 等来说方便倒是其次，想象一下 我的电脑 --&gt; 跳板机A --&gt; 跳板机B --&gt; 目标机器 并且很多跳板机都有各种限制，不一定支持上传文件，这个时候通过终端来传文件就是唯一的选择了。 官方介绍：http">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/skeleton1.svg">
+<meta property="article:published_time" content="2020-07-16T08:35:07.000Z">
+<meta property="article:modified_time" content="2024-09-10T02:53:59.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="lrzsz">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/skeleton1.svg"><link rel="shortcut icon" href="https://static.zahui.fan/public/boob.svg"><link rel="canonical" href="https://zahui.fan/posts/sgpjuj/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YN0WWZGVYN');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'macOS终端工具iTerm2配置lrzsz上传下载',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-10 10:53:59'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">309</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">204</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://static.zahui.fan/public/skeleton1.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="杂烩饭"><img class="site-icon" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/boob.svg"/><span class="site-name">杂烩饭</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">macOS终端工具iTerm2配置lrzsz上传下载</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-16T08:35:07.000Z" title="发表于 2020-07-16 16:35:07">2020-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="macOS终端工具iTerm2配置lrzsz上传下载"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>lrzsz 是个很古老的软件了， 上次更新是 1998 年， 距今已经 20 多年历史了，那为啥还要用这么古老的软件呢，lrzsz 利用终端来传输文件，相比于 scp、sftp 等来说方便倒是其次，想象一下 <code>我的电脑 --&gt; 跳板机A --&gt; 跳板机B --&gt; 目标机器</code> 并且很多跳板机都有各种限制，不一定支持上传文件，这个时候通过终端来传文件就是唯一的选择了。</p>
+<p>官方介绍：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.ohse.de/uwe/software/lrzsz.html">https://www.ohse.de/uwe/software/lrzsz.html</a></p>
+<p>类似与 lrzsz 还有个软件叫 trzsz， 相比 lrzsz 更快，更方便。</p>
+<h2 id="lrzsz-原理"><a href="#lrzsz-原理" class="headerlink" title="lrzsz 原理"></a>lrzsz 原理</h2><ul>
+<li><p>下载文件<br>  在服务器上执行 sz（Send by ZMODEM），先在终端上输出 **B00000000000000，然后客户端在终端发送指令，表示拒绝，还是接收（接收的话，就在客户端运行 rz 指令与服务端交互）</p>
+</li>
+<li><p>上传文件<br>  在服务器上执行 rz（Receive by ZMODEM），先在终端上输出 rz waiting to receive.**B0100000023be50，然后客户端发送指令，表示取消，还是上传（上传的话，在客户端运行 sz 命令与服务端交互）。</p>
+</li>
+</ul>
+<p>可以看到在上述流程中，对 Terminal 的要求就是，遇到特殊指令，触发对应的操作（执行本地命令）</p>
+<p>由于 macOS 自带的 Terminal.app 不支持这个，所以网上大部分教程都是使用 iTerm2</p>
+<p>参考链接：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/d5bbb6009b05">https://www.jianshu.com/p/d5bbb6009b05</a></p>
+<h2 id="安装-lrzsz"><a href="#安装-lrzsz" class="headerlink" title="安装 lrzsz"></a>安装 lrzsz</h2><p>要使用 lrzsz，自己的电脑和服务器上都需要安装 lrzsz 包，在 macOS 上可以使用 brew 来安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install lrzsz</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建脚本"><a href="#创建脚本" class="headerlink" title="创建脚本"></a>创建脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; iterm2-recv-zmodem.sh &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Author: Matt Mastracci (matthew@mastracci.com)</span></span><br><span class="line"><span class="comment"># AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script</span></span><br><span class="line"><span class="comment"># licensed under cc-wiki with attribution required</span></span><br><span class="line"><span class="comment"># Remainder of script public domain</span></span><br><span class="line"></span><br><span class="line">osascript -e <span class="string">&#x27;tell application &quot;iTerm2&quot; to version&#x27;</span> &gt; /dev/null 2&gt;&amp;1 &amp;&amp; NAME=iTerm2 || NAME=iTerm</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NAME</span> = <span class="string">&quot;iTerm&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">	FILE=$(osascript -e <span class="string">&#x27;tell application &quot;iTerm&quot; to activate&#x27;</span> -e <span class="string">&#x27;tell application &quot;iTerm&quot; to set thefile to choose folder with prompt &quot;Choose a folder to place received files in&quot;&#x27;</span> -e <span class="string">&quot;do shell script (\&quot;echo \&quot;&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;\&quot;\&quot;)&quot;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	FILE=$(osascript -e <span class="string">&#x27;tell application &quot;iTerm2&quot; to activate&#x27;</span> -e <span class="string">&#x27;tell application &quot;iTerm2&quot; to set thefile to choose folder with prompt &quot;Choose a folder to place received files in&quot;&#x27;</span> -e <span class="string">&quot;do shell script (\&quot;echo \&quot;&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;\&quot;\&quot;)&quot;</span>)</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$FILE</span> = <span class="string">&quot;&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> Cancelled.</span><br><span class="line">	<span class="comment"># Send ZModem cancel</span></span><br><span class="line">	<span class="built_in">echo</span> -e \\x18\\x18\\x18\\x18\\x18</span><br><span class="line">	<span class="built_in">sleep</span> 1</span><br><span class="line">	<span class="built_in">echo</span></span><br><span class="line">	<span class="built_in">echo</span> \<span class="comment"># Cancelled transfer</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$FILE</span>&quot;</span></span><br><span class="line">	/usr/local/bin/rz --rename --escape --binary --bufsize 4096</span><br><span class="line">	<span class="built_in">sleep</span> 1</span><br><span class="line">	<span class="built_in">echo</span></span><br><span class="line">	<span class="built_in">echo</span></span><br><span class="line">	<span class="built_in">echo</span> \<span class="comment"># Sent \-\&gt; $FILE</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> &gt; iterm2-send-zmodem.sh &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Author: Matt Mastracci (matthew@mastracci.com)</span></span><br><span class="line"><span class="comment"># AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script</span></span><br><span class="line"><span class="comment"># licensed under cc-wiki with attribution required</span></span><br><span class="line"><span class="comment"># Remainder of script public domain</span></span><br><span class="line"></span><br><span class="line">osascript -e <span class="string">&#x27;tell application &quot;iTerm2&quot; to version&#x27;</span> &gt; /dev/null 2&gt;&amp;1 &amp;&amp; NAME=iTerm2 || NAME=iTerm</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NAME</span> = <span class="string">&quot;iTerm&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">	FILE=$(osascript -e <span class="string">&#x27;tell application &quot;iTerm&quot; to activate&#x27;</span> -e <span class="string">&#x27;tell application &quot;iTerm&quot; to set thefile to choose file with prompt &quot;Choose a file to send&quot;&#x27;</span> -e <span class="string">&quot;do shell script (\&quot;echo \&quot;&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;\&quot;\&quot;)&quot;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	FILE=$(osascript -e <span class="string">&#x27;tell application &quot;iTerm2&quot; to activate&#x27;</span> -e <span class="string">&#x27;tell application &quot;iTerm2&quot; to set thefile to choose file with prompt &quot;Choose a file to send&quot;&#x27;</span> -e <span class="string">&quot;do shell script (\&quot;echo \&quot;&amp;(quoted form of POSIX path of thefile as Unicode text)&amp;\&quot;\&quot;)&quot;</span>)</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$FILE</span> = <span class="string">&quot;&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> Cancelled.</span><br><span class="line">	<span class="comment"># Send ZModem cancel</span></span><br><span class="line">	<span class="built_in">echo</span> -e \\x18\\x18\\x18\\x18\\x18</span><br><span class="line">	<span class="built_in">sleep</span> 1</span><br><span class="line">	<span class="built_in">echo</span></span><br><span class="line">	<span class="built_in">echo</span> \<span class="comment"># Cancelled transfer</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	/usr/local/bin/sz <span class="string">&quot;<span class="variable">$FILE</span>&quot;</span> --escape --binary --bufsize 4096</span><br><span class="line">	<span class="built_in">sleep</span> 1</span><br><span class="line">	<span class="built_in">echo</span></span><br><span class="line">	<span class="built_in">echo</span> \<span class="comment"># Received &quot;$FILE&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-iTerm2"><a href="#配置-iTerm2" class="headerlink" title="配置 iTerm2"></a>配置 iTerm2</h2><p><code>Profiles</code> –&gt; <code>Advanced</code> –&gt; <code>Triggers</code> –&gt; <code>Edit</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.第一条</span><br><span class="line">        Regular expression: rz waiting to receive.\*\*B0100</span><br><span class="line">        Action: Run Silent Coprocess</span><br><span class="line">        Parameters: /Users/iuxt/icloud/macOS/iterm2/iterm2-send-zmodem.sh</span><br><span class="line">        Instant: checked</span><br><span class="line"></span><br><span class="line">2.第二条</span><br><span class="line">        Regular expression: \*\*B00000000000000</span><br><span class="line">        Action: Run Silent Coprocess</span><br><span class="line">        Parameters: /Users/iuxt/icloud/macOS/iterm2/iterm2-recv-zmodem.sh</span><br><span class="line">        Instant: checked</span><br></pre></td></tr></table></figure>
+
+<h2 id="另一种方式，使用-tssh"><a href="#另一种方式，使用-tssh" class="headerlink" title="另一种方式，使用 tssh"></a>另一种方式，使用 tssh</h2><p>tssh 新版支持了 lrzsz 了，可以用 tssh 来替代 ssh， 可以同时支持 lrzsz 和 trzsz。配合 iTerm2 也不错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install trzsz-ssh</span><br></pre></td></tr></table></figure>
+
+<p>然后用 <code>tssh --zmodem</code> 来替代 <code>ssh</code> ，比如配置 alias</p>
+<p>使用 tssh 就不用配置 iTerm2 的 Triggers 了，并且上传下载的时候可以显示速度和传输的大小。</p>
+<p><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202407261625730.png" alt="image.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/sgpjuj/">https://zahui.fan/posts/sgpjuj/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/lrzsz/">lrzsz</a></div><div class="post_share"><div class="social-share" data-image="https://static.zahui.fan/public/skeleton1.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/shxj0z/" title="CentOS 7 配置 fail2ban"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/fail2ban.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CentOS 7 配置 fail2ban</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/e48170f8/" title="改造windows terminal支持lrzsz"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202305102317430.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-09-10</div><div class="title">改造windows terminal支持lrzsz</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张理坤</div><div class="author-info__description">张理坤</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">309</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">204</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。
+本站内容若出现语句磕磕绊绊、错字连篇、胡言乱语等问题，皆系本人文化水平低之缘故，与所用输入法无关，特此声明。
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#lrzsz-%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">lrzsz 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-lrzsz"><span class="toc-number">2.</span> <span class="toc-text">安装 lrzsz</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">创建脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-iTerm2"><span class="toc-number">4.</span> <span class="toc-text">配置 iTerm2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BD%BF%E7%94%A8-tssh"><span class="toc-number">5.</span> <span class="toc-text">另一种方式，使用 tssh</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/sjcnkn/" title="fail2ban失效排查">fail2ban失效排查</a><time datetime="2024-09-10T03:04:43.000Z" title="更新于 2024-09-10 11:04:43">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/siid4q/" title="Alpine容器文件后缀浏览器下载变成zip">Alpine容器文件后缀浏览器下载变成zip</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/be10bdea/" title="Containerd的管理工具">Containerd的管理工具</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/lmucp5lg/" title="Dockerfile中ADD文件的路径问题">Dockerfile中ADD文件的路径问题</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/581a1bd9/" title="Docker不支持中文解决方案">Docker不支持中文解决方案</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => {
+    return theme === 'dark' ? 'dark' : 'light'
+  }
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const sendMessage = message => {
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (!iframe) return
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.babudiu.com')
+    }
+
+    sendMessage({
+      setConfig: {
+        theme: getGiscusTheme(theme)
+      }
+    });
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

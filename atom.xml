@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>杂烩饭</title>
+  <icon>https://zahui.fan/icon.png</icon>
+  <subtitle>张理坤的博客 - 运维技术分享</subtitle>
+  <link href="https://zahui.fan/atom.xml" rel="self"/>
+  
+  <link href="https://zahui.fan/"/>
+  <updated>2024-09-10T03:04:43.000Z</updated>
+  <id>https://zahui.fan/</id>
+  
+  <author>
+    <name>张理坤</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fail2ban失效排查</title>
+    <link href="https://zahui.fan/posts/sjcnkn/"/>
+    <id>https://zahui.fan/posts/sjcnkn/</id>
+    <published>2024-09-05T17:07:35.000Z</published>
+    <updated>2024-09-10T03:04:43.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;selinux&quot;&gt;&lt;a href=&quot;#selinux&quot; class=&quot;headerlink&quot; title=&quot;selinux&quot;&gt;&lt;/a&gt;selinux&lt;/h2&gt;&lt;p&gt;容易忽略的一点，selinux 会限制 fail2ban 的执行， 手动运行</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Prometheus中查询无数据提供默认值</title>
+    <link href="https://zahui.fan/posts/sjaoe0/"/>
+    <id>https://zahui.fan/posts/sjaoe0/</id>
+    <published>2024-09-04T15:30:00.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;单一时间序列（时间戳）的样本。具体来说，&lt;code&gt;vector(0)&lt;/code&gt; 将创建一个包含值 0 的瞬时向量（即在某个时间点的时间序列）。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>kubectl导出的yaml忽略指定字段</title>
+    <link href="https://zahui.fan/posts/sj8cec/"/>
+    <id>https://zahui.fan/posts/sj8cec/</id>
+    <published>2024-09-03T09:15:48.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;kubectl 指定 -o yaml 输出的 yaml 文件包含一些默认字段，这些字段我们是不需要的，可以使用 yq 来进行去除这些字段，生成的 yaml 文件可以用于迁移&amp;#x2F;部署服务等。&lt;/p&gt;
+&lt;h2 id=&quot;导出-deployment&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL进行文件操作</title>
+    <link href="https://zahui.fan/posts/sio0v4/"/>
+    <id>https://zahui.fan/posts/sio0v4/</id>
+    <published>2024-08-23T09:54:40.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我执行了这条命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PyCharm配合WSL进行开发</title>
+    <link href="https://zahui.fan/posts/sik0ul/"/>
+    <id>https://zahui.fan/posts/sik0ul/</id>
+    <published>2024-08-21T06:03:57.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本文使用 WSL2，WSL2 里面安装了 Docker， PyCharm 支持的配合 wsl 进行使用的方法有很多种，这里提供几个思路&lt;/p&gt;
+&lt;p&gt;方法 1: WSL 远程开发（目前 BETA 版）&lt;br&gt;方法 2: 代码放在 Windows 上，Python 解释器在</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="开发工具配置" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Python开发一个Prometheus exporter</title>
+    <link href="https://zahui.fan/posts/siij5o/"/>
+    <id>https://zahui.fan/posts/siij5o/</id>
+    <published>2024-08-20T10:44:11.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;需求：需要监控指定的邮箱发送邮件是否正常，使用 Prometheus 官方的 Python sdk，代码如下：&lt;/p&gt;
+&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Alpine容器文件后缀浏览器下载变成zip</title>
+    <link href="https://zahui.fan/posts/siid4q/"/>
+    <id>https://zahui.fan/posts/siid4q/</id>
+    <published>2024-08-20T08:34:01.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;比如一个网盘程序，上传了一个 excel 文件，点击获取直链，然后将获取到的直链放到浏览器地址栏访问触发下载，下载下来的文件后缀自动变成了.zip&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nginx Ingress 对指定路径去除 contextpath</title>
+    <link href="https://zahui.fan/posts/sib2vi/"/>
+    <id>https://zahui.fan/posts/sib2vi/</id>
+    <published>2024-08-16T10:09:17.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;要在 Kubernetes 中配置 Nginx Ingress 以便转发到后端时去掉 &lt;code&gt;contextPath&lt;/code&gt;，你可以通过以下步骤来实现：&lt;/p&gt;
+&lt;h2 id=&quot;单个-path-去掉-contextpath&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
+    
+    <category term="contextpath" scheme="https://zahui.fan/tags/contextpath/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS 7 停止维护后如何使用</title>
+    <link href="https://zahui.fan/posts/si78gg/"/>
+    <id>https://zahui.fan/posts/si78gg/</id>
+    <published>2024-08-14T08:19:28.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;CentOS 7 停止维护后，很多源都失效了，使用 yum 的时候报错 404，需要修改源才能继续使用。&lt;/p&gt;
+&lt;p&gt;老版本 CentOS 源被更改成 vault 源，需要更换成 vault 源才能继续使用 yum。&lt;/p&gt;
+&lt;p&gt;修改成官方源&lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>trzsz 使用记录</title>
+    <link href="https://zahui.fan/posts/shqeci/"/>
+    <id>https://zahui.fan/posts/shqeci/</id>
+    <published>2024-08-05T06:07:29.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;官方介绍：trzsz ( trz &amp;#x2F; tsz ) 是一款优秀的文件传输工具，和 lrzsz ( rz &amp;#x2F; sz ) 类似的、兼容 tmux 的文件传输工具。其实就是一个利用终端来传输文件的工具，可以用来取代 lrzsz，更多详情看官方文档：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java程序被停止前自动dump内存快照</title>
+    <link href="https://zahui.fan/posts/sh7n7f/"/>
+    <id>https://zahui.fan/posts/sh7n7f/</id>
+    <published>2024-07-26T03:04:26.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;线上业务偶尔会出现重启现象，为了排查这个问题，决定在 OOM 的时候自动进行 dump 内存快照用于分析&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://static.zahui.fan/images/202407261022514.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="java" scheme="https://zahui.fan/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>无显示器环境下连接香橙派</title>
+    <link href="https://zahui.fan/posts/sghymc/"/>
+    <id>https://zahui.fan/posts/sghymc/</id>
+    <published>2024-07-12T06:13:23.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;连接香橙派（树莓派等其他派也类似）一般有以下几种方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;插显示器、键盘鼠标直接进行操作&lt;/li&gt;
+&lt;li&gt;使用串口连接电脑，通过串口访问终端&lt;/li&gt;
+&lt;li&gt;通过网线连接路由器（路由器会通过 DHCP 分配一个 IP</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
+    
+    <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>香橙派配置VNC Server</title>
+    <link href="https://zahui.fan/posts/sghylv/"/>
+    <id>https://zahui.fan/posts/sghylv/</id>
+    <published>2024-07-12T06:13:06.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;vnc 大致可以分为两种，一种直接查看 &lt;code&gt;TTY&lt;/code&gt; 上正在显示的桌面（和插上显示器显示的一致），另一种是创建一个新的桌面（即 可以在一台 linux 上打开若干个桌面供若干用户使用）&lt;/p&gt;
+&lt;p&gt;这里使用虚拟桌面 VNC，用的是</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
+    
+    <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Kubernetes环境下快速部署MySQL</title>
+    <link href="https://zahui.fan/posts/sgch4h/"/>
+    <id>https://zahui.fan/posts/sgch4h/</id>
+    <published>2024-07-09T07:07:29.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;收到个需求，开发团队希望快速启动一套业务环境，包括所有业务服务（部署在 &lt;code&gt;Kubernetes&lt;/code&gt; 中）、&lt;code&gt;MySQL&lt;/code&gt; 数据库、&lt;code&gt;Redis&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Kubernetes中部署nacos 2.3.2</title>
+    <link href="https://zahui.fan/posts/sgajkk/"/>
+    <id>https://zahui.fan/posts/sgajkk/</id>
+    <published>2024-07-08T06:05:08.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;其他版本参考文档 &lt;a href=&quot;/posts/sebxm6/&quot;&gt;在Kubernetes中部署nacos 2.1.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;nacos</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes中的静态Pod</title>
+    <link href="https://zahui.fan/posts/sfrqkr/"/>
+    <id>https://zahui.fan/posts/sfrqkr/</id>
+    <published>2024-06-28T02:22:03.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;啥是静态-Pod&quot;&gt;&lt;a href=&quot;#啥是静态-Pod&quot; class=&quot;headerlink&quot; title=&quot;啥是静态 Pod&quot;&gt;&lt;/a&gt;啥是静态 Pod&lt;/h2&gt;&lt;p&gt;静态 pod 就是不通过 Kubernetes 控制器直接运行的 pod，比如下面是一个</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>K8S的headless service</title>
+    <link href="https://zahui.fan/posts/sfo7gw/"/>
+    <id>https://zahui.fan/posts/sfo7gw/</id>
+    <published>2024-06-26T04:36:32.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是-headless-service&quot;&gt;&lt;a href=&quot;#什么是-headless-service&quot; class=&quot;headerlink&quot; title=&quot;什么是 headless service&quot;&gt;&lt;/a&gt;什么是 headless</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="Service" scheme="https://zahui.fan/tags/Service/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Kubernetes中部署zookeeper集群</title>
+    <link href="https://zahui.fan/posts/sfbpoq/"/>
+    <id>https://zahui.fan/posts/sfbpoq/</id>
+    <published>2024-06-19T10:41:14.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;部署遇到的问题&quot;&gt;&lt;a href=&quot;#部署遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;部署遇到的问题&quot;&gt;&lt;/a&gt;部署遇到的问题&lt;/h2&gt;&lt;h3 id=&quot;挂载目录没有写入权限&quot;&gt;&lt;a href=&quot;#挂载目录没有写入权限&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="有状态服务" scheme="https://zahui.fan/tags/%E6%9C%89%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows 配置自动登录</title>
+    <link href="https://zahui.fan/posts/sewhsk/"/>
+    <id>https://zahui.fan/posts/sewhsk/</id>
+    <published>2024-06-11T05:26:43.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;windows 中有部分应用程序需要登录当前账户才可以自动启动，或者嫌输密码麻烦，都可以设置自动登录，不用删除开机密码（删除开机密码也要鼠标点一下登录才可以登录）&lt;/p&gt;
+&lt;h2 id=&quot;修改注册表&quot;&gt;&lt;a href=&quot;#修改注册表&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Windows" scheme="https://zahui.fan/tags/Windows/"/>
+    
+    <category term="注册表" scheme="https://zahui.fan/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kubeadm 部署的集群 常见问题汇总</title>
+    <link href="https://zahui.fan/posts/sepu3k/"/>
+    <id>https://zahui.fan/posts/sepu3k/</id>
+    <published>2024-06-07T15:09:19.000Z</published>
+    <updated>2024-09-10T02:53:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;扩容节点&quot;&gt;&lt;a href=&quot;#扩容节点&quot; class=&quot;headerlink&quot; title=&quot;扩容节点&quot;&gt;&lt;/a&gt;扩容节点&lt;/h2&gt;&lt;h3 id=&quot;扩容-Worker-节点&quot;&gt;&lt;a href=&quot;#扩容-Worker-节点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
+    
+  </entry>
+  
+</feed>

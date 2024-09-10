@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>杂烩饭 - 张理坤的博客 - 运维技术分享</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="张理坤的个人技术博客, 致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Shell脚本、MySQL、Prometheus、ElasticSearch、虚拟化、Django、vue等内容。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="杂烩饭">
+<meta property="og:url" content="https://zahui.fan/page/25/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="张理坤的个人技术博客, 致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Shell脚本、MySQL、Prometheus、ElasticSearch、虚拟化、Django、vue等内容。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/dog.svg">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="Kubernetes,Prometheus,ElasticSearch,OPS,DevOps,运维,MySQL,Linux,云原生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/dog.svg"><link rel="shortcut icon" href="https://static.zahui.fan/public/boob.svg"><link rel="canonical" href="https://zahui.fan/page/25/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YN0WWZGVYN');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '杂烩饭',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-09-10 11:10:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">309</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">204</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url('/img/top_img.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="杂烩饭"><img class="site-icon" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/boob.svg"/><span class="site-name">杂烩饭</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">杂烩饭</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6447a6a9/" title="Unix口令生成与使用"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unix口令生成与使用"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6447a6a9/" title="Unix口令生成与使用">Unix口令生成与使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-17T01:49:53.000Z" title="发表于 2021-08-17 09:49:53">2021-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="content">这个密码有什么用:&#x2F;etc&#x2F;shadow linux 用户密码就是通过这种方法 hash 的http basic auth 的密码也是通过这种方式生成的
+通过 openssl 生成执行
+1234567891011# ubuntuopenssl passwd -6 123456参数的含义： -6                  SHA512-based password algorithm -5                  SHA256-based password algorithm -apr1               MD5-based password algorithm, Apache variant -1                  MD5-based password algorithm# centosopenssl passwd -1 123456
+
+
+就能生成一串字符串，其中参数 6 是最长的，1 是最短的，后面 123456 是要加密的密码仔细观察会发现每次生成的密码都是不同的，那是因为每次执行 openssl 会随机生成一个 sa ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/shtwtk/" title="在没有密码的情况下给Windows植入恶意软件（离线攻击）"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在没有密码的情况下给Windows植入恶意软件（离线攻击）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/shtwtk/" title="在没有密码的情况下给Windows植入恶意软件（离线攻击）">在没有密码的情况下给Windows植入恶意软件（离线攻击）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-07T03:39:20.000Z" title="发表于 2021-08-07 11:39:20">2021-08-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Windows/">Windows</a></span></div><div class="content">什么是离线攻击，通俗点说就是电脑主人离开了电脑，黑客跑到电脑面前进行破解的方法🤣。这种破解方式主要是通过修改 Windows 的 SAM 文件来达到获取权限的目的。
+Windows 的 SAM 文件Windows 的 SAM 文件（Security Accounts Manager）是一个用于存储本地用户账户和密码散列值的数据库文件。它在 Windows 操作系统中扮演着至关重要的角色，用于管理本地安全和账户信息。SAM 文件通常位于 C:\Windows\System32\config 目录中。
+SAM 文件的原理
+
+账户信息存储：SAM 文件包含了本地用户账户的信息，包括用户名和相关的安全标识符（SID）。每个用户都有一个唯一的 SID，用于标识用户和控制访问权限。
+密码存储：为了安全起见，SAM 文件不直接存储用户的明文密码，而是存储密码的散列值。Windows 使用 NTLM（NT LAN Manager）协议生成这些散列值。具体而言，NTLM 采用 MD4 散列算法对用户密码进行散列。
+加密保护：为了进一步保护 SAM 文件中的数据，Windows 对其进行加密。加密密钥存 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/cd044a59/" title="Shell数学运算"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/bash.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Shell数学运算"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/cd044a59/" title="Shell数学运算">Shell数学运算</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-06T01:48:41.000Z" title="发表于 2021-08-06 09:48:41">2021-08-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="content">bash 自带的数学运算
+不依赖其他包，只要你的 shell 是 bash
+
+1234echo $(( 1  + 1 ))echo $(( 1  - 3 ))echo $(( 10 * 3 ))echo $(( 10 / 3 ))
+
+expr
+expr 可以当计算器用不过它主要还是个计数器
+
+字符串操作12345678# 计算字符串长度expr length &quot;hello world&quot;# 抓取字符串，3表示从第3个字符开始，5表示抓取的字符串长度expr substr &quot;hello world&quot; 3 5# 抓取第一个字符串出现的位置expr index &quot;hello world&quot; o
+
+四则运算1234expr 10 % 3expr 10 + 10expr 30 / 3 / 2expr 30 \* 3        # 使用乘号时，必须用反斜线屏蔽其特定含义。
+
+bc
+bc 是一个命令行的计算器工具，有些过于精简的发行版没有自带。
+
+支持浮点数四则运算
+123456789101112131415161718echo &quot ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6d586ed1/" title="Centos7升级到RHEL8"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/CentOS.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Centos7升级到RHEL8"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6d586ed1/" title="Centos7升级到RHEL8">Centos7升级到RHEL8</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-04T13:39:02.000Z" title="发表于 2021-08-04 21:39:02">2021-08-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="content">本文依照 redhat 官方文档制作，总共分为两步，先将 centos7 转换为 rhel7，然后再将 rhel7 升级为 rhel8
+
+参考文档：cenots7转换为rhel7rhel7升级为rhel8
+
+centos7 升级为 rhel7升级到 centos7 最新版1yum update -y &amp;&amp; reboot
+
+安装 convert2rhel1234567curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://www.redhat.com/security/data/fd431d51.txtcurl -o /etc/yum.repos.d/convert2rhel.repo https://ftp.redhat.com/redhat/convert2rhel/7/convert2rhel.repoyum install -y convert2rhel
+
+开始转换12convert2rhel --username &lt;替换为你的用户名&gt; --password &lt;替换为你的密码&gt; ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/5fdc91d7/" title="内核级负载均衡 LVS DR模式 部署记录"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="内核级负载均衡 LVS DR模式 部署记录"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/5fdc91d7/" title="内核级负载均衡 LVS DR模式 部署记录">内核级负载均衡 LVS DR模式 部署记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-03T02:06:51.000Z" title="发表于 2021-08-03 10:06:51">2021-08-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="content">
+DR 模式，Director 和 realserver 都在一个内网里面，他们都绑定上同一个 VIP, 原理是通过 Director Server 修改数据包的 MAC 地址， 所以得让 realserver 不响应 arp，不然肯定会造成内网 IP 冲突
+
+规划：
+
+
+
+机器
+IP
+
+
+
+VIP
+10.0.0.8
+
+
+director
+10.0.0.41
+
+
+realserver1
+10.0.0.42
+
+
+realserver2
+10.0.0.43
+
+
+网卡 interface
+eth0
+
+
+RealServer 设置创建虚拟网卡个人习惯，可选，可以绑定在任何网卡上面
+1ip link add ipvs0 type dummy
+
+配置不响应 ARP 请求方法1: 调整内核参数方法2: 采用arptables12345# 不响应ARP请求, 修改内核参数echo &quot;1&quot; &gt; /proc/sys/net/ipv4/conf/ipvs0/arp_ignoreecho &quot;1&quot; &gt; /proc/sys/net/ipv4/conf/all/a ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/e93bd813/" title="Shell指定分隔符"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/bash.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Shell指定分隔符"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/e93bd813/" title="Shell指定分隔符">Shell指定分隔符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-30T13:48:01.000Z" title="发表于 2021-07-30 21:48:01">2021-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="content">
+为什么要指定换行符，我们看一个例子
+
+1234567891011#!/bin/bashdata=&quot;a b cd e f&quot;for i in $datado  echo $idone
+
+输出的结果是：
+123456abcdef
+
+因为系统默认把空格和换行都当作了分隔符。为了避免这种情况，我们可以手动指定分隔符：
+123456789101112#!/bin/bashdata=&quot;a b cd e f&quot;IFS=$&#x27;\n&#x27;        # 指定分隔符为换行for i in $datado  echo $idone
+
+这样打印出来的就是：
+12a b cd e f
+
+再看一个例子：
+123456#!/bin/basha=&quot;aa,bb,cc,dd,ee&quot;for i in $ado    echo $idone
+
+输出为：aa,bb,cc,dd,ee
+我们想要的输出结果可能是这样
+12345aabbccddee
+
+可以修改成这样:
+123456789#!/bin/basholdIFS=$IFS        #定义变量为 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/3debc8f2/" title="Github Actions自动发布博客"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211011808880.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Github Actions自动发布博客"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3debc8f2/" title="Github Actions自动发布博客">Github Actions自动发布博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-27T15:54:56.000Z" title="发表于 2021-07-27 23:54:56">2021-07-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">
+偶然发现 github actions 可以执行一些命令，这下可以把我的 crontab 停掉了，也不用占用一台机器专门用来发布博客了，并且完全免费！！
+
+
+首先我的 GitHub pages 和博客原始文件是分为两个仓库的，在 GitHub Pages 仓库里添加了一个 Actions 用来钉钉发通知：
+
+GitHub 仓库配置 Secret需要先将环境变量配置在 Settings –&gt; Secrets and Variables –&gt; Actions 里面
+
+配置后，可以在 actions 里面通过 $&#123;&#123; secrets.dingtalk_secret &#125;&#125; 调用到对应的数据
+针对 Hexo 博客的构建123456789101112131415161718192021222324252627282930313233343536name: Deploy GitHub Pageson:  push:    branches:      - masterjobs:  deploy_github_pages:    runs-on:  ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/f6f77df5/" title="Windows个人文件夹名字变英文"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/Windows.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows个人文件夹名字变英文"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/f6f77df5/" title="Windows个人文件夹名字变英文">Windows个人文件夹名字变英文</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-22T01:19:04.000Z" title="发表于 2021-07-22 09:19:04">2021-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Windows/">Windows</a></span></div><div class="content">
+有时候 windows 用户文件夹里面有些会变成英文,虽然没什么影响,不过强迫症会不舒服 (比如我)
+
+这种情况是由于文件夹内没有 desktop.ini 导致的,或者 desktop.ini 权限不正确
+
+desktop.ini 文件是一个隐藏文件
+
+windows10 的 desktop.ini 文件内容下载:
+123[.ShellClassInfo]LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21798IconResource=%SystemRoot%\system32\imageres.dll,-184
+
+桌面:
+12345[.ShellClassInfo]LocalizedResourceName=@%SystemRoot%\system32\shell32.dll,-21769IconResource=%SystemRoot%\system32\imageres.dll,-183[&#123;E8A54E83-A4A0-4C7F-B391-DF76B9DB9690&#125;]AppID=&#123; ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/4926dc90/" title="KVM虚拟机常用操作记录"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="KVM虚拟机常用操作记录"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4926dc90/" title="KVM虚拟机常用操作记录">KVM虚拟机常用操作记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-21T06:20:55.000Z" title="发表于 2021-07-21 14:20:55">2021-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="content">检查前提条件检查 cpu 是否支持硬件虚拟化
+1234567grep -Eoc &#x27;(vmx|svm)&#x27; /proc/cpuinfo# 或者使用 kvm-ok 工具监测sudo apt updatesudo apt install cpu-checkerkvm-ok
+
+安装 kvm12345678sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager# 验证sudo systemctl is-active libvirtd# 增加用户权限sudo usermod -aG libvirt $USERsudo usermod -aG kvm $USER
+
+添加和删除网卡（虚拟硬件）查看网卡列表1sudo virsh domiflist vm-yaohai
+
+添加网卡 (模式桥接到 br0)1sudo virsh attach-interface vm-yaohai --type bridge --source br0 --model ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/posts/6c12bda4/" title="Python脚本接受参数"><img class="post-bg" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/python.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python脚本接受参数"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/6c12bda4/" title="Python脚本接受参数">Python脚本接受参数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-06T08:06:33.000Z" title="发表于 2021-07-06 16:06:33">2021-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="content">完善一下 python 脚本，让它支持更完善的参数（长参数、短参数）
+12345678910111213141516171819202122232425262728293031323334import getopt, sysdef parse_args(args=sys.argv[1:]):    try:        opts, args = getopt.getopt(args, &quot;hvc:w:&quot;, [&quot;help&quot;, &quot;short&quot;, &quot;verbose&quot;, &quot;critical_num=&quot;, &quot;warning_num=&quot;])    except getopt.GetoptError as err:        print(&quot;Input parameter error&quot;)        sys.exit()    verbose = False    short = False    for opt, arg in opts:        i ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/24/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/#content-inner">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/#content-inner">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/#content-inner">31</a><a class="extend next" rel="next" href="/page/26/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张理坤</div><div class="author-info__description">张理坤</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">309</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">204</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。
+本站内容若出现语句磕磕绊绊、错字连篇、胡言乱语等问题，皆系本人文化水平低之缘故，与所用输入法无关，特此声明。
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/sjcnkn/" title="fail2ban失效排查">fail2ban失效排查</a><time datetime="2024-09-10T03:04:43.000Z" title="更新于 2024-09-10 11:04:43">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/siid4q/" title="Alpine容器文件后缀浏览器下载变成zip">Alpine容器文件后缀浏览器下载变成zip</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/be10bdea/" title="Containerd的管理工具">Containerd的管理工具</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/lmucp5lg/" title="Dockerfile中ADD文件的路径问题">Dockerfile中ADD文件的路径问题</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/581a1bd9/" title="Docker不支持中文解决方案">Docker不支持中文解决方案</a><time datetime="2024-09-10T02:53:59.000Z" title="更新于 2024-09-10 10:53:59">2024-09-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Kubernetes/"><span class="card-category-list-name">Kubernetes</span><span class="card-category-list-count">58</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows/"><span class="card-category-list-name">Windows</span><span class="card-category-list-count">46</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">基础运维</span><span class="card-category-list-count">116</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">工具</span><span class="card-category-list-count">37</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">开发</span><span class="card-category-list-count">20</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E5%BF%97/"><span class="card-category-list-name">日志</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%9B%91%E6%8E%A7/"><span class="card-category-list-name">监控</span><span class="card-category-list-count">10</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/drf/" style="font-size: 1.25em; color: #999fa7">drf</a> <a href="/tags/Markdown/" style="font-size: 1.1em; color: #999">Markdown</a> <a href="/tags/containerd/" style="font-size: 1.1em; color: #999">containerd</a> <a href="/tags/Windows/" style="font-size: 1.46em; color: #99a8bc">Windows</a> <a href="/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/" style="font-size: 1.1em; color: #999">软路由</a> <a href="/tags/%E7%BB%BF%E8%89%B2%E8%BD%AF%E4%BB%B6/" style="font-size: 1.1em; color: #999">绿色软件</a> <a href="/tags/wsl2/" style="font-size: 1.14em; color: #999a9c">wsl2</a> <a href="/tags/Crontab/" style="font-size: 1.39em; color: #99a5b5">Crontab</a> <a href="/tags/%E6%8C%82%E8%BD%BD/" style="font-size: 1.14em; color: #999a9c">挂载</a> <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" style="font-size: 1.21em; color: #999da3">反向代理</a> <a href="/tags/Python/" style="font-size: 1.43em; color: #99a6b8">Python</a> <a href="/tags/ingress/" style="font-size: 1.28em; color: #99a0aa">ingress</a> <a href="/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999a9c">权限管理</a> <a href="/tags/Elasticsearch/" style="font-size: 1.25em; color: #999fa7">Elasticsearch</a> <a href="/tags/%E6%9C%8D%E5%8A%A1/" style="font-size: 1.14em; color: #999a9c">服务</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 1.17em; color: #999ca0">监控</a> <a href="/tags/service/" style="font-size: 1.1em; color: #999">service</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 1.35em; color: #99a3b1">部署</a> <a href="/tags/NTP/" style="font-size: 1.1em; color: #999">NTP</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 1.1em; color: #999">游戏</a> <a href="/tags/Network/" style="font-size: 1.32em; color: #99a2ae">Network</a> <a href="/tags/cmd/" style="font-size: 1.21em; color: #999da3">cmd</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 1.1em; color: #999">安全</a> <a href="/tags/mysqld/" style="font-size: 1.17em; color: #999ca0">mysqld</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 1.17em; color: #999ca0">脚本</a> <a href="/tags/Ubuntu/" style="font-size: 1.21em; color: #999da3">Ubuntu</a> <a href="/tags/windows/" style="font-size: 1.1em; color: #999">windows</a> <a href="/tags/Tools/" style="font-size: 1.1em; color: #999">Tools</a> <a href="/tags/Bash/" style="font-size: 1.14em; color: #999a9c">Bash</a> <a href="/tags/prometheus/" style="font-size: 1.39em; color: #99a5b5">prometheus</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 1.1em; color: #999">阿里云</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/webdav/" style="font-size: 1.1em; color: #999">webdav</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" style="font-size: 1.14em; color: #999a9c">配置文件</a> <a href="/tags/%E4%BB%93%E5%BA%93/" style="font-size: 1.1em; color: #999">仓库</a> <a href="/tags/Prometheus/" style="font-size: 1.28em; color: #99a0aa">Prometheus</a> <a href="/tags/proxmox/" style="font-size: 1.1em; color: #999">proxmox</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/NFS/" style="font-size: 1.14em; color: #999a9c">NFS</a> <a href="/tags/seo/" style="font-size: 1.1em; color: #999">seo</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">309</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-10T03:10:02.422Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('/pluginsSrc/typed.js/dist/typed.umd.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["♥ Do have faith in what you're doing.","欲穷千里目，更上一层楼。","学而不思则罔，思而不学则殆。"])
+  } else {
+    document.getElementById("subtitle").textContent = "♥ Do have faith in what you're doing."
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
