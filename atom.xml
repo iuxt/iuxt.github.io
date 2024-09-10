@@ -68,7 +68,7 @@
     <link href="https://zahui.fan/posts/sj8cec/"/>
     <id>https://zahui.fan/posts/sj8cec/</id>
     <published>2024-09-03T09:15:48.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
+    <updated>2024-09-10T08:26:38.000Z</updated>
     
     
       
@@ -76,7 +76,7 @@
         
         
     <summary type="html">&lt;p&gt;kubectl 指定 -o yaml 输出的 yaml 文件包含一些默认字段，这些字段我们是不需要的，可以使用 yq 来进行去除这些字段，生成的 yaml 文件可以用于迁移&amp;#x2F;部署服务等。&lt;/p&gt;
-&lt;h2 id=&quot;导出-deployment&quot;&gt;&lt;a</summary>
+&lt;h2 id=&quot;安装-yq&quot;&gt;&lt;a href=&quot;#安装-yq&quot;</summary>
         
       
     
