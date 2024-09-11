@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-09-10T03:04:43.000Z</updated>
+  <updated>2024-09-11T07:07:49.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kubernetes配置镜像仓库认证imagePullSecrets</title>
+    <link href="https://zahui.fan/posts/sjmzr1/"/>
+    <id>https://zahui.fan/posts/sjmzr1/</id>
+    <published>2024-09-11T07:06:36.000Z</published>
+    <updated>2024-09-11T07:07:49.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;创建-secret&quot;&gt;&lt;a href=&quot;#创建-secret&quot; class=&quot;headerlink&quot; title=&quot;创建 secret&quot;&gt;&lt;/a&gt;创建 secret&lt;/h2&gt;&lt;p&gt;可以在 namespace 里用一个全局的 image pull</summary>
+        
+      
+    
+    
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    
+    
+    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>fail2ban失效排查</title>
@@ -519,41 +544,6 @@
     <category term="Windows" scheme="https://zahui.fan/tags/Windows/"/>
     
     <category term="注册表" scheme="https://zahui.fan/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>kubeadm 部署的集群 常见问题汇总</title>
-    <link href="https://zahui.fan/posts/sepu3k/"/>
-    <id>https://zahui.fan/posts/sepu3k/</id>
-    <published>2024-06-07T15:09:19.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;扩容节点&quot;&gt;&lt;a href=&quot;#扩容节点&quot; class=&quot;headerlink&quot; title=&quot;扩容节点&quot;&gt;&lt;/a&gt;扩容节点&lt;/h2&gt;&lt;h3 id=&quot;扩容-Worker-节点&quot;&gt;&lt;a href=&quot;#扩容-Worker-节点&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
-    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-    
-    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
-    
-    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
-    
-    <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
     
   </entry>
   
