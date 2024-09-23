@@ -1,0 +1,95 @@
+name: notify
+
+on:
+  push:                                 # 在收到push的时候触发
+    branches:
+      - main                            # 监控main分支
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  dingtalk_notify:
+    runs-on: ubuntu-latest              # 用ubuntu系统来执行
+    steps:
+      - name: Show the timezone
+        run: |
+          echo "The timezone is $TZ"
+          date
+      - name: wechat_notify
+        run: |
+          python <<END
+          import sys
+          import json
+          import requests
+          from datetime import datetime
+  
+          currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+  
+          url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send"
+          key = "${{ secrets.WECHAT_KEY }}"
+  
+          headers = {
+              'Content-Type': 'application/json'
+          }
+  
+          parameters = {
+              'key': key
+          }
+  
+          data = {
+              "msgtype": "text",
+              "text": {
+                  "content": currentTime + ":    杂烩饭通过GitHub Actions发布成功"
+              }
+          }
+  
+          req = requests.post(url=url, headers=headers, params=parameters, data=json.dumps(data))
+          print(req.text)
+          END
+    
+      - name: dingtalk_notify
+        run: |
+          python <<END
+          import time
+          import hmac
+          import hashlib
+          import base64
+          import urllib.parse
+          import requests
+
+          now = str(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+          secret = "${{ secrets.dingtalk_secret }}"                         # 这里是GitHub Secret， 需要在仓库设置里创建对应的键值对
+          webhook_url = "${{ secrets.dingtalk_url }}"
+
+          # 根据时间戳生成签名
+          timestamp = str(round(time.time() * 1000))
+          secret_enc = secret.encode('utf-8')
+          string_to_sign = '{}\n{}'.format(timestamp, secret)
+          string_to_sign_enc = string_to_sign.encode('utf-8')
+          hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+          sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
+
+          # 要发送的数据
+          data = """
+          {
+              "msgtype":"text",
+              "text": {
+                  "content": "%s %s"
+              }
+          }
+          """ %(now, "博客自动发布成功")
+
+          # url参数
+          params={
+              'timestamp': timestamp,
+              'sign': sign
+          }
+
+          # header
+          header = {'Content-Type': 'application/json'}
+
+          # post消息出去
+          r = requests.post(webhook_url, headers=header, params=params, data=data.encode('utf-8'))
+          print(r.text)
+          END
