@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>用Prometheus对nacos集群进行监控</title>
+      <link href="/posts/skma0p/"/>
+      <url>/posts/skma0p/</url>
+      
+        <content type="html"><![CDATA[<p>参考官方文档：<a href="https://nacos.io/zh-cn/docs/monitor-guide.html">https://nacos.io/zh-cn/docs/monitor-guide.html</a></p><p>暴露 <code>metrics</code> 数据 需要修改配置文件，<code>spring boot</code> 支持通过环境变量来修改系统配置，在 <code>Kubernets</code> 环境下，可以通过增加环境变量的形式来暴露 <code>metrics</code> 数据。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">StatefulSet</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nacos</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">public</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">nacos</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">nacos</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nacos</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">nacos/nacos-server:v2.1.0</span></span><br><span class="line">          <span class="attr">env:</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line">            <span class="comment"># 增加这个环境变量</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">management.endpoints.web.exposure.include</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure><p>增加环境变量后，nacos 服务会重启，重启后进入 Pod，执行命令查看是否有 metrics 数据：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8848/nacos/actuator/prometheus</span><br></pre></td></tr></table></figure><h2 id="数据接入-Prometheus"><a href="#数据接入-Prometheus" class="headerlink" title="数据接入 Prometheus"></a>数据接入 Prometheus</h2><p>自动接入或手动接入按照需求选择一个。</p><h3 id="自动接入"><a href="#自动接入" class="headerlink" title="自动接入"></a>自动接入</h3><p>自动接入需要使用到 <code>Prometheus</code> 的自动发现机制，利用 <code>servcie discovery endpoint</code> 来接入，<code>Prometheus</code> 配置：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">   <span class="attr">scrape_interval:</span>     <span class="string">30s</span></span><br><span class="line">   <span class="attr">evaluation_interval:</span> <span class="string">30s</span></span><br><span class="line"></span><br><span class="line"> <span class="attr">scrape_configs:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;service_endpoints_metrics&#x27;</span></span><br><span class="line">     <span class="attr">kubernetes_sd_configs:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">endpoints</span></span><br><span class="line">     <span class="attr">relabel_configs:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_annotation_prometheus_io_scrape</span>]</span><br><span class="line">       <span class="attr">action:</span> <span class="string">keep</span></span><br><span class="line">       <span class="attr">regex:</span> <span class="literal">true</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_annotation_prometheus_io_scheme</span>]</span><br><span class="line">       <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">       <span class="attr">target_label:</span> <span class="string">__scheme__</span></span><br><span class="line">       <span class="attr">regex:</span> <span class="string">(https?)</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_annotation_prometheus_io_path</span>]</span><br><span class="line">       <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">       <span class="attr">target_label:</span> <span class="string">__metrics_path__</span></span><br><span class="line">       <span class="attr">regex:</span> <span class="string">(.+)</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__address__</span>, <span class="string">__meta_kubernetes_service_annotation_prometheus_io_port</span>]</span><br><span class="line">       <span class="attr">action:</span> <span class="string">replace</span></span><br><span class="line">       <span class="attr">target_label:</span> <span class="string">__address__</span></span><br><span class="line">       <span class="attr">regex:</span> <span class="string">([^:]+)(?::\d+)?;(\d+)</span></span><br><span class="line">       <span class="attr">replacement:</span> <span class="string">$1:$2</span></span><br><span class="line">     <span class="comment"># 额外增加的标签</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_namespace</span>]</span><br><span class="line">       <span class="attr">target_label:</span> <span class="string">namespace</span></span><br><span class="line">     <span class="bullet">-</span> <span class="attr">source_labels:</span> [<span class="string">__meta_kubernetes_service_name</span>]</span><br><span class="line">       <span class="attr">target_label:</span> <span class="string">service_name</span></span><br></pre></td></tr></table></figure><p>修改 nacos 的 service：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nacos-svc</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">public</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nacos</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="comment"># 增加如下注解，即可被Prometheus自动发现</span></span><br><span class="line">    <span class="attr">prometheus.io/path:</span> <span class="string">/nacos/actuator/prometheus</span></span><br><span class="line">    <span class="attr">prometheus.io/port:</span> <span class="string">&quot;8848&quot;</span></span><br><span class="line">    <span class="attr">prometheus.io/scrape:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">8848</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">server</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">8848</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">9848</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">client-rpc</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">9848</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">9849</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">raft-rpc</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">9849</span></span><br><span class="line">    <span class="comment">## 兼容1.4.x版本的选举端口</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">7848</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">old-raft-rpc</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">7848</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br><span class="line">  <span class="attr">selector:</span></span><br></pre></td></tr></table></figure><p>查看 Prometheus 的 targets：<br><img src="https://static.zahui.fan/images/202409301700141.png" alt="image.png"></p><h3 id="手动接入"><a href="#手动接入" class="headerlink" title="手动接入"></a>手动接入</h3><p>如果由于种种原因不能自动发现，可以手动配置的方式来接入到 <code>Prometheus</code></p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">nacos</span></span><br><span class="line">  <span class="attr">honor_timestamps:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scrape_interval:</span> <span class="string">15s</span></span><br><span class="line">  <span class="attr">scrape_timeout:</span> <span class="string">10s</span></span><br><span class="line">  <span class="attr">metrics_path:</span> <span class="string">&#x27;/nacos/actuator/prometheus&#x27;</span></span><br><span class="line">  <span class="attr">scheme:</span> <span class="string">http</span></span><br><span class="line">  <span class="attr">follow_redirects:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">static_configs:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">targets:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;&#123;ip1&#125;:8848&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;&#123;ip2&#125;:8848&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;&#123;ip3&#125;:8848&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="Nacos-metrics-含义"><a href="#Nacos-metrics-含义" class="headerlink" title="Nacos metrics 含义"></a>Nacos metrics 含义</h2><h3 id="jvm-metrics"><a href="#jvm-metrics" class="headerlink" title="jvm metrics"></a>jvm metrics</h3><table><thead><tr><th>指标</th><th>含义</th></tr></thead><tbody><tr><td>system_cpu_usage</td><td>CPU 使用率</td></tr><tr><td>system_load_average_1m</td><td>load</td></tr><tr><td>jvm_memory_used_bytes</td><td>内存使用字节，包含各种内存区</td></tr><tr><td>jvm_memory_max_bytes</td><td>内存最大字节，包含各种内存区</td></tr><tr><td>jvm_gc_pause_seconds_count</td><td>gc 次数，包含各种 gc</td></tr><tr><td>jvm_gc_pause_seconds_sum</td><td>gc 耗时，包含各种 gc</td></tr><tr><td>jvm_threads_daemon</td><td>线程数</td></tr></tbody></table><h3 id="Nacos-监控指标"><a href="#Nacos-监控指标" class="headerlink" title="Nacos 监控指标"></a>Nacos 监控指标</h3><table><thead><tr><th>指标</th><th>含义</th></tr></thead><tbody><tr><td>http_server_requests_seconds_count</td><td>http 请求次数，包括多种 (url,方法,code)</td></tr><tr><td>http_server_requests_seconds_sum</td><td>http 请求总耗时，包括多种 (url,方法,code)</td></tr><tr><td>nacos_timer_seconds_sum</td><td>Nacos config 水平通知耗时</td></tr><tr><td>nacos_timer_seconds_count</td><td>Nacos config 水平通知次数</td></tr><tr><td>nacos_monitor{name&#x3D;’longPolling’}</td><td>Nacos config 长连接数</td></tr><tr><td>nacos_monitor{name&#x3D;’configCount’}</td><td>Nacos config 配置个数</td></tr><tr><td>nacos_monitor{name&#x3D;’dumpTask’}</td><td>Nacos config 配置落盘任务堆积数</td></tr><tr><td>nacos_monitor{name&#x3D;’notifyTask’}</td><td>Nacos config 配置水平通知任务堆积数</td></tr><tr><td>nacos_monitor{name&#x3D;’getConfig’}</td><td>Nacos config 读配置统计数</td></tr><tr><td>nacos_monitor{name&#x3D;’publish’}</td><td>Nacos config 写配置统计数</td></tr><tr><td>nacos_monitor{name&#x3D;’ipCount’}</td><td>Nacos naming ip 个数</td></tr><tr><td>nacos_monitor{name&#x3D;’domCount’}</td><td>Nacos naming 域名个数 (1.x 版本)</td></tr><tr><td>nacos_monitor{name&#x3D;’serviceCount’}</td><td>Nacos naming 域名个数 (2.x 版本)</td></tr><tr><td>nacos_monitor{name&#x3D;’failedPush’}</td><td>Nacos naming 推送失败数</td></tr><tr><td>nacos_monitor{name&#x3D;’avgPushCost’}</td><td>Nacos naming 平均推送耗时</td></tr><tr><td>nacos_monitor{name&#x3D;’leaderStatus’}</td><td>Nacos naming 角色状态</td></tr><tr><td>nacos_monitor{name&#x3D;’maxPushCost’}</td><td>Nacos naming 最大推送耗时</td></tr><tr><td>nacos_monitor{name&#x3D;’mysqlhealthCheck’}</td><td>Nacos naming mysql 健康检查次数</td></tr><tr><td>nacos_monitor{name&#x3D;’httpHealthCheck’}</td><td>Nacos naming http 健康检查次数</td></tr><tr><td>nacos_monitor{name&#x3D;’tcpHealthCheck’}</td><td>Nacos naming tcp 健康检查次数</td></tr><tr><td>nacos_monitor{module&#x3D;”naming”,name&#x3D;”serviceCount”,}</td><td>Nacos 注册的服务数量</td></tr></tbody></table><h3 id="nacos-异常指标"><a href="#nacos-异常指标" class="headerlink" title="nacos 异常指标"></a>nacos 异常指标</h3><table><thead><tr><th>指标</th><th>含义</th></tr></thead><tbody><tr><td>nacos_exception_total{name&#x3D;’db’}</td><td>数据库异常</td></tr><tr><td>nacos_exception_total{name&#x3D;’configNotify’}</td><td>Nacos config 水平通知失败</td></tr><tr><td>nacos_exception_total{name&#x3D;’unhealth’}</td><td>Nacos config server 之间健康检查异常</td></tr><tr><td>nacos_exception_total{name&#x3D;’disk’}</td><td>Nacos naming 写磁盘异常</td></tr><tr><td>nacos_exception_total{name&#x3D;’leaderSendBeatFailed’}</td><td>Nacos naming leader 发送心跳异常</td></tr><tr><td>nacos_exception_total{name&#x3D;’illegalArgument’}</td><td>请求参数不合法</td></tr><tr><td>nacos_exception_total{name&#x3D;’nacos’}</td><td>Nacos 请求响应内部错误异常（读写失败，没权限，参数错误）</td></tr></tbody></table><h3 id="client-metrics"><a href="#client-metrics" class="headerlink" title="client metrics"></a>client metrics</h3><table><thead><tr><th>指标</th><th>含义</th></tr></thead><tbody><tr><td>nacos_monitor{name&#x3D;’subServiceCount’}</td><td>订阅的服务数</td></tr><tr><td>nacos_monitor{name&#x3D;’pubServiceCount’}</td><td>发布的服务数</td></tr><tr><td>nacos_monitor{name&#x3D;’configListenSize’}</td><td>监听的配置数</td></tr><tr><td>nacos_client_request_seconds_count</td><td>请求的次数，包括多种 (url,方法,code)</td></tr><tr><td>nacos_client_request_seconds_sum</td><td>请求的总耗时，包括多种 (url,方法,code)</td></tr></tbody></table><h2 id="告警规则制定"><a href="#告警规则制定" class="headerlink" title="告警规则制定"></a>告警规则制定</h2><p>针对异常指标进行告警，修改 Prometheus alert 配置文件。告警规则待验证。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">groups:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nocas告警</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;nocas服务注册数量异常&quot;</span></span><br><span class="line">    <span class="attr">expr:</span> <span class="string">nacos_monitor&#123;module=&quot;naming&quot;,name=&quot;serviceCount&quot;,&#125;</span> <span class="string">&lt;</span> <span class="number">10</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">1m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> nocas当前注册数量:<span class="template-variable">&#123;&#123;$value&#125;&#125;</span>&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;服务注册数量异常&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos naming leader发送心跳异常&quot;</span></span><br><span class="line">    <span class="attr">expr:</span> <span class="string">increase(nacos_exception_total&#123;name=&#x27;leaderSendBeatFailed&#x27;&#125;[1m])</span> <span class="type">!=0</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">1m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> 发送心跳异常数量为:<span class="template-variable">&#123;&#123;$value&#125;&#125;</span>&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos naming leader发送心跳异常&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos config长连接数大于5000&quot;</span></span><br><span class="line">    <span class="attr">expr:</span> <span class="string">sum</span> <span class="string">by</span> <span class="string">(project,instance,dept)</span> <span class="string">(irate(nacos_monitor&#123;name=&#x27;longPolling&#x27;&#125;[5m]))</span> <span class="string">&gt;</span> <span class="number">5000</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">5m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> 发送心跳异常数量为:<span class="template-variable">&#123;&#123;$value&#125;&#125;</span>&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos config长连接数大于5000&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos config server之间健康检查异常&quot;</span></span><br><span class="line">    <span class="attr">expr:</span> <span class="string">sum</span> <span class="string">by</span> <span class="string">(project,instance,dept)</span> <span class="string">(rate(nacos_exception_total&#123;name=&#x27;unhealth&#x27;&#125;[1m]))</span>  <span class="string">&gt;</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">1m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> config unhealth exception alert&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos config server之间健康检查异常&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos naming推送失败数大于1&quot;</span></span><br><span class="line">    <span class="attr">expr :</span> <span class="string">sum</span> <span class="string">by</span> <span class="string">(project,instance,dept)</span> <span class="string">(irate(nacos_monitor&#123;name=&#x27;failedPush&#x27;&#125;[5m]))</span> <span class="string">&gt;</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">5m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> 推送失败数 <span class="template-variable">&#123;&#123;$value&#125;&#125;</span>&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos naming推送失败数大于1&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos naming写磁盘异常&quot;</span></span><br><span class="line">    <span class="attr">expr :</span> <span class="string">sum</span> <span class="string">by</span> <span class="string">(project,instance,dept)</span> <span class="string">(rate(nacos_exception_total&#123;name=&#x27;disk&#x27;&#125;[1m]))</span> <span class="string">&gt;</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">1m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> 写磁盘异常&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos naming写磁盘异常&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos config水平通知失败&quot;</span></span><br><span class="line">    <span class="attr">expr :</span> <span class="string">sum</span> <span class="string">by</span> <span class="string">(project,instance,dept)</span> <span class="string">(rate(nacos_exception_total&#123;name=&#x27;configNotify&#x27;&#125;[1m]))</span> <span class="string">&gt;</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">1m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> 水平通知失败&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos config水平通知失败&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">alert:</span> <span class="string">&quot;Nacos请求响应内部错误异常(读写失败,没权限,参数错误)&quot;</span></span><br><span class="line">    <span class="attr">expr :</span> <span class="string">sum</span> <span class="string">by</span> <span class="string">(project,instance,dept)</span> <span class="string">(rate(nacos_exception_total&#123;name=&#x27;nacos&#x27;&#125;[1m]))</span> <span class="string">&gt;</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">for:</span> <span class="string">1m</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">severity:</span> <span class="string">critical</span></span><br><span class="line">    <span class="attr">annotations:</span></span><br><span class="line">      <span class="attr">description:</span> <span class="string">&quot;项目:<span class="template-variable">&#123;&#123;$labels.project&#125;&#125;</span> 读写失败&quot;</span></span><br><span class="line">      <span class="attr">summary:</span> <span class="string">&quot;Nacos请求响应内部错误异常(读写失败,没权限,参数错误)&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 监控 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> prometheus </tag>
+            
+            <tag> nacos </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在Kubernetes下收集ingress日志到Elasticsearch</title>
       <link href="/posts/skk1ln/"/>
       <url>/posts/skk1ln/</url>
@@ -71,18 +98,18 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> Nginx </tag>
+            
             <tag> ingress </tag>
             
             <tag> prometheus </tag>
-            
-            <tag> Nginx </tag>
             
         </tags>
       
@@ -100,7 +127,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -163,7 +190,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -245,7 +272,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -264,7 +291,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -335,7 +362,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -437,20 +464,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
-            <tag> k8s </tag>
-            
             <tag> 部署 </tag>
             
             <tag> 记录 </tag>
+            
+            <tag> Kubernetes </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -468,16 +495,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
             <tag> 部署 </tag>
+            
+            <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
             
@@ -497,7 +524,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -524,7 +551,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -560,9 +587,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> 注册表 </tag>
             
@@ -582,7 +609,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -591,13 +618,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kubernetes </tag>
-            
             <tag> 常用操作 </tag>
             
             <tag> 部署 </tag>
             
             <tag> 搭建 </tag>
+            
+            <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
             
@@ -624,9 +651,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> PowerShell </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> 网络 </tag>
             
@@ -677,20 +704,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
-            <tag> k8s </tag>
-            
             <tag> 部署 </tag>
             
             <tag> 记录 </tag>
+            
+            <tag> Kubernetes </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -708,20 +735,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
-            <tag> k8s </tag>
+            <tag> Crontab </tag>
             
             <tag> kubectl </tag>
             
-            <tag> Crontab </tag>
+            <tag> Kubernetes </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -768,20 +795,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
-            <tag> k8s </tag>
+            <tag> kubectl </tag>
             
             <tag> 存储 </tag>
             
-            <tag> kubectl </tag>
+            <tag> Kubernetes </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -799,20 +826,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 记录 </tag>
+            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
             
             <tag> kubeadm </tag>
-            
-            <tag> 记录 </tag>
             
         </tags>
       
@@ -837,15 +864,15 @@
       
         <tags>
             
+            <tag> Elasticsearch </tag>
+            
+            <tag> ES </tag>
+            
             <tag> Docker </tag>
             
             <tag> 部署 </tag>
             
             <tag> 搭建 </tag>
-            
-            <tag> Elasticsearch </tag>
-            
-            <tag> ES </tag>
             
             <tag> 开源软件 </tag>
             
@@ -905,11 +932,11 @@
             
             <tag> 部署 </tag>
             
-            <tag> 搭建 </tag>
+            <tag> 仓库 </tag>
             
             <tag> 镜像 </tag>
             
-            <tag> 仓库 </tag>
+            <tag> 搭建 </tag>
             
         </tags>
       
@@ -927,7 +954,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -1138,18 +1165,18 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 记录 </tag>
+            
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
-            
-            <tag> 记录 </tag>
             
         </tags>
       
@@ -1174,9 +1201,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> 注册表 </tag>
             
@@ -1379,9 +1406,9 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> 命令行工具 </tag>
+            
+            <tag> cli </tag>
             
             <tag> Shell </tag>
             
@@ -1408,11 +1435,11 @@
       
         <tags>
             
+            <tag> 命令行工具 </tag>
+            
             <tag> cli </tag>
             
             <tag> Linux </tag>
-            
-            <tag> 命令行工具 </tag>
             
             <tag> 文件 </tag>
             
@@ -1441,9 +1468,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Ubuntu </tag>
-            
             <tag> Kernel </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -1461,7 +1488,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -1470,9 +1497,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kubernetes </tag>
-            
             <tag> 记录 </tag>
+            
+            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -1490,18 +1517,18 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> Nginx </tag>
+            
             <tag> ingress </tag>
             
             <tag> Kubernetes </tag>
-            
-            <tag> Nginx </tag>
             
             <tag> 阿里云 </tag>
             
@@ -1561,9 +1588,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 常用操作 </tag>
-            
             <tag> curl </tag>
+            
+            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -1753,7 +1780,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -1762,11 +1789,11 @@
             
             <tag> 配置记录 </tag>
             
+            <tag> kubectl </tag>
+            
             <tag> Kubernetes </tag>
             
             <tag> 权限管理 </tag>
-            
-            <tag> kubectl </tag>
             
         </tags>
       
@@ -1784,7 +1811,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -1813,22 +1840,22 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Container </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Container </tag>
             
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -1853,15 +1880,15 @@
       
         <tags>
             
-            <tag> 编码 </tag>
-            
-            <tag> ingress </tag>
+            <tag> 浏览器 </tag>
             
             <tag> Nginx </tag>
             
-            <tag> 浏览器 </tag>
-            
             <tag> 反向代理 </tag>
+            
+            <tag> 编码 </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -1935,16 +1962,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> k8s </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -1989,7 +2016,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2025,9 +2052,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Linux </tag>
-            
             <tag> Crontab </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -2052,13 +2079,13 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
-            <tag> Crontab </tag>
-            
             <tag> 命令行工具 </tag>
             
             <tag> 脚本 </tag>
+            
+            <tag> cli </tag>
+            
+            <tag> Crontab </tag>
             
             <tag> bash </tag>
             
@@ -2109,7 +2136,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2165,7 +2192,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2251,13 +2278,13 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> 命令行工具 </tag>
             
             <tag> cmd </tag>
             
             <tag> bat </tag>
+            
+            <tag> cli </tag>
             
         </tags>
       
@@ -2282,13 +2309,13 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
             
             <tag> wsl2 </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -2449,16 +2476,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> echo-server </tag>
-            
             <tag> 测试 </tag>
+            
+            <tag> echo-server </tag>
             
         </tags>
       
@@ -2541,9 +2568,9 @@
       
         <tags>
             
-            <tag> 记录 </tag>
-            
             <tag> 编译 </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -2561,7 +2588,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2624,9 +2651,9 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> 命令行工具 </tag>
+            
+            <tag> cli </tag>
             
             <tag> curl </tag>
             
@@ -2731,7 +2758,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2760,7 +2787,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2769,11 +2796,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kubernetes </tag>
+            <tag> keepalived </tag>
             
             <tag> HA </tag>
             
-            <tag> keepalived </tag>
+            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -2881,11 +2908,11 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -2932,7 +2959,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -2961,16 +2988,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Ingress </tag>
-            
             <tag> Nginx </tag>
+            
+            <tag> Ingress </tag>
             
         </tags>
       
@@ -3049,9 +3076,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> 容器 </tag>
-            
             <tag> harbor </tag>
+            
+            <tag> 容器 </tag>
             
             <tag> 漏洞扫描 </tag>
             
@@ -3105,11 +3132,11 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> Nginx </tag>
             
             <tag> 反向代理 </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -3246,9 +3273,9 @@
       
         <tags>
             
-            <tag> 常用操作 </tag>
-            
             <tag> 效率工具 </tag>
+            
+            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -3266,7 +3293,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -3295,7 +3322,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -3324,7 +3351,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -3333,9 +3360,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> 同步 </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> 同步 </tag>
             
         </tags>
       
@@ -3468,13 +3495,13 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> fail2ban </tag>
             
             <tag> cc攻击 </tag>
             
             <tag> iptables </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -3716,7 +3743,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -3905,7 +3932,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -3930,7 +3957,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -3984,7 +4011,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -4203,9 +4230,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -4255,9 +4282,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -4282,11 +4309,11 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> cmd </tag>
             
             <tag> bat </tag>
+            
+            <tag> cli </tag>
             
         </tags>
       
@@ -4631,13 +4658,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> HA </tag>
-            
-            <tag> keepalived </tag>
-            
             <tag> Network </tag>
             
             <tag> LoadBalance </tag>
+            
+            <tag> keepalived </tag>
+            
+            <tag> HA </tag>
             
             <tag> lvs </tag>
             
@@ -4657,16 +4684,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> containerd </tag>
-            
             <tag> cli </tag>
+            
+            <tag> containerd </tag>
             
         </tags>
       
@@ -4863,11 +4890,11 @@
             
             <tag> 配置记录 </tag>
             
+            <tag> keepalived </tag>
+            
             <tag> nginx </tag>
             
             <tag> HA </tag>
-            
-            <tag> keepalived </tag>
             
         </tags>
       
@@ -4919,9 +4946,9 @@
       
         <tags>
             
-            <tag> prometheus </tag>
-            
             <tag> Auth </tag>
+            
+            <tag> prometheus </tag>
             
             <tag> Prometheus </tag>
             
@@ -4941,16 +4968,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -5050,7 +5077,7 @@
       <link href="/posts/097e5b7c/"/>
       <url>/posts/097e5b7c/</url>
       
-        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">交互式创建</button><button type="button" class="tab " data-href="tabname-2">非交互式创建</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#x78;&#x74;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#105;&#117;&#x78;&#x74;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a></td></tr></tbody></table></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><ul><li><p>可选: 将 CA 证书转换成 p12 文件</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> ca.crt -inkey ca.key -out ca.p12</span><br></pre></td></tr></table></figure></li></ul><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">交互式创建</button><button type="button" class="tab " data-href="tabname-2">非交互式创建</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#x78;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#105;&#x75;&#x78;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></td></tr></tbody></table></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p>vim server.ext</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">Ubuntu和Debian</button><button type="button" class="tab " data-href="tabname-2">CentOS和Fedora</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><blockquote><p>具体用什么目录需要查看 openssl 的配置文件中 dir 项<br>ubuntu 的配置文件在 <code>/usr/lib/ssl/openssl.cnf</code></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ./demoCA/&#123;private,newcerts&#125;</span><br><span class="line"><span class="built_in">touch</span> ./demoCA/index.txt</span><br><span class="line">[ ! -f ./demoCA/seria ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; ./demoCA/serial</span><br><span class="line">[ ! -f ./demoCA/crlnumber ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; ./demoCA/crlnumber</span><br><span class="line"><span class="built_in">cp</span> -f ca.key ./demoCA/private/cakey.pem</span><br><span class="line"><span class="built_in">cp</span> -f ca.crt ./demoCA/cacert.pem</span><br><span class="line">openssl ca -gencrl -out ca.crl</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="tabname-2"><blockquote><p>具体用什么目录需要查看 openssl 的配置文件中 dir 项<br>centos 的配置文件在 <code>/etc/pki/tls/openssl.cnf</code></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/pki/CA/&#123;private,newcerts&#125;</span><br><span class="line"><span class="built_in">touch</span> /etc/pki/CA/index.txt</span><br><span class="line">[ ! -f /etc/pki/CA/seria ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; /etc/pki/CA/serial</span><br><span class="line">[ ! -f /etc/pki/CA/crlnumber ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; /etc/pki/CA/crlnumber</span><br><span class="line"><span class="built_in">cp</span> -f ca.key /etc/pki/CA/private/cakey.pem</span><br><span class="line"><span class="built_in">cp</span> -f ca.crt /etc/pki/CA/cacert.pem</span><br><span class="line">openssl ca -gencrl -out ca.crl</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -revoke client.crt</span><br><span class="line">openssl ca -gencrl -out ca.crl</span><br></pre></td></tr></table></figure><h2 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 443 ssl;</span><br><span class="line">        server_name localhost;</span><br><span class="line">        ssl_certificate ssl/server.crt;         # 配置证书位置</span><br><span class="line">        ssl_certificate_key ssl/server.key;     # 配置秘钥位置</span><br><span class="line">        ssl_client_certificate ssl/ca.crt;</span><br><span class="line">        ssl_verify_client on;</span><br><span class="line">        ssl_crl ssl/ca.crl;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_protocols SSLv2 SSLv3 TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">        root html;</span><br><span class="line">        index index.html;</span><br><span class="line">        location / &#123;</span><br><span class="line">                try_files $uri $uri/ =404;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">windows信任CA</button><button type="button" class="tab " data-href="tabname-2">Debian系信任CA</button><button type="button" class="tab " data-href="tabname-3">Redhat系信任CA</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content" id="tabname-3"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">交互式创建</button><button type="button" class="tab " data-href="tabname-2">非交互式创建</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#x78;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#105;&#117;&#x78;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></td></tr></tbody></table></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><ul><li><p>可选: 将 CA 证书转换成 p12 文件</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> ca.crt -inkey ca.key -out ca.p12</span><br></pre></td></tr></table></figure></li></ul><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">交互式创建</button><button type="button" class="tab " data-href="tabname-2">非交互式创建</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#120;&#x74;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x69;&#117;&#120;&#x74;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></td></tr></tbody></table></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p>vim server.ext</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">Ubuntu和Debian</button><button type="button" class="tab " data-href="tabname-2">CentOS和Fedora</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><blockquote><p>具体用什么目录需要查看 openssl 的配置文件中 dir 项<br>ubuntu 的配置文件在 <code>/usr/lib/ssl/openssl.cnf</code></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ./demoCA/&#123;private,newcerts&#125;</span><br><span class="line"><span class="built_in">touch</span> ./demoCA/index.txt</span><br><span class="line">[ ! -f ./demoCA/seria ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; ./demoCA/serial</span><br><span class="line">[ ! -f ./demoCA/crlnumber ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; ./demoCA/crlnumber</span><br><span class="line"><span class="built_in">cp</span> -f ca.key ./demoCA/private/cakey.pem</span><br><span class="line"><span class="built_in">cp</span> -f ca.crt ./demoCA/cacert.pem</span><br><span class="line">openssl ca -gencrl -out ca.crl</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="tabname-2"><blockquote><p>具体用什么目录需要查看 openssl 的配置文件中 dir 项<br>centos 的配置文件在 <code>/etc/pki/tls/openssl.cnf</code></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /etc/pki/CA/&#123;private,newcerts&#125;</span><br><span class="line"><span class="built_in">touch</span> /etc/pki/CA/index.txt</span><br><span class="line">[ ! -f /etc/pki/CA/seria ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; /etc/pki/CA/serial</span><br><span class="line">[ ! -f /etc/pki/CA/crlnumber ] &amp;&amp; <span class="built_in">echo</span> 01 &gt; /etc/pki/CA/crlnumber</span><br><span class="line"><span class="built_in">cp</span> -f ca.key /etc/pki/CA/private/cakey.pem</span><br><span class="line"><span class="built_in">cp</span> -f ca.crt /etc/pki/CA/cacert.pem</span><br><span class="line">openssl ca -gencrl -out ca.crl</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl ca -revoke client.crt</span><br><span class="line">openssl ca -gencrl -out ca.crl</span><br></pre></td></tr></table></figure><h2 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 443 ssl;</span><br><span class="line">        server_name localhost;</span><br><span class="line">        ssl_certificate ssl/server.crt;         # 配置证书位置</span><br><span class="line">        ssl_certificate_key ssl/server.key;     # 配置秘钥位置</span><br><span class="line">        ssl_client_certificate ssl/ca.crt;</span><br><span class="line">        ssl_verify_client on;</span><br><span class="line">        ssl_crl ssl/ca.crl;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_protocols SSLv2 SSLv3 TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">        root html;</span><br><span class="line">        index index.html;</span><br><span class="line">        location / &#123;</span><br><span class="line">                try_files $uri $uri/ =404;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">windows信任CA</button><button type="button" class="tab " data-href="tabname-2">Debian系信任CA</button><button type="button" class="tab " data-href="tabname-3">Redhat系信任CA</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content" id="tabname-3"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -5109,18 +5136,18 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> kubectl </tag>
+            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
-            
-            <tag> kubectl </tag>
             
         </tags>
       
@@ -5138,22 +5165,22 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Container </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Container </tag>
             
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -5171,20 +5198,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Container </tag>
-            
             <tag> 配置记录 </tag>
             
-            <tag> Kubernetes </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Container </tag>
+            
+            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -5202,24 +5229,24 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
+            <tag> Linux </tag>
+            
             <tag> Docker </tag>
             
             <tag> Container </tag>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -5266,7 +5293,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -5345,7 +5372,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -5428,7 +5455,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -5513,7 +5540,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -5542,16 +5569,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -5747,20 +5774,20 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
-            <tag> k8s </tag>
+            <tag> keepalived </tag>
             
             <tag> HA </tag>
             
-            <tag> keepalived </tag>
+            <tag> Kubernetes </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -5778,18 +5805,18 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Kubernetes </tag>
-            
             <tag> NFS </tag>
             
             <tag> 存储 </tag>
+            
+            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -5807,16 +5834,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -6063,9 +6090,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Crontab </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -6108,16 +6135,16 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Container </tag>
-            
             <tag> Crontab </tag>
+            
+            <tag> Container </tag>
             
         </tags>
       
@@ -6169,13 +6196,13 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> Command </tag>
             
             <tag> 网络 </tag>
             
             <tag> Bash </tag>
+            
+            <tag> 测试 </tag>
             
         </tags>
       
@@ -6231,13 +6258,13 @@
       
         <tags>
             
-            <tag> Crontab </tag>
-            
             <tag> VirtualMachine </tag>
             
             <tag> Windows </tag>
             
             <tag> WSL </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -6456,7 +6483,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -6465,9 +6492,9 @@
             
             <tag> Docker </tag>
             
-            <tag> Container </tag>
-            
             <tag> 编码 </tag>
+            
+            <tag> Container </tag>
             
         </tags>
       
@@ -6623,9 +6650,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Linux </tag>
             
             <tag> Network </tag>
             
@@ -6645,7 +6672,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -6672,7 +6699,7 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
@@ -6708,9 +6735,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Linux </tag>
-            
             <tag> Crontab </tag>
+            
+            <tag> Linux </tag>
             
             <tag> SSL </tag>
             
@@ -6766,11 +6793,11 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> Nginx </tag>
             
             <tag> Proxy </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -6822,9 +6849,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -6978,13 +7005,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> HA </tag>
-            
-            <tag> keepalived </tag>
-            
             <tag> Network </tag>
             
             <tag> LoadBalance </tag>
+            
+            <tag> keepalived </tag>
+            
+            <tag> HA </tag>
             
             <tag> lvs </tag>
             
@@ -7088,9 +7115,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> VirtualMachine </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -7327,11 +7354,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> Automatic </tag>
             
             <tag> Crontab </tag>
             
-            <tag> Automatic </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -7437,9 +7464,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -7568,9 +7595,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> HA </tag>
-            
             <tag> 搭建 </tag>
+            
+            <tag> HA </tag>
             
             <tag> 有状态服务 </tag>
             
@@ -7651,13 +7678,13 @@
       
         <tags>
             
-            <tag> 常用操作 </tag>
+            <tag> 命令行工具 </tag>
             
             <tag> Linux </tag>
             
-            <tag> 命令行工具 </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -7702,26 +7729,26 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Docker </tag>
-            
-            <tag> Container </tag>
-            
             <tag> 配置记录 </tag>
             
-            <tag> Kubernetes </tag>
+            <tag> Linux </tag>
+            
+            <tag> Docker </tag>
             
             <tag> keepalived </tag>
             
-            <tag> kubeadm </tag>
+            <tag> Container </tag>
             
-            <tag> Linux </tag>
+            <tag> Kubernetes </tag>
+            
+            <tag> kubeadm </tag>
             
         </tags>
       
@@ -7829,11 +7856,11 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -7928,22 +7955,22 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Container </tag>
-            
             <tag> 配置记录 </tag>
             
-            <tag> Kubernetes </tag>
+            <tag> Ubuntu </tag>
             
             <tag> keepalived </tag>
             
-            <tag> Ubuntu </tag>
+            <tag> Container </tag>
+            
+            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -8070,9 +8097,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -8097,11 +8124,11 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -8176,9 +8203,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -8297,11 +8324,11 @@
       
         <tags>
             
+            <tag> WSL </tag>
+            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
-            
-            <tag> WSL </tag>
             
         </tags>
       
@@ -8405,11 +8432,11 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -8461,9 +8488,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -8488,9 +8515,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Script </tag>
+            
+            <tag> Linux </tag>
             
             <tag> Shell </tag>
             
@@ -8510,18 +8537,18 @@
       
       <categories>
           
-          <category> Kubernetes </category>
+          <category> 容器 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Docker </tag>
             
             <tag> Container </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -8548,11 +8575,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Ubuntu </tag>
+            <tag> Crontab </tag>
             
             <tag> Linux </tag>
             
-            <tag> Crontab </tag>
+            <tag> Ubuntu </tag>
             
         </tags>
       
@@ -8635,13 +8662,13 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> 配置记录 </tag>
             
-            <tag> Linux </tag>
-            
             <tag> 命令行工具 </tag>
+            
+            <tag> cli </tag>
+            
+            <tag> Linux </tag>
             
             <tag> bash </tag>
             

@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-09-29T07:14:15.000Z</updated>
+  <updated>2024-09-30T10:09:30.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用Prometheus对nacos集群进行监控</title>
+    <link href="https://zahui.fan/posts/skma0p/"/>
+    <id>https://zahui.fan/posts/skma0p/</id>
+    <published>2024-09-30T08:24:24.000Z</published>
+    <updated>2024-09-30T10:09:30.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考官方文档：&lt;a href=&quot;https://nacos.io/zh-cn/docs/monitor-guide.html&quot;&gt;https://nacos.io/zh-cn/docs/monitor-guide.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;暴露</summary>
+        
+      
+    
+    
+    
+    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
+    
+    
+    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
+    
+    <category term="nacos" scheme="https://zahui.fan/tags/nacos/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在Kubernetes下收集ingress日志到Elasticsearch</title>
     <link href="https://zahui.fan/posts/skk1ln/"/>
     <id>https://zahui.fan/posts/skk1ln/</id>
     <published>2024-09-29T03:27:22.000Z</published>
-    <updated>2024-09-29T07:14:15.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -53,7 +81,7 @@
     <link href="https://zahui.fan/posts/skf07c/"/>
     <id>https://zahui.fan/posts/skf07c/</id>
     <published>2024-09-26T10:09:12.000Z</published>
-    <updated>2024-09-26T11:59:53.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -80,7 +108,7 @@
     <link href="https://zahui.fan/posts/sk5u8v/"/>
     <id>https://zahui.fan/posts/sk5u8v/</id>
     <published>2024-09-21T11:22:06.000Z</published>
-    <updated>2024-09-23T09:23:36.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -93,14 +121,14 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
     
     <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
-    
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
   </entry>
   
@@ -109,7 +137,7 @@
     <link href="https://zahui.fan/posts/sjmzr1/"/>
     <id>https://zahui.fan/posts/sjmzr1/</id>
     <published>2024-09-11T07:06:36.000Z</published>
-    <updated>2024-09-11T07:07:49.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -122,7 +150,7 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
@@ -181,7 +209,7 @@
     <link href="https://zahui.fan/posts/sj8cec/"/>
     <id>https://zahui.fan/posts/sj8cec/</id>
     <published>2024-09-03T09:15:48.000Z</published>
-    <updated>2024-09-10T08:26:38.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -195,7 +223,7 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
   </entry>
@@ -279,7 +307,7 @@
     <link href="https://zahui.fan/posts/siid4q/"/>
     <id>https://zahui.fan/posts/siid4q/</id>
     <published>2024-08-20T08:34:01.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -292,7 +320,7 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
   </entry>
@@ -302,7 +330,7 @@
     <link href="https://zahui.fan/posts/sib2vi/"/>
     <id>https://zahui.fan/posts/sib2vi/</id>
     <published>2024-08-16T10:09:17.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -316,7 +344,7 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
@@ -381,7 +409,7 @@
     <link href="https://zahui.fan/posts/sh7n7f/"/>
     <id>https://zahui.fan/posts/sh7n7f/</id>
     <published>2024-07-26T03:04:26.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -395,7 +423,7 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
@@ -493,7 +521,7 @@
     <link href="https://zahui.fan/posts/sgajkk/"/>
     <id>https://zahui.fan/posts/sgajkk/</id>
     <published>2024-07-08T06:05:08.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
+    <updated>2024-09-30T10:09:30.000Z</updated>
     
     
       
@@ -507,45 +535,16 @@
     
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
-    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Kubernetes中的静态Pod</title>
-    <link href="https://zahui.fan/posts/sfrqkr/"/>
-    <id>https://zahui.fan/posts/sfrqkr/</id>
-    <published>2024-06-28T02:22:03.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;啥是静态-Pod&quot;&gt;&lt;a href=&quot;#啥是静态-Pod&quot; class=&quot;headerlink&quot; title=&quot;啥是静态 Pod&quot;&gt;&lt;/a&gt;啥是静态 Pod&lt;/h2&gt;&lt;p&gt;静态 pod 就是不通过 Kubernetes 控制器直接运行的 pod，比如下面是一个</summary>
-        
-      
-    
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/categories/Kubernetes/"/>
-    
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
-    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
-    
-    <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
+    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
     
   </entry>
   
