@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-10-12T08:09:12.000Z</updated>
+  <updated>2024-10-15T07:51:57.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>yaml多行文本的写法和区别</title>
+    <link href="https://zahui.fan/posts/sldz99/"/>
+    <id>https://zahui.fan/posts/sldz99/</id>
+    <published>2024-10-15T07:24:45.000Z</published>
+    <updated>2024-10-15T07:51:57.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;直接看效果（&lt;code&gt;pip install pyyaml&lt;/code&gt;）：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Grafana 接入 LDAP 认证</title>
@@ -518,29 +542,6 @@
     <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
     
     <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Kubernetes环境下快速部署MySQL</title>
-    <link href="https://zahui.fan/posts/sgch4h/"/>
-    <id>https://zahui.fan/posts/sgch4h/</id>
-    <published>2024-07-09T07:07:29.000Z</published>
-    <updated>2024-09-10T02:53:59.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;收到个需求，开发团队希望快速启动一套业务环境，包括所有业务服务（部署在 &lt;code&gt;Kubernetes&lt;/code&gt; 中）、&lt;code&gt;MySQL&lt;/code&gt; 数据库、&lt;code&gt;Redis&lt;/code&gt;</summary>
-        
-      
-    
-    
-    
-    <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
     
   </entry>
   
