@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-10-15T09:38:23.000Z</updated>
+  <updated>2024-10-17T06:56:03.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快速部署单节点kafka</title>
+    <link href="https://zahui.fan/posts/slhl3q/"/>
+    <id>https://zahui.fan/posts/slhl3q/</id>
+    <published>2024-10-17T06:09:25.000Z</published>
+    <updated>2024-10-17T06:56:03.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果需要集群部署的文档你可以在站内搜搜，之前写过。&lt;/p&gt;
+&lt;p&gt;单节点部署，不考虑高可用性，只求快速搭建出环境，一般都是自己开发或者运维做测试使用。或者业务的测试环境为了节省服务器资源采取的方案。不过我不一样，我们测试环境资源充足，我只是单纯的懒。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
+    
+    <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
+    
+  </entry>
   
   <entry>
     <title>yaml多行文本的写法和区别</title>
@@ -120,9 +149,9 @@
     
     <category term="Elasticsearch" scheme="https://zahui.fan/tags/Elasticsearch/"/>
     
-    <category term="filebeat" scheme="https://zahui.fan/tags/filebeat/"/>
-    
     <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
+    
+    <category term="filebeat" scheme="https://zahui.fan/tags/filebeat/"/>
     
     <category term="logstash" scheme="https://zahui.fan/tags/logstash/"/>
     
@@ -503,34 +532,6 @@
 &lt;li&gt;插显示器、键盘鼠标直接进行操作&lt;/li&gt;
 &lt;li&gt;使用串口连接电脑，通过串口访问终端&lt;/li&gt;
 &lt;li&gt;通过网线连接路由器（路由器会通过 DHCP 分配一个 IP</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
-    
-    <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>香橙派配置VNC Server</title>
-    <link href="https://zahui.fan/posts/sghylv/"/>
-    <id>https://zahui.fan/posts/sghylv/</id>
-    <published>2024-07-12T06:13:06.000Z</published>
-    <updated>2024-10-15T09:38:23.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;vnc 大致可以分为两种，一种直接查看 &lt;code&gt;TTY&lt;/code&gt; 上正在显示的桌面（和插上显示器显示的一致），另一种是创建一个新的桌面（即 可以在一台 linux 上打开若干个桌面供若干用户使用）&lt;/p&gt;
-&lt;p&gt;这里使用虚拟桌面 VNC，用的是</summary>
         
       
     
