@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-10-17T06:56:03.000Z</updated>
+  <updated>2024-10-27T13:27:51.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mRemoteNG 如何显示保存的密码</title>
+    <link href="https://zahui.fan/posts/sm0nds/"/>
+    <id>https://zahui.fan/posts/sm0nds/</id>
+    <published>2024-10-27T13:13:04.000Z</published>
+    <updated>2024-10-27T13:27:51.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;mRemoteNG 是一款比较好用的 Windows 平台的连接 RDP 的管理工具，非常好用，支持选项卡，配置文件管理，账号密码管理等。虽然现在 xshell 8 也支持连接 rdp 了，但是没有这个好用。mRemoteNG 也支持连接 vnc 和</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="rdp" scheme="https://zahui.fan/tags/rdp/"/>
+    
+  </entry>
   
   <entry>
     <title>快速部署单节点kafka</title>
@@ -512,37 +537,6 @@
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
     
     <category term="java" scheme="https://zahui.fan/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无显示器环境下连接香橙派</title>
-    <link href="https://zahui.fan/posts/sghymc/"/>
-    <id>https://zahui.fan/posts/sghymc/</id>
-    <published>2024-07-12T06:13:23.000Z</published>
-    <updated>2024-10-15T09:38:23.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;连接香橙派（树莓派等其他派也类似）一般有以下几种方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;插显示器、键盘鼠标直接进行操作&lt;/li&gt;
-&lt;li&gt;使用串口连接电脑，通过串口访问终端&lt;/li&gt;
-&lt;li&gt;通过网线连接路由器（路由器会通过 DHCP 分配一个 IP</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="香橙派" scheme="https://zahui.fan/tags/%E9%A6%99%E6%A9%99%E6%B4%BE/"/>
-    
-    <category term="开发版" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/"/>
     
   </entry>
   
