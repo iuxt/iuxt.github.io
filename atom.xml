@@ -420,7 +420,7 @@
       
         
         
-    <summary type="html">&lt;p&gt;比如一个网盘程序，上传了一个 excel 文件，点击获取直链，然后将获取到的直链放到浏览器地址栏访问触发下载，下载下来的文件后缀自动变成了.zip&lt;br&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;比如一个网盘程序，上传了一个 excel 文件，点击获取直链，然后将获取到的直链放到浏览器地址栏访问触发下载，下载下来的文件后缀自动变成了.zip&lt;br&gt;&lt;img src= &quot;https://static.zahui.fan/public/nes.gif&quot;</summary>
         
       
     
@@ -523,7 +523,7 @@
         
         
     <summary type="html">&lt;p&gt;线上业务偶尔会出现重启现象，为了排查这个问题，决定在 OOM 的时候自动进行 dump 内存快照用于分析&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://static.zahui.fan/images/202407261022514.png&quot;</summary>
+&lt;p&gt;&lt;img src= &quot;https://static.zahui.fan/public/nes.gif&quot;</summary>
         
       
     
