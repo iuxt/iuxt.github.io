@@ -116,9 +116,9 @@
     <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
     
     
-    <category term="OpenLDAP" scheme="https://zahui.fan/tags/OpenLDAP/"/>
-    
     <category term="grafana" scheme="https://zahui.fan/tags/grafana/"/>
+    
+    <category term="OpenLDAP" scheme="https://zahui.fan/tags/OpenLDAP/"/>
     
   </entry>
   
@@ -174,9 +174,9 @@
     
     <category term="Elasticsearch" scheme="https://zahui.fan/tags/Elasticsearch/"/>
     
-    <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
-    
     <category term="filebeat" scheme="https://zahui.fan/tags/filebeat/"/>
+    
+    <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
     
     <category term="logstash" scheme="https://zahui.fan/tags/logstash/"/>
     
@@ -230,11 +230,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
-    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
     
     <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
   </entry>
   
