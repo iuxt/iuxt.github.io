@@ -1,5 +1,10 @@
 # 这里的配置不是完整的， 完整的请看theme目录下的 config.yml 文件
 
+nav:
+  logo: https://static.zahui.fan/public/boob.png
+  display_title: true
+  fixed: true # 固定导航栏
+
 menu:
   首页: / || fas fa-home
   归档: /archives/ || fas fa-archive
@@ -12,12 +17,20 @@ menu:
   林克: /link/ || fa-solid fa-paperclip
   关于: /about/ || fa-brands fa-apple fa-bounce
 
-nav:
-  logo: https://static.zahui.fan/public/boob.png
-  display_title: true
-  fixed: true # 固定导航栏
+code_blocks:
+  # Code block theme: darker / pale night / light / ocean / false
+  theme: light
+  macStyle: true
+  # Code block height limit (unit: px)
+  height_limit: false
+  word_wrap: false
 
-highlight_theme: mac
+  # Toolbar
+  copy: true
+  language: true
+  # true: shrink the code blocks | false: expand the code blocks | none: expand code blocks and hide the button
+  shrink: false
+  fullpage: false
 
 social:
   fab fa-github: https://github.com/iuxt || Github
@@ -26,14 +39,26 @@ social:
   fa-brands fa-stack-overflow: https://stackoverflow.com/users/15620461/ || StackOverflow
   fa-solid fa-square-rss: /atom.xml || RSS
 
-local_search:
-  enable: true
-  preload: false
-  top_n_per_article: 1
-  unescape: false
-  CDN:
 
-favicon: https://static.zahui.fan/public/boob.png
+search:
+  # Choose: algolia_search / local_search / docsearch
+  # leave it empty if you don't need search
+  use: local_search
+  placeholder: 搜搜搜
+
+  # Local Search
+  local_search:
+    # Preload the search data when the page loads.
+    preload: false
+    # Show top n results per article, show all results by setting to -1
+    top_n_per_article: 1
+    # Unescape html strings to the readable one.
+    unescape: false
+    CDN:
+
+
+favicon: /favicon.ico
+
 avatar:
   img: https://static.zahui.fan/public/dog.png
   effect: false
@@ -60,6 +85,7 @@ cover:
   default_cover:
     - 'https://static.zahui.fan/public/skeleton1.svg'
 
+
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
   flink: /img/friend_404.gif
@@ -79,6 +105,7 @@ post_meta:
     tags: false # true or false 主頁是否顯示標籤
     label: true # true or false 顯示描述性文字
   post:
+    position: left
     date_type: both # created or updated or both 文章頁日期是創建日或者更新日或都顯示
     date_format: date # date/relative 顯示日期還是相對日期
     categories: true # true or false 文章頁是否顯示分類
@@ -125,9 +152,15 @@ noticeOutdate:
   message_prev: 此文章距离发布已经
   message_next: 天了，内容可能已经过时，请自行判断是否可用或联系博主更新。
 
-sharejs:
-  enable: true
-  sites: facebook,twitter,wechat,weibo,qq
+share:
+  # Choose: sharejs / addtoany
+  # Leave it empty if you don't need share
+  use: sharejs
+
+  # Share.js
+  # https://github.com/overtrue/share.js
+  sharejs:
+    sites: facebook,twitter,wechat,weibo,qq
 
 comments:
   use: Giscus # Valine,Disqus
@@ -140,9 +173,9 @@ giscus:
   repo: iuxt/iuxt.github.io
   repo_id: R_kgDOMszkdA
   category_id: DIC_kwDOMszkdM4CiMyw
-  theme:
-    light: light
-    dark: dark
+  light_theme: light
+  dark_theme: dark
+  js: https://giscus.babudiu.com/client.js
   option:
 
 footer:
@@ -169,17 +202,13 @@ theme_color:
 beautify:
   enable: true
   field: post # site/post
-  title-prefix-icon: '\f2db'
-  title-prefix-icon-color: '#F47466'
-
-blog_title_font:
-  font_link:
-  font-family:
+  title_prefix_icon: '\f2db'
+  title_prefix_icon_color: '#F47466'
 
 hr_icon:
   enable: true
   icon: # the unicode value of Font Awesome icon, such as '\3423'
-  icon-top:
+  icon_top:
 
 subtitle:
   enable: true
@@ -190,6 +219,9 @@ subtitle:
   - ♥ Do have faith in what you're doing.
   - 欲穷千里目，更上一层楼。
   - 学而不思则罔，思而不学则殆。
+
+
+index_layout: 3
 
 aside:
   enable: true
@@ -231,7 +263,7 @@ darkmode:
   button: true
   autoChangeMode: false
 
-fancybox: true
+lightbox: fancybox
 
 note:
   style: flat
@@ -247,19 +279,10 @@ lazyload:
   placeholder: https://static.zahui.fan/public/nes.gif
   blur: false
 
-Open_Graph_meta:
-  enable: true
-  option:
-
-css_prefix: true
 
 CDN:
   internal_provider: local
   third_party_provider: local
-  version: false
-  custom_format:
-  option:
-    giscus: https://giscus.babudiu.com/client.js
 
 mask:
   header: true
@@ -275,11 +298,10 @@ inject:
     # - <script src="xxxx"></script>
 
 font:
-  global-font-size:
-  code-font-size:
-  font-family: '"LXGW WenKai Screen", sans-serif;'
-  code-font-family:
-
+  global_font_size:
+  code_font_size:
+  font_family: '"LXGW WenKai Screen", sans-serif;'
+  code_font_family:
 
 pwa:
   enable: true

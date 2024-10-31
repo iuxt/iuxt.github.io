@@ -15,7 +15,7 @@
   "dependencies": {
     "hexo": "7.3.0",
     "hexo-abbrlink-iuxt": "2.2.2",
-    "hexo-butterfly-extjs": "1.4.11",
+    "hexo-butterfly-extjs": "^1.4.13",
     "hexo-filter-nofollow": "2.0.2",
     "hexo-generator-alias": "1.0.0",
     "hexo-generator-archive": "2.0.0",
@@ -31,6 +31,6 @@
     "hexo-renderer-pug": "3.0.0",
     "hexo-renderer-stylus": "3.0.1",
     "hexo-server": "3.0.0",
-    "hexo-theme-landscape": "0.0.3"
+    "hexo-theme-landscape": "1.0.0"
   }
 }
