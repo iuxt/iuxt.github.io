@@ -1,0 +1,51 @@
+- class_name: 杂烩饭
+  class_desc: 我的其他站点
+  link_list:
+    - name: 直链网盘
+      link: https://file.babudiu.com/
+      avatar: https://static.zahui.fan/images/202307021107569.png
+      descr: 以存储无关的方式组织你的文件
+
+    - name: 把布丢
+      link: https://babudiu.com/
+      avatar: https://babudiu.com/favicon.ico
+      descr: 分享优秀软件
+
+    - name: 把布丢git
+      link: https://git.babudiu.com/
+      avatar: https://git.babudiu.com/assets/img/logo.svg
+      descr: 私有git仓库
+
+    - name: 步步高游戏1
+      link: https://bbk-games.zahui.fan/
+      avatar: https://bbk-games.zahui.fan/favicon.png
+      descr: 步步高三国霸业
+
+    - name: 步步高游戏2
+      link: https://bbk-games.zahui.fan/bbk-games/
+      avatar: https://bbk-games.zahui.fan/favicon.png
+      descr: 步步高伏魔记
+
+- class_name: 朋友们的博客
+  class_desc: 值得推荐的网站
+  link_list:
+    - name: 要红的网站
+      link: https://linyaohong.com/
+      avatar: https://static.zahui.fan/public/dog.svg
+      descr: 运维日常
+
+    - name: 文涛的网站
+      link: https://blog.vrzbq.com/
+      avatar: https://static.zahui.fan/public/dog.svg
+      descr: 运维日常
+
+    - name: 饼铛
+      link: https://cakepanit.com/
+      avatar: https://cakepanit.com/img/favicon.png
+      descr:  SRE/CLOUD ENGINEER/DEVOPS ENGINEER/网易音乐人
+
+    - name: 崔亮的博客
+      link: https://www.cuiliangblog.cn
+      avatar: https://oss.cuiliangblog.cn/image/logo.png
+      descr: 专注运维开发技术，传播更多原创运维与开发技术文章
+

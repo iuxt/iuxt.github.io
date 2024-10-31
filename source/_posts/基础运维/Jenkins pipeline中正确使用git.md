@@ -1,0 +1,53 @@
+---
+title: Jenkins pipeline中正确使用git
+categories:
+  - 基础运维
+tags:
+  - jenkins
+  - 配置记录
+abbrlink: lm8t2usn
+cover: 'https://static.zahui.fan/images/202304111550061.svg'
+date: 2023-09-07 14:47:08
+---
+
+看到很多 jenkins 使用都是直接执行 git clone 命令, 这么做有以下几个缺点.
+1. 需要耗费时间去处理 git 分支, 代码冲突等工作, 还需要判断是使用 git clone 还是 git pull
+2. 账号密码 (或者 ssh 秘钥) 需要存储在构建机器上, 如果更换了构建节点, 那么需要重新配置, 即对构建环境有依赖, 构建环境是个黑盒子, 因为你不知道上个维护者在这台构建机器上做了什么.
+3. 不受 jenkins 管理, 比如删除流水线, 拉取的代码任然存在机器上
+4. 做个分支选项框是个痛苦的事情
+将代码交给 jenkins 管理则省去了这些操作.
+
+## 使用凭据管理账号密码
+
+在 系统管理 -- 凭据 -- 系统 -- 全局凭据 里面增加一个新的凭据
+
+![凭据](https://static.zahui.fan/images/202309071447808.png)
+成功后记录一下 ID
+
+## 编写流水线
+
+```pipeline
+pipeline {
+    agent any
+    parameters {
+      gitParameter branch: '', branchFilter: '.*', defaultValue: '', name: 'BRANCH', quickFilterEnabled: true, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                git branch: "${BRANCH}".split('/')[-1], credentialsId: 'test', url: 'https://gitlab.i.com/devops/auppus_wfe.git'
+                sh 'ls -al'
+                sh 'git log'
+            }
+        }
+    }
+}
+
+```
+
+branch 不支持 origin/master 这种格式, 所以需要用 split 处理一下
+
+## 如何生成流水线
+
+![](https://static.zahui.fan/images/202309071527237.png)

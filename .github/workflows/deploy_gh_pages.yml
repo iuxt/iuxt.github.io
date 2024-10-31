@@ -1,0 +1,67 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    # 下面这些目录发生变化才会触发 GitHub Actions
+    paths:
+      - 'source/**.md'
+      - '*.yml'
+env:
+  TZ: Asia/Shanghai
+jobs:
+  deploy_github_pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Restore file modification time
+        run: |
+          git ls-files -z | while read -d '' path; do touch -d "$(git log -1 --format="@%ct" "$path")" "$path"; done
+
+      - name: build_hexo
+        run: |
+          npm install
+          npx hexo clean
+          npx hexo g
+          
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: public # The folder the action should deploy.
+          ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}
+          repository-name: iuxt/iuxt.github.io
+
+      # 沙壁百度推送老是失败。
+      - name: 💩Baidu Push
+        run: |
+          # python <<END
+          # import requests
+          # import re
+          # with open('public/sitemap.xml', 'r') as sitemap:
+          #   pattern = re.compile(r'(?<=<loc>).+?(?=</loc>)')
+          #   data = pattern.findall(sitemap.read())
+          #   data = '\n'.join(data)
+          #   print(data)
+          #   req = requests.post(url = 'http://data.zz.baidu.com/urls?site=https://zahui.fan&token=${{ secrets.BAIDU_PUSH_TOKEN }}', data = data)
+          #   print(req.text)
+          # END
+          
+          python <<END
+          import requests
+          with open('public/sitemap.txt', 'r') as sitemap:
+              data = sitemap.readlines()[:9]
+              data = ''.join(data)
+              req = requests.post(url = 'http://data.zz.baidu.com/urls?site=https://zahui.fan&token=${{ secrets.BAIDU_PUSH_TOKEN }}', data = data)
+              print(req.text)
+          END

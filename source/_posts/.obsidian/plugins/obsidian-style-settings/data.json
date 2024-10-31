@@ -1,0 +1,15 @@
+{
+  "maple-workspace@@bg-enable": "bg-static",
+  "maple-workspace@@titlebar-colorful": true,
+  "maple-basic@@color-use-custom": true,
+  "maple-basic@@setting-accent-h-light": 75,
+  "maple-workspace@@titlebar-button-style": true,
+  "maple-workspace@@status-bar-style-center": false,
+  "maple-workspace@@tab-float": false,
+  "maple-workspace@@labeled-nav": false,
+  "maple-workspace@@tab-title-bar-round": false,
+  "maple-workspace@@tab-slide-up": false,
+  "maple-workspace@@outline-enable": false,
+  "maple-workspace@@explorer-nav-decoration": true,
+  "maple-editor@@code-line-number": false
+}
