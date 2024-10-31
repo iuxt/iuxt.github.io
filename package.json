@@ -15,7 +15,7 @@
   "dependencies": {
     "hexo": "7.3.0",
     "hexo-abbrlink-iuxt": "2.2.2",
-    "hexo-butterfly-extjs": "^1.4.13",
+    "hexo-butterfly-extjs": "1.4.13",
     "hexo-filter-nofollow": "2.0.2",
     "hexo-generator-alias": "1.0.0",
     "hexo-generator-archive": "2.0.0",
