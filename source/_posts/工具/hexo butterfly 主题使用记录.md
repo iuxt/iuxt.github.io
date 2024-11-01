@@ -38,6 +38,9 @@ npx hexo new "测试文章"
 
 ## 常用 shortcode 记录
 
+标签外挂官方文档： <https://butterfly.js.org/posts/2df239ce/>
+<https://butterfly.js.org/posts/ceeb73f/>
+
 ### tabs
 
 {% tabs TabName %}
