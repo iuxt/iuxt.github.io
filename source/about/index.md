@@ -15,11 +15,13 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 }
 
 .text-area {
-  flex: 3; /* 文字区域占据2份空间 */
-  border: 1px solid #ccc; /* 边框 */
-  padding: 10px; /* 内边距 */
-  border-radius: 5px; /* 圆角 */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 阴影 */
+  flex: 3;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f4dda5;
+
 }
 
 .image-area {
