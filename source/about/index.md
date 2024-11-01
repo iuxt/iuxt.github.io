@@ -5,19 +5,7 @@ comments: false
 top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 ---
 
-## 关于本站
-
-本站是静态博客, 框架为[hexo](https://hexo.io), 主题为[butterfly](https://butterfly.js.org/)  
-静态文件部署在GitHub Pages上, 采用GitHub Actions自动构建  
-使用又拍云CDN加速, 图床使用又拍云存储  
-本地编辑器为Obsidian, Obsidian插件使用到了Obsidian-git(用于提交git)和templater(用于生成frontmatter), 本地编辑不依赖hexo  
-头像是`FC`游戏《duck hunt》里面的贱狗  
-favicon是`FC`游戏 《炸弹人》里面的主角  
-本站很多图标用的都是svg, 一个很好的svg生成网站: <https://cn.pattern.monster/>  
-加载动画和背景一部分取自网站：<https://loading.io/pattern/>
-像素画绘画工具: Aseprite 使用到的svg编辑器: Inkscape  VSCode  
-
-## 关于我
+## 个人简介
 
 <style type="text/css">
 .container {
@@ -51,14 +39,104 @@ favicon是`FC`游戏 《炸弹人》里面的主角
 </div>
 
 
+## 工作经历
+
+{% note 'fa-solid fa-calendar-days' modern %}
+2022-02-22 -- 至今
+{% endnote %}
+
+
+{% note pink 'fas fa-car-crash' flat %}
+{% label 上海银基科技股份有限公司 pink %} {% label 银基安全 blue %} 
+1. 吃饭
+2. 睡觉
+3. 打豆豆
+{% endnote %}
+
+
+{% note 'fa-solid fa-calendar-days' modern %}
+2022-02-22 -- 至今
+{% endnote %}
+
+
+{% note blue 'fas fa-bullhorn' flat %}
+{% label 坚果云 pink %} {% label 银基安全 blue %} 
+1. 吃饭
+2. 睡觉
+3. 打豆豆
+{% endnote %}
+
+
+{% note 'fa-solid fa-calendar-days' modern %}
+2022-02-22 -- 至今
+{% endnote %}
+
+
+{% note red 'fas fa-fan' flat%}
+{% label 坚果云 pink %} {% label 银基安全 blue %} 
+1. 吃饭
+2. 睡觉
+3. 打豆豆
+{% endnote %}
+
+
+
+{% note 'fa-solid fa-calendar-days' modern %}
+2022-02-22 -- 至今
+{% endnote %}
+
+
+{% note orange 'fas fa-battery-half' flat %}
+{% label 坚果云 pink %} {% label 银基安全 blue %} 
+1. 吃饭
+2. 睡觉
+3. 打豆豆
+{% endnote %}
+
+
+
+{% note 'fa-solid fa-calendar-days' modern %}
+2022-02-22 -- 至今
+{% endnote %}
+
+
+{% note purple 'far fa-hand-scissors' flat %}
+{% label 坚果云 pink %} {% label 银基安全 blue %} 
+1. 吃饭
+2. 睡觉
+3. 打豆豆
+{% endnote %}
+
+
+{% note 'fa-solid fa-calendar-days' modern %}
+2022-02-22 -- 至今
+{% endnote %}
+
+
+{% note green 'fab fa-internet-explorer' flat %}
+{% label 坚果云 pink %} {% label 银基安全 blue %} 
+1. 吃饭
+2. 睡觉
+3. 打豆豆
+{% endnote %}
+
+
 ## 联系方式
 
 QQ:  393991732  
 微信: keepassxc  
 邮箱：[x@zahui.fan](mailto:x@zahui.fan)  
-运维技术交流群：
 
-{% gallery true,10,100 %}
-![张理坤微信](https://static.zahui.fan/card/WeChat.JPG)
-![运维技术交流群](https://static.zahui.fan/card/wechat_ops_group.JPG)
-{% endgallery %}
+
+
+## 博客简介
+
+本站是静态博客, 框架为[hexo](https://hexo.io), 主题为[butterfly](https://butterfly.js.org/)  
+静态文件部署在GitHub Pages上, 采用GitHub Actions自动构建  
+使用又拍云CDN加速, 图床使用又拍云存储  
+本地编辑器为Obsidian, Obsidian插件使用到了Obsidian-git(用于提交git)和templater(用于生成frontmatter), 本地编辑不依赖hexo  
+头像是`FC`游戏《duck hunt》里面的贱狗  
+favicon是`FC`游戏 《炸弹人》里面的主角  
+本站很多图标用的都是svg, 一个很好的svg生成网站: <https://cn.pattern.monster/>  
+加载动画和背景一部分取自网站：<https://loading.io/pattern/>
+像素画绘画工具: Aseprite 使用到的svg编辑器: Inkscape  VSCode  
