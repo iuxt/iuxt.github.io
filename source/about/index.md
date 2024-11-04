@@ -36,7 +36,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 </style>
 
 <div class="container">
-  <div class="text-area">张理坤，安徽寿县人，90后，主业是运维工程师。</br> 2016年参加工作，先后就职于骏梦游戏、五四互娱、豌豆思维、坚果云、银-基-安全,  现居上海。</div>
+  <div class="text-area">张理坤，安徽（六安/淮南）寿县人，90后，一直在互联网行业。最开始入行是做IT，通过自学运维转岗做了运维。2016年参加工作，在游戏、在线教育、车联网行业待过。做过监控、收过日志、玩过容器、做过CICD、开发过运维平台、修过电脑、装过打印机、拉过网线、配置过交换机、喂过猫。</div>
   <div class="image-area"><img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/></div>
 </div>
 
@@ -44,7 +44,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 ## 工作经历
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2022-02-22 -- 至今
+2022/02/22 -- 至今
 {% endnote %}
 
 {% note pink 'fas fa-car-crash' flat %}
@@ -56,7 +56,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2021-03-16 -- 2022-02-18
+2021/03/16 -- 2022/02/18
 {% endnote %}
 
 {% note blue 'fas fa-bullhorn' flat %}
@@ -68,7 +68,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2020-06-02 -- 2021-03-15
+2020/06/02 -- 2021/03/15
 {% endnote %}
 
 {% note red 'fas fa-fan' flat%}
@@ -81,7 +81,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2018-04-09 -- 2020-05-20
+2018/04/09 -- 2020/05/20
 {% endnote %}
 
 {% note orange 'fas fa-battery-half' flat %}
@@ -94,7 +94,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2016-09-08 -- 2018-04-08
+2016/09/08 -- 2018/04/08
 {% endnote %}
 
 {% note purple 'far fa-hand-scissors' flat %}
@@ -106,7 +106,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2012-09-10 -- 2016-07-01
+2012/09/10 -- 2016/07/01
 {% endnote %}
 
 {% note green 'fab fa-internet-explorer' flat %}
@@ -119,9 +119,12 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 ## 联系方式
 
-QQ:  393991732  
-微信: keepassxc  
-邮箱：[x@zahui.fan](mailto:x@zahui.fan)  
+|<i class="fa-solid fa-user"></i>|<i class="fa-solid fa-star"></i>|
+|---|---|
+|<i class="fa-brands fa-qq"></i> QQ|393991732|
+|<i class="fa-brands fa-weixin"></i> 微信|keepassxc|
+|<i class="fa-solid fa-envelope"></i> 邮箱|[x@zahui.fan](mailto:x@zahui.fan)  |
+
 
 
 
