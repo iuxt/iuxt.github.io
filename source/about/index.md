@@ -17,6 +17,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 .text-area {
   flex: 3;
   border: 1px solid #ccc;
+  color: #404040;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);

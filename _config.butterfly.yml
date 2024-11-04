@@ -60,7 +60,7 @@ search:
 favicon: /favicon.ico
 
 avatar:
-  img: https://static.zahui.fan/public/dog.png
+  img: https://static.zahui.fan/public/dog.svg
   effect: false
 disable_top_img: false
 enter_transitions: false
