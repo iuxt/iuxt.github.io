@@ -22,7 +22,6 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #f4dda5;
-
 }
 
 .image-area {
@@ -48,7 +47,6 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 2022-02-22 -- 至今
 {% endnote %}
 
-
 {% note pink 'fas fa-car-crash' flat %}
 {% label 上海银基科技股份有限公司 pink %} {% label 银基安全 blue %} 
 1. 吃饭
@@ -58,12 +56,11 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2022-02-22 -- 至今
+2021-03-16 -- 2022-02-18
 {% endnote %}
-
 
 {% note blue 'fas fa-bullhorn' flat %}
-{% label 坚果云 pink %} {% label 银基安全 blue %} 
+{% label 上海亦存网络科技有限公司 pink %} {% label 坚果云 blue %} 
 1. 吃饭
 2. 睡觉
 3. 打豆豆
@@ -71,12 +68,11 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2022-02-22 -- 至今
+2020-06-02 -- 2021-03-15
 {% endnote %}
-
 
 {% note red 'fas fa-fan' flat%}
-{% label 坚果云 pink %} {% label 银基安全 blue %} 
+{% label 广东快乐种子科技有限公司 pink %} {% label 豌豆思维 blue %} 
 1. 吃饭
 2. 睡觉
 3. 打豆豆
@@ -85,12 +81,11 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2022-02-22 -- 至今
+2018-04-09 -- 2020-05-20
 {% endnote %}
-
 
 {% note orange 'fas fa-battery-half' flat %}
-{% label 坚果云 pink %} {% label 银基安全 blue %} 
+{% label 重庆灵翎互娱科技有限公司/上海拟酷网络科技有限公司 pink %} {% label 五四互娱 blue %} 
 1. 吃饭
 2. 睡觉
 3. 打豆豆
@@ -99,12 +94,11 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2022-02-22 -- 至今
+2016-09-08 -- 2018-04-08
 {% endnote %}
-
 
 {% note purple 'far fa-hand-scissors' flat %}
-{% label 坚果云 pink %} {% label 银基安全 blue %} 
+{% label 上海骏梦网络科技有限公司 pink %} {% label 骏梦游戏 blue %} 
 1. 吃饭
 2. 睡觉
 3. 打豆豆
@@ -112,12 +106,11 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 
 {% note 'fa-solid fa-calendar-days' modern %}
-2022-02-22 -- 至今
+2012-09-10 -- 2016-07-01
 {% endnote %}
 
-
 {% note green 'fab fa-internet-explorer' flat %}
-{% label 坚果云 pink %} {% label 银基安全 blue %} 
+{% label 巢湖学院 pink %} {% label 电气工程及其自动化 blue %} 
 1. 吃饭
 2. 睡觉
 3. 打豆豆
@@ -135,7 +128,7 @@ QQ:  393991732
 ## 博客简介
 
 本站是静态博客, 框架为[hexo](https://hexo.io), 主题为[butterfly](https://butterfly.js.org/)  
-静态文件部署在GitHub Pages上, 采用GitHub Actions自动构建  
+静态文件部署在 `GitHub Pages` 上, 采用 `GitHub Actions` 自动构建  
 使用又拍云CDN加速, 图床使用又拍云存储  
 本地编辑器为Obsidian, Obsidian插件使用到了Obsidian-git(用于提交git)和templater(用于生成frontmatter), 本地编辑不依赖hexo  
 头像是`FC`游戏《duck hunt》里面的贱狗  
