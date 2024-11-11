@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-10-31T03:20:09.000Z</updated>
+  <updated>2024-11-11T03:25:17.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Prometheus的瞬时向量(Instant vector)和区间向量(Range vector)</title>
+    <link href="https://zahui.fan/posts/smrno6/"/>
+    <id>https://zahui.fan/posts/smrno6/</id>
+    <published>2024-11-11T03:14:30.000Z</published>
+    <updated>2024-11-11T03:25:17.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 Prometheus 的表达式语言中，表达式或子表达式包括以下四种类型之一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;瞬时向量（Instant vector） ：</summary>
+        
+      
+    
+    
+    
+    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
+    
+    
+    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
+    
+  </entry>
   
   <entry>
     <title>mRemoteNG 如何显示保存的密码</title>
@@ -507,36 +534,6 @@
     
     <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Java程序被停止前自动dump内存快照</title>
-    <link href="https://zahui.fan/posts/sh7n7f/"/>
-    <id>https://zahui.fan/posts/sh7n7f/</id>
-    <published>2024-07-26T03:04:26.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;线上业务偶尔会出现重启现象，为了排查这个问题，决定在 OOM 的时候自动进行 dump 内存快照用于分析&lt;/p&gt;
-&lt;p&gt;&lt;img src= &quot;https://static.zahui.fan/public/nes.gif&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
-    
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
-    <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
-    
-    <category term="java" scheme="https://zahui.fan/tags/java/"/>
     
   </entry>
   
