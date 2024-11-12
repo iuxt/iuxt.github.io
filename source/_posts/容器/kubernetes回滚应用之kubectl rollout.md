@@ -34,12 +34,6 @@ REVISION  CHANGE-CAUSE
 kubectl rollout history deployment nfs-client-provisioner --revision=4
 ```
 
-也可以以 yaml 格式输出
-
-```bash
-kubectl rollout history deployment nfs-client-provisioner --revision=4 -o yaml
-```
-
 ## 回滚到指定版本
 
 ```bash
