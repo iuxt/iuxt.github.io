@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-11-11T03:25:17.000Z</updated>
+  <updated>2024-11-13T02:35:03.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows 开机自启动配置位置</title>
+    <link href="https://zahui.fan/posts/smvb2h/"/>
+    <id>https://zahui.fan/posts/smvb2h/</id>
+    <published>2024-11-13T02:32:40.000Z</published>
+    <updated>2024-11-13T02:35:03.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;注册表方式&quot;&gt;&lt;a href=&quot;#注册表方式&quot; class=&quot;headerlink&quot; title=&quot;注册表方式&quot;&gt;&lt;/a&gt;注册表方式&lt;/h2&gt;&lt;h4 id=&quot;系统&quot;&gt;&lt;a href=&quot;#系统&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Windows常见注册表位置</title>
+    <link href="https://zahui.fan/posts/smvadg/"/>
+    <id>https://zahui.fan/posts/smvadg/</id>
+    <published>2024-11-13T02:17:40.000Z</published>
+    <updated>2024-11-13T02:35:03.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;oem-信息&quot;&gt;&lt;a href=&quot;#oem-信息&quot; class=&quot;headerlink&quot; title=&quot;oem 信息&quot;&gt;&lt;/a&gt;oem 信息&lt;/h2&gt;&lt;h3 id=&quot;添加-oem-信息&quot;&gt;&lt;a href=&quot;#添加-oem-信息&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Windows" scheme="https://zahui.fan/categories/Windows/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Prometheus的瞬时向量(Instant vector)和区间向量(Range vector)</title>
@@ -483,57 +529,6 @@
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
     
     <category term="contextpath" scheme="https://zahui.fan/tags/contextpath/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS 7 停止维护后如何使用</title>
-    <link href="https://zahui.fan/posts/si78gg/"/>
-    <id>https://zahui.fan/posts/si78gg/</id>
-    <published>2024-08-14T08:19:28.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;CentOS 7 停止维护后，很多源都失效了，使用 yum 的时候报错 404，需要修改源才能继续使用。&lt;/p&gt;
-&lt;p&gt;老版本 CentOS 源被更改成 vault 源，需要更换成 vault 源才能继续使用 yum。&lt;/p&gt;
-&lt;p&gt;修改成官方源&lt;/p&gt;
-&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>trzsz 使用记录</title>
-    <link href="https://zahui.fan/posts/shqeci/"/>
-    <id>https://zahui.fan/posts/shqeci/</id>
-    <published>2024-08-05T06:07:29.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;官方介绍：trzsz ( trz &amp;#x2F; tsz ) 是一款优秀的文件传输工具，和 lrzsz ( rz &amp;#x2F; sz ) 类似的、兼容 tmux 的文件传输工具。其实就是一个利用终端来传输文件的工具，可以用来取代 lrzsz，更多详情看官方文档：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
-    
     
   </entry>
   
