@@ -1,3 +1,4 @@
+https://zahui.fan/posts/smz2c9/
 https://zahui.fan/posts/deff9f9f/
 https://zahui.fan/posts/lmeiruso/
 https://zahui.fan/posts/5e168f7e/
@@ -533,6 +534,7 @@ https://zahui.fan/tags/%E7%9B%91%E6%8E%A7/
 https://zahui.fan/tags/Prometheus/
 https://zahui.fan/tags/node-exporter/
 https://zahui.fan/tags/monitor/
+https://zahui.fan/tags/snmp/
 https://zahui.fan/tags/nacos/
 https://zahui.fan/categories/Windows/
 https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/
