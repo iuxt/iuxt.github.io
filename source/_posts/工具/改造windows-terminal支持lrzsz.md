@@ -36,8 +36,7 @@ go get zssh
 ### 二进制安装
 
 ```bash
-curl -OL https://file.babudiu.com/f/pYfA/zssh
-sudo mv zssh /usr/local/bin
+sudo curl -L https://github.com/qingyunha/zssh/releases/download/v0.1.0/zssh_linux_amd64 -o /usr/local/bin/zssh
 sudo chmod +x /usr/local/bin/zssh
 ```
 

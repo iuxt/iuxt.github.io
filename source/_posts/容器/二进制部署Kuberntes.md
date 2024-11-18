@@ -483,7 +483,7 @@ crictl info
 ```bash
 mkdir -p /etc/kube-lb/{conf,logs,sbin}
 
-curl -L -C - https://file.babudiu.com/f/Ootv/kube-lb -o /etc/kube-lb/sbin/kube-lb
+curl -L -C - https://file.babudiu.com/f/qjhX/kube-lb -o /etc/kube-lb/sbin/kube-lb
 chmod +x /etc/kube-lb/sbin/kube-lb
 
 
