@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title></title>
+      <link href="/posts/0/"/>
+      <url>/posts/0/</url>
+      
+        <content type="html"><![CDATA[<p>&#x3D;&#x3D;⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠&#x3D;&#x3D; You can decompress Drawing data with the command palette: ‘Decompress current Excalidraw file’. For more info check in plugin settings under ‘Saving’</p><h1 id="Excalidraw-Data"><a href="#Excalidraw-Data" class="headerlink" title="Excalidraw Data"></a>Excalidraw Data</h1><h2 id="Text-Elements"><a href="#Text-Elements" class="headerlink" title="Text Elements"></a>Text Elements</h2><p>^<em>dummy!</em></p><p>Prometheus Core ^nSu2Sez9</p><p>Prometheus ^uZEZLXFc</p><p>Prometheus<br>配置Remote write ^R3HMZ67V</p><p>Prometheus Temp ^mBqGJ0eZ</p><p>alertmanager ^b1rsnu9D</p><p>公司内部系统 ^6MCrAR6M</p><p>客户A  Kubernetes ^RoO4rCli</p><p>node_exporter ^Y4m9H3NA</p><p>blackbox_exporter ^ucr0PEF2</p><p>联邦 ^q11colg6</p><p>客户B  虚拟机 ^1iDOFpj8</p><p>Prometheus ^oqEkJa8Y</p><p>ingress ^Bzb19FiC</p><p>客户C Prometheus没有公网域名 ^MGxLRzqc</p><p>联邦 ^cuAU4DHS</p><p>远程写 ^UNoscAPN</p><p>node_exporter ^FG8QDJwN</p><p>blackbox_exporter ^76YUTONp</p><p>自研运维平台 ^PMFcM8OX</p><p>Jumpserver上的所有Linux机器 ^0025ToNh</p><p>生成监控配置文件 ^nMbEk6Xi</p><p>人工编写的配置 ^FPU7MsCx</p><p>%%</p><h2 id="Drawing"><a href="#Drawing" class="headerlink" title="Drawing"></a>Drawing</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line">N4KAkARALgngDgUwgLgAQQQDwMYEMA2AlgCYBOuA7hADTgQBuCpAzoQPYB2KqATLZMzYBXUtiRoIACyhQ4zZAHoFAc0JRJQgEYA6bGwC2CgF7N6hbEcK4OCtptbErHALRY8RMpWdx8Q1TdIEfARcZgRmBShcZQUebQA2bQB2GjoghH0EDihmbgBtcDBQMBKIEm4IUgAlGABrCgArTABWZklJAHkAcQBOAEcACQ6AZQANHoAtVJLIWEQKwOwojmVg</span><br><span class="line"></span><br><span class="line">6dLMbmd4gA5EnYAWHgAGHZ6AZgPj+IPmvkLIGC3z5oBGbR4dngPzpNvz3a/filCgkdTcc6Q7RHHqvE7fc48JLnV7nYGQSQIQjKaTcZrNbQ7V49A5JfFJMnnHqw9EQayrcSoY605hQUhsWoIADCbHwbFIFQAxK8ECKRetIJpcNhasp2UIOMQeXyBRI2dZmHBcIFshKIAAzQj4fDDWBrCSCDx61nszkAdTBkm49xmEBtHIQppg5vQlvKtPlOI44Vya</span><br><span class="line"></span><br><span class="line">FetLYWuwaieYeOzIeEDlwjgAEliKHUHkALq0/XkTLp7gcITG2mERVYCq4Y56+WK4PMTPFV1zRnnB4AXxZCAQxG4qIONySF3i8VpjBY7C4aAOqInTFYnAAcpwxAO9jsifEeDvy8wACLpKB97j6ghhWmaYSKgCiwUy2UzBRmRQepTbFRPmCgEtK5QkDhhiEHhhgQIweggd9u3fFtXQA9BmgGHguQmbBbwPAAVZcegAQTtfRJB4V59GGABpA4/1meBG</span><br><span class="line"></span><br><span class="line">TpUh2SoaD0TfV9IAQg1zjIhAqgARVwVMGgmXD8GaQgGh6fUulIA8dio6AaOrei2EY18YNfOD/37CQuTtO1iEwfVU1EgBVHp6C6fVjLYAZ4iSA8ADU5M/CRtQYqDVOYjS2K09BU0wAAhGAADEiTtAB9HixLgTAAE1RmwF42CeZjqPmFylJUmY1JmLyyh8iAKHwABZMiJjYQgKB6TQujCyQAAVMHOZRXmcfyeCchT0rc6CHlzRMhDgYhcBPHzXmRYk</span><br><span class="line"></span><br><span class="line">ejOLckSSWkiA4Wpi1LfA5rYGVTzQc98DCQpsrgvKKiAkCwIgvVnPQb9f1pTY0G2Y44lhP5Dhebct1pWNUGcSECR2JJd2pMcDlhX4DlpUFiHBMN4gJZoR1he6kh2RFjjRRNMWxXE0B4ZpaXpH0E1dd1OWVfkhTFUUkCvaVZXrJVeVJtVyA4TVtSyK7E0NY0vR9N1eX9RMiYQB0IadLGWTZD1udov1+wDYQgxDAcIyjGMB3jWlkwG9Nnz61181wQsf</span><br><span class="line"></span><br><span class="line">JLMtEwrYgqxc45HLlhViEbTNjZWgXex83Y/maeM/gXKdOAhA5QcTSclw4VcOHXKHdmOOcgZ2fcj2CEazwvBArxvYh7wyNmddpAahsTsNxupM4yS+F1Snmxa0Ed1b1p8rbL0TS6Kjq9lMnUBAhGYVAeUCOtKEwrBfwkFuDAQdvO+7/lKY5zgoGGQgjEZE481noKDaND6ccbwfhOxGd0DEbImD1ScoHMAhd+UfeIH0EhiDWWk9GyXAKyYIsJGqOpGh</span><br><span class="line"></span><br><span class="line">aNpOl6QYRjjCmBGUg2IKwEAHj+Zurcx6Ygnj3aerpcBCCgGwKo4QF6MjZEIFOiZ5oIAGFiHEQ9UDvGxrtYE+12KpniD0UgtR9B2noOcBAAApIQVR6CvEwsMTC8Vci0nOpUBASw8aII2AOE42hJp/B6McZEtkfjEXelsIcBxCTUlHHcZEsMeizUTODSGpCdgEmJK8IcI4TGI1RPo106NiEQlMa8PYsNXjXBMa8MaAckErHxuLW03J6aqnQMKCm4oq</span><br><span class="line"></span><br><span class="line">Yyk1oqEmwToBMxZjqdmesjQmjNNLPmssBYS3tI6Z0/jJZpIqDLOs8tJD2yVomSM0pVZxgJqUTWaYMz5F1qUfWhslom3gpWG66BcDNBKbbcpaANLyTSqgDsWUewbVIccQcnwdjXG9sHZ0eilnTlDuHXgpx4jEiOGOOOx5pn11wa6a8tsM6PhyPkWC75Uq0SbilA6EghATFvBMAAMqMIK2B3JZV6jnQaw1pljRREXf25xjgezmhWSuqBq54LWpyOuy</span><br><span class="line"></span><br><span class="line">cKGFCoflF5bzPnfLOp1C6g89Q9NeM0RIPxETNF+MRSEKJUaug+s4W4PRCRXHiPIvRVJETeJBLksM5iPiaKOLMscsySW0nsZjXgW8fEMm4HUgQ2TAkqjJmE8RkpqZRLpkqxmGotSJL1JzVJ3p0lWnyTkkWeSskBKlkUjJAyFZNgqa6Kp0ZYBqzlUmeUjTs4cwLAgd+cLlrlm6dWeIAyGyKyroG52wLsa0LccS91QdpzOhMWslca5GSvGFSjEkULTa</span><br><span class="line"></span><br><span class="line">HkOci7aJzShnLvA+LOzSAV52BYXSa4LIXuorh0p2ro+S1yTsWwRBLh4wPHgIxM5AKCQJIRAEebc4EDr1rPeei9nTuv1Kvde+BN7dp/Jfa+h8TwCm9mfdwG6Ki32IPfVVEAn5RFfqQf1EAaF0IYUwlh7DOHcN4fwvU/IwEcAgT29A47YEdynaUZBqD0GsDnWgbBJbID4MIRjEhZDmiopKOiioxBJAwGIEIQgPB6BVEwjsVh/k2D2TqlVZoMUGi4rG</span><br><span class="line"></span><br><span class="line">cI0RvjT09OcJ4442hZlHBOPdAEejmg9BUbdFEzGyRknjD0Xc5LxwGJ5eM2ZCQURXBBXOHctLSjivg7DbQHsRzQypCcWhRxcZ0dlaaxVDMQnk3CYmKUkTaYxK/PE3VbN9UpOtRaW1RnhZGLLvKq1hSXMmsHaUoZpDlbVNdbUjWnrtZVp9QbP1Rso1dPNj0ukskbbhodcM98oz2xdimT5P45igZjVjoHRcya0AvE8wwUr6aw6ZvjPGLcpIuVsQLQnI</span><br><span class="line"></span><br><span class="line">5ydU7nIrU+a56lblPPQDpPSBkjKEFMuZSy1lbIOQ6tR1yylfklE7P8/qgL86kLrYcY4k1bLQoWi2muSLO07SW5Q02+VshVB6FUWot49hCFqEYOAYUwoxSqMQeg7z9RUdoosZYMrrqqIJLsYk223h3Emrxz6ZJtBwiSLQngSJIUUh+GDST3x1F3F+IjIGc4iSI7FUQiVSMEj4muNjIcKJ4iXH0zKtA7rBY2YkKE8mepLM0zTkzi6dnWa6jzE5nzvp</span><br><span class="line"></span><br><span class="line">XOWo9O50WvAjPOaF3510gYykRqC5UlWoWZnuoaZFtAOY8y+v9fChLFtem4TDXbBXIzzoTNO9G0aImWVEj2Gm/elwlOQCTTVzZ1Oxwia9vm+OY92tdos2nC5lbNc3NYllr8BLHnsSqOcAYRUJi2UckxMPr4Bs3oCsFUKEUoqxXiolZK/WhHzcyktlbrpc5AtGptoGY5RV4JhQdhFHbNoost8h87FRY/x8T0ka2jc8XQCj4mBjOwNHUgpIcX6yIFnh</span><br><span class="line"></span><br><span class="line">kTPS5oY+IVCu23oucIn8Ro/NQXZjPRuOwjeDs1EnxCdwbxO6sRhmRfEyCcq1nESOe2y53EnVvOkmtIF0am1MvSiCzFxawmBVKXXmH/SAOXQLOfJ1ZXD6NxNXCLJpTXFpSANpWLJvfXJLXAfyY3QLPXX/F2AcClIGD2HZYrV0V3R3bjB3DZRkRfb4BZbbd1QgVrP3ItBuU5IPbrK5RA6tKvAcGvHoOvcTNtRvSNTpcuRFf3Ngj8H9MdPtSdAAHQ4E</span><br><span class="line"></span><br><span class="line">AFlEwAO390F9A2ATxUAKBQETw+5h0ZC/1+1FDVD1DNCEBtDdDT1F1shZ0l4F0l1b4V08Q10oAD0JAt1j5d1z58B3D0Aj0T09Rz0X5gwr0LsoArsbs7t4gHsnsXs3sPsvt31QF/Bv0oFe1R5jDlC1CMhzDLC1BT1gM0EMFwNUBIM9sCEid4MPhEN28WJNIKh8Bah/IgogowoBhJBjgTRCBDJWEOhlxRhRgTgfsFgRF/sH4R9VESco4TFJoSQIVkQe</span><br><span class="line"></span><br><span class="line">N58thnF1FZEeAqQ/pNjiIpVuVt9SE7hT8HE0BWVac/Fr9jNYkWcKY2d1VrNb9tVmZ7M+cOZP8eZik3N0dJdBcQD+ZZcAsFdIDShnUalVdwsUwNcswkCDQdc4sxC2Jg0XIuRsDTdMtzccsrcBwhwdkeARMCcSsfZ94xxSDShyDqCBxURmhSQqSvgDk2tWCoMIAy105ODnxU9WxB8Hl+t2J9B/I+guhWFjgEApgU8+tw92IkIUI0IMJsI8ICIiISJy</span><br><span class="line"></span><br><span class="line">JKJHli8MpFswBsoO9xT8o/JAoQpXhwpIoGhoo4oEpmgkpZtaIS91TlsZhoTK91sQUJotxtsTEhDy4RCA14SIB20jtW9i0kN6jvJD0+SBShTgEB9qMuTXQGM1FYdJoSVqQ3gQZbFSh6UxomV1jtjtjiUt8jFPF1FcTqRBUs1WViV3SMQqjz8zjGQGcFVn9rjzNTk7jOcHjudX89V+cuYfiPiLj/8xYLjgDez/i/B5d0tFcoCQsYD1ZEx1cECoTtcY</span><br><span class="line"></span><br><span class="line">tdd4t/xETekDwUTxzcCBB8C0BF9XTIU80yDqsiT5EqCM1JE99EckQhw6SWDjtGTmTg8etuDVsa1q9QVJoFkEyKyfTPTtyfSJCGTXDoFMiFCOAB59A4B9CR1QKJ0ANUBILoKV5bDMF50UKoA14nDV1t510iAr4KhPCd0CS90L58Lr4AiJjXRgjL1r0miWi2iOiuj55ej+jBjhiQFP00jR0jDJ1EKMhkLEwijQM0KINSAcEKjYNjjSEajAyUMJBJTU</span><br><span class="line"></span><br><span class="line">J0IsIcJ8JCJiJSIKIRiuoFtAdbo5w4giC3EIVPENjdtljbpcT1Fo4SVoZZlnpvg8zxckgZMkhQdFMAY98STKyz84xEgs0KVdwKREY3Ltsayr9ACAkGyzNT12cNVn91Qni39HNuyv9fM/jf8FV+yJdByezhcRz7VMwgTIAQSVdYDwStZ5ytdot2lRDW1VzEtqwBhNzmw0S8UeAMTCZdyDio5PEtwqSHduAKRiqqtCTySsYIUSVXTfymDfd1tjlOty</span><br><span class="line"></span><br><span class="line">1M4XyFy3zeCC5Pzi5aCRrm06rDtJDGS4ByoVqXwZhTqZg5UShjh3wkCwBzqSgXLqc3K5EPKBCvKUo3F/KtMgrJ9Qqegbry9y5QgoAeR9Bb4ZA+w6pjqSEALWRtQoB/IzYKxlBuARl0hLlr1P56gmhWh2huh+ghgxhJg/wDQ1pO4thmMdxyQdsSC3TbhmIkxcBoKwwWMDgkY98QZl9F8adMtDRMBIboaW1OrSgshiBEbFRkbUbMt0a2Y6LmjWj2jO</span><br><span class="line"></span><br><span class="line">jujWKBihjawGbF1sByb6cWNiUNi3LOViUry9NMtlAmaIR1MNbCB+biAoaKwYblphb5V4bcIMpMRcA4T6rIBRbXaGJ3b8prTaQghrwKADq5LO8JB9ROJuI+IBIhIRIxIJIpIZJtLek1S9LPoKttAARbhkQtj5FcyLLM7SRs7iU4RaEXg3ERwnLnRPhkhy72VvovhIc0YqywxERCRYZF89h4cKc4Rwr6cjNoqVVbirNWytV2ykrOzXjUr3j8rMqAls</span><br><span class="line"></span><br><span class="line">rKtBYhz56wCATxyRrSrpy4CISqroSUDlzvSzYDc6RUwWqpa09zoOrJlMS0ABCXpLhKtyC8QkhE0TzxrUAYQqSJ9vKyhmD5qOtA8utlquCsx2SPxOTh9tSKg+hPE9B8BlBQ0eo7SeDHTNsuMvgdr/yVzoMgKHzaQjr7a2TXx7qwBLryGbrmIyHEcx83L/pkQm7cTvKShGMO6rFu7bIqaDKAbUG8FgbQbwaRo7bdQ9qsl4bxbHAVhL7XQZbshMaahs</span><br><span class="line"></span><br><span class="line">af48b/5CagESbNbtamR1MzgERrzrgKUbgWHGbmaZKZiqQKU/guakZmtkDraBb7ahbb7ZHFRJHJaMs085GoBr0+8jAYo4BWFmg+gegOBCBnBUwyIGgYpCABgYprwNGybMxKafhnFIQBDqdrhbhPNIAzbTGmVWUrHiIbcFlvgKy7GbaRGHbjQna3QohSA3C3aQhPag7FRfblJ/bFI3Ig78AQ6w66j5L0A4HXgEGkHU6h8oEM7nBsZzh1N9biQtMs0/</span><br><span class="line"></span><br><span class="line">hfz6Ujh3hqcUQiymN2aa7Zx3UVNnRdjIBL9B6Ljh778LMWyn82yX8p6HMuzDU57QDanF6vjcq0rpcMr17RyIDgsXUd6KqvUos9ZYS0CGrT7+J+8Ry0sHZcG3RurdxdhsYCzBqwxmtRrg5P7zE9gvziC7zAGA92CQHLlvUK81ta1NrZNoZKtdqvSvbAKW9UAFrcLR1AAVAMADKEmCmQ9l/VGdUSrZDCrCjeFw5lvws9NmLwkinw0Vyi09Gi0I69KO</span><br><span class="line"></span><br><span class="line">riXifiQSYSUScSSSaSFLSpFI8BfAWCiQbl3GFBYosDLBcSxkmDNumS8hfpiOwbXSfSQyEyMyCyKyGyOySFyBubdOyYvjO4bOm4WGSlBY4lNF+lXElyzxQcXOwEMkHZ3gOcbOj2F4TjC4RYv+/Z2cGZkxK4WfZxP6LTAepkIe65xs2Ky56Ja5xKhJO5meh541T5550XV5yKgpd534zJAqscoq350E8q2c+Akl1pEFsR9A6sVhC+jxjksZG+uonc4F</span><br><span class="line"></span><br><span class="line">fEXNORHm48wk7gIGd+sai8++tmrbe6GagBg6xalk0BkhnKIvKBiZ7k/KLW3CYyA4A8AYYYG0wGyAB08l50zB/E4Q/bMd8Qhlpl10Ihk698Mhih6618W6mhpNl4FGQx6kX4KkFhsAH4TuvN2ZAt3cClXhkoaE/AARgwIRhx0R2l8WCRpG6R6dkWzghRr+HG3+fGgBImiMtPTRzMZwZjeRaZ24K4bGQtyxhm3JgcVm9myxn4eMbm2xg0ex22wWuqmp</span><br><span class="line"></span><br><span class="line">0Wtxqj1ANG2j/KNDDDLDHDPDAjIjEjMjCjBJrWjj5jNxUkOHK4eyz4ehoT82sMK2ip+T2lmpuG+ptpigDp/9721pxpj2zp3SxMYO5SPpjUs7eCW9oQe9x959sZ6MiRSytm6RanbjW4VlQgpGKHKZ2EbOs4K4EkSaS4KOX8wxcXK4I4iVbGYtusqKstmK0ex/Ktiem52tl45JWextrthelt/Y5eoAvKp58AwEvtsqmc10Oc4d5A0dsj02NcukVhL1</span><br><span class="line"></span><br><span class="line">r56F0Fhd12Kk64T65+k87gP+sknd1AakAsm8w9ua494Bpa4loF0oD9j850j2X6ClPbWFAC30s71sLljlgMfuD7nl1C0o5eGebIQV5wvc1w0Voik+JgUi3w8iw9O+Ki0oOVt+fKIbJ10bcbN1qbT15Iri/Vn741kDEo81iShvYMKSiVBDcOiLioXUrPA0nPY0vPM0i0wRQfQOv1z6TxRIHTElEcN4Gzl4LL2yTuy4f2FGc4Hu+6BNk4GZhY4iPYBY</span><br><span class="line"></span><br><span class="line">l4W81u3y1AL4BIVjWheGLyt4ar0t5r8thr+K6tnnae9rht7/Jtv/Vt7rzkVewbje3tpXKct1AFyE6q4Fpc5p2bxqlyMiKd1Ttq2d1z7q4uX4N038l+uMLNc82rDdz4STv6SrWawtAh8709y70PMUq+q99/aniQYyVcZgbAXCOqZcV9vh0l98vgza78t0p7lb+lv0xloB4D6G89kocDlKSDyvs625KZlGbO7j5xDJnRZX1iZwdXssocQ7sHDxXDsA</span><br><span class="line"></span><br><span class="line">fDwjsGtQYR5z2GuphGyjlG6j729T1DfyTon8UYd5LkIwMiKoNgHgMKfyMiCyW/4zrRzj1myaMaQ/OEDxXEspkx7gJlJdpENfBzRJCppeasnSpk43nYYBXG2/GRjR1AZy0GKitZij0VTB9FVaHFXmokwprqZUQVLRHP7BXa907OpjTxOpkuD44AQbiN4KiGMZ80SOVTfAK5034ecvOM3FxsQBYFNMAuVAbpr0wZJU8GiBfIviXzL5xdoGCXT6EiFl</span><br><span class="line"></span><br><span class="line">4vRgqe+PqiNXTLERoQZIfLgFS7pS8JM+xU4ir2kpVchKBmE5m2xvwG96uD+Y3s1xrbPE8+MnDrpby65eYeuHmb4h22HKlAhum9Ebv80HZ71JuMJL3o3xPoYEyIi3SoGnBwKwswgtaAyu7H2QEllkvKWPpsg2KnB3Y9uH3Kn39JSFJQHBM9ld3fZktbuRcfnjsjRY0sXu+DTIYySbgSBAAO/GABoL0ACZipy3SLoB6hTQjCnYXQqA9MKy6HCu9zwp</span><br><span class="line"></span><br><span class="line">7xCK4rYimu2h7St4esrWeCEWR409M8+pQ0rnlNIF4ceqRPHi0IgBtC9QwlIntwHKKk9KiqvSnna3z7oAOAmAMKHAAaAUA48Fgc4JhAmCSB7IuAUYFyDGBOhWe1GP7JfkmbQx1EpcFEG6UMbO4IAKzSaBoijjXASQ90M4IXVdClcCCMMCriQjnB69TmdXEemYPuIWDTedbc3vbyt5ZUbeDgu3gNybbuCnek5P5q728GVVfBh9b3uOxcjvIA+ZuPFB</span><br><span class="line"></span><br><span class="line">bjC531VcuwOYkeVJLbcwwm+OIesn247ge6Ugxgke2Arp9nyYDe6rlCETxcThTJV4CwBLA9ANyKDPDmg0/ZFwJ8ZIaljg29Kvd+BxwwQegE0AqjmAaojch8PuTiDIADGanEyg2KI54ctwJjIcSLoMo5E4IllFCM+AH4E2cIdRJ+WJTDU2aPwTNtaz0HSpziRgy4nfhuKYjx6JmFrlYJSoW90q9g5tmaicFvNHmZIx3o6mBLQFqR43IdnkL8G1U2BY</span><br><span class="line"></span><br><span class="line">LDAkVAD6w1uqWaSEHGnhgotSEe4IUW7kzRpM5ifHPFm91LQ5DM+q1KvutQ2ybU9Rno39s91hbGi0+/Q0dAQCh76BrA0QCVrLm+7rDlx9TVcV+mUAbjWkvLf7g4SB69DhWi48HsMMh71MpWsPCQDKyCJTDaKF2c4ZcOuEDBbh9wx4c8NeGjB3hOrXHga16TBBdxa4g8SMKAwmsRKpRPYb+wOHSUjhHIrUmaIgDDBmAOwYYJgAPCDFJAwzfyEYAODV</span><br><span class="line"></span><br><span class="line">A54EwDgJRltGjFaMAODns4D+hj5vgbwK4FSSV67gsuVJFylJw5p61iUwI+EbOB3AJBdwCyMkJZ0WQ6CJUQmQkNyKLiMM2alWY5iWzREmCMRFzMelc2xEdlcRH+WwVmOtCEjeuzggsdmPJHFiSqpYsLDSMBavlPe1YgCoEOrB1QWRQfbLM4zwIxovg/sXOlu3iGSpI+H9fbpGJ3DbIBxUowlhdxDyjjruBQmvs6QWR45ShhoulvOMqECDgyEgeIEV</span><br><span class="line"></span><br><span class="line">C5CkBcIVQDKWIOvYxktgzE5IMJIWL3QRMFwKHFmnUTbY/oUcbjFPk7FwjJMcIEalm0lSoj4xZzJMapMa6apUxlg5Kvc3xHZjreBk/MZ1ztQ9tTJEAbemWPqQVjrJI7fwd5zKBzdcAPEBsREKbF6IAxAICXu2NMqJDGQW4JGE7ian/hJRC4ocUSwike8op1fDas6QUT3RDmf5P9jWLwaAdW+0hdYYABtFQAB/KgAUMVAAFwmABvn0AD7fs0NHSAzQ</span><br><span class="line"></span><br><span class="line">ZkM37nPD5YA9p0Z47CheN+luF7x6AYIPqGsGnw7xgwtUJGCfHPwXxjfD9KsOAkQBYZ4MqGQT1NZ8s4JHpMntayQl7R7WEAXxv40CbBNQm4TSJtE1ibxMKJH8MYt8JokFlWank9fG/VOCsSvRwbMgf9E8RAjF8Cbf2GPkMY3BTg8HYkG9PaknAXKI4T4ACFS5zJOptvBMczlMG9TzBA0nEW120mZiPmo0/SXmPjEjSppPzZ3lSIsnlifBlY+kQEPW</span><br><span class="line"></span><br><span class="line">lVAnJOfMZOyM1JwtpkT0Kage3bGPcuxIcfbnbguAECJRp3UKTdPCmgds+SoxVjHRVbx11WSdLVpaW4EV8tRa1dBhS3mYojSes4o0RUJb4BlTRaU9AJfw6BESuQRAfKdYJ6R103gujRfGnOhggC6UqiNxLDldFyIKUn1I4G9L4kbZ6JcMbjthyppIiDmFs4kVbNMwqTmyakprvbM0mOy7GOkl2XpJebjSPZpI4yUWIc4+z+2Y3BaQHKWlTcVpn0ta</span><br><span class="line"></span><br><span class="line">b716QvtUsJuLcttOmRWJUQmxXbvyNQB/RjpA4WEEJIPx/0U+9Ja6dkNuknV7S0Up6UXGw5Zo/6ZQucc3KA4YyKggAIu1AA7Ea4RUAqAMiFoCYDBgTwgGMAluNHSkLyFlC6haQFoXhAEZnQrGKeJ6FozQeIrLGT6QQC4ybxYwoRagkErUVnx8rBkcCV1Zfo1hTCshRQqoWaAaFfuehXSGgk7CxKJPeCeT2qK2tkJQZdPHyVvBBRcIFAd5M0EwjOAs</span><br><span class="line"></span><br><span class="line">IpAeyKwk8RGBlw2AKRd61+xiyDMGdcuixlgUf98QFWVMo8CKlqYOU/sMaNthSa8SWpMORiZCApDI4kWm88rG9IUk1cPQ3UpsqWkrb9TYkg0s3k7M9mfFr5lskpf5m+bDdH5o3XerSMDnTc7J604yGHJnYuTIBkQ0aNxxjilwE5SxNdhi327w4dwAhNWekMQWVCT2MojvkGU8WR4CpaediDFAOD6AegAwc4MuCNyajF+2owofWgBCiYG+q05KS3JO</span><br><span class="line"></span><br><span class="line">wmKBmEAZZasvWWbK+5hKLEu8DTmr4iQwYi4H/QXwBsIlc4N+vMXnCaD8yaHLXiJgMYwhdgUY1XjGKAwGDFJXU9EecwPl9SEqDs6wQagqXxil6hkyaTbEKozS5pfsl+fUrflVjUCq0+yS5BCG0xwh3pTpdAsuDBVYhAysrF/Tel7c4+99JGNDDuBjL4IV0yZdKNZKVibuMUsFAcupxHLP5JyghbMBkIcA2A5sMKFgCOr1NDxDCgwusNlXyrFV/Ibd</span><br><span class="line"></span><br><span class="line">FwqRm8LgefQjGVeKPiQSXcUPAmQRQfETCSZF6WRRUHMWWLrFti+xZhEcXOLXgri9xSsL1ZUyNVCABVZgCVU6r6ZME4npa1fiGKROxi9mUqLtDIhMAHAHiAMFvBwBmg+AIKDFC5A8Q8A9kfQMwHwBjMvhPijnn1WS7cZaEWmWhFyrYmohdajaYNojF2AlcWpe+BIFuCpByCDyISqQNaypCEhsYby3ZH8AXnbycxu8iAIb2THqTj5tzU+TYOdmdtL5</span><br><span class="line"></span><br><span class="line">jg8XH128wuC16oQqpR4JqVeD/ZhKyKe/NsmwsyVvSO0K0rmXlYQ+wKDZi8DmJgL12YYBZFAtRav9QcGgnlZnKQVMlhxd0iBncnmV59UJQgbAKQGOB1QLF7UbZWgsekTjnSPwP6PXJnGN9JVbec5RzOA2gbwNQUdqCLPxQLKHRkiUlB7GvInBGUsMZZkVMhTqYuMAIbWbXnH57F8yCyeun2NUEjhu1Bs9JdCsyXGDUxk622ViJnWtcUVbxLFX2SJF</span><br><span class="line"></span><br><span class="line">jq0Vbg++RORLEu98VOTRaQeuJVH06WJ6ukKMC2nUqmxkIUkD3XMSHSgYz60hKMqOCbsQpX6p8gKqJVCqMF+yhDdgw+nlDvpBLQhRIE0AEcZQ14c4VquVWmrKgjCioB5upjeaA1QalVaTT+72EBW54gRZeKEUQ9vC+6IRY+MfgyKZhEgONecATVJqU1aajNVmpzV5qC1nFSmTIWC1ea2APmwNdqoi3bCzWuwi1pJVZmyU256eV4IQAPAdAgolw7Vm</span><br><span class="line"></span><br><span class="line">0oA33LLKBITtfl2El0FMuXojMtCGFRjR8BEKRFkGKhBFMEyAhMxCylSUdT9BdOGFZbOyUVtD5+S2zCfJE3nzF1pS92eUtvlezqllIp+XUqsnKag5pK9aaekpUK5Gx0yHcHuzZRoso+X9X7f5LZUHdEYxEMkBdJayfq+VYUjPndOg3jinSRcCXkjm7W4Km5LmrIeM2UX+QKFgALTDAA+0aAAuc2hnEKSF2O1APjqJ0dC9VMW/hagDemXRRWOMvGea</span><br><span class="line"></span><br><span class="line">uS2EyLoxMtLaTLtWrSKZPqmQqQrJ0U6thOihrXovDUszDhrWtDUqOMjNBMAwwY4DxA4D6AwoPAYyEkHeTDAiobANgGmtJi4aaM4xejFMQSCwEpBXwcnMCIjbU4PgKXHiW5U5X15mp+xRZskG45EgUhZwCFOCukpHAcBi+VEG4mIhc8/6GS/XnxptkIq7ZBS5FRmKk07yMVE0uwddu3W3balbvfeouSPXH11p32P+YFlZERyr1PkGRIjimp+SH1vA</span><br><span class="line"></span><br><span class="line">MVUnM/qhVycBm8ZfeSh3ZyYduci9uHgVH2jUJbAPoLeFqCsJcAOwGKJXJ2XVydR9aeRB7ASlOa8F6OhAKlPTw96+9A+ofXcsmZKCXqLwHHDcACrhstgFOdTJClZTTRIUE+SrEvMllFkSQJwUsiKl/KcbR1jOOFT1Kj2CaY9x2uPVdvO0rrMVye7FdNIflp7d1BKh7fdMPUkrP56m6IFprpY0r26nuEoYjHbEpKa9+3O4KynXkncMhpyx8j+tQW7L</span><br><span class="line"></span><br><span class="line">hVE+oTNPsblJT8FP06VesN4oAZidGReCuTSp0niadQrOLUaoS3XiktZFNnTfGtWc7bVGW9ALLvl2K7ldqu9XZru1266lUpWvnVQbkI0GQ1uisok1v2GRqWa0a8LqhOcC4Q4A+oZoMuAGCaATghkXCAcBgAbSugjAYfQbqLXUTCpt0VtYiyRhfBWU1Ib4AoMo01T5EoKAPRCOr3O78ywvN+nRLcS/QvdpwDbX7vBxEh+Mwe7BY/vrLP6claqA7Uio</span><br><span class="line"></span><br><span class="line">/3DSv94mspTvPj2bqcVgBuTb7LBKWT3eB9RpcevWkeKlu/81quHPaUmLVuBBIuK9O8lMrdwI1VlZsgpAUoLG8C3lTgamXWbwGeci9XhsA3tyIABEi0T0CCiEBkSUGgg3ZsOBDhXS4q5zc32OQL72IUx4kLMeRIG7FREAWMgSE2a7ASyb9X6FlyIIfBccqIcqfWj/pLyxw0iDtdHHJz6zoxXG7bTxvHX8bX9KY9/bOpO0LrXBCeiTSvUyPdtvZQB+</span><br><span class="line"></span><br><span class="line">aYptfmPbyjOe7+XSD6AwHcsO3PjtVO9yMrfYWMWGMZuHDcSW6H67A1Ku/UoLZRcOmuXBpWPEnmZpB/alnMoOjpkagQB1F9zVUsmVgbJrRTYURlMHuhBq9GcyeNXBrJWrOy1f4V4OJgkeYRCoNod0P6HDDxh1MKYfMM8RLDCAaw4BLK3rDWTisRQ6LuUP6LmZCEinlLpjWoSxaR/KACfzP4X8r+N/O/vqAf42HvFdhiQYxmuAJBSQ8yG/X8BCpZc4</span><br><span class="line"></span><br><span class="line">QMzaGNGwDE3BEQDKxjeLheCkpTgC8xHCQTZobbiIiQQghcHjASdEYAIBI7V2UnwrclqRk3ukfra5GxpF2nI5Cek1bqKRhRu7RnrpGIm1N60owOev/WXrXJjRtAIcGJCXAolCc4EZ0cZAkho2rKA6Y3vxYY6rNuQrPu3sWU6k5h2eI0iaXzzmlC8HetnmqQWNj69lhwJMvDjWOz6NjqGy0xMaKhdBMA7yKoEYD6A/IDj9oo41sGhiCTPci+CM9foo</span><br><span class="line"></span><br><span class="line">17kc2CyDJneucRhV/lK6i4MkA7W4kJo8veNuJJISQqjm3G8PVcUj2FnEVxZoE5/vXVPNyzP+pPbpP/3Qm6z6eko5npqoQGmlyJzQPGDROcjzE823HKuz5GV67jxmo2ocB+XOILNze5BTnMpOLHYNYKFQQBaQ3HLyDrm5kyTq5CoBqDncQAIU2gASHM/pgARX9AA++qABYFVoPoBSF4lyS8wFksKWVLuqgUyjL4UsG6dYPIRUzrEUWrr4kim1dMLl</span><br><span class="line"></span><br><span class="line">M86FF3FMSxJfkPSW5LSl1S4acZkqGDFLWjQ2ig5kNAOgPENgGFFTBGAug5wYYEkCEAxRmAyIMYNFbPVumqJCPAjbdARzSJLGSIU6am36VpkhqLlNLt8rGjzMxw5+uJTDGovY5kluvKC44lzNZKkj+25CxpNQsZH0LBIq+RWck1Vmvm+R2TWZPk3FG91oBsox/NIun1yLrwNsxHg7MdLuqDUkTLQlpJJznQiG+i4MqB3YKBCkKPLuxYGP8qZzwxuc</span><br><span class="line"></span><br><span class="line">/1rVBd6JjQULoDsB4gHhWEFAcvtubHHUndRldUkIebR3HnW50u1CZdeuu3X7ra+mibZBcrFc3go4UTKsiLrq8irJV56mOHB0FQWpgKzRDz1BVvQ6reJhq7xoQv7ykL0eo7W1dLO9Wx1iem+R1bvk1ncV5k4ayAdKNZ6SLFRsi/dEotdVa0GZpZhCmQMn5UDQO2YnsE9xosEFTeg69DumWCr0FvFuYq9ZR2JTGTX66oacLlX+rfNYpzcZycOhK2wt</span><br><span class="line"></span><br><span class="line">tW/zXye4X8tBTsWky4Iu4OJbxTXByUzwePSpWz06Wuy+gECvBXQr4VyK9FdivxXRgiV71Yot9Wa2VbdWkXV5ZNPQYI1vl2ot9YmN+BnA/NIqMzAmDEAnhSQDoGRDIhZpMIxwPPZGS8UpXjdt0YI9NoUyUhaESfKHEoJ+CwxapQe/EEcFiUu7HD7apMm4kmhnkMb4yJlF8G4wS8h1/sGC3SDgtKSI9uNlIy1aE3pj2rRkpdbmKwtk3x7uFm7fheAN</span><br><span class="line"></span><br><span class="line">wn91YBlTXIoRJM3zgM19Ep2ejmjQNZeOWygnLfpMWlm+o5EBnNJMUHyTXFmZfKNz5yR2I8OGKMZEwj9FoKj1h6fDowaQhZkMtmfR9dC6nn08j95+6/cBv2HPoWvaRHDHMQ7YC67ylNMyh7oule6ZIReS1OY3PU8ubGyG3Yk+NY3fjiFoe/jceLCa0LM9rI91YhPk2U9tZwa0UYHYjW6bxF1TUGiZvKlKly3VaXAdQBuwUQuyLbpXvW7H3gx30BG0</span><br><span class="line"></span><br><span class="line">LcnO4GKTvg2zZLa90mVf7DJ5vJ9Yx0K2mSnm2oKFr9v+ah0VMirRo6q1a2/N+l6LQbdp306d47Bk1RZYlMUVpT0irnQIYgCR3o7sd+O7gETvJ3U76dr245fc3qPNHNWox55dgneXTTahm1mHcAfsQugzABoM4GYC4B3kdUZoJ9lOAvJ6AH2MiAZELXunrbjoxGCxnxDmJqcjWV/kGbOC27Pqb9DJmGJrv5kUQCQVB/MSpwjg2LLdw4B8E9g36p8S</span><br><span class="line"></span><br><span class="line">MJEPg721G839BN0h2PbE3orwT/Xah7PdT3z3YTHqeE8vae2QG5u5F/pPntRJ1GIQxejdgGbAtIHVr7dVo92OdBwgA9/Hc+xMpFst6xbs5lCadbGP338odUIqN8iKg7AOgmm0UiddQmFQSoZUCqFVBqj1RGozUVqDhsvY+tuoHkP9enkwgwA+gkgcwvQFvA9BmAmgDR2Xx4D6gDgXITYCqU3NQvOzsyiY7bVIC3gQrFAOqE0FsjLgoay4WXcMHOC4</span><br><span class="line"></span><br><span class="line">By5OlUvBqTfZOOJbCO6kL1RxzvWyDc+rY085efYA3nHzsB56dshxA3KyIIGNeTHlvT0y3GBIAU0hFv1YY61yABfuUQt2e7Ye/uzjYLNEOhnJD0e0TamcUOp7l2i11Cbnt0P6zhFxs+NcZuTXrgLNtyaNHhAwhYQAOyvZVJ5tJCrGuOKMxDovsiWr7resBgBRkfcupolwWhPy7lscXMdFQQAFeBgAFA9AAC/GAAXv0ADOeoAAflNSxAAzc5uC3xjr</span><br><span class="line"></span><br><span class="line">oYZaFOsGRTlj1W/RfEXcHUtMp229ehidxOEnSTlJ+8jScTAMn9ALJxnadQOWlFabrN3m8LfBOw1zWyXX5bufp5hgy4VMFUFTCxPUwbASQLeGuBQAYomEW8FUEIAdB6xyVo3YNs+iU4WMqQ1Zkonge53EgVIHcM9R2Lw4qQQYm4GQMBh3ATZSIH9spmtZv0VXmmbGKDqKa/l9XsK/My/rxsmvJ6Iz81+Q/GfZGerNr6s/1a3rU2GHtNoizZIZtInX</span><br><span class="line"></span><br><span class="line">XKQdZ+OUL31Go53DuEKOAe7cqNrTKiXhXs2vu55EKTa4FgcudknpzI4uURC7tH4bUJ8YbGJhDYDLgnQXzu51aZbjkuwolL6l0kFpcCeGXTLll2nUJdl5e++QmDdy831s1fyqOgV8o/n1tb2IvH2xQJ4An3OU3kzXjrDgOVjRfhHiPK6EvSuJBycuJJjwXQGqAWsSiQaGId2IjbZfgHx1XryNgvfH4LiY5I0yTyVpHCbeI4m5hYALWv4PKHgAwNdm</span><br><span class="line"></span><br><span class="line">nofn5i90a/TZYc+9XXfW6s5w8/mkeIUe7N6kc/3hzgOjgOzZMSApDayKUfRyHVc84uRuYW3pGN3Wg09pDBLEq4Syo5kLsIoKYQUgJOEABQcoABC3RQoAAEjGS+8grBCBMABOwABZqRb/r3ICYAjfRvU3mbyWHm9LfGDJjyt4bfMcDCLbpt0YZZbh5W3JhDju22hMXfLvV367zd/EG3e7v93h7nxyO4kArfBv63zb7N52/C7CeRppmcHYl2ISLTmh</span><br><span class="line"></span><br><span class="line">iY789KjlRKo1UWqA1CagtQ2oYzdnuA+2DEhCQGzSJYiEQ7dr0yAhaEEjhMQlMw2jxyTC8Cx/CZOMiZIGMCPal6JXKknZGPDj2tba4xu2pq4M4BPDOzX0X5D2CcQ9UOEvfVpL2h6GsYf0vTD7D1l8ZHmjjgRuAj7UfudzsGjO9+dOXYLrYmqPuJnh4Ocq+Zo98knWEGI/6Ose8DsomF53u48TGOARUTQH3viCjBCAI+qk+PrOAjnqQibpR4OMgAgd</span><br><span class="line"></span><br><span class="line">LfpDW5BByoZgdbklPpGNT6rW6Z/XE/Rn09WZ+GzuRBwBfkv1ZCCNV+9Axvm5y34S0VOaneAflDbfxPEnyT1JzsHSeZPsnGtLAbdGYxU4ftO4aqRGObtp5hOaAKNjNt+hUhUQciA86AKc6OMFO29pTjAN34YB9+H8RRt/Fxp/wCagCYmtX5M6yoh+P9nZJ3fhs2Jv+bfmSsh1+iT7EQ7GT9450z9D+OlzAvzqvagEcCL/Fc3gSFxNHh308dvh37UC</span><br><span class="line"></span><br><span class="line">d8u/7z+Gx8+lehtZpqvnwRiQjYRsamO7Dd0Q4NMwx+0ZgOA7IKZl8Yc+O8gM5TqR8oCawe/PiL4k2EzmupoBJkgUb2uBFow5Yey0tnrNmTNlgRK+Wfk2Ig6OyEG7IG+vtuxA6nKkx59U+1ub5SOjfG16Ti1+ml7vSijm2g9eVQjISAA+K6AACEaAAi26AA5caqEgAOGmgAG9yRbsIHiBUgbIF7eFbkeKoyxlkd6YyJthwZm2MPI252OiPC275Q0P</span><br><span class="line"></span><br><span class="line">v85w+QLoj6guKPjIbe2ggaIESBKhDIGA+DMiE5B270maZGKkTpD7p4uAPqB2gQgPqC4Q8QHaBBQ7yOcCaAAwARBsArgKwjYA65qMaG64suj7ciCQCjaAge+F74KyzGOvj/AbhtV43Azai7r/uxIFZQewVJEU5os7UoLzs+tZCF7Wyg9uF5FmrVigHFKMXm7JWulZgL55GYvp4JzOE3A0rOuuHkljkW+xhw41GsAu2bjI2zgXDrMSMF4jti/sExb7</span><br><span class="line"></span><br><span class="line">SnGNErMBl9mx6/qIxuMFmeN7BUBBQdUOrpFQzALi42knkNsESAcLgi5IuKLmi4Yuy4Fi44ueLpx4Vy79qp6f2n5CuyUoBon/Y6eADp4HsQuwfsGHBDwaZ6HG+TqYgowvHDeobEe+vpQEgWQRSg5BeiHkFBimrj2oQqsAdUEGuoXs1bEOMHnz7NBHQbF4Dk09mM6JeeFrgEL28zkvZjWRAaw6uuNoiMFUqsBk2ILISHMU5zBdnuizCiW1jmhhsRvi</span><br><span class="line"></span><br><span class="line">sHhuawStTRuXLu14HsM+N768Bc+iBQSAgAF1ygAKe6gAGj+DQqN6qERbvKFKhKoSoTluPCswYg8RtvFpaBVjpwa6BFtk272O/Bjd7eBvgf4GBBwQaEHhBGhFEExBH3lTLqhyoaqGTujWi4FWsM7h4H+WSoucGIuJ4Mi6ou6LpoCYu2LkcEG6aPpK7bYUDppgcqY4DV5sSBICOD3ucUpyoFsCbMxhnAXdFCEbEImL8AowkRnECwEAIMJgY4zYv05c</span><br><span class="line"></span><br><span class="line">+iAYdqmuQ0nB4khgvpQ6TOWATJri+9DlwG9BRKks4TWgwccC3gm9u1STBdOl3QJodFmaqV6jlAG7DmW4CJhnAIbv/QNeLAdfZsBIoW8Hi8xdg3LIafAYQzt8vWH3ysQwflBzUMQfhoh5hT9NphFhzuKwx+6ZYayjbYlYdTgp+c0MvzEccnIP4Fem/Mpw78gfJ4wT+vSD4F+BAQUEEhBYQREFOhsQUeJL+tfixi7AsMPQyjgfwAWGHMOTPZx062dO</span><br><span class="line"></span><br><span class="line">7DmIkKGXZsY2TDJwD+pHI7CKc0Arn6/h+fhjSF+sTsX6duZfhX79uVfpgIwRn0Fxw7gbsOvjA2CfESDECQ1LDid+ixDQIP0x/h+FERjtNvbZ+nAv5yrSPtDf6sueoMFyh0D/lE4acYnhS5UumADS50ucnsy7RhvrOj4Ri2dAxKHAxENe5ZcMOL2JCSP9luC7ACbLQgfAJwDtgB6IyiJgpm/lCDBV01wCjhFe1YRB5hecVNB5piDYagFNh6AUL6th</span><br><span class="line"></span><br><span class="line">IUdgHJeeKjTZS+BAeAay+tYkFrHAQUEOHB84kQtbuiFiPs44m+8IcBMWrGHJh24/IVOYW+LXnSzsBE0B15aestj75MmEAP74zKXfEH4h+gfhPx2RiONNRORRZNkxgAUzG5H5Y8iJ5FWMUcC+H8MafkRwZ+IkQwLkc9TD+FjB4/gX4VAC7ku4ruDQGu4buW7ju57uB7ke5MRT/FxwIavHL9QMEZIHZ5oRpjEoIwW5TCf4ucw/qRFSM5EdLQAREAEX</span><br><span class="line"></span><br><span class="line">4dupft27l+vbpX6Du06MxF1+RwL9BeIpTLiTaIPEeVg6My+KOB74umESDScdAlNEQCavhJGyRn8jJF+0XAnJF3+ikQ+RCuFQFyBlItQHaBQAniGRA8AYgB0B9AowDsATADQDsD2Q9AKj56RnpjpiEgeXOYjOeoRjZFF0WaEygXAJKNeT7SQVAmwd+ZZF37AwC4fT6syVGstY1efHMvh9OVQRFSc+vkdiEBRhSlpJnyIJhuqEhOVMSF/6lSqh7dBC</span><br><span class="line"></span><br><span class="line">mpSEZezDpf7qa5FpBBkBY/tfQjhWONjD2U7YgIRMWd6pCBFY+1iD4RuNzp/IVRuos9SVBXXusa++9UfuG3Od1EH7d8LUYeGvgtEnxGixAkRLxCR/fFQLJB0+NrLJCCMKNFtob4ZNHgCXDt+Gj+f4bIzPRy0fd5rRj3ptGveO0Y/wcc7wBCLd+XwCDAbE4OGDEYRIMIxI4RSvIiCwiySIREMCJEWLSFxG/C7QoxAFGjHtMGMYp6BcxcXwI4xynrrB</span><br><span class="line"></span><br><span class="line">0gcAHACmgQKDIzQAmIJkCNEZ+MCAMAhAAgAUA/kBF5ls+oCfGnx6wGegiAiSKmAngpEIkYqx58VrT0QstDfGHxDQSPZBRkAI/FXxN8bManarghfFPx8jDfGmgXVla4AJ38RkAgJ7bAl7gJz8RkCX8lNgUawJQCRkAdAqXnUjIJ3jD/GOE6gTvFfxcCfoBBQx4vt6fxl8QQkjojOiIrv4mCdfGQJ5/ujFSRNYjQk3xt4L5wMJAdEzHMJGQB5xwunw</span><br><span class="line"></span><br><span class="line">mnDnxxfOyDGgmmu37AWBTMSAmIriOYi7EboCBq8g+AMPrdm8YB8Dw4IClQHRweVhABGAOuvoCwCDAAQA4IInFzwS8gZFwn6ACCfl6bqioOfFygJAHrbIyimnYkngpjDIm2JxANrrmwrCbgAeag4h6gkAXOPtBEY+APlCkAygFKAAAFKDrUAvAGNDRJUSdozNAAAJR6g6CMoClg2oAsBhJuAJEmc2vALknJC0ScxhJJvyNlCYJUCZyBoJZ8JwBlRO</span><br><span class="line"></span><br><span class="line">8SgToIlYKAh5+QXF+g+JPkJ7HYARAKYyexX6JvFi6EYCgj4IXoXp4mKs0poANAYxMwDDAX6HAAeJCAF4mtJ10nSBLAhAIwD8evIHolCIYQMEDLJvsI/CdwqCPoC8JjIEHF1RBHKyC4Qyyask66Baqf62kakDYKcKwyMtidgQAA==</span><br></pre></td></tr></table></figure><p>%%</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> excalidraw </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>生产环境Prometheus监控架构记录</title>
       <link href="/posts/sn6pu2/"/>
       <url>/posts/sn6pu2/</url>
       
-        <content type="html"><![CDATA[<p>比如有 30 家客户，每一个客户都有自己的 Kubernetes 集群，部署方式千差万别，还有客户不使用 Kubernetes 的，使用虚拟机部署，那么怎么对这么多客户的机器、服务进行有效的监控，本文记录一下监控的架构方案。</p><h2 id="监控架构图"><a href="#监控架构图" class="headerlink" title="监控架构图"></a>监控架构图</h2><h2 id="Prometheus-Core"><a href="#Prometheus-Core" class="headerlink" title="Prometheus Core"></a>Prometheus Core</h2><p>这个是核心的 Prometheus，其他客户的 Prometheus 通过联邦接入或者 远程写 (remote write) 的方式来写入数据到这个 Prometheus 中。Prometheus Core 可以更换成 <a href="/posts/e59d8e32">VictoriaMetrics</a></p>]]></content>
+        <content type="html"><![CDATA[<p>比如有 30 家客户，每一个客户都有自己的 Kubernetes 集群，部署方式千差万别，还有客户不使用 Kubernetes 的，使用虚拟机部署，那么怎么对这么多客户的机器、服务进行有效的监控，本文记录一下监控的架构方案。</p><h2 id="监控架构图"><a href="#监控架构图" class="headerlink" title="监控架构图"></a>监控架构图</h2><h2 id="Prometheus-Core"><a href="#Prometheus-Core" class="headerlink" title="Prometheus Core"></a>Prometheus Core</h2><p>这个是核心的 Prometheus，其他客户的 Prometheus 通过联邦接入或者 远程写 (remote write) 的方式来写入数据到这个 Prometheus 中。Prometheus Core 可以更换成 <a href="/posts/e59d8e32">VictoriaMetrics</a></p><p>[[Prometheus监控架构图]]</p>]]></content>
       
       
       <categories>
@@ -312,11 +331,11 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> ingress </tag>
             
             <tag> prometheus </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -460,7 +479,7 @@
       
       <categories>
           
-          <category> 开发 </category>
+          <category> 监控 </category>
           
       </categories>
       
@@ -678,13 +697,13 @@
       
         <tags>
             
-            <tag> 部署 </tag>
-            
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> 部署 </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -709,9 +728,9 @@
       
         <tags>
             
-            <tag> 部署 </tag>
-            
             <tag> Kubernetes </tag>
+            
+            <tag> 部署 </tag>
             
             <tag> kubeadm </tag>
             
@@ -825,13 +844,13 @@
             
             <tag> 配置记录 </tag>
             
+            <tag> Kubernetes </tag>
+            
             <tag> 常用操作 </tag>
             
             <tag> 部署 </tag>
             
             <tag> 搭建 </tag>
-            
-            <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
             
@@ -918,13 +937,13 @@
       
         <tags>
             
-            <tag> 部署 </tag>
-            
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> 部署 </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -951,11 +970,11 @@
             
             <tag> Crontab </tag>
             
-            <tag> kubectl </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -1009,13 +1028,13 @@
       
         <tags>
             
-            <tag> kubectl </tag>
-            
-            <tag> 存储 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> 存储 </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -1040,13 +1059,13 @@
       
         <tags>
             
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1071,15 +1090,15 @@
       
         <tags>
             
-            <tag> Elasticsearch </tag>
-            
-            <tag> ES </tag>
-            
             <tag> Docker </tag>
             
             <tag> 部署 </tag>
             
             <tag> 搭建 </tag>
+            
+            <tag> Elasticsearch </tag>
+            
+            <tag> ES </tag>
             
             <tag> 开源软件 </tag>
             
@@ -1139,11 +1158,11 @@
             
             <tag> 部署 </tag>
             
-            <tag> 仓库 </tag>
+            <tag> 搭建 </tag>
             
             <tag> 镜像 </tag>
             
-            <tag> 搭建 </tag>
+            <tag> 仓库 </tag>
             
         </tags>
       
@@ -1379,11 +1398,11 @@
       
         <tags>
             
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1675,9 +1694,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kernel </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> Kernel </tag>
             
         </tags>
       
@@ -1704,9 +1723,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1731,11 +1750,11 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> ingress </tag>
             
             <tag> Kubernetes </tag>
+            
+            <tag> Nginx </tag>
             
             <tag> 阿里云 </tag>
             
@@ -1795,9 +1814,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> curl </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> curl </tag>
             
         </tags>
       
@@ -1996,11 +2015,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> kubectl </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> 权限管理 </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -2089,13 +2108,13 @@
             
             <tag> 浏览器 </tag>
             
-            <tag> Nginx </tag>
-            
-            <tag> 反向代理 </tag>
-            
             <tag> 编码 </tag>
             
             <tag> ingress </tag>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 反向代理 </tag>
             
         </tags>
       
@@ -2176,9 +2195,9 @@
       
         <tags>
             
-            <tag> 常用操作 </tag>
-            
             <tag> k8s </tag>
+            
+            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -2690,9 +2709,9 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> echo-server </tag>
+            
+            <tag> 测试 </tag>
             
         </tags>
       
@@ -2775,9 +2794,9 @@
       
         <tags>
             
-            <tag> 编译 </tag>
-            
             <tag> 记录 </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -3003,11 +3022,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> keepalived </tag>
+            <tag> Kubernetes </tag>
             
             <tag> HA </tag>
             
-            <tag> Kubernetes </tag>
+            <tag> keepalived </tag>
             
         </tags>
       
@@ -3202,9 +3221,9 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> Ingress </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -3283,9 +3302,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> harbor </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> harbor </tag>
             
             <tag> 漏洞扫描 </tag>
             
@@ -3339,11 +3358,11 @@
       
         <tags>
             
+            <tag> nginx </tag>
+            
             <tag> Nginx </tag>
             
             <tag> 反向代理 </tag>
-            
-            <tag> nginx </tag>
             
         </tags>
       
@@ -3567,9 +3586,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> 容器 </tag>
-            
             <tag> 同步 </tag>
+            
+            <tag> 容器 </tag>
             
         </tags>
       
@@ -3702,13 +3721,13 @@
       
         <tags>
             
+            <tag> docker </tag>
+            
             <tag> fail2ban </tag>
             
             <tag> cc攻击 </tag>
             
             <tag> iptables </tag>
-            
-            <tag> docker </tag>
             
         </tags>
       
@@ -4865,13 +4884,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Network </tag>
-            
-            <tag> LoadBalance </tag>
+            <tag> HA </tag>
             
             <tag> keepalived </tag>
             
-            <tag> HA </tag>
+            <tag> Network </tag>
+            
+            <tag> LoadBalance </tag>
             
             <tag> lvs </tag>
             
@@ -5097,11 +5116,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> keepalived </tag>
-            
             <tag> nginx </tag>
             
             <tag> HA </tag>
+            
+            <tag> keepalived </tag>
             
         </tags>
       
@@ -5153,9 +5172,9 @@
       
         <tags>
             
-            <tag> Auth </tag>
-            
             <tag> prometheus </tag>
+            
+            <tag> Auth </tag>
             
             <tag> Prometheus </tag>
             
@@ -5182,9 +5201,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> ingress </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -5284,7 +5303,7 @@
       <link href="/posts/097e5b7c/"/>
       <url>/posts/097e5b7c/</url>
       
-        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#x78;&#116;&#64;&#113;&#113;&#46;&#99;&#111;&#109;">&#x69;&#117;&#x78;&#116;&#64;&#113;&#113;&#46;&#99;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#120;&#116;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x69;&#x75;&#120;&#116;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#120;&#x74;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x69;&#117;&#120;&#x74;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#120;&#x74;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#105;&#x75;&#120;&#x74;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -5350,11 +5369,11 @@
       
         <tags>
             
-            <tag> kubectl </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -5783,9 +5802,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> ingress </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -5932,9 +5951,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kafka </tag>
-            
             <tag> 有状态服务 </tag>
+            
+            <tag> Kafka </tag>
             
             <tag> MQ </tag>
             
@@ -5988,13 +6007,13 @@
       
         <tags>
             
-            <tag> keepalived </tag>
-            
-            <tag> HA </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> HA </tag>
+            
+            <tag> keepalived </tag>
             
         </tags>
       
@@ -6019,11 +6038,11 @@
       
         <tags>
             
+            <tag> Kubernetes </tag>
+            
             <tag> NFS </tag>
             
             <tag> 存储 </tag>
-            
-            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -6048,9 +6067,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> ingress </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -6407,9 +6426,9 @@
             
             <tag> 网络 </tag>
             
-            <tag> Bash </tag>
-            
             <tag> 测试 </tag>
+            
+            <tag> Bash </tag>
             
         </tags>
       
@@ -6699,9 +6718,9 @@
             
             <tag> Docker </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> Container </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
@@ -7019,11 +7038,11 @@
       
         <tags>
             
+            <tag> Docker </tag>
+            
             <tag> Nginx </tag>
             
             <tag> Proxy </tag>
-            
-            <tag> Docker </tag>
             
         </tags>
       
@@ -7231,13 +7250,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Network </tag>
-            
-            <tag> LoadBalance </tag>
+            <tag> HA </tag>
             
             <tag> keepalived </tag>
             
-            <tag> HA </tag>
+            <tag> Network </tag>
+            
+            <tag> LoadBalance </tag>
             
             <tag> lvs </tag>
             
@@ -7821,9 +7840,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 搭建 </tag>
-            
             <tag> HA </tag>
+            
+            <tag> 搭建 </tag>
             
             <tag> 有状态服务 </tag>
             
@@ -7908,9 +7927,9 @@
             
             <tag> Linux </tag>
             
-            <tag> Shell </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -7968,11 +7987,11 @@
             
             <tag> Docker </tag>
             
-            <tag> keepalived </tag>
-            
             <tag> Container </tag>
             
             <tag> Kubernetes </tag>
+            
+            <tag> keepalived </tag>
             
             <tag> kubeadm </tag>
             
@@ -8190,13 +8209,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Ubuntu </tag>
-            
-            <tag> keepalived </tag>
-            
             <tag> Container </tag>
             
             <tag> Kubernetes </tag>
+            
+            <tag> keepalived </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
