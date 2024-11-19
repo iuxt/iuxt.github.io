@@ -5,7 +5,7 @@ categories:
 tags: 
 abbrlink: smvb2h
 date: 2024-11-13 10:32:40
-cover: https://static.zahui.fan/public/Windows.svg
+cover: https://static.zahui.fan/images/202411191004480.jpg
 ---
 
 ## 注册表方式

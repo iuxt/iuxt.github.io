@@ -5,7 +5,7 @@ categories:
 tags: 
 abbrlink: smvadg
 date: 2024-11-13 10:17:40
-cover: ""
+cover: https://static.zahui.fan/images/202411191004480.jpg
 ---
 
 ## oem 信息
