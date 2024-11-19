@@ -33,22 +33,22 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
 
 ## 文件方式
 
-开机自启动也会显示在开始菜单的 startup 文件夹里。
+开机自启动也会显示在开始菜单的 startup 文件夹里。这里启动的话，是以用户身份启动，如果需要管理员权限的软件会弹窗。
 
 #### 系统启动文件夹
 
-```reg
+```bat
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
 ```
 
 #### 个人启动文件夹
 
-```reg
+```bat
 C:\Users\你的Windows用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 ```
 
 > 快速进入 startup 文件夹
-> win+r 输入 shell:startup
+> `win+r` 输入 `shell:startup`
 
 ## 服务方式
 
@@ -56,4 +56,12 @@ C:\Users\你的Windows用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Pro
 
 ## 定时任务方式
 
-待完善
+定时任务方式启动有个好处，就是可以以管理员权限运行，不用用户授权，也就是不会 UAC 弹窗。按照如图配置即可。
+
+![image.png|570](https://static.zahui.fan/images/202411191722190.png)
+![image.png|586](https://static.zahui.fan/images/202411191723758.png)
+![image.png](https://static.zahui.fan/images/202411191723472.png)
+
+![image.png](https://static.zahui.fan/images/202411191724674.png)
+
+![image.png](https://static.zahui.fan/images/202411191724869.png)
