@@ -17,3 +17,5 @@ cover: ''
 
 这个是核心的 Prometheus，其他客户的 Prometheus 通过联邦接入或者 远程写 (remote write) 的方式来写入数据到这个 Prometheus 中。Prometheus Core 可以更换成 [VictoriaMetrics](/posts/e59d8e32)
 
+[[Prometheus监控架构图]]
+
