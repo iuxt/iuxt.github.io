@@ -248,7 +248,7 @@ aside:
       <strong style="color: red;">欢迎加入技术交流群：</strong>
       <div class="aside-qrcode" >
       <img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
-      <img src="https://src.babudiu.com/card/WeChat.JPG" title="微信二维码" width="100%" height="auto">
+      <img src="https://static.zahui.fan/card/wechat.jpg" title="微信二维码" width="100%" height="auto">
       </div>
   card_recent_post:
     sort: updated # date or updated
