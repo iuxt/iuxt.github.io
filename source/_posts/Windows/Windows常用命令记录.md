@@ -97,16 +97,16 @@ C:\Windows\System32\config\systemprofile\
 | explorer                          | 资源管理器       |
 | gpedit.msc                        | 组策略编辑器      |
 | fsmgmt.msc                        | 共享文件夹       |
-| iexplore                          | IE 浏览器       |
+| iexplore                          | IE 浏览器      |
 | lusrmgr.msc                       | 本地用户和组      |
 | msconfig                          | 系统配置        |
 | mspaint                           | 画图          |
 | mstsc                             | 远程桌面连接      |
 | osk                               | 屏幕键盘        |
 | perfmon.msc                       | 性能监视器       |
-| netplwiz                          | 打开账户管理窗口 2   |
-| control userpasswords2            | 打开账户管理窗口 2   |
-| rundll32 netplwiz.dll,UsersRunDll | 打开账户管理窗口 2   |
+| netplwiz                          | 打开账户管理窗口 2  |
+| control userpasswords2            | 打开账户管理窗口 2  |
+| rundll32 netplwiz.dll,UsersRunDll | 打开账户管理窗口 2  |
 | gpmc.msc                          | 域控组策略       |
 | taskschd.msc                      | 任务计划程序      |
 | ncpa.cpl                          | 控制面板 - 网络管理 |
