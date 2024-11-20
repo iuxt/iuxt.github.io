@@ -15,19 +15,6 @@ date: 2023-06-28 19:01:53
 
 是因为 pango 这个库版本较高导致. 需要手动将低版本的动态链接库放到 easyconnect 程序目录下.
 
-只想安装的朋友, 直接使用一键安装脚本即可, 不用看完这篇文章.
-
-## 一键安装脚本
-
-> LinuxMint21 测试通过
-
-```bash
-curl -OL -C - https://download.sangfor.com.cn/download/product/sslvpn/pkg/linux_767/EasyConnect_x64_7_6_7_3.deb
-curl -OL -C - https://file.babudiu.com/f/AQHE/EasyConnect_pango.tar.gz
-curl -OL -C - https://file.babudiu.com/f/B1I8/install.sh
-sudo bash ./install.sh
-```
-
 ## 查看链接库
 
 ```bash

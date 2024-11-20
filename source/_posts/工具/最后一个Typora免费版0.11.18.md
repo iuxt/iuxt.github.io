@@ -20,21 +20,15 @@ date: 2021-12-10 17:41:31
 
 0.11.18 现在被远程施法了，会提示过期无法使用,可以使用 0.9.96 版
 
-下载地址 1：<https://github.com/iuxt/src/releases/download/2.0/typora-setup-x64_0.9.96.exe>
-
-下载地址 2：<https://file.babudiu.com/f/DJS3/typora-setup-x64_0.9.96.exe>
+下载地址：<https://github.com/iuxt/src/releases/download/2.0/typora-setup-x64_0.9.96.exe>
 
 ## Mac 用户
 
-下载地址 1： <https://github.com/iuxt/src/releases/download/2.0/typora-0-11-18.dmg>
-
-下载地址 2：<https://file.babudiu.com/f/EGTp/typora-0-11-18.dmg>
+下载地址： <https://github.com/iuxt/src/releases/download/2.0/typora-0-11-18.dmg>
 
 ## Ubuntu 用户
 
-下载地址 1：<https://github.com/iuxt/src/releases/download/2.0/Typora_Linux_0.11.18_amd64.deb>
-
-下载地址 2：<https://file.babudiu.com/f/GzUA/Typora_Linux_0.11.18_amd64.deb>
+下载地址：<https://github.com/iuxt/src/releases/download/2.0/Typora_Linux_0.11.18_amd64.deb>
 
 ### 安装方法
 
@@ -46,9 +40,7 @@ sudo apt install ./Typora_Linux_0.11.18_amd64.deb
 
 ## 其他 Linux 用户（非 debian 系）
 
-下载地址 1：<https://github.com/iuxt/src/releases/download/2.0/typora-0-11-18.tar.gz>
-
-下载地址 2：<https://file.babudiu.com/f/JWcK/typora-0-11-18.tar.gz>
+下载地址：<https://github.com/iuxt/src/releases/download/2.0/typora-0-11-18.tar.gz>
 
 ### 安装方法
 

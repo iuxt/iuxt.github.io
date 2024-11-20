@@ -168,7 +168,7 @@ sudo systemctl enable --now kubelet
 ```bash
 mkdir -p /etc/kube-lb/{conf,logs,sbin}
 
-curl -L -C - https://file.babudiu.com/f/Ootv/kube-lb -o /etc/kube-lb/sbin/kube-lb
+curl -L -C - https://file.babudiu.com/f/qjhX/kube-lb -o /etc/kube-lb/sbin/kube-lb
 chmod +x /etc/kube-lb/sbin/kube-lb
 
 
@@ -227,9 +227,12 @@ systemctl enable --now kube-lb
 {% note default flat %}
 kube-lb 其实就是自己编译的 Nginx，精简了 http 模块，只开启了 stream 模块用作 4 层转发，详细参数如下：
 
+```plaintext
 nginx version: nginx/1.24.0
 built by gcc 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC)
 configure arguments: --with-stream --without-http --without-http_uwsgi_module --without-http_scgi_module --without-http_fastcgi_module
+```
+
 {% endnote %}
 
 ## 创建集群

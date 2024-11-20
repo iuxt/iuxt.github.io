@@ -9,14 +9,20 @@ cover: 'https://static.zahui.fan/public/Docker.svg'
 date: 2023-05-24 14:40:05
 ---
 
-离线二进制包下载地址 <https://download.docker.com/linux/static/stable/x86_64/>
+## 下载解压
+
+离线二进制包下载地址
+- 官方地址：<https://downrload.docker.com/linux/static/stable/x86_64/>
+- 阿里云镜像地址：<https://mirrors.aliyun.com/docker-ce/linux/static/stable/x86_64/>
 
 ```bash
-wget https://file.babudiu.com/f/x2ux/docker-24.0.7.tgz
+wget https://mirrors.aliyun.com/docker-ce/linux/static/stable/x86_64/docker-24.0.9.tgz
 
-tar xf docker-24.0.7.tgz
+tar xf docker-24.0.9.tgz
 mv docker/* /usr/bin/
 ```
+
+## 创建 systemd 配置
 
 ```bash
 cat > /usr/lib/systemd/system/containerd.service << EOF
@@ -83,7 +89,12 @@ SocketGroup=docker
 WantedBy=sockets.target
 EOF
 
+sudo systemctl daemon-reload
+```
 
+## 创建配置文件
+
+```bash
 sudo mkdir /etc/docker
 cat <<EOF | sudo tee /etc/docker/daemon.json
 {
@@ -95,6 +106,10 @@ cat <<EOF | sudo tee /etc/docker/daemon.json
   "storage-driver": "overlay2"
 }
 EOF
+```
 
+## 设置开机自启动
+
+```bash
 sudo systemctl enable --now docker
 ```

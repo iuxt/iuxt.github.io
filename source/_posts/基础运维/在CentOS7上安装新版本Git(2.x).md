@@ -44,8 +44,8 @@ git version
 下载两个文件到本地
 
 ```bash
-wget https://file.babudiu.com/f/yXCL/perl-Git-2.31.1-1.WANdisco.1657096008.noarch.rpm
-wget https://file.babudiu.com/f/znF4/git-2.31.1-1.WANdisco.1657096008.x86_64.rpm
+wget https://file.babudiu.com/f/yXCL/perl-Git-2.41.0-1.WANdiscoRP.noarch.rpm
+wget https://file.babudiu.com/f/znF4/git-2.41.0-1.WANdiscoRP.x86_64.rpm
 ```
 
 安装
