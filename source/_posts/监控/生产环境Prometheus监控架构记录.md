@@ -13,9 +13,13 @@ cover: ''
 
 ## 监控架构图
 
+![](https://static.zahui.fan/images/202411201501698.png)
+
+说明：
+Prometheus Core 是一个核心的 Prometheus，所有其他 Prometheus 的数据都汇总到这里，查询、告警等都使用这个 Prometheus
+
 ## Prometheus Core
 
 这个是核心的 Prometheus，其他客户的 Prometheus 通过联邦接入或者 远程写 (remote write) 的方式来写入数据到这个 Prometheus 中。Prometheus Core 可以更换成 [VictoriaMetrics](/posts/e59d8e32)
 
-[[Prometheus监控架构图]]
-
+Prometheus core 的配置如下：
