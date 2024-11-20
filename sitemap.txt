@@ -1,6 +1,5 @@
 https://zahui.fan/posts/5e168f7e/
 https://zahui.fan/posts/smvb2h/
-https://zahui.fan/posts/0/
 https://zahui.fan/posts/siij5o/
 https://zahui.fan/posts/sn6pu2/
 https://zahui.fan/posts/801c62c9/
@@ -328,7 +327,6 @@ https://zahui.fan/categories/
 https://zahui.fan/link/
 https://zahui.fan/tags/
 https://zahui.fan/
-https://zahui.fan/tags/excalidraw/
 https://zahui.fan/tags/BitLocker/
 https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/
 https://zahui.fan/tags/VirtualMachine/
