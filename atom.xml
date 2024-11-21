@@ -360,9 +360,9 @@
     <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
     
     
-    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
-    
     <category term="grafana" scheme="https://zahui.fan/tags/grafana/"/>
+    
+    <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
     
   </entry>
   
