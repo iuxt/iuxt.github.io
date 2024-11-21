@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-11-20T08:30:32.000Z</updated>
+  <updated>2024-11-21T06:28:10.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTPS的原理，使用HTTPS就一定是安全的吗？</title>
+    <link href="https://zahui.fan/posts/sna41n/"/>
+    <id>https://zahui.fan/posts/sna41n/</id>
+    <published>2024-11-21T02:24:59.000Z</published>
+    <updated>2024-11-21T06:28:10.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;HTTPS-是什么&quot;&gt;&lt;a href=&quot;#HTTPS-是什么&quot; class=&quot;headerlink&quot; title=&quot;HTTPS 是什么&quot;&gt;&lt;/a&gt;HTTPS 是什么&lt;/h2&gt;&lt;p&gt;以前一直以为 HTTPS 是一种与 HTTP 类似的应用层协议，后来才发现</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="加密" scheme="https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/"/>
+    
+    <category term="tls" scheme="https://zahui.fan/tags/tls/"/>
+    
+    <category term="https" scheme="https://zahui.fan/tags/https/"/>
+    
+    <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
+    
+  </entry>
   
   <entry>
     <title>生产环境Prometheus监控架构记录</title>
@@ -507,30 +538,6 @@
     
     
     <category term="开发工具配置" scheme="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Python开发一个Prometheus exporter</title>
-    <link href="https://zahui.fan/posts/siij5o/"/>
-    <id>https://zahui.fan/posts/siij5o/</id>
-    <published>2024-08-20T10:44:11.000Z</published>
-    <updated>2024-11-19T07:18:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;需求：需要监控指定的邮箱发送邮件是否正常，使用 Prometheus 官方的 Python sdk，代码如下：&lt;/p&gt;
-&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;figure</summary>
-        
-      
-    
-    
-    
-    <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
-    
     
   </entry>
   
