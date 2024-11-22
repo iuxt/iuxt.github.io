@@ -4,8 +4,9 @@ categories:
   - 工具
 tags:
   - lrzsz
+  - OpenSSH
 abbrlink: sgpjuj
-cover: ''
+cover: https://static.zahui.fan/images/202411221801168.png
 date: 2020-07-16 16:35:07
 ---
 
