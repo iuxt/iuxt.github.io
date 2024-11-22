@@ -36,7 +36,7 @@ sudo sed -i 's@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list.d/
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y libmysqlclient-dev build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev lrzsz
+sudo apt install -y zip libmysqlclient-dev build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev lrzsz
 ```
 
 ### 当前用户免 sudo 密码
