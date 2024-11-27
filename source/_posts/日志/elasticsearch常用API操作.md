@@ -15,13 +15,14 @@ date: 2022-04-25 10:26:56
 
 ![Kibana调试查看索引接口](https://static.zahui.fan/images/20220425224238.png)
 
-| 接口                 | 功能     |
-| ------------------ | ------ |
-| /_cat/health?v     | 集群健康状态 |
-| /_cat/shards       | 分片信息   |
-| /_cat/nodes        | 节点信息   |
-| /_cat/indices      | 索引信息   |
-| /_cat/allocation?v | 磁盘占用   |
+| 接口                    | 功能                  |
+| --------------------- | ------------------- |
+| /_cat/health?v        | 集群健康状态              |
+| /_cat/shards          | 分片信息                |
+| /_cat/nodes           | 节点信息                |
+| /_cat/indices         | 索引信息                |
+| /_cat/allocation?v    | 磁盘占用                |
+| /索引名字/_mapping?pretty | 查看 mapping（索引字段类型等） |
 
 `?v` 是详细信息输出
 
