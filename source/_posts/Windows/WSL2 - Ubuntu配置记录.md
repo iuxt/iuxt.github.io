@@ -51,12 +51,9 @@ EOF
 ### WSL 开启 systemd 支持 (仅支持 WSL2)
 
 ```bash
-sudo touch /etc/startup.sh
-sudo chmod +x /etc/startup.sh
 sudo tee /etc/wsl.conf <<-'EOF'
 [boot]
 systemd=true
-command=/etc/startup.sh
 EOF
 ```
 
