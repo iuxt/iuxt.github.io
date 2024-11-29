@@ -247,6 +247,31 @@ git rm -f themes/eureka
 
 3.执行 `git submodule sync`
 
+## git-lfs 大文件存储
+
+git lfs 是大文件存储, 独立于 git 仓库, 通过文件指针的方式来调用
+
+```bash
+# 初始化仓库, 系统全局配置, 执行一次即可, 配置保存在 ~/.gitconfig
+git lfs install
+
+# 跟踪文件， 即为把指定的文件使用 lfs 来管理, 执行后会添加信息到 .gitattributes 文件中。
+git lfs track *.rpm
+
+# 查看被 lfs 管理的文件
+git lfs ls-files
+
+# 查看某个文件是否被 lfs 管理
+git check-attr filter xxx.png
+
+# 下载所有lfs文件
+git lfs fetch --all
+
+# 上传所有lfs文件
+git lfs push origin master --all
+git lfs push --all
+```
+
 ## 小技巧
 
 ### 指定密码拉取 git
@@ -270,26 +295,4 @@ git config --global core.filemode false
 
 # 解决控制台不能正常显示中文的问题
 git config --global core.quotepath false
-```
-
-## git-lfs 大文件存储
-
-git lfs 是大文件存储, 独立于 git 仓库, 通过文件指针的方式来调用
-
-```bash
-# 初始化仓库, 系统全局配置, 执行一次即可, 配置保存在 ~/.gitconfig
-git lfs init
-
-# 跟踪文件， 即为把指定的文件使用 lfs 来管理, 执行后会添加信息到 .gitattributes 文件中。
-git lfs track *.rpm
-
-# 查看被 lfs 管理的文件
-git lfs ls-files
-
-# 下载所有lfs文件
-git lfs fetch --all
-
-# 上传所有lfs文件
-git lfs push origin master --all
-git lfs push --all
 ```
