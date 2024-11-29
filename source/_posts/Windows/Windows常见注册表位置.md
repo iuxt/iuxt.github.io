@@ -2,10 +2,10 @@
 title: Windows常见注册表位置
 categories:
   - Windows
-tags: 
 abbrlink: smvadg
+cover: 'https://static.zahui.fan/images/202411191004480.jpg'
 date: 2024-11-13 10:17:40
-cover: https://static.zahui.fan/images/202411191004480.jpg
+tags:
 ---
 
 ## oem 信息

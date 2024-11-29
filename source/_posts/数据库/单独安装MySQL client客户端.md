@@ -2,10 +2,10 @@
 title: 单独安装MySQL client客户端
 categories:
   - 数据库
-tags: 
 abbrlink: sn8a2y
+cover: ''
 date: 2022-11-20 10:40:09
-cover: ""
+tags:
 ---
 
 ## 方法一、直接下载二进制文件

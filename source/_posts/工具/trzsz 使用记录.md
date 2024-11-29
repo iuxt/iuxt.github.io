@@ -6,7 +6,7 @@ tags:
   - OpenSSH
   - lrzsz
 abbrlink: shqeci
-cover: https://static.zahui.fan/images/202411221801168.png
+cover: 'https://static.zahui.fan/images/202411221801168.png'
 date: 2024-08-05 14:07:29
 ---
 

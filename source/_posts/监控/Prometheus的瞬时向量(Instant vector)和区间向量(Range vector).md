@@ -5,8 +5,8 @@ categories:
 tags:
   - prometheus
 abbrlink: smrno6
+cover: 'https://static.zahui.fan/public/Prometheus.svg'
 date: 2024-11-11 11:14:30
-cover: https://static.zahui.fan/public/Prometheus.svg
 ---
 
 在 Prometheus 的表达式语言中，表达式或子表达式包括以下四种类型之一：

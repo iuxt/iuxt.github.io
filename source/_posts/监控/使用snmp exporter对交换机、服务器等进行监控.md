@@ -6,8 +6,8 @@ tags:
   - prometheus
   - snmp
 abbrlink: smz2c9
+cover: 'https://static.zahui.fan/images/202411151309207.png'
 date: 2024-11-15 11:14:33
-cover: https://static.zahui.fan/images/202411151309207.png
 ---
 
 ## 安装

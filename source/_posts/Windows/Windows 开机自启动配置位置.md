@@ -2,10 +2,10 @@
 title: Windows 开机自启动配置位置
 categories:
   - Windows
-tags: 
 abbrlink: smvb2h
+cover: 'https://static.zahui.fan/images/202411191004480.jpg'
 date: 2024-11-13 10:32:40
-cover: https://static.zahui.fan/images/202411191004480.jpg
+tags:
 ---
 
 ## 注册表方式

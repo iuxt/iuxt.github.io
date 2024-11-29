@@ -3,7 +3,7 @@ title: 使用Python开发一个Prometheus exporter
 categories:
   - 监控
 abbrlink: siij5o
-cover: https://static.zahui.fan/public/Prometheus.svg
+cover: 'https://static.zahui.fan/public/Prometheus.svg'
 date: 2024-08-20 18:44:11
 tags:
 ---

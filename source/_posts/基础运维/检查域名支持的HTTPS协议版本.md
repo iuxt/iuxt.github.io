@@ -8,7 +8,7 @@ tags:
   - tls
   - https
 abbrlink: lqxf8k8u
-cover: https://static.zahui.fan/public/certificate-ssl.svg
+cover: 'https://static.zahui.fan/public/certificate-ssl.svg'
 date: 2024-01-03 14:52:44
 ---
 

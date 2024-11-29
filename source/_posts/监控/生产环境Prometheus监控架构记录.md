@@ -5,8 +5,8 @@ categories:
 tags:
   - prometheus
 abbrlink: sn6pu2
+cover: 'https://static.zahui.fan/images/202411151309207.png'
 date: 2024-11-19 14:25:14
-cover: https://static.zahui.fan/images/202411151309207.png
 ---
 
 比如有 30 家客户，每一个客户都有自己的 Kubernetes 集群，部署方式千差万别，还有客户不使用 Kubernetes 的，使用虚拟机部署，那么怎么对这么多客户的机器、服务进行有效的监控，本文记录一下监控的架构方案。
