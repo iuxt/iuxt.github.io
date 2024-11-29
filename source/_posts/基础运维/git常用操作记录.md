@@ -241,9 +241,9 @@ git rm -f themes/eureka
 
 ### 修改 submodule 的 url
 
-1.更新 .gitsubmodule 中对应 submodule 的条目 URL
+1.更新 `.gitsubmodule` 中对应 `submodule` 的条目 URL
 
-2.更新 .git/config 中对应 submodule 的条目的 URL
+2.更新 `.git/config` 中对应 `submodule` 的条目的 URL
 
 3.执行 `git submodule sync`
 
@@ -254,13 +254,15 @@ git rm -f themes/eureka
 > 不安全, 推荐使用 ssh 密钥方式
 
 ```bash
-git clone http://admin:admin%401234@203.156.235.84:10000/r/app/client.git                        # %40 表示 @
+# %40 表示 @
+git clone http://admin:admin%401234@203.156.235.84:10000/r/app/client.git
 ```
 
 ### windows 建议配置
 
 ```bash
 # 提交时转换为LF， 拉取时不转换
+# 或者配置成false，那么git不处理换行符，由用户自己处理。
 git config --global core.autocrlf input
 
 # 忽略追踪文件权限

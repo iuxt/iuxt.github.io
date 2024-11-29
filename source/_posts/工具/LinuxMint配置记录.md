@@ -57,7 +57,7 @@ tee ~/.gitconfig <<-'EOF'
 [credential]
         helper = store
 [core]
-        autocrlf = input
+        autocrlf = false
         quotepath = false
 [init]
         defaultBranch = master
