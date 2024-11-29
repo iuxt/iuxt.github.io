@@ -167,10 +167,7 @@ feed:
   order_by: -date
   icon: favicon.ico
   autodiscovery: true
-  # 为了支持follow rss
-  follow_challenge:
-    feedId: 59456007617950757
-    userId: 69561128956027904
+
 
 # abbrlink
 # npm install hexo-abbrlink-iuxt --save
