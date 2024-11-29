@@ -111,6 +111,11 @@ brew install trzsz-ssh
 安装 Linux 版 tssh，并安装 zenity 包，文件管理器是 Linux 桌面版文件管理器。
 
 ```bash
+sudo apt update && sudo apt install software-properties-common
+sudo add-apt-repository ppa:trzsz/ppa && sudo apt update
+
+sudo apt install tssh
+
 # 解决 rz 或 sz 无法弹出文件管理器的问题。
 sudo apt install zenity fonts-wqy-microhei -y
 ```

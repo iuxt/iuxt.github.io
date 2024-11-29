@@ -225,3 +225,7 @@ ln -sf /mnt/c/Users/iuxt/Documents ~
 ln -sf /mnt/c/Users/iuxt/Downloads ~
 ln -sf /mnt/c/Users/iuxt/OneDrive ~
 ```
+
+## tssh
+
+[trzsz 使用记录](/posts/shqeci/)
