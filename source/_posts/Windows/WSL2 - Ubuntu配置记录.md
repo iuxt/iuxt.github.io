@@ -15,6 +15,8 @@ date: 2023-09-11 14:45:16
 ## WSL 防火墙规则
 
 ```powershell
+Get-NetAdapter
+
 New-NetFirewallRule -DisplayName "WSL" -Direction Inbound  -InterfaceAlias "vEthernet (WSL)"  -Action Allow
 ```
 
@@ -51,9 +53,12 @@ EOF
 ### WSL 开启 systemd 支持 (仅支持 WSL2)
 
 ```bash
+sudo touch /etc/startup.sh
+sudo chmod +x /etc/startup.sh
 sudo tee /etc/wsl.conf <<-'EOF'
 [boot]
 systemd=true
+command=/etc/startup.sh
 EOF
 ```
 
@@ -72,7 +77,7 @@ tee ~/.gitconfig <<-'EOF'
 [credential]
         helper = store
 [core]
-        autocrlf = input
+        autocrlf = false
         quotepath = false
 [init]
         defaultBranch = master
