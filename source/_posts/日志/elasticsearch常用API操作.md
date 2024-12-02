@@ -26,9 +26,16 @@ date: 2022-04-25 10:26:56
 
 `?v` 是详细信息输出
 
-## 删除索引
+## 索引
 
 ```bash
+# 查看有哪些索引
+curl -u elastic:password localhost:9200/_cat/indices
+
+# 创建索引
+curl -u elastic:password -X PUT "localhost:9200/索引名字?pretty"
+
+# 删除索引
 curl -u elastic:password -s -XDELETE 10.0.0.127:9200/索引名字
 ```
 
