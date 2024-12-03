@@ -456,11 +456,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
-    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
     
     <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
   </entry>
   
@@ -890,13 +890,13 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
-    
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -923,9 +923,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
     
@@ -1047,13 +1047,13 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
     <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
     
@@ -1146,13 +1146,13 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
-    
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -1181,11 +1181,11 @@
     
     <category term="Crontab" scheme="https://zahui.fan/tags/Crontab/"/>
     
-    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
     
   </entry>
   
@@ -1243,13 +1243,13 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
-    
-    <category term="存储" scheme="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="存储" scheme="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/"/>
+    
+    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
     
   </entry>
   
@@ -1276,13 +1276,13 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
     
     <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -1291,7 +1291,7 @@
     <link href="https://zahui.fan/posts/schwdt/"/>
     <id>https://zahui.fan/posts/schwdt/</id>
     <published>2024-04-25T11:10:40.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
+    <updated>2024-12-03T03:50:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>一般来说，学习 ES 都是自己先搭建几台虚拟机，然后在虚拟机里部署 ES 集群，这样做资源消耗比较大，一般的电脑都没有这么高的配置，我们可以使用 Docker 来快速部署一套 Elasticsearch 集群，这里以 3 节点集群为例：</p><h2 id="准备-Docker-网络"><a href="#准备-Docker-网络" class="headerlink" title="准备 Docker 网络"></a>准备 Docker 网络</h2><p>集群节点之间是通过 ip 进行交互的，所以需要固定一下 ip，固定 ip 之前需要先创建一个 Docker 私有网络，并固定网段 (网段不要和你的内网冲突)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --subnet=172.16.0.0/24 elasticsearch-br0</span><br></pre></td></tr></table></figure><h2 id="集群版-Elasticsearch-需要生成证书"><a href="#集群版-Elasticsearch-需要生成证书" class="headerlink" title="集群版 Elasticsearch 需要生成证书"></a>集群版 Elasticsearch 需要生成证书</h2><p>默认生成 3 年证书，我指定生成了 100 年的证书， 生成到了 <code>certs</code> 目录下。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it -v $(<span class="built_in">pwd</span>)/certs:/tmp/certs elasticsearch:<span class="variable">$&#123;ELASTIC_VERSION&#125;</span> bash -c \</span><br><span class="line">    <span class="string">&#x27;echo -e &quot;\n\n&quot; | /usr/share/elasticsearch/bin/elasticsearch-certutil ca -s -days 36500 &amp;&amp; \</span></span><br><span class="line"><span class="string">    echo -e &quot;\n\n\n&quot; | /usr/share/elasticsearch/bin/elasticsearch-certutil cert -s -days 36500 --ca elastic-stack-ca.p12 &amp;&amp; \</span></span><br><span class="line"><span class="string">    mv /usr/share/elasticsearch/*.p12 /tmp/certs &amp;&amp; \</span></span><br><span class="line"><span class="string">    chmod 777 -R /tmp/certs&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="指定-IP-运行容器"><a href="#指定-IP-运行容器" class="headerlink" title="指定 IP 运行容器"></a>指定 IP 运行容器</h2><p>我这里将数据持久化到了 docker 卷中，通过 <code>docker volume ls</code> 可以查看。</p><h3 id="elasticsearch1"><a href="#elasticsearch1" class="headerlink" title="elasticsearch1"></a>elasticsearch1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name elasticsearch1 \</span><br><span class="line">    --<span class="built_in">ulimit</span> memlock=-1:-1 \</span><br><span class="line">    -e <span class="string">&quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</span> \</span><br><span class="line">    -e node.name=elasticsearch1 \</span><br><span class="line">    -e cluster.name=es-cluster \</span><br><span class="line">    -e discovery.seed_hosts=elasticsearch2,elasticsearch3 \</span><br><span class="line">    -e cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3 \</span><br><span class="line">    -e bootstrap.memory_lock=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e http.cors.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e http.cors.allow-origin=<span class="string">&quot;*&quot;</span> \</span><br><span class="line">    -e http.cors.allow-headers=Authorization \</span><br><span class="line">    -e xpack.security.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.transport.ssl.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.transport.ssl.verification_mode=certificate \</span><br><span class="line">    -e xpack.security.transport.ssl.keystore.path=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    -e xpack.security.transport.ssl.truststore.path=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    -v es-data1:/usr/share/elasticsearch/data:rw \</span><br><span class="line">    -v es-logs1:/usr/share/elasticsearch/logs:rw \</span><br><span class="line">    --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=$(<span class="built_in">pwd</span>)/certs/elastic-certificates.p12,target=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    --network elasticsearch-br0 \</span><br><span class="line">    --ip 172.16.0.11 \</span><br><span class="line">    -p 9201:9200 -p 9301:9300 \</span><br><span class="line">    elasticsearch:7.17.14</span><br></pre></td></tr></table></figure><h3 id="elasticsearch2"><a href="#elasticsearch2" class="headerlink" title="elasticsearch2"></a>elasticsearch2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name elasticsearch2 \</span><br><span class="line">    --<span class="built_in">ulimit</span> memlock=-1:-1 \</span><br><span class="line">    -e <span class="string">&quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</span> \</span><br><span class="line">    -e node.name=elasticsearch2 \</span><br><span class="line">    -e cluster.name=es-cluster \</span><br><span class="line">    -e discovery.seed_hosts=elasticsearch1,elasticsearch3 \</span><br><span class="line">    -e cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3 \</span><br><span class="line">    -e bootstrap.memory_lock=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e http.cors.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e http.cors.allow-origin=<span class="string">&quot;*&quot;</span> \</span><br><span class="line">    -e http.cors.allow-headers=Authorization \</span><br><span class="line">    -e xpack.security.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.transport.ssl.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.transport.ssl.verification_mode=certificate \</span><br><span class="line">    -e xpack.security.transport.ssl.keystore.path=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    -e xpack.security.transport.ssl.truststore.path=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    -v es-data2:/usr/share/elasticsearch/data:rw \</span><br><span class="line">    -v es-logs2:/usr/share/elasticsearch/logs:rw \</span><br><span class="line">    --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=$(<span class="built_in">pwd</span>)/certs/elastic-certificates.p12,target=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    --network elasticsearch-br0 \</span><br><span class="line">    --ip 172.16.0.12 \</span><br><span class="line">    -p 9202:9200 -p 9302:9300 \</span><br><span class="line">    elasticsearch:7.17.14</span><br></pre></td></tr></table></figure><h3 id="elasticsearch3"><a href="#elasticsearch3" class="headerlink" title="elasticsearch3"></a>elasticsearch3</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name elasticsearch3 \</span><br><span class="line">    --<span class="built_in">ulimit</span> memlock=-1:-1 \</span><br><span class="line">    -e <span class="string">&quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot;</span> \</span><br><span class="line">    -e node.name=elasticsearch3 \</span><br><span class="line">    -e cluster.name=es-cluster \</span><br><span class="line">    -e discovery.seed_hosts=elasticsearch1,elasticsearch2 \</span><br><span class="line">    -e cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3 \</span><br><span class="line">    -e bootstrap.memory_lock=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e http.cors.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e http.cors.allow-origin=<span class="string">&quot;*&quot;</span> \</span><br><span class="line">    -e http.cors.allow-headers=Authorization \</span><br><span class="line">    -e xpack.security.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.transport.ssl.enabled=<span class="literal">true</span> \</span><br><span class="line">    -e xpack.security.transport.ssl.verification_mode=certificate \</span><br><span class="line">    -e xpack.security.transport.ssl.keystore.path=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    -e xpack.security.transport.ssl.truststore.path=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    -v es-data3:/usr/share/elasticsearch/data:rw \</span><br><span class="line">    -v es-logs3:/usr/share/elasticsearch/logs:rw \</span><br><span class="line">    --mount <span class="built_in">type</span>=<span class="built_in">bind</span>,<span class="built_in">source</span>=$(<span class="built_in">pwd</span>)/certs/elastic-certificates.p12,target=/usr/share/elasticsearch/config/elastic-certificates.p12 \</span><br><span class="line">    --network elasticsearch-br0 \</span><br><span class="line">    --ip 172.16.0.13 \</span><br><span class="line">    -p 9203:9200 -p 9303:9300 \</span><br><span class="line">    elasticsearch:7.17.14</span><br></pre></td></tr></table></figure><h2 id="初始化密码"><a href="#初始化密码" class="headerlink" title="初始化密码"></a>初始化密码</h2><p>需要等待服务启动后才可设置初始化密码，命令只能生成一次。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动生成密码</span></span><br><span class="line">docker <span class="built_in">exec</span> elasticsearch1 bash -c <span class="string">&quot;echo y | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成指定的密码</span></span><br><span class="line">docker <span class="built_in">exec</span> -it elasticsearch1 bash -c <span class="string">&#x27;echo -e &quot;y</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456</span></span><br><span class="line"><span class="string">123456&quot; | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="部署-kibana"><a href="#部署-kibana" class="headerlink" title="部署 kibana"></a>部署 kibana</h2><h3 id="准备-kibana-yml"><a href="#准备-kibana-yml" class="headerlink" title="准备 kibana.yml"></a>准备 kibana.yml</h3><p>密码按照实际情况修改</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.name:</span> <span class="string">kibana</span></span><br><span class="line"><span class="attr">server.port:</span> <span class="number">5601</span></span><br><span class="line"><span class="attr">server.host:</span> <span class="string">&quot;0.0.0.0&quot;</span></span><br><span class="line"><span class="attr">elasticsearch.username:</span> <span class="string">&quot;elastic&quot;</span></span><br><span class="line"><span class="attr">elasticsearch.password:</span> <span class="string">&quot;123456&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">elasticsearch.hosts:</span> [<span class="string">&quot;http://elasticsearch1:9200&quot;</span>, <span class="string">&quot;http://elasticsearch2:9200&quot;</span>, <span class="string">&quot;http://elasticsearch3:9200&quot;</span>]</span><br><span class="line"><span class="attr">i18n.locale:</span> <span class="string">&quot;zh-CN&quot;</span></span><br></pre></td></tr></table></figure><h3 id="准备-kibana-sh"><a href="#准备-kibana-sh" class="headerlink" title="准备 kibana.sh"></a>准备 kibana.sh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name kibana \</span><br><span class="line">    --net elasticsearch-br0 \</span><br><span class="line">    -p 5601:5601 \</span><br><span class="line">    -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/kibana.yml:/usr/share/kibana/config/kibana.yml \</span><br><span class="line">    kibana:7.17.14</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -1309,15 +1309,15 @@
     <category term="日志" scheme="https://zahui.fan/categories/%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="Elasticsearch" scheme="https://zahui.fan/tags/Elasticsearch/"/>
-    
-    <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
-    
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
     <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="Elasticsearch" scheme="https://zahui.fan/tags/Elasticsearch/"/>
+    
+    <category term="ES" scheme="https://zahui.fan/tags/ES/"/>
     
     <category term="开源软件" scheme="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/"/>
     
@@ -1381,11 +1381,11 @@
     
     <category term="部署" scheme="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/"/>
     
-    <category term="仓库" scheme="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/"/>
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
     <category term="镜像" scheme="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/"/>
     
-    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
+    <category term="仓库" scheme="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/"/>
     
   </entry>
   
@@ -1637,11 +1637,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -1681,7 +1681,7 @@
     <link href="https://zahui.fan/posts/lt41mupw/"/>
     <id>https://zahui.fan/posts/lt41mupw/</id>
     <published>2024-02-27T07:25:44.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
+    <updated>2024-12-03T03:50:36.000Z</updated>
     
     <content type="html"><![CDATA[<p>公司有一台服务器上运行着一个服务，通过 <code>docker start</code> 启动，已经没有文档记录如何搭建的了。现在需要迁移，记录一下获取 docker run 命令的方法</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">通过模版处理 docker inspect 的数据来获取</button><button type="button" class="tab">使用 runlike 来获取</button></div><div class="tab-contents"><div class="tab-item-content active"><p>模版文件来自<a href="https://gist.githubusercontent.com/efrecon/8ce9c75d518b6eb863f667442d7bc679/raw/run.tpl">https://gist.githubusercontent.com/efrecon/8ce9c75d518b6eb863f667442d7bc679/raw/run.tpl</a></p><p>假设容器名是 mysql， 命令后面可以跟容器名或者容器 id。命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format <span class="string">&#x27;docker run \</span></span><br><span class="line"><span class="string">  --name &#123;&#123;printf &quot;%q&quot; .Name&#125;&#125; \</span></span><br><span class="line"><span class="string">    &#123;&#123;- with .HostConfig&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .Privileged&#125;&#125;</span></span><br><span class="line"><span class="string">  --privileged \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .AutoRemove&#125;&#125;</span></span><br><span class="line"><span class="string">  --rm \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .Runtime&#125;&#125;</span></span><br><span class="line"><span class="string">  --runtime &#123;&#123;printf &quot;%q&quot; .Runtime&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $b := .Binds&#125;&#125;</span></span><br><span class="line"><span class="string">  --volume &#123;&#123;printf &quot;%q&quot; $b&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $v := .VolumesFrom&#125;&#125;</span></span><br><span class="line"><span class="string">  --volumes-from &#123;&#123;printf &quot;%q&quot; $v&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $l := .Links&#125;&#125;</span></span><br><span class="line"><span class="string">  --link &#123;&#123;printf &quot;%q&quot; $l&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if index . &quot;Mounts&quot;&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- range $m := .Mounts&#125;&#125;</span></span><br><span class="line"><span class="string">  --mount type=&#123;&#123;.Type&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if $s := index $m &quot;Source&quot;&#125;&#125;,source=&#123;&#123;$s&#125;&#125;&#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if $t := index $m &quot;Target&quot;&#125;&#125;,destination=&#123;&#123;$t&#125;&#125;&#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if index $m &quot;ReadOnly&quot;&#125;&#125;,readonly&#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if $vo := index $m &quot;VolumeOptions&quot;&#125;&#125;</span></span><br><span class="line"><span class="string">                    &#123;&#123;- range $i, $v := $vo.Labels&#125;&#125;</span></span><br><span class="line"><span class="string">                        &#123;&#123;- printf &quot;,volume-label=%s=%s&quot; $i $v&#125;&#125;</span></span><br><span class="line"><span class="string">                    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                    &#123;&#123;- if $dc := index $vo &quot;DriverConfig&quot; &#125;&#125;</span></span><br><span class="line"><span class="string">                        &#123;&#123;- if $n := index $dc &quot;Name&quot; &#125;&#125;</span></span><br><span class="line"><span class="string">                            &#123;&#123;- printf &quot;,volume-driver=%s&quot; $n&#125;&#125;</span></span><br><span class="line"><span class="string">                        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                        &#123;&#123;- range $i, $v := $dc.Options&#125;&#125;</span></span><br><span class="line"><span class="string">                            &#123;&#123;- printf &quot;,volume-opt=%s=%s&quot; $i $v&#125;&#125;</span></span><br><span class="line"><span class="string">                        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if $bo := index $m &quot;BindOptions&quot;&#125;&#125;</span></span><br><span class="line"><span class="string">                    &#123;&#123;- if $p := index $bo &quot;Propagation&quot; &#125;&#125;</span></span><br><span class="line"><span class="string">                        &#123;&#123;- printf &quot;,bind-propagation=%s&quot; $p&#125;&#125;</span></span><br><span class="line"><span class="string">                    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- end&#125;&#125; \</span></span><br><span class="line"><span class="string">            &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .PublishAllPorts&#125;&#125;</span></span><br><span class="line"><span class="string">  --publish-all \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .UTSMode&#125;&#125;</span></span><br><span class="line"><span class="string">  --uts &#123;&#123;printf &quot;%q&quot; .UTSMode&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- with .LogConfig&#125;&#125;</span></span><br><span class="line"><span class="string">  --log-driver &#123;&#123;printf &quot;%q&quot; .Type&#125;&#125; \</span></span><br><span class="line"><span class="string">            &#123;&#123;- range $o, $v := .Config&#125;&#125;</span></span><br><span class="line"><span class="string">  --log-opt &#123;&#123;$o&#125;&#125;=&#123;&#123;printf &quot;%q&quot; $v&#125;&#125; \</span></span><br><span class="line"><span class="string">            &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- with .RestartPolicy&#125;&#125;</span></span><br><span class="line"><span class="string">  --restart &quot;&#123;&#123;.Name -&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- if eq .Name &quot;on-failure&quot;&#125;&#125;:&#123;&#123;.MaximumRetryCount&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- end&#125;&#125;&quot; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $e := .ExtraHosts&#125;&#125;</span></span><br><span class="line"><span class="string">  --add-host &#123;&#123;printf &quot;%q&quot; $e&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $v := .CapAdd&#125;&#125;</span></span><br><span class="line"><span class="string">  --cap-add &#123;&#123;printf &quot;%q&quot; $v&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $v := .CapDrop&#125;&#125;</span></span><br><span class="line"><span class="string">  --cap-drop &#123;&#123;printf &quot;%q&quot; $v&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $d := .Devices&#125;&#125;</span></span><br><span class="line"><span class="string">  --device &#123;&#123;printf &quot;%q&quot; (index $d).PathOnHost&#125;&#125;:&#123;&#123;printf &quot;%q&quot; (index $d).PathInContainer&#125;&#125;:&#123;&#123;(index $d).CgroupPermissions&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- with .NetworkSettings -&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $p, $conf := .Ports&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- with $conf&#125;&#125;</span></span><br><span class="line"><span class="string">  --publish &quot;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if $h := (index $conf 0).HostIp&#125;&#125;&#123;&#123;$h&#125;&#125;:</span></span><br><span class="line"><span class="string">                &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- (index $conf 0).HostPort&#125;&#125;:&#123;&#123;$p&#125;&#125;&quot; \</span></span><br><span class="line"><span class="string">            &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $n, $conf := .Networks&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- with $conf&#125;&#125;</span></span><br><span class="line"><span class="string">  --network &#123;&#123;printf &quot;%q&quot; $n&#125;&#125; \</span></span><br><span class="line"><span class="string">                &#123;&#123;- range $a := $conf.Aliases&#125;&#125;</span></span><br><span class="line"><span class="string">  --network-alias &#123;&#123;printf &quot;%q&quot; $a&#125;&#125; \</span></span><br><span class="line"><span class="string">                &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- with .Config&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .Hostname&#125;&#125;</span></span><br><span class="line"><span class="string">  --hostname &#123;&#123;printf &quot;%q&quot; .Hostname&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .Domainname&#125;&#125;</span></span><br><span class="line"><span class="string">  --domainname &#123;&#123;printf &quot;%q&quot; .Domainname&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if index . &quot;ExposedPorts&quot;&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $p, $conf := .ExposedPorts&#125;&#125;</span></span><br><span class="line"><span class="string">  --expose &#123;&#123;printf &quot;%q&quot; $p&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if .User&#125;&#125;</span></span><br><span class="line"><span class="string">  --user &#123;&#123;printf &quot;%q&quot; .User&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $e := .Env&#125;&#125;</span></span><br><span class="line"><span class="string">  --env &#123;&#123;printf &quot;%q&quot; $e&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- range $l, $v := .Labels&#125;&#125;</span></span><br><span class="line"><span class="string">  --label &#123;&#123;printf &quot;%q&quot; $l&#125;&#125;=&#123;&#123;printf &quot;%q&quot; $v&#125;&#125; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if not (or .AttachStdin  (or .AttachStdout .AttachStderr))&#125;&#125;</span></span><br><span class="line"><span class="string">  --detach \</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if .AttachStdin&#125;&#125;</span></span><br><span class="line"><span class="string">  --attach stdin \</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if .AttachStdout&#125;&#125;</span></span><br><span class="line"><span class="string">  --attach stdout \</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if .AttachStderr&#125;&#125;</span></span><br><span class="line"><span class="string">  --attach stderr \</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if .Tty&#125;&#125;</span></span><br><span class="line"><span class="string">  --tty \</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if .OpenStdin&#125;&#125;</span></span><br><span class="line"><span class="string">  --interactive \</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- if .Entrypoint&#125;&#125;</span></span><br><span class="line"><span class="string">&#123;&#123;- /* Since the entry point cannot be overridden from the command line with an array of size over 1,</span></span><br><span class="line"><span class="string">       we are fine assuming the default value in such a case. */ -&#125;&#125;</span></span><br><span class="line"><span class="string">        &#123;&#123;- if eq (len .Entrypoint) 1 &#125;&#125;</span></span><br><span class="line"><span class="string">  --entrypoint &quot;</span></span><br><span class="line"><span class="string">            &#123;&#123;- range $i, $v := .Entrypoint&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- if $i&#125;&#125; &#123;&#123;end&#125;&#125;</span></span><br><span class="line"><span class="string">                &#123;&#123;- $v&#125;&#125;</span></span><br><span class="line"><span class="string">            &#123;&#123;- end&#125;&#125;&quot; \</span></span><br><span class="line"><span class="string">        &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">    &#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">  &#123;&#123;printf &quot;%q&quot; .Image&#125;&#125; \</span></span><br><span class="line"><span class="string">  &#123;&#123;range .Cmd&#125;&#125;&#123;&#123;printf &quot;%q &quot; .&#125;&#125;&#123;&#123;- end&#125;&#125;</span></span><br><span class="line"><span class="string">&#123;&#123;- end&#125;&#125;&#x27;</span> \</span><br><span class="line">mysql</span><br></pre></td></tr></table></figure><p>得到的结果和原始的不一样，但是大差不差了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">    assaflavie/runlike mysql</span><br></pre></td></tr></table></figure><p>runlike 的结果也是近似的</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>]]></content>
     
@@ -1953,9 +1953,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="Kernel" scheme="https://zahui.fan/tags/Kernel/"/>
-    
     <category term="Ubuntu" scheme="https://zahui.fan/tags/Ubuntu/"/>
+    
+    <category term="Kernel" scheme="https://zahui.fan/tags/Kernel/"/>
     
   </entry>
   
@@ -1984,9 +1984,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
@@ -2013,11 +2013,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
-    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
     <category term="阿里云" scheme="https://zahui.fan/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
     
@@ -2081,9 +2081,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="curl" scheme="https://zahui.fan/tags/curl/"/>
-    
     <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="curl" scheme="https://zahui.fan/tags/curl/"/>
     
   </entry>
   
@@ -2300,11 +2300,11 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="权限管理" scheme="https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
     
   </entry>
   
@@ -2399,13 +2399,13 @@
     
     <category term="浏览器" scheme="https://zahui.fan/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
-    
-    <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
-    
     <category term="编码" scheme="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/"/>
     
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
+    
+    <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
     
   </entry>
   
@@ -2523,9 +2523,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
-    
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
@@ -3073,9 +3073,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="测试" scheme="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/"/>
-    
     <category term="echo-server" scheme="https://zahui.fan/tags/echo-server/"/>
+    
+    <category term="测试" scheme="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
@@ -3164,9 +3164,9 @@
     <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
     
     
-    <category term="编译" scheme="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/"/>
-    
     <category term="记录" scheme="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="编译" scheme="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   
@@ -3408,11 +3408,11 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
     
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
     
   </entry>
   
@@ -3621,9 +3621,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
-    
     <category term="Ingress" scheme="https://zahui.fan/tags/Ingress/"/>
+    
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
   </entry>
   
@@ -3708,9 +3708,9 @@
     
     <category term="镜像" scheme="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/"/>
     
-    <category term="harbor" scheme="https://zahui.fan/tags/harbor/"/>
-    
     <category term="容器" scheme="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+    <category term="harbor" scheme="https://zahui.fan/tags/harbor/"/>
     
     <category term="漏洞扫描" scheme="https://zahui.fan/tags/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/"/>
     
@@ -3768,11 +3768,11 @@
     <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
     
     
+    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
+    
     <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
     <category term="反向代理" scheme="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
-    
-    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
     
   </entry>
   
@@ -4012,9 +4012,9 @@
     
     <category term="镜像" scheme="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/"/>
     
-    <category term="容器" scheme="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/"/>
-    
     <category term="同步" scheme="https://zahui.fan/tags/%E5%90%8C%E6%AD%A5/"/>
+    
+    <category term="容器" scheme="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/"/>
     
   </entry>
   
@@ -4157,13 +4157,13 @@
     <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
     
     
+    <category term="docker" scheme="https://zahui.fan/tags/docker/"/>
+    
     <category term="fail2ban" scheme="https://zahui.fan/tags/fail2ban/"/>
     
     <category term="cc攻击" scheme="https://zahui.fan/tags/cc%E6%94%BB%E5%87%BB/"/>
     
     <category term="iptables" scheme="https://zahui.fan/tags/iptables/"/>
-    
-    <category term="docker" scheme="https://zahui.fan/tags/docker/"/>
     
   </entry>
   
@@ -5435,13 +5435,13 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="Network" scheme="https://zahui.fan/tags/Network/"/>
-    
-    <category term="LoadBalance" scheme="https://zahui.fan/tags/LoadBalance/"/>
+    <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
     
     <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
     
-    <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
+    <category term="Network" scheme="https://zahui.fan/tags/Network/"/>
+    
+    <category term="LoadBalance" scheme="https://zahui.fan/tags/LoadBalance/"/>
     
     <category term="lvs" scheme="https://zahui.fan/tags/lvs/"/>
     
@@ -5683,11 +5683,11 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
-    
     <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
     
     <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
+    
+    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
     
   </entry>
   
@@ -5743,9 +5743,9 @@
     <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
     
     
-    <category term="Auth" scheme="https://zahui.fan/tags/Auth/"/>
-    
     <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
+    
+    <category term="Auth" scheme="https://zahui.fan/tags/Auth/"/>
     
     <category term="Prometheus" scheme="https://zahui.fan/tags/Prometheus/"/>
     
@@ -5774,9 +5774,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
-    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
+    
+    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
     
   </entry>
   
@@ -5863,9 +5863,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
-    
     <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
+    
+    <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
     
     <category term="Auth" scheme="https://zahui.fan/tags/Auth/"/>
     
@@ -5880,7 +5880,7 @@
     <published>2022-05-28T06:05:52.000Z</published>
     <updated>2024-11-07T11:29:19.000Z</updated>
     
-    <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#x78;&#116;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#105;&#x75;&#x78;&#116;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#x78;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#105;&#x75;&#x78;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#x78;&#x74;&#64;&#113;&#x71;&#46;&#x63;&#111;&#109;">&#105;&#x75;&#x78;&#x74;&#64;&#113;&#x71;&#46;&#x63;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#120;&#x74;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;">&#105;&#x75;&#120;&#x74;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -5954,11 +5954,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="kubectl" scheme="https://zahui.fan/tags/kubectl/"/>
     
   </entry>
   
@@ -6405,9 +6405,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
-    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
+    
+    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
     
   </entry>
   
@@ -6564,9 +6564,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
-    
     <category term="有状态服务" scheme="https://zahui.fan/tags/%E6%9C%89%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1/"/>
+    
+    <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
     
     <category term="MQ" scheme="https://zahui.fan/tags/MQ/"/>
     
@@ -6624,13 +6624,13 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
-    
-    <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
     <category term="k8s" scheme="https://zahui.fan/tags/k8s/"/>
+    
+    <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
+    
+    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
     
   </entry>
   
@@ -6657,11 +6657,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
     <category term="NFS" scheme="https://zahui.fan/tags/NFS/"/>
     
     <category term="存储" scheme="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/"/>
-    
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
   </entry>
   
@@ -6688,9 +6688,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
-    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
+    
+    <category term="nginx" scheme="https://zahui.fan/tags/nginx/"/>
     
   </entry>
   
@@ -7073,9 +7073,9 @@
     
     <category term="网络" scheme="https://zahui.fan/tags/%E7%BD%91%E7%BB%9C/"/>
     
-    <category term="Bash" scheme="https://zahui.fan/tags/Bash/"/>
-    
     <category term="测试" scheme="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="Bash" scheme="https://zahui.fan/tags/Bash/"/>
     
   </entry>
   
@@ -7385,9 +7385,9 @@
     
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
-    <category term="编码" scheme="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/"/>
-    
     <category term="Container" scheme="https://zahui.fan/tags/Container/"/>
+    
+    <category term="编码" scheme="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
@@ -7622,7 +7622,7 @@
     <link href="https://zahui.fan/posts/ffacccf0/"/>
     <id>https://zahui.fan/posts/ffacccf0/</id>
     <published>2021-09-29T08:51:31.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
+    <updated>2024-12-03T03:50:36.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>一直使用 oracle 提供的免费 arm 云服务器，自己的 pc 又是 x86 架构，x86 构建出来的镜像不能在 arm 平台使用</p></blockquote><p>使用 buildx 可以生成跨平台镜像，跨平台镜像就是同一个镜像名称，同一个 tag，但是 arm 机器和 amd64 机器拉下来的镜像 hash 是不一样的</p><h2 id="创建-docker-buildx-构建环境"><a href="#创建-docker-buildx-构建环境" class="headerlink" title="创建 docker buildx 构建环境"></a>创建 docker buildx 构建环境</h2><blockquote><p>这里的 driver 有两种，一种是 docker-container，一种是 docker，构建多平台版本只能使用 docker-container, –use 是将切换为默认</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker buildx create --use --name buildx --node buildx --driver-opt network=host</span><br></pre></td></tr></table></figure><h2 id="准备-qemu-模拟器"><a href="#准备-qemu-模拟器" class="headerlink" title="准备 qemu 模拟器"></a>准备 qemu 模拟器</h2><p>构建不通架构的镜像是通过 qemu 来模拟的，你会发现构建过程中，和 build 机器同架构的会构建很快，不同架构构建很慢。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装全部模拟器</span></span><br><span class="line">docker run --privileged --<span class="built_in">rm</span> tonistiigi/binfmt --install all</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定的模拟器</span></span><br><span class="line">docker run --privileged --<span class="built_in">rm</span> tonistiigi/binfmt --install arm64,riscv64,arm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载指定模拟器</span></span><br><span class="line">docker run --privileged --<span class="built_in">rm</span> tonistiigi/binfmt --uninstall qemu-aarch64</span><br></pre></td></tr></table></figure><h2 id="buildx-构建镜像"><a href="#buildx-构建镜像" class="headerlink" title="buildx 构建镜像"></a>buildx 构建镜像</h2><p>准备一个简单的 Dockerfile</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu</span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;uname&quot;</span>, <span class="string">&quot;-i&quot;</span>]</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker buildx build --push \</span><br><span class="line">    --tag iuxt/ubuntu:latest \</span><br><span class="line">    --platform linux/amd64,linux/arm64 .</span><br></pre></td></tr></table></figure><p>这个时候登录 dockerhub 查看</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20220518103637.png" alt="docker镜像"><br>可以看到已经是多平台支持了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> iuxt/test</span><br><span class="line"></span><br><span class="line">&gt; x86_64</span><br></pre></td></tr></table></figure><p>正常构建的时候，也需要考虑到不同的架构区别，在构建命令里面做判断，比如</p><p><strong>Dockerfile</strong></p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> build.sh /</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /build.sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> REDIS_ADDR=<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span></span><br><span class="line"><span class="keyword">ENV</span> REDIS_PASSWORD=<span class="number">111111</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> /redis_exporter -redis.addr <span class="variable">$&#123;REDIS_ADDR&#125;</span> -redis.password <span class="variable">$&#123;REDIS_PASSWORD&#125;</span></span></span><br></pre></td></tr></table></figure><p><strong>build.sh</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt install curl -y &amp;&amp; apt clean all</span><br><span class="line"><span class="built_in">cd</span> /tmp/ </span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> $(<span class="built_in">uname</span> -m) <span class="keyword">in</span></span><br><span class="line">x86_64)</span><br><span class="line">    filename=<span class="string">&quot;redis_exporter-v1.37.0.linux-amd64.tar.gz&quot;</span></span><br><span class="line">    bin=<span class="string">&quot;redis_exporter-v1.37.0.linux-amd64/redis_exporter&quot;</span></span><br><span class="line">    ;;</span><br><span class="line">aarch64)</span><br><span class="line">    filename=<span class="string">&quot;redis_exporter-v1.37.0.linux-arm64.tar.gz&quot;</span></span><br><span class="line">    bin=<span class="string">&quot;redis_exporter-v1.37.0.linux-arm64/redis_exporter&quot;</span></span><br><span class="line">    ;;</span><br><span class="line">*)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;don&#x27;t support <span class="subst">$(uname -i)</span>&quot;</span></span><br><span class="line">    ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line">curl -OL https://github.com/oliver006/redis_exporter/releases/download/v1.37.0/<span class="variable">$filename</span></span><br><span class="line">tar xf <span class="variable">$filename</span> &amp;&amp; <span class="built_in">mv</span> <span class="variable">$bin</span> /</span><br><span class="line"><span class="built_in">rm</span> -rf /tmp/*</span><br></pre></td></tr></table></figure><h2 id="docker-buildx-常用命令"><a href="#docker-buildx-常用命令" class="headerlink" title="docker buildx 常用命令"></a>docker buildx 常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看所有的builder列表</span></span><br><span class="line">docker buildx <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除创建的builder</span></span><br><span class="line">docker buildx <span class="built_in">rm</span> mybuilder</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换默认builder</span></span><br><span class="line">docker buildx use mybuilder</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -7733,11 +7733,11 @@
     <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
     
     
+    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
+    
     <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
     <category term="Proxy" scheme="https://zahui.fan/tags/Proxy/"/>
-    
-    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
   </entry>
   
@@ -7965,13 +7965,13 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="Network" scheme="https://zahui.fan/tags/Network/"/>
-    
-    <category term="LoadBalance" scheme="https://zahui.fan/tags/LoadBalance/"/>
+    <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
     
     <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
     
-    <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
+    <category term="Network" scheme="https://zahui.fan/tags/Network/"/>
+    
+    <category term="LoadBalance" scheme="https://zahui.fan/tags/LoadBalance/"/>
     
     <category term="lvs" scheme="https://zahui.fan/tags/lvs/"/>
     
@@ -8382,9 +8382,9 @@
     <link href="https://zahui.fan/posts/4d9192f8/"/>
     <id>https://zahui.fan/posts/4d9192f8/</id>
     <published>2021-06-01T09:26:04.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
+    <updated>2024-12-03T03:50:36.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br><span class="line">yum install supervisor</span><br><span class="line">pip install supervisor</span><br></pre></td></tr></table></figure><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[program:nginx]</span><br><span class="line">directory=/data/exec/nginx/sbin/</span><br><span class="line">command=/data/exec/nginx/sbin/nginx -g &quot;daemon off;&quot;</span><br><span class="line">numprocs=1</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startretries=3</span><br><span class="line">user=root</span><br><span class="line">redirect_stderr=true</span><br><span class="line">stdout_logfile_maxbytes=1024MB</span><br><span class="line">stdout_logfile_backups = 1</span><br><span class="line">stdout_logfile=/data/logs/nginx/nginx-bin.log</span><br><span class="line"></span><br><span class="line">environment=JAVA_HOME=&quot;xxxxxx&quot;,aaa=&quot;bbb&quot;</span><br></pre></td></tr></table></figure><blockquote><p>这个 directory 用处： 程序路径还是要用绝对路径，但是后面加的参数就可以生效了。</p></blockquote><h3 id="启动多个进程"><a href="#启动多个进程" class="headerlink" title="启动多个进程"></a>启动多个进程</h3><blockquote><p>numprocs&#x3D;1 大于 1 个进程的时候：需要加上， 比如程序名 test，启动 3 个进程</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numprocs=3</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d</span><br><span class="line"></span><br><span class="line">进程名为:</span><br><span class="line">test:test_00</span><br><span class="line">test:test_01</span><br><span class="line">test:test_02</span><br></pre></td></tr></table></figure><h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="重启-daemon-进程"><a href="#重启-daemon-进程" class="headerlink" title="重启 daemon 进程"></a>重启 daemon 进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl reload</span><br></pre></td></tr></table></figure><h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart 服务名或all</span><br></pre></td></tr></table></figure><h3 id="重启一组服务"><a href="#重启一组服务" class="headerlink" title="重启一组服务"></a>重启一组服务</h3><p>重启 test:801-803</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart <span class="built_in">test</span>:80&#123;1..3&#125;</span><br></pre></td></tr></table></figure><h3 id="重启所有-test-开头的服务"><a href="#重启所有-test-开头的服务" class="headerlink" title="重启所有 test 开头的服务"></a>重启所有 test 开头的服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart <span class="built_in">test</span>:</span><br></pre></td></tr></table></figure><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>用 supervisor 守护 Prometheus 发现 Prometheus 经常报错 max open files ， 但是操作系统已经将 open files 调整到非常高了。检查下来发现是 supervisor 主配置文件里面限制了 open files 数量</p><p>vim &#x2F;etc&#x2F;supervisord.conf</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[supervisord]</span></span><br><span class="line"><span class="attr">logfile</span>=/var/log/supervisor/supervisord.log  <span class="comment">; (main log file;default $CWD/supervisord.log)</span></span><br><span class="line"><span class="attr">logfile_maxbytes</span>=<span class="number">50</span>MB       <span class="comment">; (max main logfile bytes b4 rotation;default 50MB)</span></span><br><span class="line"><span class="attr">logfile_backups</span>=<span class="number">10</span>          <span class="comment">; (num of main logfile rotation backups;default 10)</span></span><br><span class="line"><span class="attr">loglevel</span>=info               <span class="comment">; (log level;default info; others: debug,warn,trace)</span></span><br><span class="line"><span class="attr">pidfile</span>=/var/run/supervisord.pid <span class="comment">; (supervisord pidfile;default supervisord.pid)</span></span><br><span class="line"><span class="attr">nodaemon</span>=<span class="literal">false</span>              <span class="comment">; (start in foreground if true;default false)</span></span><br><span class="line"><span class="attr">minfds</span>=<span class="number">1024</span>                 <span class="comment">; (min. avail startup file descriptors;default 1024)</span></span><br><span class="line"><span class="attr">minprocs</span>=<span class="number">200</span>                <span class="comment">; (min. avail process descriptors;default 200)</span></span><br><span class="line"><span class="comment">;umask=022                  ; (process file creation umask;default 022)</span></span><br><span class="line"><span class="comment">;user=chrism                 ; (default is current user, required if root)</span></span><br><span class="line"><span class="comment">;identifier=supervisor       ; (supervisord identifier, default is &#x27;supervisor&#x27;)</span></span><br><span class="line"><span class="comment">;directory=/tmp              ; (default is not to cd during start)</span></span><br><span class="line"><span class="comment">;nocleanup=true              ; (don&#x27;t clean up tempfiles at start;default false)</span></span><br><span class="line"><span class="comment">;childlogdir=/tmp            ; (&#x27;AUTO&#x27; child log dir, default $TEMP)</span></span><br><span class="line"><span class="comment">;environment=KEY=value       ; (key value pairs to add to environment)</span></span><br><span class="line"><span class="comment">;strip_ansi=false            ; (strip ansi escape codes in logs; def. false)</span></span><br></pre></td></tr></table></figure><p>其中 <code>minfds</code> 是限制打开的文件描述符， 将值调大即可， 需要重启 supervisord 服务。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br><span class="line">yum install supervisor</span><br><span class="line">pip install supervisor</span><br></pre></td></tr></table></figure><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[program:nginx]</span><br><span class="line">user=gsw945</span><br><span class="line">directory=/data/exec/nginx/sbin/</span><br><span class="line">command=/data/exec/nginx/sbin/nginx -g &quot;daemon off;&quot;</span><br><span class="line">numprocs=1</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line"></span><br><span class="line">startsecs=5</span><br><span class="line">startretries=3</span><br><span class="line">stopsignal=HUP</span><br><span class="line">stopasgroup=true</span><br><span class="line">stopwaitsecs=5</span><br><span class="line"></span><br><span class="line">redirect_stderr=false</span><br><span class="line">stdout_logfile_maxbytes=20MB</span><br><span class="line">stdout_logfile_backups = 1</span><br><span class="line">stdout_logfile=/var/log/supervisor/%(program_name)s-out.log</span><br><span class="line">stderr_logfile_maxbytes=20MB</span><br><span class="line">stderr_logfile=/var/log/supervisor/%(program_name)s-err.log</span><br><span class="line"></span><br><span class="line">environment=JAVA_HOME=&quot;xxxxxx&quot;,aaa=&quot;bbb&quot;</span><br></pre></td></tr></table></figure><blockquote><p>这个 directory 用处： 程序路径还是要用绝对路径，但是后面加的参数就可以生效了。</p></blockquote><h3 id="启动多个进程"><a href="#启动多个进程" class="headerlink" title="启动多个进程"></a>启动多个进程</h3><blockquote><p>numprocs&#x3D;1 大于 1 个进程的时候：需要加上， 比如程序名 test，启动 3 个进程</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numprocs=3</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d</span><br><span class="line"></span><br><span class="line">进程名为:</span><br><span class="line">test:test_00</span><br><span class="line">test:test_01</span><br><span class="line">test:test_02</span><br></pre></td></tr></table></figure><h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><h3 id="重启-daemon-进程"><a href="#重启-daemon-进程" class="headerlink" title="重启 daemon 进程"></a>重启 daemon 进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl reload</span><br></pre></td></tr></table></figure><h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart 服务名或all</span><br></pre></td></tr></table></figure><h3 id="重启一组服务"><a href="#重启一组服务" class="headerlink" title="重启一组服务"></a>重启一组服务</h3><p>重启 test:801-803</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart <span class="built_in">test</span>:80&#123;1..3&#125;</span><br></pre></td></tr></table></figure><h3 id="重启所有-test-开头的服务"><a href="#重启所有-test-开头的服务" class="headerlink" title="重启所有 test 开头的服务"></a>重启所有 test 开头的服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart <span class="built_in">test</span>:</span><br></pre></td></tr></table></figure><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p>用 supervisor 守护 Prometheus 发现 Prometheus 经常报错 max open files ， 但是操作系统已经将 open files 调整到非常高了。检查下来发现是 supervisor 主配置文件里面限制了 open files 数量</p><p>vim &#x2F;etc&#x2F;supervisord.conf</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[supervisord]</span></span><br><span class="line"><span class="attr">logfile</span>=/var/log/supervisor/supervisord.log  <span class="comment">; (main log file;default $CWD/supervisord.log)</span></span><br><span class="line"><span class="attr">logfile_maxbytes</span>=<span class="number">50</span>MB       <span class="comment">; (max main logfile bytes b4 rotation;default 50MB)</span></span><br><span class="line"><span class="attr">logfile_backups</span>=<span class="number">10</span>          <span class="comment">; (num of main logfile rotation backups;default 10)</span></span><br><span class="line"><span class="attr">loglevel</span>=info               <span class="comment">; (log level;default info; others: debug,warn,trace)</span></span><br><span class="line"><span class="attr">pidfile</span>=/var/run/supervisord.pid <span class="comment">; (supervisord pidfile;default supervisord.pid)</span></span><br><span class="line"><span class="attr">nodaemon</span>=<span class="literal">false</span>              <span class="comment">; (start in foreground if true;default false)</span></span><br><span class="line"><span class="attr">minfds</span>=<span class="number">1024</span>                 <span class="comment">; (min. avail startup file descriptors;default 1024)</span></span><br><span class="line"><span class="attr">minprocs</span>=<span class="number">200</span>                <span class="comment">; (min. avail process descriptors;default 200)</span></span><br><span class="line"><span class="comment">;umask=022                  ; (process file creation umask;default 022)</span></span><br><span class="line"><span class="comment">;user=chrism                 ; (default is current user, required if root)</span></span><br><span class="line"><span class="comment">;identifier=supervisor       ; (supervisord identifier, default is &#x27;supervisor&#x27;)</span></span><br><span class="line"><span class="comment">;directory=/tmp              ; (default is not to cd during start)</span></span><br><span class="line"><span class="comment">;nocleanup=true              ; (don&#x27;t clean up tempfiles at start;default false)</span></span><br><span class="line"><span class="comment">;childlogdir=/tmp            ; (&#x27;AUTO&#x27; child log dir, default $TEMP)</span></span><br><span class="line"><span class="comment">;environment=KEY=value       ; (key value pairs to add to environment)</span></span><br><span class="line"><span class="comment">;strip_ansi=false            ; (strip ansi escape codes in logs; def. false)</span></span><br></pre></td></tr></table></figure><p>其中 <code>minfds</code> 是限制打开的文件描述符， 将值调大即可， 需要重启 supervisord 服务。</p>]]></content>
     
     
       
@@ -8599,9 +8599,9 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
-    
     <category term="HA" scheme="https://zahui.fan/tags/HA/"/>
+    
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
     <category term="有状态服务" scheme="https://zahui.fan/tags/%E6%9C%89%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1/"/>
     
@@ -8692,9 +8692,9 @@
     
     <category term="Linux" scheme="https://zahui.fan/tags/Linux/"/>
     
-    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
-    
     <category term="常用操作" scheme="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
     
   </entry>
   
@@ -8756,11 +8756,11 @@
     
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
-    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
-    
     <category term="Container" scheme="https://zahui.fan/tags/Container/"/>
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
     
     <category term="kubeadm" scheme="https://zahui.fan/tags/kubeadm/"/>
     
@@ -8994,13 +8994,13 @@
     
     <category term="配置记录" scheme="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
     
-    <category term="Ubuntu" scheme="https://zahui.fan/tags/Ubuntu/"/>
-    
-    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
-    
     <category term="Container" scheme="https://zahui.fan/tags/Container/"/>
     
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="keepalived" scheme="https://zahui.fan/tags/keepalived/"/>
+    
+    <category term="Ubuntu" scheme="https://zahui.fan/tags/Ubuntu/"/>
     
   </entry>
   
