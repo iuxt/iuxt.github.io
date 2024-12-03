@@ -12,8 +12,8 @@ var require$$0$6 = require('buffer');
 var require$$0$5 = require('stream');
 var require$$2$1 = require('util');
 var node_os = require('node:os');
-var node_buffer = require('node:buffer');
 require('electron');
+var node_buffer = require('node:buffer');
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -2981,6 +2981,79 @@ function fixPath() {
 	].join(':');
 }
 
+const IMAGE_EXT_LIST = [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".bmp",
+    ".gif",
+    ".svg",
+    ".tiff",
+    ".webp",
+    ".avif",
+];
+function isAnImage(ext) {
+    return IMAGE_EXT_LIST.includes(ext.toLowerCase());
+}
+function isAssetTypeAnImage(path) {
+    return isAnImage(pathBrowserify.extname(path));
+}
+function getOS() {
+    const { appVersion } = navigator;
+    if (appVersion.indexOf("Win") !== -1) {
+        return "Windows";
+    }
+    else if (appVersion.indexOf("Mac") !== -1) {
+        return "MacOS";
+    }
+    else if (appVersion.indexOf("X11") !== -1) {
+        return "Linux";
+    }
+    else {
+        return "Unknown OS";
+    }
+}
+async function streamToString(stream) {
+    const chunks = [];
+    for await (const chunk of stream) {
+        chunks.push(Buffer.from(chunk));
+    }
+    // @ts-ignore
+    return Buffer.concat(chunks).toString("utf-8");
+}
+function getUrlAsset(url) {
+    return (url = url.substr(1 + url.lastIndexOf("/")).split("?")[0]).split("#")[0];
+}
+function getLastImage(list) {
+    const reversedList = list.reverse();
+    let lastImage;
+    reversedList.forEach(item => {
+        if (item && item.startsWith("http")) {
+            lastImage = item;
+            return item;
+        }
+    });
+    return lastImage;
+}
+function arrayToObject(arr, key) {
+    const obj = {};
+    arr.forEach(element => {
+        obj[element[key]] = element;
+    });
+    return obj;
+}
+function bufferToArrayBuffer(buffer) {
+    const arrayBuffer = new ArrayBuffer(buffer.length);
+    const view = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < buffer.length; i++) {
+        view[i] = buffer[i];
+    }
+    return arrayBuffer;
+}
+function uuid() {
+    return Math.random().toString(36).slice(2);
+}
+
 // Primitive types
 function dv(array) {
     return new DataView(array.buffer, array.byteOffset);
@@ -5556,74 +5629,261 @@ async function imageType(input) {
 	return imageExtensions.has(result?.ext) && result;
 }
 
-const IMAGE_EXT_LIST = [
-    ".png",
-    ".jpg",
-    ".jpeg",
-    ".bmp",
-    ".gif",
-    ".svg",
-    ".tiff",
-    ".webp",
-    ".avif",
-];
-function isAnImage(ext) {
-    return IMAGE_EXT_LIST.includes(ext.toLowerCase());
+// العربية
+var ar = {};
+
+// čeština
+var cz = {};
+
+// Dansk
+var da = {};
+
+// Deutsch
+var de = {};
+
+// English
+var en = {
+    // setting.ts
+    "Plugin Settings": "Plugin Settings",
+    "Auto pasted upload": "Auto pasted upload",
+    "If you set this value true, when you paste image, it will be auto uploaded(you should set the picGo server rightly)": "If you set this value true, when you paste image, it will be auto uploaded(you should set the picGo server rightly)",
+    "Default uploader": "Default uploader",
+    "PicGo server": "PicGo server upload route",
+    "PicGo server desc": "upload route, use PicList will be able to set picbed and config through query",
+    "Please input PicGo server": "Please input upload route",
+    "PicGo delete server": "PicGo server delete route(you need to use PicList app)",
+    "PicList desc": "Search PicList on Github to download and install",
+    "Please input PicGo delete server": "Please input delete server",
+    "Delete image using PicList": "Delete image using PicList",
+    "PicGo-Core path": "PicGo-Core path",
+    "Delete successfully": "Delete successfully",
+    "Delete failed": "Delete failed",
+    "Image size suffix": "Image size suffix",
+    "Image size suffix Description": "like |300 for resize image in ob.",
+    "Please input image size suffix": "Please input image size suffix",
+    "Error, could not delete": "Error, could not delete",
+    "Please input PicGo-Core path, default using environment variables": "Please input PicGo-Core path, default using environment variables",
+    "Work on network": "Work on network",
+    "Work on network Description": "Allow upload network image by 'Upload all' command.\n Or when you paste, md standard image link in your clipboard will be auto upload.",
+    fixPath: "fixPath",
+    fixPathWarning: "This option is used to fix PicGo-core upload failures on Linux and Mac. It modifies the PATH variable within Obsidian. If Obsidian encounters any bugs, turn off the option, try again! ",
+    "Upload when clipboard has image and text together": "Upload when clipboard has image and text together",
+    "When you copy, some application like Excel will image and text to clipboard, you can upload or not.": "When you copy, some application like Excel will image and text to clipboard, you can upload or not.",
+    "Network Domain Black List": "Network Domain Black List",
+    "Network Domain Black List Description": "Image in the domain list will not be upload,use comma separated",
+    "Delete source file after you upload file": "Delete source file after you upload file",
+    "Delete source file in ob assets after you upload file.": "Delete source file in ob assets after you upload file.",
+    "Image desc": "Image desc",
+    reserve: "default",
+    "remove all": "none",
+    "remove default": "remove image.png",
+    "Remote server mode": "Remote server mode",
+    "Remote server mode desc": "If you have deployed piclist-core or piclist on the server.",
+    "Can not find image file": "Can not find image file",
+    "File has been changedd, upload failure": "File has been changedd, upload failure",
+    "File has been changedd, download failure": "File has been changedd, download failure",
+    "Warning: upload files is different of reciver files from api": "Warning: upload files num is different of reciver files from api",
+};
+
+// British English
+var enGB = {};
+
+// Español
+var es = {};
+
+// français
+var fr = {};
+
+// हिन्दी
+var hi = {};
+
+// Bahasa Indonesia
+var id = {};
+
+// Italiano
+var it = {};
+
+// 日本語
+var ja = {};
+
+// 한국어
+var ko = {};
+
+// Nederlands
+var nl = {};
+
+// Norsk
+var no = {};
+
+// język polski
+var pl = {};
+
+// Português
+var pt = {};
+
+// Português do Brasil
+// Brazilian Portuguese
+var ptBR = {};
+
+// Română
+var ro = {};
+
+// русский
+var ru = {};
+
+// Türkçe
+var tr = {};
+
+// 简体中文
+var zhCN = {
+    // setting.ts
+    "Plugin Settings": "插件设置",
+    "Auto pasted upload": "剪切板自动上传",
+    "If you set this value true, when you paste image, it will be auto uploaded(you should set the picGo server rightly)": "启用该选项后，黏贴图片时会自动上传（你需要正确配置picgo）",
+    "Default uploader": "默认上传器",
+    "PicGo server": "PicGo server 上传接口",
+    "PicGo server desc": "上传接口，使用PicList时可通过设置URL参数指定图床和配置",
+    "Please input PicGo server": "请输入上传接口地址",
+    "PicGo delete server": "PicGo server 删除接口(请使用PicList来启用此功能)",
+    "PicList desc": "PicList是PicGo二次开发版，请Github搜索PicList下载",
+    "Please input PicGo delete server": "请输入删除接口地址",
+    "Delete image using PicList": "使用 PicList 删除图片",
+    "PicGo-Core path": "PicGo-Core 路径",
+    "Delete successfully": "删除成功",
+    "Delete failed": "删除失败",
+    "Error, could not delete": "错误，无法删除",
+    "Image size suffix": "图片大小后缀",
+    "Image size suffix Description": "比如：|300 用于调整图片大小",
+    "Please input image size suffix": "请输入图片大小后缀",
+    "Please input PicGo-Core path, default using environment variables": "请输入 PicGo-Core path，默认使用环境变量",
+    "Work on network": "应用网络图片",
+    "Work on network Description": "当你上传所有图片时，也会上传网络图片。以及当你进行黏贴时，剪切板中的标准 md 图片会被上传",
+    fixPath: "修正PATH变量",
+    fixPathWarning: "此选项用于修复Linux和Mac上 PicGo-Core 上传失败的问题。它会修改 Obsidian 内的 PATH 变量，如果 Obsidian 遇到任何BUG，先关闭这个选项试试！",
+    "Upload when clipboard has image and text together": "当剪切板同时拥有文本和图片剪切板数据时是否上传图片",
+    "When you copy, some application like Excel will image and text to clipboard, you can upload or not.": "当你复制时，某些应用例如 Excel 会在剪切板同时文本和图像数据，确认是否上传。",
+    "Network Domain Black List": "网络图片域名黑名单",
+    "Network Domain Black List Description": "黑名单域名中的图片将不会被上传，用英文逗号分割",
+    "Delete source file after you upload file": "上传文件后移除源文件",
+    "Delete source file in ob assets after you upload file.": "上传文件后移除在ob附件文件夹中的文件",
+    "Image desc": "图片描述",
+    reserve: "默认",
+    "remove all": "无",
+    "remove default": "移除image.png",
+    "Remote server mode": "远程服务器模式",
+    "Remote server mode desc": "如果你在服务器部署了piclist-core或者piclist",
+    "Can not find image file": "没有解析到图像文件",
+    "File has been changedd, upload failure": "当前文件已变更，上传失败",
+    "File has been changedd, download failure": "当前文件已变更，下载失败",
+    "Warning: upload files is different of reciver files from api": "警告：上传的文件与接口返回的文件数量不一致",
+};
+
+// 繁體中文
+var zhTW = {};
+
+const localeMap = {
+    ar,
+    cs: cz,
+    da,
+    de,
+    en,
+    'en-gb': enGB,
+    es,
+    fr,
+    hi,
+    id,
+    it,
+    ja,
+    ko,
+    nl,
+    nn: no,
+    pl,
+    pt,
+    'pt-br': ptBR,
+    ro,
+    ru,
+    tr,
+    'zh-cn': zhCN,
+    'zh-tw': zhTW,
+};
+const locale = localeMap[obsidian.moment.locale()];
+function t(str) {
+    return (locale && locale[str]) || en[str];
 }
-function isAssetTypeAnImage(path) {
-    return isAnImage(pathBrowserify.extname(path));
-}
-function getOS() {
-    const { appVersion } = navigator;
-    if (appVersion.indexOf("Win") !== -1) {
-        return "Windows";
+
+async function downloadAllImageFiles(plugin) {
+    const activeFile = plugin.app.workspace.getActiveFile();
+    const folderPath = await plugin.app.fileManager.getAvailablePathForAttachment("");
+    const fileArray = plugin.helper.getAllFiles();
+    if (!(await plugin.app.vault.adapter.exists(folderPath))) {
+        await plugin.app.vault.adapter.mkdir(folderPath);
     }
-    else if (appVersion.indexOf("Mac") !== -1) {
-        return "MacOS";
-    }
-    else if (appVersion.indexOf("X11") !== -1) {
-        return "Linux";
-    }
-    else {
-        return "Unknown OS";
-    }
-}
-async function streamToString(stream) {
-    const chunks = [];
-    for await (const chunk of stream) {
-        chunks.push(Buffer.from(chunk));
-    }
-    // @ts-ignore
-    return Buffer.concat(chunks).toString("utf-8");
-}
-function getUrlAsset(url) {
-    return (url = url.substr(1 + url.lastIndexOf("/")).split("?")[0]).split("#")[0];
-}
-function getLastImage(list) {
-    const reversedList = list.reverse();
-    let lastImage;
-    reversedList.forEach(item => {
-        if (item && item.startsWith("http")) {
-            lastImage = item;
-            return item;
+    let imageArray = [];
+    for (const file of fileArray) {
+        if (!file.path.startsWith("http")) {
+            continue;
         }
-    });
-    return lastImage;
-}
-function arrayToObject(arr, key) {
-    const obj = {};
-    arr.forEach(element => {
-        obj[element[key]] = element;
-    });
-    return obj;
-}
-function bufferToArrayBuffer(buffer) {
-    const arrayBuffer = new ArrayBuffer(buffer.length);
-    const view = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < buffer.length; i++) {
-        view[i] = buffer[i];
+        const url = file.path;
+        const asset = getUrlAsset(url);
+        let name = decodeURI(pathBrowserify.parse(asset).name).replaceAll(/[\\\\/:*?\"<>|]/g, "-");
+        const response = await download(plugin, url, folderPath, name);
+        if (response.ok) {
+            const activeFolder = plugin.app.workspace.getActiveFile().parent.path;
+            imageArray.push({
+                source: file.source,
+                name: name,
+                path: obsidian.normalizePath(pathBrowserify.relative(obsidian.normalizePath(activeFolder), obsidian.normalizePath(response.path))),
+            });
+        }
     }
-    return arrayBuffer;
+    let value = plugin.helper.getValue();
+    imageArray.map(image => {
+        let name = plugin.handleName(image.name);
+        value = value.replace(image.source, `![${name}](${encodeURI(image.path)})`);
+    });
+    const currentFile = plugin.app.workspace.getActiveFile();
+    if (activeFile.path !== currentFile.path) {
+        new obsidian.Notice(t("File has been changedd, download failure"));
+        return;
+    }
+    plugin.helper.setValue(value);
+    new obsidian.Notice(`all: ${fileArray.length}\nsuccess: ${imageArray.length}\nfailed: ${fileArray.length - imageArray.length}`);
+}
+async function download(plugin, url, folderPath, name) {
+    const response = await obsidian.requestUrl({ url });
+    if (response.status !== 200) {
+        return {
+            ok: false,
+            msg: "error",
+        };
+    }
+    const type = await imageType(new Uint8Array(response.arrayBuffer));
+    if (!type) {
+        return {
+            ok: false,
+            msg: "error",
+        };
+    }
+    try {
+        let path = obsidian.normalizePath(pathBrowserify.join(folderPath, `${name}.${type.ext}`));
+        // 如果文件名已存在，则用随机值替换，不对文件后缀进行判断
+        if (await plugin.app.vault.adapter.exists(path)) {
+            path = obsidian.normalizePath(pathBrowserify.join(folderPath, `${uuid()}.${type.ext}`));
+        }
+        plugin.app.vault.adapter.writeBinary(path, response.arrayBuffer);
+        return {
+            ok: true,
+            msg: "ok",
+            path: path,
+            type,
+        };
+    }
+    catch (err) {
+        return {
+            ok: false,
+            msg: err,
+        };
+    }
 }
 
 class PicGoUploader {
@@ -5932,188 +6192,6 @@ class Helper {
     }
 }
 
-// العربية
-var ar = {};
-
-// čeština
-var cz = {};
-
-// Dansk
-var da = {};
-
-// Deutsch
-var de = {};
-
-// English
-var en = {
-    // setting.ts
-    "Plugin Settings": "Plugin Settings",
-    "Auto pasted upload": "Auto pasted upload",
-    "If you set this value true, when you paste image, it will be auto uploaded(you should set the picGo server rightly)": "If you set this value true, when you paste image, it will be auto uploaded(you should set the picGo server rightly)",
-    "Default uploader": "Default uploader",
-    "PicGo server": "PicGo server upload route",
-    "PicGo server desc": "upload route, use PicList will be able to set picbed and config through query",
-    "Please input PicGo server": "Please input upload route",
-    "PicGo delete server": "PicGo server delete route(you need to use PicList app)",
-    "PicList desc": "Search PicList on Github to download and install",
-    "Please input PicGo delete server": "Please input delete server",
-    "Delete image using PicList": "Delete image using PicList",
-    "PicGo-Core path": "PicGo-Core path",
-    "Delete successfully": "Delete successfully",
-    "Delete failed": "Delete failed",
-    "Image size suffix": "Image size suffix",
-    "Image size suffix Description": "like |300 for resize image in ob.",
-    "Please input image size suffix": "Please input image size suffix",
-    "Error, could not delete": "Error, could not delete",
-    "Please input PicGo-Core path, default using environment variables": "Please input PicGo-Core path, default using environment variables",
-    "Work on network": "Work on network",
-    "Work on network Description": "Allow upload network image by 'Upload all' command.\n Or when you paste, md standard image link in your clipboard will be auto upload.",
-    fixPath: "fixPath",
-    fixPathWarning: "This option is used to fix PicGo-core upload failures on Linux and Mac. It modifies the PATH variable within Obsidian. If Obsidian encounters any bugs, turn off the option, try again! ",
-    "Upload when clipboard has image and text together": "Upload when clipboard has image and text together",
-    "When you copy, some application like Excel will image and text to clipboard, you can upload or not.": "When you copy, some application like Excel will image and text to clipboard, you can upload or not.",
-    "Network Domain Black List": "Network Domain Black List",
-    "Network Domain Black List Description": "Image in the domain list will not be upload,use comma separated",
-    "Delete source file after you upload file": "Delete source file after you upload file",
-    "Delete source file in ob assets after you upload file.": "Delete source file in ob assets after you upload file.",
-    "Image desc": "Image desc",
-    reserve: "default",
-    "remove all": "none",
-    "remove default": "remove image.png",
-    "Remote server mode": "Remote server mode",
-    "Remote server mode desc": "If you have deployed piclist-core or piclist on the server.",
-    "Can not find image file": "Can not find image file",
-    "File has been changedd, upload failure": "File has been changedd, upload failure",
-    "File has been changedd, download failure": "File has been changedd, download failure",
-    "Warning: upload files is different of reciver files from api": "Warning: upload files num is different of reciver files from api",
-};
-
-// British English
-var enGB = {};
-
-// Español
-var es = {};
-
-// français
-var fr = {};
-
-// हिन्दी
-var hi = {};
-
-// Bahasa Indonesia
-var id = {};
-
-// Italiano
-var it = {};
-
-// 日本語
-var ja = {};
-
-// 한국어
-var ko = {};
-
-// Nederlands
-var nl = {};
-
-// Norsk
-var no = {};
-
-// język polski
-var pl = {};
-
-// Português
-var pt = {};
-
-// Português do Brasil
-// Brazilian Portuguese
-var ptBR = {};
-
-// Română
-var ro = {};
-
-// русский
-var ru = {};
-
-// Türkçe
-var tr = {};
-
-// 简体中文
-var zhCN = {
-    // setting.ts
-    "Plugin Settings": "插件设置",
-    "Auto pasted upload": "剪切板自动上传",
-    "If you set this value true, when you paste image, it will be auto uploaded(you should set the picGo server rightly)": "启用该选项后，黏贴图片时会自动上传（你需要正确配置picgo）",
-    "Default uploader": "默认上传器",
-    "PicGo server": "PicGo server 上传接口",
-    "PicGo server desc": "上传接口，使用PicList时可通过设置URL参数指定图床和配置",
-    "Please input PicGo server": "请输入上传接口地址",
-    "PicGo delete server": "PicGo server 删除接口(请使用PicList来启用此功能)",
-    "PicList desc": "PicList是PicGo二次开发版，请Github搜索PicList下载",
-    "Please input PicGo delete server": "请输入删除接口地址",
-    "Delete image using PicList": "使用 PicList 删除图片",
-    "PicGo-Core path": "PicGo-Core 路径",
-    "Delete successfully": "删除成功",
-    "Delete failed": "删除失败",
-    "Error, could not delete": "错误，无法删除",
-    "Image size suffix": "图片大小后缀",
-    "Image size suffix Description": "比如：|300 用于调整图片大小",
-    "Please input image size suffix": "请输入图片大小后缀",
-    "Please input PicGo-Core path, default using environment variables": "请输入 PicGo-Core path，默认使用环境变量",
-    "Work on network": "应用网络图片",
-    "Work on network Description": "当你上传所有图片时，也会上传网络图片。以及当你进行黏贴时，剪切板中的标准 md 图片会被上传",
-    fixPath: "修正PATH变量",
-    fixPathWarning: "此选项用于修复Linux和Mac上 PicGo-Core 上传失败的问题。它会修改 Obsidian 内的 PATH 变量，如果 Obsidian 遇到任何BUG，先关闭这个选项试试！",
-    "Upload when clipboard has image and text together": "当剪切板同时拥有文本和图片剪切板数据时是否上传图片",
-    "When you copy, some application like Excel will image and text to clipboard, you can upload or not.": "当你复制时，某些应用例如 Excel 会在剪切板同时文本和图像数据，确认是否上传。",
-    "Network Domain Black List": "网络图片域名黑名单",
-    "Network Domain Black List Description": "黑名单域名中的图片将不会被上传，用英文逗号分割",
-    "Delete source file after you upload file": "上传文件后移除源文件",
-    "Delete source file in ob assets after you upload file.": "上传文件后移除在ob附件文件夹中的文件",
-    "Image desc": "图片描述",
-    reserve: "默认",
-    "remove all": "无",
-    "remove default": "移除image.png",
-    "Remote server mode": "远程服务器模式",
-    "Remote server mode desc": "如果你在服务器部署了piclist-core或者piclist",
-    "Can not find image file": "没有解析到图像文件",
-    "File has been changedd, upload failure": "当前文件已变更，上传失败",
-    "File has been changedd, download failure": "当前文件已变更，下载失败",
-    "Warning: upload files is different of reciver files from api": "警告：上传的文件与接口返回的文件数量不一致",
-};
-
-// 繁體中文
-var zhTW = {};
-
-const localeMap = {
-    ar,
-    cs: cz,
-    da,
-    de,
-    en,
-    'en-gb': enGB,
-    es,
-    fr,
-    hi,
-    id,
-    it,
-    ja,
-    ko,
-    nl,
-    nn: no,
-    pl,
-    pt,
-    'pt-br': ptBR,
-    ro,
-    ru,
-    tr,
-    'zh-cn': zhCN,
-    'zh-tw': zhTW,
-};
-const locale = localeMap[obsidian.moment.locale()];
-function t(str) {
-    return (locale && locale[str]) || en[str];
-}
-
 const DEFAULT_SETTINGS = {
     uploadByClipSwitch: true,
     uploader: "PicGo",
@@ -6349,7 +6427,7 @@ class imageAutoUploadPlugin extends obsidian.Plugin {
                 let leaf = this.app.workspace.activeLeaf;
                 if (leaf) {
                     if (!checking) {
-                        this.downloadAllImageFiles();
+                        downloadAllImageFiles(this);
                     }
                     return true;
                 }
@@ -6407,104 +6485,6 @@ class imageAutoUploadPlugin extends obsidian.Plugin {
             }
         }));
     };
-    async downloadAllImageFiles() {
-        const activeFile = this.app.workspace.getActiveFile();
-        const folderPath = this.getFileAssetPath();
-        const fileArray = this.helper.getAllFiles();
-        if (!require$$0.existsSync(folderPath)) {
-            require$$0.mkdirSync(folderPath);
-        }
-        let imageArray = [];
-        const nameSet = new Set();
-        for (const file of fileArray) {
-            if (!file.path.startsWith("http")) {
-                continue;
-            }
-            const url = file.path;
-            const asset = getUrlAsset(url);
-            let name = decodeURI(pathBrowserify.parse(asset).name).replaceAll(/[\\\\/:*?\"<>|]/g, "-");
-            // 如果文件名已存在，则用随机值替换，不对文件后缀进行判断
-            if (require$$0.existsSync(pathBrowserify.join(folderPath))) {
-                name = (Math.random() + 1).toString(36).substr(2, 5);
-            }
-            if (nameSet.has(name)) {
-                name = `${name}-${(Math.random() + 1).toString(36).substr(2, 5)}`;
-            }
-            nameSet.add(name);
-            const response = await this.download(url, folderPath, name);
-            if (response.ok) {
-                const activeFolder = obsidian.normalizePath(this.app.workspace.getActiveFile().parent.path);
-                const abstractActiveFolder = this.app.vault.adapter.getFullPath(activeFolder);
-                imageArray.push({
-                    source: file.source,
-                    name: name,
-                    path: obsidian.normalizePath(pathBrowserify.relative(abstractActiveFolder, response.path)),
-                });
-            }
-        }
-        let value = this.helper.getValue();
-        imageArray.map(image => {
-            let name = this.handleName(image.name);
-            value = value.replace(image.source, `![${name}](${encodeURI(image.path)})`);
-        });
-        const currentFile = this.app.workspace.getActiveFile();
-        if (activeFile.path !== currentFile.path) {
-            new obsidian.Notice(t("File has been changedd, download failure"));
-            return;
-        }
-        this.helper.setValue(value);
-        new obsidian.Notice(`all: ${fileArray.length}\nsuccess: ${imageArray.length}\nfailed: ${fileArray.length - imageArray.length}`);
-    }
-    // 获取当前文件所属的附件文件夹
-    getFileAssetPath() {
-        const basePath = this.app.vault.adapter.getBasePath();
-        // @ts-ignore
-        const assetFolder = this.app.vault.config.attachmentFolderPath;
-        const activeFile = this.app.vault.getAbstractFileByPath(this.app.workspace.getActiveFile().path);
-        // 当前文件夹下的子文件夹
-        if (assetFolder.startsWith("./")) {
-            const activeFolder = decodeURI(pathBrowserify.resolve(basePath, activeFile.parent.path));
-            return pathBrowserify.join(activeFolder, assetFolder);
-        }
-        else {
-            // 根文件夹
-            return pathBrowserify.join(basePath, assetFolder);
-        }
-    }
-    async download(url, folderPath, name) {
-        const response = await obsidian.requestUrl({ url });
-        const type = await imageType(new Uint8Array(response.arrayBuffer));
-        if (response.status !== 200) {
-            return {
-                ok: false,
-                msg: "error",
-            };
-        }
-        if (!type) {
-            return {
-                ok: false,
-                msg: "error",
-            };
-        }
-        const buffer = Buffer.from(response.arrayBuffer);
-        try {
-            const path = pathBrowserify.join(folderPath, `${name}.${type.ext}`);
-            // @ts-ignore
-            require$$0.writeFileSync(path, buffer);
-            return {
-                ok: true,
-                msg: "ok",
-                path: path,
-                type,
-            };
-        }
-        catch (err) {
-            return {
-                ok: false,
-                msg: err,
-            };
-        }
-    }
     registerFileMenu() {
         this.registerEvent(this.app.workspace.on("file-menu", (menu, file, source, leaf) => {
             if (source === "canvas-menu")
@@ -6631,7 +6611,7 @@ class imageAutoUploadPlugin extends obsidian.Plugin {
                     decodeURI(encodedUri).startsWith("../")) {
                     const filePath = pathBrowserify.resolve(pathBrowserify.join(basePath, pathBrowserify.dirname(activeFile.path)), decodeURI(encodedUri));
                     if (require$$0.existsSync(filePath)) {
-                        const path = obsidian.normalizePath(pathBrowserify.relative(basePath, pathBrowserify.resolve(pathBrowserify.join(basePath, pathBrowserify.dirname(activeFile.path)), decodeURI(encodedUri))));
+                        const path = obsidian.normalizePath(pathBrowserify.relative(obsidian.normalizePath(basePath), obsidian.normalizePath(pathBrowserify.resolve(pathBrowserify.join(basePath, pathBrowserify.dirname(activeFile.path)), decodeURI(encodedUri)))));
                         file = filePathMap[path];
                     }
                 }
@@ -6751,7 +6731,14 @@ class imageAutoUploadPlugin extends obsidian.Plugin {
                 let sendFiles = [];
                 let files = evt.dataTransfer.files;
                 Array.from(files).forEach((item, index) => {
-                    sendFiles.push(item.path);
+                    if (item.path) {
+                        sendFiles.push(item.path);
+                    }
+                    else {
+                        const { webUtils } = require("electron");
+                        const path = webUtils.getPathForFile(item);
+                        sendFiles.push(path);
+                    }
                 });
                 evt.preventDefault();
                 const data = await this.uploader.uploadFiles(sendFiles);
