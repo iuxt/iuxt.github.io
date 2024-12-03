@@ -10,7 +10,7 @@ tags:
   - 搭建
   - 开源软件
 abbrlink: schwdt
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: https://static.zahui.fan/images/202412031037042.png
 date: 2024-04-25 19:10:40
 ---
 

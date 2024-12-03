@@ -21,17 +21,25 @@ pip install supervisor
 
 ```conf
 [program:nginx]
+user=gsw945
 directory=/data/exec/nginx/sbin/
 command=/data/exec/nginx/sbin/nginx -g "daemon off;"
 numprocs=1
 autostart=true
 autorestart=true
+
+startsecs=5
 startretries=3
-user=root
-redirect_stderr=true
-stdout_logfile_maxbytes=1024MB
+stopsignal=HUP
+stopasgroup=true
+stopwaitsecs=5
+
+redirect_stderr=false
+stdout_logfile_maxbytes=20MB
 stdout_logfile_backups = 1
-stdout_logfile=/data/logs/nginx/nginx-bin.log
+stdout_logfile=/var/log/supervisor/%(program_name)s-out.log
+stderr_logfile_maxbytes=20MB
+stderr_logfile=/var/log/supervisor/%(program_name)s-err.log
 
 environment=JAVA_HOME="xxxxxx",aaa="bbb"
 ```

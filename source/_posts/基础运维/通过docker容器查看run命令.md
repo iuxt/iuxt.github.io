@@ -7,7 +7,7 @@ tags:
   - 容器
   - 常用操作
 abbrlink: lt41mupw
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: https://static.zahui.fan/images/202412031037042.png
 date: 2024-02-27 15:25:44
 ---
 

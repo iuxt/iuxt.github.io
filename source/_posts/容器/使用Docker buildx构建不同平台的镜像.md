@@ -6,7 +6,7 @@ categories:
 tags:
   - Container
   - Docker
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: https://static.zahui.fan/images/202412031037042.png
 date: 2021-09-29 16:51:31
 ---
 
