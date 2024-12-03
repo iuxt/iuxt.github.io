@@ -179,8 +179,10 @@ mysql
 <!-- tab 使用 runlike 来获取 -->
 
 ```bash
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro \
-    assaflavie/runlike mysql
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro assaflavie/runlike mysql
+
+# 或者用这个
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro cucker/get_command_4_run_container mysql
 ```
 
 runlike 的结果也是近似的
@@ -189,3 +191,8 @@ runlike 的结果也是近似的
 
 {% endtabs %}
 
+## 或者使用 get_command_4_run_container
+
+```bash
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock cucker/get_command_4_run_container mysql
+```
