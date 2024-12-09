@@ -359,9 +359,9 @@
       <category domain="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/">监控</category>
       
       
-      <category domain="https://zahui.fan/tags/OpenLDAP/">OpenLDAP</category>
-      
       <category domain="https://zahui.fan/tags/grafana/">grafana</category>
+      
+      <category domain="https://zahui.fan/tags/OpenLDAP/">OpenLDAP</category>
       
       
       <comments>https://zahui.fan/posts/sl8dop/#disqus_thread</comments>
@@ -423,9 +423,9 @@
       
       <category domain="https://zahui.fan/tags/Elasticsearch/">Elasticsearch</category>
       
-      <category domain="https://zahui.fan/tags/Kafka/">Kafka</category>
-      
       <category domain="https://zahui.fan/tags/filebeat/">filebeat</category>
+      
+      <category domain="https://zahui.fan/tags/Kafka/">Kafka</category>
       
       <category domain="https://zahui.fan/tags/logstash/">logstash</category>
       
@@ -487,11 +487,11 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
-      
       <category domain="https://zahui.fan/tags/ingress/">ingress</category>
       
       <category domain="https://zahui.fan/tags/prometheus/">prometheus</category>
+      
+      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
       
       
       <comments>https://zahui.fan/posts/sk5u8v/#disqus_thread</comments>
@@ -800,9 +800,9 @@
       <category domain="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/">工具</category>
       
       
-      <category domain="https://zahui.fan/tags/OpenSSH/">OpenSSH</category>
-      
       <category domain="https://zahui.fan/tags/lrzsz/">lrzsz</category>
+      
+      <category domain="https://zahui.fan/tags/OpenSSH/">OpenSSH</category>
       
       
       <comments>https://zahui.fan/posts/shqeci/#disqus_thread</comments>
@@ -953,13 +953,13 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
-      
-      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
+      
+      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
       
       
       <comments>https://zahui.fan/posts/sgajkk/#disqus_thread</comments>
@@ -988,9 +988,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
       
       <category domain="https://zahui.fan/tags/kubeadm/">kubeadm</category>
       
@@ -1120,13 +1120,13 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
+      <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
       <category domain="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">常用操作</category>
       
       <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
       
       <category domain="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/">搭建</category>
-      
-      <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/kubeadm/">kubeadm</category>
       
@@ -1225,13 +1225,13 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
-      
-      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
+      
+      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
       
       
       <comments>https://zahui.fan/posts/sebxm6/#disqus_thread</comments>
@@ -1262,11 +1262,11 @@
       
       <category domain="https://zahui.fan/tags/Crontab/">Crontab</category>
       
-      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
       
       
       <comments>https://zahui.fan/posts/se4t7a/#disqus_thread</comments>
@@ -1328,13 +1328,13 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
-      
-      <category domain="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/">存储</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/">存储</category>
+      
+      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
       
       
       <comments>https://zahui.fan/posts/scx23m/#disqus_thread</comments>
@@ -1363,13 +1363,13 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
       
       <category domain="https://zahui.fan/tags/kubeadm/">kubeadm</category>
+      
+      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
       
       
       <comments>https://zahui.fan/posts/scpj14/#disqus_thread</comments>
@@ -1398,10 +1398,6 @@
       <category domain="https://zahui.fan/categories/%E6%97%A5%E5%BF%97/">日志</category>
       
       
-      <category domain="https://zahui.fan/tags/Elasticsearch/">Elasticsearch</category>
-      
-      <category domain="https://zahui.fan/tags/ES/">ES</category>
-      
       <category domain="https://zahui.fan/tags/Docker/">Docker</category>
       
       <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
@@ -1409,6 +1405,10 @@
       <category domain="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/">搭建</category>
       
       <category domain="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">开源软件</category>
+      
+      <category domain="https://zahui.fan/tags/Elasticsearch/">Elasticsearch</category>
+      
+      <category domain="https://zahui.fan/tags/ES/">ES</category>
       
       
       <comments>https://zahui.fan/posts/schwdt/#disqus_thread</comments>
@@ -1474,11 +1474,11 @@
       
       <category domain="https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/">部署</category>
       
-      <category domain="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/">仓库</category>
+      <category domain="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/">搭建</category>
       
       <category domain="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/">镜像</category>
       
-      <category domain="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/">搭建</category>
+      <category domain="https://zahui.fan/tags/%E4%BB%93%E5%BA%93/">仓库</category>
       
       
       <comments>https://zahui.fan/posts/sc3b39/#disqus_thread</comments>
@@ -1542,13 +1542,13 @@
       
       <category domain="https://zahui.fan/tags/mysqld/">mysqld</category>
       
-      <category domain="https://zahui.fan/tags/CentOS/">CentOS</category>
-      
       <category domain="https://zahui.fan/tags/MySQL/">MySQL</category>
       
       <category domain="https://zahui.fan/tags/%E8%BF%90%E8%A1%8C%E5%BA%93/">运行库</category>
       
       <category domain="https://zahui.fan/tags/RHEL/">RHEL</category>
+      
+      <category domain="https://zahui.fan/tags/CentOS/">CentOS</category>
       
       
       <comments>https://zahui.fan/posts/lv23gkql/#disqus_thread</comments>
@@ -1579,9 +1579,9 @@
       
       <category domain="https://zahui.fan/tags/mysqld/">mysqld</category>
       
-      <category domain="https://zahui.fan/tags/MySQL/">MySQL</category>
-      
       <category domain="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/">数据迁移</category>
+      
+      <category domain="https://zahui.fan/tags/MySQL/">MySQL</category>
       
       
       <comments>https://zahui.fan/posts/luwwdbjr/#disqus_thread</comments>
@@ -1746,11 +1746,11 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/kubeadm/">kubeadm</category>
+      
+      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
       
       
       <comments>https://zahui.fan/posts/ltckjzor/#disqus_thread</comments>
@@ -1913,11 +1913,11 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
+      <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
+      
       <category domain="https://zahui.fan/tags/fail2ban/">fail2ban</category>
       
       <category domain="https://zahui.fan/tags/cc%E6%94%BB%E5%87%BB/">cc攻击</category>
-      
-      <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
       
       <category domain="https://zahui.fan/tags/cdn/">cdn</category>
       
@@ -2082,9 +2082,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/Kernel/">Kernel</category>
-      
       <category domain="https://zahui.fan/tags/Ubuntu/">Ubuntu</category>
+      
+      <category domain="https://zahui.fan/tags/Kernel/">Kernel</category>
       
       
       <comments>https://zahui.fan/posts/lr8yc0vu/#disqus_thread</comments>
@@ -2115,9 +2115,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
       
       
       <comments>https://zahui.fan/posts/lr0clio1/#disqus_thread</comments>
@@ -2146,11 +2146,11 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
-      
       <category domain="https://zahui.fan/tags/ingress/">ingress</category>
       
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
       
       <category domain="https://zahui.fan/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云</category>
       
@@ -2218,9 +2218,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/curl/">curl</category>
-      
       <category domain="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">常用操作</category>
+      
+      <category domain="https://zahui.fan/tags/curl/">curl</category>
       
       
       <comments>https://zahui.fan/posts/lqyxid2z/#disqus_thread</comments>
@@ -2451,11 +2451,11 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">权限管理</category>
+      
+      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
       
       
       <comments>https://zahui.fan/posts/lqacdmqv/#disqus_thread</comments>
@@ -2556,13 +2556,13 @@
       
       <category domain="https://zahui.fan/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</category>
       
-      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
-      
-      <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
-      
       <category domain="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/">编码</category>
       
       <category domain="https://zahui.fan/tags/ingress/">ingress</category>
+      
+      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
+      
+      <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
       
       
       <comments>https://zahui.fan/posts/lpuzlvhd/#disqus_thread</comments>
@@ -2715,9 +2715,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">常用操作</category>
-      
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">常用操作</category>
       
       
       <comments>https://zahui.fan/posts/lo57b8gx/#disqus_thread</comments>
@@ -3008,9 +3008,9 @@
       <category domain="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
       
       
-      <category domain="https://zahui.fan/tags/redis/">redis</category>
-      
       <category domain="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/">数据迁移</category>
+      
+      <category domain="https://zahui.fan/tags/redis/">redis</category>
       
       
       <comments>https://zahui.fan/posts/lmojvw5l/#disqus_thread</comments>
@@ -3097,7 +3097,7 @@
       
       
       
-      <content:encoded><![CDATA[<h2 id="WSL-防火墙规则"><a href="#WSL-防火墙规则" class="headerlink" title="WSL 防火墙规则"></a>WSL 防火墙规则</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetAdapter</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">New-NetFirewallRule</span> <span class="literal">-DisplayName</span> <span class="string">&quot;WSL&quot;</span> <span class="literal">-Direction</span> Inbound  <span class="literal">-InterfaceAlias</span> <span class="string">&quot;vEthernet (WSL)&quot;</span>  <span class="literal">-Action</span> Allow</span><br></pre></td></tr></table></figure><h2 id="基础环境配置"><a href="#基础环境配置" class="headerlink" title="基础环境配置"></a>基础环境配置</h2><h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>使用中科大的源: <a href="https://mirrors.ustc.edu.cn/help/ubuntu.html">https://mirrors.ustc.edu.cn/help/ubuntu.html</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 老版本Ubuntu</span></span><br><span class="line"><span class="comment"># sudo sed -i &#x27;s@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g&#x27; /etc/apt/sources.list</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu 24 及以上</span></span><br><span class="line">sudo sed -i <span class="string">&#x27;s@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g&#x27;</span> /etc/apt/sources.list.d/ubuntu.sources</span><br></pre></td></tr></table></figure><h3 id="安装常用的包"><a href="#安装常用的包" class="headerlink" title="安装常用的包"></a>安装常用的包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br><span class="line">sudo apt install -y zip libmysqlclient-dev build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev lrzsz</span><br></pre></td></tr></table></figure><h3 id="当前用户免-sudo-密码"><a href="#当前用户免-sudo-密码" class="headerlink" title="当前用户免 sudo 密码"></a>当前用户免 sudo 密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">tee</span> /etc/sudoers.d/iuxt &lt;&lt;-<span class="string">EOF</span></span><br><span class="line"><span class="string">%sudo   ALL=(ALL:ALL) NOPASSWD:ALL</span></span><br><span class="line"><span class="string">$USER   ALL=(ALL:ALL) NOPASSWD:ALL</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><h3 id="WSL-开启-systemd-支持-仅支持-WSL2"><a href="#WSL-开启-systemd-支持-仅支持-WSL2" class="headerlink" title="WSL 开启 systemd 支持 (仅支持 WSL2)"></a>WSL 开启 systemd 支持 (仅支持 WSL2)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">touch</span> /etc/startup.sh</span><br><span class="line">sudo <span class="built_in">chmod</span> +x /etc/startup.sh</span><br><span class="line">sudo <span class="built_in">tee</span> /etc/wsl.conf &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[boot]</span><br><span class="line">systemd=<span class="literal">true</span></span><br><span class="line"><span class="built_in">command</span>=/etc/startup.sh</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><h2 id="git-配置"><a href="#git-配置" class="headerlink" title="git 配置"></a>git 配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y git git-lfs</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tee</span> ~/.gitconfig &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[user]</span><br><span class="line">        name = zhanglikun</span><br><span class="line">        email = x@zahui.fan</span><br><span class="line">        signingkey = zhanglikun</span><br><span class="line">[credential]</span><br><span class="line">        helper = store</span><br><span class="line">[core]</span><br><span class="line">        autocrlf = <span class="literal">false</span></span><br><span class="line">        quotepath = <span class="literal">false</span></span><br><span class="line">[init]</span><br><span class="line">        defaultBranch = master</span><br><span class="line">[pull]</span><br><span class="line">        rebase = <span class="literal">false</span></span><br><span class="line">[commit]</span><br><span class="line">        gpgsign = <span class="literal">false</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><h2 id="zsh-配置"><a href="#zsh-配置" class="headerlink" title="zsh 配置"></a>zsh 配置</h2><h3 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y zsh</span><br></pre></td></tr></table></figure><h3 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh my zsh"></a>安装 oh my zsh</h3><p><a href="https://ohmyz.sh/#install">https://ohmyz.sh/#install</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改主题配置</span></span><br><span class="line">sed -i <span class="string">&#x27;s#^ZSH_THEME=.*#ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;#g&#x27;</span> ~/.zshrc</span><br></pre></td></tr></table></figure><h3 id="安装一些插件"><a href="#安装一些插件" class="headerlink" title="安装一些插件"></a>安装一些插件</h3><p><a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y fzf</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">omz plugin <span class="built_in">enable</span> z git sudo zsh-autosuggestions zsh-syntax-highlighting fzf</span><br></pre></td></tr></table></figure><h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><h3 id="修改默认编辑器"><a href="#修改默认编辑器" class="headerlink" title="修改默认编辑器"></a>修改默认编辑器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo update-alternatives --config editor</span></span><br><span class="line">sudo <span class="built_in">ln</span> -sf /usr/bin/vim.basic /etc/alternatives/editor</span><br><span class="line"></span><br><span class="line"><span class="comment"># select-editor</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;SELECTED_EDITOR=&quot;/usr/bin/vim.basic&quot;&#x27;</span> &gt; ~/.selected_editor</span><br></pre></td></tr></table></figure><h3 id="安装-vim-plug-插件管理工具"><a href="#安装-vim-plug-插件管理工具" class="headerlink" title="安装 vim plug 插件管理工具"></a>安装 vim plug 插件管理工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure><p>配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tee</span> ~/.vimrc &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">call plug<span class="comment">#begin()</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; On-demand loading</span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdtree&#x27;, &#123; &#x27;on&#x27;: &#x27;NERDTreeToggle&#x27; &#125;</span></span><br><span class="line"><span class="string">Plug &#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;vim-airline/vim-airline-themes&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">call plug#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set paste</span></span><br><span class="line"><span class="string">&quot;</span><span class="built_in">set</span> number</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; nerdtree</span></span><br><span class="line"><span class="string">let NERDTreeWinPos=&quot;</span>left<span class="string">&quot;</span></span><br><span class="line"><span class="string">noremap &lt;F8&gt; :NERDTreeToggle&lt;CR&gt;</span></span><br><span class="line"><span class="string">let g:NERDTreeDirArrowExpandable = &#x27;▸&#x27;</span></span><br><span class="line"><span class="string">let g:NERDTreeDirArrowCollapsible = &#x27;▾&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> airline</span><br><span class="line"><span class="built_in">set</span> laststatus=2  <span class="string">&quot;永远显示状态栏</span></span><br><span class="line"><span class="string">let g:airline_powerline_fonts = 1  &quot;</span>支持 powerline 字体</span><br><span class="line"><span class="built_in">let</span> g:airline<span class="comment">#extensions#tabline#enabled = 1 &quot;显示窗口tab和buffer</span></span><br><span class="line"><span class="built_in">let</span> g:airline_theme=<span class="string">&#x27;molokai&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> !exists(<span class="string">&#x27;g:airline_symbols&#x27;</span>)</span><br><span class="line"><span class="built_in">let</span> g:airline_symbols = &#123;&#125;</span><br><span class="line">endif</span><br><span class="line"><span class="built_in">let</span> g:airline_left_sep = <span class="string">&#x27;▶&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_left_alt_sep = <span class="string">&#x27;❯&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_right_sep = <span class="string">&#x27;◀&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_right_alt_sep = <span class="string">&#x27;❮&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_symbols.linenr = <span class="string">&#x27;¶&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_symbols.branch = <span class="string">&#x27;⎇&#x27;</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>进入 vim 命令界面, 输入 <code>:PlugInstall</code> 安装插件</p><h2 id="常用环境安装"><a href="#常用环境安装" class="headerlink" title="常用环境安装"></a>常用环境安装</h2><p>安装 golang python nodejs 查看 <a href="/posts/5e168f7e">快速搭建环境记录</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改一些配置</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/docker &amp;&amp; sudo <span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;exec-opts&quot;</span>: [<span class="string">&quot;native.cgroupdriver=systemd&quot;</span>],</span><br><span class="line">  <span class="string">&quot;log-driver&quot;</span>: <span class="string">&quot;json-file&quot;</span>,</span><br><span class="line">  <span class="string">&quot;log-opts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;max-size&quot;</span>: <span class="string">&quot;100m&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;storage-driver&quot;</span>: <span class="string">&quot;overlay2&quot;</span>,</span><br><span class="line">  <span class="string">&quot;iptables&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure><p>安装 zssh, 查看 <a href="/posts/e48170f8">改造windows-terminal支持lrzsz</a></p><h2 id="常用-alias"><a href="#常用-alias" class="headerlink" title="常用 alias"></a>常用 alias</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 模仿macOS打开访达，使用 <span class="keyword">open</span> . 在此处打开文件管理器。</span><br><span class="line">alias <span class="keyword">open</span>=<span class="string">&#x27;explorer.exe&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="常用软链接"><a href="#常用软链接" class="headerlink" title="常用软链接"></a>常用软链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/Desktop ~</span><br><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/Documents ~</span><br><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/Downloads ~</span><br><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/OneDrive ~</span><br></pre></td></tr></table></figure><h2 id="tssh"><a href="#tssh" class="headerlink" title="tssh"></a>tssh</h2><p><a href="/posts/shqeci/">trzsz 使用记录</a></p>]]></content:encoded>
+      <content:encoded><![CDATA[<h2 id="WSL-防火墙规则"><a href="#WSL-防火墙规则" class="headerlink" title="WSL 防火墙规则"></a>WSL 防火墙规则</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetAdapter</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">New-NetFirewallRule</span> <span class="literal">-DisplayName</span> <span class="string">&quot;WSL&quot;</span> <span class="literal">-Direction</span> Inbound  <span class="literal">-InterfaceAlias</span> <span class="string">&quot;vEthernet (WSL)&quot;</span>  <span class="literal">-Action</span> Allow</span><br></pre></td></tr></table></figure><h2 id="基础环境配置"><a href="#基础环境配置" class="headerlink" title="基础环境配置"></a>基础环境配置</h2><h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>使用中科大的源: <a href="https://mirrors.ustc.edu.cn/help/ubuntu.html">https://mirrors.ustc.edu.cn/help/ubuntu.html</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 老版本Ubuntu</span></span><br><span class="line"><span class="comment"># sudo sed -i &#x27;s@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g&#x27; /etc/apt/sources.list</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu 24 及以上</span></span><br><span class="line">sudo sed -i <span class="string">&#x27;s@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g&#x27;</span> /etc/apt/sources.list.d/ubuntu.sources</span><br></pre></td></tr></table></figure><h3 id="安装常用的包"><a href="#安装常用的包" class="headerlink" title="安装常用的包"></a>安装常用的包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade -y</span><br><span class="line">sudo apt install -y zip libmysqlclient-dev build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev lrzsz</span><br></pre></td></tr></table></figure><h3 id="当前用户免-sudo-密码"><a href="#当前用户免-sudo-密码" class="headerlink" title="当前用户免 sudo 密码"></a>当前用户免 sudo 密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">tee</span> /etc/sudoers.d/iuxt &lt;&lt;-<span class="string">EOF</span></span><br><span class="line"><span class="string">%sudo   ALL=(ALL:ALL) NOPASSWD:ALL</span></span><br><span class="line"><span class="string">$USER   ALL=(ALL:ALL) NOPASSWD:ALL</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure><h3 id="WSL-开启-systemd-支持-仅支持-WSL2"><a href="#WSL-开启-systemd-支持-仅支持-WSL2" class="headerlink" title="WSL 开启 systemd 支持 (仅支持 WSL2)"></a>WSL 开启 systemd 支持 (仅支持 WSL2)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">touch</span> /etc/startup.sh</span><br><span class="line">sudo <span class="built_in">chmod</span> +x /etc/startup.sh</span><br><span class="line">sudo <span class="built_in">tee</span> /etc/wsl.conf &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[boot]</span><br><span class="line">systemd=<span class="literal">true</span></span><br><span class="line"><span class="built_in">command</span>=/etc/startup.sh</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><h2 id="git-配置"><a href="#git-配置" class="headerlink" title="git 配置"></a>git 配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y git git-lfs</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tee</span> ~/.gitconfig &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[user]</span><br><span class="line">        name = zhanglikun</span><br><span class="line">        email = x@zahui.fan</span><br><span class="line">        signingkey = zhanglikun</span><br><span class="line">[credential]</span><br><span class="line">        helper = store</span><br><span class="line">[core]</span><br><span class="line">        autocrlf = <span class="literal">false</span></span><br><span class="line">        quotepath = <span class="literal">false</span></span><br><span class="line">[init]</span><br><span class="line">        defaultBranch = master</span><br><span class="line">[pull]</span><br><span class="line">        rebase = <span class="literal">false</span></span><br><span class="line">[commit]</span><br><span class="line">        gpgsign = <span class="literal">false</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><h2 id="zsh-配置"><a href="#zsh-配置" class="headerlink" title="zsh 配置"></a>zsh 配置</h2><h3 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y zsh</span><br></pre></td></tr></table></figure><h3 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh my zsh"></a>安装 oh my zsh</h3><p><a href="https://ohmyz.sh/#install">https://ohmyz.sh/#install</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改主题配置</span></span><br><span class="line">sed -i <span class="string">&#x27;s#^ZSH_THEME=.*#ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;#g&#x27;</span> ~/.zshrc</span><br></pre></td></tr></table></figure><h3 id="安装一些插件"><a href="#安装一些插件" class="headerlink" title="安装一些插件"></a>安装一些插件</h3><p><a href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y fzf</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">omz plugin <span class="built_in">enable</span> z git sudo zsh-autosuggestions zsh-syntax-highlighting fzf</span><br></pre></td></tr></table></figure><h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><h3 id="修改默认编辑器"><a href="#修改默认编辑器" class="headerlink" title="修改默认编辑器"></a>修改默认编辑器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sudo update-alternatives --config editor</span></span><br><span class="line">sudo <span class="built_in">ln</span> -sf /usr/bin/vim.basic /etc/alternatives/editor</span><br><span class="line"></span><br><span class="line"><span class="comment"># select-editor</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;SELECTED_EDITOR=&quot;/usr/bin/vim.basic&quot;&#x27;</span> &gt; ~/.selected_editor</span><br></pre></td></tr></table></figure><h3 id="安装-vim-plug-插件管理工具"><a href="#安装-vim-plug-插件管理工具" class="headerlink" title="安装 vim plug 插件管理工具"></a>安装 vim plug 插件管理工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure><p>配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tee</span> ~/.vimrc &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">call plug<span class="comment">#begin()</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; On-demand loading</span></span><br><span class="line"><span class="string">Plug &#x27;preservim/nerdtree&#x27;, &#123; &#x27;on&#x27;: &#x27;NERDTreeToggle&#x27; &#125;</span></span><br><span class="line"><span class="string">Plug &#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;vim-airline/vim-airline-themes&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">call plug#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set paste</span></span><br><span class="line"><span class="string">&quot;</span><span class="built_in">set</span> number</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; nerdtree</span></span><br><span class="line"><span class="string">let NERDTreeWinPos=&quot;</span>left<span class="string">&quot;</span></span><br><span class="line"><span class="string">noremap &lt;F8&gt; :NERDTreeToggle&lt;CR&gt;</span></span><br><span class="line"><span class="string">let g:NERDTreeDirArrowExpandable = &#x27;▸&#x27;</span></span><br><span class="line"><span class="string">let g:NERDTreeDirArrowCollapsible = &#x27;▾&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> airline</span><br><span class="line"><span class="built_in">set</span> laststatus=2  <span class="string">&quot;永远显示状态栏</span></span><br><span class="line"><span class="string">let g:airline_powerline_fonts = 1  &quot;</span>支持 powerline 字体</span><br><span class="line"><span class="built_in">let</span> g:airline<span class="comment">#extensions#tabline#enabled = 1 &quot;显示窗口tab和buffer</span></span><br><span class="line"><span class="built_in">let</span> g:airline_theme=<span class="string">&#x27;molokai&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> !exists(<span class="string">&#x27;g:airline_symbols&#x27;</span>)</span><br><span class="line"><span class="built_in">let</span> g:airline_symbols = &#123;&#125;</span><br><span class="line">endif</span><br><span class="line"><span class="built_in">let</span> g:airline_left_sep = <span class="string">&#x27;▶&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_left_alt_sep = <span class="string">&#x27;❯&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_right_sep = <span class="string">&#x27;◀&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_right_alt_sep = <span class="string">&#x27;❮&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_symbols.linenr = <span class="string">&#x27;¶&#x27;</span></span><br><span class="line"><span class="built_in">let</span> g:airline_symbols.branch = <span class="string">&#x27;⎇&#x27;</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>进入 vim 命令界面, 输入 <code>:PlugInstall</code> 安装插件</p><h2 id="常用环境安装"><a href="#常用环境安装" class="headerlink" title="常用环境安装"></a>常用环境安装</h2><p>安装 golang python nodejs 查看 <a href="/posts/5e168f7e">快速搭建环境记录</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改一些配置</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/docker &amp;&amp; sudo <span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;exec-opts&quot;</span>: [<span class="string">&quot;native.cgroupdriver=systemd&quot;</span>],</span><br><span class="line">  <span class="string">&quot;log-driver&quot;</span>: <span class="string">&quot;json-file&quot;</span>,</span><br><span class="line">  <span class="string">&quot;log-opts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;max-size&quot;</span>: <span class="string">&quot;100m&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;storage-driver&quot;</span>: <span class="string">&quot;overlay2&quot;</span>,</span><br><span class="line">  <span class="string">&quot;iptables&quot;</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前用户执行docker命令，需要注销用户</span></span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure><p>安装 zssh, 查看 <a href="/posts/e48170f8">改造windows-terminal支持lrzsz</a></p><h2 id="常用-alias"><a href="#常用-alias" class="headerlink" title="常用 alias"></a>常用 alias</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 模仿macOS打开访达，使用 <span class="keyword">open</span> . 在此处打开文件管理器。</span><br><span class="line">alias <span class="keyword">open</span>=<span class="string">&#x27;explorer.exe&#x27;</span></span><br></pre></td></tr></table></figure><h2 id="常用软链接"><a href="#常用软链接" class="headerlink" title="常用软链接"></a>常用软链接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/Desktop ~</span><br><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/Documents ~</span><br><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/Downloads ~</span><br><span class="line"><span class="built_in">ln</span> -sf /mnt/c/Users/iuxt/OneDrive ~</span><br></pre></td></tr></table></figure><h2 id="tssh"><a href="#tssh" class="headerlink" title="tssh"></a>tssh</h2><p><a href="/posts/shqeci/">trzsz 使用记录</a></p><h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><p>如果 wsl 中的服务，在 Windows 上通过 localhost 访问太慢，比如 windows 上的 navicat 连接 wsl 里 docker 跑的 wsl 时，可以尝试使用 127.0.0.1 来替代 localhost，可能会有奇效。</p>]]></content:encoded>
       
       
       <category domain="https://zahui.fan/categories/Windows/">Windows</category>
@@ -3233,9 +3233,9 @@
       <category domain="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
       
       
-      <category domain="https://zahui.fan/tags/MySQL/">MySQL</category>
-      
       <category domain="https://zahui.fan/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/">数据迁移</category>
+      
+      <category domain="https://zahui.fan/tags/MySQL/">MySQL</category>
       
       <category domain="https://zahui.fan/tags/mysql/">mysql</category>
       
@@ -3301,9 +3301,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/">测试</category>
-      
       <category domain="https://zahui.fan/tags/echo-server/">echo-server</category>
+      
+      <category domain="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/">测试</category>
       
       
       <comments>https://zahui.fan/posts/635c073a/#disqus_thread</comments>
@@ -3398,9 +3398,9 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
-      <category domain="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/">编译</category>
-      
       <category domain="https://zahui.fan/tags/%E8%AE%B0%E5%BD%95/">记录</category>
+      
+      <category domain="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/">编译</category>
       
       
       <comments>https://zahui.fan/posts/1da8e73d/#disqus_thread</comments>
@@ -3497,9 +3497,9 @@
       
       <category domain="https://zahui.fan/tags/cli/">cli</category>
       
-      <category domain="https://zahui.fan/tags/curl/">curl</category>
-      
       <category domain="https://zahui.fan/tags/webdav/">webdav</category>
+      
+      <category domain="https://zahui.fan/tags/curl/">curl</category>
       
       
       <comments>https://zahui.fan/posts/1e91b84d/#disqus_thread</comments>
@@ -3658,11 +3658,11 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
+      <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/HA/">HA</category>
       
-      <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
       
       
       <comments>https://zahui.fan/posts/67853ccb/#disqus_thread</comments>
@@ -3693,9 +3693,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/DNS/">DNS</category>
-      
       <category domain="https://zahui.fan/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">开源软件</category>
+      
+      <category domain="https://zahui.fan/tags/DNS/">DNS</category>
       
       
       <comments>https://zahui.fan/posts/sf0bjv/#disqus_thread</comments>
@@ -3885,9 +3885,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
-      
       <category domain="https://zahui.fan/tags/Ingress/">Ingress</category>
+      
+      <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
       
       
       <comments>https://zahui.fan/posts/c4b9bd31/#disqus_thread</comments>
@@ -3978,9 +3978,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/">镜像</category>
       
-      <category domain="https://zahui.fan/tags/harbor/">harbor</category>
-      
       <category domain="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/">容器</category>
+      
+      <category domain="https://zahui.fan/tags/harbor/">harbor</category>
       
       <category domain="https://zahui.fan/tags/%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F/">漏洞扫描</category>
       
@@ -4042,11 +4042,11 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
+      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
+      
       <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
       
       <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
-      
-      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
       
       
       <comments>https://zahui.fan/posts/bad354d3/#disqus_thread</comments>
@@ -4302,9 +4302,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%95%9C%E5%83%8F/">镜像</category>
       
-      <category domain="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/">容器</category>
-      
       <category domain="https://zahui.fan/tags/%E5%90%8C%E6%AD%A5/">同步</category>
+      
+      <category domain="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
       <comments>https://zahui.fan/posts/le5lzctq/#disqus_thread</comments>
@@ -4457,13 +4457,13 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
+      <category domain="https://zahui.fan/tags/docker/">docker</category>
+      
       <category domain="https://zahui.fan/tags/fail2ban/">fail2ban</category>
       
       <category domain="https://zahui.fan/tags/cc%E6%94%BB%E5%87%BB/">cc攻击</category>
       
       <category domain="https://zahui.fan/tags/iptables/">iptables</category>
-      
-      <category domain="https://zahui.fan/tags/docker/">docker</category>
       
       
       <comments>https://zahui.fan/posts/7b28cbbc/#disqus_thread</comments>
@@ -4585,9 +4585,9 @@
       <category domain="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/">开发</category>
       
       
-      <category domain="https://zahui.fan/tags/%E6%96%87%E4%BB%B6/">文件</category>
-      
       <category domain="https://zahui.fan/tags/Python/">Python</category>
+      
+      <category domain="https://zahui.fan/tags/%E6%96%87%E4%BB%B6/">文件</category>
       
       
       <comments>https://zahui.fan/posts/fe29bf0b/#disqus_thread</comments>
@@ -4717,9 +4717,9 @@
       
       <category domain="https://zahui.fan/tags/Shell/">Shell</category>
       
-      <category domain="https://zahui.fan/tags/%E5%A4%87%E4%BB%BD%E8%BF%98%E5%8E%9F/">备份还原</category>
-      
       <category domain="https://zahui.fan/tags/MySQL/">MySQL</category>
+      
+      <category domain="https://zahui.fan/tags/%E5%A4%87%E4%BB%BD%E8%BF%98%E5%8E%9F/">备份还原</category>
       
       
       <comments>https://zahui.fan/posts/lqevsmdb/#disqus_thread</comments>
@@ -5672,9 +5672,9 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
-      <category domain="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/">编译</category>
-      
       <category domain="https://zahui.fan/tags/PHP/">PHP</category>
+      
+      <category domain="https://zahui.fan/tags/%E7%BC%96%E8%AF%91/">编译</category>
       
       
       <comments>https://zahui.fan/posts/a03938f2/#disqus_thread</comments>
@@ -5823,13 +5823,13 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/Network/">Network</category>
-      
-      <category domain="https://zahui.fan/tags/LoadBalance/">LoadBalance</category>
+      <category domain="https://zahui.fan/tags/HA/">HA</category>
       
       <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
       
-      <category domain="https://zahui.fan/tags/HA/">HA</category>
+      <category domain="https://zahui.fan/tags/Network/">Network</category>
+      
+      <category domain="https://zahui.fan/tags/LoadBalance/">LoadBalance</category>
       
       <category domain="https://zahui.fan/tags/lvs/">lvs</category>
       
@@ -6087,11 +6087,11 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
-      
       <category domain="https://zahui.fan/tags/nginx/">nginx</category>
       
       <category domain="https://zahui.fan/tags/HA/">HA</category>
+      
+      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
       
       
       <comments>https://zahui.fan/posts/0cebb8ae/#disqus_thread</comments>
@@ -6151,11 +6151,11 @@
       <category domain="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/">监控</category>
       
       
-      <category domain="https://zahui.fan/tags/Auth/">Auth</category>
-      
       <category domain="https://zahui.fan/tags/prometheus/">prometheus</category>
       
       <category domain="https://zahui.fan/tags/Prometheus/">Prometheus</category>
+      
+      <category domain="https://zahui.fan/tags/Auth/">Auth</category>
       
       
       <comments>https://zahui.fan/posts/165a0cd3/#disqus_thread</comments>
@@ -6184,9 +6184,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
-      
       <category domain="https://zahui.fan/tags/ingress/">ingress</category>
+      
+      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
       
       
       <comments>https://zahui.fan/posts/c86b58e3/#disqus_thread</comments>
@@ -6279,13 +6279,13 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/SSL/">SSL</category>
-      
       <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
+      
+      <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
       
       <category domain="https://zahui.fan/tags/Auth/">Auth</category>
       
-      <category domain="https://zahui.fan/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">反向代理</category>
+      <category domain="https://zahui.fan/tags/SSL/">SSL</category>
       
       
       <comments>https://zahui.fan/posts/b78a00fa/#disqus_thread</comments>
@@ -6308,15 +6308,15 @@
       
       
       
-      <content:encoded><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#120;&#116;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#x69;&#x75;&#120;&#116;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#120;&#116;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;">&#105;&#117;&#120;&#116;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      <content:encoded><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#x78;&#x74;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#105;&#x75;&#x78;&#x74;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#120;&#116;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#105;&#117;&#120;&#116;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure>]]></content:encoded>
       
       
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
-      <category domain="https://zahui.fan/tags/SSL/">SSL</category>
-      
       <category domain="https://zahui.fan/tags/Auth/">Auth</category>
+      
+      <category domain="https://zahui.fan/tags/SSL/">SSL</category>
       
       
       <comments>https://zahui.fan/posts/097e5b7c/#disqus_thread</comments>
@@ -6376,11 +6376,11 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/kubectl/">kubectl</category>
       
       
       <comments>https://zahui.fan/posts/8d88b8c4/#disqus_thread</comments>
@@ -6520,11 +6520,11 @@
       <category domain="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/">工具</category>
       
       
-      <category domain="https://zahui.fan/tags/Disk/">Disk</category>
-      
       <category domain="https://zahui.fan/tags/%E5%BC%80%E5%8F%91%E7%89%88/">开发版</category>
       
       <category domain="https://zahui.fan/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</category>
+      
+      <category domain="https://zahui.fan/tags/Disk/">Disk</category>
       
       
       <comments>https://zahui.fan/posts/8e3fdb74/#disqus_thread</comments>
@@ -6857,9 +6857,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
-      
       <category domain="https://zahui.fan/tags/ingress/">ingress</category>
+      
+      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
       
       
       <comments>https://zahui.fan/posts/dcab3f5f/#disqus_thread</comments>
@@ -7026,9 +7026,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/Kafka/">Kafka</category>
-      
       <category domain="https://zahui.fan/tags/%E6%9C%89%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1/">有状态服务</category>
+      
+      <category domain="https://zahui.fan/tags/Kafka/">Kafka</category>
       
       <category domain="https://zahui.fan/tags/MQ/">MQ</category>
       
@@ -7090,13 +7090,13 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
-      
-      <category domain="https://zahui.fan/tags/HA/">HA</category>
-      
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       <category domain="https://zahui.fan/tags/k8s/">k8s</category>
+      
+      <category domain="https://zahui.fan/tags/HA/">HA</category>
+      
+      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
       
       
       <comments>https://zahui.fan/posts/10cef768/#disqus_thread</comments>
@@ -7125,11 +7125,11 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
+      <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
       <category domain="https://zahui.fan/tags/NFS/">NFS</category>
       
       <category domain="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/">存储</category>
-      
-      <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
       
       
       <comments>https://zahui.fan/posts/179eb842/#disqus_thread</comments>
@@ -7158,9 +7158,9 @@
       <category domain="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/">容器</category>
       
       
-      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
-      
       <category domain="https://zahui.fan/tags/ingress/">ingress</category>
+      
+      <category domain="https://zahui.fan/tags/nginx/">nginx</category>
       
       
       <comments>https://zahui.fan/posts/30bdb1c5/#disqus_thread</comments>
@@ -7569,9 +7569,9 @@
       
       <category domain="https://zahui.fan/tags/%E7%BD%91%E7%BB%9C/">网络</category>
       
-      <category domain="https://zahui.fan/tags/Bash/">Bash</category>
-      
       <category domain="https://zahui.fan/tags/%E6%B5%8B%E8%AF%95/">测试</category>
+      
+      <category domain="https://zahui.fan/tags/Bash/">Bash</category>
       
       
       <comments>https://zahui.fan/posts/ecf46dbb/#disqus_thread</comments>
@@ -7600,13 +7600,13 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
-      <category domain="https://zahui.fan/tags/Network/">Network</category>
+      <category domain="https://zahui.fan/tags/OpenLDAP/">OpenLDAP</category>
       
       <category domain="https://zahui.fan/tags/Auth/">Auth</category>
       
-      <category domain="https://zahui.fan/tags/Radius/">Radius</category>
+      <category domain="https://zahui.fan/tags/Network/">Network</category>
       
-      <category domain="https://zahui.fan/tags/OpenLDAP/">OpenLDAP</category>
+      <category domain="https://zahui.fan/tags/Radius/">Radius</category>
       
       
       <comments>https://zahui.fan/posts/c0e7cc9a/#disqus_thread</comments>
@@ -7709,9 +7709,9 @@
       
       <category domain="https://zahui.fan/tags/Shell/">Shell</category>
       
-      <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</category>
-      
       <category domain="https://zahui.fan/tags/Python/">Python</category>
+      
+      <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</category>
       
       
       <comments>https://zahui.fan/posts/026f1c74/#disqus_thread</comments>
@@ -7901,9 +7901,9 @@
       
       <category domain="https://zahui.fan/tags/Docker/">Docker</category>
       
-      <category domain="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/">编码</category>
-      
       <category domain="https://zahui.fan/tags/Container/">Container</category>
+      
+      <category domain="https://zahui.fan/tags/%E7%BC%96%E7%A0%81/">编码</category>
       
       
       <comments>https://zahui.fan/posts/581a1bd9/#disqus_thread</comments>
@@ -8273,11 +8273,11 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
+      <category domain="https://zahui.fan/tags/Docker/">Docker</category>
+      
       <category domain="https://zahui.fan/tags/Nginx/">Nginx</category>
       
       <category domain="https://zahui.fan/tags/Proxy/">Proxy</category>
-      
-      <category domain="https://zahui.fan/tags/Docker/">Docker</category>
       
       
       <comments>https://zahui.fan/posts/990b6b62/#disqus_thread</comments>
@@ -8521,13 +8521,13 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/Network/">Network</category>
-      
-      <category domain="https://zahui.fan/tags/LoadBalance/">LoadBalance</category>
+      <category domain="https://zahui.fan/tags/HA/">HA</category>
       
       <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
       
-      <category domain="https://zahui.fan/tags/HA/">HA</category>
+      <category domain="https://zahui.fan/tags/Network/">Network</category>
+      
+      <category domain="https://zahui.fan/tags/LoadBalance/">LoadBalance</category>
       
       <category domain="https://zahui.fan/tags/lvs/">lvs</category>
       
@@ -9199,9 +9199,9 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/">搭建</category>
-      
       <category domain="https://zahui.fan/tags/HA/">HA</category>
+      
+      <category domain="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/">搭建</category>
       
       <category domain="https://zahui.fan/tags/%E6%9C%89%E7%8A%B6%E6%80%81%E6%9C%8D%E5%8A%A1/">有状态服务</category>
       
@@ -9298,9 +9298,9 @@
       
       <category domain="https://zahui.fan/tags/Linux/">Linux</category>
       
-      <category domain="https://zahui.fan/tags/Shell/">Shell</category>
-      
       <category domain="https://zahui.fan/tags/%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">常用操作</category>
+      
+      <category domain="https://zahui.fan/tags/Shell/">Shell</category>
       
       
       <comments>https://zahui.fan/posts/sd9in4/#disqus_thread</comments>
@@ -9329,9 +9329,9 @@
       <category domain="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</category>
       
       
-      <category domain="https://zahui.fan/tags/adb/">adb</category>
-      
       <category domain="https://zahui.fan/tags/Android/">Android</category>
+      
+      <category domain="https://zahui.fan/tags/adb/">adb</category>
       
       
       <comments>https://zahui.fan/posts/b1ffa547/#disqus_thread</comments>
@@ -9366,11 +9366,11 @@
       
       <category domain="https://zahui.fan/tags/Docker/">Docker</category>
       
-      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
-      
       <category domain="https://zahui.fan/tags/Container/">Container</category>
       
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
       
       <category domain="https://zahui.fan/tags/kubeadm/">kubeadm</category>
       
@@ -9620,13 +9620,13 @@
       
       <category domain="https://zahui.fan/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</category>
       
-      <category domain="https://zahui.fan/tags/Ubuntu/">Ubuntu</category>
-      
-      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
-      
       <category domain="https://zahui.fan/tags/Container/">Container</category>
       
       <category domain="https://zahui.fan/tags/Kubernetes/">Kubernetes</category>
+      
+      <category domain="https://zahui.fan/tags/keepalived/">keepalived</category>
+      
+      <category domain="https://zahui.fan/tags/Ubuntu/">Ubuntu</category>
       
       
       <comments>https://zahui.fan/posts/efee88da/#disqus_thread</comments>
@@ -10523,9 +10523,9 @@
       <category domain="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/">工具</category>
       
       
-      <category domain="https://zahui.fan/tags/OpenSSH/">OpenSSH</category>
-      
       <category domain="https://zahui.fan/tags/lrzsz/">lrzsz</category>
+      
+      <category domain="https://zahui.fan/tags/OpenSSH/">OpenSSH</category>
       
       
       <comments>https://zahui.fan/posts/sgpjuj/#disqus_thread</comments>
