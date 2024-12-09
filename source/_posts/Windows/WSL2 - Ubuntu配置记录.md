@@ -234,3 +234,7 @@ ln -sf /mnt/c/Users/iuxt/OneDrive ~
 ## tssh
 
 [trzsz 使用记录](/posts/shqeci/)
+
+## 其他问题
+
+如果 wsl 中的服务，在 Windows 上通过 localhost 访问太慢，比如 windows 上的 navicat 连接 wsl 里 docker 跑的 wsl 时，可以尝试使用 127.0.0.1 来替代 localhost，可能会有奇效。
