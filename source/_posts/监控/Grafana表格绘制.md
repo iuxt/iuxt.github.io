@@ -2,7 +2,8 @@
 title: Grafana表格绘制
 categories:
   - 监控
-tags: 
+tags:
+  - grafana
 abbrlink: so9bdi
 date: 2024-12-10 10:39:17
 cover: https://static.zahui.fan/public/Grafana.svg
