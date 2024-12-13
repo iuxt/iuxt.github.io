@@ -69,7 +69,6 @@ New-VMSwitch -SwitchName "NAT" -SwitchType Internal
 $ifindex = Get-NetAdapter -Name "vEthernet (NAT)" | Select-Object -ExpandProperty 'ifIndex'
 # 在虚拟交换机上设置固定IP，用于网关IP
 New-NetIPAddress -IPAddress 192.168.200.1 -PrefixLength 24 -InterfaceIndex $ifindex
-
 ```
 
 <!-- endtab -->
