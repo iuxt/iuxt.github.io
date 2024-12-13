@@ -1,16 +1,12 @@
 ---
-title: 使用kubeadm部署一套高可用k8s 1.29集群 for AlmaLinux9(RHEL9)
-abbrlink: lq0y87n5
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+title: 使用kubeadm部署一套高可用k8s 1.32集群 for AlmaLinux9(RHEL9)
 categories:
   - 容器
 tags:
-  - Linux
-  - Container
-  - Kubernetes
-  - 配置记录
-  - kubeadm
-date: 2023-12-11 21:44:33
+  - ''
+abbrlink: sof9i3
+date: 2024-12-13 15:44:27
+cover: ''
 ---
 
 > 基于 AlmaLinux9 使用 kubeadm 搭建集群， [ubuntu部署文档](/posts/526ffc9a/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/), 本教程需要能访问 **国际互联网** 。不能的话，需要解决镜像拉取问题、yum 安装组件的问题。
@@ -121,7 +117,7 @@ sed -i 's#SystemdCgroup = .*#SystemdCgroup = true#g' /etc/containerd/config.toml
 
 # 修改 pause容器 镜像，不能拉取官方镜像的可以使用阿里云镜像源
 # sed -i 's#sandbox_image = .*#sandbox_image = "registry.aliyuncs.com/google_containers/pause:3.9"#g' /etc/containerd/config.toml
-sed -i 's#sandbox_image = .*#sandbox_image = "registry.k8s.io/pause:3.9"#g' /etc/containerd/config.toml
+sed -i 's#sandbox_image = .*#sandbox_image = "registry.k8s.io/pause:3.10"#g' /etc/containerd/config.toml
 
 # 设置开机自启动
 sudo systemctl enable containerd
@@ -145,17 +141,17 @@ EOF
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
-baseurl=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/
 enabled=1
 gpgcheck=1
-gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.32/rpm/repodata/repomd.xml.key
 exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
 EOF
 
 # 查看可用的版本
-yum list kubelet kubeadm kubectl  --showduplicates --disableexcludes=kubernetes
+yum list kubelet kubeadm kubectl --showduplicates --disableexcludes=kubernetes
 
-sudo yum install -y kubelet-1.29.5 kubeadm-1.29.5 kubectl-1.29.5 --disableexcludes=kubernetes
+sudo yum install -y kubelet-1.32.0 kubeadm-1.32.0 kubectl-1.32.0 --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 ```
 
@@ -241,7 +237,7 @@ configure arguments: --with-stream --without-http --without-http_uwsgi_module --
 
 ```bash
 kubeadm config images pull \
---kubernetes-version 1.29.5 \
+--kubernetes-version 1.32.0 \
 --image-repository registry.aliyuncs.com/google_containers
 ```
 
@@ -252,14 +248,13 @@ kubeadm config images pull \
 ```bash
 sudo kubeadm init \
 --control-plane-endpoint "127.0.0.1:8443" \
---kubernetes-version 1.29.5 \
+--kubernetes-version 1.32.0 \
 --upload-certs \
 --service-cidr=10.96.0.0/12 \
 --pod-network-cidr=10.244.0.0/16
 ```
 
 - 也可以用 `kubeadm config print init-defaults > init.yaml` 生成 kubeadm 的配置，并用 `kubeadm init --config=init.yaml` 来创建集群。
-- 如果负载均衡没有准备好，也可以临时添加 VIP `ip addr add 10.0.0.10 dev eth0`
 - 如果不能拉官方镜像，增加参数使用阿里云镜像源 `--image-repository registry.aliyuncs.com/google_containers`
 
 ### 安装网络插件
