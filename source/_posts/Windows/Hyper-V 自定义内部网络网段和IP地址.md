@@ -33,6 +33,8 @@ date: 2022-01-12 11:06:59
 
 ## 方案一: 创建自定义 NAT 网段
 
+参考：<https://learn.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/user-guide/setup-nat-network>
+
 ### 添加虚拟交换机
 
 {% tabs TabName %}
@@ -86,8 +88,7 @@ New-NetIPAddress -IPAddress 192.168.200.1 -PrefixLength 24 -InterfaceIndex $ifin
 ### 创建 NAT 网络
 
 ```powershell
-# 192.168.200.1也就是网关地址
-New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix 192.168.200.1/24
+New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix 192.168.200.0/24
 ```
 
 ### 删除 NAT 网络
