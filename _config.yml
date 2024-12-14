@@ -152,17 +152,12 @@ feed:
   enable: true
   type:
     - atom
-    - rss2
   path:
     - atom.xml
-    - rss2.xml
-  # 为了支持follow rss，不用了需要删除根目录下的 atom.xml
-  template:
-    - atom.xml
-  limit: 0
+  limit: 20
   hub:
   content: true
-  content_limit: 
+  content_limit: 200
   content_limit_delim: ' '
   order_by: -date
   icon: favicon.ico
