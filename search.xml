@@ -431,11 +431,11 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> ingress </tag>
             
             <tag> prometheus </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -805,13 +805,13 @@
       
         <tags>
             
-            <tag> 部署 </tag>
-            
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> 部署 </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -836,9 +836,9 @@
       
         <tags>
             
-            <tag> 部署 </tag>
-            
             <tag> Kubernetes </tag>
+            
+            <tag> 部署 </tag>
             
             <tag> kubeadm </tag>
             
@@ -952,13 +952,13 @@
             
             <tag> 配置记录 </tag>
             
+            <tag> Kubernetes </tag>
+            
             <tag> 常用操作 </tag>
             
             <tag> 部署 </tag>
             
             <tag> 搭建 </tag>
-            
-            <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
             
@@ -1045,13 +1045,13 @@
       
         <tags>
             
-            <tag> 部署 </tag>
-            
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> 部署 </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1078,11 +1078,11 @@
             
             <tag> Crontab </tag>
             
-            <tag> kubectl </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -1136,13 +1136,13 @@
       
         <tags>
             
-            <tag> kubectl </tag>
-            
-            <tag> 存储 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> 存储 </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -1167,13 +1167,13 @@
       
         <tags>
             
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1198,15 +1198,15 @@
       
         <tags>
             
-            <tag> Elasticsearch </tag>
-            
-            <tag> ES </tag>
-            
             <tag> Docker </tag>
             
             <tag> 部署 </tag>
             
             <tag> 搭建 </tag>
+            
+            <tag> Elasticsearch </tag>
+            
+            <tag> ES </tag>
             
             <tag> 开源软件 </tag>
             
@@ -1266,11 +1266,11 @@
             
             <tag> 部署 </tag>
             
-            <tag> 仓库 </tag>
+            <tag> 搭建 </tag>
             
             <tag> 镜像 </tag>
             
-            <tag> 搭建 </tag>
+            <tag> 仓库 </tag>
             
         </tags>
       
@@ -1506,11 +1506,11 @@
       
         <tags>
             
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1802,9 +1802,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kernel </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> Kernel </tag>
             
         </tags>
       
@@ -1831,9 +1831,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 记录 </tag>
-            
             <tag> Kubernetes </tag>
+            
+            <tag> 记录 </tag>
             
         </tags>
       
@@ -1858,11 +1858,11 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> ingress </tag>
             
             <tag> Kubernetes </tag>
+            
+            <tag> Nginx </tag>
             
             <tag> 阿里云 </tag>
             
@@ -1922,9 +1922,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> curl </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> curl </tag>
             
         </tags>
       
@@ -2127,11 +2127,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> kubectl </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> 权限管理 </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -2220,13 +2220,13 @@
             
             <tag> 浏览器 </tag>
             
-            <tag> Nginx </tag>
-            
-            <tag> 反向代理 </tag>
-            
             <tag> 编码 </tag>
             
             <tag> ingress </tag>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 反向代理 </tag>
             
         </tags>
       
@@ -2355,9 +2355,9 @@
       
         <tags>
             
-            <tag> 常用操作 </tag>
-            
             <tag> k8s </tag>
+            
+            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -2869,9 +2869,9 @@
       
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> echo-server </tag>
+            
+            <tag> 测试 </tag>
             
         </tags>
       
@@ -2954,9 +2954,9 @@
       
         <tags>
             
-            <tag> 编译 </tag>
-            
             <tag> 记录 </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -3182,11 +3182,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> keepalived </tag>
+            <tag> Kubernetes </tag>
             
             <tag> HA </tag>
             
-            <tag> Kubernetes </tag>
+            <tag> keepalived </tag>
             
         </tags>
       
@@ -3381,9 +3381,9 @@
       
         <tags>
             
-            <tag> Nginx </tag>
-            
             <tag> Ingress </tag>
+            
+            <tag> Nginx </tag>
             
         </tags>
       
@@ -3462,9 +3462,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> harbor </tag>
-            
             <tag> 容器 </tag>
+            
+            <tag> harbor </tag>
             
             <tag> 漏洞扫描 </tag>
             
@@ -3518,11 +3518,11 @@
       
         <tags>
             
+            <tag> nginx </tag>
+            
             <tag> Nginx </tag>
             
             <tag> 反向代理 </tag>
-            
-            <tag> nginx </tag>
             
         </tags>
       
@@ -3746,9 +3746,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> 容器 </tag>
-            
             <tag> 同步 </tag>
+            
+            <tag> 容器 </tag>
             
         </tags>
       
@@ -3881,13 +3881,13 @@
       
         <tags>
             
+            <tag> docker </tag>
+            
             <tag> fail2ban </tag>
             
             <tag> cc攻击 </tag>
             
             <tag> iptables </tag>
-            
-            <tag> docker </tag>
             
         </tags>
       
@@ -5063,13 +5063,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Network </tag>
-            
-            <tag> LoadBalance </tag>
+            <tag> HA </tag>
             
             <tag> keepalived </tag>
             
-            <tag> HA </tag>
+            <tag> Network </tag>
+            
+            <tag> LoadBalance </tag>
             
             <tag> lvs </tag>
             
@@ -5295,11 +5295,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> keepalived </tag>
-            
             <tag> nginx </tag>
             
             <tag> HA </tag>
+            
+            <tag> keepalived </tag>
             
         </tags>
       
@@ -5351,9 +5351,9 @@
       
         <tags>
             
-            <tag> Auth </tag>
-            
             <tag> prometheus </tag>
+            
+            <tag> Auth </tag>
             
             <tag> Prometheus </tag>
             
@@ -5380,9 +5380,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> ingress </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -5463,9 +5463,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> SSL </tag>
-            
             <tag> Nginx </tag>
+            
+            <tag> SSL </tag>
             
             <tag> Auth </tag>
             
@@ -5482,7 +5482,7 @@
       <link href="/posts/097e5b7c/"/>
       <url>/posts/097e5b7c/</url>
       
-        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#120;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#105;&#117;&#120;&#x74;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#120;&#116;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#105;&#117;&#120;&#116;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
+        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#x78;&#116;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#105;&#x75;&#x78;&#116;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#120;&#x74;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#109;">&#x69;&#117;&#120;&#x74;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo <span class="built_in">ln</span> -s /etc/pki/ca-trust/source/anchors/cacert.crt  /etc/ssl/certs/cacert.crt</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
       
       
       <categories>
@@ -5548,11 +5548,11 @@
       
         <tags>
             
-            <tag> kubectl </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> kubectl </tag>
             
         </tags>
       
@@ -5981,9 +5981,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> ingress </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -6130,9 +6130,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Kafka </tag>
-            
             <tag> 有状态服务 </tag>
+            
+            <tag> Kafka </tag>
             
             <tag> MQ </tag>
             
@@ -6186,13 +6186,13 @@
       
         <tags>
             
-            <tag> keepalived </tag>
-            
-            <tag> HA </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
+            
+            <tag> HA </tag>
+            
+            <tag> keepalived </tag>
             
         </tags>
       
@@ -6217,11 +6217,11 @@
       
         <tags>
             
+            <tag> Kubernetes </tag>
+            
             <tag> NFS </tag>
             
             <tag> 存储 </tag>
-            
-            <tag> Kubernetes </tag>
             
         </tags>
       
@@ -6246,9 +6246,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> ingress </tag>
+            
+            <tag> nginx </tag>
             
         </tags>
       
@@ -6450,7 +6450,7 @@
       <link href="/posts/6f952944/"/>
       <url>/posts/6f952944/</url>
       
-        <content type="html"><![CDATA[<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p>首先如果是仅仅想要主机和虚拟机进行数据互通，其实不需要固定 IP，直接通过计算机名就可以互相访问。</p><h2 id="Hyper-V-网络模式"><a href="#Hyper-V-网络模式" class="headerlink" title="Hyper-V 网络模式"></a>Hyper-V 网络模式</h2><p>外部虚拟网络: 类似于 VMware 的桥接网络模式, 在希望允许虚拟机与外部服务器和管理操作系统（有时称为父分区）进行通信时，可以使用此类型的虚拟网络。此类型的虚拟网络还允许位于同一物理服务器上的虚拟机互相通信。</p><p>内部虚拟网络: 类似于 VMware 的 NAT 网络模式, 在希望允许同一物理服务器上的虚拟机与虚拟机和管理操作系统之间进行通信时，可以使用此类型的虚拟网络。内部虚拟网络是一种未绑定到物理网络适配器的虚拟网络。它通常用来构建从管理操作系统连接到虚拟机所需的测试环境。</p><p>专用虚拟网络: 在希望只允许同一物理服务器上的虚拟机之间进行通信时，可以使用此类型的虚拟网络。专用虚拟网络是一种无需在管理操作系统中装有虚拟网络适配器的虚拟网络。在希望将虚拟机从管理操作系统以及外部网络中的网络通信中分离出来时，通常会使用专用虚拟网络。</p><p>由于 Hyper-V 自带的 Default Switch 在每次电脑重启的时候会自动分配一个未使用的网段, 无法达到固定 IP 的效果, Hyper-V 默认的 Default Switch 同时支持了 NAT 网络以及 DHCP</p><p>正常来说想要固定 IP 有以下方式:</p><ol><li>创建一个自定义的网段, 固定网段的地址范围, 然后虚拟机使用固定 IP</li><li>增加一个新的仅内网网卡, 虚拟机正常访问网络使用 Default Switch 不变, 物理机访问虚拟机使用仅内网网卡</li><li>使用外部虚拟网络, 和主机处于同一个内网</li></ol><h2 id="方案一-创建自定义-NAT-网段"><a href="#方案一-创建自定义-NAT-网段" class="headerlink" title="方案一: 创建自定义 NAT 网段"></a>方案一: 创建自定义 NAT 网段</h2><h3 id="添加虚拟交换机"><a href="#添加虚拟交换机" class="headerlink" title="添加虚拟交换机"></a>添加虚拟交换机</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">使用powershell添加</button><button type="button" class="tab">手动添加</button></div><div class="tab-contents"><div class="tab-item-content active"><p>以管理员身份启动 PowerShell</p><blockquote><p>Win11 和新一点的 Win10 系统可以通过右键点击开始菜单，选择 <code>Windows 终端(管理员)</code> 打开</p></blockquote><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟交换机，等同于在Hyper-V管理器界面中新建虚拟网络交换机</span></span><br><span class="line"><span class="built_in">New-VMSwitch</span> <span class="literal">-SwitchName</span> <span class="string">&quot;NAT&quot;</span> <span class="literal">-SwitchType</span> Internal</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>可以到 Hyper V 管理器 虚拟交换机管理器 新建虚拟交换机<br>类型选择 <code>内部</code></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/Snipaste_2022-01-13_09-39-25.png" alt="手动创建虚拟交换机|506"></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="设置-ip-地址"><a href="#设置-ip-地址" class="headerlink" title="设置 ip 地址"></a>设置 ip 地址</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">使用powershell添加</button><button type="button" class="tab">手动添加</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取虚拟交换机的ifindex，并赋值到变量中</span></span><br><span class="line"><span class="variable">$ifindex</span> = <span class="built_in">Get-NetAdapter</span> <span class="literal">-Name</span> <span class="string">&quot;vEthernet (NAT)&quot;</span> | <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> <span class="string">&#x27;ifIndex&#x27;</span></span><br><span class="line"><span class="comment"># 在虚拟交换机上设置固定IP，用于网关IP</span></span><br><span class="line"><span class="built_in">New-NetIPAddress</span> <span class="literal">-IPAddress</span> <span class="number">192.168</span>.<span class="number">200.1</span> <span class="literal">-PrefixLength</span> <span class="number">24</span> <span class="literal">-InterfaceIndex</span> <span class="variable">$ifindex</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>进入 windows 设置，给网卡 <code>vEthernet (NAT)</code> 设置固定 ip 和子网掩码</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/Snipaste_2022-01-13_09-43-03.png" alt="手动设置|520"></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="创建-NAT-网络"><a href="#创建-NAT-网络" class="headerlink" title="创建 NAT 网络"></a>创建 NAT 网络</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 192.168.200.1也就是网关地址</span></span><br><span class="line"><span class="built_in">New-NetNat</span> <span class="literal">-Name</span> NAT <span class="literal">-InternalIPInterfaceAddressPrefix</span> <span class="number">192.168</span>.<span class="number">200.1</span>/<span class="number">24</span></span><br></pre></td></tr></table></figure><h3 id="删除-NAT-网络"><a href="#删除-NAT-网络" class="headerlink" title="删除 NAT 网络"></a>删除 NAT 网络</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetNat</span>                  <span class="comment"># NAT网络保持一个就行了，可以删除后重新创建</span></span><br><span class="line"><span class="built_in">Remove-NetNat</span> NAT           <span class="comment"># 删除nat网络</span></span><br></pre></td></tr></table></figure><h2 id="方案二-创建一个仅内网交换机"><a href="#方案二-创建一个仅内网交换机" class="headerlink" title="方案二: 创建一个仅内网交换机"></a>方案二: 创建一个仅内网交换机</h2><h3 id="创建一个内部交换机"><a href="#创建一个内部交换机" class="headerlink" title="创建一个内部交换机"></a>创建一个内部交换机</h3><p>进入 Hyper-V 虚拟交换机管理器, 创建一个内部虚拟交换机</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141440799.png" alt="image.png|431"></p><h3 id="修改网卡-IP-信息"><a href="#修改网卡-IP-信息" class="headerlink" title="修改网卡 IP 信息"></a>修改网卡 IP 信息</h3><p>在 控制面板 – 更改适配器设置界面, 给内部虚拟交换机这个网卡设置 IP 地址, 只需要设置 IP 和掩码即可.</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141439136.png" alt="image.png|641"></p><h3 id="虚拟机增加网卡"><a href="#虚拟机增加网卡" class="headerlink" title="虚拟机增加网卡"></a>虚拟机增加网卡</h3><p>在虚拟机设置界面, 增加一个新的网络适配器, 交换机选择内部虚拟交换机</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141440651.png" alt="image.png|478"></p><h3 id="操作系统网卡配置固定-IP"><a href="#操作系统网卡配置固定-IP" class="headerlink" title="操作系统网卡配置固定 IP"></a>操作系统网卡配置固定 IP</h3><p>此时在操作系统中, 会多出来一张网卡, 多出来的网卡配置一下固定 IP 和掩码即可, IP 和交换机在同一个网段, 不要重复.<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141443040.png" alt="image.png|593"></p><p>此时主机可以通过 172.16.0.8 这个地址访问虚拟机, 虚拟机也可以通过 172.16.0.1 访问主机</p><h2 id="方案三-使用外部网络"><a href="#方案三-使用外部网络" class="headerlink" title="方案三: 使用外部网络"></a>方案三: 使用外部网络</h2><p>创建外部虚拟机交换机, 选择一下桥接的网卡, 这种方式虚拟机也会获得一个 IP 地址, 虚拟机就会像主机一样可以对外提供服务, 常用于服务器</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141444528.png" alt="image.png|429"></p><p>操作系统内设置外部虚拟交换机网卡即可.</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p>首先如果是仅仅想要主机和虚拟机进行数据互通，其实不需要固定 IP，直接通过计算机名就可以互相访问。</p><h2 id="Hyper-V-网络模式"><a href="#Hyper-V-网络模式" class="headerlink" title="Hyper-V 网络模式"></a>Hyper-V 网络模式</h2><p>外部虚拟网络: 类似于 VMware 的桥接网络模式, 在希望允许虚拟机与外部服务器和管理操作系统（有时称为父分区）进行通信时，可以使用此类型的虚拟网络。此类型的虚拟网络还允许位于同一物理服务器上的虚拟机互相通信。</p><p>内部虚拟网络: 类似于 VMware 的 NAT 网络模式, 在希望允许同一物理服务器上的虚拟机与虚拟机和管理操作系统之间进行通信时，可以使用此类型的虚拟网络。内部虚拟网络是一种未绑定到物理网络适配器的虚拟网络。它通常用来构建从管理操作系统连接到虚拟机所需的测试环境。</p><p>专用虚拟网络: 在希望只允许同一物理服务器上的虚拟机之间进行通信时，可以使用此类型的虚拟网络。专用虚拟网络是一种无需在管理操作系统中装有虚拟网络适配器的虚拟网络。在希望将虚拟机从管理操作系统以及外部网络中的网络通信中分离出来时，通常会使用专用虚拟网络。</p><p>由于 Hyper-V 自带的 Default Switch 在每次电脑重启的时候会自动分配一个未使用的网段, 无法达到固定 IP 的效果, Hyper-V 默认的 Default Switch 同时支持了 NAT 网络以及 DHCP</p><p>正常来说想要固定 IP 有以下方式:</p><ol><li>创建一个自定义的网段, 固定网段的地址范围, 然后虚拟机使用固定 IP</li><li>增加一个新的仅内网网卡, 虚拟机正常访问网络使用 Default Switch 不变, 物理机访问虚拟机使用仅内网网卡</li><li>使用外部虚拟网络, 和主机处于同一个内网</li></ol><h2 id="方案一-创建自定义-NAT-网段"><a href="#方案一-创建自定义-NAT-网段" class="headerlink" title="方案一: 创建自定义 NAT 网段"></a>方案一: 创建自定义 NAT 网段</h2><p>参考：<a href="https://learn.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/user-guide/setup-nat-network">https://learn.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/user-guide/setup-nat-network</a></p><h3 id="添加虚拟交换机"><a href="#添加虚拟交换机" class="headerlink" title="添加虚拟交换机"></a>添加虚拟交换机</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">使用powershell添加</button><button type="button" class="tab">手动添加</button></div><div class="tab-contents"><div class="tab-item-content active"><p>以管理员身份启动 PowerShell</p><blockquote><p>Win11 和新一点的 Win10 系统可以通过右键点击开始菜单，选择 <code>Windows 终端(管理员)</code> 打开</p></blockquote><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟交换机，等同于在Hyper-V管理器界面中新建虚拟网络交换机</span></span><br><span class="line"><span class="built_in">New-VMSwitch</span> <span class="literal">-SwitchName</span> <span class="string">&quot;NAT&quot;</span> <span class="literal">-SwitchType</span> Internal</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>可以到 Hyper V 管理器 虚拟交换机管理器 新建虚拟交换机<br>类型选择 <code>内部</code></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/Snipaste_2022-01-13_09-39-25.png" alt="手动创建虚拟交换机|506"></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="设置-ip-地址"><a href="#设置-ip-地址" class="headerlink" title="设置 ip 地址"></a>设置 ip 地址</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">使用powershell添加</button><button type="button" class="tab">手动添加</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取虚拟交换机的ifindex，并赋值到变量中</span></span><br><span class="line"><span class="variable">$ifindex</span> = <span class="built_in">Get-NetAdapter</span> <span class="literal">-Name</span> <span class="string">&quot;vEthernet (NAT)&quot;</span> | <span class="built_in">Select-Object</span> <span class="literal">-ExpandProperty</span> <span class="string">&#x27;ifIndex&#x27;</span></span><br><span class="line"><span class="comment"># 在虚拟交换机上设置固定IP，用于网关IP</span></span><br><span class="line"><span class="built_in">New-NetIPAddress</span> <span class="literal">-IPAddress</span> <span class="number">192.168</span>.<span class="number">200.1</span> <span class="literal">-PrefixLength</span> <span class="number">24</span> <span class="literal">-InterfaceIndex</span> <span class="variable">$ifindex</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>进入 windows 设置，给网卡 <code>vEthernet (NAT)</code> 设置固定 ip 和子网掩码</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/Snipaste_2022-01-13_09-43-03.png" alt="手动设置|520"></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="创建-NAT-网络"><a href="#创建-NAT-网络" class="headerlink" title="创建 NAT 网络"></a>创建 NAT 网络</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-NetNat</span> <span class="literal">-Name</span> NAT <span class="literal">-InternalIPInterfaceAddressPrefix</span> <span class="number">192.168</span>.<span class="number">200.0</span>/<span class="number">24</span></span><br></pre></td></tr></table></figure><h3 id="删除-NAT-网络"><a href="#删除-NAT-网络" class="headerlink" title="删除 NAT 网络"></a>删除 NAT 网络</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetNat</span>                  <span class="comment"># NAT网络保持一个就行了，可以删除后重新创建</span></span><br><span class="line"><span class="built_in">Remove-NetNat</span> NAT           <span class="comment"># 删除nat网络</span></span><br></pre></td></tr></table></figure><h2 id="方案二-创建一个仅内网交换机"><a href="#方案二-创建一个仅内网交换机" class="headerlink" title="方案二: 创建一个仅内网交换机"></a>方案二: 创建一个仅内网交换机</h2><h3 id="创建一个内部交换机"><a href="#创建一个内部交换机" class="headerlink" title="创建一个内部交换机"></a>创建一个内部交换机</h3><p>进入 Hyper-V 虚拟交换机管理器, 创建一个内部虚拟交换机</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141440799.png" alt="image.png|431"></p><h3 id="修改网卡-IP-信息"><a href="#修改网卡-IP-信息" class="headerlink" title="修改网卡 IP 信息"></a>修改网卡 IP 信息</h3><p>在 控制面板 – 更改适配器设置界面, 给内部虚拟交换机这个网卡设置 IP 地址, 只需要设置 IP 和掩码即可.</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141439136.png" alt="image.png|641"></p><h3 id="虚拟机增加网卡"><a href="#虚拟机增加网卡" class="headerlink" title="虚拟机增加网卡"></a>虚拟机增加网卡</h3><p>在虚拟机设置界面, 增加一个新的网络适配器, 交换机选择内部虚拟交换机</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141440651.png" alt="image.png|478"></p><h3 id="操作系统网卡配置固定-IP"><a href="#操作系统网卡配置固定-IP" class="headerlink" title="操作系统网卡配置固定 IP"></a>操作系统网卡配置固定 IP</h3><p>此时在操作系统中, 会多出来一张网卡, 多出来的网卡配置一下固定 IP 和掩码即可, IP 和交换机在同一个网段, 不要重复.<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141443040.png" alt="image.png|593"></p><p>此时主机可以通过 172.16.0.8 这个地址访问虚拟机, 虚拟机也可以通过 172.16.0.1 访问主机</p><h2 id="方案三-使用外部网络"><a href="#方案三-使用外部网络" class="headerlink" title="方案三: 使用外部网络"></a>方案三: 使用外部网络</h2><p>创建外部虚拟机交换机, 选择一下桥接的网卡, 这种方式虚拟机也会获得一个 IP 地址, 虚拟机就会像主机一样可以对外提供服务, 常用于服务器</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202309141444528.png" alt="image.png|429"></p><p>操作系统内设置外部虚拟交换机网卡即可.</p>]]></content>
       
       
       <categories>
@@ -6605,9 +6605,9 @@
             
             <tag> 网络 </tag>
             
-            <tag> Bash </tag>
-            
             <tag> 测试 </tag>
+            
+            <tag> Bash </tag>
             
         </tags>
       
@@ -6897,9 +6897,9 @@
             
             <tag> Docker </tag>
             
-            <tag> 编码 </tag>
-            
             <tag> Container </tag>
+            
+            <tag> 编码 </tag>
             
         </tags>
       
@@ -7217,11 +7217,11 @@
       
         <tags>
             
+            <tag> Docker </tag>
+            
             <tag> Nginx </tag>
             
             <tag> Proxy </tag>
-            
-            <tag> Docker </tag>
             
         </tags>
       
@@ -7429,13 +7429,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Network </tag>
-            
-            <tag> LoadBalance </tag>
+            <tag> HA </tag>
             
             <tag> keepalived </tag>
             
-            <tag> HA </tag>
+            <tag> Network </tag>
+            
+            <tag> LoadBalance </tag>
             
             <tag> lvs </tag>
             
@@ -8019,9 +8019,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 搭建 </tag>
-            
             <tag> HA </tag>
+            
+            <tag> 搭建 </tag>
             
             <tag> 有状态服务 </tag>
             
@@ -8106,9 +8106,9 @@
             
             <tag> Linux </tag>
             
-            <tag> Shell </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -8166,11 +8166,11 @@
             
             <tag> Docker </tag>
             
-            <tag> keepalived </tag>
-            
             <tag> Container </tag>
             
             <tag> Kubernetes </tag>
+            
+            <tag> keepalived </tag>
             
             <tag> kubeadm </tag>
             
@@ -8388,13 +8388,13 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Ubuntu </tag>
-            
-            <tag> keepalived </tag>
-            
             <tag> Container </tag>
             
             <tag> Kubernetes </tag>
+            
+            <tag> keepalived </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
