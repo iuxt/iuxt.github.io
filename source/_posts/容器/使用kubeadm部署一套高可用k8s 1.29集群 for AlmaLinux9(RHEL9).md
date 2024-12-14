@@ -19,14 +19,13 @@ date: 2023-12-11 21:44:33
 
 > 我的机器详情如下, 配置至少为 4C4G
 
-| hostname | IP        | 作用               |
-| -------- | --------- | ---------------- |
-| public   | 10.0.0.10 | apiserver 的负载均衡 ip |
-| master1  | 10.0.0.11 | k8s master 节点     |
-| master2  | 10.0.0.12 | k8s master 节点     |
-| master3  | 10.0.0.13 | k8s master 节点     |
-| worker1  | 10.0.0.21 | k8s worker 节点     |
-| worker2  | 10.0.0.22 | k8s worker 节点     |
+| hostname | IP        | 作用                 |
+| -------- | --------- | ------------------ |
+| master1  | 10.0.0.11 | k8s master 节点      |
+| master2  | 10.0.0.12 | k8s master 节点      |
+| master3  | 10.0.0.13 | k8s master 节点      |
+| worker1  | 10.0.0.21 | k8s worker 节点      |
+| worker2  | 10.0.0.22 | k8s worker 节点      |
 
 每台机器都做域名解析，或者绑定 hosts（直接使用 ip 地址会有警告）
 

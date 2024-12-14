@@ -15,24 +15,23 @@ cover: ''
 
 > 我的机器详情如下, 配置至少为 4C4G
 
-| hostname | IP        | 作用               |
-| -------- | --------- | ---------------- |
-| public   | 10.0.0.10 | apiserver 的负载均衡 ip |
-| master1  | 10.0.0.11 | k8s master 节点     |
-| master2  | 10.0.0.12 | k8s master 节点     |
-| master3  | 10.0.0.13 | k8s master 节点     |
-| worker1  | 10.0.0.21 | k8s worker 节点     |
-| worker2  | 10.0.0.22 | k8s worker 节点     |
+| hostname | IP             | 作用                 |
+| -------- | -------------- | ------------------ |
+| master1  | 192.168.200.11 | k8s master 节点      |
+| master2  | 192.168.200.12 | k8s master 节点      |
+| master3  | 192.168.200.13 | k8s master 节点      |
+| worker1  | 192.168.200.21 | k8s worker 节点      |
+| worker2  | 192.168.200.22 | k8s worker 节点      |
 
 每台机器都做域名解析，或者绑定 hosts（直接使用 ip 地址会有警告）
 
 ```bash
 vim /etc/hosts
 
-10.0.0.10  public kube-apiserver
-10.0.0.11 master1
-10.0.0.12 master2
-10.0.0.13 master3
+192.168.200.10  public kube-apiserver
+192.168.200.11 master1
+192.168.200.12 master2
+192.168.200.13 master3
 ```
 
 每台机器都关闭防火墙和 SELinux
@@ -180,9 +179,9 @@ events {
 
 stream {
     upstream backend {
-        server 10.0.0.11:6443    max_fails=2 fail_timeout=3s;
-        server 10.0.0.12:6443    max_fails=2 fail_timeout=3s;
-        server 10.0.0.13:6443    max_fails=2 fail_timeout=3s;
+        server 192.168.200.11:6443    max_fails=2 fail_timeout=3s;
+        server 192.168.200.12:6443    max_fails=2 fail_timeout=3s;
+        server 192.168.200.13:6443    max_fails=2 fail_timeout=3s;
     }
 
     server {
