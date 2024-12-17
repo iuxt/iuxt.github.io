@@ -13,10 +13,10 @@ date: 2021-05-27 20:52:22
 
 ### 创建 swap
 
-生成一个空文件（2048M）
+生成一个空文件
 
 ```bash
-# 创建一个2G的swap文件
+# 创建一个4G的swap文件
 sudo fallocate -l 4G /swapfile
 
 # 或者使用dd命令来创建，建议用fallocate，是瞬间生成的，不像dd真的要写入文件内容。
@@ -179,13 +179,13 @@ sysctl vm.swappiness
 #### 方法一
 
 ```bash
- sysctl vm.swappiness=100
+ sysctl vm.swappiness=80
 ```
 
 #### 方法二
 
 ```bash
-echo "100" > /proc/sys/vm/swappiness
+echo "80" > /proc/sys/vm/swappiness
 ```
 
 ### 永久修改
@@ -193,7 +193,7 @@ echo "100" > /proc/sys/vm/swappiness
 `vim /etc/sysctl.conf`
 
 ```bash
-vm.swappiness = 100
+vm.swappiness = 80
 ```
 
 执行 `sysctl -p` 马上生效。
