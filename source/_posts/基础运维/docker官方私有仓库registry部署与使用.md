@@ -92,44 +92,7 @@ storage:
 docker exec <registry-container> bin/registry garbage-collect /etc/docker/registry/config.yml
 ```
 
-## 配置 OS 信任 CA 证书
+## 附：
 
-部分旧版本 docker 不支持使用 docker 方式信任证书，可以在操作系统全局信任证书。
-
-使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。
-
-{% tabs TabName %}
-
-<!-- tab Debian系信任CA -->
-
-```bash
-sudo cp ca.crt /usr/local/share/ca-certificates/
-sudo update-ca-certificates
-```
-
-然后使用 curl 等工具就受信任了。
-
-<!-- endtab -->
-
-<!-- tab Redhat系信任CA -->
-
-```bash
-sudo cp ca.crt /etc/pki/ca-trust/source/anchors/
-sudo ln -s /etc/pki/ca-trust/source/anchors/ca.crt  /etc/ssl/certs/ca.crt
-sudo update-ca-trust
-```
-
-然后使用 curl 等工具就受信任了。
-
-<!-- endtab -->
-
-<!-- tab windows信任CA -->
-
-右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。
-
-![windows安装CA证书](https://static.zahui.fan/images/202305251008396.png)
-
-<!-- endtab -->
-
-{% endtabs %}
-
+自签证书以及配置 OS 信任 CA 证书：[制作和使用自签名证书](/posts/097e5b7c)
+快速签发证书小工具：<https://github.com/iuxt/my_cert>
