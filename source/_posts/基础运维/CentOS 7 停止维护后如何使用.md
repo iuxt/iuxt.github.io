@@ -18,7 +18,7 @@ CentOS 7 停止维护后，很多源都失效了，使用 yum 的时候报错 40
 ```bash
 sudo sed -i.bak \
   -e 's|^mirrorlist=|#mirrorlist=|g' \
-  -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://https://vault.centos.org/centos|g' \
+  -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://vault.centos.org/centos|g' \
   /etc/yum.repos.d/CentOS-Base.repo
 ```
 
@@ -26,18 +26,6 @@ sudo sed -i.bak \
 
 ```bash
 cat > /etc/yum.repos.d/CentOS-Base.repo <<-'EOF'
-# CentOS-Base.repo
-#
-# The mirror system uses the connecting IP address of the client and the
-# update status of each mirror to pick mirrors that are updated to and
-# geographically close to the client.  You should use this for CentOS updates
-# unless you are manually picking other mirrors.
-#
-# If the mirrorlist= does not work for you, as a fall back you can try the
-# remarked out baseurl= line instead.
-#
-#
-
 [base]
 name=CentOS-$releasever - Base
 #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
@@ -70,5 +58,4 @@ gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 EOF
-
 ```
