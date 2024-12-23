@@ -14,6 +14,29 @@ date: 2023-12-18 11:13:59
 
 平常使用跳板机来管理, 经常多个环境多套集群, 那么如何用一个 kubectl 如何管理这些集群.
 
+## 推荐方式
+
+这种方式对系统的侵入性比较小，也不用修改 kubeconfig 文件，也不用在 linux 中增加用户等。。
+
+准备不同的 kubeconfig 文件，比如 `prod` `uat`
+
+### 脚本一
+
+```bash
+export KUBECONFIG=./prod 
+bash
+```
+
+这里 export 是必须的，export 的作用是将环境变量传递到子进程中，而 bash 是这个脚本的子进程。
+
+### 脚本二
+
+```bash
+KUBECONFIG=./prod
+```
+
+执行的时候通过 `. a.sh` 或 `source a.sh` 的时候，source 或 . 的作用是将环境变量传递到当前 shell 中。
+
 ## 使用不同的 kubeconfig 管理
 
 ### 使用不同的 Linux 用户
@@ -22,16 +45,10 @@ date: 2023-12-18 11:13:59
 
 ### 使用环境变量
 
-config 文件放到当前目录下
+设置一个 `KUBECONFIG` 指定到 kubeconfig 文件
 
 ```bash
 KUBECONFIG=config-uat kubectl get pod
-```
-
-环境变量也可以写成全局的在.bashrc 里面
-
-```sh
-export KUBECONFIG=config-uat
 ```
 
 ### 使用参数
@@ -43,6 +60,8 @@ kubectl get pod --kubeconfig=config-uat
 ```
 
 ## 使用一个 kubeconfig
+
+我觉得这种方法很繁琐且复杂，并且还会修改 kubeconfig。
 
 ### 准备
 
