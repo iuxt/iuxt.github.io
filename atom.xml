@@ -548,11 +548,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
+    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
+    
     <category term="ingress" scheme="https://zahui.fan/tags/ingress/"/>
     
     <category term="prometheus" scheme="https://zahui.fan/tags/prometheus/"/>
-    
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
   </entry>
   
