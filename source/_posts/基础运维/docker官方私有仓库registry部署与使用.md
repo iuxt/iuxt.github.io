@@ -35,6 +35,10 @@ mkdir -p /etc/docker/certs.d/hub.i.com/
 cp i.com.crt /etc/docker/certs.d/hub.i.com/
 ```
 
+{% note warning flat %}
+如果更换了默认端口，这里的文件夹也要加上端口，比如 `/etc/docker/certs.d/hub.i.com:8000/`
+{% endnote %}
+
 ## 部署服务
 
 ```bash
