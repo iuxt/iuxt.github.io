@@ -43,9 +43,12 @@ python setup.py install
 
 ### 报错处理
 
-error: numpy 2.2.1 is installed but numpy<2.1.0,>=1.26.0 is required by {'tensorflow-intel'}
+`error: numpy 2.2.1 is installed but numpy<2.1.0,>=1.26.0 is required by {'tensorflow-intel'}`
 
 ```bat
+REM 用这条命令查一下可用的版本
+pip index versions numpy
+
 pip install numpy==2.0.2
 ```
 
