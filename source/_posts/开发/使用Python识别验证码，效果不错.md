@@ -15,9 +15,9 @@ cover: ''
 
 ## 效果展示
 
-![](https://static.zahui.fan/images/20241226175857257.gif)
+![20241226175857257.gif|717](https://static.zahui.fan/images/20241226175857257.gif)
 
-![](https://static.zahui.fan/images/20241226175928967.gif)
+![20241226175928967.gif|728](https://static.zahui.fan/images/20241226175928967.gif)
 
 ## 环境
 
@@ -28,7 +28,7 @@ Python： python-3.10.10-amd64
 
 这个开源程序在 pypi 仓库上被移除了，需要在 GitHub 上将源码包下载下来安装。
 
-![image.png](https://static.zahui.fan/images/20241226152841716.png)
+![image.png|595](https://static.zahui.fan/images/20241226152841716.png)
 
 下载到本地，解压后，打开 cmd 命令提示符，
 
