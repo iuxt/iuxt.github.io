@@ -46,7 +46,7 @@ date: 2022-01-12 11:06:59
 
 ```powershell
 # 创建虚拟交换机，等同于在Hyper-V管理器界面中新建虚拟网络交换机
-New-VMSwitch -SwitchName "NAT" -SwitchType Internal
+New-VMSwitch -SwitchName "Internal" -SwitchType Internal
 ```
 
 <!-- endtab -->
@@ -68,9 +68,9 @@ New-VMSwitch -SwitchName "NAT" -SwitchType Internal
 
 ```powershell
 # 获取虚拟交换机的ifindex，并赋值到变量中
-$ifindex = Get-NetAdapter -Name "vEthernet (NAT)" | Select-Object -ExpandProperty 'ifIndex'
+$ifindex = Get-NetAdapter -Name "vEthernet (Internal)" | Select-Object -ExpandProperty 'ifIndex'
 # 在虚拟交换机上设置固定IP，用于网关IP
-New-NetIPAddress -IPAddress 192.168.200.1 -PrefixLength 24 -InterfaceIndex $ifindex
+New-NetIPAddress -IPAddress 10.0.0.1 -PrefixLength 24 -InterfaceIndex $ifindex
 ```
 
 <!-- endtab -->
@@ -88,7 +88,7 @@ New-NetIPAddress -IPAddress 192.168.200.1 -PrefixLength 24 -InterfaceIndex $ifin
 ### 创建 NAT 网络
 
 ```powershell
-New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix 192.168.200.0/24
+New-NetNat -Name Internal -InternalIPInterfaceAddressPrefix 10.0.0.0/24
 ```
 
 ### 删除 NAT 网络
