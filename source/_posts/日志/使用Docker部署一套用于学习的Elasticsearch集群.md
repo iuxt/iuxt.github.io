@@ -29,7 +29,7 @@ docker network create --subnet=172.16.0.0/24 elasticsearch-br0
 默认生成 3 年证书，我指定生成了 100 年的证书， 生成到了 `certs` 目录下。
 
 ```bash
-docker run --rm -it -v $(pwd)/certs:/tmp/certs elasticsearch:${ELASTIC_VERSION} bash -c \
+docker run --rm -it -v $(pwd)/certs:/tmp/certs elasticsearch:7.17.14 bash -c \
     'echo -e "\n\n" | /usr/share/elasticsearch/bin/elasticsearch-certutil ca -s -days 36500 && \
     echo -e "\n\n\n" | /usr/share/elasticsearch/bin/elasticsearch-certutil cert -s -days 36500 --ca elastic-stack-ca.p12 && \
     mv /usr/share/elasticsearch/*.p12 /tmp/certs && \

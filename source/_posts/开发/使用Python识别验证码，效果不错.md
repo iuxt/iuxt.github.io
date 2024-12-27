@@ -15,8 +15,6 @@ cover: ''
 
 ## 效果展示
 
-![20241226175857257.gif|717](https://static.zahui.fan/images/20241226175857257.gif)
-
 ![20241226175928967.gif|728](https://static.zahui.fan/images/20241226175928967.gif)
 
 ## 环境
