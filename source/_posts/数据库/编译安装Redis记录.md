@@ -1,13 +1,12 @@
 ---
 title: 编译安装Redis记录
 categories:
-  - 基础运维
-tags:
-  - 记录
-  - 编译
+  - 数据库
+tags: [记录, 编译]
 abbrlink: 1da8e73d
-cover: 'https://static.zahui.fan/public/redis.svg'
-date: 2023-07-21 16:37:32
+cover: https://static.zahui.fan/public/redis.svg
+date: 2024-12-02 12:51:44
+updated: 2024-12-31 11:55:18
 ---
 
 ## 下载解压

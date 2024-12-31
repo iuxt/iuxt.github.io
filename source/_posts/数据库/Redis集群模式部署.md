@@ -1,12 +1,12 @@
 ---
 title: Redis集群模式部署
 categories:
-  - 基础运维
-tags:
-  - redis
+  - 数据库
+tags: [redis]
 abbrlink: 5cc4b89d
-cover: 'https://static.zahui.fan/public/redis.svg'
+cover: https://static.zahui.fan/public/redis.svg
 date: 2022-12-16 10:43:06
+updated: 2024-12-31 11:55:03
 ---
 
 搭建个 6 节点的集群，包括三主三从
