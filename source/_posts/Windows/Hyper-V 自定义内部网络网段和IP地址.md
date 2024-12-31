@@ -3,13 +3,9 @@ title: Hyper-V 自定义内部网络网段和IP地址
 abbrlink: 6f952944
 categories:
   - Windows
-tags:
-  - VirtualMachine
-  - Windows
-  - Command
-  - PowerShell
-  - Hyper-V
+tags: [VirtualMachine, Windows, Command, PowerShell, Hyper-V]
 date: 2022-01-12 11:06:59
+updated: 2024-12-31 18:22:36
 ---
 
 ## 开始之前
@@ -46,7 +42,10 @@ date: 2022-01-12 11:06:59
 
 ```powershell
 # 创建虚拟交换机，等同于在Hyper-V管理器界面中新建虚拟网络交换机
-New-VMSwitch -SwitchName "Internal" -SwitchType Internal
+New-VMSwitch -SwitchName "NAT" -SwitchType Internal
+
+# 防火墙放通这个网卡的所有流量
+New-NetFirewallRule -DisplayName "允许NAT网卡" -InterfaceAlias "vEthernet (NAT)" -Direction Inbound -Action Allow
 ```
 
 <!-- endtab -->
@@ -68,7 +67,7 @@ New-VMSwitch -SwitchName "Internal" -SwitchType Internal
 
 ```powershell
 # 获取虚拟交换机的ifindex，并赋值到变量中
-$ifindex = Get-NetAdapter -Name "vEthernet (Internal)" | Select-Object -ExpandProperty 'ifIndex'
+$ifindex = Get-NetAdapter -Name "vEthernet (NAT)" | Select-Object -ExpandProperty 'ifIndex'
 # 在虚拟交换机上设置固定IP，用于网关IP
 New-NetIPAddress -IPAddress 10.0.0.1 -PrefixLength 24 -InterfaceIndex $ifindex
 ```

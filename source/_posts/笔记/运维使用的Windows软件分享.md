@@ -6,12 +6,14 @@ tags: ['']
 abbrlink: spc5z0
 date: 2024-12-31 10:09:00
 cover: ''
-updated: 2024-12-31 10:19:11
+updated: 2024-12-31 15:51:50
 ---
 
 ## 终端工具
 
 ### xshell 全家桶
+
+这个版本是 8 支持 rdp 协议连接 windows，包含四大金刚组件（xshell xftp xmanager xlpd）
 
 ## 效率工具
 
