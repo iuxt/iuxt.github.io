@@ -4,14 +4,14 @@
       "enabled": true
     },
     "dedupe-yaml-array-values": {
-      "enabled": false,
+      "enabled": true,
       "dedupe-alias-key": true,
       "dedupe-tag-key": true,
       "dedupe-array-keys": true,
       "ignore-keys": ""
     },
     "escape-yaml-special-characters": {
-      "enabled": false,
+      "enabled": true,
       "try-to-escape-single-line-arrays": false
     },
     "force-yaml-escape": {
@@ -19,7 +19,7 @@
       "force-yaml-escape-keys": ""
     },
     "format-tags-in-yaml": {
-      "enabled": false
+      "enabled": true
     },
     "format-yaml-array": {
       "enabled": false,
@@ -58,7 +58,7 @@
       "yaml-sort-order-for-other-keys": "None"
     },
     "yaml-timestamp": {
-      "enabled": false,
+      "enabled": true,
       "date-created": true,
       "date-created-key": "date created",
       "date-modified": true,
@@ -67,7 +67,7 @@
       "convert-to-utc": false,
       "date-created-source-of-truth": "file system",
       "date-modified-source-of-truth": "file system",
-      "update-on-file-contents-updated": "never"
+      "update-on-file-contents-updated": "after 10 seconds"
     },
     "yaml-title": {
       "enabled": false,
@@ -133,7 +133,7 @@
       "style": "consistent"
     },
     "no-bare-urls": {
-      "enabled": false,
+      "enabled": true,
       "no-bare-uris": false
     },
     "ordered-list-style": {
@@ -176,8 +176,8 @@
       "list-style": "consistent"
     },
     "compact-yaml": {
-      "enabled": false,
-      "inner-new-lines": false
+      "enabled": true,
+      "inner-new-lines": true
     },
     "consecutive-blank-lines": {
       "enabled": true
@@ -204,7 +204,7 @@
       "empty-line-after-yaml": true
     },
     "line-break-at-document-end": {
-      "enabled": false
+      "enabled": true
     },
     "move-math-block-indicators-to-their-own-line": {
       "enabled": false
@@ -267,7 +267,7 @@
       "enabled": true
     },
     "empty-line-around-horizontal-rules": {
-      "enabled": false
+      "enabled": true
     }
   },
   "lintOnSave": true,
