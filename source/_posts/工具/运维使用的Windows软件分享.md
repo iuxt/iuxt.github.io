@@ -1,12 +1,12 @@
 ---
-title: 运维
+title: 运维使用的Windows软件分享
 categories:
   - 工具
 tags: []
 abbrlink: spc5z0
 date: 2024-12-31 10:09:00
 cover: ""
-updated: 2024-12-31 22:14:32
+updated: 2025-01-02 10:19:21
 ---
 
 ## 终端工具
@@ -20,6 +20,10 @@ Xmanager Power Suite 8 支持 rdp 协议连接 windows，包含四大金刚组�
 | Xmanager Power Suite 8 | xshell xftp xmanager xlpd | <https://github.com/iuxt/src/releases/download/xmanager/Xmanager.Power.Suite.8.zip>   | 推荐版本 |
 | xshell plus 7          | xshell xftp               | <https://github.com/iuxt/src/releases/download/ops/XshellPlus_v7.0.0023r.7z>          |      |
 | Xmanager Power Suite 6 | xshell xftp xmanager xlpd | <https://github.com/iuxt/src/releases/download/ops/Xmanager.Power.Suite.6.0.0029.zip> |      |
+
+## mobaxterm
+
+## securecrt
 
 ### tssh
 
