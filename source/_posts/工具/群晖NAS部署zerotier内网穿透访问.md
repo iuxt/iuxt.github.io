@@ -2,13 +2,11 @@
 title: 群晖NAS部署zerotier内网穿透访问
 categories:
   - 工具
-tags:
-  - nas
-  - 网络
+tags: [nas, 网络]
 abbrlink: spi492
 date: 2025-01-03 15:17:25
 cover: ""
-updated: 2025-01-03 15:17:57
+updated: 2025-01-03 23:28:59
 ---
 
 ## 前言
@@ -61,8 +59,11 @@ docker run -d           \
   --net=host            \
   --cap-add=NET_ADMIN   \
   --cap-add=SYS_ADMIN   \
-  -v /var/lib/zerotier-one:/var/lib/zerotier-one zerotier/zerotier-synology:latest
+  -v /var/lib/zerotier-one:/var/lib/zerotier-one \
+  registry.cn-hangzhou.aliyuncs.com/iuxt/zerotier-synology:1.14.0
 ```
+
+> 注：官方镜像：`zerotier/zerotier-synology:latest`
 
 ## 使用与配置
 
@@ -75,7 +76,7 @@ docker exec -it zerotier zerotier-cli status
 添加网络
 
 ```bash
-docker exec -it zerotier zerotier-cli join e5cd7a9e1cae134f
+docker exec -it zerotier zerotier-cli join <你的网络ID>
 ```
 
 在 zerotier 后台授权当前设备，然后查看状态：
@@ -99,20 +100,29 @@ docker exec -it zerotier zerotier-cli listnetworks
 ### 2. 开启内核转发
 
 ```bash
-echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
-sysctl -p
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo sysctl -p
 ```
+
+重启后配置会丢失，要持久化可以写入到 `/etc/sysctl.conf`
 
 ### 3. 防火墙设置
 
 ```bash
-iptables -I FORWARD -i ztyqbub6jp -j ACCEPT
-iptables -I FORWARD -o ztyqbub6jp -j ACCEPT
-iptables -t nat -I POSTROUTING -o ztyqbub6jp -j MASQUERADE
+export PHY_IF=ovs_eth0 # 物理网卡设备名
+export ZT_IF=ztre4xmo4y # Zerotier虚拟网卡设备名
+
+# 添加转发规则
+sudo iptables -t nat -A POSTROUTING -o $PHY_IF -j MASQUERADE
+sudo iptables -A FORWARD -i $PHY_IF -o $ZT_IF -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i $ZT_IF -o $PHY_IF -j ACCEPT
 ```
 
-其中的 ztyqbub6jp 在不同的机器中不一样，你可以在路由器 ssh 环境中用 zerotier-cli listnetworks 或者 ifconfig 查询 zt 开头的网卡名
-iptables-save 保存配置到文件,否则重启规则会丢失。
+防火墙规则没保存的话重启后会丢失。
+
+网卡设备名参考 在机器上使用命令 `ip a` 查看：
+
+![image.png](https://static.zahui.fan/images/20250103232323506.png)
 
 ## 引用与文献
 
