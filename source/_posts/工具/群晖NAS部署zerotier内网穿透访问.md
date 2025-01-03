@@ -6,7 +6,7 @@ tags: [nas, 网络]
 abbrlink: spi492
 date: 2025-01-03 15:17:25
 cover: https://static.zahui.fan/images/20250103233736228.png
-updated: 2025-01-03 23:37:50
+updated: 2025-01-03 23:40:32
 ---
 
 ## 前言
@@ -20,21 +20,25 @@ updated: 2025-01-03 23:37:50
 
 ## 创建一个持久的 TUN
 
-使用 SSH 连接到你的 NAS，比如使用 Putty 工具连接。
+{% note info flat %}
+如果有 `/dev/net/tun` 就不用再执行了
+{% endnote %}
 
-切换为 root 身份
+使用 SSH 连接到你的 NAS，切换为 root 身份
 
-如果有就不用再执行了
-
-使用 vi 工具编写脚本到路径: `/usr/local/etc/rc.d/tun.sh` 这将使得 `/dev/net/tun` 在启动时调用
+创建一个开机自启动脚本: `/usr/local/etc/rc.d/tun.sh`
 
 ```bash
+# 创建开机自启动脚本
 echo -e '#!/bin/sh -e \ninsmod /lib/modules/tun.ko' > /usr/local/etc/rc.d/tun.sh
 
+# 添加可执行权限
 chmod a+x /usr/local/etc/rc.d/tun.sh
 
+# 手动执行一下
 /usr/local/etc/rc.d/tun.sh
 
+# 查看是否有tun设备
 ls /dev/net/tun
 ```
 
