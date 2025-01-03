@@ -5,8 +5,8 @@ categories:
 tags: [nas, 网络]
 abbrlink: spi492
 date: 2025-01-03 15:17:25
-cover: ""
-updated: 2025-01-03 23:35:38
+cover: https://static.zahui.fan/images/20250103233736228.png
+updated: 2025-01-03 23:37:50
 ---
 
 ## 前言
