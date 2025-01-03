@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2024-12-31T07:35:07.000Z</updated>
+  <updated>2025-01-03T08:17:09.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最小化安装的Linux安装图形界面</title>
+    <link href="https://zahui.fan/posts/spi6z2/"/>
+    <id>https://zahui.fan/posts/spi6z2/</id>
+    <published>2025-01-03T08:16:13.000Z</published>
+    <updated>2025-01-03T08:17:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="built_in">groups</span> list </span><br><span class="line"></span><br><span class="line">yum groupinstall <span class="string">&quot;Server with GUI&quot;</span></span><br><span class="line"></span><br><span class="line">systemctl get-default</span><br><span class="line">systemctl set-default graphical.target</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>重启即可生效</p><p>如果不想重启，可以执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> startx &amp;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>群晖NAS部署zerotier内网穿透访问</title>
+    <link href="https://zahui.fan/posts/spi492/"/>
+    <id>https://zahui.fan/posts/spi492/</id>
+    <published>2025-01-03T07:17:25.000Z</published>
+    <updated>2025-01-03T07:17:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>完成这个教程，你主要需要完成以下流程：</p><ul><li>在 NAS 上启用 SSH</li><li>创建一个持久的 TUN</li><li>安装 Docker</li><li>设置 Docker</li></ul><h2 id="创建一个持久的-TUN"><a href="#创建一个持久的-TUN" class="headerlink" title="创建一个持久的 TUN"></a>创建一个持久的 TUN</h2><p>使用 SSH 连接到你的 NAS，比如使用 Putty 工具连接。</p><p>切换为 root 身份</p><p>如果有就不用再执行了</p><p>使用 vi 工具编写脚本到路径: <code>/usr/local/etc/rc.d/tun.sh</code> 这将使得 <code>/dev/net/tun</code> 在启动时调用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;#!/bin/sh -e \ninsmod /lib/modules/tun.ko&#x27;</span> &gt; /usr/local/etc/rc.d/tun.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> a+x /usr/local/etc/rc.d/tun.sh</span><br><span class="line"></span><br><span class="line">/usr/local/etc/rc.d/tun.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> /dev/net/tun</span><br><span class="line">/dev/net/tun</span><br></pre></td></tr></table></figure><h2 id="安装-Docker-到你的-NAS-上"><a href="#安装-Docker-到你的-NAS-上" class="headerlink" title="安装 Docker 到你的 NAS 上"></a>安装 Docker 到你的 NAS 上</h2><p>直接到套件中心去安装。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /var/lib/zerotier-one</span><br></pre></td></tr></table></figure><p>创建一个容器，这里将它命名为 zerotier，这里会自动下载最新版的 zerotier</p><p>要在 ssh 里创建，不要在群晖控制台创建。创建完成后可以在控制台进行管理。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d           \</span><br><span class="line">  --name zerotier       \</span><br><span class="line">  --restart=always      \</span><br><span class="line">  --device=/dev/net/tun \</span><br><span class="line">  --net=host            \</span><br><span class="line">  --cap-add=NET_ADMIN   \</span><br><span class="line">  --cap-add=SYS_ADMIN   \</span><br><span class="line">  -v /var/lib/zerotier-one:/var/lib/zerotier-one zerotier/zerotier-synology:latest</span><br></pre></td></tr></table></figure><h2 id="使用与配置"><a href="#使用与配置" class="headerlink" title="使用与配置"></a>使用与配置</h2><p>查看状态</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it zerotier zerotier-cli status</span><br></pre></td></tr></table></figure><p>添加网络</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it zerotier zerotier-cli <span class="built_in">join</span> e5cd7a9e1cae134f</span><br></pre></td></tr></table></figure><p>在 zerotier 后台授权当前设备，然后查看状态：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it zerotier zerotier-cli listnetworks</span><br></pre></td></tr></table></figure><h2 id="使局域网网段可以访问"><a href="#使局域网网段可以访问" class="headerlink" title="使局域网网段可以访问"></a>使局域网网段可以访问</h2><h3 id="1-添加路由"><a href="#1-添加路由" class="headerlink" title="1. 添加路由"></a>1. 添加路由</h3><p>假设家里的机器：zerotier 地址是：172.28.135.11，内网 IP 地址是 192.168.1.11</p><p>在 zerotier 网站的 networks 里面的 Managed Routes 下配置路由表,增加如下内容</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20250103135337663.png" alt="image.png"></p><p>加过路由后，可以访问这台 zerotier 节点的内网 ip（192.168.1.11） 了，但是不能访问内网的其他 ip，还需要做一下转发。</p><h3 id="2-开启内核转发"><a href="#2-开启内核转发" class="headerlink" title="2. 开启内核转发"></a>2. 开启内核转发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.ip_forward = 1&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure><h3 id="3-防火墙设置"><a href="#3-防火墙设置" class="headerlink" title="3. 防火墙设置"></a>3. 防火墙设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -I FORWARD -i ztyqbub6jp -j ACCEPT</span><br><span class="line">iptables -I FORWARD -o ztyqbub6jp -j ACCEPT</span><br><span class="line">iptables -t nat -I POSTROUTING -o ztyqbub6jp -j MASQUERADE</span><br></pre></td></tr></table></figure><p>其中的 ztyqbub6jp 在不同的机器中不一样，你可以在路由器 ssh 环境中用 zerotier-cli listnetworks 或者 ifconfig 查询 zt 开头的网卡名<br>iptables-save 保存配置到文件,否则重启规则会丢失。</p><h2 id="引用与文献"><a href="#引用与文献" class="headerlink" title="引用与文献"></a>引用与文献</h2><blockquote><p>本文基于官方原文进行翻译和补充 <a href="https://docs.zerotier.com/synology/#set-up-container">https://docs.zerotier.com/synology/#set-up-container</a></p></blockquote>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;完成这个教程，你主要需要完成以下流程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 NAS 上启用 SSH&lt;/li&gt;
+&lt;li&gt;创建一个持久的 TUN&lt;/li&gt;
+&lt;li&gt;安装 Docker&lt;/li&gt;
+&lt;li&gt;设置 Docker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="网络" scheme="https://zahui.fan/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+    <category term="nas" scheme="https://zahui.fan/tags/nas/"/>
+    
+  </entry>
   
   <entry>
     <title>管理Redis内存占用</title>
@@ -42,13 +103,13 @@
   </entry>
   
   <entry>
-    <title>运维</title>
+    <title>运维使用的Windows软件分享</title>
     <link href="https://zahui.fan/posts/spc5z0/"/>
     <id>https://zahui.fan/posts/spc5z0/</id>
     <published>2024-12-31T02:09:00.000Z</published>
-    <updated>2024-12-31T14:14:32.000Z</updated>
+    <updated>2025-01-02T02:19:21.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="终端工具"><a href="#终端工具" class="headerlink" title="终端工具"></a>终端工具</h2><h3 id="xshell-全家桶"><a href="#xshell-全家桶" class="headerlink" title="xshell 全家桶"></a>xshell 全家桶</h3><p>Xmanager Power Suite 8 支持 rdp 协议连接 windows，包含四大金刚组件（xshell xftp xmanager xlpd）附上 7 和 6 版本备用。不过 xshell 的缺点是使用 rz 和 sz 上传下载文件的时候容易乱码（文件传输失败并且终端上会刷很多乱码文本）</p><table><thead><tr><th>软件名</th><th>包含组件</th><th>下载地址</th><th>是否推荐</th></tr></thead><tbody><tr><td>Xmanager Power Suite 8</td><td>xshell xftp xmanager xlpd</td><td><a href="https://github.com/iuxt/src/releases/download/xmanager/Xmanager.Power.Suite.8.zip">https://github.com/iuxt/src/releases/download/xmanager/Xmanager.Power.Suite.8.zip</a></td><td>推荐版本</td></tr><tr><td>xshell plus 7</td><td>xshell xftp</td><td><a href="https://github.com/iuxt/src/releases/download/ops/XshellPlus_v7.0.0023r.7z">https://github.com/iuxt/src/releases/download/ops/XshellPlus_v7.0.0023r.7z</a></td><td></td></tr><tr><td>Xmanager Power Suite 6</td><td>xshell xftp xmanager xlpd</td><td><a href="https://github.com/iuxt/src/releases/download/ops/Xmanager.Power.Suite.6.0.0029.zip">https://github.com/iuxt/src/releases/download/ops/Xmanager.Power.Suite.6.0.0029.zip</a></td><td></td></tr></tbody></table><h3 id="tssh"><a href="#tssh" class="headerlink" title="tssh"></a>tssh</h3><p>tssh 是纯命令行软件，可以在 <code>Windows Terminal</code> 中运行，看起来更极客一点。tssh 可以兼容 lrzsz 使用 rz 和 sz 上传下载文件，并且自测没有发生过乱码。</p><p>tssh 可以直接使用 windows 版本的，也可以在 WSL 中运行 Linux 版本的。具体使用方法可以看：<a href="/posts/shqeci">trzsz 使用记录</a></p><h2 id="连接数据库工具"><a href="#连接数据库工具" class="headerlink" title="连接数据库工具"></a>连接数据库工具</h2><h3 id="Navicat"><a href="#Navicat" class="headerlink" title="Navicat"></a>Navicat</h3><table><thead><tr><th>软件名</th><th>下载地址</th><th>是否推荐</th></tr></thead><tbody><tr><td>Navicat Premium 17 中文 解压即用版</td><td><a href="https://github.com/iuxt/src/releases/download/navicat17/Navicat.Premium.17.zip">https://github.com/iuxt/src/releases/download/navicat17/Navicat.Premium.17.zip</a></td><td>推荐版本</td></tr><tr><td>Navicat 16.3.7 解压即用版</td><td><a href="https://github.com/iuxt/src/releases/download/ops/Navicat.Premium.16.3.7.zip">https://github.com/iuxt/src/releases/download/ops/Navicat.Premium.16.3.7.zip</a></td><td></td></tr><tr><td>Navicat 16.0.6 解压即用版</td><td><a href="https://github.com/iuxt/src/releases/download/ops/Navicat_16.0.6.7z">https://github.com/iuxt/src/releases/download/ops/Navicat_16.0.6.7z</a></td><td></td></tr></tbody></table><h3 id="sqlyog"><a href="#sqlyog" class="headerlink" title="sqlyog"></a>sqlyog</h3><p>有社区版和收费版，体积小巧，还不错。</p><h3 id="HeidiSQL"><a href="#HeidiSQL" class="headerlink" title="HeidiSQL"></a>HeidiSQL</h3><p>是个免费软件，官网在：<a href="https://www.heidisql.com/">https://www.heidisql.com/</a></p><h3 id="DBeaver"><a href="#DBeaver" class="headerlink" title="DBeaver"></a>DBeaver</h3><p>Java 写的客户端，又重又不好用。不过是开源软件，跨平台。</p><h2 id="剪切板工具"><a href="#剪切板工具" class="headerlink" title="剪切板工具"></a>剪切板工具</h2><p>打杂的运维需要经常复制粘贴，所以一个好用的剪切板软件必不可少。</p><h3 id="Windows-自带"><a href="#Windows-自带" class="headerlink" title="Windows 自带"></a>Windows 自带</h3><p>按下 <code>⊞ Win</code> + <code>v</code> 即可显示</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20241231101650495.png" alt="image.png"></p><h3 id="ditto"><a href="#ditto" class="headerlink" title="ditto"></a>ditto</h3><p>在微软商店即可下载，免费软件。</p><h3 id="clipboard-fusion"><a href="#clipboard-fusion" class="headerlink" title="clipboard fusion"></a>clipboard fusion</h3><p>这个软件挺好用的，不过有可能有一些小问题，比如有时候复制了上面不显示，它支持将常用的固定在一个单独的页面上，方便直接粘贴。并且支持触发器，比如删除换行符，删除空格等。基本功能免费，高级功能收费。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20241231101754204.png" alt="image.png|357"></p><h2 id="截图工具"><a href="#截图工具" class="headerlink" title="截图工具"></a>截图工具</h2><h3 id="Snipaste"><a href="#Snipaste" class="headerlink" title="Snipaste"></a>Snipaste</h3><p>基本功能免费，专业功能收费。挺不错的软件。</p><h3 id="pixpin"><a href="#pixpin" class="headerlink" title="pixpin"></a>pixpin</h3><p>也是基本功能免费，专业功能收费，支持录 GIF，长截图等。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="终端工具"><a href="#终端工具" class="headerlink" title="终端工具"></a>终端工具</h2><h3 id="xshell-全家桶"><a href="#xshell-全家桶" class="headerlink" title="xshell 全家桶"></a>xshell 全家桶</h3><p>Xmanager Power Suite 8 支持 rdp 协议连接 windows，包含四大金刚组件（xshell xftp xmanager xlpd）附上 7 和 6 版本备用。不过 xshell 的缺点是使用 rz 和 sz 上传下载文件的时候容易乱码（文件传输失败并且终端上会刷很多乱码文本）</p><table><thead><tr><th>软件名</th><th>包含组件</th><th>下载地址</th><th>是否推荐</th></tr></thead><tbody><tr><td>Xmanager Power Suite 8</td><td>xshell xftp xmanager xlpd</td><td><a href="https://github.com/iuxt/src/releases/download/xmanager/Xmanager.Power.Suite.8.zip">https://github.com/iuxt/src/releases/download/xmanager/Xmanager.Power.Suite.8.zip</a></td><td>推荐版本</td></tr><tr><td>xshell plus 7</td><td>xshell xftp</td><td><a href="https://github.com/iuxt/src/releases/download/ops/XshellPlus_v7.0.0023r.7z">https://github.com/iuxt/src/releases/download/ops/XshellPlus_v7.0.0023r.7z</a></td><td></td></tr><tr><td>Xmanager Power Suite 6</td><td>xshell xftp xmanager xlpd</td><td><a href="https://github.com/iuxt/src/releases/download/ops/Xmanager.Power.Suite.6.0.0029.zip">https://github.com/iuxt/src/releases/download/ops/Xmanager.Power.Suite.6.0.0029.zip</a></td><td></td></tr></tbody></table><h2 id="mobaxterm"><a href="#mobaxterm" class="headerlink" title="mobaxterm"></a>mobaxterm</h2><h2 id="securecrt"><a href="#securecrt" class="headerlink" title="securecrt"></a>securecrt</h2><h3 id="tssh"><a href="#tssh" class="headerlink" title="tssh"></a>tssh</h3><p>tssh 是纯命令行软件，可以在 <code>Windows Terminal</code> 中运行，看起来更极客一点。tssh 可以兼容 lrzsz 使用 rz 和 sz 上传下载文件，并且自测没有发生过乱码。</p><p>tssh 可以直接使用 windows 版本的，也可以在 WSL 中运行 Linux 版本的。具体使用方法可以看：<a href="/posts/shqeci">trzsz 使用记录</a></p><h2 id="连接数据库工具"><a href="#连接数据库工具" class="headerlink" title="连接数据库工具"></a>连接数据库工具</h2><h3 id="Navicat"><a href="#Navicat" class="headerlink" title="Navicat"></a>Navicat</h3><table><thead><tr><th>软件名</th><th>下载地址</th><th>是否推荐</th></tr></thead><tbody><tr><td>Navicat Premium 17 中文 解压即用版</td><td><a href="https://github.com/iuxt/src/releases/download/navicat17/Navicat.Premium.17.zip">https://github.com/iuxt/src/releases/download/navicat17/Navicat.Premium.17.zip</a></td><td>推荐版本</td></tr><tr><td>Navicat 16.3.7 解压即用版</td><td><a href="https://github.com/iuxt/src/releases/download/ops/Navicat.Premium.16.3.7.zip">https://github.com/iuxt/src/releases/download/ops/Navicat.Premium.16.3.7.zip</a></td><td></td></tr><tr><td>Navicat 16.0.6 解压即用版</td><td><a href="https://github.com/iuxt/src/releases/download/ops/Navicat_16.0.6.7z">https://github.com/iuxt/src/releases/download/ops/Navicat_16.0.6.7z</a></td><td></td></tr></tbody></table><h3 id="sqlyog"><a href="#sqlyog" class="headerlink" title="sqlyog"></a>sqlyog</h3><p>有社区版和收费版，体积小巧，还不错。</p><h3 id="HeidiSQL"><a href="#HeidiSQL" class="headerlink" title="HeidiSQL"></a>HeidiSQL</h3><p>是个免费软件，官网在：<a href="https://www.heidisql.com/">https://www.heidisql.com/</a></p><h3 id="DBeaver"><a href="#DBeaver" class="headerlink" title="DBeaver"></a>DBeaver</h3><p>Java 写的客户端，又重又不好用。不过是开源软件，跨平台。</p><h2 id="剪切板工具"><a href="#剪切板工具" class="headerlink" title="剪切板工具"></a>剪切板工具</h2><p>打杂的运维需要经常复制粘贴，所以一个好用的剪切板软件必不可少。</p><h3 id="Windows-自带"><a href="#Windows-自带" class="headerlink" title="Windows 自带"></a>Windows 自带</h3><p>按下 <code>⊞ Win</code> + <code>v</code> 即可显示</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20241231101650495.png" alt="image.png"></p><h3 id="ditto"><a href="#ditto" class="headerlink" title="ditto"></a>ditto</h3><p>在微软商店即可下载，免费软件。</p><h3 id="clipboard-fusion"><a href="#clipboard-fusion" class="headerlink" title="clipboard fusion"></a>clipboard fusion</h3><p>这个软件挺好用的，不过有可能有一些小问题，比如有时候复制了上面不显示，它支持将常用的固定在一个单独的页面上，方便直接粘贴。并且支持触发器，比如删除换行符，删除空格等。基本功能免费，高级功能收费。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20241231101754204.png" alt="image.png|357"></p><h2 id="截图工具"><a href="#截图工具" class="headerlink" title="截图工具"></a>截图工具</h2><h3 id="Snipaste"><a href="#Snipaste" class="headerlink" title="Snipaste"></a>Snipaste</h3><p>基本功能免费，专业功能收费。挺不错的软件。</p><h3 id="pixpin"><a href="#pixpin" class="headerlink" title="pixpin"></a>pixpin</h3><p>也是基本功能免费，专业功能收费，支持录 GIF，长截图等。</p>]]></content>
     
     
       
@@ -504,63 +565,6 @@
     
     
     <category term="rdp" scheme="https://zahui.fan/tags/rdp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速部署单节点kafka</title>
-    <link href="https://zahui.fan/posts/slhl3q/"/>
-    <id>https://zahui.fan/posts/slhl3q/</id>
-    <published>2024-10-17T06:09:25.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果需要集群部署的文档你可以在站内搜搜，之前写过。</p><p>单节点部署，不考虑高可用性，只求快速搭建出环境，一般都是自己开发或者运维做测试使用。或者业务的测试环境为了节省服务器资源采取的方案。不过我不一样，我们测试环境资源充足，我只是单纯的懒。</p><h2 id="第一步-安装-Docker"><a href="#第一步-安装-Docker" class="headerlink" title="第一步 安装 Docker"></a>第一步 安装 Docker</h2><p>部署是基于 docker 来部署的，所以要先安装 docker，安装 docker 的过程可以看这个文档：<a href="/posts/5e168f7e">快速搭建环境记录</a></p><h2 id="第二步-选择镜像"><a href="#第二步-选择镜像" class="headerlink" title="第二步 选择镜像"></a>第二步 选择镜像</h2><p>打开 docker 镜像仓库 <code>https://hub.docker.com</code> 找了找， 按照下载量排序，有以下几种，我选择 bitnami 打包的 kafka</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202410171116643.png" alt="image.png|1048"></p><h2 id="第三步-编写启动脚本"><a href="#第三步-编写启动脚本" class="headerlink" title="第三步 编写启动脚本"></a>第三步 编写启动脚本</h2><p>我个人不喜欢 docker-compose ，总觉得这个东西不伦不类的，论灵活不如 bash 脚本，论专业不如 Kubernetes 甚至 Docker Swarm，还不如自己写脚本来做。</p><p>需要创建一个 docker network ，默认的 bridge 网络不能通过 dns 名字找到对应的容器。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> kafka-data</span><br><span class="line">sudo <span class="built_in">chown</span> -R 1001:1001 kafka-data</span><br><span class="line"></span><br><span class="line">sudo docker network create ops</span><br><span class="line"></span><br><span class="line">sudo docker run -d --name kafka-server --hostname kafka-server \</span><br><span class="line">    --network ops \</span><br><span class="line">    -e KAFKA_CFG_NODE_ID=0 \</span><br><span class="line">    -e KAFKA_CFG_PROCESS_ROLES=controller,broker \</span><br><span class="line">    -e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 \</span><br><span class="line">    -e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT \</span><br><span class="line">    -e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka-server:9093 \</span><br><span class="line">    -e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER \</span><br><span class="line">    -e KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=<span class="literal">true</span> \</span><br><span class="line">    -v ./kafka-data:/bitnami/kafka \</span><br><span class="line">    -p 9092:9092 \</span><br><span class="line">    -p 9093:9093 \</span><br><span class="line">    bitnami/kafka:3.8.0</span><br></pre></td></tr></table></figure><p>其中：</p><p>kafka 的启动用户 id 是 1001，所以需要给 kafka-data 目录授权，不然可能会不能写入挂载的目录。</p><h2 id="第四步-使用"><a href="#第四步-使用" class="headerlink" title="第四步 使用"></a>第四步 使用</h2><h3 id="控制台生产"><a href="#控制台生产" class="headerlink" title="控制台生产"></a>控制台生产</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network ops --<span class="built_in">rm</span> bitnami/kafka:3.8.0 kafka-console-producer.sh --producer.config /opt/bitnami/kafka/config/producer.properties --bootstrap-server kafka-server:9092 --topic iuxt_test</span><br></pre></td></tr></table></figure><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202410171408280.png" alt="image.png"></p><h3 id="控制台消费"><a href="#控制台消费" class="headerlink" title="控制台消费"></a>控制台消费</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network ops --<span class="built_in">rm</span> bitnami/kafka:3.8.0 kafka-console-consumer.sh --consumer.config /opt/bitnami/kafka/config/consumer.properties --bootstrap-server kafka-server:9092 --topic iuxt_test --from-beginning</span><br></pre></td></tr></table></figure><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202410171409368.png" alt="image.png"></p><p>其他命令查看 <a href="/posts/12ab226e">Kafka常用操作记录</a></p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;如果需要集群部署的文档你可以在站内搜搜，之前写过。&lt;/p&gt;
-&lt;p&gt;单节点部署，不考虑高可用性，只求快速搭建出环境，一般都是自己开发或者运维做测试使用。或者业务的测试环境为了节省服务器资源采取的方案。不过我不一样，我们测试环境资源充足，我只是单纯的懒。&lt;/p&gt;
-&lt;h2 id=&quot;第一步-安装-Docker&quot;&gt;&lt;a href=&quot;#第一步-安装-Docker&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
-    
-    <category term="Kafka" scheme="https://zahui.fan/tags/Kafka/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>yaml多行文本的写法和区别</title>
-    <link href="https://zahui.fan/posts/sldz99/"/>
-    <id>https://zahui.fan/posts/sldz99/</id>
-    <published>2024-10-15T07:24:45.000Z</published>
-    <updated>2024-10-31T03:20:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>直接看效果（<code>pip install pyyaml</code>）：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line">yaml_data = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">example1: |</span></span><br><span class="line"><span class="string">  This is line one.</span></span><br><span class="line"><span class="string">  This is line two.</span></span><br><span class="line"><span class="string">example2: |-</span></span><br><span class="line"><span class="string">  This is line one.</span></span><br><span class="line"><span class="string">  This is line two.</span></span><br><span class="line"><span class="string">example3: &gt;-</span></span><br><span class="line"><span class="string">  This is line one.</span></span><br><span class="line"><span class="string">  This is line two.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 YAML 数据解析为 Python 对象</span></span><br><span class="line">data = yaml.safe_load(yaml_data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问特定字段</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;example1: <span class="subst">&#123;data[<span class="string">&#x27;example1&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;example2: <span class="subst">&#123;data[<span class="string">&#x27;example2&#x27;</span>]&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;example3: <span class="subst">&#123;data[<span class="string">&#x27;example3&#x27;</span>]&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure><p>输出结果：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">example1: This is line one.</span><br><span class="line">This is line two.</span><br><span class="line"></span><br><span class="line">example2: This is line one.</span><br><span class="line">This is line two.</span><br><span class="line">example3: This is line one. This is line two.</span><br></pre></td></tr></table></figure><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在 YAML 中，<code>|</code>、<code>|-</code> 和 <code>&gt;-</code> 都用于定义多行字符串，但它们的处理方式不同：</p><ol><li><p><code>|</code></p><ul><li>保留换行符。</li><li>生成的字符串在每行的末尾保留换行符。</li></ul></li><li><p><code>|-</code></p><ul><li>类似于 <code>|</code>，但去掉最后的换行符。</li><li>结果中的最后一行不会有换行符。</li></ul></li><li><p><code>&gt;-</code></p><ul><li>将换行符转换为空格。</li><li>结果中的所有行会被连接成一行，中间用空格分隔，最后一行也没有换行符。</li></ul></li></ol>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;直接看效果（&lt;code&gt;pip install pyyaml&lt;/code&gt;）：&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
-    
     
   </entry>
   
