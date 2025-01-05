@@ -2,11 +2,11 @@
 title: 管理Redis内存占用
 categories:
   - 数据库
-tags: []
+tags: [redis, 性能优化]
 abbrlink: spcjoj
 date: 2024-12-31 15:04:50
-cover: ""
-updated: 2024-12-31 15:35:07
+cover: https://static.zahui.fan/public/Redis_Logo.png
+updated: 2025-01-05 11:38:30
 ---
 
 ## 淘汰策略
