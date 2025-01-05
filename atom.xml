@@ -82,7 +82,7 @@
     <link href="https://zahui.fan/posts/spcjoj/"/>
     <id>https://zahui.fan/posts/spcjoj/</id>
     <published>2024-12-31T07:04:50.000Z</published>
-    <updated>2024-12-31T07:35:07.000Z</updated>
+    <updated>2025-01-05T03:38:30.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="淘汰策略"><a href="#淘汰策略" class="headerlink" title="淘汰策略"></a>淘汰策略</h2><p>如果设置了合适的淘汰策略，Redis 会根据以下几种策略选择性地移除某些键，腾出内存空间（淘汰策略需要和内存限制配合使用）</p><p>常用淘汰策略说明</p><table><thead><tr><th>策略</th><th>说明</th></tr></thead><tbody><tr><td>volatile-lru</td><td>从设置了过期时间的键中，移除最近最少使用（LRU）的键。</td></tr><tr><td>allkeys-lru</td><td>从所有键中，移除最近最少使用（LRU）的键。</td></tr><tr><td>volatile-random</td><td>从设置了过期时间的键中，随机移除键。</td></tr><tr><td>allkeys-random</td><td>从所有键中，随机移除键。</td></tr><tr><td>volatile-ttl</td><td>从设置了过期时间的键中，移除即将过期的键（优先移除 TTL 短的键）。</td></tr><tr><td>noeviction</td><td>当内存超过限制时，直接返回错误，不再执行新增操作（这是默认策略）。</td></tr></tbody></table><p>设置方法： 在 redis.conf 文件中添加或修改：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maxmemory-policy allkeys-lru</span><br></pre></td></tr></table></figure><p>或通过命令行动态设置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli config <span class="built_in">set</span> maxmemory-policy allkeys-lru</span><br></pre></td></tr></table></figure><h2 id="内存限制"><a href="#内存限制" class="headerlink" title="内存限制"></a>内存限制</h2><p>设置 maxmemory</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">maxmemory 4gb</span><br><span class="line"># maxmemory 4G</span><br><span class="line"># maxmemory 4294967296</span><br></pre></td></tr></table></figure><p>通过命令行动态设置：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli config <span class="built_in">set</span> maxmemory 4294967296</span><br></pre></td></tr></table></figure><h2 id="持久化设置"><a href="#持久化设置" class="headerlink" title="持久化设置"></a>持久化设置</h2><p>如果缓存数据可丢失，可以禁用持久化（RDB 和 AOF）以减少磁盘 IO 开销：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">save <span class="string">&quot;&quot;</span></span><br><span class="line">appendonly no</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -99,6 +99,10 @@
     
     <category term="数据库" scheme="https://zahui.fan/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
+    
+    <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
+    
+    <category term="性能优化" scheme="https://zahui.fan/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
