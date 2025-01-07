@@ -4,11 +4,9 @@ abbrlink: 90ca4905
 cover: 'https://static.zahui.fan/public/bash.svg'
 categories:
   - 基础运维
-tags:
-  - Linux
-  - Shell
-  - Script
+tags: [Linux, Shell, Script]
 date: 2021-02-19 18:37:48
+updated: 2025-01-07 22:43:39
 ---
 
 ## 循环遍历
@@ -135,7 +133,9 @@ ls -t *.jar | awk 'NR>20' | xargs rm -f
 
 ```bash
 #!/bin/bash
-cat>filename.txt<<-'EOF'
+
+# 这里的EOF加上了单引号，不对变量进行处理
+cat > filename.txt <<-'EOF'
 hello
 world
 EOF
@@ -145,7 +145,9 @@ EOF
 
 ```bash
 #!/bin/bash
-cat>>filename.txt<<EOF
+
+# 这里的EOF没加引号，或者加双引号都会正常处理变量
+cat >> filename.txt <<EOF
 $hello
 world
 EOF
