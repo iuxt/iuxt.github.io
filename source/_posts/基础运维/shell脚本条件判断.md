@@ -2,11 +2,11 @@
 title: shell脚本条件判断与比较运算
 categories:
   - 基础运维
-tags:
-  - shell
+tags: [shell]
 abbrlink: le2ugemu
 cover: 'https://static.zahui.fan/public/bash.svg'
 date: 2023-02-13 21:21:25
+updated: 2025-01-07 22:50:36
 ---
 
 ## if 的基本语法:
@@ -129,14 +129,14 @@ fi
 
 ### 模糊判断
 
-判断字符串是否包含
+判断字符串是否包含指定字段。
 
 ```bash
-NAMESPACE=xxxgrayxxx
-if [[ $NAMESPACE =~ prod ]] || [[ $NAMESPACE =~ gray ]]
+NAMESPACE=prod-zahuifan
+if [[ $NAMESPACE =~ prod ]] || [[ $NAMESPACE =~ dr ]]
 then
-    echo "是prod或gray"
+    echo "是生产环境或灾备环境"
 else
-    echo "不重要的环境，随便造"
+    echo "非生产环境"
 fi
 ```
