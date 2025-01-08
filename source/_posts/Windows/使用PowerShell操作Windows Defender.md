@@ -5,7 +5,7 @@ categories:
 tags: [Windows, PowerShell, Command]
 abbrlink: lqkgw2cy
 date: 2022-12-25 13:18:00
-updated: 2025-01-08 18:32:15
+updated: 2025-01-08 22:39:14
 ---
 
 首先需要使用到管理员权限运行 PowerShell
@@ -25,4 +25,10 @@ powershell.exe -Command 'Set-MpPreference -ExclusionPath "C:\xxx", "D:\yyy"'
 
 # Add-MpPreference 是追加配置。
 Add-MpPreference -ExclusionPath "C:\Program Files (x86)\WinAgent\*"
+```
+
+
+```powershell
+# 查看是否生效
+(Get-MpPreference).ExclusionPath | Select-String "C:\Program Files (x86)\WinAgent\*"
 ```
