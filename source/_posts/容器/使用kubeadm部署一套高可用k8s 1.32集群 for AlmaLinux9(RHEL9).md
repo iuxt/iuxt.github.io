@@ -7,6 +7,7 @@ tags:
 abbrlink: sof9i3
 date: 2024-12-13 15:44:27
 cover: ''
+updated: 2025-01-08 18:08:52
 ---
 
 > 基于 AlmaLinux9 使用 kubeadm 搭建集群， [ubuntu部署文档](/posts/526ffc9a/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/), 本教程需要能访问 **国际互联网** 。不能的话，需要解决镜像拉取问题、yum 安装组件的问题。
@@ -17,21 +18,20 @@ cover: ''
 
 | hostname | IP             | 作用                 |
 | -------- | -------------- | ------------------ |
-| master1  | 192.168.200.11 | k8s master 节点      |
-| master2  | 192.168.200.12 | k8s master 节点      |
-| master3  | 192.168.200.13 | k8s master 节点      |
-| worker1  | 192.168.200.21 | k8s worker 节点      |
-| worker2  | 192.168.200.22 | k8s worker 节点      |
+| master1  | 10.0.0.11 | k8s master 节点      |
+| master2  | 10.0.0.12 | k8s master 节点      |
+| master3  | 10.0.0.13 | k8s master 节点      |
+| worker1  | 10.0.0.21 | k8s worker 节点      |
+| worker2  | 10.0.0.22 | k8s worker 节点      |
 
 每台机器都做域名解析，或者绑定 hosts（直接使用 ip 地址会有警告）
 
 ```bash
 vim /etc/hosts
 
-192.168.200.10  public kube-apiserver
-192.168.200.11 master1
-192.168.200.12 master2
-192.168.200.13 master3
+10.0.0.11 master1
+10.0.0.12 master2
+10.0.0.13 master3
 ```
 
 每台机器都关闭防火墙和 SELinux
@@ -179,9 +179,9 @@ events {
 
 stream {
     upstream backend {
-        server 192.168.200.11:6443    max_fails=2 fail_timeout=3s;
-        server 192.168.200.12:6443    max_fails=2 fail_timeout=3s;
-        server 192.168.200.13:6443    max_fails=2 fail_timeout=3s;
+        server 10.0.0.11:6443    max_fails=2 fail_timeout=3s;
+        server 10.0.0.12:6443    max_fails=2 fail_timeout=3s;
+        server 10.0.0.13:6443    max_fails=2 fail_timeout=3s;
     }
 
     server {
