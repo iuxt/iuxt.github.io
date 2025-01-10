@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags: [iptables, 网络]
 date: 2022-07-19 17:32:38
-updated: 2025-01-10 16:37:48
+updated: 2025-01-10 17:15:22
 ---
 
 ## iptables 四表五链
@@ -89,8 +89,8 @@ iptables -t nat -A PREROUTING -p tcp --dport 2222 -j REDIRECT --to-port 22
 # 这个是进来的数据包（不包含自身发出的数据包，如果是自身发出，使用OUTPUT链），目的地址是 10.0.0.102 且端口是80 的数据包转发到 10.0.0.103:8000
 iptables -t nat -A PREROUTING -4 -p tcp -d 10.0.0.102 --dport 80 -j DNAT --to-destination 10.0.0.103:8000
 
-# 转发出去的数据包 目的地址是 10.0.0.103 端口是 8000 的数据包进行伪装（就是把数据包来源地址换成本机的ip，这样另一台机器回包才会回给自己）
-iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j MASQUERADE
+# 转发出去的数据包 目的地址是 10.0.0.103 端口是 8000 的数据包进行伪装（就是把数据包来源地址换成本机的ip，这样另一台机器回包才会回给自己），也可以使用： iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j MASQUERADE
+iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j SNAT --to-source 10.0.0.102
 ```
 
 上面操作完成后，可以使用从 client 请求 `10.0.0.102:80` , 但是 `Server A` 这台机器请求 `10.0.0.102:80` 不通，如果要实现 `Server A` 也可以访问 `10.0.0.102:80` 需要额外执行一下：
@@ -112,3 +112,15 @@ iptables -t nat -A OUTPUT -4 -p tcp -d 10.0.0.102 --dport 80 -j DNAT --to-destin
 ### iptables 持久化
 
 请看 [iptables进行持久化配置，重启不丢失](/posts/d8f4121a)
+
+### SNAT 和 MASQUERADE 的区别
+
+MASQUERADE 是一种特殊的 SNAT 主要是不用特殊指定修改的源地址。
+
+```bash
+# SNAT 示例，假设 203.0.113.1 是公网IP
+iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j SNAT --to-source 203.0.113.1
+
+# MASQUERADE 示例
+iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o eth0 -j MASQUERADE
+```
