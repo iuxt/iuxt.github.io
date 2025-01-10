@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags: [iptables, 网络]
 date: 2022-07-19 17:32:38
-updated: 2025-01-10 17:15:22
+updated: 2025-01-10 18:16:31
 ---
 
 ## iptables 四表五链
@@ -68,6 +68,40 @@ sudo sysctl -p
 
 ## 使用案例
 
+### 限制入站，不限制出站
+
+```bash
+# 默认策略
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+
+# 允许访问22端口
+iptables -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+
+# 仅允许指定IP段访问
+iptables -A INPUT -i eth0 -p tcp -s 192.168.100.0/24 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+```
+
+### 限制入站和出站
+
+```bash
+# 设置链的默认策略
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT DROP
+
+# 禁止一个IP的所有包
+iptables -A INPUT -s 192.168.1.10 -j DROP
+
+# 允许所有SSH的连接请求
+iptables -A INPUT -i eth0 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+
+# 仅允许来自于192.168.100.0/24域的用户的ssh连接请求
+iptables -A INPUT -i eth0 -p tcp -s 192.168.100.0/24 --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+```
+
 ### 本地端口转发到本地端口
 
 ![image.png|631](https://static.zahui.fan/images/20250110160536647.png)
@@ -98,6 +132,21 @@ iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j SNAT --to
 ```bash
 # 在10.0.0.102（Server A）上执行
 iptables -t nat -A OUTPUT -4 -p tcp -d 10.0.0.102 --dport 80 -j DNAT --to-destination 10.0.0.103:8000
+```
+
+### IP 映射
+
+```bash
+
+# 假设真实的IP是 10.0.0.102 虚假的IP是10.10.10.10
+ip addr add 10.10.10.10/32 dev eth0
+
+
+iptables -A PREROUTING -i eth0 -d 10.10.10.10 -j DNAT --to 10.0.0.103
+
+iptables -A POSTROUTING -o eth0 -s 10.0.0.103 -j SNAT --to 10.10.10.10
+
+
 ```
 
 ## 其他操作
