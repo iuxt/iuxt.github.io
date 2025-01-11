@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags: [iptables, 网络]
 date: 2022-07-19 17:32:38
-updated: 2025-01-10 18:16:31
+updated: 2025-01-11 16:01:32
 ---
 
 ## iptables 四表五链
@@ -132,21 +132,6 @@ iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j SNAT --to
 ```bash
 # 在10.0.0.102（Server A）上执行
 iptables -t nat -A OUTPUT -4 -p tcp -d 10.0.0.102 --dport 80 -j DNAT --to-destination 10.0.0.103:8000
-```
-
-### IP 映射
-
-```bash
-
-# 假设真实的IP是 10.0.0.102 虚假的IP是10.10.10.10
-ip addr add 10.10.10.10/32 dev eth0
-
-
-iptables -A PREROUTING -i eth0 -d 10.10.10.10 -j DNAT --to 10.0.0.103
-
-iptables -A POSTROUTING -o eth0 -s 10.0.0.103 -j SNAT --to 10.10.10.10
-
-
 ```
 
 ## 其他操作
