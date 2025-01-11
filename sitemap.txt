@@ -154,6 +154,7 @@ https://zahui.fan/posts/scfoaz/
 https://zahui.fan/posts/6cc59126/
 https://zahui.fan/posts/lqyxid2z/
 https://zahui.fan/posts/sjcnkn/
+https://zahui.fan/posts/lrt00szc/
 https://zahui.fan/posts/e0fe652d/
 https://zahui.fan/posts/8b932a1b/
 https://zahui.fan/posts/d8f4121a/
@@ -336,7 +337,6 @@ https://zahui.fan/posts/prometheus_tag/
 https://zahui.fan/posts/666e547f/
 https://zahui.fan/posts/e59d8e32/
 https://zahui.fan/posts/skma0p/
-https://zahui.fan/posts/lrt00szc/
 https://zahui.fan/categories/
 https://zahui.fan/link/
 https://zahui.fan/tags/
@@ -428,6 +428,7 @@ https://zahui.fan/tags/%E9%83%A8%E7%BD%B2/
 https://zahui.fan/tags/%E4%BB%93%E5%BA%93/
 https://zahui.fan/tags/%E9%95%9C%E5%83%8F/
 https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/
+https://zahui.fan/tags/cdn/
 https://zahui.fan/tags/Git/
 https://zahui.fan/tags/gpg/
 https://zahui.fan/tags/harbor/
@@ -554,7 +555,6 @@ https://zahui.fan/tags/node-exporter/
 https://zahui.fan/tags/monitor/
 https://zahui.fan/tags/snmp/
 https://zahui.fan/tags/nacos/
-https://zahui.fan/tags/cdn/
 https://zahui.fan/categories/Windows/
 https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/
 https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/
