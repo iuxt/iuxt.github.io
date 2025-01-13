@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags: [iptables, 网络]
 date: 2022-07-19 17:32:38
-updated: 2025-01-11 16:01:32
+updated: 2025-01-13 16:33:46
 ---
 
 ## iptables 四表五链
@@ -13,6 +13,8 @@ updated: 2025-01-11 16:01:32
 四表五链：
 链就是位置：共有五个 进路由 (PREROUTING)、进系统 (INPUT) 、转发 (FORWARD)、出系统 (OUTPUT)、出路由 (POSTROUTING)；
 表就是存储的规则；数据包到了该链处，会去对应表中查询设置的规则，然后决定是否放行、丢弃、转发还是修改等等操作。
+
+![image.png](https://static.zahui.fan/images/20250113163327215.png)
 
 ### 具体的四表
 
