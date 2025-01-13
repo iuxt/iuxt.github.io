@@ -3,11 +3,9 @@ title: git常用操作记录
 abbrlink: 518e617c
 categories:
   - 基础运维
-tags:
-  - Linux
-  - Git
-  - 配置记录
+tags: [Linux, Git, 配置记录]
 date: 2021-04-27 23:03:29
+updated: 2025-01-13 11:43:56
 ---
 
 ## 配置文件
@@ -281,6 +279,19 @@ git lfs push --all
 ```bash
 # %40 表示 @
 git clone http://admin:admin%401234@203.156.235.84:10000/r/app/client.git
+```
+
+### 删除历史记录中的大文件
+
+```bash
+# 安装 git-filter-repo 工具
+sudo apt install git-filter-repo
+
+# 假设文件为：large_file.zip ，从所有历史记录中删除。
+git filter-repo --path large_file.zip --invert-paths
+
+# 删除文件夹
+git filter-repo --path 123/ --invert-paths
 ```
 
 ### windows 建议配置
