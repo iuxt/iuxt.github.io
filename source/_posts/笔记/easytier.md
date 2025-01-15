@@ -1,6 +1,6 @@
 ---
 date: 2025-01-15 22:46:05
-updated: 2025-01-16 00:29:32
+updated: 2025-01-16 00:34:45
 ---
 
 服务端：
@@ -53,4 +53,10 @@ easytier-core.exe --ipv4 10.233.233.2 --network-name iuxt --network-secret 6d062
 
 ```bat
 easytier-core.exe --ipv4 10.233.233.3 --network-name iuxt --network-secret 6d062b06-e3bb-40ab-849c-a4e5bc19b7ee -n 192.168.22.0/24 -n 192.168.1.0/24 -p tcp://119.45.171.27:11010
+```
+
+mechrevo
+
+```bash
+easytier-core.exe --ipv4 10.233.233.4 --network-name iuxt --network-secret 6d062b06-e3bb-40ab-849c-a4e5bc19b7ee -p tcp://119.45.171.27:11010
 ```
