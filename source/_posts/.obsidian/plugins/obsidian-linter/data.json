@@ -67,7 +67,7 @@
       "convert-to-utc": false,
       "date-created-source-of-truth": "file system",
       "date-modified-source-of-truth": "file system",
-      "update-on-file-contents-updated": "after 10 seconds"
+      "update-on-file-contents-updated": "after 30 seconds"
     },
     "yaml-title": {
       "enabled": false,
