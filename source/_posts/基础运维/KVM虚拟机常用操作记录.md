@@ -3,17 +3,15 @@ title: KVM虚拟机常用操作记录
 abbrlink: 4926dc90
 categories:
   - 基础运维
-tags:
-  - VirtualMachine
-  - 配置记录
+tags: [VirtualMachine, 配置记录]
 date: 2021-07-21 14:20:55
+updated: 2025-01-24 23:46:34
 ---
 
 ## 检查前提条件
 
-检查 cpu 是否支持硬件虚拟化
-
 ```bash
+# 如果是 Intel 的 CPU, 输出 VMX;如果是 AMD 的 CPU, 输出 SVM
 grep -Eoc '(vmx|svm)' /proc/cpuinfo
 
 # 或者使用 kvm-ok 工具监测
@@ -26,7 +24,11 @@ kvm-ok
 ## 安装 kvm
 
 ```bash
-sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst libvirt-daemon
+
+# 安装图形管理工具（可选）
+# apt install virt-manager -y
+
 
 # 验证
 sudo systemctl is-active libvirtd
@@ -37,6 +39,19 @@ sudo usermod -aG kvm $USER
 ```
 
 ## 添加和删除网卡（虚拟硬件）
+
+要列出要在 KVM 虚拟机中使用的可用网络，请运行以下命令：
+
+```bash
+virsh net-list --all
+```
+
+默认情况下是不活跃的，需要启动
+
+```bash
+virsh net-start default
+virsh net-autostart default
+```
 
 ### 查看网卡列表
 
@@ -98,6 +113,95 @@ sudo virsh net-edit default
 ```bash
 sudo virsh net-destroy default
 sudo virsh net-start default
+```
+
+## virsh 常用命令
+
+### 查看虚拟机
+
+```bash
+virsh list --all
+```
+
+### 销毁虚拟机
+
+```bash
+virsh destroy debian11
+virsh undefine debian11
+```
+
+### 关闭虚拟机
+
+```bash
+virsh shutdown debian11
+```
+
+### 创建 Linux 虚拟机
+
+```bash
+# 创建虚拟机磁盘
+qemu-img create -f qcow2 /var/lib/libvirt/images/debian11.qcow2 20G
+```
+
+```bash
+virt-install \
+    --name debian11 \
+    --memory memory=1024,currentMemory=512 \
+    --disk path=/var/lib/libvirt/images/debian11.qcow2,size=20 \
+    --vcpus 1 \
+    --os-type linux \
+    --os-variant debian10 \
+    --network bridge=br0,model=virtio \
+    --graphics none \
+    --console pty,target_type=serial \
+    --location 'http://mirrors.tencent.com/debian/dists/bullseye/main/installer-amd64/' \
+    --extra-args 'console=ttyS0,115200n8 serial' \
+    --debug
+```
+
+### 创建 windows 虚拟机
+
+```bash
+virt-install \
+    --name win10 \
+    --ram 2048 \
+    --disk path=/var/lib/libvirt/images/win10.qcow2,size=20 \
+    --vcpus 2 \
+    --os-type windows \
+    --os-variant win10 \
+    --network bridge=br0,model=virtio \
+    --graphics none \
+    --console pty,target_type=serial \
+    --cdrom /home/test/Downloads/Win10_21H1_Chinese(Simplified)_x64.iso \
+    --extra-args 'console=ttyS0,115200n8 serial'
+```
+
+开启 vnc
+
+```bash
+virsh vncdisplay win10
+```
+
+### 导入虚拟机
+
+```bash
+    virt-install \
+    --name debian11 \
+    --ram 2048 \
+    --disk path=/var/lib/libvirt/images/debian11.qcow2,size=20 \
+    --vcpus 2 \
+    --os-type linux \
+    --os-variant debian11 \
+    --network bridge=br0,model=virtio \
+    --graphics none \
+    --console pty,target_type=serial \
+    --import
+```
+
+### 导出虚拟机为 qcow2
+
+```bash
+virt-clone --original debian11 --name debian11-clone --file /var/lib/libvirt/images/debian11-clone.qcow2
 ```
 
 ## kickstart 自动装机
