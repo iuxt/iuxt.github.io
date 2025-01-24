@@ -3,17 +3,16 @@ title: Centos7升级到RHEL8
 abbrlink: 6d586ed1
 categories:
   - 基础运维
-tags:
-  - Linux
-  - CentOS
+tags: [Linux, CentOS]
 cover: 'https://static.zahui.fan/public/CentOS.svg'
 date: 2021-08-04 21:39:02
+updated: 2025-01-17 10:47:47
 ---
 
 本文依照 redhat 官方文档制作，总共分为两步，先将 centos7 转换为 rhel7，然后再将 rhel7 升级为 rhel8
 
 > 参考文档：
-[cenots7转换为rhel7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/converting_from_an_rpm-based_linux_distribution_to_rhel/index)
+[CentOS转换为rhel7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/converting_from_an_rpm-based_linux_distribution_to_rhel/index)
 [rhel7升级为rhel8](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/upgrading_from_rhel_6_to_rhel_8/preparing-the-rhel-7-system-for-an-upgrade-to-rhel-8_upgrading-from-rhel-6-to-rhel-8)
 
 ## centos7 升级为 rhel7

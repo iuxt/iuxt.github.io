@@ -1,6 +1,12 @@
 ---
-date: 2025-01-16 14:18:57
-updated: 2025-01-16 15:12:06
+title: Linux神奇的proc目录
+categories:
+  - 基础运维
+tags: []
+abbrlink: sqkrxr
+date: 2023-01-24 12:17:51
+cover: ""
+updated: 2025-01-24 23:15:43
 ---
 
 让我们看看/proc 里面都有什么
@@ -34,13 +40,13 @@ A=B vim a.log
 cat /proc/39564/environ |  tr '\0' '\n'  
 ```
 
-## 命令行
+## 启动命令行
 
 ```bash
 cat cmdline | tr '\0' ' '
 ```
 
-## exe
+## 可执行文件
 
 ```bash
 exe是运行的可执行文件，和上面有一些区别。
