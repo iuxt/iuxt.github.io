@@ -2,12 +2,10 @@
 title: 在Windows下以服务方式运行MySQL
 categories:
   - Windows
-tags:
-  - mysqld
-  - 服务
-  - 配置记录
+tags: [mysqld, 服务, 配置记录]
 abbrlink: c1f1096a
 date: 2023-07-24 22:41:51
+updated: 2025-01-25 23:42:41
 ---
 
 ## 下载
@@ -20,7 +18,7 @@ date: 2023-07-24 22:41:51
 
 ## 创建配置文件
 
-在 mysql 根目录下创建 `my.ini` 文件,输入以下内容 (根据自己需求调整, 如果不知道参数是做什么的, 那就不要配置, 不要瞎 " 调优 "):
+在 mysql 根目录下创建 `my.ini` 文件,输入以下内容 (根据自己需求调整):
 
 ```ini
 [mysql]
@@ -28,12 +26,10 @@ date: 2023-07-24 22:41:51
 default-character-set=utf8mb4
 
 [mysqld]
-#设置3306端口
-port = 13306
-# 设置mysql的安装目录, 这里也可以用相对路径表示, 如 . 表示当前目录
-basedir=C:\Users\iuxt\OneDrive\1\mysqld
-# 设置mysql数据库的数据的存放目录, 也可以用相对路径, 如 data
-datadir=C:\Users\iuxt\OneDrive\1\mysqld\data
+# 设置端口
+port = 3306
+# 设置mysql数据库的数据的存放目录, 也可以用相对路径,默认为当前目录下的data目录
+datadir=C:/Users/iuxt/OneDrive/1/mysqld/data
 # 允许最大连接数
 max_connections=200
 # 设置服务端使用的字符集
