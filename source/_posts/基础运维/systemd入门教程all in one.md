@@ -3,11 +3,9 @@ title: Systemd入门教程all in One
 abbrlink: f94fbe20
 categories:
   - 基础运维
-tags:
-  - Linux
-  - Systemd
-  - 配置记录
+tags: [Linux, Systemd, 配置记录]
 date: 2021-09-24 22:05:33
+updated: 2025-01-25 11:35:07
 ---
 
 > 参考自<https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>，感谢阮一峰老哥。
@@ -543,3 +541,49 @@ WantedBy = multi-user.target
 ```
 
 `sudo systemctl enable custom.service`
+
+### 执行定时任务
+
+timer 类似于 crontab 的定时任务功能
+
+```bash
+# 查看所有 Service 单元
+systemctl list-unit-files --type service
+
+# 查看所有的 timer 单元
+systemctl list-unit-files --type timer
+
+# 查看所有 mount 单元
+systemctl list-unit-files --type mount
+
+# 查看所有的单元
+systemctl list-unit-files
+```
+
+比如创建一个 service： `/usr/lib/systemd/system/hello.service`
+
+```ini
+[Unit]
+Description=my hello.sh
+
+[Service]
+ExecStart=/bin/bash /root/hello.sh
+```
+
+在创建一个 timer： `/usr/lib/systemd/system/hello.timer`
+
+```ini
+[Timer]
+OnUnitActiveSec=5s # 每隔多久执行任务
+AccuracySec=1ms #设置时间精度，如果不设置的话，具体的执行时间就不一定了
+Unit=hello.service # 要执行哪个任务
+
+[Install]
+WantedBy=multi-user.target
+```
+
+启动定时器，并开机自启动。
+
+```bash
+systemctl enable --now hello.timer
+```
