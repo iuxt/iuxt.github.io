@@ -5,7 +5,7 @@ categories:
 tags: [mysqld, 服务, 配置记录]
 abbrlink: c1f1096a
 date: 2023-07-24 22:41:51
-updated: 2025-01-25 23:42:41
+updated: 2025-01-25 23:47:08
 ---
 
 ## 下载
@@ -23,23 +23,25 @@ updated: 2025-01-25 23:42:41
 ```ini
 [mysql]
 # 设置mysql客户端默认字符集
-default-character-set=utf8mb4
+default-character-set = utf8mb4
 
 [mysqld]
 # 设置端口
 port = 3306
 # 设置mysql数据库的数据的存放目录, 也可以用相对路径,默认为当前目录下的data目录
-datadir=C:/Users/iuxt/OneDrive/1/mysqld/data
+datadir = C:/Users/iuxt/OneDrive/1/mysqld/data
 # 允许最大连接数
-max_connections=200
+max_connections = 200
 # 设置服务端使用的字符集
-character-set-server=utf8mb4
+character-set-server = utf8mb4
 # 创建新表时将使用的默认存储引擎
-default-storage-engine=INNODB
+default-storage-engine = INNODB
 # 设置redolog日志文件大小
-innodb_log_file_size=256M
+innodb_log_file_size = 256M
 # 关闭binlog
 disable-log-bin
+# 表名不区分大小写
+lower_case_table_names = 1
 ```
 
 ## 初始化数据库
