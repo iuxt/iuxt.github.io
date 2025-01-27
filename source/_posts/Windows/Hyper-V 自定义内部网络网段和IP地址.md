@@ -5,7 +5,7 @@ categories:
   - Windows
 tags: [VirtualMachine, Windows, Command, PowerShell, Hyper-V]
 date: 2022-01-12 11:06:59
-updated: 2024-12-31 18:22:36
+updated: 2025-01-27 16:02:23
 ---
 
 ## 开始之前
@@ -91,6 +91,8 @@ New-NetNat -Name Internal -InternalIPInterfaceAddressPrefix 10.0.0.0/24
 ```
 
 ### 删除 NAT 网络
+
+如果不需要 NAT 网络了，可以使用下面的命令来删除（NAT 网络只能存在一个）。
 
 ```powershell
 Get-NetNat                  # NAT网络保持一个就行了，可以删除后重新创建
