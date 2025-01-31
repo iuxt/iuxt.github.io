@@ -36,7 +36,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 </style>
 
 <div class="container">
-  <div class="text-area">张理坤，安徽（六安/淮南）寿县人，90后，一直在互联网行业。最开始入行是做IT，通过自学运维转岗做了运维。2016年参加工作，在游戏、在线教育、车联网行业待过。做过监控、收过日志、玩过容器、做过CICD、开发过运维平台、修过电脑、装过打印机、拉过网线、配置过交换机、喂过猫。</div>
+  <div class="text-area">张理坤，安徽（六安/淮南）寿县人，90后，互联网行业超级无敌打工仔。最开始入行是做IT，通过自学运维转岗做了运维。2016年参加工作，在游戏、在线教育、车联网行业待过。做过监控、收过日志、玩过容器、做过CICD、开发过运维平台、待过IDC机房、修过电脑、装过打印机、配置过交换机。</div>
   <div class="image-area"><img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/></div>
 </div>
 
