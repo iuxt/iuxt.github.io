@@ -6,7 +6,7 @@ tags: []
 abbrlink: sqkrxr
 date: 2023-01-24 12:17:51
 cover: ""
-updated: 2025-01-24 23:15:43
+updated: 2025-02-01 16:43:23
 ---
 
 让我们看看/proc 里面都有什么
@@ -40,10 +40,10 @@ A=B vim a.log
 cat /proc/39564/environ |  tr '\0' '\n'  
 ```
 
-## 启动命令行
+## 内核启动参数
 
 ```bash
-cat cmdline | tr '\0' ' '
+cat /proc/cmdline | tr '\0' ' '
 ```
 
 ## 可执行文件
