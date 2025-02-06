@@ -6,5 +6,6 @@
   "translucency": false,
   "nativeMenus": false,
   "cssTheme": "Maple",
-  "textFontFamily": "霞鹜文楷等宽 屏幕阅读版,微软雅黑"
+  "textFontFamily": "霞鹜文楷等宽 屏幕阅读版,微软雅黑",
+  "showRibbon": true
 }
