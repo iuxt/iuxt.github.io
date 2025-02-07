@@ -4,9 +4,9 @@ abbrlink: '25938561'
 cover: 'https://static.zahui.fan/public/linux.svg'
 categories:
   - 基础运维
-tags:
-  - Linux
+tags: [Linux]
 date: 2021-05-27 20:52:22
+updated: 2025-02-07 11:42:09
 ---
 
 ## 增加 swap(文件)
@@ -46,7 +46,7 @@ sudo swapoff /swapfile
 `vim /etc/fstab` 添加一行
 
 ```bash
-/swapfile   swap  swap  defaults  0  0
+/swapfile   none  swap  sw  0  0
 ```
 
 ## 删除 swap(文件)
