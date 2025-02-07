@@ -292,11 +292,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> tls </tag>
             
             <tag> https </tag>
+            
+            <tag> 加密 </tag>
             
             <tag> SSL </tag>
             
@@ -1111,9 +1111,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 注册表 </tag>
             
@@ -1175,11 +1175,11 @@
       
         <tags>
             
-            <tag> PowerShell </tag>
-            
             <tag> 配置记录 </tag>
             
             <tag> 网络 </tag>
+            
+            <tag> PowerShell </tag>
             
             <tag> 防火墙 </tag>
             
@@ -1266,13 +1266,13 @@
       
         <tags>
             
-            <tag> Crontab </tag>
-            
             <tag> Kubernetes </tag>
             
             <tag> k8s </tag>
             
             <tag> kubectl </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -1514,9 +1514,9 @@
       
         <tags>
             
-            <tag> mysqld </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> mysqld </tag>
             
             <tag> 运行库 </tag>
             
@@ -1547,11 +1547,11 @@
       
         <tags>
             
-            <tag> mysqld </tag>
-            
             <tag> 数据迁移 </tag>
             
             <tag> MySQL </tag>
+            
+            <tag> mysqld </tag>
             
         </tags>
       
@@ -1576,13 +1576,13 @@
       
         <tags>
             
-            <tag> wsl2 </tag>
-            
-            <tag> 网络 </tag>
-            
             <tag> 效率工具 </tag>
             
             <tag> 命令行工具 </tag>
+            
+            <tag> 网络 </tag>
+            
+            <tag> wsl2 </tag>
             
         </tags>
       
@@ -1725,9 +1725,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 注册表 </tag>
             
@@ -1955,11 +1955,11 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
             <tag> cli </tag>
             
             <tag> Shell </tag>
+            
+            <tag> 命令行工具 </tag>
             
         </tags>
       
@@ -1984,11 +1984,11 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
             <tag> cli </tag>
             
             <tag> Linux </tag>
+            
+            <tag> 命令行工具 </tag>
             
             <tag> 文件 </tag>
             
@@ -2164,11 +2164,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> tls </tag>
             
             <tag> https </tag>
+            
+            <tag> 加密 </tag>
             
             <tag> SSL </tag>
             
@@ -2309,13 +2309,13 @@
       
         <tags>
             
-            <tag> cmd </tag>
-            
-            <tag> bat </tag>
+            <tag> Script </tag>
             
             <tag> 脚本 </tag>
             
-            <tag> Script </tag>
+            <tag> cmd </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -2400,15 +2400,15 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
-            <tag> Linux </tag>
-            
             <tag> Container </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -2433,8 +2433,6 @@
       
         <tags>
             
-            <tag> 浏览器 </tag>
-            
             <tag> 编码 </tag>
             
             <tag> ingress </tag>
@@ -2442,6 +2440,8 @@
             <tag> Nginx </tag>
             
             <tag> 反向代理 </tag>
+            
+            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -2516,11 +2516,11 @@
       
         <tags>
             
+            <tag> 脚本 </tag>
+            
             <tag> cmd </tag>
             
             <tag> bat </tag>
-            
-            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2653,9 +2653,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Crontab </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -2680,15 +2680,15 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
-            <tag> 脚本 </tag>
-            
             <tag> cli </tag>
             
             <tag> Crontab </tag>
             
+            <tag> 命令行工具 </tag>
+            
             <tag> bash </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2852,13 +2852,13 @@
       
         <tags>
             
+            <tag> cli </tag>
+            
             <tag> 命令行工具 </tag>
             
             <tag> cmd </tag>
             
             <tag> bat </tag>
-            
-            <tag> cli </tag>
             
         </tags>
       
@@ -2883,13 +2883,13 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
             
             <tag> wsl2 </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -3115,9 +3115,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 服务 </tag>
-            
             <tag> mysqld </tag>
+            
+            <tag> 服务 </tag>
             
         </tags>
       
@@ -3198,13 +3198,13 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
             <tag> cli </tag>
             
             <tag> webdav </tag>
             
             <tag> curl </tag>
+            
+            <tag> 命令行工具 </tag>
             
         </tags>
       
@@ -3455,11 +3455,11 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -3760,11 +3760,11 @@
       
         <tags>
             
-            <tag> WSL </tag>
-            
             <tag> lrzsz </tag>
             
             <tag> Windows Terminal </tag>
+            
+            <tag> WSL </tag>
             
         </tags>
       
@@ -3820,9 +3820,9 @@
       
         <tags>
             
-            <tag> 效率工具 </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> 效率工具 </tag>
             
         </tags>
       
@@ -3986,11 +3986,11 @@
             
             <tag> Blog </tag>
             
-            <tag> 编辑器 </tag>
+            <tag> hexo </tag>
             
             <tag> markdown </tag>
             
-            <tag> hexo </tag>
+            <tag> 编辑器 </tag>
             
         </tags>
       
@@ -4312,13 +4312,13 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> Shell </tag>
             
             <tag> MySQL </tag>
             
             <tag> 备份还原 </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -4709,9 +4709,9 @@
       
         <tags>
             
-            <tag> BitLocker </tag>
-            
             <tag> 加密 </tag>
+            
+            <tag> BitLocker </tag>
             
         </tags>
       
@@ -4813,11 +4813,11 @@
       
         <tags>
             
-            <tag> Hyper-V </tag>
-            
             <tag> VirtualMachine </tag>
             
             <tag> 虚拟化 </tag>
+            
+            <tag> Hyper-V </tag>
             
         </tags>
       
@@ -4842,9 +4842,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -4894,9 +4894,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -4921,11 +4921,11 @@
       
         <tags>
             
+            <tag> cli </tag>
+            
             <tag> cmd </tag>
             
             <tag> bat </tag>
-            
-            <tag> cli </tag>
             
         </tags>
       
@@ -5303,9 +5303,9 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> containerd </tag>
+            
+            <tag> cli </tag>
             
         </tags>
       
@@ -5689,7 +5689,7 @@
       <link href="/posts/097e5b7c/"/>
       <url>/posts/097e5b7c/</url>
       
-        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#120;&#x74;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#105;&#x75;&#120;&#x74;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#x78;&#x74;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;">&#x69;&#x75;&#x78;&#x74;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
+        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#120;&#x74;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#105;&#x75;&#120;&#x74;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#120;&#x74;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x69;&#117;&#120;&#x74;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
       
       
       <categories>
@@ -5784,15 +5784,15 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
-            <tag> Linux </tag>
-            
             <tag> Container </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -5817,13 +5817,13 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
-            <tag> Linux </tag>
-            
             <tag> Container </tag>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Kubernetes </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -5848,17 +5848,17 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
             
             <tag> Container </tag>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Kubernetes </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -6306,9 +6306,9 @@
             
             <tag> hugo </tag>
             
-            <tag> 编辑器 </tag>
-            
             <tag> markdown </tag>
+            
+            <tag> 编辑器 </tag>
             
             <tag> vscode </tag>
             
@@ -6688,13 +6688,13 @@
       
         <tags>
             
-            <tag> Hyper-V </tag>
+            <tag> Windows </tag>
             
             <tag> VirtualMachine </tag>
             
-            <tag> Windows </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Hyper-V </tag>
             
             <tag> PowerShell </tag>
             
@@ -6721,9 +6721,9 @@
       
         <tags>
             
-            <tag> Crontab </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -6773,9 +6773,9 @@
       
         <tags>
             
-            <tag> Crontab </tag>
-            
             <tag> Container </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -6827,11 +6827,11 @@
       
         <tags>
             
-            <tag> Command </tag>
+            <tag> 测试 </tag>
             
             <tag> 网络 </tag>
             
-            <tag> 测试 </tag>
+            <tag> Command </tag>
             
             <tag> Bash </tag>
             
@@ -6889,13 +6889,13 @@
       
         <tags>
             
-            <tag> VirtualMachine </tag>
+            <tag> Crontab </tag>
             
             <tag> Windows </tag>
             
-            <tag> WSL </tag>
+            <tag> VirtualMachine </tag>
             
-            <tag> Crontab </tag>
+            <tag> WSL </tag>
             
         </tags>
       
@@ -6951,13 +6951,13 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
             
             <tag> Python </tag>
             
             <tag> 配置文件 </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7011,9 +7011,9 @@
             
             <tag> hugo </tag>
             
-            <tag> 编辑器 </tag>
-            
             <tag> markdown </tag>
+            
+            <tag> 编辑器 </tag>
             
         </tags>
       
@@ -7150,9 +7150,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Automatic </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7300,9 +7300,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
             <tag> Network </tag>
             
@@ -7385,9 +7385,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Crontab </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Crontab </tag>
             
             <tag> SSL </tag>
             
@@ -7499,9 +7499,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -7599,9 +7599,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7688,9 +7688,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7765,9 +7765,9 @@
       
         <tags>
             
-            <tag> VirtualMachine </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> VirtualMachine </tag>
             
         </tags>
       
@@ -7792,9 +7792,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7896,9 +7896,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -8004,11 +8004,11 @@
       
         <tags>
             
-            <tag> Automatic </tag>
+            <tag> Linux </tag>
             
             <tag> Crontab </tag>
             
-            <tag> Linux </tag>
+            <tag> Automatic </tag>
             
         </tags>
       
@@ -8114,9 +8114,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -8129,7 +8129,7 @@
       <link href="/posts/25938561/"/>
       <url>/posts/25938561/</url>
       
-        <content type="html"><![CDATA[<h2 id="增加-swap-文件"><a href="#增加-swap-文件" class="headerlink" title="增加 swap(文件)"></a>增加 swap(文件)</h2><h3 id="创建-swap"><a href="#创建-swap" class="headerlink" title="创建 swap"></a>创建 swap</h3><p>生成一个空文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个4G的swap文件</span></span><br><span class="line">sudo fallocate -l 4G /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用dd命令来创建，建议用fallocate，是瞬间生成的，不像dd真的要写入文件内容。</span></span><br><span class="line"><span class="comment"># sudo dd if=/dev/zero of=/swapfile bs=1M count=2048</span></span><br><span class="line"></span><br><span class="line">sudo <span class="built_in">chmod</span> 600 /swapfile</span><br></pre></td></tr></table></figure><p>标记成 swap 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkswap /swapfile</span><br></pre></td></tr></table></figure><h3 id="手动挂载-swap"><a href="#手动挂载-swap" class="headerlink" title="手动挂载 swap"></a>手动挂载 swap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">挂载： </span><br><span class="line">sudo swapon /swapfile</span><br><span class="line"></span><br><span class="line">卸载： </span><br><span class="line">sudo swapoff /swapfile</span><br></pre></td></tr></table></figure><h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><p><code>vim /etc/fstab</code> 添加一行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile   swap  swap  defaults  0  0</span><br></pre></td></tr></table></figure><h2 id="删除-swap-文件"><a href="#删除-swap-文件" class="headerlink" title="删除 swap(文件)"></a>删除 swap(文件)</h2><h3 id="查看-swap-文件地址"><a href="#查看-swap-文件地址" class="headerlink" title="查看 swap 文件地址"></a>查看 swap 文件地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon</span><br></pre></td></tr></table></figure><h3 id="手动关闭-swap"><a href="#手动关闭-swap" class="headerlink" title="手动关闭 swap"></a>手动关闭 swap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff /swapfile</span><br></pre></td></tr></table></figure><h3 id="删除-swap-文件-1"><a href="#删除-swap-文件-1" class="headerlink" title="删除 swap 文件"></a>删除 swap 文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -f /swapfile</span><br></pre></td></tr></table></figure><h3 id="取消开机自动挂载"><a href="#取消开机自动挂载" class="headerlink" title="取消开机自动挂载"></a>取消开机自动挂载</h3><p><code>vim /etc/fstab</code>, 删除包含 <code>swapfile</code> 的一行</p><h2 id="删除-swap（LVM-分区）"><a href="#删除-swap（LVM-分区）" class="headerlink" title="删除 swap（LVM 分区）"></a>删除 swap（LVM 分区）</h2><h3 id="判断是否是-LVM-分区"><a href="#判断是否是-LVM-分区" class="headerlink" title="判断是否是 LVM 分区"></a>判断是否是 LVM 分区</h3><p>LVM 分区做 swap，如果你用 centos7 默认安装的话， 就是用的 LV 做 swap，可以 <code>cat /etc/fstab</code> 和 <code>lvdisplay</code> 确认下<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404241305360.png" alt="image.png"></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404241305675.png" alt="image.png"></p><p>上图所示， 就是用的 lv 做 swap 分区</p><h3 id="关闭-swap"><a href="#关闭-swap" class="headerlink" title="关闭 swap"></a>关闭 swap</h3><p>马上关闭：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a</span><br></pre></td></tr></table></figure><p>修改配置永久关闭：<br><code>vim /etc/fstab</code> 删除包含 swap 的那一行</p><p>保守一点，如果 swap 占用空间不要了，lvm 也不动了，那么就到此为止就行。</p><h3 id="删除-swap-的-LV"><a href="#删除-swap-的-LV" class="headerlink" title="删除 swap 的 LV"></a>删除 swap 的 LV</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lvremove &lt;vg名字&gt; &lt;lv名字&gt;</span></span><br><span class="line">lvremove centos swap</span><br></pre></td></tr></table></figure><p>扩容剩下的 LV</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvextend -l +100%FREE /dev/mapper/centos-root</span><br></pre></td></tr></table></figure><p>动态增加磁盘大小</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">ext文件系统</button><button type="button" class="tab">xfs文件系统</button><button type="button" class="tab">RHEL</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs  /dev/sdb1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xfs_growfs /dev/sdb1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>在早期的 RHEL 中，由于 resize2fs 无在线 resize 功能，故额外提供了 ext2online。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ext2online /dev/sdb1</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="修改内核参数"><a href="#修改内核参数" class="headerlink" title="修改内核参数"></a>修改内核参数</h3><p>CentOS7 系统修改 <code>/etc/default/grub</code></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404241418956.png" alt="image.png"></p><p>然后执行:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure><p>更新 grub 配置</p><p>如果你已经删除了 LV，但是忘记修改内核参数了，那么重启后会无法启动，解决方法见：<a href="/posts/scfoaz/">centos删除swap后无法启动</a></p><h2 id="调整内核-swap-策略"><a href="#调整内核-swap-策略" class="headerlink" title="调整内核 swap 策略"></a>调整内核 swap 策略</h2><p>swap 使用是根据内核参数 <code>vm.swappiness</code> 决定的， 数值越大表示内核会更加积极的将内存中的数据移动到 Swap 分区</p><table><thead><tr><th>vm.swappiness</th><th>含义</th></tr></thead><tbody><tr><td>0</td><td>指示内核尽可能避免交换。</td></tr><tr><td>10-50</td><td>指示内核在换出内存页面时稍微积极一些</td></tr><tr><td>50-100</td><td>指示内核在换出内存页面时适度积极</td></tr><tr><td>100</td><td>指示内核在换出内存页面时非常积极</td></tr></tbody></table><h3 id="查看内核参数"><a href="#查看内核参数" class="headerlink" title="查看内核参数"></a>查看内核参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl -a</span><br><span class="line">sysctl vm.swappiness</span><br></pre></td></tr></table></figure><h3 id="临时修改"><a href="#临时修改" class="headerlink" title="临时修改"></a>临时修改</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl vm.swappiness=80</span><br></pre></td></tr></table></figure><h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;80&quot;</span> &gt; /proc/sys/vm/swappiness</span><br></pre></td></tr></table></figure><h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><p><code>vim /etc/sysctl.conf</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.swappiness = 80</span><br></pre></td></tr></table></figure><p>执行 <code>sysctl -p</code> 马上生效。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="增加-swap-文件"><a href="#增加-swap-文件" class="headerlink" title="增加 swap(文件)"></a>增加 swap(文件)</h2><h3 id="创建-swap"><a href="#创建-swap" class="headerlink" title="创建 swap"></a>创建 swap</h3><p>生成一个空文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个4G的swap文件</span></span><br><span class="line">sudo fallocate -l 4G /swapfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用dd命令来创建，建议用fallocate，是瞬间生成的，不像dd真的要写入文件内容。</span></span><br><span class="line"><span class="comment"># sudo dd if=/dev/zero of=/swapfile bs=1M count=2048</span></span><br><span class="line"></span><br><span class="line">sudo <span class="built_in">chmod</span> 600 /swapfile</span><br></pre></td></tr></table></figure><p>标记成 swap 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkswap /swapfile</span><br></pre></td></tr></table></figure><h3 id="手动挂载-swap"><a href="#手动挂载-swap" class="headerlink" title="手动挂载 swap"></a>手动挂载 swap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">挂载： </span><br><span class="line">sudo swapon /swapfile</span><br><span class="line"></span><br><span class="line">卸载： </span><br><span class="line">sudo swapoff /swapfile</span><br></pre></td></tr></table></figure><h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><p><code>vim /etc/fstab</code> 添加一行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile   none  swap  sw  0  0</span><br></pre></td></tr></table></figure><h2 id="删除-swap-文件"><a href="#删除-swap-文件" class="headerlink" title="删除 swap(文件)"></a>删除 swap(文件)</h2><h3 id="查看-swap-文件地址"><a href="#查看-swap-文件地址" class="headerlink" title="查看 swap 文件地址"></a>查看 swap 文件地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon</span><br></pre></td></tr></table></figure><h3 id="手动关闭-swap"><a href="#手动关闭-swap" class="headerlink" title="手动关闭 swap"></a>手动关闭 swap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapoff /swapfile</span><br></pre></td></tr></table></figure><h3 id="删除-swap-文件-1"><a href="#删除-swap-文件-1" class="headerlink" title="删除 swap 文件"></a>删除 swap 文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -f /swapfile</span><br></pre></td></tr></table></figure><h3 id="取消开机自动挂载"><a href="#取消开机自动挂载" class="headerlink" title="取消开机自动挂载"></a>取消开机自动挂载</h3><p><code>vim /etc/fstab</code>, 删除包含 <code>swapfile</code> 的一行</p><h2 id="删除-swap（LVM-分区）"><a href="#删除-swap（LVM-分区）" class="headerlink" title="删除 swap（LVM 分区）"></a>删除 swap（LVM 分区）</h2><h3 id="判断是否是-LVM-分区"><a href="#判断是否是-LVM-分区" class="headerlink" title="判断是否是 LVM 分区"></a>判断是否是 LVM 分区</h3><p>LVM 分区做 swap，如果你用 centos7 默认安装的话， 就是用的 LV 做 swap，可以 <code>cat /etc/fstab</code> 和 <code>lvdisplay</code> 确认下<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404241305360.png" alt="image.png"></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404241305675.png" alt="image.png"></p><p>上图所示， 就是用的 lv 做 swap 分区</p><h3 id="关闭-swap"><a href="#关闭-swap" class="headerlink" title="关闭 swap"></a>关闭 swap</h3><p>马上关闭：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a</span><br></pre></td></tr></table></figure><p>修改配置永久关闭：<br><code>vim /etc/fstab</code> 删除包含 swap 的那一行</p><p>保守一点，如果 swap 占用空间不要了，lvm 也不动了，那么就到此为止就行。</p><h3 id="删除-swap-的-LV"><a href="#删除-swap-的-LV" class="headerlink" title="删除 swap 的 LV"></a>删除 swap 的 LV</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lvremove &lt;vg名字&gt; &lt;lv名字&gt;</span></span><br><span class="line">lvremove centos swap</span><br></pre></td></tr></table></figure><p>扩容剩下的 LV</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvextend -l +100%FREE /dev/mapper/centos-root</span><br></pre></td></tr></table></figure><p>动态增加磁盘大小</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">ext文件系统</button><button type="button" class="tab">xfs文件系统</button><button type="button" class="tab">RHEL</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs  /dev/sdb1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xfs_growfs /dev/sdb1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><p>在早期的 RHEL 中，由于 resize2fs 无在线 resize 功能，故额外提供了 ext2online。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ext2online /dev/sdb1</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="修改内核参数"><a href="#修改内核参数" class="headerlink" title="修改内核参数"></a>修改内核参数</h3><p>CentOS7 系统修改 <code>/etc/default/grub</code></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404241418956.png" alt="image.png"></p><p>然后执行:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure><p>更新 grub 配置</p><p>如果你已经删除了 LV，但是忘记修改内核参数了，那么重启后会无法启动，解决方法见：<a href="/posts/scfoaz/">centos删除swap后无法启动</a></p><h2 id="调整内核-swap-策略"><a href="#调整内核-swap-策略" class="headerlink" title="调整内核 swap 策略"></a>调整内核 swap 策略</h2><p>swap 使用是根据内核参数 <code>vm.swappiness</code> 决定的， 数值越大表示内核会更加积极的将内存中的数据移动到 Swap 分区</p><table><thead><tr><th>vm.swappiness</th><th>含义</th></tr></thead><tbody><tr><td>0</td><td>指示内核尽可能避免交换。</td></tr><tr><td>10-50</td><td>指示内核在换出内存页面时稍微积极一些</td></tr><tr><td>50-100</td><td>指示内核在换出内存页面时适度积极</td></tr><tr><td>100</td><td>指示内核在换出内存页面时非常积极</td></tr></tbody></table><h3 id="查看内核参数"><a href="#查看内核参数" class="headerlink" title="查看内核参数"></a>查看内核参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl -a</span><br><span class="line">sysctl vm.swappiness</span><br></pre></td></tr></table></figure><h3 id="临时修改"><a href="#临时修改" class="headerlink" title="临时修改"></a>临时修改</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl vm.swappiness=80</span><br></pre></td></tr></table></figure><h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;80&quot;</span> &gt; /proc/sys/vm/swappiness</span><br></pre></td></tr></table></figure><h3 id="永久修改"><a href="#永久修改" class="headerlink" title="永久修改"></a>永久修改</h3><p><code>vim /etc/sysctl.conf</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.swappiness = 80</span><br></pre></td></tr></table></figure><p>执行 <code>sysctl -p</code> 马上生效。</p>]]></content>
       
       
       <categories>
@@ -8328,13 +8328,13 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
+            <tag> 常用操作 </tag>
             
             <tag> Linux </tag>
             
-            <tag> 常用操作 </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> 命令行工具 </tag>
             
         </tags>
       
@@ -8386,19 +8386,19 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
-            <tag> Linux </tag>
-            
             <tag> Docker </tag>
             
             <tag> Container </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> Kubernetes </tag>
             
             <tag> keepalived </tag>
             
             <tag> kubeadm </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -8506,11 +8506,11 @@
       
         <tags>
             
+            <tag> Docker </tag>
+            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
-            
-            <tag> Docker </tag>
             
         </tags>
       
@@ -8535,9 +8535,9 @@
       
         <tags>
             
-            <tag> VirtualMachine </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> VirtualMachine </tag>
             
         </tags>
       
@@ -8587,9 +8587,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Container </tag>
+            
+            <tag> 配置记录 </tag>
             
             <tag> Kubernetes </tag>
             
@@ -8722,9 +8722,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -8749,11 +8749,11 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -8828,9 +8828,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -8949,11 +8949,11 @@
       
         <tags>
             
-            <tag> WSL </tag>
-            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
+            
+            <tag> WSL </tag>
             
         </tags>
       
@@ -9030,9 +9030,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> Script </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -9057,11 +9057,11 @@
       
         <tags>
             
+            <tag> Docker </tag>
+            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
-            
-            <tag> Docker </tag>
             
         </tags>
       
@@ -9113,9 +9113,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -9140,11 +9140,11 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Linux </tag>
             
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -9169,11 +9169,11 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> Docker </tag>
             
             <tag> Container </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -9200,11 +9200,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Crontab </tag>
+            <tag> Ubuntu </tag>
             
             <tag> Linux </tag>
             
-            <tag> Ubuntu </tag>
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -9287,13 +9287,13 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
-            <tag> 命令行工具 </tag>
-            
             <tag> cli </tag>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Linux </tag>
+            
+            <tag> 命令行工具 </tag>
             
             <tag> bash </tag>
             
