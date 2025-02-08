@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>常用bat脚本 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这篇文章说的都是经常用到的 bat 脚本编写小技巧，比如获取管理员权限、注册表操作、进程操作、服务操作等 自动输入 y1echo y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; &#x2F;v IconStreams  bat 脚本获取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用bat脚本">
+<meta property="og:url" content="https://zahui.fan/posts/54c97110/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="这篇文章说的都是经常用到的 bat 脚本编写小技巧，比如获取管理员权限、注册表操作、进程操作、服务操作等 自动输入 y1echo y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; &#x2F;v IconStreams  bat 脚本获取">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/images/202211041307268.jpg">
+<meta property="article:published_time" content="2021-02-26T07:24:30.000Z">
+<meta property="article:modified_time" content="2024-10-31T03:20:09.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="bat">
+<meta property="article:tag" content="Script">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/images/202211041307268.jpg"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/54c97110/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '常用bat脚本',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-31 11:20:09'
+}</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/images/202211041307268.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">常用bat脚本</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">常用bat脚本</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-26T07:24:30.000Z" title="发表于 2021-02-26 15:24:30">2021-02-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-31T03:20:09.000Z" title="更新于 2024-10-31 11:20:09">2024-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Windows/">Windows</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>这篇文章说的都是经常用到的 bat 脚本编写小技巧，比如获取管理员权限、注册表操作、进程操作、服务操作等</p>
+<h2 id="自动输入-y"><a href="#自动输入-y" class="headerlink" title="自动输入 y"></a>自动输入 y</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> y|reg delete &quot;HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify&quot; /v IconStreams</span><br></pre></td></tr></table></figure>
+
+<h2 id="bat-脚本获取管理员权限"><a href="#bat-脚本获取管理员权限" class="headerlink" title="bat 脚本获取管理员权限"></a>bat 脚本获取管理员权限</h2><p>在 bat 脚本最上面添加一行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">%<span class="number">1</span> mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;<span class="built_in">cmd</span>.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,<span class="number">1</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line"><span class="built_in">cd</span> /d &quot;%~dp0&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输出控制台不换行"><a href="#输出控制台不换行" class="headerlink" title="输出控制台不换行"></a>输出控制台不换行</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务操作"><a href="#服务操作" class="headerlink" title="服务操作"></a>服务操作</h2><blockquote>
+<p>windows 服务操作命令有 sc 和 net 两个命令;</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 使用sc操作服务</span><br><span class="line">sc stop serviceName</span><br><span class="line">sc <span class="built_in">start</span> serviceName</span><br><span class="line"></span><br><span class="line"># 使用<span class="built_in">net</span>操作服务</span><br><span class="line"><span class="built_in">net</span> stop serviceName</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> serviceName</span><br><span class="line"></span><br><span class="line"># sc 修改服务</span><br><span class="line">sc config AcronisActiveProtectionService <span class="built_in">start</span>= disabled</span><br><span class="line">sc description npc &quot;内网穿透服务。&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># sc 创建服务</span><br><span class="line">sc create npc <span class="built_in">start</span>= auto binPath= &quot;C:\<span class="number">1</span>\npc\npc.exe -server=note.iuxt.top:<span class="number">10000</span> -vkey=ibtbrp5e3uc9lonq -<span class="built_in">type</span>=tcp&quot; DisplayName= &quot;npc内网穿透服务&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>虽然 2 个都能达到停止服务和启动服务的效果，但是在重启服务时，就是使用批处理先 stop 后 start 来实现重启时，如果服务处于启动状态使用 sc 的 stop 后 start，结果服务不能启动，因为 sc 命令在执行 stop 后不会等待，而是继续执行批处理下面的语句，这时服务正在处于停止操作状态，所以 start 命令不能启动。net 命令在 stop 时会停止等待，在服务完全停止后再继续执行批处理后面的语句，所以 net 的重启命令就会正常。</p>
+</blockquote>
+<h2 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /f /im Xshell*</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除注册表"><a href="#删除注册表" class="headerlink" title="删除注册表"></a>删除注册表</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Microsoft\NetLicense&quot; /f</span><br><span class="line"></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Classes\.xdts&quot; /f /ve /d &quot;Xmanager.session&quot; &gt;<span class="built_in">NUL</span> <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除目录"><a href="#删除目录" class="headerlink" title="删除目录"></a>删除目录</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rd</span>/s/q &quot;<span class="variable">%ProgramData%</span>\FLEXnet&quot; <span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br><span class="line"><span class="built_in">rmdir</span>/s/q &quot;<span class="variable">%CommonProgramFiles%</span>\Macrovision Shared&quot;<span class="number">2</span>&gt;<span class="built_in">NUL</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>rd 就是 rmdir</p>
+</blockquote>
+<h2 id="判断有没有目录"><a href="#判断有没有目录" class="headerlink" title="判断有没有目录"></a>判断有没有目录</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exist</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot; <span class="built_in">md</span> &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> f|<span class="built_in">xcopy</span> /e/i/c/y &quot;Data\NetSarang Computer&quot; &quot;<span class="variable">%ProgramData%</span>\NetSarang Computer&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="带空格路径的处理"><a href="#带空格路径的处理" class="headerlink" title="带空格路径的处理"></a>带空格路径的处理</h2><blockquote>
+<p>用 “” 引起来，不方便用 “” 的可以用下面的短名称，或者用变量的形式表示</p>
+</blockquote>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">start</span> C:\Progra~<span class="number">1</span>\Notepad++\notepad++.exe C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+
+<h2 id="将字符串复制到剪切板"><a href="#将字符串复制到剪切板" class="headerlink" title="将字符串复制到剪切板"></a>将字符串复制到剪切板</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>|<span class="built_in">set</span> /p=&quot;Test&quot; | clip</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:: /M 增加系统环境变量</span><br><span class="line">setx /M MySQL_HOME &quot;C:\mysql&quot;</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/54c97110/">https://zahui.fan/posts/54c97110/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/bat/">bat</a><a class="post-meta__tags" href="/tags/Script/">Script</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/images/202211041307268.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/24b2eef7/" title="Windows磁盘管理工具diskpart"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Windows磁盘管理工具diskpart</div></div><div class="info-2"><div class="info-item-1">创建 EFI 分区123456diskpartlist diskselect disk xcreate partition efi size=100assign letter=&quot;b&quot;format quick fs=FAT32  创建 msr 分区1create partition msr size=16  创建 Recovery 分区 (WindowsRE)12345create partition primary size=1024format quick fs=ntfs label=&quot;Recovery&quot;assign letter=&quot;R&quot;set id=&quot;de94bba4-06d1-4d40-a16a-bfd50179d6ac&quot;gpt attributes=0x8000000000000001  删除 winre 分区12select partition 5delete partition override  使用 bat...</div></div></div></a><a class="pagination-related" href="/posts/5e168f7e/" title="快速搭建环境记录"><img class="cover" src="https://static.zahui.fan/public/linux.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">快速搭建环境记录</div></div><div class="info-2"><div class="info-item-1"> 快速搭建一套环境的记录，节省折腾的时间，可以配合 quickstart 食用  Python 环境可以直接使用 pipenv 这种工具. 也可以自己编译安装 安装编译需要的环境Ubuntu和Debian安装CentOS和Fedora安装1sudo apt install -y gcc make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev12sudo yum install -y gcc make libffi-devel openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel zlib-devel#...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/lqgfuqik/" title="bat命令修改windows环境变量"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">bat命令修改windows环境变量</div></div><div class="info-2"><div class="info-item-1">在 bat 下修改环境变量有几种方式, 比如 set setx vmic ENVIRONMENT setwindows 的 set 和 bash 里面直接赋值类似, 只在当前脚本中生效, 比如 1234set a=becho %a%b  setxsetx 和 set 类似, 不一样的是 setx 会把设置持久化保存起来 1setx a c  因为 setx 直接将环境变量保存在注册表中, 所以 cmd 终端需要关闭重新打开才能生效 12echo %a%c  后续就算重启电脑, 也会生效, 不过数据量比较大的时候会报错： WARNING: The data being saved is truncated to 1024 characters， 最终修改的内容也是不完整的。所以不建议使用 vmicwmic 常用命令1234567891011# 创建系统变量wmic ENVIRONMENT create...</div></div></div></a><a class="pagination-related" href="/posts/lmsslh3g/" title="Windows下使用bat脚本来新增环境变量"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows下使用bat脚本来新增环境变量</div></div><div class="info-2"><div class="info-item-1">自己创建了一个 bin 目录用于存放一些 exe 或者 bat 用于快速调用, 把它加到 PATH 环境变量中就可以在任意路径来调用了. 查看环境变量1set PATH  设置环境变量1setx PATH &quot;%PATH%;%USERPROFILE%\bin&quot;  这里需要注意把原有的 %PATH% 带上, 不然就会覆盖掉 PATH 变量, %USERPROFILE% 指的是个人文件夹, 我的就是 C:\Users\iuxt 完整脚本首先判断一下有没有环境变量, 没有的话就增加, 有的话什么都不做. 123456set path | findstr &quot;%USERPROFILE%\bin&quot; &gt;nul &amp;&amp; (    echo 环境变量已存在) || (    echo 环境变量不存在    setx PATH &quot;%PATH%;%USERPROFILE%\bin&quot;) </div></div></div></a><a class="pagination-related" href="/posts/222b586e/" title="Windows使用命令操作进程"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows使用命令操作进程</div></div><div class="info-2"><div class="info-item-1">查找进程1tasklist | findstr xxx  根据进程名杀进程1taskkill /F /IM npc.exe  根据进程 PID 杀进程1TASKKILL /PID 1230 /PID 1241 /PID 1253 /T </div></div></div></a><a class="pagination-related" href="/posts/snagrk/" title="Windows命令行使用其他用户身份运行"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-11-29</div><div class="info-item-2">Windows命令行使用其他用户身份运行</div></div><div class="info-2"><div class="info-item-1">比如说我一个脚本使用管理员权限运行，那么它调用的其他程序默认都是以管理员权限运行的。我想要以普通用户程序来运行，有以下几种方法： runas 方式指定权限运行0x20000 是标准用户权限0x40000 是管理员权限 1runas /trustlevel:0x20000 &quot;wt.exe&quot;  这种方式我测试会造成 wsl 报错“UtilTranslatePathList” 指定用户执行1runas /user:iuxt wt.exe&quot;  这种方式会弹窗让你输入密码（每次） psexecpsexec 是微软官方的一组小工具：https://learn.microsoft.com/zh-cn/sysinternals/downloads/psexec 需要用到里面的 psexec64.exe 然后调用此工具。 1psexec.exe -u iuxt -p YourPassword C:\Path\To\wt.exe  缺点：  需要在命令行指定用户名和密码（有安全隐患） 运行的时候会有个黑框框一闪而过，并且第一次启动会有个窗口，需要点一下 agree  </div></div></div></a><a class="pagination-related" href="/posts/adfa6bbb/" title="Windows系统隐藏文件"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows系统隐藏文件</div></div><div class="info-2"><div class="info-item-1">attrib 命令 这个只是隐藏, 并没有把文件加密  1attrib +S +H &lt;文件或文件夹&gt;   优点: 不用加密解密, 访问简单 缺点: 不安全  创建 vhd 并使用 bitlocker在磁盘管理里面创建 vhd 磁盘, 挂在好后使用 BitLocker 加密 (可选)  优点: 数据安全,没有密码无法解密 缺点: 容易损坏,造成数据全部丢失  使用第三方加密软件略 使用压缩软件加密略 </div></div></div></a><a class="pagination-related" href="/posts/3b6d9935/" title="Windows隐藏cmd运行窗口"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows隐藏cmd运行窗口</div></div><div class="info-2"><div class="info-item-1">使用开源软件实现 (推荐) hidecon.exe 官网地址  使用方法，将 hidecon.exe 和其他可执行放在一块，在 bat 脚本前面加上 12hidecon.exenpc -server=xxx:8888 -vkey=xxxxxxxxxxxxxxxx -type=tcp  使用 vbs 实现（推荐）1CreateObject(&quot;WScript.Shell&quot;).Run &quot;D:\syncthing\syncthing.exe&quot;,0  或者批量运行： 1234Set ws = CreateObject(&quot;Wscript.Shell&quot;)ws.run &quot;cmd /c start 1.exe&quot;,vbhidews.run &quot;cmd /c start 2.exe&quot;,vbhidews.run &quot;cmd /c start 3.exe&quot;,vbhide  复制保存成 vbs 文件即可。 使用 cmd 实现（会有一闪而过的黑窗）12345@echo offif...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%BE%93%E5%85%A5-y"><span class="toc-number">1.</span> <span class="toc-text">自动输入 y</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bat-%E8%84%9A%E6%9C%AC%E8%8E%B7%E5%8F%96%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">bat 脚本获取管理员权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%8D%E6%8D%A2%E8%A1%8C"><span class="toc-number">3.</span> <span class="toc-text">输出控制台不换行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">服务操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">进程操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%B3%A8%E5%86%8C%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">删除注册表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95"><span class="toc-number">7.</span> <span class="toc-text">删除目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%9C%89%E6%B2%A1%E6%9C%89%E7%9B%AE%E5%BD%95"><span class="toc-number">8.</span> <span class="toc-text">判断有没有目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">复制文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E7%A9%BA%E6%A0%BC%E8%B7%AF%E5%BE%84%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">10.</span> <span class="toc-text">带空格路径的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%8D%E5%88%B6%E5%88%B0%E5%89%AA%E5%88%87%E6%9D%BF"><span class="toc-number">11.</span> <span class="toc-text">将字符串复制到剪切板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">12.</span> <span class="toc-text">设置环境变量</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/25938561/" title="Linux虚拟内存swap"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux虚拟内存swap"/></a><div class="content"><a class="title" href="/posts/25938561/" title="Linux虚拟内存swap">Linux虚拟内存swap</a><time datetime="2025-02-07T03:42:09.000Z" title="更新于 2025-02-07 11:42:09">2025-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sqkrxr/" title="Linux神奇的proc目录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux神奇的proc目录"/></a><div class="content"><a class="title" href="/posts/sqkrxr/" title="Linux神奇的proc目录">Linux神奇的proc目录</a><time datetime="2025-02-01T08:43:23.000Z" title="更新于 2025-02-01 16:43:23">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用acme.sh来自动更新https证书"/></a><div class="content"><a class="title" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书">使用acme.sh来自动更新https证书</a><time datetime="2025-01-27T12:01:05.000Z" title="更新于 2025-01-27 20:01:05">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hyper-V 自定义内部网络网段和IP地址"/></a><div class="content"><a class="title" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址">Hyper-V 自定义内部网络网段和IP地址</a><time datetime="2025-01-27T08:02:23.000Z" title="更新于 2025-01-27 16:02:23">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Windows下以服务方式运行MySQL"/></a><div class="content"><a class="title" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL">在Windows下以服务方式运行MySQL</a><time datetime="2025-01-25T15:47:08.000Z" title="更新于 2025-01-25 23:47:08">2025-01-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

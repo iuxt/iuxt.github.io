@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ElasticSearch升级版本 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="背景：es 旧版本有 log4j 漏洞，需要进行升级处理，因为是使用 yum 安装的，升级也比较简单，这里记录一下，这里选择的版本是 7.16.2 更新日志： https:&#x2F;&#x2F;www.elastic.co&#x2F;guide&#x2F;en&#x2F;elasticsearch&#x2F;reference&#x2F;7.17&#x2F;release-notes-7.16.2.html 首先下载安装包阿里云镜像地址：https:&#x2F;&#x2F;mirrors.al">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch升级版本">
+<meta property="og:url" content="https://zahui.fan/posts/74398d89/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="背景：es 旧版本有 log4j 漏洞，需要进行升级处理，因为是使用 yum 安装的，升级也比较简单，这里记录一下，这里选择的版本是 7.16.2 更新日志： https:&#x2F;&#x2F;www.elastic.co&#x2F;guide&#x2F;en&#x2F;elasticsearch&#x2F;reference&#x2F;7.17&#x2F;release-notes-7.16.2.html 首先下载安装包阿里云镜像地址：https:&#x2F;&#x2F;mirrors.al">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/elasticsearch.svg">
+<meta property="article:published_time" content="2022-10-14T08:00:15.000Z">
+<meta property="article:modified_time" content="2024-10-31T03:20:09.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="Elasticsearch">
+<meta property="article:tag" content="ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/elasticsearch.svg"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/74398d89/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ElasticSearch升级版本',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-31 11:20:09'
+}</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/public/elasticsearch.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">ElasticSearch升级版本</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">ElasticSearch升级版本</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-14T08:00:15.000Z" title="发表于 2022-10-14 16:00:15">2022-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-31T03:20:09.000Z" title="更新于 2024-10-31 11:20:09">2024-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%97%A5%E5%BF%97/">日志</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>背景：es 旧版本有 log4j 漏洞，需要进行升级处理，因为是使用 yum 安装的，升级也比较简单，这里记录一下，这里选择的版本是 7.16.2</p>
+<p>更新日志： <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/release-notes-7.16.2.html">https://www.elastic.co/guide/en/elasticsearch/reference/7.17/release-notes-7.16.2.html</a></p>
+<h2 id="首先下载安装包"><a href="#首先下载安装包" class="headerlink" title="首先下载安装包"></a>首先下载安装包</h2><p>阿里云镜像地址：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.aliyun.com/elasticstack/7.x/yum/7.16.2/">https://mirrors.aliyun.com/elasticstack/7.x/yum/7.16.2/</a></p>
+<p>腾讯云镜像地址：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://mirrors.cloud.tencent.com/elasticstack/7.x/yum/7.16.2/">https://mirrors.cloud.tencent.com/elasticstack/7.x/yum/7.16.2/</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh ./elasticsearch-7.16.2-x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart elasticsearch.service </span><br></pre></td></tr></table></figure>
+
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><p>java.lang.IllegalStateException: codebase property already set: codebase.jackson-annotations -&gt; file:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;modules&#x2F;ingest-geoip&#x2F;jackson-annotations-2.12.2.jar, cannot set to file:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;modules&#x2F;ingest-geoip&#x2F;jackson-annotations-2.10.4.jar</p>
+<blockquote>
+<p>这种情况是由于版本相差较大造成的。已经加载了一个版本的包，不能再加载另一个版本的包。</p>
+</blockquote>
+<p>安装时的提示：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@l7---es-<span class="number">3</span> ~]# rpm -Uvh ./elasticsearch-<span class="number">7.16</span>.<span class="number">2</span>-x86_64.rpm </span><br><span class="line">warning: ./elasticsearch-<span class="number">7.16</span>.<span class="number">2</span>-x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID d88e42b4: NOKEY</span><br><span class="line">Preparing...                          ################################# [<span class="number">100</span>%]</span><br><span class="line">Updating / installing...</span><br><span class="line">   <span class="number">1</span>:elasticsearch-<span class="number">0</span>:<span class="number">7.16</span>.<span class="number">2</span>-<span class="number">1</span>         warning: /etc/elasticsearch/elasticsearch.yml created <span class="keyword">as</span> /etc/elasticsearch/elasticsearch.yml.rpmnew</span><br><span class="line">warning: /etc/elasticsearch/jvm.<span class="keyword">options</span> created <span class="keyword">as</span> /etc/elasticsearch/jvm.<span class="keyword">options</span>.rpmnew</span><br><span class="line">################################# [ <span class="number">50</span>%]</span><br><span class="line">Cleaning <span class="keyword">up</span> / removing...</span><br><span class="line">   <span class="number">2</span>:elasticsearch-<span class="number">0</span>:<span class="number">7.5</span>.<span class="number">0</span>-<span class="number">1</span>          warning: <span class="keyword">file</span> /usr/share/elasticsearch/modules/ingest-geoip/jackson-databind-<span class="number">2.8</span>.<span class="number">11.3</span>.jar: <span class="built_in">remove</span> failed: No such <span class="keyword">file</span> <span class="built_in">or</span> directory</span><br><span class="line">warning: <span class="keyword">file</span> /usr/share/elasticsearch/modules/ingest-geoip/jackson-annotations-<span class="number">2.8</span>.<span class="number">11</span>.jar: <span class="built_in">remove</span> failed: No such <span class="keyword">file</span> <span class="built_in">or</span> directory</span><br><span class="line">################################# [<span class="number">100</span>%]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里很明显是安装的时候安装脚本会移除旧的 jar 包，但是没有找到这个文件</p>
+<p>解决方案：</p>
+<p>cd &#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;modules&#x2F;ingest-geoip&#x2F;</p>
+<p>删除旧版本的 jar 包</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/74398d89/">https://zahui.fan/posts/74398d89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Elasticsearch/">Elasticsearch</a><a class="post-meta__tags" href="/tags/ES/">ES</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/public/elasticsearch.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/4161b051/" title="Docker多阶段构建"><img class="cover" src="https://static.zahui.fan/public/Docker.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Docker多阶段构建</div></div><div class="info-2"><div class="info-item-1">构建 Docker 镜像的时候,我们可以在机器上直接构建,也可以使用容器来构建,保证环境的统一性, 通过容器来构建会有一个问题,就是构建使用到的工具并不需要带入到真正的运行环境, 比如说使用 nodejs 的前端项目, 构建的时候需要 nodejs 或者 npm, 但是运行的时候需要的是 nginx. 多阶段构建即为构建完成后直接将代码塞进运行容器, 不会带入构建环境. 编写 Dockerfilevim Dockerfile 12345678FROM node:14.20.1-buster AS buildADD argus-wfe /argus-wfeWORKDIR /argus-wfeRUN yarn &amp;&amp; yarn run buildFrom nginxCOPY --from=build /argus-wfe/dist /usr/share/nginx/html </div></div></div></a><a class="pagination-related" href="/posts/6f85bc6b/" title="Windows设置OEM信息"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Windows设置OEM信息</div></div><div class="info-2"><div class="info-item-1">OEM 信息存储于注册表中，修改注册表即可。 12345678910111213@echo off%1 mshta vbscript:CreateObject(&quot;Shell.Application&quot;).ShellExecute(&quot;cmd.exe&quot;,&quot;/c %~s0 ::&quot;,&quot;&quot;,&quot;runas&quot;,1)(window.close)&amp;&amp;exitcd /d &quot;%~dp0&quot;reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v &quot;SupportURL&quot; /t REG_SZ /d &quot;https://zahui.fan&quot;reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation&quot; /f /v...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/a07ebcb/" title="ElasticSearch二进制tar包部署"><img class="cover" src="https://static.zahui.fan/public/elasticsearch.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">ElasticSearch二进制tar包部署</div></div><div class="info-2"><div class="info-item-1">修改主机名123hostnamectl set-hostname es_1hostnamectl set-hostname es_2hostnamectl set-hostname es_3  创建目录12[ ! -d /data/server ] &amp;&amp; mkdir -p /data/elasticsearchcd /data/elasticsearch  下载软件安装包1234wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.16.2-linux-x86_64.tar.gzwget https://artifacts.elastic.co/downloads/kibana/kibana-7.16.2-linux-x86_64.tar.gztar xf elasticsearch-7.16.2-linux-x86_64.tar.gztar xf kibana-7.16.2-linux-x86_64.tar.gz  创建用户12sudo useradd...</div></div></div></a><a class="pagination-related" href="/posts/schwdt/" title="使用Docker部署一套用于学习的Elasticsearch集群"><img class="cover" src="https://static.zahui.fan/images/202412031037042.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-12-27</div><div class="info-item-2">使用Docker部署一套用于学习的Elasticsearch集群</div></div><div class="info-2"><div class="info-item-1">一般来说，学习 ES 都是自己先搭建几台虚拟机，然后在虚拟机里部署 ES 集群，这样做资源消耗比较大，一般的电脑都没有这么高的配置，我们可以使用 Docker 来快速部署一套 Elasticsearch 集群，这里以 3 节点集群为例： 准备 Docker 网络集群节点之间是通过 ip 进行交互的，所以需要固定一下 ip，固定 ip 之前需要先创建一个 Docker 私有网络，并固定网段 (网段不要和你的内网冲突) 1docker network create --subnet=172.16.0.0/24 elasticsearch-br0  集群版 Elasticsearch 需要生成证书默认生成 3 年证书，我指定生成了 100 年的证书， 生成到了 certs 目录下。 12345docker run --rm -it -v $(pwd)/certs:/tmp/certs elasticsearch:7.17.14 bash -c \    &#x27;echo -e &quot;\n\n&quot; |...</div></div></div></a><a class="pagination-related" href="/posts/1a418f5e/" title="Filebeat输出日志格式处理"><img class="cover" src="https://static.zahui.fan/public/elasticsearch.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Filebeat输出日志格式处理</div></div><div class="info-2"><div class="info-item-1">使用 filebeat 可以在收集过程中进行一些简单的处理，如丢弃日志等，给后面的 kafka 等减少压力 普通文本日志格式原始日志格式： 1&#123;&quot;log&quot;:&quot;2022-03-15 14:53:48.972 [http-nio-8080-exec-10] o.s.c.c.c.ConfigServicePropertySourceLocator-[227]-[INFO]-Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available\n&quot;,&quot;stream&quot;:&quot;stdout&quot;,&quot;time&quot;:&quot;2022-03-15T06:53:48.972854745Z&quot;&#125;  这里的原始日志是指要收集的日志文件的格式，上面的这个日志是被 Kubernetes 处理过的，真正程序输出的日志应该是 log 字段。 对应的...</div></div></div></a><a class="pagination-related" href="/posts/ee708f6b/" title="Elasticsearch常用API操作"><img class="cover" src="https://static.zahui.fan/public/elasticsearch.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-12-02</div><div class="info-item-2">Elasticsearch常用API操作</div></div><div class="info-2"><div class="info-item-1">如果有 Kibana 的话，以下所有操作都可以在 Kibana 的 DevTools 页面进行调试，可以免去认证操作。     接口 功能    &#x2F;_cat&#x2F;health?v 集群健康状态   &#x2F;_cat&#x2F;shards 分片信息   &#x2F;_cat&#x2F;nodes 节点信息   &#x2F;_cat&#x2F;indices 索引信息   &#x2F;_cat&#x2F;allocation?v 磁盘占用   &#x2F;索引名字&#x2F;_mapping?pretty 查看 mapping（索引字段类型等）   ?v 是详细信息输出 索引12345678# 查看有哪些索引curl -u elastic:password localhost:9200/_cat/indices# 创建索引curl -u elastic:password -X PUT &quot;localhost:9200/索引名字?pretty&quot;# 删除索引curl -u elastic:password -s -XDELETE...</div></div></div></a><a class="pagination-related" href="/posts/skk1ln/" title="在Kubernetes下收集ingress日志到Elasticsearch"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">在Kubernetes下收集ingress日志到Elasticsearch</div></div><div class="info-2"><div class="info-item-1">本文 ingress 用的是 Nginx-ingress，普通的 Nginx 原理是一样的。容器运行时是 Docker。 ingress 配置ingress 需要调整一下日志格式，json 日志更有利于分析与处理。 12345678910# Source: ingress-nginx/templates/controller-configmap.yamlapiVersion: v1kind: ConfigMap...  name: ingress-nginx-controller  namespace: ingress-nginxdata:  ...  # annotation: nginx.ingress.kubernetes.io/client-body-buffer-size: 1M  log-format-upstream: &#x27;&#123;&quot;@timestamp&quot;:...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">首先下载安装包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8"><span class="toc-number">3.</span> <span class="toc-text">重新启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="toc-number">4.</span> <span class="toc-text">常见错误</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/25938561/" title="Linux虚拟内存swap"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux虚拟内存swap"/></a><div class="content"><a class="title" href="/posts/25938561/" title="Linux虚拟内存swap">Linux虚拟内存swap</a><time datetime="2025-02-07T03:42:09.000Z" title="更新于 2025-02-07 11:42:09">2025-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sqkrxr/" title="Linux神奇的proc目录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux神奇的proc目录"/></a><div class="content"><a class="title" href="/posts/sqkrxr/" title="Linux神奇的proc目录">Linux神奇的proc目录</a><time datetime="2025-02-01T08:43:23.000Z" title="更新于 2025-02-01 16:43:23">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用acme.sh来自动更新https证书"/></a><div class="content"><a class="title" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书">使用acme.sh来自动更新https证书</a><time datetime="2025-01-27T12:01:05.000Z" title="更新于 2025-01-27 20:01:05">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hyper-V 自定义内部网络网段和IP地址"/></a><div class="content"><a class="title" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址">Hyper-V 自定义内部网络网段和IP地址</a><time datetime="2025-01-27T08:02:23.000Z" title="更新于 2025-01-27 16:02:23">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Windows下以服务方式运行MySQL"/></a><div class="content"><a class="title" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL">在Windows下以服务方式运行MySQL</a><time datetime="2025-01-25T15:47:08.000Z" title="更新于 2025-01-25 23:47:08">2025-01-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

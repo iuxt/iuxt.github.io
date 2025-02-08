@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Windows下运行服务的几种方式 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="原生命令 sc微软官方文档： https:&#x2F;&#x2F;learn.microsoft.com&#x2F;zh-cn&#x2F;windows-server&#x2F;administration&#x2F;windows-commands&#x2F;sc-create 第三方工具 winsw 2.xhttps:&#x2F;&#x2F;github.com&#x2F;winsw&#x2F;winsw&#x2F;releases&#x2F;tag&#x2F;v2.11.0 需要将 winsw 可执行文件和配置文件放在同一目录,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows下运行服务的几种方式">
+<meta property="og:url" content="https://zahui.fan/posts/5d4cbfad/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="原生命令 sc微软官方文档： https:&#x2F;&#x2F;learn.microsoft.com&#x2F;zh-cn&#x2F;windows-server&#x2F;administration&#x2F;windows-commands&#x2F;sc-create 第三方工具 winsw 2.xhttps:&#x2F;&#x2F;github.com&#x2F;winsw&#x2F;winsw&#x2F;releases&#x2F;tag&#x2F;v2.11.0 需要将 winsw 可执行文件和配置文件放在同一目录,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/Windows-old.svg">
+<meta property="article:published_time" content="2023-01-04T05:56:47.000Z">
+<meta property="article:modified_time" content="2024-10-31T03:20:09.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="服务">
+<meta property="article:tag" content="service">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/Windows-old.svg"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/5d4cbfad/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Windows下运行服务的几种方式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-31 11:20:09'
+}</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/public/Windows-old.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">Windows下运行服务的几种方式</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Windows下运行服务的几种方式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-04T05:56:47.000Z" title="发表于 2023-01-04 13:56:47">2023-01-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-31T03:20:09.000Z" title="更新于 2024-10-31 11:20:09">2024-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Windows/">Windows</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="原生命令-sc"><a href="#原生命令-sc" class="headerlink" title="原生命令 sc"></a>原生命令 sc</h2><p>微软官方文档： <a target="_blank" rel="noopener external nofollow noreferrer" href="https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/sc-create">https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/sc-create</a></p>
+<h2 id="第三方工具-winsw-2-x"><a href="#第三方工具-winsw-2-x" class="headerlink" title="第三方工具 winsw 2.x"></a>第三方工具 winsw 2.x</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/winsw/winsw/releases/tag/v2.11.0">https://github.com/winsw/winsw/releases/tag/v2.11.0</a></p>
+<p>需要将 winsw 可执行文件和配置文件放在同一目录, 一般放在程序同级目录. 同样以 frpc 为例:</p>
+<p>service.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>frpc<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Display name of the service --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>frpc Service (powered by WinSW)<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Service description --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>frpc 开源内网穿透工具<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!-- Path to the executable, which should be started --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">executable</span>&gt;</span>%BASE%\frpc.exe<span class="tag">&lt;/<span class="name">executable</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">serviceaccount</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">domain</span>&gt;</span>.<span class="tag">&lt;/<span class="name">domain</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>your windows user<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span>your windows password<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">allowservicelogon</span>&gt;</span>true<span class="tag">&lt;/<span class="name">allowservicelogon</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">serviceaccount</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">onfailure</span> <span class="attr">action</span>=<span class="string">&quot;restart&quot;</span> <span class="attr">delay</span>=<span class="string">&quot;10 sec&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">onfailure</span> <span class="attr">action</span>=<span class="string">&quot;restart&quot;</span> <span class="attr">delay</span>=<span class="string">&quot;20 sec&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">onfailure</span> <span class="attr">action</span>=<span class="string">&quot;restart&quot;</span> <span class="attr">delay</span>=<span class="string">&quot;60 sec&quot;</span>/&gt;</span> </span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">resetfailure</span>&gt;</span>4 hour<span class="tag">&lt;/<span class="name">resetfailure</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">arguments</span>&gt;</span>--config %BASE%\frpc.ini<span class="tag">&lt;/<span class="name">arguments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">priority</span>&gt;</span>Normal<span class="tag">&lt;/<span class="name">priority</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">stoptimeout</span>&gt;</span>15 sec<span class="tag">&lt;/<span class="name">stoptimeout</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">stopparentprocessfirst</span>&gt;</span>true<span class="tag">&lt;/<span class="name">stopparentprocessfirst</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">startmode</span>&gt;</span>Automatic<span class="tag">&lt;/<span class="name">startmode</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">delayedAutoStart</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">waithint</span>&gt;</span>15 sec<span class="tag">&lt;/<span class="name">waithint</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sleeptime</span>&gt;</span>1 sec<span class="tag">&lt;/<span class="name">sleeptime</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">logpath</span>&gt;</span>%BASE%\logs<span class="tag">&lt;/<span class="name">logpath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">log</span> <span class="attr">mode</span>=<span class="string">&quot;append&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;setting1/&gt;</span></span><br><span class="line"><span class="comment">    &lt;setting2/&gt;</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">log</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后将 winsw.exe 重命名成 service.exe(和 xml 文件保持一致),然后执行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service.exe install</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service.exe -h</span><br><span class="line">service.exe uninstall</span><br><span class="line">service.exe <span class="built_in">start</span></span><br><span class="line">service.exe stop</span><br><span class="line">service.exe restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三方工具-winsw-3-x-beta"><a href="#第三方工具-winsw-3-x-beta" class="headerlink" title="第三方工具 winsw 3.x beta"></a>第三方工具 winsw 3.x beta</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/winsw/winsw">https://github.com/winsw/winsw</a></p>
+<p>注意: 2.x 版本 和 3.x 版本会有一些不同, 我用的是 3.x beta 版本, 以 frpc 这个内网穿透服务为例, 3.x 当前指定用户执行的功能有 bug</p>
+<h3 id="安装-winsw"><a href="#安装-winsw" class="headerlink" title="安装 winsw"></a>安装 winsw</h3><p>确保可执行文件所在的目录在系统环境变量 <code>PATH</code> 中</p>
+<h3 id="准备配置文件"><a href="#准备配置文件" class="headerlink" title="准备配置文件"></a>准备配置文件</h3><p>在可执行文件下保存一份配置文件 <code>winsw.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">service</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>frpc<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>frpc Service (powered by WinSW)<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>内网穿透服务<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">executable</span>&gt;</span>%BASE%\frpc.exe<span class="tag">&lt;/<span class="name">executable</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">arguments</span>&gt;</span>--config %BASE%\frpc.ini<span class="tag">&lt;/<span class="name">arguments</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">workingdirectory</span>&gt;</span>%BASE%<span class="tag">&lt;/<span class="name">workingdirectory</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">onfailure</span> <span class="attr">action</span>=<span class="string">&quot;restart&quot;</span> <span class="attr">delay</span>=<span class="string">&quot;10 sec&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">onfailure</span> <span class="attr">action</span>=<span class="string">&quot;restart&quot;</span> <span class="attr">delay</span>=<span class="string">&quot;20 sec&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">onfailure</span> <span class="attr">action</span>=<span class="string">&quot;restart&quot;</span> <span class="attr">delay</span>=<span class="string">&quot;1 hour&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resetfailure</span>&gt;</span>2 hour<span class="tag">&lt;/<span class="name">resetfailure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">stoptimeout</span>&gt;</span>15 sec<span class="tag">&lt;/<span class="name">stoptimeout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">priority</span>&gt;</span>Normal<span class="tag">&lt;/<span class="name">priority</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">startmode</span>&gt;</span>Automatic<span class="tag">&lt;/<span class="name">startmode</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">delayedAutoStart</span>&gt;</span>true<span class="tag">&lt;/<span class="name">delayedAutoStart</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">logpath</span>&gt;</span>%BASE%\logs<span class="tag">&lt;/<span class="name">logpath</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">log</span> <span class="attr">mode</span>=<span class="string">&quot;append&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;setting1/&gt;</span></span><br><span class="line"><span class="comment">    &lt;setting2/&gt;</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">log</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="服务操作"><a href="#服务操作" class="headerlink" title="服务操作"></a>服务操作</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查看帮助</span><br><span class="line">winsw.exe -h</span><br><span class="line"></span><br><span class="line">安装服务</span><br><span class="line">winsw.exe install winsw.xml</span><br><span class="line"></span><br><span class="line">重启服务, 当然到系统的服务里面重启也可以</span><br><span class="line">winsw.exe restart winsw.xml</span><br><span class="line"></span><br><span class="line">修改了xml配置文件, 重新加载</span><br><span class="line">winsw.exe refresh winsw.xml</span><br><span class="line"></span><br><span class="line">卸载服务</span><br><span class="line">winsw.exe uninstall winsw.xml</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三方工具-nssm"><a href="#第三方工具-nssm" class="headerlink" title="第三方工具 nssm"></a>第三方工具 nssm</h2><p>官网: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://nssm.cc/download">https://nssm.cc/download</a></p>
+<p>下载好可执行文件, 建议放在系统环境变量 PATH 中, 这样在任何地方都可以执行 <code>nssm</code> 命令</p>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">安装服务, 会弹出图形界面, 完全界面操作.</span><br><span class="line">nssm install frpc</span><br><span class="line"></span><br><span class="line">修改服务</span><br><span class="line">nssm edit frpc</span><br><span class="line"></span><br><span class="line">卸载服务</span><br><span class="line">nssm remove frpc</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/5d4cbfad/">https://zahui.fan/posts/5d4cbfad/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1/">服务</a><a class="post-meta__tags" href="/tags/service/">service</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/public/Windows-old.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/sq3s3x/" title="Hyper-V 自动创建虚拟机快照"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Hyper-V 自动创建虚拟机快照</div></div><div class="info-2"><div class="info-item-1">首先要允许 PowerShell 执行本地脚本文件： 1Set-ExecutionPolicy RemoteSigned  PowerShell 脚本内容：（文件需要保存成 GB2312 编码，不然中文乱码，执行报错。） 12345678910111213141516171819202122232425262728293031323334353637$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)# 如果不是管理员，以管理员身份重新运行脚本if (-not $isAdmin) &#123;    Start-Process powershell -ArgumentList &quot;-NoProfile -ExecutionPolicy Bypass -File...</div></div></div></a><a class="pagination-related" href="/posts/950d73ef/" title="Python遍历文件或文件夹"><img class="cover" src="https://static.zahui.fan/public/python.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Python遍历文件或文件夹</div></div><div class="info-2"><div class="info-item-1">说明root: 当前遍历到的目录, 也就是所在的目录, 字符串dirs: 当前目录下的子目录列表files: 当前目录下的文件列表 比如文件结构 /tmp/1/ : 123451├── file1├── file2├── folder1└── folder2  脚本内容: 1234for root, dirs, files in os.walk(&quot;/tmp/1/&quot;):    print(&quot;root&quot;, root)    print(dirs)    print(files)  输出结果 123456789101112131415161718# 当前的root是/tmp/1/# root下的目录列表为:[&#x27;folder2&#x27;, &#x27;folder1&#x27;]# root下的文件列表为[&#x27;file2&#x27;, &#x27;file1&#x27;]# 遍历到的下一个root, 里面的文件和目录都为空./tmp/1/folder2[][]#...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-01-25</div><div class="info-item-2">在Windows下以服务方式运行MySQL</div></div><div class="info-2"><div class="info-item-1">下载本文安装的是 zip 包, 安装方式更灵活 下载地址: https://dev.mysql.com/downloads/mysql/  创建配置文件在 mysql 根目录下创建 my.ini 文件,输入以下内容 (根据自己需求调整): 123456789101112131415161718192021[mysql]# 设置mysql客户端默认字符集default-character-set = utf8mb4[mysqld]# 设置端口port = 3306# 设置mysql数据库的数据的存放目录, 也可以用相对路径,默认为当前目录下的data目录datadir = C:/Users/iuxt/OneDrive/1/mysqld/data# 允许最大连接数max_connections = 200# 设置服务端使用的字符集character-set-server = utf8mb4# 创建新表时将使用的默认存储引擎default-storage-engine = INNODB# 设置redolog日志文件大小innodb_log_file_size = 256M#...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E5%91%BD%E4%BB%A4-sc"><span class="toc-number">1.</span> <span class="toc-text">原生命令 sc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7-winsw-2-x"><span class="toc-number">2.</span> <span class="toc-text">第三方工具 winsw 2.x</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">其他命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7-winsw-3-x-beta"><span class="toc-number">3.</span> <span class="toc-text">第三方工具 winsw 3.x beta</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-winsw"><span class="toc-number">3.1.</span> <span class="toc-text">安装 winsw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">准备配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">服务操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7-nssm"><span class="toc-number">4.</span> <span class="toc-text">第三方工具 nssm</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">4.1.</span> <span class="toc-text">常用操作</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/25938561/" title="Linux虚拟内存swap"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux虚拟内存swap"/></a><div class="content"><a class="title" href="/posts/25938561/" title="Linux虚拟内存swap">Linux虚拟内存swap</a><time datetime="2025-02-07T03:42:09.000Z" title="更新于 2025-02-07 11:42:09">2025-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sqkrxr/" title="Linux神奇的proc目录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux神奇的proc目录"/></a><div class="content"><a class="title" href="/posts/sqkrxr/" title="Linux神奇的proc目录">Linux神奇的proc目录</a><time datetime="2025-02-01T08:43:23.000Z" title="更新于 2025-02-01 16:43:23">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用acme.sh来自动更新https证书"/></a><div class="content"><a class="title" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书">使用acme.sh来自动更新https证书</a><time datetime="2025-01-27T12:01:05.000Z" title="更新于 2025-01-27 20:01:05">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hyper-V 自定义内部网络网段和IP地址"/></a><div class="content"><a class="title" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址">Hyper-V 自定义内部网络网段和IP地址</a><time datetime="2025-01-27T08:02:23.000Z" title="更新于 2025-01-27 16:02:23">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Windows下以服务方式运行MySQL"/></a><div class="content"><a class="title" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL">在Windows下以服务方式运行MySQL</a><time datetime="2025-01-25T15:47:08.000Z" title="更新于 2025-01-25 23:47:08">2025-01-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

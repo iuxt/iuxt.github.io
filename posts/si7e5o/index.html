@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>解决 yum update 卡住不动 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="如果是低内存机器，有可能是内存不够了，增加一些 swap 试试。 123456789101112# 强制结束yum进程kill -9 &lt;pid&gt;# 删除rpm数据文件rm -f &#x2F;var&#x2F;lib&#x2F;rpm&#x2F;__db.00*# 重建rpm数据文件rpm -vv --rebuilddb# 清空缓存后再重新缓存yum clean all yum makecache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决 yum update 卡住不动">
+<meta property="og:url" content="https://zahui.fan/posts/si7e5o/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="如果是低内存机器，有可能是内存不够了，增加一些 swap 试试。 123456789101112# 强制结束yum进程kill -9 &lt;pid&gt;# 删除rpm数据文件rm -f &#x2F;var&#x2F;lib&#x2F;rpm&#x2F;__db.00*# 重建rpm数据文件rpm -vv --rebuilddb# 清空缓存后再重新缓存yum clean all yum makecache">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/CentOS.svg">
+<meta property="article:published_time" content="2020-08-14T10:22:36.000Z">
+<meta property="article:modified_time" content="2024-10-31T03:20:09.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="配置记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/CentOS.svg"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/si7e5o/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '解决 yum update 卡住不动',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-31 11:20:09'
+}</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/public/CentOS.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">解决 yum update 卡住不动</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">解决 yum update 卡住不动</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-14T10:22:36.000Z" title="发表于 2020-08-14 18:22:36">2020-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-31T03:20:09.000Z" title="更新于 2024-10-31 11:20:09">2024-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>如果是低内存机器，有可能是内存不够了，增加一些 swap 试试。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制结束yum进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 &lt;pid&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除rpm数据文件</span></span><br><span class="line"><span class="built_in">rm</span> -f /var/lib/rpm/__db.00*</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重建rpm数据文件</span></span><br><span class="line">rpm -vv --rebuilddb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空缓存后再重新缓存</span></span><br><span class="line">yum clean all </span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/si7e5o/">https://zahui.fan/posts/si7e5o/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/public/CentOS.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/ls0614ms/" title="Linux常用命令之lsof"><img class="cover" src="https://static.zahui.fan/public/bash.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Linux常用命令之lsof</div></div><div class="info-2"><div class="info-item-1">lsof（list open files）是一个列出当前系统打开文件的工具。在 linux 环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。 常用参数   参数 说明    -p 根据 pid 查找   直接加文件路径 查看这个文件被哪个进程打开了   -c 显示 COMMAND 列中包含指定字符的进程所有打开的文件   lsof -u username 显示所属 user 进程打开的文件   -i 用以显示符合条件的进程情况   lsof -g gid 显示归属 gid 的进程情况   lsof +d &#x2F;DIR&#x2F; 显示目录下被进程打开的文件   lsof +D &#x2F;DIR&#x2F; 同上，但是会搜索目录下的所有目录，时间相对较长   lsof -d FD 显示指定文件描述符的进程   lsof -n 不将 IP 转换为 hostname，缺省是不加上 -n 参数   lsof -i 用以显示符合条件的进程情况   一些例子查看 java 程序打开的文件1lsof -c java  当然你也可以到...</div></div></div></a><a class="pagination-related" href="/posts/shxj0z/" title="CentOS 7 配置 fail2ban"><img class="cover" src="https://static.zahui.fan/public/fail2ban.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">CentOS 7 配置 fail2ban</div></div><div class="info-2"><div class="info-item-1">基本配置123456systemctl disable --now firewalldsed -i &#x27;s#SELINUX=enforcing#SELINUX=disabled#g&#x27; /etc/sysconfig/selinux &amp;&amp; setenforce 0yum install fail2ban -yrm -f /etc/fail2ban/jail.d/00-firewalld.conf  开启 ssh 封禁规则vim &#x2F;etc&#x2F;fail2ban&#x2F;jail.d&#x2F;ssh.conf 12345678910111213141516[DEFAULT]# 封禁时间多久，单位是秒，也可以写 10m 表示 10 分钟。1h 表示 1 小时bantime = 3600# Override /etc/fail2ban/jail.d/00-firewalld.conf:banaction = iptables-multiport# 统计周期时间，默认单位是秒findtime  = 10m#...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/lmeiruso/" title="WSL2 - Ubuntu配置记录"><img class="cover" src="https://static.zahui.fan/public/wsl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-12-09</div><div class="info-item-2">WSL2 - Ubuntu配置记录</div></div><div class="info-2"><div class="info-item-1">WSL 防火墙规则123Get-NetAdapterNew-NetFirewallRule -DisplayName &quot;WSL&quot; -Direction Inbound  -InterfaceAlias &quot;vEthernet (WSL)&quot;  -Action Allow  基础环境配置更换源使用中科大的源: https://mirrors.ustc.edu.cn/help/ubuntu.html 12345# 老版本Ubuntu# sudo sed -i &#x27;s@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g&#x27; /etc/apt/sources.list# Ubuntu 24 及以上sudo sed -i &#x27;s@//.*.ubuntu.com@//mirrors.ustc.edu.cn@g&#x27; /etc/apt/sources.list.d/ubuntu.sources  安装常用的包12sudo apt update &amp;&amp; sudo apt upgrade...</div></div></div></a><a class="pagination-related" href="/posts/81886814/" title="WSLg配置图形支持和配置rime输入法"><img class="cover" src="https://static.zahui.fan/public/wsl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">WSLg配置图形支持和配置rime输入法</div></div><div class="info-2"><div class="info-item-1">WSLg 是微软的 wsl2 中自带的显示图形界面的功能，可以和 windows 完美融合在一块，不过由于 wsl 系统比较精简，会缺少一些图形包和输入法等。 设置中文显示安装依赖包12345678# 安装中文字体sudo apt install language-pack-zh-hans fonts-noto-cjk fonts-noto-cjk-extra# locales 配置 en_US.UTF-8 和 zh_CN.UTF-8 sudo sed -i &#x27;s/^# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g&#x27; /etc/locale.gensudo sed -i &#x27;s/^# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g&#x27; /etc/locale.gensudo locale-gen  设置显示语言为中文1234sudo tee /etc/default/locale...</div></div></div></a><a class="pagination-related" href="/posts/eee9a081/" title="WSL常用操作记录"><img class="cover" src="https://static.zahui.fan/public/wsl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">WSL常用操作记录</div></div><div class="info-2"><div class="info-item-1">防火墙规则1New-NetFirewallRule -DisplayName &quot;WSL&quot; -Direction Inbound  -InterfaceAlias &quot;vEthernet (WSL)&quot;  -Action Allow  常用操作导出1wsl --export centos7 centos7.tar  导入1wsl --import centos7 C:\centos7 centos7.tar  启动指定发行版1wsl -d centos7  指定用户启动1wsl -d ubuntu -u root  开机自启WSL1WSL2和Windows11win+r 输入 shell:startup 写一个 wsl_start.bat 内容如下 1wsl -d Ubuntu -u root /etc/init.d/ssh startsudo vim &#x2F;etc&#x2F;wsl.conf 12[boot]command = service docker start  修改默认用户为...</div></div></div></a><a class="pagination-related" href="/posts/sewhsk/" title="Windows 配置自动登录"><img class="cover" src="https://static.zahui.fan/public/Windows.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows 配置自动登录</div></div><div class="info-2"><div class="info-item-1">windows 中有部分应用程序需要登录当前账户才可以自动启动，或者嫌输密码麻烦，都可以设置自动登录，不用删除开机密码（删除开机密码也要鼠标点一下登录才可以登录） 修改注册表旧版本 windows 10 或者 windows 7 可以直接设置，但是新版本 windows 没有了这个选项，需要修改注册表配置 将下面文本保存成 reg 文件，双击导入。 1234Windows Registry Editor Version 5.00[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\PasswordLess\Device]&quot;DevicePasswordLessBuildVersion&quot;=dword:00000000  netplwiz 配置win + R 输入 netplwiz 打开用户管理界面。  取消勾选 要使用本计算机，用户必须输入用户名和密码 选项， 在弹出的框中输入当前用户密码。  </div></div></div></a><a class="pagination-related" href="/posts/lta396h7/" title="Windows修改用户名"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows修改用户名</div></div><div class="info-2"><div class="info-item-1">之前 windows10 在安装过程中如果不使用微软账号登录的话，创建一个本地账户，那么创建好的用户名就是个人文件夹的名字。如果设置了中文，那么个人文件夹名字就是中文，后续会有软件兼容性问题，可以通过修改注册表来修改文件夹名字。 修改用户名首先要区分一下什么是用户名  上面这些都不是用户名，而是显示出来的用户名，也就是用户名全名。可以在 lusrmgr.msc 或 control userpasswords2 或 netplwiz 查看:  通过上图发现，我的用户名应该是 ooo 修改用户名可以直接在 lusrmgr.msc 进行修改，包括显示的全名，如果你只是想修改显示出来的名字，到这里就可以了。 修改个人文件夹路径danger 修改个人文件夹路径需要慎重！有部分已安装软件引用的还是旧的路径，这样会造成各种报错，可能需要卸载重新安装才能正常使用。   当前我的文件夹名字是 测试， 如图： 修改系统定义的路径打开注册表编辑器，定位到 计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows...</div></div></div></a><a class="pagination-related" href="/posts/801c62c9/" title="Windows常用命令记录"><img class="cover" src="https://static.zahui.fan/public/Windows-old.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-11-19</div><div class="info-item-2">Windows常用命令记录</div></div><div class="info-2"><div class="info-item-1">smb 操作挂载 smb1net use z: \\192.168.10.163\share /user:&quot;&lt;计算机名\用户名&gt;&quot; &quot;&lt;密码&gt;&quot;  卸载 smb1net use z: /del /y  写入剪切板从文件写入 1clip &lt; C:\Users\iuxt\.ssh\id_rsa.pub  直接写入 1echo 222 | clip  用户操作启用 Administrator1net user administrator Office@2015 /active:yes  新建用户新建用户 IT,密码为 123456,密码 * 为手动输入,不能改密码,密码永不过期 1net user IT 123456 /add /passwordchg:no /expires:never  将用户加入组1net localgroup Administrators IT /add  新建用户组1net localgroup 组名...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/25938561/" title="Linux虚拟内存swap"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux虚拟内存swap"/></a><div class="content"><a class="title" href="/posts/25938561/" title="Linux虚拟内存swap">Linux虚拟内存swap</a><time datetime="2025-02-07T03:42:09.000Z" title="更新于 2025-02-07 11:42:09">2025-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sqkrxr/" title="Linux神奇的proc目录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux神奇的proc目录"/></a><div class="content"><a class="title" href="/posts/sqkrxr/" title="Linux神奇的proc目录">Linux神奇的proc目录</a><time datetime="2025-02-01T08:43:23.000Z" title="更新于 2025-02-01 16:43:23">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用acme.sh来自动更新https证书"/></a><div class="content"><a class="title" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书">使用acme.sh来自动更新https证书</a><time datetime="2025-01-27T12:01:05.000Z" title="更新于 2025-01-27 20:01:05">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hyper-V 自定义内部网络网段和IP地址"/></a><div class="content"><a class="title" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址">Hyper-V 自定义内部网络网段和IP地址</a><time datetime="2025-01-27T08:02:23.000Z" title="更新于 2025-01-27 16:02:23">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Windows下以服务方式运行MySQL"/></a><div class="content"><a class="title" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL">在Windows下以服务方式运行MySQL</a><time datetime="2025-01-25T15:47:08.000Z" title="更新于 2025-01-25 23:47:08">2025-01-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

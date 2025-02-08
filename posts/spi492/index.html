@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>群晖NAS部署zerotier内网穿透访问 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言完成这个教程，你主要需要完成以下流程：  在 NAS 上启用 SSH 创建一个持久的 TUN 安装 Docker 设置 Docker  创建一个持久的 TUN如果有 &#x2F;dev&#x2F;net&#x2F;tun 就不用再执行了   使用 SSH 连接到你的 NAS，切换为 root 身份 创建一个开机自启动脚本: &#x2F;usr&#x2F;local&#x2F;etc&#x2F;rc.d&#x2F;tun.sh 1234567891011# 创建开机自启动脚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖NAS部署zerotier内网穿透访问">
+<meta property="og:url" content="https://zahui.fan/posts/spi492/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="前言完成这个教程，你主要需要完成以下流程：  在 NAS 上启用 SSH 创建一个持久的 TUN 安装 Docker 设置 Docker  创建一个持久的 TUN如果有 &#x2F;dev&#x2F;net&#x2F;tun 就不用再执行了   使用 SSH 连接到你的 NAS，切换为 root 身份 创建一个开机自启动脚本: &#x2F;usr&#x2F;local&#x2F;etc&#x2F;rc.d&#x2F;tun.sh 1234567891011# 创建开机自启动脚">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/images/20250103233736228.png">
+<meta property="article:published_time" content="2025-01-03T07:17:25.000Z">
+<meta property="article:modified_time" content="2025-01-03T15:40:32.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="nas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/images/20250103233736228.png"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/spi492/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '群晖NAS部署zerotier内网穿透访问',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-03 23:40:32'
+}</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/images/20250103233736228.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">群晖NAS部署zerotier内网穿透访问</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">群晖NAS部署zerotier内网穿透访问</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-03T07:17:25.000Z" title="发表于 2025-01-03 15:17:25">2025-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-03T15:40:32.000Z" title="更新于 2025-01-03 23:40:32">2025-01-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>完成这个教程，你主要需要完成以下流程：</p>
+<ul>
+<li>在 NAS 上启用 SSH</li>
+<li>创建一个持久的 TUN</li>
+<li>安装 Docker</li>
+<li>设置 Docker</li>
+</ul>
+<h2 id="创建一个持久的-TUN"><a href="#创建一个持久的-TUN" class="headerlink" title="创建一个持久的 TUN"></a>创建一个持久的 TUN</h2><div class="note info flat"><p>如果有 <code>/dev/net/tun</code> 就不用再执行了</p>
+</div>
+
+<p>使用 SSH 连接到你的 NAS，切换为 root 身份</p>
+<p>创建一个开机自启动脚本: <code>/usr/local/etc/rc.d/tun.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建开机自启动脚本</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;#!/bin/sh -e \ninsmod /lib/modules/tun.ko&#x27;</span> &gt; /usr/local/etc/rc.d/tun.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加可执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> a+x /usr/local/etc/rc.d/tun.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动执行一下</span></span><br><span class="line">/usr/local/etc/rc.d/tun.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看是否有tun设备</span></span><br><span class="line"><span class="built_in">ls</span> /dev/net/tun</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-Docker-到你的-NAS-上"><a href="#安装-Docker-到你的-NAS-上" class="headerlink" title="安装 Docker 到你的 NAS 上"></a>安装 Docker 到你的 NAS 上</h2><p>直接到套件中心去安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /var/lib/zerotier-one</span><br></pre></td></tr></table></figure>
+
+<p>创建一个容器，这里将它命名为 zerotier，这里会自动下载最新版的 zerotier</p>
+<p>要在 ssh 里创建，不要在群晖控制台创建。创建完成后可以在控制台进行管理。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -d           \</span><br><span class="line">  --name zerotier       \</span><br><span class="line">  --restart=always      \</span><br><span class="line">  --device=/dev/net/tun \</span><br><span class="line">  --net=host            \</span><br><span class="line">  --cap-add=NET_ADMIN   \</span><br><span class="line">  --cap-add=SYS_ADMIN   \</span><br><span class="line">  -v /var/lib/zerotier-one:/var/lib/zerotier-one \</span><br><span class="line">  registry.cn-hangzhou.aliyuncs.com/iuxt/zerotier-synology:1.14.0</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：官方镜像：<code>zerotier/zerotier-synology:latest</code></p>
+</blockquote>
+<h2 id="使用与配置"><a href="#使用与配置" class="headerlink" title="使用与配置"></a>使用与配置</h2><p>查看状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it zerotier zerotier-cli status</span><br></pre></td></tr></table></figure>
+
+<p>添加网络</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it zerotier zerotier-cli <span class="built_in">join</span> &lt;你的网络ID&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在 zerotier 后台授权当前设备，然后查看状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it zerotier zerotier-cli listnetworks</span><br></pre></td></tr></table></figure>
+
+<h2 id="使局域网网段可以访问"><a href="#使局域网网段可以访问" class="headerlink" title="使局域网网段可以访问"></a>使局域网网段可以访问</h2><h3 id="1-添加路由"><a href="#1-添加路由" class="headerlink" title="1. 添加路由"></a>1. 添加路由</h3><p>假设家里的机器：zerotier 地址是：172.28.135.11，内网 IP 地址是 192.168.1.11</p>
+<p>在 zerotier 网站的 networks 里面的 Managed Routes 下配置路由表,增加如下内容</p>
+<p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20250103135337663.png" alt="image.png"></p>
+<p>加过路由后，可以访问这台 zerotier 节点的内网 ip（192.168.1.11） 了，但是不能访问内网的其他 ip，还需要做一下转发。</p>
+<h3 id="2-开启内核转发"><a href="#2-开启内核转发" class="headerlink" title="2. 开启内核转发"></a>2. 开启内核转发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl -w net.ipv4.ip_forward=1</span><br><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
+
+<p>重启后配置会丢失，要持久化可以写入到 <code>/etc/sysctl.conf</code></p>
+<h3 id="3-防火墙设置"><a href="#3-防火墙设置" class="headerlink" title="3. 防火墙设置"></a>3. 防火墙设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PHY_IF=ovs_eth0 <span class="comment"># 物理网卡设备名</span></span><br><span class="line"><span class="built_in">export</span> ZT_IF=ztre4xmo4y <span class="comment"># Zerotier虚拟网卡设备名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加转发规则</span></span><br><span class="line">sudo iptables -t nat -A POSTROUTING -o <span class="variable">$PHY_IF</span> -j MASQUERADE</span><br><span class="line">sudo iptables -A FORWARD -i <span class="variable">$PHY_IF</span> -o <span class="variable">$ZT_IF</span> -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i <span class="variable">$ZT_IF</span> -o <span class="variable">$PHY_IF</span> -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p>防火墙规则没保存的话重启后会丢失。</p>
+<div class="note info flat"><p>这三条 iptables 规则用于配置网络地址转换（NAT）和数据包转发；</p>
+<p>含义如下：</p>
+<p>规则 1： <code>sudo iptables -t nat -A POSTROUTING -o $PHY_IF -j MASQUERADE</code></p>
+<p>这条规则在 nat 表的 POSTROUTING 链中添加了一条规则。-o $PHY_IF 表示这条规则适用于所有通过 $PHY_IF 这个网络接口（通常是物理接口）出去的数据包。-j MASQUERADE 指定了 NAT 操作中的伪装（masquerading）。这意味着，当数据包从 $PHY_IF 发送出去时，其源 IP 地址会被替换为 $PHY_IF 的 IP 地址。这通常用于允许内部网络通过一个公共 IP 地址进行外部通信；</p>
+<p>规则 2： <code>sudo iptables -A FORWARD -i $PHY_IF -o $ZT_IF -m state --state RELATED,ESTABLISHED -j ACCEPT</code></p>
+<p>这条规则在 filter 表的 FORWARD 链中添加了一条规则。-i $PHY_IF 表示适用于从 $PHY_IF 这个接口进入的数据包，-o $ZT_IF 表示这些数据包要转发到 $ZT_IF 这个接口。-m state –state RELATED,ESTABLISHED 指定了只有那些与已有连接相关或已经建立的连接的数据包才被接受（ACCEPT）。这个规则通常用于允许来自外部网络的返回流量进入内部网络，从而支持诸如 HTTP 会话等；</p>
+<p>规则 3： <code>sudo iptables -A FORWARD -i $ZT_IF -o $PHY_IF -j ACCEPT</code></p>
+<p>这条规则在 filter 表的 FORWARD 链中添加了一条规则。-i $ZT_IF 表示适用于从 $ZT_IF 这个接口进入的数据包，-o $PHY_IF 表示这些数据包要转发到 $PHY_IF 这个接口。-j ACCEPT 表示这些数据包会被接受并转发。这条规则允许来自 $ZT_IF 的流量经过路由器转发到 $PHY_IF，从而实现网络之间的数据传输；</p>
+<p>总结：</p>
+<p>第一条规则用于设置源地址伪装，允许内部网络设备通过一个公共 IP 地址进行外部通信；<br>第二条规则允许返回流量和已经建立的连接的数据包从外部网络进入内部网络；<br>第三条规则允许来自内部网络的数据包被转发到外部网络；</p>
+</div>
+
+<p>网卡设备名参考 在机器上使用命令 <code>ip a</code> 查看：</p>
+<p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20250103232323506.png" alt="image.png"></p>
+<h2 id="引用与文献"><a href="#引用与文献" class="headerlink" title="引用与文献"></a>引用与文献</h2><blockquote>
+<p>本文基于官方原文进行翻译和补充 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://docs.zerotier.com/synology/#set-up-container">https://docs.zerotier.com/synology/#set-up-container</a><br>  iptables 规则转载自：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://jasonkayzk.github.io/2024/08/21/Zerotier%E9%85%8D%E7%BD%AE%E5%86%85%E7%BD%91%E6%B5%81%E9%87%8F%E8%BD%AC%E5%8F%91/">https://jasonkayzk.github.io/2024/08/21/Zerotier%E9%85%8D%E7%BD%AE%E5%86%85%E7%BD%91%E6%B5%81%E9%87%8F%E8%BD%AC%E5%8F%91/</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/spi492/">https://zahui.fan/posts/spi492/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/nas/">nas</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/images/20250103233736228.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/spcjoj/" title="管理Redis内存占用"><img class="cover" src="https://static.zahui.fan/public/Redis_Logo.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">管理Redis内存占用</div></div><div class="info-2"><div class="info-item-1">淘汰策略如果设置了合适的淘汰策略，Redis 会根据以下几种策略选择性地移除某些键，腾出内存空间（淘汰策略需要和内存限制配合使用） 常用淘汰策略说明    策略 说明    volatile-lru 从设置了过期时间的键中，移除最近最少使用（LRU）的键。   allkeys-lru 从所有键中，移除最近最少使用（LRU）的键。   volatile-random 从设置了过期时间的键中，随机移除键。   allkeys-random 从所有键中，随机移除键。   volatile-ttl 从设置了过期时间的键中，移除即将过期的键（优先移除 TTL 短的键）。   noeviction 当内存超过限制时，直接返回错误，不再执行新增操作（这是默认策略）。   设置方法： 在 redis.conf 文件中添加或修改： 1maxmemory-policy allkeys-lru  或通过命令行动态设置： 1redis-cli config set maxmemory-policy allkeys-lru  内存限制设置 maxmemory 123maxmemory 4gb#...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/luam6g8o/" title="WSL新的网络模式-mirrored镜像网络"><img class="cover" src="https://static.zahui.fan/public/wsl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">WSL新的网络模式-mirrored镜像网络</div></div><div class="info-2"><div class="info-item-1">刚开始我用 Hyper-V 自定义内部网络网段和IP地址 配置 Hyper-V 并创建了几台虚拟机， 但是和 WSL 的网络不通， 解决方案可以是将 Hyper-V 虚拟机只接使用 WSL 的网络适配器。不过 2023 年 9 月的 WSL 更新添加了一些新的实验性功能，其中包括一些关于新的网络模式“镜像”。镜像网络带来了一些实用的特性，例如将 WSL 中的服务开放到局域网（之前是 NAT 网络，只有主机可以通过 localhost 访问）。更新日志中提到，镜像网络带来的新特性如下：  IPv6 支持 在 Linux 中通过 127.0.0.1 访问 Windows 服务 通过局域网直接连接 WSL 对 VPN 更好的兼容性 多播支持  安装使用首先，这项特性需要 22621.2359 及以上版本的 Windows 11 以及 2.0 以上版本的 WSL。使用 wsl --version 命令可以检查是否符合需求，wsl --update 命令可以更新 WSL。 12345678C:\Users\iuxt&gt;wsl --versionWSL 版本： 2.1.5.0内核版本：...</div></div></div></a><a class="pagination-related" href="/posts/seln9g/" title="使用 PowerShell 修改 Windows 防火墙规则"><img class="cover" src="https://static.zahui.fan/public/Windows.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-01-08</div><div class="info-item-2">使用 PowerShell 修改 Windows 防火墙规则</div></div><div class="info-2"><div class="info-item-1">修改网络位置（专用网络或共用网络）在 windows 7 时代在控制面板里是可以直接修改的， 但是在 Windows 11 已经不能修改了。  使用公用网络会影响到防火墙策略， 比如在专用网络下， 局域网内是可以网络发现其他设备的。  比如我用 zerotier 这个软件会给电脑安装一个虚拟网卡，家里的电脑 zerotier 的网卡设置成了公用网络，那么就不能 rdp 远程连接家里电脑了。 修改方法需要以管理员身份运行 PowerShell 来执行： 12345678910111213141516171819PS C:\Users\iuxt&gt; Get-NetConnectionProfileName                     : CMCC-CaptainInterfaceAlias           : WLANInterfaceIndex           : 13NetworkCategory          : PrivateDomainAuthenticationKind : NoneIPv4Connectivity         :...</div></div></div></a><a class="pagination-related" href="/posts/5e8ed38b/" title="iptables使用记录实战"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-01-13</div><div class="info-item-2">iptables使用记录实战</div></div><div class="info-2"><div class="info-item-1">iptables 四表五链四表五链：链就是位置：共有五个 进路由 (PREROUTING)、进系统 (INPUT) 、转发 (FORWARD)、出系统 (OUTPUT)、出路由 (POSTROUTING)；表就是存储的规则；数据包到了该链处，会去对应表中查询设置的规则，然后决定是否放行、丢弃、转发还是修改等等操作。  具体的四表   表 说明    filter 过滤数据包   Nat 用于网络地址转换（IP、端口）   Mangle 修改数据包的服务类型、TTL、并且可以配置路由实现...</div></div></div></a><a class="pagination-related" href="/posts/d8f4121a/" title="Iptables进行持久化配置，重启不丢失"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Iptables进行持久化配置，重启不丢失</div></div><div class="info-2"><div class="info-item-1">操作文档针对 ubuntu20 和 centos 系统，其他系统类似。iptables-save 命令其实只是把配置文件打印出来，并不会真的 save，这个有点容易让人误解。 针对 ubuntu 平台ubuntu20 需要安装 iptables-persistent 才能实现持久化 1apt install iptables-persistent  持久化的配置文件保存在 12345# 针对ipv4/etc/iptables/rules.v4# 针对ipv6/etc/iptables/rules.v6  手动保存当前配置 12345# 针对ipv4sudo iptables-save &gt; /etc/iptables/rules.v4# 针对ipv6sudo ip6tables-save &gt; /etc/iptables/rules.v6  针对 centos 平台安装包 iptables-services 1sudo dnf install...</div></div></div></a><a class="pagination-related" href="/posts/ecf46dbb/" title="检查端口是否能通的几种方法"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">检查端口是否能通的几种方法</div></div><div class="info-2"><div class="info-item-1">服务器上运行了一个服务，想测试一下端口通不通，可以通过以下一些方法来测试。 telnet常见的 tcp 端口测试都是用的 telnet，用法也很简单 1telnet 10.0.0.7 22  成功会显示： 1234Trying 10.0.0.7...Connected to 10.0.0.7.Escape character is &#x27;^]&#x27;.SSH-2.0-OpenSSH_7.4  失败会显示： 12Trying 10.0.0.7...telnet: Unable to connect to remote host: Connection refused  ssh使用 1ssh root@localhost -p 8000  失败会显示 1ssh: connect to host localhost port 8001: Connection refused  curlcurl ip:port 失败会显示 1curl: (7) Failed to connect to localhost port 8001: Connection...</div></div></div></a><a class="pagination-related" href="/posts/loz4xrye/" title="使用tailscale打通内网"><img class="cover" src="https://static.zahui.fan/images/202311151021732.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">使用tailscale打通内网</div></div><div class="info-2"><div class="info-item-1">家里有一台群晖 nas, 通过 quickconnect 连接太慢了, 并且有些操作不能通过 quickconnect, 比如直接 smb 挂载目录 群晖 nas 安装群晖国内应用商店已经下架了这个 APP, 你可以尝试着在应用中心搜索 tailscale, 如果可以搜索到, 就直接安装即可. 搜索不到的话, 可以使用离线安装的方式: 到官网下载离线 SPK 包:https://pkgs.tailscale.com/stable/#spks根据你的系统架构来下载包, intel cpu 下载 x86_64 架构的包. 然后进入群晖软件中心, 点击手动安装, 上传 spk 包安装 第一次打开 tailscale 需要登录, 登录页面不支持 quickconnect 远程连接, 所以建议在家配置好 tailscale windows 安装安装成功后， 右键任务栏图标，点击 login 登录 tailscale 账号  登录成功后，可以在官网https://login.tailscale.com/admin/machines 查看到所有的设备和 IP...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8C%81%E4%B9%85%E7%9A%84-TUN"><span class="toc-number">2.</span> <span class="toc-text">创建一个持久的 TUN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Docker-%E5%88%B0%E4%BD%A0%E7%9A%84-NAS-%E4%B8%8A"><span class="toc-number">3.</span> <span class="toc-text">安装 Docker 到你的 NAS 上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">使用与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BD%91%E6%AE%B5%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE"><span class="toc-number">5.</span> <span class="toc-text">使局域网网段可以访问</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1"><span class="toc-number">5.1.</span> <span class="toc-text">1. 添加路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%80%E5%90%AF%E5%86%85%E6%A0%B8%E8%BD%AC%E5%8F%91"><span class="toc-number">5.2.</span> <span class="toc-text">2. 开启内核转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.3.</span> <span class="toc-text">3. 防火墙设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E4%B8%8E%E6%96%87%E7%8C%AE"><span class="toc-number">6.</span> <span class="toc-text">引用与文献</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/25938561/" title="Linux虚拟内存swap"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux虚拟内存swap"/></a><div class="content"><a class="title" href="/posts/25938561/" title="Linux虚拟内存swap">Linux虚拟内存swap</a><time datetime="2025-02-07T03:42:09.000Z" title="更新于 2025-02-07 11:42:09">2025-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sqkrxr/" title="Linux神奇的proc目录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux神奇的proc目录"/></a><div class="content"><a class="title" href="/posts/sqkrxr/" title="Linux神奇的proc目录">Linux神奇的proc目录</a><time datetime="2025-02-01T08:43:23.000Z" title="更新于 2025-02-01 16:43:23">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用acme.sh来自动更新https证书"/></a><div class="content"><a class="title" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书">使用acme.sh来自动更新https证书</a><time datetime="2025-01-27T12:01:05.000Z" title="更新于 2025-01-27 20:01:05">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hyper-V 自定义内部网络网段和IP地址"/></a><div class="content"><a class="title" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址">Hyper-V 自定义内部网络网段和IP地址</a><time datetime="2025-01-27T08:02:23.000Z" title="更新于 2025-01-27 16:02:23">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Windows下以服务方式运行MySQL"/></a><div class="content"><a class="title" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL">在Windows下以服务方式运行MySQL</a><time datetime="2025-01-25T15:47:08.000Z" title="更新于 2025-01-25 23:47:08">2025-01-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

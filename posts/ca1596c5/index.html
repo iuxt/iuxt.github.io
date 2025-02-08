@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>快速上手vagrant | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vagrant 是一个虚拟机管理工具 (虚拟机编排工具)，使用方式有点类似于 docker-compose，这个工具的优势就是可以把手动安装虚拟机这个操作转换成通过代码来控制虚拟机有点类似于使用 dockerfile 来构建 docker 镜像的感觉。  常用命令   命令 作用    vagrant init 生成 vagrantfile 文件   vagrant up 启动虚拟机   vag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速上手vagrant">
+<meta property="og:url" content="https://zahui.fan/posts/ca1596c5/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="vagrant 是一个虚拟机管理工具 (虚拟机编排工具)，使用方式有点类似于 docker-compose，这个工具的优势就是可以把手动安装虚拟机这个操作转换成通过代码来控制虚拟机有点类似于使用 dockerfile 来构建 docker 镜像的感觉。  常用命令   命令 作用    vagrant init 生成 vagrantfile 文件   vagrant up 启动虚拟机   vag">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/skeleton1.svg">
+<meta property="article:published_time" content="2021-11-01T13:36:46.000Z">
+<meta property="article:modified_time" content="2024-10-31T03:20:09.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="VirtualMachine">
+<meta property="article:tag" content="vagrant">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/skeleton1.svg"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/ca1596c5/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '快速上手vagrant',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-31 11:20:09'
+}</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">快速上手vagrant</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">快速上手vagrant</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-01T13:36:46.000Z" title="发表于 2021-11-01 21:36:46">2021-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-31T03:20:09.000Z" title="更新于 2024-10-31 11:20:09">2024-10-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p><code>vagrant</code> 是一个虚拟机管理工具 (虚拟机编排工具)，使用方式有点类似于 <code>docker-compose</code>，这个工具的优势就是可以把手动安装虚拟机这个操作转换成通过代码来控制虚拟机<br>有点类似于使用 <code>dockerfile</code> 来构建 docker 镜像的感觉。</p>
+</blockquote>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vagrant init</td>
+<td>生成 vagrantfile 文件</td>
+</tr>
+<tr>
+<td>vagrant up</td>
+<td>启动虚拟机</td>
+</tr>
+<tr>
+<td>vagent halt</td>
+<td>关闭虚拟机</td>
+</tr>
+<tr>
+<td>vagrant box list</td>
+<td>查看安装的 box（虚拟机镜像）</td>
+</tr>
+<tr>
+<td>vagrant box add centos&#x2F;7</td>
+<td>安装 box（虚拟机镜像）</td>
+</tr>
+<tr>
+<td>vagrant ssh (hostname)</td>
+<td>通过 ssh 连接</td>
+</tr>
+</tbody></table>
+<h2 id="常用-vagrantfile"><a href="#常用-vagrantfile" class="headerlink" title="常用 vagrantfile"></a>常用 vagrantfile</h2><h3 id="批量创建虚拟机"><a href="#批量创建虚拟机" class="headerlink" title="批量创建虚拟机"></a>批量创建虚拟机</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- mode: ruby -*-</span></span><br><span class="line"><span class="comment"># vi: set ft=ruby :</span></span><br><span class="line"></span><br><span class="line">servers = &#123;</span><br><span class="line">    <span class="symbol">:client</span> =&gt; <span class="string">&#x27;172.16.2.10&#x27;</span>,</span><br><span class="line">    <span class="symbol">:master1</span> =&gt; <span class="string">&#x27;172.16.2.11&#x27;</span>,</span><br><span class="line">    <span class="symbol">:master2</span> =&gt; <span class="string">&#x27;172.16.2.12&#x27;</span>,</span><br><span class="line">    <span class="symbol">:master3</span> =&gt; <span class="string">&#x27;172.16.2.13&#x27;</span>,</span><br><span class="line">    <span class="symbol">:worker1</span> =&gt; <span class="string">&#x27;172.16.2.21&#x27;</span>,</span><br><span class="line">    <span class="symbol">:worker2</span> =&gt; <span class="string">&#x27;172.16.2.22&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vagrant</span>.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |<span class="params">config</span>|</span><br><span class="line">  config.vm.box = <span class="string">&quot;ubuntu/focal64&quot;</span></span><br><span class="line">  config.vm.box_check_update = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 自动插入hosts</span></span><br><span class="line">  <span class="comment"># vagrant plugin install vagrant-hostmanager</span></span><br><span class="line">  config.hostmanager.enabled = <span class="literal">true</span></span><br><span class="line">  config.hostmanager.manage_host = <span class="literal">true</span></span><br><span class="line">  config.hostmanager.manage_guest = <span class="literal">true</span></span><br><span class="line">  config.hostmanager.ignore_private_ip = <span class="literal">false</span></span><br><span class="line">  config.hostmanager.include_offline = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  servers.each <span class="keyword">do</span> |<span class="params">server_name, server_ip</span>|</span><br><span class="line">    config.vm.define server_name <span class="keyword">do</span> |<span class="params">server_config</span>|</span><br><span class="line">      server_config.vm.hostname = <span class="string">&quot;<span class="subst">#&#123;server_name.to_s&#125;</span>&quot;</span></span><br><span class="line">      server_config.vm.network <span class="symbol">:private_network</span>, <span class="symbol">ip:</span> server_ip</span><br><span class="line">      server_config.vm.provider <span class="string">&quot;virtualbox&quot;</span> <span class="keyword">do</span> |<span class="params">vb</span>|</span><br><span class="line">        vb.name = server_name.to_s</span><br><span class="line">        vb.memory = <span class="string">&quot;4096&quot;</span></span><br><span class="line">        vb.cpus = <span class="number">4</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="循环创建虚拟机"><a href="#循环创建虚拟机" class="headerlink" title="循环创建虚拟机"></a>循环创建虚拟机</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vagrant</span>.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |<span class="params">config</span>|</span><br><span class="line"></span><br><span class="line">  (<span class="number">1</span>..<span class="number">3</span>).each <span class="keyword">do</span> |<span class="params">i</span>|</span><br><span class="line">    config.vm.define <span class="string">&quot;node<span class="subst">#&#123;i&#125;</span>&quot;</span> <span class="keyword">do</span> |<span class="params">node</span>|</span><br><span class="line">      node.vm.box = <span class="string">&quot;ubuntu/trusty64&quot;</span></span><br><span class="line">      node.vm.hostname=<span class="string">&quot;node<span class="subst">#&#123;i&#125;</span>&quot;</span></span><br><span class="line">      node.vm.network <span class="string">&quot;private_network&quot;</span>, <span class="symbol">ip:</span> <span class="string">&quot;192.168.59.<span class="subst">#&#123;i&#125;</span>&quot;</span></span><br><span class="line">      node.vm.provider <span class="string">&quot;virtualbox&quot;</span> <span class="keyword">do</span> |<span class="params">v</span>|</span><br><span class="line">        v.name = <span class="string">&quot;node<span class="subst">#&#123;i&#125;</span>&quot;</span></span><br><span class="line">        v.memory = <span class="number">2048</span></span><br><span class="line">        v.cpus = <span class="number">1</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">                  </span><br><span class="line">      node.vm.provision <span class="string">&quot;shell&quot;</span>, <span class="symbol">inline:</span> <span class="string">&lt;&lt;-SHELL</span></span><br><span class="line"><span class="string">        wget -qO- https://get.docker.com/ | sed &#x27;s/docker-engine/docker-engine=1.11.0-0~trusty/&#x27; | sh</span></span><br><span class="line"><span class="string">        usermod -aG docker vagrant</span></span><br><span class="line"><span class="string">      SHELL</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多次定义安装虚拟机"><a href="#多次定义安装虚拟机" class="headerlink" title="多次定义安装虚拟机"></a>多次定义安装虚拟机</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- mode: ruby -*-</span></span><br><span class="line"><span class="comment"># vi: set ft=ruby :</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Vagrant</span>.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |<span class="params">config</span>|</span><br><span class="line">  config.vm.define <span class="string">&quot;master&quot;</span> <span class="keyword">do</span> |<span class="params">master</span>|</span><br><span class="line">    master.vm.box = <span class="string">&quot;centos/7&quot;</span></span><br><span class="line">    master.vm.provider <span class="string">&quot;virtualbox&quot;</span></span><br><span class="line">    master.vm.network <span class="string">&quot;private_network&quot;</span>, <span class="symbol">ip:</span> <span class="string">&quot;10.10.0.10&quot;</span></span><br><span class="line">    master.vm.synced_folder <span class="string">&quot;/home/iuxt/code/system-deployment/configuration/puppet/modules&quot;</span>, <span class="string">&quot;/etc/puppetlabs/code/modules&quot;</span>,<span class="symbol">create:</span> <span class="literal">true</span>,<span class="symbol">owner:</span> <span class="string">&quot;root&quot;</span>, <span class="symbol">group:</span> <span class="string">&quot;root&quot;</span>,<span class="symbol">mount_options:</span>[<span class="string">&quot;dmode=775&quot;</span>,<span class="string">&quot;fmode=644&quot;</span>]</span><br><span class="line">    master.vm.synced_folder <span class="string">&quot;/home/iuxt/code/system-deployment/configuration/puppet/environments/production/manifests&quot;</span>, <span class="string">&quot;/etc/puppetlabs/code/environments/production/manifests&quot;</span>,<span class="symbol">create:</span> <span class="literal">true</span>,<span class="symbol">owner:</span> <span class="string">&quot;root&quot;</span>, <span class="symbol">group:</span> <span class="string">&quot;root&quot;</span>,<span class="symbol">mount_options:</span>[<span class="string">&quot;dmode=775&quot;</span>,<span class="string">&quot;fmode=644&quot;</span>]</span><br><span class="line">    master.vm.hostname = <span class="string">&quot;puppet-master&quot;</span></span><br><span class="line">    master.vm.provider <span class="string">&quot;virtualbox&quot;</span> <span class="keyword">do</span> |<span class="params">vb</span>|</span><br><span class="line">      vb.gui = <span class="literal">false</span></span><br><span class="line">      vb.memory = <span class="string">&quot;4096&quot;</span></span><br><span class="line">      vb.cpus = <span class="string">&quot;2&quot;</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    master.vm.provision <span class="string">&quot;shell&quot;</span>, <span class="symbol">inline:</span> <span class="string">&lt;&lt;-SHELL</span></span><br><span class="line"><span class="string">       sudo rpm -Uvh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm</span></span><br><span class="line"><span class="string">       yum install puppetserver -y</span></span><br><span class="line"><span class="string">       echo &quot;127.0.0.1 puppet&quot; &gt;&gt; /etc/hosts</span></span><br><span class="line"><span class="string">    SHELL</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  config.vm.define <span class="string">&quot;agent&quot;</span> <span class="keyword">do</span> |<span class="params">agent</span>|</span><br><span class="line">    agent.vm.box = <span class="string">&quot;centos/7&quot;</span></span><br><span class="line">    agent.vm.provider <span class="string">&quot;virtualbox&quot;</span></span><br><span class="line">    agent.vm.network <span class="string">&quot;private_network&quot;</span>, <span class="symbol">ip:</span> <span class="string">&quot;10.10.0.11&quot;</span></span><br><span class="line">    agent.vm.hostname = <span class="string">&quot;puppet-agent&quot;</span></span><br><span class="line">    agent.vm.provider <span class="string">&quot;virtualbox&quot;</span> <span class="keyword">do</span> |<span class="params">vb</span>|</span><br><span class="line">      vb.gui = <span class="literal">false</span></span><br><span class="line">      vb.memory = <span class="string">&quot;4096&quot;</span></span><br><span class="line">      vb.cpus = <span class="string">&quot;2&quot;</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    agent.vm.provision <span class="string">&quot;shell&quot;</span>, <span class="symbol">inline:</span> <span class="string">&lt;&lt;-SHELL</span></span><br><span class="line"><span class="string">       sudo rpm -Uvh https://yum.puppet.com/puppet6-release-el-7.noarch.rpm</span></span><br><span class="line"><span class="string">       yum install puppet -y</span></span><br><span class="line"><span class="string">       echo &quot;10.0.0.10 puppet&quot; &gt;&gt; /etc/hosts</span></span><br><span class="line"><span class="string">    SHELL</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h2><h3 id="自动管理-hosts"><a href="#自动管理-hosts" class="headerlink" title="自动管理 hosts"></a>自动管理 hosts</h3><blockquote>
+<p>插件官网：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/devopsgroup-io/vagrant-hostmanager">https://github.com/devopsgroup-io/vagrant-hostmanager</a></p>
+</blockquote>
+<p>安装插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant plugin install vagrant-hostmanager</span><br></pre></td></tr></table></figure>
+
+<p>启用</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vagrant</span>.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |<span class="params">config</span>|</span><br><span class="line">  config.hostmanager.enabled = <span class="literal">true</span></span><br><span class="line">  config.hostmanager.manage_host = <span class="literal">true</span></span><br><span class="line">  config.hostmanager.manage_guest = <span class="literal">true</span></span><br><span class="line">  config.hostmanager.ignore_private_ip = <span class="literal">false</span></span><br><span class="line">  config.hostmanager.include_offline = <span class="literal">true</span></span><br><span class="line">  config.vm.define <span class="string">&#x27;example-box&#x27;</span> <span class="keyword">do</span> |<span class="params">node</span>|</span><br><span class="line">    node.vm.hostname = <span class="string">&#x27;example-box-hostname&#x27;</span></span><br><span class="line">    node.vm.network <span class="symbol">:private_network</span>, <span class="symbol">ip:</span> <span class="string">&#x27;192.168.42.42&#x27;</span></span><br><span class="line">    node.hostmanager.aliases = <span class="string">%w(example-box.localdomain example-box-alias)</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="挂载本机目录到虚拟机"><a href="#挂载本机目录到虚拟机" class="headerlink" title="挂载本机目录到虚拟机"></a>挂载本机目录到虚拟机</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vagrant</span>.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |<span class="params">config</span>|</span><br><span class="line">    config.vm.define <span class="string">&quot;master&quot;</span> <span class="keyword">do</span> |<span class="params">master</span>|</span><br><span class="line">    master.vm.box = <span class="string">&quot;centos/7&quot;</span></span><br><span class="line">    master.vm.provider <span class="string">&quot;virtualbox&quot;</span></span><br><span class="line">    master.vm.network <span class="string">&quot;private_network&quot;</span>, <span class="symbol">ip:</span> <span class="string">&quot;10.10.0.10&quot;</span></span><br><span class="line">    master.vm.synced_folder <span class="string">&quot;/home/iuxt/code/system-deployment/configuration/puppet/modules&quot;</span>, <span class="string">&quot;/etc/puppetlabs/code/modules&quot;</span>,<span class="symbol">create:</span> <span class="literal">true</span>,<span class="symbol">owner:</span> <span class="string">&quot;root&quot;</span>, <span class="symbol">group:</span> <span class="string">&quot;root&quot;</span>,<span class="symbol">mount_options:</span>[<span class="string">&quot;dmode=775&quot;</span>,<span class="string">&quot;fmode=644&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里可能会提示：<code>mount: unknown filesystem type &#39;vboxsf&#39;</code>，这是因为虚拟机没有自带 <code>vbox guest agent</code>, 以前的 centos 是 vagrant 自己打包的，都是带 vbox guest agent 的，但是现在 vagrant 下载 centos 的 box 的时候会重定向到 centos 官网，这个 box 是不带 vbox guest agent 的，解决办法有以下：</p>
+<ol>
+<li>更换镜像为 <code>generic/centos7</code>, 镜像官网：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://roboxes.org/">https://roboxes.org/</a></li>
+<li>自己安装好再重新打包 box</li>
+<li>安装 <code>vagrant plugin install vagrant-vbguest</code>，这个插件可以自动挂载 iso，然后安装。</li>
+<li>更换增加 <code>type</code> 参数，使用 nfs 或 smb 来和虚拟机共享，需要主机安装 nfs 或 smb 服务。</li>
+</ol>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/ca1596c5/">https://zahui.fan/posts/ca1596c5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/VirtualMachine/">VirtualMachine</a><a class="post-meta__tags" href="/tags/vagrant/">vagrant</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/public/skeleton1.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/2426edfc/" title="使用python控制windows鼠标和键盘"><img class="cover" src="https://static.zahui.fan/public/Windows.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">使用python控制windows鼠标和键盘</div></div><div class="info-2"><div class="info-item-1"> python 在 windows 下操作键盘鼠标（有点类似于按键精灵），可以使用 PyUserInput 模块，PyUserInput 依赖 pywin32 和 pyHook 模块。pyautogui 感觉很不错，可以实现 PyUserInput 的所有功能，并且可以根据提供的截图来进行图像识别。  PyUserInput安装 PyUserInputPyUserInput 模块安装前需要安装 pywin32 和 pyHook 模块pip install pywin32 pyHook 模块可从这里下载，需要下载对应版本的 whl 文件http://www.lfd.uci.edu/~gohlke/pythonlibs/安装: pip install xxx.whl PyUserInput 模块官网: https://github.com/PyUserInput/PyUserInput  这个模块官方已经不维护了，目前来看 python3.7+win11 还可以用，后续有需要的同学可以看看 Pynput  使用...</div></div></div></a><a class="pagination-related" href="/posts/sm3z1i/" title="hexo butterfly 主题使用记录"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">hexo butterfly 主题使用记录</div></div><div class="info-2"><div class="info-item-1">开始使用nodejs 使用 v20.17.0 版本包管理使用 npm 123456789101112# 初始化主题，第一次需要执行git submodule initgit submodule update# 安装依赖包npm i## 查看效果npx hexo s# 创建新文章npx hexo new &quot;测试文章&quot;  然后将 source/_posts/测试文章.md 移动到对应的分类目录下。 由于 hexo-abbrlink 和 hexo-auto-category 的冲突，需要执行 2 次 npx hexo g 才能正确生成需要的 front matter这个问题已经解决了, 替换成了包 hexo-abbrlink-iuxt 解决了这个问题, 执行 npx hexo g 即可自动生成固定链接和分类 封面图1280 x 720 或者 3:2 的比例 常用 shortcode 记录标签外挂官方文档：...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-01-27</div><div class="info-item-2">Hyper-V 自定义内部网络网段和IP地址</div></div><div class="info-2"><div class="info-item-1">开始之前首先如果是仅仅想要主机和虚拟机进行数据互通，其实不需要固定 IP，直接通过计算机名就可以互相访问。 Hyper-V 网络模式外部虚拟网络: 类似于 VMware 的桥接网络模式, 在希望允许虚拟机与外部服务器和管理操作系统（有时称为父分区）进行通信时，可以使用此类型的虚拟网络。此类型的虚拟网络还允许位于同一物理服务器上的虚拟机互相通信。 内部虚拟网络: 类似于 VMware 的 NAT 网络模式, 在希望允许同一物理服务器上的虚拟机与虚拟机和管理操作系统之间进行通信时，可以使用此类型的虚拟网络。内部虚拟网络是一种未绑定到物理网络适配器的虚拟网络。它通常用来构建从管理操作系统连接到虚拟机所需的测试环境。 专用虚拟网络: 在希望只允许同一物理服务器上的虚拟机之间进行通信时，可以使用此类型的虚拟网络。专用虚拟网络是一种无需在管理操作系统中装有虚拟网络适配器的虚拟网络。在希望将虚拟机从管理操作系统以及外部网络中的网络通信中分离出来时，通常会使用专用虚拟网络。 由于 Hyper-V 自带的 Default Switch 在每次电脑重启的时候会自动分配一个未使用的网段,...</div></div></div></a><a class="pagination-related" href="/posts/b428e1a3/" title="Windows家庭版打开Hyper V虚拟机"><img class="cover" src="https://static.zahui.fan/public/Windows.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Windows家庭版打开Hyper V虚拟机</div></div><div class="info-2"><div class="info-item-1">家庭版系统不可以在系统程序和功能里面添加 Hyper-V 功能的， 不过微软并没有禁止通过 dism 增加包的方式添加 Hyper-V 功能，所以可以使用这种方式来使用 Hyper-V 操作需要使用管理员权限来执行 打开 Hyper-V123456789pushd &quot;%~dp0&quot;dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txtfor /f %%i in (&#x27;findstr /i . hyper-v.txt 2^&gt;nul&#x27;) do dism /online /norestart /add-Package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;del hyper-v.txtDism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL  关闭 Hyper-V删除 Hyper-V...</div></div></div></a><a class="pagination-related" href="/posts/49e7e3c2/" title="将wsl里的文件挂载进虚拟机"><img class="cover" src="https://static.zahui.fan/public/wsl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">将wsl里的文件挂载进虚拟机</div></div><div class="info-2"><div class="info-item-1"> 虽然不同操作系统使用起来大致类似，很多开源软件同时支持 Linux 和 Windows，就算不支持，Windows 还有 cygwin 或 WSL，Linux 也有 wine，但是我感觉这两种系统最大的区别还是文件系统，比如将 Linux 下的文件复制到 Windows，然后再复制回 Linux，得到的文件和原来的是一样的吗，答案是否定的，因为文件权限可能已经发生了变化，另外 Windows 的 NTFS 大小写不敏感，导致很多时候从 Linux 复制文件到 Windows 的时候总会弹个窗问我是否覆盖，还有 Linux 的软链接也无法复制到 Windows 里面。本人平时写代码等都是在 linux 上运行的，不过最近系统换成了 Windows，为了避免以上问题，将文件放进了 WSL 里面，同时用到了虚拟机做测试，所以想将 wsl 和虚拟机的目录进行同步，才有了这篇文章。  在 Windows 环境下找到想要共享的目录 以下 3 种都可以   在 Windows 下可以这样访问 WSL\\wsl$\发行版名，比如 \\wsl$\Ubuntu，将完整的链接复制下来。 将...</div></div></div></a><a class="pagination-related" href="/posts/4926dc90/" title="KVM虚拟机常用操作记录"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-01-24</div><div class="info-item-2">KVM虚拟机常用操作记录</div></div><div class="info-2"><div class="info-item-1">检查前提条件12345678# 如果是 Intel 的 CPU, 输出 VMX;如果是 AMD 的 CPU, 输出 SVMgrep -Eoc &#x27;(vmx|svm)&#x27; /proc/cpuinfo# 或者使用 kvm-ok 工具监测sudo apt updatesudo apt install cpu-checkerkvm-ok  安装 kvm123456789101112sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst libvirt-daemon# 安装图形管理工具（可选）# apt install virt-manager -y# 验证sudo systemctl is-active libvirtd# 增加用户权限sudo usermod -aG libvirt $USERsudo usermod -aG kvm $USER  添加和删除网卡（虚拟硬件）要列出要在 KVM 虚拟机中使用的可用网络，请运行以下命令： 1virsh...</div></div></div></a><a class="pagination-related" href="/posts/4bef6e47/" title="VMware Workstation常用操作记录"><img class="cover" src="https://static.zahui.fan/images/202211211238166.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">VMware Workstation常用操作记录</div></div><div class="info-2"><div class="info-item-1">安装官方下载链接12345678910111213141516171819202122232425262728293031323334353637383940414243444546https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.7-2844087.exe 上面的版本不支持64位Windows系统 https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.0.0-2985596.exehttps://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.4-5192485.exehttps://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.5-5234757.exe...</div></div></div></a><a class="pagination-related" href="/posts/1e258e64/" title="vagrant常见报错解决方案"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">vagrant常见报错解决方案</div></div><div class="info-2"><div class="info-item-1">vagrant 是一款虚拟机管理工具，可以通过代码来控制虚拟机的状态，帮助提升开发效率 提示 umount: &#x2F;mnt: not mounted 出现这种情况一般是由于安装了 vagrant-vbguest 插件, 但是这个插件并不能自动帮助我们安装 vbguest这种情况可能是由于内核版本比较低导致的   方案 1: 升级内核  vagrantfile 增加一行   1config.vbguest.installer_options = &#123; allow_kernel_upgrade: true &#125;  方案 2: 降级 vagrant-vbguest 12vagrant plugin uninstall vagrant-vbguestvagrant plugin install vagrant-vbguest --plugin-version 0.21  报错网段不在 nat 网段里面vagrantfile 添加 virtualbox__intnet 参数 1node.vm.network &quot;private_network&quot;,...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">342</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8-vagrantfile"><span class="toc-number">2.</span> <span class="toc-text">常用 vagrantfile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">批量创建虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.2.</span> <span class="toc-text">循环创建虚拟机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%AC%A1%E5%AE%9A%E4%B9%89%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.3.</span> <span class="toc-text">多次定义安装虚拟机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">常用插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E7%AE%A1%E7%90%86-hosts"><span class="toc-number">3.1.</span> <span class="toc-text">自动管理 hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E6%9C%AC%E6%9C%BA%E7%9B%AE%E5%BD%95%E5%88%B0%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">3.2.</span> <span class="toc-text">挂载本机目录到虚拟机</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/25938561/" title="Linux虚拟内存swap"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux虚拟内存swap"/></a><div class="content"><a class="title" href="/posts/25938561/" title="Linux虚拟内存swap">Linux虚拟内存swap</a><time datetime="2025-02-07T03:42:09.000Z" title="更新于 2025-02-07 11:42:09">2025-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sqkrxr/" title="Linux神奇的proc目录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux神奇的proc目录"/></a><div class="content"><a class="title" href="/posts/sqkrxr/" title="Linux神奇的proc目录">Linux神奇的proc目录</a><time datetime="2025-02-01T08:43:23.000Z" title="更新于 2025-02-01 16:43:23">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书"><img src="https://static.zahui.fan/public/linux.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用acme.sh来自动更新https证书"/></a><div class="content"><a class="title" href="/posts/1e777b9e/" title="使用acme.sh来自动更新https证书">使用acme.sh来自动更新https证书</a><time datetime="2025-01-27T12:01:05.000Z" title="更新于 2025-01-27 20:01:05">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hyper-V 自定义内部网络网段和IP地址"/></a><div class="content"><a class="title" href="/posts/6f952944/" title="Hyper-V 自定义内部网络网段和IP地址">Hyper-V 自定义内部网络网段和IP地址</a><time datetime="2025-01-27T08:02:23.000Z" title="更新于 2025-01-27 16:02:23">2025-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在Windows下以服务方式运行MySQL"/></a><div class="content"><a class="title" href="/posts/c1f1096a/" title="在Windows下以服务方式运行MySQL">在Windows下以服务方式运行MySQL</a><time datetime="2025-01-25T15:47:08.000Z" title="更新于 2025-01-25 23:47:08">2025-01-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
