@@ -11,12 +11,15 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 <style type="text/css">
   .container {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 文字区域 2，图片区域 1 */
+    grid-template-columns: 2fr 1fr;
     align-items: center;
     gap: 30px;
-    max-width: 800px; /* 控制宽度，和外部卡片匹配 */
-    margin: 0 auto; /* 居中对齐 */
-    padding: 20px; /* 让内容不贴边 */
+    max-width: 850px; /* 让它和外层白色卡片宽度匹配 */
+    margin: 20px auto; /* 居中显示，并适当留白 */
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px; /* 和外层卡片一致 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08); /* 轻微阴影，让层次更自然 */
   }
 
   .text-area {
@@ -26,11 +29,11 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
   }
 
   .text-area ul {
-    padding-left: 20px; /* 让列表更整齐 */
+    padding-left: 20px;
   }
 
   .image-area img {
-    border-radius: 6px;
+    border-radius: 8px;
     max-width: 100%;
     height: auto;
     display: block;
