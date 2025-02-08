@@ -8,37 +8,49 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 ## 个人简介
 
 <style type="text/css">
-.container {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* 设置间隙 */
-}
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 文字区域占2份，图片占1份 */
+    align-items: center;
+    gap: 30px; /* 调整间距 */
+    max-width: 800px; /* 限制最大宽度，避免过宽 */
+    margin: 40px auto; /* 居中显示 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
 
-.text-area {
-  flex: 3;
-  border: 1px solid #ccc;
-  color: #404040;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #f4dda5;
-}
+  .text-area {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
 
-.image-area {
-  flex: 1; /* 图片区域占据1份空间 */
-}
-
-.image-area img {
-  border-radius: 10px; /* 设置圆角 */
-  max-width: 100%; /* 确保图片不超出容器 */
-  height: auto; /* 保持比例 */
-}
+  .image-area img {
+    border-radius: 6px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 </style>
 
 <div class="container">
-  <div class="text-area">张理坤，安徽（六安/淮南）寿县人，90后，互联网行业超级无敌打工仔。最开始入行是做IT，通过自学运维转岗做了运维。2016年参加工作，在游戏、在线教育、车联网行业待过。做过监控、收过日志、玩过容器、做过CICD、开发过运维平台、待过IDC机房、修过电脑、装过打印机、配置过交换机。</div>
-  <div class="image-area"><img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/></div>
+  <div class="text-area">
+    <strong>张理坤</strong>，安徽（六安/淮南）寿县人，90后，互联网行业从业者。最初从事 IT 工作，通过自学转岗成为运维工程师。2016 年进入职场，曾服务于游戏、在线教育、车联网等行业，专注于：
+    <ul>
+      <li>运维自动化与监控</li>
+      <li>日志管理与数据分析</li>
+      <li>容器技术与 CICD</li>
+      <li>运维平台开发</li>
+      <li>IDC 机房与网络运维</li>
+    </ul>
+  </div>
+  <div class="image-area">
+    <img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/>
+  </div>
 </div>
+
 
 
 ## 工作经历
