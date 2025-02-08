@@ -7,24 +7,26 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 ## 个人简介
 
+
 <style type="text/css">
   .container {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 文字区域占2份，图片占1份 */
+    grid-template-columns: 2fr 1fr; /* 文字区域 2，图片区域 1 */
     align-items: center;
-    gap: 30px; /* 调整间距 */
-    max-width: 800px; /* 限制最大宽度，避免过宽 */
-    margin: 40px auto; /* 居中显示 */
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+    max-width: 800px; /* 控制宽度，和外部卡片匹配 */
+    margin: 0 auto; /* 居中对齐 */
+    padding: 20px; /* 让内容不贴边 */
   }
 
   .text-area {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
+  }
+
+  .text-area ul {
+    padding-left: 20px; /* 让列表更整齐 */
   }
 
   .image-area img {
@@ -50,6 +52,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
     <img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/>
   </div>
 </div>
+
 
 
 
