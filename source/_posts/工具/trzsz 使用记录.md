@@ -2,12 +2,11 @@
 title: trzsz 使用记录
 categories:
   - 工具
-tags:
-  - OpenSSH
-  - lrzsz
+tags: [OpenSSH, lrzsz]
 abbrlink: shqeci
 cover: 'https://static.zahui.fan/images/202411221801168.png'
 date: 2024-08-05 14:07:29
+updated: 2025-02-10 17:32:27
 ---
 
 官方介绍：trzsz ( trz / tsz ) 是一款优秀的文件传输工具，和 lrzsz ( rz / sz ) 类似的、兼容 tmux 的文件传输工具。其实就是一个利用终端来传输文件的工具，可以用来取代 lrzsz，更多详情看官方文档：<https://trzsz.github.io/cn/> 和 GitHub：<https://github.com/trzsz/trzsz-ssh/blob/main/README.cn.md>
@@ -117,5 +116,5 @@ sudo add-apt-repository ppa:trzsz/ppa && sudo apt update
 sudo apt install tssh
 
 # 解决 rz 或 sz 无法弹出文件管理器的问题。
-sudo apt install zenity fonts-wqy-microhei -y
+sudo apt install libgles2 zenity fonts-wqy-microhei -y
 ```
