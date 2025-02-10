@@ -3,7 +3,7 @@ title: fail2ban失效排查
 categories:
   - 基础运维
 abbrlink: sjcnkn
-cover: ''
+cover: https://static.zahui.fan/public/fail2ban.png
 date: 2024-09-06 01:07:35
 tags:
 ---
