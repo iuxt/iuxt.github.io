@@ -7,19 +7,18 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 ## 个人简介
 
-
 <style type="text/css">
   .container {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
     gap: 30px;
-    max-width: 850px; /* 让它和外层白色卡片宽度匹配 */
-    margin: 20px auto; /* 居中显示，并适当留白 */
+    max-width: 850px;
+    margin: 20px auto;
     padding: 25px;
     background-color: #ffffff;
-    border-radius: 12px; /* 和外层卡片一致 */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08); /* 轻微阴影，让层次更自然 */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
   }
 
   .text-area {
@@ -38,6 +37,31 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
     height: auto;
     display: block;
   }
+
+  /* 针对小屏幕做优化 */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr; /* 让文字和图片垂直排列 */
+      padding: 15px;
+    }
+    
+    .image-area img {
+      width: 100%; /* 让图片占满整个容器的宽度 */
+      height: auto;
+    }
+  }
+
+  /* 针对非常小的屏幕设备进一步优化 */
+  @media (max-width: 480px) {
+    .container {
+      max-width: 100%; /* 保证容器宽度适应小屏幕 */
+    }
+
+    .image-area img {
+      width: 100%; /* 确保图片能占据足够的宽度 */
+      height: auto;
+    }
+  }
 </style>
 
 <div class="container">
@@ -55,7 +79,6 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
     <img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/>
   </div>
 </div>
-
 
 
 
