@@ -8,7 +8,7 @@ tags:
   - logstash
   - filebeat
 abbrlink: skk1ln
-cover: ''
+cover: https://static.zahui.fan/public/elasticsearch.svg
 date: 2024-09-29 11:27:22
 ---
 

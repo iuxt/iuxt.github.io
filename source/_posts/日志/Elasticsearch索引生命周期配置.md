@@ -3,10 +3,11 @@ title: Elasticsearch索引生命周期配置
 categories:
   - 日志
 tags:
-  - ''
+  - ES
+  - 常用操作
 abbrlink: snui2r
 date: 2024-12-02 10:40:03
-cover: ''
+cover: https://static.zahui.fan/public/elasticsearch.svg
 ---
 
 参考
