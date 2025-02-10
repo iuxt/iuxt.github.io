@@ -5,8 +5,9 @@ categories:
 tags:
   - rdp
 abbrlink: sm0nds
-cover: 'https://static.zahui.fan/images/202410272127464.png'
-date: 2024-10-27 21:13:04
+cover: https://static.zahui.fan/images/202410272127464.png
+date: 2022-10-27 21:13:04
+updated: 2025-02-10 19:07:16
 ---
 
 mRemoteNG 是一款比较好用的 Windows 平台的连接 RDP 的管理工具，非常好用，支持选项卡，配置文件管理，账号密码管理等。虽然现在 xshell 8 也支持连接 rdp 了，但是没有这个好用。mRemoteNG 也支持连接 vnc 和 ssh，但是不好用，我只用它来连 rdp
