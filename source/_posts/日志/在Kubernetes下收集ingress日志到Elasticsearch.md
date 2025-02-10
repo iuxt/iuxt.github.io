@@ -10,6 +10,7 @@ tags:
 abbrlink: skk1ln
 cover: https://static.zahui.fan/public/elasticsearch.svg
 date: 2024-09-29 11:27:22
+updated: 2025-02-10 19:12:21
 ---
 
 本文 ingress 用的是 Nginx-ingress，普通的 Nginx 原理是一样的。容器运行时是 Docker。
