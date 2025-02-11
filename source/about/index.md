@@ -13,7 +13,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
     grid-template-columns: 2fr 1fr;
     align-items: center;
     gap: 30px;
-    max-width: 850px;
+    width: 100%; /* 让它填充外层容器 */
     margin: 20px auto;
     padding: 25px;
     background-color: #ffffff;
@@ -38,16 +38,19 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
     display: block;
   }
 
-  /* 针对小屏幕做优化 */
+  /* 适配 480px - 768px 之间的屏幕 */
   @media (max-width: 768px) {
     .container {
-      grid-template-columns: 1fr; /* 让文字和图片垂直排列 */
+      grid-template-columns: 1fr; /* 变为单列布局 */
       padding: 15px;
     }
     
     .image-area img {
-      width: 100%; /* 让图片占满整个容器的宽度 */
+      width: 60%;  /* 限制图片最大宽度，避免过大 */
+      max-width: 300px; /* 确保不会超出 */
       height: auto;
+      display: block;
+      margin: 0 auto; /* 图片居中 */
     }
   }
 
