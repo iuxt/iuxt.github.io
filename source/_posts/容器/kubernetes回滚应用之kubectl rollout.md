@@ -4,11 +4,9 @@ abbrlink: 8d88b8c4
 cover: 'https://static.zahui.fan/public/kubernetes.svg'
 categories:
   - 容器
-tags:
-  - kubectl
-  - Kubernetes
-  - k8s
+tags: [kubectl, Kubernetes, k8s]
 date: 2022-05-20 23:52:58
+updated: 2025-02-14 18:12:16
 ---
 
 kubernetes 每次更新资源会记录资源的历史版本， 方便我们进行回滚操作。真的 k8s 解决了很多运维的痛点问题, 想起来以前没有用 k8s 的时候,用 jenkins 和 ansible 来做的发布和回滚...
@@ -81,4 +79,27 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+```
+
+## 查看历史版本
+
+如果只是更新了镜像，可以通过命令查看历史的镜像版本：
+
+```bash
+#!/bin/bash
+# 检查参数是否正确
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+    echo "用法: $0 <deployment名称> [命名空间]"
+    exit 1
+fi
+
+DEPLOYMENT_NAME=$1
+NAMESPACE=${2:-default}  # 如果未指定命名空间则使用 default
+
+VER=$(kubectl rollout history deployment -n $NAMESPACE $DEPLOYMENT_NAME | awk 'NR > 2 {print $1}' | sort -nr)
+
+
+for i in $VER;do
+    kubectl rollout history deployment -n $NAMESPACE $DEPLOYMENT_NAME --revision=$i | grep Image:
+done
 ```
