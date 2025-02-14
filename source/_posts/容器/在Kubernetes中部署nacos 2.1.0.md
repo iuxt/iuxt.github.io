@@ -7,9 +7,11 @@ tags:
   - 记录
   - k8s
   - Kubernetes
+  - nacos
 abbrlink: sebxm6
-cover: 'https://static.zahui.fan/public/Nacos.svg'
+cover: https://static.zahui.fan/public/Nacos.svg
 date: 2024-05-31 10:58:54
+updated: 2025-02-14 15:22:15
 ---
 
 本次在 Kubernetes 上部署 nacos 2.1.0 版本， 部署 3 节点集群，不做数据持久化（nacos 的配置管理是存储 MySQL 数据库的，服务发现是需要本地存储的）新版本 nacos 部署参考：

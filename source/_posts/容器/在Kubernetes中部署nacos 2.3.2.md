@@ -7,9 +7,11 @@ tags:
   - Kubernetes
   - k8s
   - 记录
+  - nacos
 abbrlink: sgajkk
-cover: 'https://static.zahui.fan/public/Nacos.svg'
+cover: https://static.zahui.fan/public/Nacos.svg
 date: 2024-07-08 14:05:08
+updated: 2025-02-14 15:22:20
 ---
 
 其他版本参考文档 [在Kubernetes中部署nacos 2.1.0](/posts/sebxm6/)
