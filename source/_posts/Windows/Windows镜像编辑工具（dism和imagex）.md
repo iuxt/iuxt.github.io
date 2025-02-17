@@ -3,10 +3,10 @@ title: Windows镜像编辑工具（dism和imagex）
 abbrlink: a3a12a0e
 categories:
   - Windows
-tags:
-  - Windows
+tags: [Windows]
 cover: 'https://static.zahui.fan/public/Windows-old.svg'
 date: 2021-03-10 17:01:05
+updated: 2025-02-17 23:12:43
 ---
 
 > imagex 和 dism 都是 windows 官方处理 windows 安装镜像 wim 文件的工具，其中 dism 是自带的，imagex 是单文件，依赖简单
@@ -46,11 +46,25 @@ imagex /info install32.wim 9 "Windows 7 ULTIMATE X64" "Windows 7 旗舰版 64位
 
 ### 按大小拆分 wim 镜像
 
-```bat
+```powershell
 dism /Split-Image /ImageFile:F:\sources\install.wim /SWMFile:D:\install.swm /FileSize:4096
 ```
 
-> swm 是微软映像拆分文件
+### 镜像挂载卸载
+
+```powershell
+# 查看分卷信息
+DISM /Get-WimInfo /WimFile:"C:\path\to\install.wim"
+
+# 挂载镜像
+DISM /Mount-Image /ImageFile:"C:\Users\iuxt\Desktop\install.wim" /Index:1 /MountDir:"C:\Mount"
+
+# 卸载镜像，并保存更改
+DISM /Unmount-Image /MountDir:"C:\Mount" /Commit
+
+# 卸载镜像，不保存更改
+DISM /Unmount-Image /MountDir:"C:\Mount" /discard
+```
 
 ### 检查 windows 健康度
 
