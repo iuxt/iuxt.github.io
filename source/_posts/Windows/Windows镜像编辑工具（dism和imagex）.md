@@ -6,7 +6,7 @@ categories:
 tags: [Windows]
 cover: 'https://static.zahui.fan/public/Windows-old.svg'
 date: 2021-03-10 17:01:05
-updated: 2025-02-17 23:31:43
+updated: 2025-02-17 23:45:14
 ---
 
 > imagex 和 dism 都是 windows 官方处理 windows 安装镜像 wim 文件的工具，其中 dism 是自带的，imagex 是单文件，依赖简单
@@ -57,7 +57,7 @@ dism /Split-Image /ImageFile:F:\sources\install.wim /SWMFile:D:\install.swm /Fil
 DISM /Get-WimInfo /WimFile:"C:\path\to\install.wim"
 
 # 挂载镜像
-DISM /Mount-Image /ImageFile:"C:\Users\iuxt\Desktop\install.wim" /Index:1 /MountDir:"C:\Mount"
+DISM /Mount-Image /ImageFile:"C:\install.wim" /Index:1 /MountDir:"C:\Mount"
 
 # 卸载镜像，并保存更改
 DISM /Unmount-Image /MountDir:"C:\Mount" /Commit
