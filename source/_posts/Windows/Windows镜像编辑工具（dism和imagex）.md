@@ -6,7 +6,7 @@ categories:
 tags: [Windows]
 cover: 'https://static.zahui.fan/public/Windows-old.svg'
 date: 2021-03-10 17:01:05
-updated: 2025-02-17 23:12:43
+updated: 2025-02-17 23:31:43
 ---
 
 > imagex 和 dism 都是 windows 官方处理 windows 安装镜像 wim 文件的工具，其中 dism 是自带的，imagex 是单文件，依赖简单
@@ -28,7 +28,7 @@ imagex /export install64.wim 4 install32.wim "win7 ultimate x64"
 
 ### 修改镜像描述信息
 
-> 修改前可以使用 dism /get-wiminfo /wimfile:C:\xxxxxx.wim 查看镜像信息
+> 修改前可以使用 `imagex /info C:\xxxxx.wim` 查看镜像信息
 
 ```bat
 imagex /info install32.wim 1 "Windows 7 STARTER X86" "Windows 7 简易版"
