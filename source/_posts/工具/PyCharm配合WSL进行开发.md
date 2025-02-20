@@ -2,11 +2,11 @@
 title: PyCharm配合WSL进行开发
 categories:
   - 工具
-tags:
-  - 开发工具配置
+tags: [开发工具配置]
 abbrlink: sik0ul
 cover: 'https://static.zahui.fan/images/202408211408782.png'
 date: 2024-08-21 14:03:57
+updated: 2025-02-20 18:46:48
 ---
 
 本文使用 WSL2，WSL2 里面安装了 Docker， PyCharm 支持的配合 wsl 进行使用的方法有很多种，这里提供几个思路
@@ -58,7 +58,3 @@ date: 2024-08-21 14:03:57
 ## 依赖 Docker 的方法
 
 所有使用 Docker 的方法都不好用，慢不说还不方便，使用 Docker 看起来很美好，但是真的不好用。包括 devcontainer，如果你觉得好用，那你是对的，是我用的姿势不对。
-
-## 最后一个办法
-
-换 macOS 或 Linux
