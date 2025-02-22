@@ -6,7 +6,7 @@ tags: [Elasticsearch, ES, 搭建]
 cover: https://static.zahui.fan/public/elasticsearch.svg
 abbrlink: a07ebcb
 date: 2022-11-02 12:48:18
-updated: 2025-02-22 17:41:23
+updated: 2025-02-22 22:51:58
 ---
 
 需要初始化配置一个 3 节点的集群，我的机器详情是：
@@ -93,27 +93,20 @@ sudo systemctl disable --now firewalld
 sudo systemctl disable --now ufw
 ```
 
-### 创建目录
+### 准备 ES 安装包
 
 ```bash
 [ ! -d /data/elasticsearch ] && mkdir -p /data/elasticsearch
 cd /data/elasticsearch
-```
-
-### 下载软件安装包
-
-```bash
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.16.2-linux-x86_64.tar.gz
-wget https://artifacts.elastic.co/downloads/kibana/kibana-7.16.2-linux-x86_64.tar.gz
 tar xf elasticsearch-7.16.2-linux-x86_64.tar.gz
-tar xf kibana-7.16.2-linux-x86_64.tar.gz
+cd elasticsearch-7.16.2
 ```
 
 ### 创建用户
 
 ```bash
 sudo useradd elasticsearch -m -s /usr/sbin/nologin
-chown -R elasticsearch:elasticsearch /data/elasticsearch
 ```
 
 ## 初始化集群配置
@@ -125,9 +118,10 @@ chown -R elasticsearch:elasticsearch /data/elasticsearch
 ```yml
 # 集群名字
 cluster.name: es_cluster
-# 节点定义个名字
+
+# 给节点定义个名字，每个节点不一样
 node.name: node-1
-# 节点监听的ip
+# 节点监听的ip，本机IP
 network.host: 10.0.0.11
 http.port: 9200
 # 尽量不要配置自身ip，避免自引用问题。
@@ -143,9 +137,9 @@ cluster.initial_master_nodes:
 transport.tcp.port: 9300
 http.cors.enabled: true
 http.cors.allow-origin: "*"
+http.cors.allow-headers: Authorization
 
 # 节点间认证配置
-http.cors.allow-headers: Authorization
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
 xpack.security.transport.ssl.verification_mode: certificate
@@ -158,7 +152,6 @@ xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 > 在一个 master 上执行即可, 所有选项全部保持默认
 
 ```bash
-cd /data/elasticsearch/elasticsearch-7.16.2
 ./bin/elasticsearch-certutil ca
 ./bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
 ```
@@ -168,11 +161,16 @@ cd /data/elasticsearch/elasticsearch-7.16.2
 >把生成的文件放到 conf 下
 
 ```bash
-chown elasticsearch:elasticsearch elastic-certificates.p12  elastic-stack-ca.p12
 mv elastic-certificates.p12  elastic-stack-ca.p12 config/
 ```
 
 然后把这两个文件复制到其他的节点 config 目录下.
+
+### 文件权限
+
+```bash
+chown -R elasticsearch:elasticsearch /data/elasticsearch
+```
 
 ### 生成 systemd 启动脚本
 
@@ -226,7 +224,27 @@ sudo systemctl enable --now elasticsearch
 ```
 
 <!-- endtab -->
+<!-- tab 手动设置每个密码 -->
+设置成固定密码
 
+```bash
+ELASTIC_PASSWORD="12345678"
+echo "y
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}" | ./bin/elasticsearch-setup-passwords interactive
+```
+
+<!-- endtab -->
 {% endtabs %}
 
 ## 检查集群
@@ -275,6 +293,28 @@ node.data: true
 node.master: true
 node.data: false
 ```
+
+## kibana 搭建（可选）
+
+```bash
+wget https://artifacts.elastic.co/downloads/kibana/kibana-7.16.2-linux-x86_64.tar.gz
+tar xf kibana-7.16.2-linux-x86_64.tar.gz
+```
+
+准备 kibana 的配置文件 `kibana.yml`
+
+```yml
+server.name: kibana
+server.port: 5601
+server.host: "0.0.0.0"
+elasticsearch.username: "elastic"
+elasticsearch.password: "12345678"
+
+elasticsearch.hosts: ["http://10.0.0.11:9200", "http://10.0.0.12:9200", "http://10.0.0.13:9200"]
+i18n.locale: "zh-CN"
+```
+
+启动 kibana
 
 ## 其他
 
