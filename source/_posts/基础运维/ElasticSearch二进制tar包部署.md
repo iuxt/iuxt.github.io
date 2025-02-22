@@ -2,12 +2,11 @@
 title: ElasticSearch二进制tar包部署
 categories:
   - 基础运维
-tags:
-  - Elasticsearch
-  - ES
+tags: [Elasticsearch, ES]
 cover: 'https://static.zahui.fan/public/elasticsearch.svg'
 abbrlink: a07ebcb
 date: 2022-11-02 12:48:18
+updated: 2025-02-22 15:25:59
 ---
 
 ## 修改主机名
@@ -21,7 +20,7 @@ hostnamectl set-hostname es_3
 ## 创建目录
 
 ```bash
-[ ! -d /data/server ] && mkdir -p /data/elasticsearch
+[ ! -d /data/elasticsearch ] && mkdir -p /data/elasticsearch
 cd /data/elasticsearch
 ```
 
@@ -43,18 +42,17 @@ chown -R elasticsearch:elasticsearch /data/elasticsearch
 
 ## 修改配置
 
-vi config/elasticsearch.yml
+`vim config/elasticsearch.yml`
 
 修改配置文件为
 
 ```yml
 cluster.name: es_cluster
-node.name: node-1/node-3/node-3                   # 每个节点定义个名字
+node.name: node-1                                 # 每个节点定义个名字
 network.host: 192.168.21.71                       # 每个节点监听的ip
 http.port: 9200
 discovery.seed_hosts: ["192.168.21.71", "192.168.21.72", "192.168.21.73"]     # 填些所有节点的ip地址
 cluster.initial_master_nodes: ["node-1", "node-2", "node-3"]                  # 每个节点的 node.mane 配置
-xpack.security.enabled: true
 transport.tcp.port: 9300
 http.cors.enabled: true
 http.cors.allow-origin: "*"
@@ -140,3 +138,17 @@ xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 <!-- endtab -->
 
 {% endtabs %}
+
+## 其他
+
+tar 包安装的要关闭 selinux，不然提示 `Permission denied`
+
+```bash
+sudo setenforce 0
+```
+
+`vm.max_map_count [65530] is too low, increase to at least [262144]` 需要执行：
+
+```bash
+sudo sysctl -w vm.max_map_count=262144
+```
