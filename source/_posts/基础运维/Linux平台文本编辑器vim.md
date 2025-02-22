@@ -3,9 +3,10 @@ title: Linux平台文本编辑器vim
 abbrlink: 280100fb
 categories:
   - 基础运维
-tags: [Linux]
-cover: 'https://static.zahui.fan/public/vim.svg'
-date: 2024-12-02 12:51:42
+tags:
+  - Linux
+cover: https://static.zahui.fan/public/vim.svg
+date: 2021-12-02 12:51:42
 updated: 2024-12-31 11:51:12
 ---
 
