@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2025-02-22T09:48:39.000Z</updated>
+  <updated>2025-02-22T09:57:12.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -21,8 +21,20 @@
     <link href="https://zahui.fan/posts/ss2wk6/"/>
     <id>https://zahui.fan/posts/ss2wk6/</id>
     <published>2025-02-22T09:48:05.000Z</published>
-    <updated>2025-02-22T09:48:39.000Z</updated>
+    <updated>2025-02-22T09:57:12.000Z</updated>
     
+    <content type="html"><![CDATA[<p>GitHub 地址：<a href="https://github.com/sml2h3/ddddocr">https://github.com/sml2h3/ddddocr</a></p><p>安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ddddocr</span><br></pre></td></tr></table></figure><p>如果 windows 安装报错：<code>ImportError：DLL load failed: 找不到指定的模块。</code><br>需要安装 vc 运行库：<br><a href="https://aka.ms/vs/16/release/VC_redist.x86.exe">https://aka.ms/vs/16/release/VC_redist.x86.exe</a></p><p><a href="https://aka.ms/vs/16/release/VC_redist.x64.exe">https://aka.ms/vs/16/release/VC_redist.x64.exe</a></p><p>基本使用：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ddddocr</span><br><span class="line"></span><br><span class="line">ocr = ddddocr.DdddOcr(show_ad=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">image = <span class="built_in">open</span>(<span class="string">&quot;example.jpg&quot;</span>, <span class="string">&quot;rb&quot;</span>).read()</span><br><span class="line">result = ocr.classification(image)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;GitHub 地址：&lt;a href=&quot;https://github.com/sml2h3/ddddocr&quot;&gt;https://github.com/sml2h3/ddddocr&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
     
     
     
@@ -369,11 +381,11 @@
     <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
     
     
-    <category term="加密" scheme="https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/"/>
-    
     <category term="tls" scheme="https://zahui.fan/tags/tls/"/>
     
     <category term="https" scheme="https://zahui.fan/tags/https/"/>
+    
+    <category term="加密" scheme="https://zahui.fan/tags/%E5%8A%A0%E5%AF%86/"/>
     
     <category term="SSL" scheme="https://zahui.fan/tags/SSL/"/>
     
