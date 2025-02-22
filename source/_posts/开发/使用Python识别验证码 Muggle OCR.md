@@ -1,13 +1,15 @@
 ---
-title: 使用Python识别验证码，效果不错
+title: 使用Python识别验证码 Muggle OCR
 categories:
   - 开发
-tags:
-  - ''
+tags: [OCR]
 abbrlink: sp3b30
 date: 2024-12-26 15:20:59
-cover: ''
+cover: ""
+updated: 2025-02-22 17:48:29
 ---
+
+最近发现个 ddddocr，识别率很高，识别速度还很快：[使用Python识别验证码 ddddocr](/posts/ss2wk6/)
 
 {% note flat %}
 以前用过什么 pytesseract 识别效果很差，还需要电脑上安装 `Tesseract OCR` 的软件，但是使用下来，效果不好，后面也用过 `PaddleOCR` 可以识别，但是识别速度比较慢，成功率也不高。后面又看到了这个开源工具，吹牛逼比较厉害，号称自己是验证码识别的最高境界，就试试看。官方的 GitHub 地址是：<https://github.com/litongjava/muggle_ocr>
