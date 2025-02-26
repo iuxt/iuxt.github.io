@@ -2,17 +2,16 @@
 title: Elasticsearch索引生命周期配置
 categories:
   - 日志
-tags:
-  - ES
-  - 常用操作
+tags: [ES, 常用操作]
 abbrlink: snui2r
 date: 2024-12-02 10:40:03
 cover: https://static.zahui.fan/public/elasticsearch.svg
+updated: 2025-02-26 11:36:26
 ---
 
 参考
-https://www.cnblogs.com/feifuzeng/p/13563430.html
-https://blog.csdn.net/feiying0canglang/article/details/129789161
+<https://www.cnblogs.com/feifuzeng/p/13563430.html>
+<https://blog.csdn.net/feiying0canglang/article/details/129789161>
 
 这里以 `Elasticsearch 7.17.14` 为例，7.8 版本之前与之后有一点区别。7.8 之后的 API 是：`_index_template`，7.8 之前的命令是：`_template`
 
@@ -103,7 +102,7 @@ PUT ingress-2024.12.01/_settings
 
 ## 对于 logstash
 
-logstash 会创建自己的默认 template，所以想要应用 template 需要禁用 logstash 的 template
+logstash 会创建自己的默认 template，所以想要应用 template 需要禁用 logstash 的 manage_template
 
 `logstash.conf`
 
