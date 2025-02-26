@@ -6,7 +6,7 @@ tags: [ES, 常用操作]
 abbrlink: snui2r
 date: 2024-12-02 10:40:03
 cover: https://static.zahui.fan/public/elasticsearch.svg
-updated: 2025-02-26 11:36:26
+updated: 2025-02-26 11:53:02
 ---
 
 参考
@@ -52,8 +52,13 @@ PUT /_index_template/ingress-log-template
   "index_patterns": ["ingress-*"],
   "template": {
     "settings": {
-      "index.lifecycle.name": "ingress-log-retention-policy",
-      "index.lifecycle.rollover_alias": "ingress-log-alias"
+      "number_of_replicas": 0,
+      "index": {
+        "lifecycle": {
+          "name": "ingress-log-retention-policy",
+          "rollover_alias": "ingress-log-alias"
+        }
+      }
     }
   }
 }
