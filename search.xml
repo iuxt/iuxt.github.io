@@ -335,11 +335,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> tls </tag>
             
             <tag> https </tag>
+            
+            <tag> 加密 </tag>
             
             <tag> SSL </tag>
             
@@ -1131,9 +1131,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 注册表 </tag>
             
@@ -1195,11 +1195,11 @@
       
         <tags>
             
-            <tag> PowerShell </tag>
-            
             <tag> 配置记录 </tag>
             
             <tag> 网络 </tag>
+            
+            <tag> PowerShell </tag>
             
             <tag> 防火墙 </tag>
             
@@ -1288,9 +1288,9 @@
       
         <tags>
             
-            <tag> Crontab </tag>
-            
             <tag> kubectl </tag>
+            
+            <tag> Crontab </tag>
             
             <tag> Kubernetes </tag>
             
@@ -1536,11 +1536,11 @@
       
         <tags>
             
-            <tag> mysqld </tag>
-            
             <tag> CentOS </tag>
             
             <tag> MySQL </tag>
+            
+            <tag> mysqld </tag>
             
             <tag> 运行库 </tag>
             
@@ -1569,11 +1569,11 @@
       
         <tags>
             
-            <tag> mysqld </tag>
-            
             <tag> MySQL </tag>
             
             <tag> 数据迁移 </tag>
+            
+            <tag> mysqld </tag>
             
         </tags>
       
@@ -1598,13 +1598,13 @@
       
         <tags>
             
-            <tag> wsl2 </tag>
+            <tag> 命令行工具 </tag>
             
             <tag> 网络 </tag>
             
             <tag> 效率工具 </tag>
             
-            <tag> 命令行工具 </tag>
+            <tag> wsl2 </tag>
             
         </tags>
       
@@ -1747,9 +1747,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 注册表 </tag>
             
@@ -1977,11 +1977,11 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
+            <tag> Shell </tag>
             
             <tag> cli </tag>
             
-            <tag> Shell </tag>
+            <tag> 命令行工具 </tag>
             
         </tags>
       
@@ -2006,11 +2006,11 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
+            <tag> Linux </tag>
             
             <tag> cli </tag>
             
-            <tag> Linux </tag>
+            <tag> 命令行工具 </tag>
             
             <tag> 文件 </tag>
             
@@ -2186,11 +2186,11 @@
       
         <tags>
             
-            <tag> 加密 </tag>
-            
             <tag> tls </tag>
             
             <tag> https </tag>
+            
+            <tag> 加密 </tag>
             
             <tag> SSL </tag>
             
@@ -2331,13 +2331,13 @@
       
         <tags>
             
-            <tag> cmd </tag>
-            
-            <tag> bat </tag>
+            <tag> Script </tag>
             
             <tag> 脚本 </tag>
             
-            <tag> Script </tag>
+            <tag> cmd </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -2455,8 +2455,6 @@
       
         <tags>
             
-            <tag> 浏览器 </tag>
-            
             <tag> Nginx </tag>
             
             <tag> 反向代理 </tag>
@@ -2464,6 +2462,8 @@
             <tag> 编码 </tag>
             
             <tag> ingress </tag>
+            
+            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -2538,11 +2538,11 @@
       
         <tags>
             
+            <tag> 脚本 </tag>
+            
             <tag> cmd </tag>
             
             <tag> bat </tag>
-            
-            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2607,7 +2607,7 @@
       <link href="/posts/lo4f92df/"/>
       <url>/posts/lo4f92df/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>回忆是抓不到的月光握紧就变黑暗，回忆是美好的，但不要沉迷于回忆，不要尝试安装模拟器去回忆之前的老游戏啦，会浪费现在的时间，童年是找不回来了，过好当下吧。一个在线体验老游戏的网址： <a href="https://zaixianwan.app/">https://zaixianwan.app</a></p><h2 id="为啥写这篇文章"><a href="#为啥写这篇文章" class="headerlink" title="为啥写这篇文章"></a>为啥写这篇文章</h2><p>时间过的太快， 看着身边的东西都变了样，有时候突然想起很久以前玩过的游戏，但是怎么也想不起名字，就算想起来了，搜索引擎都搜不到相关的文章，只能勉强搜到一些包浆了的图，所以还是记录下来，对自己的过去做个记录。</p><h2 id="俄罗斯方块机"><a href="#俄罗斯方块机" class="headerlink" title="俄罗斯方块机"></a>俄罗斯方块机</h2><h2 id="FC-游戏机"><a href="#FC-游戏机" class="headerlink" title="FC 游戏机"></a>FC 游戏机</h2><p>FC 游戏机指的是任天堂的红白机， 但是在中国普及开来的时候已经是盗版遍地了， 不仅仅是机器盗版， 还有很多盗版游戏， 还记得外星科技等等开发的那些塞尔达？</p><p>模拟器网上到处都是, 很多都是在线玩的. 比如 <a href="https://zaixianwan.app/">https://zaixianwan.app</a></p><p>一个背景音乐下载网站: <a href="https://www.zophar.net/music/">https://www.zophar.net/music/</a></p><p>NSFPlay 播放器：<a href="https://bbbradsmith.github.io/nsfplay/">https://bbbradsmith.github.io/nsfplay/</a></p><p>开源 nfs 编辑器: <a href="https://famistudio.org/">https://famistudio.org/</a></p><h3 id="小霸王"><a href="#小霸王" class="headerlink" title="小霸王"></a>小霸王</h3><p>当时村里已经有小伙伴用上了盗版小霸王（没错，是盗版的小霸王，真的小霸王还是比较贵的），和小霸王一样拥有键盘、打字游戏、光枪（玩打鸭子游戏），两个手柄，两张游戏卡带， 大概长这个样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310121159789.webp" alt="20200726003955_22567911932703161853315.webp"></p><p>小学的时候，经常去小伙伴家里一块玩， 那时候没有游戏卡，就玩上面的打字游戏。。。后面知道了可以玩游戏就一发不可收拾了</p><h3 id="最便宜的-FC-游戏机"><a href="#最便宜的-FC-游戏机" class="headerlink" title="最便宜的 FC 游戏机"></a>最便宜的 FC 游戏机</h3><p>等我有了第一台 FC 游戏机的时候， 好像已经上初中了（当时住校，有了一些饭钱），我们那边商店买了一台 16 块钱的山寨游戏机，只有两个手柄加一个主机和充电器。 附上牛屎图（花屏了可以用嘴舔舔）：</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051410090.jpg","alt":"10001.jpg"},{"url":"https://static.zahui.fan/images/202310051412370.png","alt":"image.png"}]</div>    </div><p>类似于这样， 当时家里的电视还是黑白的， 只能用射频线 RF 来连接， 就是把线插到电视机天线插座上面，然后进行搜台， 当然画质也比较差， 有时候运气好，可以搜到别人家的游戏画面。后面换了彩电，可以用 AV 线连接电视了。</p><h2 id="磁带机和-CD-机"><a href="#磁带机和-CD-机" class="headerlink" title="磁带机和 CD 机"></a>磁带机和 CD 机</h2><p>小学时候听的磁带机，听的最多的就是刀郎的歌，什么《2002 年的第一场雪》啦。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202406192347275.JPG","alt":"IMG_20240608_215503.JPG"},{"url":"https://static.zahui.fan/images/202406192356750.JPG","alt":"IMG_20240616_215110.JPG|674"},{"url":"https://static.zahui.fan/images/202406192348081.JPG","alt":"IMG_20240608_215742.JPG|657"},{"url":"https://static.zahui.fan/images/202406192348606.JPG","alt":"IMG_20240608_215747.JPG|694"},{"url":"https://static.zahui.fan/images/202406192349694.JPG","alt":"IMG_20240608_215952.JPG"}]</div>    </div><p>CD 机，听的第一首歌是 林俊杰 - 就是我</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202406082223717.jpg","alt":"10003.jpg|403"},{"url":"https://static.zahui.fan/images/202406082223884.jpg","alt":"10006.jpg|408"},{"url":"https://static.zahui.fan/images/202406082223922.jpg","alt":"10002.jpg|408"},{"url":"https://static.zahui.fan/images/202406082224807.jpg","alt":"10004.jpg|406"},{"url":"https://static.zahui.fan/images/202406082224306.webp","alt":"5c404375c9bf59863.jpg_e1080.webp|411"},{"url":"https://static.zahui.fan/images/202406192349314.PNG","alt":"IMG_20240608_221428.PNG|766"},{"url":"https://static.zahui.fan/images/202406192350667.PNG","alt":"IMG_20240608_221335.PNG|762"}]</div>    </div><h2 id="复读机和录音机"><a href="#复读机和录音机" class="headerlink" title="复读机和录音机"></a>复读机和录音机</h2><p>播放磁带的那种，骗自己是用来学英语的（初中高中英语老师上课都会拎着一个大录音机到教室播放听力磁带）</p><h2 id="MP3-和-MP4"><a href="#MP3-和-MP4" class="headerlink" title="MP3 和 MP4"></a>MP3 和 MP4</h2><p>初中的时候流行的 MP3，怕老师发现，有些带喇叭的 mp3 可以塞到手套里放在耳朵附近听歌。高中的时候流行的 MP4，MP3 刚开始硬盘只有 128MB。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202407311803167.JPEG","alt":""},{"url":"https://static.zahui.fan/images/202406192351063.JPG","alt":"IMG_20240608_220430.JPG|691"},{"url":"https://static.zahui.fan/images/202406192352094.JPG","alt":"IMG_20240608_220739.JPG|525"},{"url":"https://static.zahui.fan/images/202406192352050.JPG","alt":"IMG_20240608_220948.JPG|525"},{"url":"https://static.zahui.fan/images/202406192354750.JPG","alt":"IMG_20240608_221020.JPG"}]</div>    </div><h2 id="电子辞典"><a href="#电子辞典" class="headerlink" title="电子辞典"></a>电子辞典</h2><h3 id="步步高电子词典朗文-4980"><a href="#步步高电子词典朗文-4980" class="headerlink" title="步步高电子词典朗文 4980"></a>步步高电子词典朗文 4980</h3><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051554583.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202310051552668.png","alt":"image.png"}]</div>    </div><p>初中和高中时候玩的，就是个普通的电子词典，不一样的地方是它有 1MB 的磁盘空间，可以下载游戏，比较有名的游戏有： 伏魔记、三国霸业、魔塔等， 一节 7 号电池就能续航很久。</p><p>在线游玩地址: <a href="https://bbk-games.zahui.fan/">https://bbk-games.zahui.fan/</a> 和 <a href="https://bbk-games.zahui.fan/bbk-games/">https://bbk-games.zahui.fan/bbk-games/</a></p><h4 id="伏魔记"><a href="#伏魔记" class="headerlink" title="伏魔记"></a>伏魔记</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310131217857.png" alt="image.png"></p><h4 id="三国霸业"><a href="#三国霸业" class="headerlink" title="三国霸业"></a>三国霸业</h4><p>策略游戏，有各种兵种，记得比较搞笑的是可以劝降，不停得派人去招安敌方武将。。。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404242244027.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202404242244619.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202404242245727.png","alt":"image.png"}]</div>    </div><h4 id="魔塔"><a href="#魔塔" class="headerlink" title="魔塔"></a>魔塔</h4><p>移植自 flash 游戏魔塔</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404242247479.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202404242248180.png","alt":"image.png"}]</div>    </div><h3 id="步步高学习机-s1"><a href="#步步高学习机-s1" class="headerlink" title="步步高学习机 s1"></a>步步高学习机 s1</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310051624647.png" alt="image.png"></p><h4 id="雷霆战机"><a href="#雷霆战机" class="headerlink" title="雷霆战机"></a>雷霆战机</h4><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404242241769.png","alt":""},{"url":"https://static.zahui.fan/images/202404242240958.png","alt":""}]</div>    </div><h4 id="使命"><a href="#使命" class="headerlink" title="使命"></a>使命</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404121845999.png" alt="202404121845999.png|229"></p><h2 id="手机"><a href="#手机" class="headerlink" title="手机"></a>手机</h2><h3 id="TCl-5188"><a href="#TCl-5188" class="headerlink" title="TCl 5188"></a>TCl 5188</h3><p>家里的第一台手机, 那时候用的是一台 TCL 5188 翻盖手机, 屏幕是黑白的蓝色背光, 功能非常单一。 开机会有一个福字，外面的屏幕可以显示一些常见的信息。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051520215.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311160017851.png","alt":"image.png"}]</div>    </div><h3 id="充话费送的手机"><a href="#充话费送的手机" class="headerlink" title="充话费送的手机"></a>充话费送的手机</h3><p>充话费送的手机：预存 120 话费送一个联想的手机，分辨率是 128x128， 当时中国移动推广自己的移动梦网（在任意界面长按 0 就能直接跳到移动梦网界面，自带浏览器默认的首页就是移动梦网，还不能改，不过书签、历史记录这些都是带的），就这种低端的手机都带上网的功能，当然流量费很贵，最开始流量是 10 元&#x2F;MB，后来才改成 1 元&#x2F;MB， 当时就用它看看新闻、上上 3GQQ（网页版纯文字的 QQ）这个手机还不能运行 APP，能网上就不错了。如图：</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051527179.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202310051524403.png","alt":"image.png"}]</div>    </div><h3 id="诺基亚-1600"><a href="#诺基亚-1600" class="headerlink" title="诺基亚 1600"></a>诺基亚 1600</h3><p>爸爸用的手机，当年我高考的时候带进考场的就是这个。这个时候的诺基亚手机几乎都支持关闭背光使用, 不论黑白屏幕还是彩屏, 在其他机器上从来没见过的.哪怕现在支持息屏显示的机器, 也不能关闭背光使用.</p><p>特点：</p><ol><li>彩屏、支持关闭背光使用</li><li>砸核桃</li><li>可以玩贪吃蛇、骰子游戏、彩球滑梯。</li></ol><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212317251.png" alt="image.png"></p><p>附上诺基亚的半反半透屏幕：</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311242219869.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311242219862.png","alt":"image.png|476"},{"url":"https://static.zahui.fan/images/202311242220233.png","alt":"image.png|430"}]</div>    </div><h3 id="中兴-s190"><a href="#中兴-s190" class="headerlink" title="中兴 s190"></a>中兴 s190</h3><p>这个手机比较神奇， 同样的分辨率是 128x128，但是它竟然自带了手机 QQ 客户端，并且还有 UC 浏览器，并且支持 brew 平台（高通的软件平台，支持在商店安装 app，不过都是一些收费的游戏，游戏提供试玩时间）在上面玩过北京捷通华声的军魂系列，还有一款抄袭 cs 射击游戏， 这个手机我在高四复读的时候还在用。也就是这部手机让我对中兴特别有好感，上大学又买了三款中兴的手机。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051529730.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202310051529733.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202310051529081.png","alt":"image.png"}]</div>    </div><h3 id="LG-BL20E"><a href="#LG-BL20E" class="headerlink" title="LG BL20E"></a>LG BL20E</h3><p>不得不说, 这个手机是真心好看, 滑盖加黑红的设计, 摄像头是施耐德的 500 万像素, 在当时秒杀很多诺基亚了, 我一直用到上大学, 手机支持 java 程序，分辨率是 240x320 ，下载软件我都是选择的诺基亚</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311212242320.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311211912539.png","alt":"image.png|614"},{"url":"https://static.zahui.fan/images/202311211915393.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212058064.png","alt":"image.png|619"}]</div>    </div><h3 id="中兴-N788"><a href="#中兴-N788" class="headerlink" title="中兴 N788"></a>中兴 N788</h3><p>当时预存花费赠送的手机, 电信版, 当时有个口号: 一入电信深似海，从此手机不好买。说的就是当时没有全网通手机，移动手机插移动卡有 3G 信号，插联通卡只有 2G 信号，联通手机也类似。但是电信手机只能使用电信卡，电信卡也只能用在电信手机上，所以当时都是预存话费送手机的居多，当时的华为也还是低端充话费送的那种。神庙逃亡比较流行，但是这手机玩不了，内存只有 256MB，会闪退。我那时候还不会刷机，跟着论坛教程怎么也学不会 root，花了 15 块钱去手机店 root</p><p>手机参数：<br>网络模式：CDMA2000<br>外观设计：直板<br>主屏尺寸：3.5 英寸 480x320 像素<br>触摸屏：电容屏，多点触控<br>摄像头像素：320 万像素 CMOS<br>操作系统：Android OS 2.3<br>RAM 容量：256MB<br>ROM 容量：512MB<br>电池容量：1400mAh</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212343262.png" alt="image.png"></p><h3 id="中兴-V880"><a href="#中兴-V880" class="headerlink" title="中兴 V880"></a>中兴 V880</h3><p>v880 联通定制机器<br>u880 移动定制机器<br>n880 电信定制机器</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122242956.png" alt="image.png"></p><h3 id="中兴-N881F"><a href="#中兴-N881F" class="headerlink" title="中兴 N881F"></a>中兴 N881F</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212359434.png" alt="image.png"></p><p>手机配置：</p><p>960x540<br>1.2G 双核<br>768MB + 4GB<br>Android 4.0.4</p><h3 id="中兴-N909"><a href="#中兴-N909" class="headerlink" title="中兴 N909"></a>中兴 N909</h3><p>这款手机是电信定制机 (那时候还没有全网通这个概念, 电信版不兼容移动联通版本), 购买于中国电信官网，刷了 MIUI v5 使用，这个时候的运营商合约机配置还行，系统是真的差劲，几乎就是原生的 Android(中兴预装了 3d 蘑菇壁纸，划屏蘑菇会跟着转)，并且预装了一堆运营商定制软件，还不能卸载。手机内存 1G</p><p>电池：1800mAh<br>屏幕：4.5 英寸 480×854(FWVGA) 像素<br>操作系统：Android 4.1<br>CPU 型号：高通 MSM8625Q 四核 1228MHz<br>内存：1GB + 4GB<br>摄像头：500 万像素 + 30 万像素</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311160027547.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212353759.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212353266.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212354101.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212352147.png","alt":"image.png"}]</div>    </div><h3 id="诺基亚-lumia-636"><a href="#诺基亚-lumia-636" class="headerlink" title="诺基亚 lumia 636"></a>诺基亚 lumia 636</h3><p>这是一台 Windows Phone 8.1 手机, 联通 4G(移动 4G 是 Lumia 638), 支持小娜语音助手, 可以通过语音控制微信发消息等 (需要更新其他区域的固件). 这个操作也是遥遥领先当时的其他手机, 不过此版本系统稳定性堪忧, 会不定时自动重启, 微软也不解决。为了稳定, 只能用回旧版本系统. wp 类似 ios，支持消息推送，不过软件功能缺失，只能勉强实现基本功能。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311242221057.png" alt="image.png|382"></p><h3 id="天语大黄蜂小黄蜂"><a href="#天语大黄蜂小黄蜂" class="headerlink" title="天语大黄蜂小黄蜂"></a>天语大黄蜂小黄蜂</h3><p>天语 k-touch 当时也很火, 大小黄蜂都是预存话费送的, 刷机也很 6, 可以刷 MIUI, 当时 MIUI 还是引领潮流的。当时预装的是 云 OS<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122240898.png" alt="image.png"></p><h3 id="小米-2S"><a href="#小米-2S" class="headerlink" title="小米 2S"></a>小米 2S</h3><p>这手机当时是需要抢购的（饥饿营销），小米 2s 确实是小米的一代经典机器。配置顶级，售价 1999（我买的时候是 1299），MIUI v5 也是遥遥领先同行。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311242230287.png" alt="image.png|584"></p><h2 id="手机经典游戏"><a href="#手机经典游戏" class="headerlink" title="手机经典游戏"></a>手机经典游戏</h2><h4 id="诺基亚老款手机-空间大战"><a href="#诺基亚老款手机-空间大战" class="headerlink" title="诺基亚老款手机 空间大战"></a>诺基亚老款手机 空间大战</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310051648444.gif" alt="动画.gif"></p><h4 id="诺基亚-1600-彩球滑梯"><a href="#诺基亚-1600-彩球滑梯" class="headerlink" title="诺基亚 1600 彩球滑梯"></a>诺基亚 1600 彩球滑梯</h4><p><a href="https://www.bilibili.com/video/BV1a84y1M7gn/?vd_source=48f94495443a524e8f8b6eaf47c94823">https://www.bilibili.com/video/BV1a84y1M7gn/?vd_source=48f94495443a524e8f8b6eaf47c94823</a></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212324718.png" alt="image.png"><br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212326418.png" alt="image.png"></p><h4 id="诺基亚-贪吃蛇"><a href="#诺基亚-贪吃蛇" class="headerlink" title="诺基亚 贪吃蛇"></a>诺基亚 贪吃蛇</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212327524.png" alt="image.png"></p><h3 id="java-平台-j2me"><a href="#java-平台-j2me" class="headerlink" title="java 平台 j2me"></a>java 平台 j2me</h3><p>这个就是比较正统的非智能机上面的软件平台了，软件的后缀是 jar 或 jad（签名的 jar）签名版不会每次都弹出联网的提示。这个时候手机普遍是诺基亚的 s40 平台（非智能并兼容 java），诺基亚手机入门机器分辨率普遍不高，176x208 这个样子居多，高端机器是 240x320 分辨率，市面上的 java 游戏大概都是这些分辨率。这个时候可以安装官方版本的手机 QQ 和 UC 浏览器了。但是缺点是软件不支持后台运行（步步高的国产机可以后台运行一个软件，诺基亚的都不能后台运行软件）</p><h3 id="s60v3"><a href="#s60v3" class="headerlink" title="s60v3"></a>s60v3</h3><p>这个是 Symbian 智能系统了，没啥好说的， 也兼容 java 软件，软件后缀是 sis 和 sisx，手机 qq 可以后台运行，当时觉得比较震惊的还有手机版 360 安全卫士，有个浏览悬浮窗可以看到实时的网速。</p><h4 id="爱上手机-QQ"><a href="#爱上手机-QQ" class="headerlink" title="爱上手机 QQ"></a>爱上手机 QQ</h4><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311160024172.png","alt":"Screenshot_20231115-202451.png"},{"url":"https://static.zahui.fan/images/202311160025084.png","alt":"Screenshot_20231115-202545.png"}]</div>    </div><h4 id="UC-浏览器"><a href="#UC-浏览器" class="headerlink" title="UC 浏览器"></a>UC 浏览器</h4><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311160025520.png","alt":"Screenshot_20231115-113906.png"},{"url":"https://static.zahui.fan/images/202311160025985.png","alt":"Screenshot_20231115-114134.png"}]</div>    </div><h4 id="钻石狂潮"><a href="#钻石狂潮" class="headerlink" title="钻石狂潮"></a>钻石狂潮</h4><p>gameloft 的钻石狂潮（据说是部分诺基亚手机自带的游戏）</p><p>益智解密类游戏，有很多隐藏元素， 对手速也有要求。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310071530545.png" alt="Screenshot_20231004-224318.png"></p><h4 id="刺客"><a href="#刺客" class="headerlink" title="刺客"></a>刺客</h4><p>盛天堂的刺客系列，刺客之六国相印、刺客之骨肉分离</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310071728548.png" alt="Screenshot_20231007-172451.png"></p><h4 id="军魂"><a href="#军魂" class="headerlink" title="军魂"></a>军魂</h4><p>北京捷通华声的军魂系列，如军魂之二战风云, 这个游戏的特别之处在于路线多样性, 比如游戏中有步兵, 坦克, 船, 飞机, 比如步兵和坦克会走陆地, 船走水路, 飞机在空中飞, 这就有 3 条路线了. 同时武器也具有多样性, 机枪碉堡打小兵比较好, 炮台打坦克, 打飞机必须使用防空炮. 另外还有一种隐身小兵, 需要建造雷达, 在雷达的范围内才能发现.<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310071530402.png" alt="java_20231004-193114.png"></p><h4 id="喜羊羊大战葫芦娃"><a href="#喜羊羊大战葫芦娃" class="headerlink" title="喜羊羊大战葫芦娃"></a>喜羊羊大战葫芦娃</h4><p>喜羊羊大战葫芦娃, 一个格斗游戏</p><h4 id="反恐炸弹人-阿童木"><a href="#反恐炸弹人-阿童木" class="headerlink" title="反恐炸弹人 - 阿童木"></a>反恐炸弹人 - 阿童木</h4><p>类似于炸弹人的游戏， 它的特点是道具很多， 地形复杂，比如有个鞋可以把炸弹踢走， 还可以骑恐龙。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310131534813.png" alt="Screenshot_20231013-143221.png"></p><h4 id="植物僵尸"><a href="#植物僵尸" class="headerlink" title="植物僵尸"></a>植物僵尸</h4><p>没错， 这个是 java 版的山寨植物大战僵尸，虽说是山寨，游戏质量还是可以的。游戏中的僵尸被替换成了清朝僵尸一跳一跳的，到游戏后期，有皇后、戴帽子的僵尸、皇上等等，这个是我最开始接触到的植物大战僵尸，以至于后面玩到了正版的，当时还觉得是盗版的，因为僵尸太写实了。。。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310242223023.png","alt":"Screenshot_20231024-220906.png"},{"url":"https://static.zahui.fan/images/202310242226174.png","alt":"Screenshot_20231024-220925.png"},{"url":"https://static.zahui.fan/images/202310242226041.png","alt":"Screenshot_20231024-221325.png"},{"url":"https://static.zahui.fan/images/202310242226157.png","alt":"Screenshot_20231024-221321.png"},{"url":"https://static.zahui.fan/images/202310242230103.png","alt":"Screenshot_20231024-221346.png"}]</div>    </div><h2 id="手机系统-刷机"><a href="#手机系统-刷机" class="headerlink" title="手机系统 &amp; 刷机"></a>手机系统 &amp; 刷机</h2><h3 id="为什么要刷机"><a href="#为什么要刷机" class="headerlink" title="为什么要刷机"></a>为什么要刷机</h3><p>刷机就是给手机换一个操作系统，至于为什么要换，给没经历过的小朋友说明一下，举个例子：中兴 v880 手机的官方定价是 1499 元，但是大部分人拿到这台手机的花费是 0 元，也就是运营商合约机，比如你办一张新卡，月租 39&#x2F;月，绑定 1 年不能更换套餐，手机就免费送你了（也就是充话费送的手机），这个手机是原生安卓 2.x 系统，几乎没有任何厂商的优化，预装了超级多的运营商 APP（且都是不能卸载的，当时还没有预装软件相关的法律法规），想卸载就只能 root 或者刷机成 MIUI、Flyme 等其他好用的系统。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404122252023.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202404122246899.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202404122232205.png","alt":"image.png|677"}]</div>    </div><h3 id="冒泡游戏平台"><a href="#冒泡游戏平台" class="headerlink" title="冒泡游戏平台"></a>冒泡游戏平台</h3><p>参考知乎用户的回答：<a href="https://www.zhihu.com/question/24946202">https://www.zhihu.com/question/24946202</a></p><p>想要体验，可以安装 iacMrp-Mrp 冒泡模拟器， 或者直接在线游玩<a href="https://vmrp.github.io/">https://vmrp.github.io/</a>，或者：<a href="https://zengming00.github.io/">https://zengming00.github.io/</a> 开源作者：<a href="https://github.com/vmrp">https://github.com/vmrp</a></p><p>玩游戏 我要冒泡！</p><p>在智能机之前的功能机时代，正规军有诺基亚、摩托罗拉、索尼爱立信等，它们支持 j2me 也就是 java 平台，软件数量自然不用说，那么还有一批山寨机，它们价格便宜、电池大、声音大、双卡双待（甚至 4 卡 4 待）一批国内团队开始为山寨机打造各种专用软件和游戏平台，比如杭州斯凯的 MRP 平台、至尊宝 meg 平台、悠米 jra、艾华 iava 平台、雪鲤鱼 APP 平台，沃勤平台，上海酷吧平台，一时间国产手机软件平台如雨后春笋，百花齐放百家争鸣，其中最著名的就是 MRP 游戏和冒泡社区 MRP 是杭州斯凯网络科技公司自主研发的专用软件格式，是一种轻量级的虚拟平台 MINIJ 平台格式文件，用标准的 ANSI C 编写。可以说它是国产机专用游戏格式，比 Java 程序容量小，占据更少的系统内存，可以在恶劣的硬件条件下流畅运行各种程序，这一点非常适合包括国产的贴牌、杂牌及数量极其庞大的其它山寨机。这个公司还专门搞了个应用平台，叫做冒泡社区，在当年的山寨机上你只要在待机界面输入一串神秘代码： <code>*#220807#</code> ，你就能打开一扇新世界的大门，进入一个堪称山寨机乐园的世界，里面有游戏、小说、各种程序，还有各种你意想不到的东西除了像冒泡浏览器、冒泡书城、冒泡音乐播放器这样的基础应用外，软件商城里的各类游戏是值得大书特书的，里面的游戏全部是国产，制作公司除了斯凯本家之外，还吸引了乐堂动漫、美游、陆行鲨、华娱无线、FAST、大连斯芬克斯等优秀游戏制作公司，推出了包括街机风动作游戏、飞行射击、RPG、即时战略、策略、竞速等几乎囊括了游戏的全部类型，当然，这些游戏不仅要付费下载，里面还有氪金选项，可以说是一举奠定了中国手机游戏的盈利模式，影响至今随着破解手段的增多，冒泡社区开始往手机网游方向发展，图形手机网游哦，当年文字网游大行其道的时候，推出全部图形在线网游，魄力相当大，其中优秀代表是幻想三国、仙剑问情，至今让有无数玩家坚守、无数玩家回忆。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311212309263.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212309891.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202311212254207.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202310051534088.png","alt":"image.png"},{"url":"https://static.zahui.fan/images/202310051534381.png","alt":"image.png"}]</div>    </div><h3 id="MIUI"><a href="#MIUI" class="headerlink" title="MIUI"></a>MIUI</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122235311.png" alt="image.png|557"></p><p>啥都不说了，看图吧</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311242248301.png","alt":"image.png|326"},{"url":"https://static.zahui.fan/images/202311242248592.png","alt":"image.png|329"},{"url":"https://static.zahui.fan/images/202311242248038.png","alt":"image.png|358"},{"url":"https://static.zahui.fan/images/202311242249054.png","alt":"image.png|361"},{"url":"https://static.zahui.fan/images/202311242252126.png","alt":"image.png|378"},{"url":"https://static.zahui.fan/images/202311242252042.png","alt":"image.png|691"},{"url":"https://static.zahui.fan/images/202311242253845.png","alt":"image.png|693"},{"url":"https://static.zahui.fan/images/202311242253052.png","alt":"image.png|457"},{"url":"https://static.zahui.fan/images/202311242254984.png","alt":"image.png|746"},{"url":"https://static.zahui.fan/images/202311242255232.png","alt":"image.png|402"}]</div>    </div><h3 id="乐蛙"><a href="#乐蛙" class="headerlink" title="乐蛙"></a>乐蛙</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122236978.png" alt="image.png|516"></p><h3 id="CyanogenMod-和-Lineage-OS"><a href="#CyanogenMod-和-Lineage-OS" class="headerlink" title="CyanogenMod 和 Lineage OS"></a>CyanogenMod 和 Lineage OS</h3><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404122234154.png","alt":"image.png|525"},{"url":"https://static.zahui.fan/images/202404122236329.png","alt":"image.png|471"}]</div>    </div><h3 id="魔趣-Mokee"><a href="#魔趣-Mokee" class="headerlink" title="魔趣 Mokee"></a>魔趣 Mokee</h3><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404122235421.png","alt":"image.png|550"},{"url":"https://static.zahui.fan/images/202404122231358.png","alt":"image.png|545"}]</div>    </div><h3 id="云-OS-（阿里）"><a href="#云-OS-（阿里）" class="headerlink" title="云 OS （阿里）"></a>云 OS （阿里）</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122237448.png" alt="image.png"></p><p>魅族 MX4 就有安卓版和云 OS 版<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122239585.png" alt="image.png"></p><h3 id="百度云-OS"><a href="#百度云-OS" class="headerlink" title="百度云 OS"></a>百度云 OS</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122238942.png" alt="image.png"></p><p>百度还收购了点心 OS</p><h3 id="腾讯-tita-或者-TOS"><a href="#腾讯-tita-或者-TOS" class="headerlink" title="腾讯 tita 或者 TOS"></a>腾讯 tita 或者 TOS</h3><p>没用过。。适配的机器比较少</p><h3 id="安卓"><a href="#安卓" class="headerlink" title="安卓"></a>安卓</h3><p>高中 3 年没见过安卓, 复读班同学有安卓机了, 一个 sharp 当时觉得很惊艳. 玩雷霆赛车可以使用重力感应来控制车辆转弯。</p><p>大学一个宿舍, 5 个非智能手机, 一台 oppo 的智能机，过了半年，都换成了智能机</p><h3 id="IOS-5-IOS-6"><a href="#IOS-5-IOS-6" class="headerlink" title="IOS 5 &amp; IOS 6"></a>IOS 5 &amp; IOS 6</h3><p>第一次见 ios6 是在同学的 <code>iPhone 5</code> 上面的，黑色 <code>iPhone 5</code> 配上拟物化界面，非常漂亮。</p><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202406082220437.jpg","alt":"10001 (1).jpg|533"},{"url":"https://static.zahui.fan/images/202406082221158.jpg","alt":"10001 (2).jpg|530"},{"url":"https://static.zahui.fan/images/202406082221594.jpg","alt":"10001 (3).jpg|599"},{"url":"https://static.zahui.fan/images/202406082221666.jpg","alt":"10001.jpg|604"},{"url":"https://static.zahui.fan/images/202406080907985.PNG","alt":""},{"url":"https://static.zahui.fan/images/202406080908491.JPG","alt":"202406080908491.JPG|474"},{"url":"https://static.zahui.fan/images/202406080908363.JPG","alt":"202406080908363.JPG|522"},{"url":"https://static.zahui.fan/images/202406200002342.jpg","alt":""},{"url":"https://static.zahui.fan/images/202406200003461.webp","alt":"10073.webp"},{"url":"https://static.zahui.fan/images/202406200004119.png","alt":"10025.png"},{"url":"https://static.zahui.fan/images/202406200004958.png","alt":"10027.png"},{"url":"https://static.zahui.fan/images/202406200004140.png","alt":"10029.png"},{"url":"https://static.zahui.fan/images/202406200006910.png","alt":"10085.png"},{"url":"https://static.zahui.fan/images/202406200007027.png","alt":"10148.png"},{"url":"https://static.zahui.fan/images/202406200007634.webp","alt":"10147.webp"},{"url":"https://static.zahui.fan/images/202406200007238.png","alt":"10149.png"},{"url":"https://static.zahui.fan/images/202406200008719.png","alt":"10152.png"},{"url":"https://static.zahui.fan/images/202406200008634.webp","alt":"10151.webp"},{"url":"https://static.zahui.fan/images/202406200008544.webp","alt":"10157.webp"}]</div>    </div><h2 id="其他小物件"><a href="#其他小物件" class="headerlink" title="其他小物件"></a>其他小物件</h2><h3 id="红灯收音机"><a href="#红灯收音机" class="headerlink" title="红灯收音机"></a>红灯收音机</h3><p>爷爷听了一辈子的收音机，只停留在一个台上，接下来是新闻和报纸摘要时间~<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202312011724446.png" alt="image.png"></p><h3 id="手机来电闪"><a href="#手机来电闪" class="headerlink" title="手机来电闪"></a>手机来电闪</h3><p>来电闪灯除了好看之外，还有个用处，就是判断网速情况（非智能手机是没有软件支持悬浮窗的，不能像塞班装个 360 就可以显示流量悬浮窗，知道网页能不能打开），一般来说，先打开个网页，然后翻过手机看它闪得厉害不，如果闪着闪着不闪了，而网页还在加载，那么大概率一时半会是加载不出来了，就取消然后重新点击😄</p><h3 id="万能充"><a href="#万能充" class="headerlink" title="万能充"></a>万能充</h3><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404250117867.JPEG","alt":"IMG_0759.JPG_compressed.JPEG|314"},{"url":"https://static.zahui.fan/images/202404250117868.JPEG","alt":"IMG_0759.JPG_compressed.JPEG|322"}]</div>    </div><h3 id="大头贴"><a href="#大头贴" class="headerlink" title="大头贴"></a>大头贴</h3><p>在机器上拍照后会像拍立得一样出来，然后可以贴在手机、书上等，图片搜集自网络<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202407311820527.png" alt="image.png"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>回忆是抓不到的月光握紧就变黑暗，回忆是美好的，但不要沉迷于回忆，不要尝试安装模拟器去回忆之前的老游戏啦，会浪费现在的时间，童年是找不回来了，过好当下吧。一个在线体验老游戏的网址： <a href="https://zaixianwan.app/">https://zaixianwan.app</a></p><h2 id="为啥写这篇文章"><a href="#为啥写这篇文章" class="headerlink" title="为啥写这篇文章"></a>为啥写这篇文章</h2><p>时间过的太快， 看着身边的东西都变了样，有时候突然想起很久以前玩过的游戏，但是怎么也想不起名字，就算想起来了，搜索引擎都搜不到相关的文章，只能勉强搜到一些包浆了的图，所以还是记录下来，对自己的过去做个记录。</p><h2 id="俄罗斯方块机"><a href="#俄罗斯方块机" class="headerlink" title="俄罗斯方块机"></a>俄罗斯方块机</h2><h2 id="FC-游戏机"><a href="#FC-游戏机" class="headerlink" title="FC 游戏机"></a>FC 游戏机</h2><p>FC 游戏机指的是任天堂的红白机， 但是在中国普及开来的时候已经是盗版遍地了， 不仅仅是机器盗版， 还有很多盗版游戏， 还记得外星科技等等开发的那些塞尔达？</p><p>模拟器网上到处都是, 很多都是在线玩的. 比如 <a href="https://zaixianwan.app/">https://zaixianwan.app</a></p><p>一个背景音乐下载网站: <a href="https://www.zophar.net/music/">https://www.zophar.net/music/</a></p><p>NSFPlay 播放器：<a href="https://bbbradsmith.github.io/nsfplay/">https://bbbradsmith.github.io/nsfplay/</a></p><p>开源 nfs 编辑器: <a href="https://famistudio.org/">https://famistudio.org/</a></p><h3 id="小霸王"><a href="#小霸王" class="headerlink" title="小霸王"></a>小霸王</h3><p>当时村里已经有小伙伴用上了盗版小霸王（没错，是盗版的小霸王，真的小霸王还是比较贵的），和小霸王一样拥有键盘、打字游戏、光枪（玩打鸭子游戏），两个手柄，两张游戏卡带， 大概长这个样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310121159789.webp" alt="20200726003955_22567911932703161853315.webp"></p><p>小学的时候，经常去小伙伴家里一块玩， 那时候没有游戏卡，就玩上面的打字游戏。。。后面知道了可以玩游戏就一发不可收拾了</p><h3 id="最便宜的-FC-游戏机"><a href="#最便宜的-FC-游戏机" class="headerlink" title="最便宜的 FC 游戏机"></a>最便宜的 FC 游戏机</h3><p>等我有了第一台 FC 游戏机的时候， 好像已经上初中了（当时住校，有了一些饭钱），我们那边商店买了一台 16 块钱的山寨游戏机，只有两个手柄加一个主机和充电器。 附上牛屎图（花屏了可以用嘴舔舔）：</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051410090.jpg","alt":"10001.jpg","title":""},{"url":"https://static.zahui.fan/images/202310051412370.png","alt":"image.png","title":""}]</div>  </div><p>类似于这样， 当时家里的电视还是黑白的， 只能用射频线 RF 来连接， 就是把线插到电视机天线插座上面，然后进行搜台， 当然画质也比较差， 有时候运气好，可以搜到别人家的游戏画面。后面换了彩电，可以用 AV 线连接电视了。</p><h2 id="磁带机和-CD-机"><a href="#磁带机和-CD-机" class="headerlink" title="磁带机和 CD 机"></a>磁带机和 CD 机</h2><p>小学时候听的磁带机，听的最多的就是刀郎的歌，什么《2002 年的第一场雪》啦。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202406192347275.JPG","alt":"IMG_20240608_215503.JPG","title":""},{"url":"https://static.zahui.fan/images/202406192356750.JPG","alt":"IMG_20240616_215110.JPG|674","title":""},{"url":"https://static.zahui.fan/images/202406192348081.JPG","alt":"IMG_20240608_215742.JPG|657","title":""},{"url":"https://static.zahui.fan/images/202406192348606.JPG","alt":"IMG_20240608_215747.JPG|694","title":""},{"url":"https://static.zahui.fan/images/202406192349694.JPG","alt":"IMG_20240608_215952.JPG","title":""}]</div>  </div><p>CD 机，听的第一首歌是 林俊杰 - 就是我</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202406082223717.jpg","alt":"10003.jpg|403","title":""},{"url":"https://static.zahui.fan/images/202406082223884.jpg","alt":"10006.jpg|408","title":""},{"url":"https://static.zahui.fan/images/202406082223922.jpg","alt":"10002.jpg|408","title":""},{"url":"https://static.zahui.fan/images/202406082224807.jpg","alt":"10004.jpg|406","title":""},{"url":"https://static.zahui.fan/images/202406082224306.webp","alt":"5c404375c9bf59863.jpg_e1080.webp|411","title":""},{"url":"https://static.zahui.fan/images/202406192349314.PNG","alt":"IMG_20240608_221428.PNG|766","title":""},{"url":"https://static.zahui.fan/images/202406192350667.PNG","alt":"IMG_20240608_221335.PNG|762","title":""}]</div>  </div><h2 id="复读机和录音机"><a href="#复读机和录音机" class="headerlink" title="复读机和录音机"></a>复读机和录音机</h2><p>播放磁带的那种，骗自己是用来学英语的（初中高中英语老师上课都会拎着一个大录音机到教室播放听力磁带）</p><h2 id="MP3-和-MP4"><a href="#MP3-和-MP4" class="headerlink" title="MP3 和 MP4"></a>MP3 和 MP4</h2><p>初中的时候流行的 MP3，怕老师发现，有些带喇叭的 mp3 可以塞到手套里放在耳朵附近听歌。高中的时候流行的 MP4，MP3 刚开始硬盘只有 128MB。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202407311803167.JPEG","alt":"","title":""},{"url":"https://static.zahui.fan/images/202406192351063.JPG","alt":"IMG_20240608_220430.JPG|691","title":""},{"url":"https://static.zahui.fan/images/202406192352094.JPG","alt":"IMG_20240608_220739.JPG|525","title":""},{"url":"https://static.zahui.fan/images/202406192352050.JPG","alt":"IMG_20240608_220948.JPG|525","title":""},{"url":"https://static.zahui.fan/images/202406192354750.JPG","alt":"IMG_20240608_221020.JPG","title":""}]</div>  </div><h2 id="电子辞典"><a href="#电子辞典" class="headerlink" title="电子辞典"></a>电子辞典</h2><h3 id="步步高电子词典朗文-4980"><a href="#步步高电子词典朗文-4980" class="headerlink" title="步步高电子词典朗文 4980"></a>步步高电子词典朗文 4980</h3><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051554583.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202310051552668.png","alt":"image.png","title":""}]</div>  </div><p>初中和高中时候玩的，就是个普通的电子词典，不一样的地方是它有 1MB 的磁盘空间，可以下载游戏，比较有名的游戏有： 伏魔记、三国霸业、魔塔等， 一节 7 号电池就能续航很久。</p><p>在线游玩地址: <a href="https://bbk-games.zahui.fan/">https://bbk-games.zahui.fan/</a> 和 <a href="https://bbk-games.zahui.fan/bbk-games/">https://bbk-games.zahui.fan/bbk-games/</a></p><h4 id="伏魔记"><a href="#伏魔记" class="headerlink" title="伏魔记"></a>伏魔记</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310131217857.png" alt="image.png"></p><h4 id="三国霸业"><a href="#三国霸业" class="headerlink" title="三国霸业"></a>三国霸业</h4><p>策略游戏，有各种兵种，记得比较搞笑的是可以劝降，不停得派人去招安敌方武将。。。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404242244027.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202404242244619.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202404242245727.png","alt":"image.png","title":""}]</div>  </div><h4 id="魔塔"><a href="#魔塔" class="headerlink" title="魔塔"></a>魔塔</h4><p>移植自 flash 游戏魔塔</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404242247479.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202404242248180.png","alt":"image.png","title":""}]</div>  </div><h3 id="步步高学习机-s1"><a href="#步步高学习机-s1" class="headerlink" title="步步高学习机 s1"></a>步步高学习机 s1</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310051624647.png" alt="image.png"></p><h4 id="雷霆战机"><a href="#雷霆战机" class="headerlink" title="雷霆战机"></a>雷霆战机</h4><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404242241769.png","alt":"","title":""},{"url":"https://static.zahui.fan/images/202404242240958.png","alt":"","title":""}]</div>  </div><h4 id="使命"><a href="#使命" class="headerlink" title="使命"></a>使命</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404121845999.png" alt="202404121845999.png|229"></p><h2 id="手机"><a href="#手机" class="headerlink" title="手机"></a>手机</h2><h3 id="TCl-5188"><a href="#TCl-5188" class="headerlink" title="TCl 5188"></a>TCl 5188</h3><p>家里的第一台手机, 那时候用的是一台 TCL 5188 翻盖手机, 屏幕是黑白的蓝色背光, 功能非常单一。 开机会有一个福字，外面的屏幕可以显示一些常见的信息。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051520215.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311160017851.png","alt":"image.png","title":""}]</div>  </div><h3 id="充话费送的手机"><a href="#充话费送的手机" class="headerlink" title="充话费送的手机"></a>充话费送的手机</h3><p>充话费送的手机：预存 120 话费送一个联想的手机，分辨率是 128x128， 当时中国移动推广自己的移动梦网（在任意界面长按 0 就能直接跳到移动梦网界面，自带浏览器默认的首页就是移动梦网，还不能改，不过书签、历史记录这些都是带的），就这种低端的手机都带上网的功能，当然流量费很贵，最开始流量是 10 元&#x2F;MB，后来才改成 1 元&#x2F;MB， 当时就用它看看新闻、上上 3GQQ（网页版纯文字的 QQ）这个手机还不能运行 APP，能网上就不错了。如图：</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051527179.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202310051524403.png","alt":"image.png","title":""}]</div>  </div><h3 id="诺基亚-1600"><a href="#诺基亚-1600" class="headerlink" title="诺基亚 1600"></a>诺基亚 1600</h3><p>爸爸用的手机，当年我高考的时候带进考场的就是这个。这个时候的诺基亚手机几乎都支持关闭背光使用, 不论黑白屏幕还是彩屏, 在其他机器上从来没见过的.哪怕现在支持息屏显示的机器, 也不能关闭背光使用.</p><p>特点：</p><ol><li>彩屏、支持关闭背光使用</li><li>砸核桃</li><li>可以玩贪吃蛇、骰子游戏、彩球滑梯。</li></ol><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212317251.png" alt="image.png"></p><p>附上诺基亚的半反半透屏幕：</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311242219869.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311242219862.png","alt":"image.png|476","title":""},{"url":"https://static.zahui.fan/images/202311242220233.png","alt":"image.png|430","title":""}]</div>  </div><h3 id="中兴-s190"><a href="#中兴-s190" class="headerlink" title="中兴 s190"></a>中兴 s190</h3><p>这个手机比较神奇， 同样的分辨率是 128x128，但是它竟然自带了手机 QQ 客户端，并且还有 UC 浏览器，并且支持 brew 平台（高通的软件平台，支持在商店安装 app，不过都是一些收费的游戏，游戏提供试玩时间）在上面玩过北京捷通华声的军魂系列，还有一款抄袭 cs 射击游戏， 这个手机我在高四复读的时候还在用。也就是这部手机让我对中兴特别有好感，上大学又买了三款中兴的手机。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310051529730.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202310051529733.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202310051529081.png","alt":"image.png","title":""}]</div>  </div><h3 id="LG-BL20E"><a href="#LG-BL20E" class="headerlink" title="LG BL20E"></a>LG BL20E</h3><p>不得不说, 这个手机是真心好看, 滑盖加黑红的设计, 摄像头是施耐德的 500 万像素, 在当时秒杀很多诺基亚了, 我一直用到上大学, 手机支持 java 程序，分辨率是 240x320 ，下载软件我都是选择的诺基亚</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311212242320.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311211912539.png","alt":"image.png|614","title":""},{"url":"https://static.zahui.fan/images/202311211915393.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212058064.png","alt":"image.png|619","title":""}]</div>  </div><h3 id="中兴-N788"><a href="#中兴-N788" class="headerlink" title="中兴 N788"></a>中兴 N788</h3><p>当时预存花费赠送的手机, 电信版, 当时有个口号: 一入电信深似海，从此手机不好买。说的就是当时没有全网通手机，移动手机插移动卡有 3G 信号，插联通卡只有 2G 信号，联通手机也类似。但是电信手机只能使用电信卡，电信卡也只能用在电信手机上，所以当时都是预存话费送手机的居多，当时的华为也还是低端充话费送的那种。神庙逃亡比较流行，但是这手机玩不了，内存只有 256MB，会闪退。我那时候还不会刷机，跟着论坛教程怎么也学不会 root，花了 15 块钱去手机店 root</p><p>手机参数：<br>网络模式：CDMA2000<br>外观设计：直板<br>主屏尺寸：3.5 英寸 480x320 像素<br>触摸屏：电容屏，多点触控<br>摄像头像素：320 万像素 CMOS<br>操作系统：Android OS 2.3<br>RAM 容量：256MB<br>ROM 容量：512MB<br>电池容量：1400mAh</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212343262.png" alt="image.png"></p><h3 id="中兴-V880"><a href="#中兴-V880" class="headerlink" title="中兴 V880"></a>中兴 V880</h3><p>v880 联通定制机器<br>u880 移动定制机器<br>n880 电信定制机器</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122242956.png" alt="image.png"></p><h3 id="中兴-N881F"><a href="#中兴-N881F" class="headerlink" title="中兴 N881F"></a>中兴 N881F</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212359434.png" alt="image.png"></p><p>手机配置：</p><p>960x540<br>1.2G 双核<br>768MB + 4GB<br>Android 4.0.4</p><h3 id="中兴-N909"><a href="#中兴-N909" class="headerlink" title="中兴 N909"></a>中兴 N909</h3><p>这款手机是电信定制机 (那时候还没有全网通这个概念, 电信版不兼容移动联通版本), 购买于中国电信官网，刷了 MIUI v5 使用，这个时候的运营商合约机配置还行，系统是真的差劲，几乎就是原生的 Android(中兴预装了 3d 蘑菇壁纸，划屏蘑菇会跟着转)，并且预装了一堆运营商定制软件，还不能卸载。手机内存 1G</p><p>电池：1800mAh<br>屏幕：4.5 英寸 480×854(FWVGA) 像素<br>操作系统：Android 4.1<br>CPU 型号：高通 MSM8625Q 四核 1228MHz<br>内存：1GB + 4GB<br>摄像头：500 万像素 + 30 万像素</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311160027547.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212353759.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212353266.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212354101.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212352147.png","alt":"image.png","title":""}]</div>  </div><h3 id="诺基亚-lumia-636"><a href="#诺基亚-lumia-636" class="headerlink" title="诺基亚 lumia 636"></a>诺基亚 lumia 636</h3><p>这是一台 Windows Phone 8.1 手机, 联通 4G(移动 4G 是 Lumia 638), 支持小娜语音助手, 可以通过语音控制微信发消息等 (需要更新其他区域的固件). 这个操作也是遥遥领先当时的其他手机, 不过此版本系统稳定性堪忧, 会不定时自动重启, 微软也不解决。为了稳定, 只能用回旧版本系统. wp 类似 ios，支持消息推送，不过软件功能缺失，只能勉强实现基本功能。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311242221057.png" alt="image.png|382"></p><h3 id="天语大黄蜂小黄蜂"><a href="#天语大黄蜂小黄蜂" class="headerlink" title="天语大黄蜂小黄蜂"></a>天语大黄蜂小黄蜂</h3><p>天语 k-touch 当时也很火, 大小黄蜂都是预存话费送的, 刷机也很 6, 可以刷 MIUI, 当时 MIUI 还是引领潮流的。当时预装的是 云 OS<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122240898.png" alt="image.png"></p><h3 id="小米-2S"><a href="#小米-2S" class="headerlink" title="小米 2S"></a>小米 2S</h3><p>这手机当时是需要抢购的（饥饿营销），小米 2s 确实是小米的一代经典机器。配置顶级，售价 1999（我买的时候是 1299），MIUI v5 也是遥遥领先同行。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311242230287.png" alt="image.png|584"></p><h2 id="手机经典游戏"><a href="#手机经典游戏" class="headerlink" title="手机经典游戏"></a>手机经典游戏</h2><h4 id="诺基亚老款手机-空间大战"><a href="#诺基亚老款手机-空间大战" class="headerlink" title="诺基亚老款手机 空间大战"></a>诺基亚老款手机 空间大战</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310051648444.gif" alt="动画.gif"></p><h4 id="诺基亚-1600-彩球滑梯"><a href="#诺基亚-1600-彩球滑梯" class="headerlink" title="诺基亚 1600 彩球滑梯"></a>诺基亚 1600 彩球滑梯</h4><p><a href="https://www.bilibili.com/video/BV1a84y1M7gn/?vd_source=48f94495443a524e8f8b6eaf47c94823">https://www.bilibili.com/video/BV1a84y1M7gn/?vd_source=48f94495443a524e8f8b6eaf47c94823</a></p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212324718.png" alt="image.png"><br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212326418.png" alt="image.png"></p><h4 id="诺基亚-贪吃蛇"><a href="#诺基亚-贪吃蛇" class="headerlink" title="诺基亚 贪吃蛇"></a>诺基亚 贪吃蛇</h4><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202311212327524.png" alt="image.png"></p><h3 id="java-平台-j2me"><a href="#java-平台-j2me" class="headerlink" title="java 平台 j2me"></a>java 平台 j2me</h3><p>这个就是比较正统的非智能机上面的软件平台了，软件的后缀是 jar 或 jad（签名的 jar）签名版不会每次都弹出联网的提示。这个时候手机普遍是诺基亚的 s40 平台（非智能并兼容 java），诺基亚手机入门机器分辨率普遍不高，176x208 这个样子居多，高端机器是 240x320 分辨率，市面上的 java 游戏大概都是这些分辨率。这个时候可以安装官方版本的手机 QQ 和 UC 浏览器了。但是缺点是软件不支持后台运行（步步高的国产机可以后台运行一个软件，诺基亚的都不能后台运行软件）</p><h3 id="s60v3"><a href="#s60v3" class="headerlink" title="s60v3"></a>s60v3</h3><p>这个是 Symbian 智能系统了，没啥好说的， 也兼容 java 软件，软件后缀是 sis 和 sisx，手机 qq 可以后台运行，当时觉得比较震惊的还有手机版 360 安全卫士，有个浏览悬浮窗可以看到实时的网速。</p><h4 id="爱上手机-QQ"><a href="#爱上手机-QQ" class="headerlink" title="爱上手机 QQ"></a>爱上手机 QQ</h4><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311160024172.png","alt":"Screenshot_20231115-202451.png","title":""},{"url":"https://static.zahui.fan/images/202311160025084.png","alt":"Screenshot_20231115-202545.png","title":""}]</div>  </div><h4 id="UC-浏览器"><a href="#UC-浏览器" class="headerlink" title="UC 浏览器"></a>UC 浏览器</h4><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311160025520.png","alt":"Screenshot_20231115-113906.png","title":""},{"url":"https://static.zahui.fan/images/202311160025985.png","alt":"Screenshot_20231115-114134.png","title":""}]</div>  </div><h4 id="钻石狂潮"><a href="#钻石狂潮" class="headerlink" title="钻石狂潮"></a>钻石狂潮</h4><p>gameloft 的钻石狂潮（据说是部分诺基亚手机自带的游戏）</p><p>益智解密类游戏，有很多隐藏元素， 对手速也有要求。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310071530545.png" alt="Screenshot_20231004-224318.png"></p><h4 id="刺客"><a href="#刺客" class="headerlink" title="刺客"></a>刺客</h4><p>盛天堂的刺客系列，刺客之六国相印、刺客之骨肉分离</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310071728548.png" alt="Screenshot_20231007-172451.png"></p><h4 id="军魂"><a href="#军魂" class="headerlink" title="军魂"></a>军魂</h4><p>北京捷通华声的军魂系列，如军魂之二战风云, 这个游戏的特别之处在于路线多样性, 比如游戏中有步兵, 坦克, 船, 飞机, 比如步兵和坦克会走陆地, 船走水路, 飞机在空中飞, 这就有 3 条路线了. 同时武器也具有多样性, 机枪碉堡打小兵比较好, 炮台打坦克, 打飞机必须使用防空炮. 另外还有一种隐身小兵, 需要建造雷达, 在雷达的范围内才能发现.<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310071530402.png" alt="java_20231004-193114.png"></p><h4 id="喜羊羊大战葫芦娃"><a href="#喜羊羊大战葫芦娃" class="headerlink" title="喜羊羊大战葫芦娃"></a>喜羊羊大战葫芦娃</h4><p>喜羊羊大战葫芦娃, 一个格斗游戏</p><h4 id="反恐炸弹人-阿童木"><a href="#反恐炸弹人-阿童木" class="headerlink" title="反恐炸弹人 - 阿童木"></a>反恐炸弹人 - 阿童木</h4><p>类似于炸弹人的游戏， 它的特点是道具很多， 地形复杂，比如有个鞋可以把炸弹踢走， 还可以骑恐龙。<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202310131534813.png" alt="Screenshot_20231013-143221.png"></p><h4 id="植物僵尸"><a href="#植物僵尸" class="headerlink" title="植物僵尸"></a>植物僵尸</h4><p>没错， 这个是 java 版的山寨植物大战僵尸，虽说是山寨，游戏质量还是可以的。游戏中的僵尸被替换成了清朝僵尸一跳一跳的，到游戏后期，有皇后、戴帽子的僵尸、皇上等等，这个是我最开始接触到的植物大战僵尸，以至于后面玩到了正版的，当时还觉得是盗版的，因为僵尸太写实了。。。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202310242223023.png","alt":"Screenshot_20231024-220906.png","title":""},{"url":"https://static.zahui.fan/images/202310242226174.png","alt":"Screenshot_20231024-220925.png","title":""},{"url":"https://static.zahui.fan/images/202310242226041.png","alt":"Screenshot_20231024-221325.png","title":""},{"url":"https://static.zahui.fan/images/202310242226157.png","alt":"Screenshot_20231024-221321.png","title":""},{"url":"https://static.zahui.fan/images/202310242230103.png","alt":"Screenshot_20231024-221346.png","title":""}]</div>  </div><h2 id="手机系统-刷机"><a href="#手机系统-刷机" class="headerlink" title="手机系统 &amp; 刷机"></a>手机系统 &amp; 刷机</h2><h3 id="为什么要刷机"><a href="#为什么要刷机" class="headerlink" title="为什么要刷机"></a>为什么要刷机</h3><p>刷机就是给手机换一个操作系统，至于为什么要换，给没经历过的小朋友说明一下，举个例子：中兴 v880 手机的官方定价是 1499 元，但是大部分人拿到这台手机的花费是 0 元，也就是运营商合约机，比如你办一张新卡，月租 39&#x2F;月，绑定 1 年不能更换套餐，手机就免费送你了（也就是充话费送的手机），这个手机是原生安卓 2.x 系统，几乎没有任何厂商的优化，预装了超级多的运营商 APP（且都是不能卸载的，当时还没有预装软件相关的法律法规），想卸载就只能 root 或者刷机成 MIUI、Flyme 等其他好用的系统。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404122252023.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202404122246899.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202404122232205.png","alt":"image.png|677","title":""}]</div>  </div><h3 id="冒泡游戏平台"><a href="#冒泡游戏平台" class="headerlink" title="冒泡游戏平台"></a>冒泡游戏平台</h3><p>参考知乎用户的回答：<a href="https://www.zhihu.com/question/24946202">https://www.zhihu.com/question/24946202</a></p><p>想要体验，可以安装 iacMrp-Mrp 冒泡模拟器， 或者直接在线游玩<a href="https://vmrp.github.io/">https://vmrp.github.io/</a>，或者：<a href="https://zengming00.github.io/">https://zengming00.github.io/</a> 开源作者：<a href="https://github.com/vmrp">https://github.com/vmrp</a></p><p>玩游戏 我要冒泡！</p><p>在智能机之前的功能机时代，正规军有诺基亚、摩托罗拉、索尼爱立信等，它们支持 j2me 也就是 java 平台，软件数量自然不用说，那么还有一批山寨机，它们价格便宜、电池大、声音大、双卡双待（甚至 4 卡 4 待）一批国内团队开始为山寨机打造各种专用软件和游戏平台，比如杭州斯凯的 MRP 平台、至尊宝 meg 平台、悠米 jra、艾华 iava 平台、雪鲤鱼 APP 平台，沃勤平台，上海酷吧平台，一时间国产手机软件平台如雨后春笋，百花齐放百家争鸣，其中最著名的就是 MRP 游戏和冒泡社区 MRP 是杭州斯凯网络科技公司自主研发的专用软件格式，是一种轻量级的虚拟平台 MINIJ 平台格式文件，用标准的 ANSI C 编写。可以说它是国产机专用游戏格式，比 Java 程序容量小，占据更少的系统内存，可以在恶劣的硬件条件下流畅运行各种程序，这一点非常适合包括国产的贴牌、杂牌及数量极其庞大的其它山寨机。这个公司还专门搞了个应用平台，叫做冒泡社区，在当年的山寨机上你只要在待机界面输入一串神秘代码： <code>*#220807#</code> ，你就能打开一扇新世界的大门，进入一个堪称山寨机乐园的世界，里面有游戏、小说、各种程序，还有各种你意想不到的东西除了像冒泡浏览器、冒泡书城、冒泡音乐播放器这样的基础应用外，软件商城里的各类游戏是值得大书特书的，里面的游戏全部是国产，制作公司除了斯凯本家之外，还吸引了乐堂动漫、美游、陆行鲨、华娱无线、FAST、大连斯芬克斯等优秀游戏制作公司，推出了包括街机风动作游戏、飞行射击、RPG、即时战略、策略、竞速等几乎囊括了游戏的全部类型，当然，这些游戏不仅要付费下载，里面还有氪金选项，可以说是一举奠定了中国手机游戏的盈利模式，影响至今随着破解手段的增多，冒泡社区开始往手机网游方向发展，图形手机网游哦，当年文字网游大行其道的时候，推出全部图形在线网游，魄力相当大，其中优秀代表是幻想三国、仙剑问情，至今让有无数玩家坚守、无数玩家回忆。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311212309263.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212309891.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202311212254207.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202310051534088.png","alt":"image.png","title":""},{"url":"https://static.zahui.fan/images/202310051534381.png","alt":"image.png","title":""}]</div>  </div><h3 id="MIUI"><a href="#MIUI" class="headerlink" title="MIUI"></a>MIUI</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122235311.png" alt="image.png|557"></p><p>啥都不说了，看图吧</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202311242248301.png","alt":"image.png|326","title":""},{"url":"https://static.zahui.fan/images/202311242248592.png","alt":"image.png|329","title":""},{"url":"https://static.zahui.fan/images/202311242248038.png","alt":"image.png|358","title":""},{"url":"https://static.zahui.fan/images/202311242249054.png","alt":"image.png|361","title":""},{"url":"https://static.zahui.fan/images/202311242252126.png","alt":"image.png|378","title":""},{"url":"https://static.zahui.fan/images/202311242252042.png","alt":"image.png|691","title":""},{"url":"https://static.zahui.fan/images/202311242253845.png","alt":"image.png|693","title":""},{"url":"https://static.zahui.fan/images/202311242253052.png","alt":"image.png|457","title":""},{"url":"https://static.zahui.fan/images/202311242254984.png","alt":"image.png|746","title":""},{"url":"https://static.zahui.fan/images/202311242255232.png","alt":"image.png|402","title":""}]</div>  </div><h3 id="乐蛙"><a href="#乐蛙" class="headerlink" title="乐蛙"></a>乐蛙</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122236978.png" alt="image.png|516"></p><h3 id="CyanogenMod-和-Lineage-OS"><a href="#CyanogenMod-和-Lineage-OS" class="headerlink" title="CyanogenMod 和 Lineage OS"></a>CyanogenMod 和 Lineage OS</h3><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404122234154.png","alt":"image.png|525","title":""},{"url":"https://static.zahui.fan/images/202404122236329.png","alt":"image.png|471","title":""}]</div>  </div><h3 id="魔趣-Mokee"><a href="#魔趣-Mokee" class="headerlink" title="魔趣 Mokee"></a>魔趣 Mokee</h3><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404122235421.png","alt":"image.png|550","title":""},{"url":"https://static.zahui.fan/images/202404122231358.png","alt":"image.png|545","title":""}]</div>  </div><h3 id="云-OS-（阿里）"><a href="#云-OS-（阿里）" class="headerlink" title="云 OS （阿里）"></a>云 OS （阿里）</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122237448.png" alt="image.png"></p><p>魅族 MX4 就有安卓版和云 OS 版<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122239585.png" alt="image.png"></p><h3 id="百度云-OS"><a href="#百度云-OS" class="headerlink" title="百度云 OS"></a>百度云 OS</h3><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202404122238942.png" alt="image.png"></p><p>百度还收购了点心 OS</p><h3 id="腾讯-tita-或者-TOS"><a href="#腾讯-tita-或者-TOS" class="headerlink" title="腾讯 tita 或者 TOS"></a>腾讯 tita 或者 TOS</h3><p>没用过。。适配的机器比较少</p><h3 id="安卓"><a href="#安卓" class="headerlink" title="安卓"></a>安卓</h3><p>高中 3 年没见过安卓, 复读班同学有安卓机了, 一个 sharp 当时觉得很惊艳. 玩雷霆赛车可以使用重力感应来控制车辆转弯。</p><p>大学一个宿舍, 5 个非智能手机, 一台 oppo 的智能机，过了半年，都换成了智能机</p><h3 id="IOS-5-IOS-6"><a href="#IOS-5-IOS-6" class="headerlink" title="IOS 5 &amp; IOS 6"></a>IOS 5 &amp; IOS 6</h3><p>第一次见 ios6 是在同学的 <code>iPhone 5</code> 上面的，黑色 <code>iPhone 5</code> 配上拟物化界面，非常漂亮。</p><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202406082220437.jpg","alt":"10001 (1).jpg|533","title":""},{"url":"https://static.zahui.fan/images/202406082221158.jpg","alt":"10001 (2).jpg|530","title":""},{"url":"https://static.zahui.fan/images/202406082221594.jpg","alt":"10001 (3).jpg|599","title":""},{"url":"https://static.zahui.fan/images/202406082221666.jpg","alt":"10001.jpg|604","title":""},{"url":"https://static.zahui.fan/images/202406080907985.PNG","alt":"","title":""},{"url":"https://static.zahui.fan/images/202406080908491.JPG","alt":"202406080908491.JPG|474","title":""},{"url":"https://static.zahui.fan/images/202406080908363.JPG","alt":"202406080908363.JPG|522","title":""},{"url":"https://static.zahui.fan/images/202406200002342.jpg","alt":"","title":""},{"url":"https://static.zahui.fan/images/202406200003461.webp","alt":"10073.webp","title":""},{"url":"https://static.zahui.fan/images/202406200004119.png","alt":"10025.png","title":""},{"url":"https://static.zahui.fan/images/202406200004958.png","alt":"10027.png","title":""},{"url":"https://static.zahui.fan/images/202406200004140.png","alt":"10029.png","title":""},{"url":"https://static.zahui.fan/images/202406200006910.png","alt":"10085.png","title":""},{"url":"https://static.zahui.fan/images/202406200007027.png","alt":"10148.png","title":""},{"url":"https://static.zahui.fan/images/202406200007634.webp","alt":"10147.webp","title":""},{"url":"https://static.zahui.fan/images/202406200007238.png","alt":"10149.png","title":""},{"url":"https://static.zahui.fan/images/202406200008719.png","alt":"10152.png","title":""},{"url":"https://static.zahui.fan/images/202406200008634.webp","alt":"10151.webp","title":""},{"url":"https://static.zahui.fan/images/202406200008544.webp","alt":"10157.webp","title":""}]</div>  </div><h2 id="其他小物件"><a href="#其他小物件" class="headerlink" title="其他小物件"></a>其他小物件</h2><h3 id="红灯收音机"><a href="#红灯收音机" class="headerlink" title="红灯收音机"></a>红灯收音机</h3><p>爷爷听了一辈子的收音机，只停留在一个台上，接下来是新闻和报纸摘要时间~<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202312011724446.png" alt="image.png"></p><h3 id="手机来电闪"><a href="#手机来电闪" class="headerlink" title="手机来电闪"></a>手机来电闪</h3><p>来电闪灯除了好看之外，还有个用处，就是判断网速情况（非智能手机是没有软件支持悬浮窗的，不能像塞班装个 360 就可以显示流量悬浮窗，知道网页能不能打开），一般来说，先打开个网页，然后翻过手机看它闪得厉害不，如果闪着闪着不闪了，而网页还在加载，那么大概率一时半会是加载不出来了，就取消然后重新点击😄</p><h3 id="万能充"><a href="#万能充" class="headerlink" title="万能充"></a>万能充</h3><div class="gallery-container" data-type="data" data-button="" data-limit="10" data-first="10">    <div class="gallery-items">[{"url":"https://static.zahui.fan/images/202404250117867.JPEG","alt":"IMG_0759.JPG_compressed.JPEG|314","title":""},{"url":"https://static.zahui.fan/images/202404250117868.JPEG","alt":"IMG_0759.JPG_compressed.JPEG|322","title":""}]</div>  </div><h3 id="大头贴"><a href="#大头贴" class="headerlink" title="大头贴"></a>大头贴</h3><p>在机器上拍照后会像拍立得一样出来，然后可以贴在手机、书上等，图片搜集自网络<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202407311820527.png" alt="image.png"></p>]]></content>
       
       
       <categories>
@@ -2675,9 +2675,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Crontab </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -2702,15 +2702,15 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
-            <tag> 脚本 </tag>
-            
             <tag> cli </tag>
+            
+            <tag> 命令行工具 </tag>
             
             <tag> Crontab </tag>
             
             <tag> bash </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2874,13 +2874,13 @@
       
         <tags>
             
+            <tag> cli </tag>
+            
             <tag> 命令行工具 </tag>
             
             <tag> cmd </tag>
             
             <tag> bat </tag>
-            
-            <tag> cli </tag>
             
         </tags>
       
@@ -2905,13 +2905,13 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
             
             <tag> wsl2 </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -2936,11 +2936,11 @@
       
         <tags>
             
-            <tag> cli </tag>
-            
             <tag> Linux </tag>
             
             <tag> Shell </tag>
+            
+            <tag> cli </tag>
             
         </tags>
       
@@ -3137,9 +3137,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 服务 </tag>
-            
             <tag> mysqld </tag>
+            
+            <tag> 服务 </tag>
             
         </tags>
       
@@ -3220,9 +3220,9 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
             <tag> cli </tag>
+            
+            <tag> 命令行工具 </tag>
             
             <tag> curl </tag>
             
@@ -3477,11 +3477,11 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -3782,11 +3782,11 @@
       
         <tags>
             
-            <tag> WSL </tag>
-            
             <tag> lrzsz </tag>
             
             <tag> Windows Terminal </tag>
+            
+            <tag> WSL </tag>
             
         </tags>
       
@@ -3842,9 +3842,9 @@
       
         <tags>
             
-            <tag> 效率工具 </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> 效率工具 </tag>
             
         </tags>
       
@@ -4008,11 +4008,11 @@
             
             <tag> Blog </tag>
             
-            <tag> 编辑器 </tag>
+            <tag> hexo </tag>
             
             <tag> markdown </tag>
             
-            <tag> hexo </tag>
+            <tag> 编辑器 </tag>
             
         </tags>
       
@@ -4276,9 +4276,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> Command </tag>
+            
+            <tag> Windows </tag>
             
             <tag> PowerShell </tag>
             
@@ -4334,13 +4334,13 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> Shell </tag>
             
             <tag> 备份还原 </tag>
             
             <tag> MySQL </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -4758,9 +4758,9 @@
       
         <tags>
             
-            <tag> BitLocker </tag>
-            
             <tag> 加密 </tag>
+            
+            <tag> BitLocker </tag>
             
         </tags>
       
@@ -4862,11 +4862,11 @@
       
         <tags>
             
-            <tag> Hyper-V </tag>
-            
             <tag> VirtualMachine </tag>
             
             <tag> 虚拟化 </tag>
+            
+            <tag> Hyper-V </tag>
             
         </tags>
       
@@ -4891,9 +4891,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -4970,11 +4970,11 @@
       
         <tags>
             
+            <tag> cli </tag>
+            
             <tag> cmd </tag>
             
             <tag> bat </tag>
-            
-            <tag> cli </tag>
             
         </tags>
       
@@ -5165,9 +5165,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Kernel </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -5379,9 +5379,9 @@
       
         <tags>
             
-            <tag> 网络 </tag>
-            
             <tag> iptables </tag>
+            
+            <tag> 网络 </tag>
             
         </tags>
       
@@ -5406,9 +5406,9 @@
       
         <tags>
             
-            <tag> 网络 </tag>
-            
             <tag> iptables </tag>
+            
+            <tag> 网络 </tag>
             
         </tags>
       
@@ -5738,7 +5738,7 @@
       <link href="/posts/097e5b7c/"/>
       <url>/posts/097e5b7c/</url>
       
-        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#x78;&#116;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#x69;&#x75;&#x78;&#116;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#120;&#116;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x69;&#x75;&#120;&#116;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
+        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#x78;&#x74;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#x69;&#x75;&#x78;&#x74;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="Server-证书"><a href="#Server-证书" class="headerlink" title="Server 证书"></a>Server 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端数字证书请求"><a href="#生成-server-端数字证书请求" class="headerlink" title="生成 server 端数字证书请求"></a>生成 server 端数字证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#120;&#x74;&#x40;&#x71;&#113;&#46;&#99;&#111;&#109;">&#x69;&#117;&#120;&#x74;&#x40;&#x71;&#113;&#46;&#99;&#111;&#109;</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题</p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h2 id="将-server-证书配置到-nginx"><a href="#将-server-证书配置到-nginx" class="headerlink" title="将 server 证书配置到 nginx"></a>将 server 证书配置到 nginx</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">windows信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202305251008396.png" alt="windows安装CA证书"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure><p>然后使用 curl 等工具就受信任了。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><blockquote><p>如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。</p></blockquote><hr><h2 id="吊销证书"><a href="#吊销证书" class="headerlink" title="吊销证书"></a>吊销证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><p>双击导入，存储位置选择个人<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900128.png" alt="image.png|845"></p><p>这是证书被吊销的样子：<br><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411071900403.png" alt="image.png|843"></p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
       
       
       <categories>
@@ -5986,9 +5986,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -6355,9 +6355,9 @@
             
             <tag> hugo </tag>
             
-            <tag> 编辑器 </tag>
-            
             <tag> markdown </tag>
+            
+            <tag> 编辑器 </tag>
             
             <tag> vscode </tag>
             
@@ -6737,13 +6737,13 @@
       
         <tags>
             
-            <tag> Hyper-V </tag>
-            
             <tag> VirtualMachine </tag>
+            
+            <tag> Command </tag>
             
             <tag> Windows </tag>
             
-            <tag> Command </tag>
+            <tag> Hyper-V </tag>
             
             <tag> PowerShell </tag>
             
@@ -6770,9 +6770,9 @@
       
         <tags>
             
-            <tag> Crontab </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -6959,11 +6959,11 @@
             
             <tag> VirtualMachine </tag>
             
+            <tag> Crontab </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> Crontab </tag>
             
         </tags>
       
@@ -7019,11 +7019,11 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
             
             <tag> 配置文件 </tag>
+            
+            <tag> Script </tag>
             
             <tag> Python </tag>
             
@@ -7079,9 +7079,9 @@
             
             <tag> hugo </tag>
             
-            <tag> 编辑器 </tag>
-            
             <tag> markdown </tag>
+            
+            <tag> 编辑器 </tag>
             
         </tags>
       
@@ -7270,9 +7270,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Automatic </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7420,9 +7420,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
             <tag> Network </tag>
             
@@ -7505,11 +7505,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Crontab </tag>
+            <tag> SSL </tag>
             
             <tag> Linux </tag>
             
-            <tag> SSL </tag>
+            <tag> Crontab </tag>
             
         </tags>
       
@@ -7619,9 +7619,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -7719,9 +7719,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7808,9 +7808,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -7885,9 +7885,9 @@
       
         <tags>
             
-            <tag> VirtualMachine </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> VirtualMachine </tag>
             
         </tags>
       
@@ -8016,9 +8016,9 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -8124,11 +8124,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> Automatic </tag>
             
             <tag> Crontab </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -8234,9 +8234,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -8448,11 +8448,11 @@
       
         <tags>
             
-            <tag> 命令行工具 </tag>
-            
             <tag> Linux </tag>
             
             <tag> Shell </tag>
+            
+            <tag> 命令行工具 </tag>
             
             <tag> 常用操作 </tag>
             
@@ -8842,9 +8842,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -8869,11 +8869,11 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -8948,9 +8948,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -9069,11 +9069,11 @@
       
         <tags>
             
-            <tag> WSL </tag>
-            
             <tag> 配置记录 </tag>
             
             <tag> Linux </tag>
+            
+            <tag> WSL </tag>
             
         </tags>
       
@@ -9150,9 +9150,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> Script </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -9233,9 +9233,9 @@
       
         <tags>
             
-            <tag> Command </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Command </tag>
             
         </tags>
       
@@ -9260,11 +9260,11 @@
       
         <tags>
             
-            <tag> Script </tag>
-            
             <tag> Linux </tag>
             
             <tag> Shell </tag>
+            
+            <tag> Script </tag>
             
         </tags>
       
@@ -9320,9 +9320,9 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> Crontab </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Crontab </tag>
             
             <tag> Ubuntu </tag>
             
@@ -9409,11 +9409,11 @@
             
             <tag> 配置记录 </tag>
             
-            <tag> 命令行工具 </tag>
+            <tag> Linux </tag>
             
             <tag> cli </tag>
             
-            <tag> Linux </tag>
+            <tag> 命令行工具 </tag>
             
             <tag> bash </tag>
             
