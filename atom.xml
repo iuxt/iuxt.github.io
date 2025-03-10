@@ -149,9 +149,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
     <category term="nacos" scheme="https://zahui.fan/tags/nacos/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
   </entry>
   
