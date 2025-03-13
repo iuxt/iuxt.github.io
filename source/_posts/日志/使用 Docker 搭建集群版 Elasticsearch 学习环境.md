@@ -1,5 +1,5 @@
 ---
-title: 使用Docker部署一套用于学习的Elasticsearch集群
+title: 使用 Docker 搭建集群版 Elasticsearch 学习环境
 categories:
   - 日志
 tags:
@@ -12,6 +12,7 @@ tags:
 abbrlink: schwdt
 cover: https://static.zahui.fan/images/202412031037042.png
 date: 2024-04-25 19:10:40
+updated: 2025-03-13 17:11:51
 ---
 
 一般来说，学习 ES 都是自己先搭建几台虚拟机，然后在虚拟机里部署 ES 集群，这样做资源消耗比较大，一般的电脑都没有这么高的配置，我们可以使用 Docker 来快速部署一套 Elasticsearch 集群，这里以 3 节点集群为例：
@@ -135,20 +136,21 @@ docker run -d --name elasticsearch3 \
 # 自动生成密码
 docker exec elasticsearch1 bash -c "echo y | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto"
 
-# 生成指定的密码
-docker exec -it elasticsearch1 bash -c 'echo -e "y
-123456
-123456
-123456
-123456
-123456
-123456
-123456
-123456
-123456
-123456
-123456
-123456" | /usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive'
+# 初始化生成指定的密码
+ELASTIC_PASSWORD="123456"
+echo "y
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}
+${ELASTIC_PASSWORD}" | docker exec -i elasticsearch /usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
 ```
 
 ## 部署 kibana
