@@ -6,7 +6,7 @@ tags: [网络]
 abbrlink: sq6bmc
 date: 2024-01-16 16:59:00
 cover: ""
-updated: 2025-01-24 23:14:31
+updated: 2025-03-14 10:27:01
 ---
 
 这个工具是利用 NAT 打洞实现，需要有一台服务器（可以自建也可以用官方提供的）做中介。经测试打洞成功率很高，速度也不错。打洞成功后，异地的机器就像在同一个内网一样方便，访问 smb、家里的 nas、远程桌面等等，并且支持自动对内网网段进行转发（zerotier 需要配置 iptables 转发）自建服务器后感觉比 zerotier 好用。zerotier 的文档可以看 [群晖NAS部署zerotier内网穿透访问](/posts/spi492/)
@@ -88,4 +88,12 @@ PublicKey = Mp7H/sHXZW+NqxrtsPnEtHMWIbFWPYjyxEir3uWY3WA=
 AllowedIPs = 10.233.233.0/24,10.14.14.0/24
 Endpoint = 119.45.171.27:11013
 PersistentKeepalive = 25
+```
+
+## windows 防火墙配置
+
+不能连接记得防火墙放通 easytier 的虚拟网卡
+
+```powershell
+New-NetFirewallRule -DisplayName "允许easytier网卡" -InterfaceAlias "easytier" -Direction Inbound -Action Allow
 ```
