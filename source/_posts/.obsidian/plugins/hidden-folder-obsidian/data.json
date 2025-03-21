@@ -1,4 +1,4 @@
 {
-  "folders": "Templates\nScripts",
+  "folders": "^Templates$\n^Scripts$",
   "enable": true
 }
