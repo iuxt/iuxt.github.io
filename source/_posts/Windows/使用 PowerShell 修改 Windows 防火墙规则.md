@@ -6,7 +6,7 @@ tags: [PowerShell, 网络, 防火墙, 配置记录]
 abbrlink: seln9g
 cover: https://static.zahui.fan/public/Windows.svg
 date: 2024-06-05 16:51:16
-updated: 2025-01-08 23:07:14
+updated: 2025-03-22 23:22:16
 ---
 
 ## 修改网络位置（专用网络或共用网络）
@@ -63,4 +63,12 @@ New-NetFirewallRule -DisplayName "允许zerotier网卡" -ID 23 -Direction Inboun
 
 # 根据名字放行
 New-NetFirewallRule -DisplayName "允许NAT网卡" -InterfaceAlias "vEthernet (NAT)" -Direction Inbound -Action Allow
+```
+
+## 禁止某个程序联网
+
+```powershell
+New-NetFirewallRule -DisplayName "Block-adobe-out" -Direction Outbound -Program "C:\Program Files\Adobe\Adobe Photoshop 2025\Photoshop.exe" -Action Block
+
+New-NetFirewallRule -DisplayName "Block-adobe-in" -Direction Inbound -Program "C:\Program Files\Adobe\Adobe Photoshop 2025\Photoshop.exe" -Action Block
 ```
