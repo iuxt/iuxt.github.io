@@ -6,14 +6,14 @@ tags: [网络]
 abbrlink: sq6bmc
 date: 2024-01-16 16:59:00
 cover: ""
-updated: 2025-03-24 13:25:17
+updated: 2025-03-25 01:42:45
 ---
 
 这个工具是利用 NAT 打洞实现，需要有一台服务器（可以自建也可以用官方提供的）做中介。经测试打洞成功率很高，速度也不错。打洞成功后，异地的机器就像在同一个内网一样方便，访问 smb、家里的 nas、远程桌面等等，并且支持自动对内网网段进行转发（zerotier 需要配置 iptables 转发）自建服务器后感觉比 zerotier 好用。zerotier 的文档可以看 [群晖NAS部署zerotier内网穿透访问](/posts/spi492/)
 
 ## 自建服务端
 
-这个步骤可以省略，不自建可以用社区提供的免费服务器。
+这个步骤可以省略，不自建可以用社区提供的免费服务器。使用社区服务器指定 `-p` 参数： `-p tcp://public.easytier.top:11010`
 
 我安装的是 easytier 的 docker 版本。
 
@@ -77,24 +77,25 @@ easytier-cli.exe service uninstall
 ```bash
 # 在服务器上执行
 docker exec easytier easytier-cli vpn-portal > wireguard.conf
+```
 
-
+```ini
 [Interface]
 PrivateKey = h3MxzS7aLWDlX6l1xAJA8wooj58N0lg6UPV+n2q7FkM=
-Address = 10.14.14.10/32
+Address = 10.14.14.10/32    # 这里修改成本机的虚拟IP
 
 [Peer]
 PublicKey = Mp7H/sHXZW+NqxrtsPnEtHMWIbFWPYjyxEir3uWY3WA=
-AllowedIPs = 10.233.233.0/24,10.14.14.0/24
-Endpoint = 119.45.171.27:11013
+AllowedIPs = 10.233.233.0/24,10.14.14.0/24      # 这些网段走wireguard转发
+Endpoint = 119.45.171.27:11013                  # 服务器的wireguard接口地址
 PersistentKeepalive = 25
 ```
 
 ## windows 防火墙配置
 
-不能连接记得防火墙放通 easytier 的虚拟网卡
+不能连接记得防火墙放通 easytier 的虚拟网段和 wireguard 网段。
 
 ```powershell
-New-NetFirewallRule -DisplayName "允许easytier网卡-in" -InterfaceAlias "easytier" -Direction Inbound -Action Allow
-New-NetFirewallRule -DisplayName "允许easytier网卡-out" -InterfaceAlias "easytier" -Direction Outbound -Action Allow
+New-NetFirewallRule -DisplayName "Allow Subnet 10.233.233.0/24" -Direction Inbound -Action Allow -RemoteAddress 10.233.233.0/24 -Protocol Any -Enabled True
+New-NetFirewallRule -DisplayName "Allow Subnet 10.14.14.0/24" -Direction Inbound -Action Allow -RemoteAddress 10.14.14.0/24 -Protocol Any -Enabled True
 ```
