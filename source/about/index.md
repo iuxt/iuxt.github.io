@@ -8,7 +8,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 ## 个人简介
 
 <style type="text/css">
-  .container {
+  .zhanglikun-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
@@ -40,7 +40,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
   /* 适配 480px - 768px 之间的屏幕 */
   @media (max-width: 768px) {
-    .container {
+    .zhanglikun-container {
       grid-template-columns: 1fr; /* 变为单列布局 */
       padding: 15px;
     }
@@ -56,7 +56,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
   /* 针对非常小的屏幕设备进一步优化 */
   @media (max-width: 480px) {
-    .container {
+    .zhanglikun-container {
       max-width: 100%; /* 保证容器宽度适应小屏幕 */
     }
 
@@ -67,7 +67,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
   }
 </style>
 
-<div class="container">
+<div class="zhanglikun-container">
   <div class="text-area">
     <strong>张理坤</strong>，安徽（六安/淮南）寿县人，90后，互联网行业从业者。最初从事 IT 工作，通过自学转岗成为运维工程师。2016 年进入职场，曾服务于游戏、在线教育、车联网等行业，专注于：
     <ul>
@@ -92,10 +92,10 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 {% endnote %}
 
 {% note pink 'fas fa-car-crash' flat %}
-{% label 上海银基科技股份有限公司 pink %} {% label 银基安全 blue %} 
-1. 吃饭
-2. 睡觉
-3. 打豆豆
+{% label 某汽车数字钥匙供应商 pink %} {% label 某汽车数字钥匙供应商 blue %} 
+1. 负责30+个汽车厂商的数字钥匙业务。
+2. 从零开始搭建一套监控体系，涵盖车厂各种苛刻的环境。
+3. 业务监控、埋点、数据大盘制作。
 {% endnote %}
 
 
