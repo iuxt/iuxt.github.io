@@ -69,7 +69,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
 
 <div class="zhanglikun-container">
   <div class="text-area">
-    <strong>张理坤</strong>，安徽（六安/淮南）寿县人，90后，互联网行业从业者。最初从事 IT 工作，通过自学转岗成为运维工程师。2016 年进入职场，曾服务于游戏、在线教育、车联网等行业，专注于：
+    我是张理坤，安徽寿县人，90后互联网从业者。最初投身 IT 领域，凭借自学转型为运维工程师。自 2016 年进入职场以来，先后服务于游戏、在线教育、车联网等行业，积累了丰富的运维经验。
     <ul>
       <li>运维自动化与监控</li>
       <li>日志管理与数据分析</li>
@@ -77,6 +77,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
       <li>运维平台开发</li>
       <li>IDC 机房与网络运维</li>
     </ul>
+    始终保持对技术的热爱，致力于打造更智能、更高效的运维体系。
   </div>
   <div class="image-area">
     <img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/>
