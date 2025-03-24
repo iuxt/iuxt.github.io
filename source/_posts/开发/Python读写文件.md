@@ -2,12 +2,11 @@
 title: Python读写文件
 categories:
   - 开发
-tags:
-  - Python
-  - 文件
+tags: [Python, 文件]
 abbrlink: fe29bf0b
 cover: 'https://static.zahui.fan/public/python.svg'
 date: 2022-12-28 21:24:25
+updated: 2025-03-24 18:52:52
 ---
 
 使用 Python 读写文件很方便，有多种方法，但是读写大文件还是需要优化的。
@@ -56,6 +55,14 @@ with open("test.txt", 'r') as f:
             print(line, end="")
         else:
             break
+```
+
+或者这种写法，更简洁。
+
+```python
+with open("1.txt", 'r', encoding='utf-8') as f:
+    for line in f:
+        print(line)
 ```
 
 ## 写入文件
