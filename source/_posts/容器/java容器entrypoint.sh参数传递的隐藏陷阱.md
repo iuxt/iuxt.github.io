@@ -6,7 +6,7 @@ tags: [Docker, java, Shell]
 abbrlink: stgvyr
 date: 2025-03-21 17:35:15
 cover: https://static.zahui.fan/images/20250321173954454.png
-updated: 2025-03-21 17:40:04
+updated: 2025-03-24 23:08:50
 ---
 
 构建容器镜像对运维来说已经轻车熟路了，但是最近遇到个问题百思不得其解，准确的说就是手动执行 java -jar 带上所有参数，可以正常启动，但是打包成镜像就会报错：
@@ -32,7 +32,7 @@ fi
 
 JAVA_CMD="$JVM_PARAM $JVM_OPTS"
 
-AGENT_OPTS="-javaagent:/hawkeye-agent/hawkeye-agent.jar=APPNAME?AGENT_UID=x-ingeek-userid"
+AGENT_OPTS="-javaagent:/hawkeye-agent/hawkeye-agent.jar=APPNAME?AGENT_UID=x-zahuifan-userid"
 
 if [ "true" == "$AGENT_ENABLED" ];then
     echo "JAVA_CMD: $JAVA_CMD $AGENT_OPTS"
@@ -89,7 +89,7 @@ fi
 
 JAVA_CMD="$JVM_PARAM $JVM_OPTS"
 
-AGENT_OPTS="-javaagent:/hawkeye-agent/hawkeye-agent.jar=APPNAME?AGENT_UID=x-ingeek-userid"
+AGENT_OPTS="-javaagent:/hawkeye-agent/hawkeye-agent.jar=APPNAME?AGENT_UID=x-zahuifan-userid"
 
 if [ "true" == "$AGENT_ENABLED" ];then
     echo "JAVA_CMD: $JAVA_CMD $AGENT_OPTS"
