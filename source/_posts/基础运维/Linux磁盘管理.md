@@ -2,11 +2,11 @@
 title: Linux磁盘管理
 categories:
   - 基础运维
-tags: []
+tags: [扩容, 磁盘, 挂载, 格式化, 分区]
 abbrlink: stmd3s
 date: 2022-03-24 16:33:27
 cover: ""
-updated: 2025-03-24 19:11:07
+updated: 2025-03-24 19:22:50
 ---
 
 ```bash

@@ -3,11 +3,9 @@ title: LVM逻辑卷管理
 abbrlink: f4ea28c3
 categories:
   - 基础运维
-tags:
-  - Linux
-  - 配置记录
-  - Disk
+tags: [Linux, 配置记录, Disk, 扩容, 分区, 挂载, 格式化, 磁盘]
 date: 2021-05-11 22:24:43
+updated: 2025-03-24 19:23:15
 ---
 
 LVM 是 `Logical Volume Manager` 的缩写，中文逻辑卷管理，LVM 是建立在磁盘分区和文件系统之间的一个逻辑层，LVM 会更加灵活，可以动态扩容缩容分区大小。调整分区大小有风险，请做好充分测试再决定是否执行。
