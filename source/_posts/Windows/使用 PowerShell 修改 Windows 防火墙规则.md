@@ -6,7 +6,7 @@ tags: [PowerShell, 网络, 防火墙, 配置记录]
 abbrlink: seln9g
 cover: https://static.zahui.fan/public/Windows.svg
 date: 2024-06-05 16:51:16
-updated: 2025-03-25 01:34:32
+updated: 2025-03-27 22:57:12
 ---
 
 ## 修改网络位置（专用网络或共用网络）
