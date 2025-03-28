@@ -1,0 +1,134 @@
+---
+title: 使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照
+categories:
+  - 监控
+tags: [grafana, Puppeteer]
+abbrlink: stucr2
+date: 2025-03-29 00:06:38
+cover: ""
+updated: 2025-03-29 00:35:52
+---
+
+需要安装一个插件，grafana-image-renderer
+<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/>
+
+我是 kubernetes 运行的 grafana，所以选择用外挂渲染器的方法。根据官网文档安装依赖包：<https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux> 最终的镜像 dockerfile 如下：
+
+```dockerfile
+FROM node:22.14.0
+RUN git clone --depth 1 https://github.com/grafana/grafana-image-renderer.git /app && \
+    cd /app && \
+    yarn install --pure-lockfile && \
+    yarn run build
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources && \
+    apt-get update && \
+    apt-get install -y \
+    ca-certificates \
+    fonts-liberation \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgbm1 \
+    libgcc1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    lsb-release \
+    wget \
+    xdg-utils \
+    fonts-noto-cjk \
+    ttf-wqy-zenhei && \
+    fc-cache -f -v && \
+    apt clean all
+WORKDIR /app
+CMD ["node", "build/app.js", "server"]
+```
+
+部署在 kubernetes 中，yml 文件如下：
+
+```yml
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: grafana-image-renderer
+  namespace: ops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana-image-renderer
+  template:
+    metadata:
+      labels:
+        app: grafana-image-renderer
+    spec:
+      containers:
+        - name: grafana-image-renderer
+          image: registry.cn-hangzhou.aliyuncs.com/iuxt/grafana-image-renderer:3
+          env:
+            - name: HTTP_HOST
+              value: "0.0.0.0"
+            - name: HTTP_PORT
+              value: "80"
+          resources:
+            limits:
+              cpu: 2
+              memory: 2Gi
+            requests:
+              cpu: 2
+              memory: 2Gi
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: grafana-image-renderer
+  namespace: ops
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: grafana-image-renderer
+  type: ClusterIP
+```
+
+grafana 接入 渲染器，增加这两个环境变量
+
+```yml
+            - name: GF_RENDERING_SERVER_URL
+              value: http://grafana-image-renderer/render
+            - name: GF_RENDERING_CALLBACK_URL
+              value: http://sre-grafana:3000/
+```
+
+在对应的面板，点击分享 就可以拿到渲染后的图像链接，浏览器打开可以拿到对应的图片。
+
+![image.png|637](https://static.zahui.fan/images/20250329003245507.png)
