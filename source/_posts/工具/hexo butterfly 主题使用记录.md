@@ -3,9 +3,10 @@ title: hexo butterfly 主题使用记录
 categories:
   - 工具
 abbrlink: sm3z1i
-cover: ''
+cover: 
 date: 2021-10-29 16:17:41
-tags:
+tags: [hexo, 博客]
+updated: 2025-03-28 11:16:54
 ---
 
 ## 开始使用
@@ -72,7 +73,7 @@ npx hexo new "测试文章"
 
 ### 行内图片
 
-我覺得很漂亮 {% inlineImg https://i.loli.net/2021/03/19/5M4jUB3ynq7ePgw.png 150px %}
+我覺得很漂亮 {% inlineImg <https://i.loli.net/2021/03/19/5M4jUB3ynq7ePgw.png> 150px %}
 
 ### 文字高亮
 
@@ -121,4 +122,4 @@ danger 提示塊標籤
 
 ## 如果不想使用图床
 
-在 source/img 目录下放你的图片， 生成的静态文件在： https://xxx.com/img/1.png， 可以直接使用 /img/1.png 来引用
+在 source/img 目录下放你的图片， 生成的静态文件在： <https://xxx.com/img/1.png>， 可以直接使用 /img/1.png 来引用

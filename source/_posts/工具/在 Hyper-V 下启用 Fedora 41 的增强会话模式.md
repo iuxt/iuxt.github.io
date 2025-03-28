@@ -2,11 +2,11 @@
 title: 在 Hyper-V 下启用 Fedora 41 的增强会话模式
 categories:
   - 工具
-tags: ['']
+tags: []
 abbrlink: ssqj2c
 date: 2025-03-07 11:58:59
-cover: ''
-updated: 2025-03-07 12:02:56
+cover: https://static.zahui.fan/images/20250328110319656.png
+updated: 2025-03-28 11:05:24
 ---
 
 ## 安装一些基础包
