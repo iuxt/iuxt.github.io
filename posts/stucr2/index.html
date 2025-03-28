@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="需要安装一个插件，grafana-image-rendererhttps:&#x2F;&#x2F;grafana.com&#x2F;docs&#x2F;grafana&#x2F;latest&#x2F;setup-grafana&#x2F;image-rendering&#x2F; 我是 kubernetes 运行的 grafana，所以选择用外挂渲染器的方法。根据官网文档安装依赖包：https:&#x2F;&#x2F;pptr.dev&#x2F;troubleshooting#chrome-doesnt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照">
+<meta property="og:url" content="https://zahui.fan/posts/stucr2/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="需要安装一个插件，grafana-image-rendererhttps:&#x2F;&#x2F;grafana.com&#x2F;docs&#x2F;grafana&#x2F;latest&#x2F;setup-grafana&#x2F;image-rendering&#x2F; 我是 kubernetes 运行的 grafana，所以选择用外挂渲染器的方法。根据官网文档安装依赖包：https:&#x2F;&#x2F;pptr.dev&#x2F;troubleshooting#chrome-doesnt">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/skeleton1.svg">
+<meta property="article:published_time" content="2025-03-28T16:06:38.000Z">
+<meta property="article:modified_time" content="2025-03-28T16:35:52.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="grafana">
+<meta property="article:tag" content="Puppeteer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/skeleton1.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照",
+  "url": "https://zahui.fan/posts/stucr2/",
+  "image": "https://static.zahui.fan/public/skeleton1.svg",
+  "datePublished": "2025-03-28T16:06:38.000Z",
+  "dateModified": "2025-03-28T16:35:52.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张理坤",
+      "url": "https://zahui.fan/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/stucr2/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://static.zahui.fan/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">351</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">218</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://static.zahui.fan/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://static.zahui.fan/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://file.babudiu.com/"><i class="fa-fw fa-solid fa-file"></i><span> 网盘</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-03-28T16:06:38.000Z" title="发表于 2025-03-29 00:06:38">2025-03-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-03-28T16:35:52.000Z" title="更新于 2025-03-29 00:35:52">2025-03-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9B%91%E6%8E%A7/">监控</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;此文章距离发布已经&quot;,&quot;messageNext&quot;:&quot;天了，内容可能已经过时，请自行判断是否可用或联系博主更新。&quot;,&quot;postUpdate&quot;:&quot;2025-03-29 00:35:52&quot;}" hidden></div><p>需要安装一个插件，grafana-image-renderer<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/">https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/</a></p>
+<p>我是 kubernetes 运行的 grafana，所以选择用外挂渲染器的方法。根据官网文档安装依赖包：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux">https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux</a> 最终的镜像 dockerfile 如下：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">22.14</span>.<span class="number">0</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> git <span class="built_in">clone</span> --depth 1 https://github.com/grafana/grafana-image-renderer.git /app &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> /app &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    yarn install --pure-lockfile &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    yarn run build</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> sed -i <span class="string">&#x27;s/deb.debian.org/mirrors.ustc.edu.cn/g&#x27;</span> /etc/apt/sources.list.d/debian.sources &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y \</span></span><br><span class="line"><span class="language-bash">    ca-certificates \</span></span><br><span class="line"><span class="language-bash">    fonts-liberation \</span></span><br><span class="line"><span class="language-bash">    libasound2 \</span></span><br><span class="line"><span class="language-bash">    libatk-bridge2.0-0 \</span></span><br><span class="line"><span class="language-bash">    libatk1.0-0 \</span></span><br><span class="line"><span class="language-bash">    libc6 \</span></span><br><span class="line"><span class="language-bash">    libcairo2 \</span></span><br><span class="line"><span class="language-bash">    libcups2 \</span></span><br><span class="line"><span class="language-bash">    libdbus-1-3 \</span></span><br><span class="line"><span class="language-bash">    libexpat1 \</span></span><br><span class="line"><span class="language-bash">    libfontconfig1 \</span></span><br><span class="line"><span class="language-bash">    libgbm1 \</span></span><br><span class="line"><span class="language-bash">    libgcc1 \</span></span><br><span class="line"><span class="language-bash">    libglib2.0-0 \</span></span><br><span class="line"><span class="language-bash">    libgtk-3-0 \</span></span><br><span class="line"><span class="language-bash">    libnspr4 \</span></span><br><span class="line"><span class="language-bash">    libnss3 \</span></span><br><span class="line"><span class="language-bash">    libpango-1.0-0 \</span></span><br><span class="line"><span class="language-bash">    libpangocairo-1.0-0 \</span></span><br><span class="line"><span class="language-bash">    libstdc++6 \</span></span><br><span class="line"><span class="language-bash">    libx11-6 \</span></span><br><span class="line"><span class="language-bash">    libx11-xcb1 \</span></span><br><span class="line"><span class="language-bash">    libxcb1 \</span></span><br><span class="line"><span class="language-bash">    libxcomposite1 \</span></span><br><span class="line"><span class="language-bash">    libxcursor1 \</span></span><br><span class="line"><span class="language-bash">    libxdamage1 \</span></span><br><span class="line"><span class="language-bash">    libxext6 \</span></span><br><span class="line"><span class="language-bash">    libxfixes3 \</span></span><br><span class="line"><span class="language-bash">    libxi6 \</span></span><br><span class="line"><span class="language-bash">    libxrandr2 \</span></span><br><span class="line"><span class="language-bash">    libxrender1 \</span></span><br><span class="line"><span class="language-bash">    libxss1 \</span></span><br><span class="line"><span class="language-bash">    libxtst6 \</span></span><br><span class="line"><span class="language-bash">    lsb-release \</span></span><br><span class="line"><span class="language-bash">    wget \</span></span><br><span class="line"><span class="language-bash">    xdg-utils \</span></span><br><span class="line"><span class="language-bash">    fonts-noto-cjk \</span></span><br><span class="line"><span class="language-bash">    ttf-wqy-zenhei &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    fc-cache -f -v &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt clean all</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;node&quot;</span>, <span class="string">&quot;build/app.js&quot;</span>, <span class="string">&quot;server&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>部署在 kubernetes 中，yml 文件如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana-image-renderer</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">ops</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">grafana-image-renderer</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">grafana-image-renderer</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">grafana-image-renderer</span></span><br><span class="line">          <span class="attr">image:</span> <span class="string">registry.cn-hangzhou.aliyuncs.com/iuxt/grafana-image-renderer:3</span></span><br><span class="line">          <span class="attr">env:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HTTP_HOST</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">&quot;0.0.0.0&quot;</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HTTP_PORT</span></span><br><span class="line">              <span class="attr">value:</span> <span class="string">&quot;80&quot;</span></span><br><span class="line">          <span class="attr">resources:</span></span><br><span class="line">            <span class="attr">limits:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="number">2</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">2Gi</span></span><br><span class="line">            <span class="attr">requests:</span></span><br><span class="line">              <span class="attr">cpu:</span> <span class="number">2</span></span><br><span class="line">              <span class="attr">memory:</span> <span class="string">2Gi</span></span><br><span class="line">          <span class="attr">imagePullPolicy:</span> <span class="string">IfNotPresent</span></span><br><span class="line">      <span class="attr">restartPolicy:</span> <span class="string">Always</span></span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br><span class="line">      <span class="attr">dnsPolicy:</span> <span class="string">ClusterFirst</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">grafana-image-renderer</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">ops</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">      <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">grafana-image-renderer</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br></pre></td></tr></table></figure>
+
+<p>grafana 接入 渲染器，增加这两个环境变量</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_RENDERING_SERVER_URL</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">http://grafana-image-renderer/render</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">GF_RENDERING_CALLBACK_URL</span></span><br><span class="line">  <span class="attr">value:</span> <span class="string">http://sre-grafana:3000/</span></span><br></pre></td></tr></table></figure>
+
+<p>在对应的面板，点击分享 就可以拿到渲染后的图像链接，浏览器打开可以拿到对应的图片。</p>
+<p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20250329003245507.png" alt="image.png|637"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/stucr2/">https://zahui.fan/posts/stucr2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/grafana/">grafana</a><a class="post-meta__tags" href="/tags/Puppeteer/">Puppeteer</a></div><div class="post-share"><div class="social-share" data-image="https://static.zahui.fan/public/skeleton1.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/stgvyr/" title="java容器entrypoint.sh参数传递的隐藏陷阱"><img class="cover" src="https://static.zahui.fan/images/20250321173954454.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">java容器entrypoint.sh参数传递的隐藏陷阱</div></div><div class="info-2"><div class="info-item-1">构建容器镜像对运维来说已经轻车熟路了，但是最近遇到个问题百思不得其解，准确的说就是手动执行 java -jar 带上所有参数，可以正常启动，但是打包成镜像就会报错： 先附上 entrypoint.sh 123456789101112131415161718192021222324252627#!/bin/bashif [ -n &quot;$JVM_PARAM&quot; ];then  echo &quot;JVM_PARAM: $JVM_PARAM&quot;else  JVM_PARAM=&quot;-Xms2g -Xmx2g -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m&quot;fiif [ -n &quot;$JVM_OPTS&quot; ];then  echo &quot;JVM_OPTS: $JVM_OPTS&quot;else  JVM_OPTS=&quot;-XX:+UseConcMarkSweepGC -XX:+UseCMSInitiatingOccupancyOnly...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/sl8dop/" title="Grafana 接入 LDAP 认证"><img class="cover" src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Grafana 接入 LDAP 认证</div></div><div class="info-2"><div class="info-item-1">Grafana 是一个非常好用的展示数据软件，我一直以为可以直接在设置里增加 ldap 配置，没想到啊没想到 必须要修改配置文件才能接入到 LDAP，还是记录一下吧，免得下次部署浪费时间。 我是在 Kubernetes 中部署的，数据存储用的是 MySQL，所以 Grafana 本身可以当作一个无状态服务来看待。也可以不做数据持久化。 先创建 ldap 配置文件这里包括 ldap 数据的映射关系，可以自己尝试修改调整。 12345678910111213141516171819202122kind: ConfigMapapiVersion: v1metadata:  name: grafana-ldap-config  namespace: opsdata:  ldap.toml: |    [[servers]]    host = &quot;10.0.0.11&quot;    port = 389    use_ssl = false    start_tls = false    ssl_skip_verify = false    bind_dn =...</div></div></div></a><a class="pagination-related" href="/posts/skf07c/" title="Grafana中自定义Legend的名字和自定义value的显示"><img class="cover" src="https://static.zahui.fan/public/Grafana.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Grafana中自定义Legend的名字和自定义value的显示</div></div><div class="info-2"><div class="info-item-1">针对 value 的值进行修改解释举个例子：使用 snmp_exporter 对防火墙进行监控，端口状态监控值为 1 或 2（1 是启用，2 是未启用）， 在 Prometheus 中的原始数据是：  在 Grafana 中显示效果为： 其中：Value mappings 控制数值对应的显示文字。Thresholds 控制数值对应的显示颜色。 针对 Legend 修改描述文字Legend 这里配置的是 &#123;&#123;ifName&#125;&#125; 显示出来就是类似 ge0/2 等，也就是 Prometheus 里原始数据的标签名。 如果我想根据这个名字来指定一个对应关系来显示，比如领导不知道 ge0/2 是什么意思（开玩笑的，没找到合适的例子），可以将 ge0/2 转换为：第一排第二个网口，可以这么配置：  </div></div></div></a><a class="pagination-related" href="/posts/lswszwbz/" title="Grafana 监控面板配置"><img class="cover" src="https://static.zahui.fan/public/Grafana.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">Grafana 监控面板配置</div></div><div class="info-2"><div class="info-item-1">安装 grafanaoss：开源版本 enterprise: 商业版本 https://grafana.com/grafana/download?pg=get&amp;plcmt=selfmanaged-box1-cta1&amp;edition=oss 添加数据源以 grafana 10.3.3 为例， 在 connections –&gt; Data sources 中新增：  面板配置可以手动配置，也可以在 grafana 官网下载别人配置好的模板：https://grafana.com/grafana/dashboards/, 复制 ID 或者下载 json 文件到本地 然后在面板上面，点击 + ， 选择 import dashboard 使用 json 文件导入或者直接输入面板 id 进行导入。  导入后便能看到基础的图形。 做变量筛选比如我们的监控会区分环境， 比如开发环境 dev，生产环境 prod， 现在需要在 grafana 的面板上做一个筛选框，这里是原始的数据：比如我们需要取 env 的值 在面板的设置 – 变量中， 添加一个变量， 变量名可以自定义，...</div></div></div></a><a class="pagination-related" href="/posts/so9bdi/" title="Grafana表格绘制"><img class="cover" src="https://static.zahui.fan/public/Grafana.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-12-23</div><div class="info-item-2">Grafana表格绘制</div></div><div class="info-2"><div class="info-item-1">选择一个关联标签instance 是机器 ip，不会重复，所以我用这个做关联字段。第一个查询我会保留多一些标签，（可以使用 sum by ... (instance) 保留想要的标签）其他的查询尽量只保留关联字段。 默认配置了多个查询，并将 Grafana 图表类型设置成 table 后，再将查询的格式设置成 Table，显示如下，有以下几个问题：  整合多个查询在一张表里面现在显示的是 3 个查询，通过一个选框来切换的，我们想要让这 3 个查询显示在一个框中，可以在 Grafana 的 Transform data 中增加一个 Join by field， 我这里以 instance 这个字段做关联，也就是说同样的 instance 认为是一条数据。可以看到展示出来只有一条数据了，并且选框没有了。 移除不想展示的字段上面可以看到数据已经被关联成了一条，但是有很多不想显示的字段，在 Transform data 中增加一个 Organize fields by name，经过调整后  修改字段单位上面的运行时间，单位是秒，需要调整一下单位，在 Override...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://static.zahui.fan/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">351</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">218</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/stucr2/" title="使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照"/></a><div class="content"><a class="title" href="/posts/stucr2/" title="使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照">使用 Python 自动截图 Grafana 仪表盘，实现可视化监控快照</a><time datetime="2025-03-28T16:35:52.000Z" title="更新于 2025-03-29 00:35:52">2025-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/stmd3s/" title="Linux磁盘管理"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux磁盘管理"/></a><div class="content"><a class="title" href="/posts/stmd3s/" title="Linux磁盘管理">Linux磁盘管理</a><time datetime="2025-03-28T03:18:41.000Z" title="更新于 2025-03-28 11:18:41">2025-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sm3z1i/" title="hexo butterfly 主题使用记录"><img src="https://static.zahui.fan/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo butterfly 主题使用记录"/></a><div class="content"><a class="title" href="/posts/sm3z1i/" title="hexo butterfly 主题使用记录">hexo butterfly 主题使用记录</a><time datetime="2025-03-28T03:16:54.000Z" title="更新于 2025-03-28 11:16:54">2025-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ssqj2c/" title="在 Hyper-V 下启用 Fedora 41 的增强会话模式"><img src="https://static.zahui.fan/images/20250328110319656.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在 Hyper-V 下启用 Fedora 41 的增强会话模式"/></a><div class="content"><a class="title" href="/posts/ssqj2c/" title="在 Hyper-V 下启用 Fedora 41 的增强会话模式">在 Hyper-V 下启用 Fedora 41 的增强会话模式</a><time datetime="2025-03-28T03:05:24.000Z" title="更新于 2025-03-28 11:05:24">2025-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/seln9g/" title="使用 PowerShell 修改 Windows 防火墙规则"><img src="https://static.zahui.fan/public/Windows.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 PowerShell 修改 Windows 防火墙规则"/></a><div class="content"><a class="title" href="/posts/seln9g/" title="使用 PowerShell 修改 Windows 防火墙规则">使用 PowerShell 修改 Windows 防火墙规则</a><time datetime="2025-03-27T14:57:12.000Z" title="更新于 2025-03-27 22:57:12">2025-03-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://static.zahui.fan/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
