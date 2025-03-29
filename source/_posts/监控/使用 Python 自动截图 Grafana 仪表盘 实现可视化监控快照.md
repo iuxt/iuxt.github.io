@@ -6,13 +6,14 @@ tags: [grafana, Puppeteer]
 abbrlink: stucr2
 date: 2025-03-29 00:06:38
 cover: ""
-updated: 2025-03-29 00:35:52
+updated: 2025-03-29 23:51:30
 ---
 
-需要安装一个插件，grafana-image-renderer
-<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/>
+官方配置文档在这里：<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/> 使用方式有两种，一种是直接在 grafana 机器上安装插件，另一个是使用外挂渲染器的方式。
 
-我是 kubernetes 运行的 grafana，所以选择用外挂渲染器的方法。根据官网文档安装依赖包：<https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux> 最终的镜像 dockerfile 如下：
+## 部署渲染器 grafana-image-renderer
+
+我的 grafana 是运行在 kubernetes 里的，所以选择用外挂渲染器的方法。渲染器核心用的是 Puppeteer，根据官网文档安装依赖包：<https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux> 最终的渲染器镜像 dockerfile 如下：
 
 ```dockerfile
 FROM node:22.14.0
@@ -120,7 +121,9 @@ spec:
   type: ClusterIP
 ```
 
-grafana 接入 渲染器，增加这两个环境变量
+## Grafana 接入渲染器
+
+容器运行的 grafana 接入 渲染器，增加这两个环境变量
 
 ```yml
             - name: GF_RENDERING_SERVER_URL
