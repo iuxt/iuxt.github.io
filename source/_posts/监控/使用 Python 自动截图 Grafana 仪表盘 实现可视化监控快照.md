@@ -6,7 +6,7 @@ tags: [grafana, Puppeteer]
 abbrlink: stucr2
 date: 2025-03-29 00:06:38
 cover: ""
-updated: 2025-03-29 23:59:14
+updated: 2025-03-30 22:11:53
 ---
 
 官方配置文档在这里：<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/> 使用方式有两种，一种是直接在 grafana 机器上安装插件，另一个是使用外挂渲染器的方式。
@@ -15,7 +15,7 @@ updated: 2025-03-29 23:59:14
 
 > 官方有现成的镜像，也可以不用自己构建镜像: `grafana/grafana-image-renderer:3.12.3`
 
-我的 grafana 是运行在 kubernetes 里的，所以选择用外挂渲染器的方法。渲染器核心用的是 Puppeteer，根据官网文档安装依赖包：<https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux> 最终的渲染器镜像 dockerfile 如下：
+我的 grafana 是运行在 kubernetes 里的，所以选择用外挂渲染器的方法。渲染器核心用的是 Puppeteer，根据官网文档安装依赖包：<https://pptr.dev/troubleshooting#chrome-doesnt-launch-on-linux> ，另外增加了中文字体包，解决了中文显示框框的问题。最终的渲染器镜像 dockerfile 如下：
 
 ```dockerfile
 FROM node:22.14.0
@@ -131,7 +131,7 @@ spec:
             - name: GF_RENDERING_SERVER_URL
               value: http://grafana-image-renderer/render
             - name: GF_RENDERING_CALLBACK_URL
-              value: http://sre-grafana:3000/
+              value: http://grafana:3000/
 ```
 
 在对应的面板，点击分享 就可以拿到渲染后的图像链接，浏览器打开可以拿到对应的图片。
