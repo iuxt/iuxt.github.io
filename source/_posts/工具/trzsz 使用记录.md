@@ -2,11 +2,14 @@
 title: trzsz 使用记录
 categories:
   - 工具
-tags: [OpenSSH, lrzsz]
+tags:
+  - OpenSSH
+  - lrzsz
+  - zmodem
 abbrlink: shqeci
-cover: 'https://static.zahui.fan/images/202411221801168.png'
+cover: https://static.zahui.fan/images/202411221801168.png
 date: 2024-08-05 14:07:29
-updated: 2025-02-10 17:32:27
+updated: 2025-04-01 14:03:49
 ---
 
 官方介绍：trzsz ( trz / tsz ) 是一款优秀的文件传输工具，和 lrzsz ( rz / sz ) 类似的、兼容 tmux 的文件传输工具。其实就是一个利用终端来传输文件的工具，可以用来取代 lrzsz，更多详情看官方文档：<https://trzsz.github.io/cn/> 和 GitHub：<https://github.com/trzsz/trzsz-ssh/blob/main/README.cn.md>
@@ -103,7 +106,8 @@ brew install trzsz-ssh
 
 ### 使用 windows 版 tssh.exe
 
-直接 github 上下载 tssh.exe 所在路径放到 PATH 环境变量中即可。rz 或 sz 的时候打开的是资源管理器 explorer.exe
+lrzsz 可以使用 [Release v0.12.21rc · trzsz/lrzsz-win32 · GitHub](https://github.com/trzsz/lrzsz-win32/releases/tag/v0.12.21rc)，放到 PATH 环境变量路径下，不清楚的也可以直接扔进 `C:\Windows` 目录下。
+直接 github 上下载 `tssh.exe` 所在路径放到 PATH 环境变量中即可。rz 或 sz 的时候打开的是资源管理器 `explorer.exe`
 
 ### 在 WSL2 中使用
 

@@ -2,13 +2,11 @@
 title: 改造windows terminal支持lrzsz
 categories:
   - 工具
-tags:
-  - Windows Terminal
-  - WSL
-  - lrzsz
+tags: [WSL, lrzsz, zmodem, Windows]
 abbrlink: e48170f8
-cover: 'https://static.zahui.fan/images/202305102317430.png'
+cover: https://static.zahui.fan/images/202305102317430.png
 date: 2023-04-12 20:12:25
+updated: 2025-04-01 14:05:05
 ---
 
 在 windows 下使用 xshell，如果执行 rz 或者 sz 是可以快捷上传/下载文件到本地的，这在使用堡垒机登录服务器会很有用，或者多层 ssh 嵌套的时候，某种极端的场景下，这可能是唯一的解决方案了。在 windows 下使用 xshell 连接服务器，这时候输入 rz，会弹出一个文件选择框：
