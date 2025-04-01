@@ -2,11 +2,13 @@
 title: 使用Python识别验证码 ddddocr
 categories:
   - 开发
-tags: ['']
+tags:
+  - OCR
+  - Python
 abbrlink: ss2wk6
 date: 2025-02-22 17:48:05
-cover: ''
-updated: 2025-02-22 17:57:12
+cover: ""
+updated: 2025-04-01 14:36:31
 ---
 
 GitHub 地址：<https://github.com/sml2h3/ddddocr>
@@ -34,3 +36,5 @@ image = open("example.jpg", "rb").read()
 result = ocr.classification(image)
 print(result)
 ```
+
+初始化传参 `show_ad=False` 输出就不带作者的广告了。

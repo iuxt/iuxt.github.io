@@ -2,7 +2,9 @@
 title: 使用Python识别验证码 Muggle OCR
 categories:
   - 开发
-tags: [OCR]
+tags:
+  - OCR
+  - Python
 abbrlink: sp3b30
 date: 2024-12-26 15:20:59
 cover: ""
