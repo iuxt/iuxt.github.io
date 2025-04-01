@@ -70,11 +70,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
+    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
+    
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
     <category term="java" scheme="https://zahui.fan/tags/java/"/>
-    
-    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
     
   </entry>
   
@@ -211,9 +211,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
-    
     <category term="nacos" scheme="https://zahui.fan/tags/nacos/"/>
+    
+    <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
     
   </entry>
   
@@ -455,9 +455,9 @@
     <link href="https://zahui.fan/posts/snrcqh/"/>
     <id>https://zahui.fan/posts/snrcqh/</id>
     <published>2024-11-30T09:51:53.000Z</published>
-    <updated>2024-11-30T14:34:21.000Z</updated>
+    <updated>2025-04-01T06:00:50.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="为什么不用-WSL"><a href="#为什么不用-WSL" class="headerlink" title="为什么不用 WSL"></a>为什么不用 WSL</h2><p>主要原因有以下几点：</p><ol><li>WSL 访问 Windows 的路径和原生 Windows 不一致，需要手动或者 <code>wslpath</code> 命令来转换</li><li>在 Windows 的命令行运行 wsl 命令的时候，需要通过 <code>wsl &lt;linux命令&gt;</code> 这种方式来实现，并不是原生的 Windows 命令写法。</li><li>WSL 启动耗时问题（倒还好，影响不大。）</li></ol><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>官网地址：<a href="https://www.msys2.org/">https://www.msys2.org/</a><br>安装直接下一步下一步即可。</p><blockquote><p>不同的启动器之间的区别请看：<a href="https://www.msys2.org/docs/environments/">https://www.msys2.org/docs/environments/</a></p></blockquote><h2 id="增加环境变量"><a href="#增加环境变量" class="headerlink" title="增加环境变量"></a>增加环境变量</h2><p>或者 win + R 输入 <code>sysdm.cpl</code> 点击 高级 环境变量 进入环境变量配置界面：</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411302227697.png" alt="image.png"></p><p>一般来说建议修改用户变量里面的 PATH 即可，添加一个路径：<code>C:\msys64\usr\bin</code></p><p>然后就可以正常使用了。</p><h2 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h2><p>包管理使用的是 pacman ，使用文档可以看这里：<a href="https://www.msys2.org/docs/package-management/">https://www.msys2.org/docs/package-management/</a></p><p>比如安装 vim，可以执行 <code>pacman -S vim</code></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="为什么不用-WSL"><a href="#为什么不用-WSL" class="headerlink" title="为什么不用 WSL"></a>为什么不用 WSL</h2><p>主要原因有以下几点：</p><ol><li>WSL 访问 Windows 的路径和原生 Windows 不一致，需要手动或者 <code>wslpath</code> 命令来转换</li><li>在 Windows 的命令行运行 wsl 命令的时候，需要通过 <code>wsl &lt;linux命令&gt;</code> 这种方式来实现，并不是原生的 Windows 命令写法。</li><li>WSL 启动耗时问题（倒还好，影响不大。）</li></ol><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>官网地址：<a href="https://www.msys2.org/">https://www.msys2.org/</a><br>安装直接下一步下一步即可。</p><blockquote><p>不同的启动器之间的区别请看：<a href="https://www.msys2.org/docs/environments/">https://www.msys2.org/docs/environments/</a></p></blockquote><h2 id="增加环境变量"><a href="#增加环境变量" class="headerlink" title="增加环境变量"></a>增加环境变量</h2><p>或者 win + R 输入 <code>sysdm.cpl</code> 点击 高级 环境变量 进入环境变量配置界面：</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/202411302227697.png" alt="image.png|753"></p><p>一般来说建议修改用户变量里面的 PATH 即可，添加一个路径：<code>C:\msys64\usr\bin</code></p><p>然后就可以正常使用了。</p><h2 id="常用技巧"><a href="#常用技巧" class="headerlink" title="常用技巧"></a>常用技巧</h2><p>包管理使用的是 pacman ，使用文档可以看这里：<a href="https://www.msys2.org/docs/package-management/">https://www.msys2.org/docs/package-management/</a></p><p>比如安装 vim，可以执行 <code>pacman -S vim</code></p>]]></content>
     
     
       
