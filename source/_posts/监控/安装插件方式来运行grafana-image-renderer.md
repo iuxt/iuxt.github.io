@@ -6,7 +6,7 @@ tags: [grafana, Docker, Puppeteer]
 abbrlink: su3lwr
 date: 2025-04-03 00:02:51
 cover: ""
-updated: 2025-04-03 00:06:11
+updated: 2025-04-03 00:10:24
 ---
 
 ```bash
@@ -39,7 +39,60 @@ docker run --name a xxx
 docker exec -it a bash
 ```
 
-这个脚本必须要登录容器后运行，如果写在 dockerfile 中，不能执行，很神奇，暂时不知道原因，所以我容器创建好了之后，再 `docker commit` 做的镜像。
+{% note default flat %}
+这个脚本必须要登录容器后运行，如果写在 dockerfile 中，不能执行，很神奇，暂时不知道原因 (用下面的 Dockerfile 可以百分百复现，有知道原因的大佬麻烦告诉我原因)，所以我容器创建好了之后，再 `docker commit` 做的镜像。
+
+```dockerfile
+FROM grafana/grafana-oss:11.6.0-ubuntu
+USER root
+RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.aliyun.com@g' /etc/apt/sources.list && \
+    sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y \
+    ca-certificates \
+    fonts-liberation \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgbm1 \
+    libgcc1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    lsb-release \
+    wget \
+    xdg-utils \
+    fonts-noto-cjk \
+    ttf-wqy-zenhei && \
+    fc-cache -f -v && \
+    apt clean all
+ADD grafana-image-renderer /var/lib/grafana/plugins/grafana-image-renderer/
+```
+
+{% endnote %}
 
 ```bash
 sed -i 's@//.*archive.ubuntu.com@//mirrors.aliyun.com@g' /etc/apt/sources.list
