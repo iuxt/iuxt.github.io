@@ -6,7 +6,7 @@ tags: [grafana, Puppeteer]
 abbrlink: stucr2
 date: 2025-03-29 00:06:38
 cover: ""
-updated: 2025-03-30 22:11:53
+updated: 2025-04-02 23:05:30
 ---
 
 官方配置文档在这里：<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/> 使用方式有两种，一种是直接在 grafana 机器上安装插件，另一个是使用外挂渲染器的方式。
@@ -63,7 +63,7 @@ RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debi
     wget \
     xdg-utils \
     fonts-noto-cjk \
-    ttf-wqy-zenhei && \
+    fonts-wqy-microhei && \
     fc-cache -f -v && \
     apt clean all
 WORKDIR /app
