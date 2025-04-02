@@ -6,7 +6,7 @@ tags: [grafana, Puppeteer]
 abbrlink: stucr2
 date: 2025-03-29 00:06:38
 cover: ""
-updated: 2025-04-02 23:10:35
+updated: 2025-04-03 00:05:44
 ---
 
 官方配置文档在这里：<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/> 使用方式有两种，一种是直接在 grafana 机器上安装插件，另一个是使用外挂渲染器的方式。
@@ -137,3 +137,33 @@ spec:
 在对应的面板，点击分享 就可以拿到渲染后的图像链接，浏览器打开可以拿到对应的图片。
 
 ![image.png|637](https://static.zahui.fan/images/20250329003245507.png)
+
+## 代码
+
+核心代码就是这个，请求接口，然后保存成文件
+
+```python
+    def render_panel(self, panel_id, panel_title):
+        """渲染面板并保存为 PNG"""
+        response = requests.get(
+            f"https://sre-grafana.ingeek.com/render/d-solo/{self.uid}?orgId=1&from={self.date_from}&to={self.date_to}&panelId={panel_id}&width=1500&height=750&scale=1&tz=Asia%2FShanghai",
+            headers={"Authorization": f"Bearer {self.api_key}"}
+        )
+        print(response.url)
+        safe_filename = re.sub(r'[\\/*?:"<>|]', '_', panel_title) + '.png'
+        with open(safe_filename, 'wb') as f:
+            f.write(response.content)
+        print(f"download png success, save to {safe_filename}")
+```
+
+但是比如想自动截取一个 dashboard 里面的每一张图，就需要进行循环 panel 了。这种方式可以拿到 dashboard 的 json：
+
+```python
+    def get_dashboard_json(self):
+        """获取仪表板 JSON 数据"""
+        response = requests.get(
+            f"https://sre-grafana.ingeek.com/api/dashboards/uid/{self.uid}",
+            headers={"Authorization": f"Bearer {self.api_key}"}
+        )
+        return response.json()
+```

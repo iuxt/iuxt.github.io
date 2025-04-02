@@ -1,6 +1,12 @@
 ---
-date: 2025-04-02 18:10:45
-updated: 2025-04-02 23:58:04
+title: 安装插件方式来运行grafana-image-renderer
+categories:
+  - 监控
+tags: [grafana, Docker, Puppeteer]
+abbrlink: su3lwr
+date: 2025-04-03 00:02:51
+cover: ""
+updated: 2025-04-03 00:06:11
 ---
 
 ```bash
@@ -33,6 +39,8 @@ docker run --name a xxx
 docker exec -it a bash
 ```
 
+这个脚本必须要登录容器后运行，如果写在 dockerfile 中，不能执行，很神奇，暂时不知道原因，所以我容器创建好了之后，再 `docker commit` 做的镜像。
+
 ```bash
 sed -i 's@//.*archive.ubuntu.com@//mirrors.aliyun.com@g' /etc/apt/sources.list
 sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
@@ -47,7 +55,7 @@ apt clean all
 docker commit grafana registry.cn-hangzhou.aliyuncs.com/iuxt/grafana-with-render:1
 ```
 
-k8s 运行的时候，需要配置 root_url 被这个坑了很久
+k8s 运行的时候，需要配置 `root_url` 被这个坑了很久
 
 ```yml
 kind: Deployment
