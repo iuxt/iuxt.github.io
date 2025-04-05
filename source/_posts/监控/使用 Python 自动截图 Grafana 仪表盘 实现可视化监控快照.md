@@ -6,7 +6,7 @@ tags: [grafana, Puppeteer]
 abbrlink: stucr2
 date: 2025-03-29 00:06:38
 cover: ""
-updated: 2025-04-03 00:05:44
+updated: 2025-04-05 09:37:15
 ---
 
 官方配置文档在这里：<https://grafana.com/docs/grafana/latest/setup-grafana/image-rendering/> 使用方式有两种，一种是直接在 grafana 机器上安装插件，另一个是使用外挂渲染器的方式。
@@ -146,7 +146,7 @@ spec:
     def render_panel(self, panel_id, panel_title):
         """渲染面板并保存为 PNG"""
         response = requests.get(
-            f"https://sre-grafana.ingeek.com/render/d-solo/{self.uid}?orgId=1&from={self.date_from}&to={self.date_to}&panelId={panel_id}&width=1500&height=750&scale=1&tz=Asia%2FShanghai",
+            f"https://sre-grafana.example.com/render/d-solo/{self.uid}?orgId=1&from={self.date_from}&to={self.date_to}&panelId={panel_id}&width=1500&height=750&scale=1&tz=Asia%2FShanghai",
             headers={"Authorization": f"Bearer {self.api_key}"}
         )
         print(response.url)
@@ -162,7 +162,7 @@ spec:
     def get_dashboard_json(self):
         """获取仪表板 JSON 数据"""
         response = requests.get(
-            f"https://sre-grafana.ingeek.com/api/dashboards/uid/{self.uid}",
+            f"https://sre-grafana.example.com/api/dashboards/uid/{self.uid}",
             headers={"Authorization": f"Bearer {self.api_key}"}
         )
         return response.json()
