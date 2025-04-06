@@ -1,60 +1,21 @@
 ---
-title: ubuntu常用配置
+title: ubuntu常用配置记录
 abbrlink: 27a660e
-cover: 'https://static.zahui.fan/public/Ubuntu.svg'
+cover: https://static.zahui.fan/public/Ubuntu.svg
 categories:
   - 基础运维
-tags:
-  - Linux
-  - 配置记录
-  - Ubuntu
-  - Crontab
+tags: [Linux, 配置记录, Ubuntu, Crontab]
 date: 2021-02-18 18:35:12
+updated: 2025-04-06 23:54:54
 ---
+
+以 Ubuntu 的尿性，总是会搞一些奇奇怪怪的“创新”，所以本文只针对于我在使用的 Ubuntu 系统，当前版本是 24.04 LTS，版本相差太大就不具有参考意义了。
 
 ## 修改国内源
 
-### 什么是 DEB822 (.sources) 文件格式？
-
-{% note blue 'fas fa-bullhorn' simple %}
-自新版本的 Debian 与 Ubuntu 起，例如：
-
-- Debian 12 的容器镜像
-- Ubuntu 24.04
-
-默认预装的系统中 APT 的系统源配置文件不再是传统的 `/etc/apt/sources.list`。传统格式（又被称为 One-Line-Style 格式）类似如下：
-
 ```bash
-deb http://mirrors.ustc.edu.cn/debian/ bookworm main contrib
+sudo sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list.d/ubuntu.sources
 ```
-
-新的 DEB822 格式自 APT 1.1（2015 年发布）起支持，后缀为 .sources，存储在 `/etc/apt/sources.list.d/` 目录下，格式类似如下：
-
-```bash
-Types: deb
-URIs: https://mirrors.ustc.edu.cn/debian
-Suites: bookworm
-Components: main contrib
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
-```
-
-在切换软件源时，需要根据实际情况选择对应的格式进行修改。
-
-关于 DEB822 格式的设计考虑，可以参考 [官方文档](https://repolib.readthedocs.io/en/latest/deb822-format.html)。
-
-{% endnote %}
-
-- 传统格式（/etc/apt/sources.list）
-
-    ```bash
-    sudo sed -i 's@//.*ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list
-    ```
-
-- DEB822 格式（/etc/apt/sources.list.d/ubuntu.sources）
-
-    ```bash
-    sudo sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list.d/ubuntu.sources
-    ```
 
 ## 编译环境安装
 
@@ -64,9 +25,13 @@ sudo apt-get install -y build-essential tcl gcc make zlib1g-dev libssl-dev libnc
 
 ## 切换语言环境
 
-`dpkg-reconfigure locales`
+```bash
+dpkg-reconfigure locales
+```
 
 ## Ubuntu 网卡配置文件
+
+图形界面版 Ubuntu 修改网卡配置应该首选图形界面修改，服务器版优先使用 `nmtui` 来修改。
 
 ### 查看网卡硬件信息
 
@@ -75,43 +40,9 @@ lshw -short | grep network
 ifconfig -a
 ```
 
-### 网卡配置文件 (16 版本及以下):/etc/network/interfaces 文件内容如下
+### 网卡配置文件
 
-```bash
-auto eth0
-iface eth0 inet static
-address 192.168.111.14
-gateway 192.168.111.2
-netmask 255.255.255.0
-dns-nameservers 192.168.111.2
-
-#network 192.168.111.0
-#broadcast 192.168.111.255
-```
-
-> 注意：如果 Ubuntu 系统采用的是 desktop 版，由于 desktop 版安装了 NetworkManager，修改完 interfaces 文档中的内容后，不会生效。需要先修改/etc/NetworkManager/NetworkManager.conf 文档中的 managed 参数，使之为 true ，并重启系统， 然后在修改/etc/network/interfaces 文件，设置静态 IP。
-
-### 重启网卡使配置生效
-
-```bash
-sudo /etc/init.d/networking restart
-```
-
-如果上面命令无法令 ubuntu 重启网络，则使用下面命令：
-
-```bash
-sudo ifdown eth0 && sudo ifup eth0
-或者
-
-service networking restart
-或者
-
-ifconfig eth0 down && ifconfig eth0 up
-```
-
-### 网卡配置文件 (17.10+):/etc/netplan/01-netcfg.yaml
-
-> ubuntu 从 17.10 开始，已放弃在/etc/network/interfaces 里固定 IP 的配置，而是改成 netplan 方式，配置写在/etc/netplan/01-netcfg.yaml 或者类似名称的 yaml 文件里
+> ubuntu 从 17.10 开始，已放弃在 `/etc/network/interfaces` 里固定 IP 的配置，而是改成 netplan 方式，配置写在 `/etc/netplan/01-netcfg.yaml` 或者类似名称的 yaml 文件里
 
 ```yml
 # This file describes the network interfaces available on your system
@@ -139,12 +70,12 @@ network:
       dhcp4: yes
 ```
 
-然后执行 `netplan apply` 使配置生效,不用重启网卡.
+然后执行 `netplan apply` 使配置生效,不用重启网卡
 
 ### 临时修改网卡 DNS 地址
 
 ```bash
-vim /etc/resolv.conf(不建议直接修改)
+vim /etc/resolv.conf
 nameserver 223.5.5.5 #修改成你的主DNS
 nameserver 223.6.6.6 #修改成你的备用DNS
 search localhost #你的域名
@@ -183,12 +114,6 @@ sudo systemctl mask systemd-networkd-wait-online.service
 
 ## 系统配置
 
-### 检查设备加载情况
-
-```bash
-dmesg | grep eth
-```
-
 ### 修改默认编辑器
 
 ```bash
@@ -201,9 +126,11 @@ sudo select-editor                         # 用于 crontab -e 等
 系统字体位置 `/usr/share/fonts/`, 将字体复制到 `/usr/share/fonts/` 目录
 用户字体位置 `~/.local/share/fonts`, 将字体复制到 `~/.local/share/fonts` 目录
 
-~~然后刷新字体缓存， 经测试不刷新也可以生效~~
+然后刷新字体缓存
 
-~~fc-cache -vf~~
+```bash
+fc-cache -vf
+```
 
 ## 包管理
 
