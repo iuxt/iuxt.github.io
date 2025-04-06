@@ -6,7 +6,7 @@ categories:
   - 基础运维
 tags: [Linux, 配置记录, Ubuntu, Crontab]
 date: 2021-02-18 18:35:12
-updated: 2025-04-06 23:54:54
+updated: 2025-04-07 00:17:40
 ---
 
 以 Ubuntu 的尿性，总是会搞一些奇奇怪怪的“创新”，所以本文只针对于我在使用的 Ubuntu 系统，当前版本是 24.04 LTS，版本相差太大就不具有参考意义了。
@@ -233,3 +233,13 @@ Name=New Empty Window
 Exec=/usr/share/code/code --no-sandbox --new-window %F
 Icon=com.visualstudio.code
 ```
+
+### Gnome 插件
+
+```bash
+sudo apt install -y chrome-gnome-shell
+```
+
+<https://extensions.gnome.org/>
+
+<https://extensions.gnome.org/extension/5278/pano/>
