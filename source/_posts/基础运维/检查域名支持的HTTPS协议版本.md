@@ -2,14 +2,11 @@
 title: 检查域名支持的HTTPS协议版本
 categories:
   - 基础运维
-tags:
-  - 加密
-  - SSL
-  - tls
-  - https
+tags: [加密, SSL, tls, https]
 abbrlink: lqxf8k8u
 cover: 'https://static.zahui.fan/public/certificate-ssl.svg'
 date: 2024-01-03 14:52:44
+updated: 2025-04-11 01:43:10
 ---
 
 ## 使用 NMAP(推荐)
@@ -24,6 +21,8 @@ nmap --script ssl-enum-ciphers -p 443 baidu.com
 ![image.png](https://static.zahui.fan/images/202401031545944.png)
 
 ## 在线验证
+
+[SSL Server Test (Powered by Qualys SSL Labs)](https://www.ssllabs.com/ssltest/index.html) 这个域名还可以检测支持的设备情况。
 
 <https://myssl.com/>
 
@@ -116,42 +115,7 @@ server {
 
 ## 常见问题
 
-### 为什么启用了 TLS1.0，但是不生效
+### ssl_ciphers
 
-已经配置了 `ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;` ，但是不生效，这个和其他参数有关，比如 `ssl_ciphers` ,如果你启用了 TLSv1，但是协议不支持，那也是不能启用的。
-
-比如在 AlmaLinux 9 下， 需要如下配置才能正常启用 TLS1.0 （主要是： `ssl_ciphers DEFAULT:@SECLEVEL=0;` 将安全级别调低 ）
-
-```conf
-    server {
-	listen 80;
-	listen [::]:80;
-    listen       443 ssl http2;
-    listen       [::]:443 ssl http2;
-    server_name   a.i.com;
-    root         /usr/share/nginx/html;
-
-    ssl_certificate "i.com.crt";
-    ssl_certificate_key "i.com.key";
-    ssl_session_timeout 1d;
-    ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
-    ssl_session_tickets off;
-
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
-    ssl_ciphers DEFAULT:@SECLEVEL=0;
-
-        error_page 404 /404.html;
-            location = /40x.html {
-        }
-
-        error_page 500 502 503 504 /50x.html;
-            location = /50x.html {
-        }
-    }
-
-```
-
-### 为什么禁用了 TLS1.0 ，但是不生效
-
-原理类似上面，需要同步更改 `ssl_ciphers` 参数。
-
+加密套件和你的 TLS 版本要对的上才行。
+不想要的加密套件，前面可以加个 ! 表示不使用。
