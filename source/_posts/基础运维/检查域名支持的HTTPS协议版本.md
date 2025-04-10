@@ -6,7 +6,7 @@ tags: [加密, SSL, tls, https]
 abbrlink: lqxf8k8u
 cover: 'https://static.zahui.fan/public/certificate-ssl.svg'
 date: 2024-01-03 14:52:44
-updated: 2025-04-11 01:43:10
+updated: 2025-04-11 01:47:15
 ---
 
 ## 使用 NMAP(推荐)
@@ -117,5 +117,5 @@ server {
 
 ### ssl_ciphers
 
-加密套件和你的 TLS 版本要对的上才行。
+密码套件不是瞎配置的，需要和你的 TLS 版本、和证书的加密类型（如 RSA ECC 等）对的上才行。
 不想要的加密套件，前面可以加个 ! 表示不使用。
