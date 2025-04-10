@@ -4,10 +4,9 @@ abbrlink: 1e777b9e
 cover: 'https://static.zahui.fan/public/linux.svg'
 categories:
   - 基础运维
-tags:
-  - Linux
-  - SSL
+tags: [Linux, SSL]
 date: 2022-04-28 08:29:04
+updated: 2025-04-10 18:59:05
 ---
 
 使用 acme.sh 可以自动申请 let's encrypt 证书，并且可以自动配置到 nginx，整个过程可以全自动。
@@ -89,6 +88,8 @@ export CF_Key="你的api key"
 export CF_Email="iuxt@qq.com"
 acme.sh --issue --dns dns_cf --dnssleep 600 -d babudiu.com -d *.babudiu.com
 ```
+
+脚本会等待 dns 生效，我配置了 600 秒。
 
 ### 使用 HTTP 认证
 
