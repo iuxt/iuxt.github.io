@@ -6,7 +6,7 @@ categories:
   - 基础运维
 tags: [Linux, 配置记录, Ubuntu, Crontab]
 date: 2021-02-18 18:35:12
-updated: 2025-04-07 00:17:40
+updated: 2025-04-12 00:26:51
 ---
 
 以 Ubuntu 的尿性，总是会搞一些奇奇怪怪的“创新”，所以本文只针对于我在使用的 Ubuntu 系统，当前版本是 24.04 LTS，版本相差太大就不具有参考意义了。
@@ -243,3 +243,13 @@ sudo apt install -y chrome-gnome-shell
 <https://extensions.gnome.org/>
 
 <https://extensions.gnome.org/extension/5278/pano/>
+
+## 配置 ssh
+
+我使用 tssh 来管理 ssh 会话。
+
+```bash
+sudo apt install libgles2 zenity lrzsz -y
+sudo apt install apt-file -y
+sudo apt-file update
+```
