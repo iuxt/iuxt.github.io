@@ -2,14 +2,65 @@
 title: macOS常用操作记录
 categories:
   - 工具
-tags:
-  - macOS
-  - 配置记录
-  - 常用操作
+tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://static.zahui.fan/public/macos.svg'
 date: 2024-01-24 10:54:44
+updated: 2025-04-16 23:49:48
 ---
+
+## 安装 HomeBrew
+
+<https://brew.sh/zh-cn/>
+
+## 终端配置
+
+### zsh 配置
+
+```bash
+# 安装字体
+brew install font-lxgw-wenkai font-meslo-for-powerlevel10k
+
+# 安装Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# 安装powerlevel10k主题
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# 修改一下.zshrc文件里面的ZSH_THEME为powerlevel10k/powerlevel10k
+# sed -i 's#^ZSH_THEME=.*#ZSH_THEME="powerlevel10k/powerlevel10k"#g' ~/.zshrc
+
+# 安装两个常用的插件
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+omz plugin enable zsh-autosuggestions zsh-syntax-highlighting
+```
+
+### 安装 FZF
+
+```bash
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+```
+
+### ls 查看的文件颜色
+
+mac 的 ls 命令默认的颜色比较难看, 比如可执行程序显示红色, 可以通过这种方式修改一下.
+
+修改前:
+
+![image.png|790](https://static.zahui.fan/images/202401241214412.png)
+
+配置在.zshrc 内
+
+```bash
+# 终端配色 比如文件夹是什么颜色, 链接是什么颜色等
+export CLICOLOR=1
+export LSCOLORS=ExGxFxdaCxDaDahbadeche
+```
+
+修改后:
+
+![image.png|799](https://static.zahui.fan/images/202401241215880.png)
 
 ## 在终端中使用 code 命令启动 vscode
 
@@ -50,60 +101,9 @@ sudo xattr -r -d com.apple.quarantine /Applications/WebStrom.app
 | 开机启动项 (个人) |  ~/Library/LaunchAgents |
 | 完全磁盘访问权限 | /Library/PrivilegedHelperTools/ |
 
-## 终端配置
-
-### ls 查看的文件颜色
-
-mac 的 ls 命令默认的颜色比较难看, 比如可执行程序显示红色, 可以通过这种方式修改一下.
-
-修改前:
-
-![image.png|790](https://static.zahui.fan/images/202401241214412.png)
-
-配置在.zshrc 内
-
-```bash
-# 终端配色 比如文件夹是什么颜色, 链接是什么颜色等
-export CLICOLOR=1
-export LSCOLORS=ExGxFxdaCxDaDahbadeche
-```
-
-修改后:
-
-![image.png|799](https://static.zahui.fan/images/202401241215880.png)
-
-### zsh 配置
-
-```bash
-# brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# 安装字体
-brew install font-lxgw-wenkai font-meslo-for-powerlevel10k
-
-# 安装Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# 安装powerlevel10k主题
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -i 's#^ZSH_THEME=.*#ZSH_THEME="powerlevel10k/powerlevel10k"#g' ~/.zshrc
-
-# 安装两个常用的插件
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-omz plugin enable zsh-autosuggestions zsh-syntax-highlighting
-```
-
-### 安装 FZF
-
-```bash
-brew install fzf
-$(brew --prefix)/opt/fzf/install
-```
-
 ## 远程访问 Windows
 
-可以使用 parallels client (appstore 就有) 或者使用微软官方的 microsoft remote desktop 客户端 (商店版需要美区 apple id), 或者在微软官方下载
+可以使用 parallels client (appstore 就有) 或者使用微软官方的 ~~microsoft remote desktop 客户端 (商店版需要美区 apple id),~~ Windows App 现在国区就可以下载的到. 或者在微软官方下载
 
 [正式版pkg包(程色图标)](https://go.microsoft.com/fwlink/?linkid=868963)
 [beta版zip包(蓝色图标)](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
