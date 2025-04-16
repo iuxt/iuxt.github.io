@@ -1,16 +1,15 @@
 ---
-title: Prometheus常用PromSQL记录
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+title: Prometheus常用PromQL记录
+cover: https://static.zahui.fan/public/Prometheus.svg
 categories:
   - 监控
-tags:
-  - Prometheus
-  - prometheus
+tags: [Prometheus, prometheus]
 abbrlink: 11255f25
 date: 2022-12-06 14:47:09
+updated: 2025-04-16 16:42:07
 ---
 
-prometheus 查询语法叫 promsql，做个记录：
+prometheus 查询语法叫 PromQL，做个记录：
 
 ## 查询条件
 
