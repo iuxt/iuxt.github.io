@@ -1,9 +1,10 @@
 ---
 date: 2025-01-07 19:05:10
-updated: 2025-01-07 19:09:18
+updated: 2025-04-16 17:01:46
 ---
 
 首先替换：
+<https://github.com/kubernetes/ingress-nginx/blob/main/deploy/static/provider/baremetal/deploy.yaml>
 
 `ingress-nginx` --> `public-ingress-nginx`
 

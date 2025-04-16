@@ -95,3 +95,8 @@ sum by (app, proc) (
 ```bash
 count by (app) (instance_cpu_time_ns)
 ```
+
+
+```
+avg_over_time( rate(http_server_requests_seconds_count[1h])[1h:1m] ) > 2 * avg_over_time( rate(http_server_requests_seconds_count[1h] offset 1d)[1h:1m] ) by (job, path, method)
+```
