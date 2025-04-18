@@ -6,19 +6,19 @@ tags: [自动化, Python, grafana]
 abbrlink: suwpme
 date: 2025-04-18 17:13:26
 cover: ""
-updated: 2025-04-18 18:04:42
+updated: 2025-04-18 18:11:43
 ---
 
-selenium 是一个 python 库, 用于操作 chromium 浏览器实现一些自动化的动作, 本文是为了把 grafana 的监控图截图做成各种运维报表使用.
+selenium 是一个 python 库, 用于操作 chromium 浏览器实现一些自动化的动作, 本文是为了把 grafana 的监控图截图保存, 后续可以将图片做成运维报表之类的.
 
 ## 调试阶段
 
 调试阶段可以使用电脑上的 chrome,并关闭 headless 模式,方便看到界面执行的效果.
-chrome 官网下载即可, `chromedriver` 下载地址: <https://googlechromelabs.github.io/chrome-for-testing/> , chromedriver 放在代码同目录即可.
+chrome 官网下载即可, `chromedriver` 下载地址: <https://googlechromelabs.github.io/chrome-for-testing/> , `chromedriver` 放在代码同目录即可.
 
 ## 问题
 
-为什么不用 `grafana-image-renderer` , 这个容易出问题,老是容易截图错误,并且如果监控图加载时间一长,比如图还没加载出来, 就完成了截图, 图片都是空白的.
+为什么不用 `grafana-image-renderer`, 这个官方插件 BUG 挺多的, 比如一个图需要很长时间才能加载, 就会出现图还没加载出来, 就完成了截图的情况. 并且截图速度很慢.
 
 ## 简单的开始
 
