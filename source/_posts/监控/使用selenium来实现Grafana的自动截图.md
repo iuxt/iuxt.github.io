@@ -6,7 +6,7 @@ tags: [自动化, Python, grafana]
 abbrlink: suwpme
 date: 2025-04-18 17:13:26
 cover: ""
-updated: 2025-04-18 18:11:43
+updated: 2025-04-22 15:37:20
 ---
 
 selenium 是一个 python 库, 用于操作 chromium 浏览器实现一些自动化的动作, 本文是为了把 grafana 的监控图截图保存, 后续可以将图片做成运维报表之类的.
@@ -137,9 +137,7 @@ apt-get install -y ttf-wqy-microhei
 
 ## 完整代码
 
-```python
-//todo
-```
+<https://github.com/iuxt/grafana_auto_capture_image>
 
 ## 容器化
 
