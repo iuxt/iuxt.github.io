@@ -2,11 +2,11 @@
 title: iTerm2配置记录
 categories:
   - 工具
-tags:
-  - 效率工具
-  - 常用操作
+tags: [效率工具, 常用操作]
 abbrlink: ltqmt2r2
 date: 2023-03-14 10:49:22
+updated: 2025-04-24 13:11:59
+cover: https://static.zahui.fan/images/20250424131148250.png
 ---
 
 ## 快捷键

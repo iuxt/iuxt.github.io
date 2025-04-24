@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://static.zahui.fan/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-04-18 15:08:02
+updated: 2025-04-19 17:53:05
 ---
 
 ## 安装 HomeBrew
@@ -88,7 +88,7 @@ export LSCOLORS=ExGxFxdaCxDaDahbadeche
 
   或者到系统设置的隐私与安全性里进行打开
 
-或者去除苹果的 quarantine 属性
+或者去除苹果的 quarantine 属性, 执行这条命令可能需要 APP 管理 这个权限。
 
 ```bash
 sudo xattr -r -d com.apple.quarantine /Applications/WebStrom.app
