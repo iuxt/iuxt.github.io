@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://static.zahui.fan/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-04-19 17:53:05
+updated: 2025-04-24 23:52:47
 ---
 
 ## 安装 HomeBrew
@@ -243,7 +243,7 @@ ${HOME}/Library/CloudStorage
 ### 在家目录创建 iCloud 快捷方式
 
 ```bash
-ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" ~/icloud
+ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" ~/iCloud
 ```
 
 ## 重置网卡信息
@@ -456,7 +456,7 @@ brew tap homebrew/cask-fonts
 brew search nerd-font
 
 # 安装适配了powerlevel10k的字体
-brew install homebrew/cask-fonts/font-meslo-for-powerlevel10k
+brew install font-meslo-for-powerlevel10k
 
 # 安装「霞鹜文楷」字体
 brew install font-lxgw-wenkai
