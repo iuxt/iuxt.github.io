@@ -4,10 +4,9 @@ abbrlink: 3b23b5cb
 cover: 'https://static.zahui.fan/public/MySQL.svg'
 categories:
   - 数据库
-tags:
-  - 配置记录
-  - MySQL
+tags: [配置记录, MySQL]
 date: 2022-08-14 11:41:08
+updated: 2025-05-22 11:12:52
 ---
 
 如有特殊需求需要编译安装 MySQL 请看 [编译安装MySQL5.7](/posts/b670229a)
@@ -88,11 +87,11 @@ ln -s ${BASE_DIR}-5.7.39-linux-glibc2.12-x86_64/ ${BASE_DIR}
 ```bash
 mkdir -p ${DATA_DIR}/{binlog,data,logs,redolog,relaylog,tmp,undolog}
 mkdir -p ${BASE_DIR}/etc
-chown -R mysql.mysql ${DATA_DIR}
+chown -R mysql:mysql ${DATA_DIR}
 touch ${DATA_DIR}/logs/error_mysqld.log
-chown -R mysql.mysql ${DATA_DIR}/logs/error_mysqld.log
-chown -R mysql.mysql ${BASE_DIR}
-chown -R mysql.mysql ${BASE_DIR}-5.7.39-linux-glibc2.12-x86_64/
+chown -R mysql:mysql ${DATA_DIR}/logs/error_mysqld.log
+chown -R mysql:mysql ${BASE_DIR}
+chown -R mysql:mysql ${BASE_DIR}-5.7.39-linux-glibc2.12-x86_64/
 ```
 
 ### initialize
