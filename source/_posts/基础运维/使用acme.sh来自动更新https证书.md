@@ -6,7 +6,7 @@ categories:
   - 基础运维
 tags: [Linux, SSL]
 date: 2022-04-28 08:29:04
-updated: 2025-04-10 18:59:05
+updated: 2025-05-22 15:39:25
 ---
 
 使用 acme.sh 可以自动申请 let's encrypt 证书，并且可以自动配置到 nginx，整个过程可以全自动。
@@ -125,9 +125,18 @@ acme.sh --issue -d mydomain.com --standalone
 
 ## 安装证书
 
-默认生成的证书都放在 `~/.acme.sh/`, 可以使用 `--install-cert` 命令, 将证书复制到指定的位置。
+默认生成的证书都放在 `~/.acme.sh/`,
 
-只有通过这种方式来复制证书，以后才能自动更新，手动复制的证书不能自动更新。
+| 文件名                 | 内容                                                         |
+| ---------------------- | ------------------------------------------------------------ |
+| cert.pem               | 服务端证书                                                   |
+| chain.pem              | 浏览器需要的所有证书但不包括服务端证书，比如根证书和中间证书 |
+| fullchain.pem          | 包括了 cert.pem 和 chain.pem 的内容                          |
+| privkey.pem            | 证书的私钥                                                   |
+
+可以使用 `--install-cert` 命令, 将证书复制到指定的位置。通过 `--install-cert` 命令来安装证书好处有：
+1. 可以自动更新证书
+2. 可以自动重新加载证书（例如 nginx -s reload），需要自己配置
 
 {% tabs TabName %}
 
@@ -176,15 +185,6 @@ acme.sh  --upgrade  --auto-upgrade
 ```bash
 acme.sh --upgrade  --auto-upgrade  0
 ```
-
-Nginx 证书配置的解释
-
-| 文件名                 | 内容                                                         |
-| ---------------------- | ------------------------------------------------------------ |
-| cert.pem               | 服务端证书                                                   |
-| chain.pem              | 浏览器需要的所有证书但不包括服务端证书，比如根证书和中间证书 |
-| fullchain.pem          | 包括了 cert.pem 和 chain.pem 的内容                          |
-| privkey.pem            | 证书的私钥                                                   |
 
 ## 错误排查
 
