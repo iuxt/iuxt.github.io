@@ -2,11 +2,15 @@
 title: PHP应用容器化遇到的一些问题
 categories:
   - 容器
-tags: []
+tags:
+  - PHP
+  - Docker
+  - 容器
+  - 编译
 abbrlink: swpjjc
-date: 2025-05-23 17:25:59
-cover: ""
-updated: 2025-05-26 15:46:19
+date: 2024-05-23 17:25:59
+cover: https://static.zahui.fan/images/20250528184612107.png
+updated: 2025-05-28 18:46:38
 ---
 
 这里以 WordPress 为例，我们不用官方的镜像，而是用 php 镜像
