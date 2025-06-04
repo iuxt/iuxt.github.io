@@ -2,12 +2,11 @@
 title: Windows下运行服务的几种方式
 categories:
   - Windows
-tags:
-  - 服务
-  - service
+tags: [服务, service]
 abbrlink: 5d4cbfad
 cover: 'https://static.zahui.fan/public/Windows-old.svg'
 date: 2023-01-04 13:56:47
+updated: 2025-06-04 09:33:15
 ---
 
 ## 原生命令 sc
