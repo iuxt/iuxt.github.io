@@ -6,7 +6,7 @@ tags: [服务, service]
 abbrlink: 5d4cbfad
 cover: 'https://static.zahui.fan/public/Windows-old.svg'
 date: 2023-01-04 13:56:47
-updated: 2025-06-04 09:33:15
+updated: 2025-06-04 11:44:34
 ---
 
 ## 原生命令 sc
@@ -87,7 +87,9 @@ service.exe restart
 
 <https://github.com/winsw/winsw>
 
-注意: 2.x 版本 和 3.x 版本会有一些不同, 我用的是 3.x beta 版本, 以 frpc 这个内网穿透服务为例, 3.x 当前指定用户执行的功能有 bug
+注意: 2.x 版本 和 3.x 版本配置文件会有一些不同
+
+官方的 3.x 配置文件文档：<https://github.com/winsw/winsw/blob/v3.0.0-alpha.11/docs/xml-config-file.md>
 
 ### 安装 winsw
 
@@ -110,7 +112,7 @@ service.exe restart
 
   <onfailure action="restart" delay="10 sec"/>
   <onfailure action="restart" delay="20 sec"/>
-  <onfailure action="restart" delay="1 hour"/>
+  <onfailure action="restart" delay="5 min"/>
   <resetfailure>2 hour</resetfailure>
   <stoptimeout>15 sec</stoptimeout>
 
@@ -119,11 +121,9 @@ service.exe restart
   <delayedAutoStart>true</delayedAutoStart>
   
   <logpath>%BASE%\logs</logpath>
-  <log mode="append">
-    <!--
-    <setting1/>
-    <setting2/>
-  -->
+  <log mode="roll-by-size">
+    <sizeThreshold>10240</sizeThreshold>
+    <keepFiles>8</keepFiles>
   </log>
 </service>
 ```
