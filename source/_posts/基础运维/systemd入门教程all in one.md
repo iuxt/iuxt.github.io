@@ -5,7 +5,8 @@ categories:
   - 基础运维
 tags: [Linux, Systemd, 配置记录]
 date: 2021-09-24 22:05:33
-updated: 2025-01-25 11:35:07
+updated: 2025-06-05 18:05:07
+cover: https://static.zahui.fan/images/20250605180435282.png
 ---
 
 > 参考自<https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>，感谢阮一峰老哥。
