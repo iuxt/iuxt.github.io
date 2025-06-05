@@ -4,10 +4,9 @@ abbrlink: b670229a
 cover: 'https://static.zahui.fan/public/MySQL.svg'
 categories:
   - 基础运维
-tags:
-  - 配置记录
-  - MySQL
+tags: [配置记录, MySQL]
 date: 2022-07-05 15:16:12
+updated: 2025-06-05 18:59:40
 ---
 
 编译需要耗时，且对系统的依赖更为复杂，更容易出错， 如果没有必要，可以参考使用 [二进制安装MySQL5.7](/posts/3b23b5cb)
