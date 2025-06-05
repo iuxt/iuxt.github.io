@@ -5,7 +5,7 @@ categories:
   - Windows
 tags: [VirtualMachine, Windows, Command, PowerShell, Hyper-V]
 date: 2022-01-12 11:06:59
-updated: 2025-01-27 16:02:23
+updated: 2025-06-05 17:37:34
 ---
 
 ## 开始之前
@@ -87,7 +87,7 @@ New-NetIPAddress -IPAddress 10.0.0.1 -PrefixLength 24 -InterfaceIndex $ifindex
 ### 创建 NAT 网络
 
 ```powershell
-New-NetNat -Name Internal -InternalIPInterfaceAddressPrefix 10.0.0.0/24
+New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix 10.0.0.0/24
 ```
 
 ### 删除 NAT 网络
