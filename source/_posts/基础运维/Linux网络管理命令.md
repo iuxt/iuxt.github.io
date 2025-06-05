@@ -6,7 +6,7 @@ categories:
   - 基础运维
 tags: [Linux, Command, Network]
 date: 2021-10-15 17:41:01
-updated: 2025-05-28 15:18:29
+updated: 2025-06-05 14:51:30
 ---
 
 > 2009 年 Debian 开发者邮件列表宣布放弃使用缺乏维护的 net-tools 工具包，net-tools 包含历史悠久的 ifconfig, netstat 等网络相关的命令
@@ -91,7 +91,8 @@ ip route del 192.168.1.0/24 via 192.168.1.1
 比如想知道本机的哪个进程在连接 MySQL
 
 ```bash
-sudo netstat -tunap | grep :3306
+netstat -tunap | grep :3306
+ss -tunap
 ```
 
 ### 用 TCP 状态过滤 Sockets

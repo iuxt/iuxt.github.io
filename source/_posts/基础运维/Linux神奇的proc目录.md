@@ -6,7 +6,7 @@ tags: []
 abbrlink: sqkrxr
 date: 2023-01-24 12:17:51
 cover: ""
-updated: 2025-02-01 16:43:23
+updated: 2025-06-05 14:51:02
 ---
 
 让我们看看/proc 里面都有什么
@@ -37,7 +37,7 @@ A=B vim a.log
 这种情况下 vim 进程是有 A 这个环境变量的，可以使用以下命令查看。
 
 ```bash
-cat /proc/39564/environ |  tr '\0' '\n'  
+cat /proc/39564/environ |  tr '\0' '\n'
 ```
 
 ## 内核启动参数
