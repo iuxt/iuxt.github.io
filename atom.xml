@@ -118,11 +118,11 @@
     <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
     
     
-    <category term="自动化" scheme="https://zahui.fan/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
     <category term="Python" scheme="https://zahui.fan/tags/Python/"/>
     
     <category term="grafana" scheme="https://zahui.fan/tags/grafana/"/>
+    
+    <category term="自动化" scheme="https://zahui.fan/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
   </entry>
   
