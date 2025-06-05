@@ -240,11 +240,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
-    
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
     <category term="java" scheme="https://zahui.fan/tags/java/"/>
+    
+    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
     
   </entry>
   
@@ -385,9 +385,9 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="nacos" scheme="https://zahui.fan/tags/nacos/"/>
-    
     <category term="Kubernetes" scheme="https://zahui.fan/tags/Kubernetes/"/>
+    
+    <category term="nacos" scheme="https://zahui.fan/tags/nacos/"/>
     
   </entry>
   
