@@ -2,12 +2,11 @@
 title: 基于Ubuntu的软路由搭建记录
 categories:
   - 工具
-tags:
-  - ubuntu
-  - 软路由
+tags: [ubuntu, 软路由]
 cover: 'https://static.zahui.fan/images/202212192147769.png'
 abbrlink: cfedbd03
 date: 2022-12-16 16:41:30
+updated: 2025-06-05 18:18:21
 ---
 
 ## 前言
@@ -338,7 +337,7 @@ server {
       "settings": {
         "vnext": [
           {
-            "address": "aria2.babudiu.com",
+            "address": "v2ray.example.com",
             "port": 443,
             "users": [
               {

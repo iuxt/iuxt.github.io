@@ -6,7 +6,7 @@ categories:
   - 基础运维
 tags: [Linux, 配置记录, Ubuntu, Crontab]
 date: 2021-02-18 18:35:12
-updated: 2025-04-12 00:26:51
+updated: 2025-06-05 18:20:13
 ---
 
 以 Ubuntu 的尿性，总是会搞一些奇奇怪怪的“创新”，所以本文只针对于我在使用的 Ubuntu 系统，当前版本是 24.04 LTS，版本相差太大就不具有参考意义了。
@@ -45,32 +45,34 @@ ifconfig -a
 > ubuntu 从 17.10 开始，已放弃在 `/etc/network/interfaces` 里固定 IP 的配置，而是改成 netplan 方式，配置写在 `/etc/netplan/01-netcfg.yaml` 或者类似名称的 yaml 文件里
 
 ```yml
-# This file describes the network interfaces available on your system
-# For more information, see netplan(5).
 network:
   version: 2
+  renderer: networkd
   ethernets:
-    ens33:
-      addresses: [ 10.0.0.51/24 ]
-      gateway4: 10.0.0.2
+    eth0:
+      dhcp4: no
+      addresses: [10.0.0.10/24]
+      routes:
+        - to: default
+          via: 10.0.0.1
       nameservers:
-          addresses:
-              - "10.0.0.2"
+        addresses:
+          - 223.5.5.5
+          - 223.6.6.6
 ```
 
 dhcp 配置
 
 ```yml
-# This file describes the network interfaces available on your system
-# For more information, see netplan(5).
 network:
   version: 2
+  renderer: networkd
   ethernets:
-    ens32:
-      dhcp4: yes
+    eth0:
+      dhcp4: true
 ```
 
-然后执行 `netplan apply` 使配置生效,不用重启网卡
+然后执行 `netplan try` 使配置生效,不用重启网卡。
 
 ### 临时修改网卡 DNS 地址
 
