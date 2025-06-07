@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://static.zahui.fan/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-04-24 23:52:47
+updated: 2025-06-08 01:39:17
 ---
 
 ## 安装 HomeBrew
@@ -460,6 +460,13 @@ brew install font-meslo-for-powerlevel10k
 
 # 安装「霞鹜文楷」字体
 brew install font-lxgw-wenkai
+
+# Maple Mono
+brew install --cask font-maple-mono
+# Maple Mono NF
+brew install --cask font-maple-mono-nf
+# Maple Mono NF CN
+brew install --cask font-maple-mono-nf-cn
 ```
 
 ## finder 访达个人收藏变成英文
