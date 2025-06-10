@@ -1,13 +1,12 @@
 ---
-title: MySQL字符集转换导致
+title: MySQL字符集转换导致的故障
 categories:
   - 数据库
-tags:
-  - 踩坑记录
+tags: [踩坑记录]
 abbrlink: sxl41q
 date: 2025-06-09 18:34:38
 cover: ""
-updated: 2025-06-10 10:09:43
+updated: 2025-06-10 19:34:42
 ---
 
 ![image.png](https://static.zahui.fan/images/20250609183441693.png)
