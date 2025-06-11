@@ -292,7 +292,8 @@ mask:
 inject:
   head:
     # - <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
-    - <link rel="stylesheet" href="https://static.zahui.fan/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
+    - <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
+    # - <link rel="stylesheet" href="https://static.zahui.fan/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
   bottom:
     # - <script src="xxxx"></script>
 
