@@ -2,16 +2,17 @@
 title: Windows中的符号连接
 categories:
   - Windows
-tags: 
+tags: []
 abbrlink: so24vr
 date: 2023-12-06 13:35:51
 cover: ""
+updated: 2025-06-12 16:21:55
 ---
 
 ## mklink 命令
 
 ```bat
-mklink /D 原始文件/目录  链接文件
+mklink  链接文件    原始文件/目录
 /D      创建目录符号链接。默认为文件符号链接。
 /H      创建硬链接而非符号链接。
 /J      创建目录联接。
