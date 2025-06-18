@@ -1,12 +1,12 @@
 {
   "accentColor": "",
-  "interfaceFontFamily": "JetBrains Mono NL,霞鹜文楷等宽 屏幕阅读版,LXGW WenKai Mono,微软雅黑",
+  "interfaceFontFamily": "JetBrains Mono NL,微软雅黑",
   "theme": "moonstone",
   "baseFontSize": 20,
   "translucency": false,
   "nativeMenus": false,
   "cssTheme": "Maple",
-  "textFontFamily": "JetBrains Mono NL,霞鹜文楷等宽 屏幕阅读版,LXGW WenKai,微软雅黑",
+  "textFontFamily": "JetBrains Mono NL,微软雅黑",
   "showRibbon": true,
   "monospaceFontFamily": "JetBrains Mono NL"
 }
