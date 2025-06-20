@@ -2,12 +2,11 @@
 title: 使用kubeadm部署一套高可用k8s 1.32集群 for AlmaLinux9(RHEL9)
 categories:
   - 容器
-tags:
-  - ''
+tags: []
 abbrlink: sof9i3
 date: 2024-12-13 15:44:27
-cover: ''
-updated: 2025-01-08 18:08:52
+cover: https://static.zahui.fan/public/kubernetes.avif
+updated: 2025-06-20 17:13:47
 ---
 
 > 基于 AlmaLinux9 使用 kubeadm 搭建集群， [ubuntu部署文档](/posts/526ffc9a/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/), 本教程需要能访问 **国际互联网** 。不能的话，需要解决镜像拉取问题、yum 安装组件的问题。

@@ -3,13 +3,10 @@ title: centos常用配置
 abbrlink: 6cc59126
 categories:
   - 基础运维
-tags:
-  - Linux
-  - 配置记录
-  - CentOS
-  - Systemd
+tags: [Linux, 配置记录, CentOS, Systemd]
 cover: 'https://static.zahui.fan/public/CentOS.svg'
 date: 2021-02-09 16:50:58
+updated: 2025-06-19 10:58:42
 ---
 
 centos 系统升级请看
@@ -135,6 +132,8 @@ sysctl -w net.ipv4.ip_forward=1
 ```
 
 ### 忘记密码
+
+重置密码：
 
 重启, 在 `grub2` 界面 先按 `↑` 停在这个界面,然后按 `e` 进入编辑模式
 找到 `linux16` 那一行, 在最后面添加 `init=/bin/sh`
