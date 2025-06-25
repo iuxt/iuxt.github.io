@@ -6,14 +6,16 @@ tags: [网络]
 abbrlink: sq6bmc
 date: 2024-01-16 16:59:00
 cover: ""
-updated: 2025-05-06 23:14:24
+updated: 2025-06-25 08:25:21
 ---
 
 这个工具是利用 NAT 打洞实现，需要有一台服务器（可以自建也可以用官方提供的）做中介。经测试打洞成功率很高，速度也不错。打洞成功后，异地的机器就像在同一个内网一样方便，访问 smb、家里的 nas、远程桌面等等，并且支持自动对内网网段进行转发（zerotier 需要配置 iptables 转发）自建服务器后感觉比 zerotier 好用。zerotier 的文档可以看 [群晖NAS部署zerotier内网穿透访问](/posts/spi492/)
 
+附上官方的配置文件生成工具：<https://easytier.cn/web/index.html#/config_generator>
+
 ## 自建服务端
 
-这个步骤可以省略，不自建可以用社区提供的免费服务器。
+这个步骤可以省略，不自建可以用社区提供的免费服务器。一个官方服务器地址：`uri = "tcp://public.easytier.top:11010"`
 
 我安装的是 easytier 的 docker 版本。
 
