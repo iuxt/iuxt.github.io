@@ -4,10 +4,9 @@ abbrlink: 1b957a56
 cover: 'https://static.zahui.fan/public/linux.svg'
 categories:
   - 基础运维
-tags:
-  - Linux
-  - Kernel
+tags: [Linux, Kernel]
 date: 2022-09-06 16:39:41
+updated: 2025-06-25 10:25:16
 ---
 
 ## 修改内核参数
@@ -55,6 +54,9 @@ sysctl -n net.ipv4.ip_forward        # 查看单个
 
 ```bash
 vm.overcommit_memory = 1
-net.ipv4.ip_forward = 1                    #允许ip转发
+net.ipv4.ip_forward = 1                    # 允许ip转发
 net.ipv4.icmp_echo_ignore_all=1            # 不允许ping
+tcp_timestamps # 是否开启 tcp timestamps 选项，timestamps 是在 tcp 三次握手过程中协商的，任意一方不支持，该连接就不会使用 timestamps 选项。
+tcp_tw_recycle # 是否开启 tcp time_wait 状态回收。
+tcp_tw_reuse # 开启后，可直接回收超过1s的 time_wait 状态的连接。
 ```
