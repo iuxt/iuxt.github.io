@@ -7,7 +7,7 @@
     "Templates/"
   ],
   "useTab": false,
-  "vimMode": true,
+  "vimMode": false,
   "newFileLocation": "root",
   "strictLineBreaks": true,
   "pdfExportSettings": {
