@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2025-06-24T10:33:14.000Z</updated>
+  <updated>2025-06-26T07:00:46.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ingress-nginx 使用自定义的nginx配置</title>
+    <link href="https://zahui.fan/posts/sygayi/"/>
+    <id>https://zahui.fan/posts/sygayi/</id>
+    <published>2025-06-26T06:49:30.000Z</published>
+    <updated>2025-06-26T07:00:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>新版 ingress 增强了 “ 安全性 “, 它认为用户自己写的 nginx 配置文件不安全，所以又加了限制。</p><p>比如有个需求，Spring Boot 写的程序有个 &#x2F;actuator 路径，安全审查不通过，如果是个 nginx 可以通过：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /actuator &#123;</span><br><span class="line">    return 404;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>来直接让它返回 404</p><h2 id="configmap"><a href="#configmap" class="headerlink" title="configmap"></a>configmap</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">allow-snippet-annotations:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">  <span class="attr">annotations-risk-level:</span> <span class="string">Critical</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ConfigMap</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/component:</span> <span class="string">controller</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/instance:</span> <span class="string">public-ingress-nginx</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/name:</span> <span class="string">public-ingress-nginx</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/part-of:</span> <span class="string">public-ingress-nginx</span></span><br><span class="line">    <span class="attr">app.kubernetes.io/version:</span> <span class="number">1.12</span><span class="number">.2</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">public-ingress-nginx-controller</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">public-ingress-nginx</span></span><br></pre></td></tr></table></figure><p>加上这两个配置：<br><code>allow-snippet-annotations</code><br><code>annotations-risk-level</code></p><p>风险等级，在这里可以查到：<br><a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations-risk/">https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations-risk/</a></p><h2 id="ingress-配置"><a href="#ingress-配置" class="headerlink" title="ingress 配置"></a>ingress 配置</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/cors-allow-headers:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/cors-allow-methods:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/cors-allow-origin:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/ssl-redirect:</span> <span class="string">&quot;false&quot;</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/server-snippet:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      location /actuator &#123;</span></span><br><span class="line"><span class="string">        return 404;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string"></span>  <span class="attr">name:</span> <span class="string">mtls</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">vos</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">ingressClassName:</span> <span class="string">public-nginx</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">a.com</span></span><br><span class="line">    <span class="attr">http:</span></span><br><span class="line">      <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">backend:</span></span><br><span class="line">          <span class="attr">service:</span></span><br><span class="line">            <span class="attr">name:</span> <span class="string">gateway</span></span><br><span class="line">            <span class="attr">port:</span></span><br><span class="line">              <span class="attr">number:</span> <span class="number">80</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">pathType:</span> <span class="string">ImplementationSpecific</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hosts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">a.com</span></span><br><span class="line">    <span class="attr">secretName:</span> <span class="string">a-com</span></span><br></pre></td></tr></table></figure><p>server-snippet 作用于 server 块<br>configuration-snippet 作用于 location 块</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;新版 ingress 增强了 “ 安全性 “, 它认为用户自己写的 nginx 配置文件不安全，所以又加了限制。&lt;/p&gt;
+&lt;p&gt;比如有个需求，Spring Boot 写的程序有个 &amp;#x2F;actuator 路径，安全审查不通过，如果是个 nginx 可以通过：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>P12格式证书与PEM格式转换</title>
@@ -568,34 +595,6 @@
     <category term="Python" scheme="https://zahui.fan/tags/Python/"/>
     
     <category term="OCR" scheme="https://zahui.fan/tags/OCR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx反向代理的context path</title>
-    <link href="https://zahui.fan/posts/sootea/"/>
-    <id>https://zahui.fan/posts/sootea/</id>
-    <published>2024-12-18T11:32:33.000Z</published>
-    <updated>2025-02-19T09:46:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="返回请求-uri"><a href="#返回请求-uri" class="headerlink" title="返回请求 uri"></a>返回请求 uri</h2><p>在 Nginx 中，可以使用 <code>$request_uri</code> 来表示请求 uri, 配置如下；</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name example.com;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        add_header Content-Type text/html;</span><br><span class="line">        return 200 &quot;$request_uri\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里再使用另一台 nginx 反向代理到这台 nginx 就可以测试请求的 uri 了。</p><h2 id="测试-nginx-的反向代理-content-path"><a href="#测试-nginx-的反向代理-content-path" class="headerlink" title="测试 nginx 的反向代理 content path"></a>测试 nginx 的反向代理 content path</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">   proxy_pass http://192.168.200.12;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果是</p><p><code>curl localhost/aa/bb/</code> –&gt; <code>http://192.168.200.12/aa/bb/</code></p><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /aa &#123;</span><br><span class="line">   proxy_pass http://192.168.200.12;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果和上面一样，但是只有 &#x2F;aa 开头的才能转发到这里</p><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /aa/ &#123;</span><br><span class="line">   proxy_pass http://192.168.200.12;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果和上面一样，但是只有 &#x2F;aa&#x2F; 开头的才能转发到这里</p><h3 id="4"><a href="#4" class="headerlink" title="4"></a>4</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /aa &#123;</span><br><span class="line">   proxy_pass http://192.168.200.12/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master1 nginx]<span class="comment"># curl localhost/aa/bb/cc</span></span><br><span class="line">//bb/cc</span><br></pre></td></tr></table></figure><h3 id="5"><a href="#5" class="headerlink" title="5"></a>5</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /aa &#123;</span><br><span class="line">   proxy_pass http://192.168.200.12/x/y/z;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>结果是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master1 nginx]<span class="comment"># curl localhost/aa</span></span><br><span class="line">/x/y/z</span><br></pre></td></tr></table></figure><h2 id="nginx-的-alias"><a href="#nginx-的-alias" class="headerlink" title="nginx 的 alias"></a>nginx 的 alias</h2><p>Nginx 的 alias 指令可以理解为“路径别名”，它能把用户访问的 URL 路径直接映射到服务器上的另一个真实目录。举个例子：</p><p>假设你配置了：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /images/ &#123;</span><br><span class="line">    alias /var/www/my_photos/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当用户访问 <code>http://你的网站/images/cat.jpg</code> 时，Nginx 会直接去服务器上的 <code>/var/www/my_photos/cat.jpg</code> 找文件，而不会保留 URL 中的 <code>/images/</code> 路径。</p><p>和另一个指令 root 的区别在于：</p><p>用 root 时，路径是追加（比如 location &#x2F;a&#x2F; { root &#x2F;b; }，访问 <code>/a/1.jpg</code> 会找 <code>/b/a/1.jpg</code>）<br>用 alias 时，路径是替换（同样配置下，访问 <code>/a/1.jpg</code> 会直接找 <code>/b/1.jpg</code>）<br>需要注意：配置时路径末尾的 <code>/</code> 要统一，比如 <code>location /images/</code> 和 <code>alias /var/www/my_photos/</code> 都要带斜杠，否则可能导致路径错误</p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;返回请求-uri&quot;&gt;&lt;a href=&quot;#返回请求-uri&quot; class=&quot;headerlink&quot; title=&quot;返回请求 uri&quot;&gt;&lt;/a&gt;返回请求 uri&lt;/h2&gt;&lt;p&gt;在 Nginx 中，可以使用 &lt;code&gt;$request_uri&lt;/code&gt; 来表示请求 uri, 配置如下；&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="基础运维" scheme="https://zahui.fan/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="Nginx" scheme="https://zahui.fan/tags/Nginx/"/>
     
   </entry>
   
