@@ -6,7 +6,7 @@ tags: ['']
 abbrlink: sygayi
 date: 2025-06-26 14:49:30
 cover: ''
-updated: 2025-06-26 15:00:46
+updated: 2025-06-30 11:02:11
 ---
 
 新版 ingress 增强了 " 安全性 ", 它认为用户自己写的 nginx 配置文件不安全，所以又加了限制。
@@ -85,3 +85,11 @@ spec:
 
 server-snippet 作用于 server 块
 configuration-snippet 作用于 location 块
+
+注意：
+
+```yml
+nginx.ingress.kubernetes.io/use-regex: 'true'
+```
+
+当启用 `use-regex` 时，所有路径都会被当作正则表达式处理，会影响到匹配。
