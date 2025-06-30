@@ -39,32 +39,32 @@ location / {
 
 结果是
 
-`curl localhost/aa/bb/` --> `http://192.168.200.12/aa/bb/`
+`curl localhost/a/b/` --> `http://192.168.200.12/a/b/`
 
 ### 2
 
 ```conf
-location /aa {
+location /a {
    proxy_pass http://192.168.200.12;
 }
 ```
 
-结果和上面一样，但是只有 /aa 开头的才能转发到这里
+结果和上面一样，但是只有 /a 开头的才能转发到这里
 
 ### 3
 
 ```conf
-location /aa/ {
+location /a/ {
    proxy_pass http://192.168.200.12;
 }
 ```
 
-结果和上面一样，但是只有 /aa/ 开头的才能转发到这里
+结果和上面一样，但是只有 /a/ 开头的才能转发到这里
 
 ### 4
 
 ```conf
-location /aa {
+location /a {
    proxy_pass http://192.168.200.12/;
 }
 ```
@@ -72,14 +72,14 @@ location /aa {
 结果是：
 
 ```bash
-[root@master1 nginx]# curl localhost/aa/bb/cc
-//bb/cc
+[root@master1 nginx]# curl localhost/a/b/c
+//b/c
 ```
 
 ### 5
 
 ```conf
-location /aa {
+location /a {
    proxy_pass http://192.168.200.12/x/y/z;
 }
 ```
@@ -87,7 +87,7 @@ location /aa {
 结果是：
 
 ```bash
-[root@master1 nginx]# curl localhost/aa
+[root@master1 nginx]# curl localhost/a
 /x/y/z
 ```
 

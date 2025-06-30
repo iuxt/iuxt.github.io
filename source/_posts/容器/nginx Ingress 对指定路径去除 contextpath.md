@@ -50,7 +50,7 @@ spec:
 
 ## 如果有多个 location 需要对其中一个 location 去除 contextpath
 
-### 方法一： 使用多个 Ingress，配置同一个域名
+### 方法一：使用多个 Ingress，配置同一个域名
 
 个人比较推荐这种配置
 
