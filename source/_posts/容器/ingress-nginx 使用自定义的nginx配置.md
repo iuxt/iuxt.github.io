@@ -6,10 +6,10 @@ tags: ['']
 abbrlink: sygayi
 date: 2025-06-26 14:49:30
 cover: ''
-updated: 2025-06-30 11:02:11
+updated: 2025-06-30 11:40:53
 ---
 
-新版 ingress 增强了 " 安全性 ", 它认为用户自己写的 nginx 配置文件不安全，所以又加了限制。
+新版 ingress 增强了 " 安全性 ", 它认为用户自己写的 nginx 配置文件不安全，所以又加了限制。我的 ingress 版本是： 1.12.2
 
 比如有个需求，Spring Boot 写的程序有个 /actuator 路径，安全审查不通过，如果是个 nginx 可以通过：
 
