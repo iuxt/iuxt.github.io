@@ -6,7 +6,7 @@
   <link href="https://zahui.fan/atom.xml" rel="self"/>
   
   <link href="https://zahui.fan/"/>
-  <updated>2025-06-30T03:40:53.000Z</updated>
+  <updated>2025-07-04T08:22:35.000Z</updated>
   <id>https://zahui.fan/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>minio自建对象存储</title>
+    <link href="https://zahui.fan/posts/syv4vu/"/>
+    <id>https://zahui.fan/posts/syv4vu/</id>
+    <published>2025-07-04T07:02:18.000Z</published>
+    <updated>2025-07-04T08:22:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="docker-部署"><a href="#docker-部署" class="headerlink" title="docker 部署"></a>docker 部署</h2><blockquote><p>这里我指定了 network，我的 nginx 也是用的这个 network，可以直接用 名字 来访问</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --name minio -d \</span><br><span class="line">    --env-file=.<span class="built_in">env</span> \</span><br><span class="line">    --network iuxt \</span><br><span class="line">    -v ./data:/data \</span><br><span class="line">    -v ./config:/root/.mc \</span><br><span class="line">    minio/minio:RELEASE.2025-04-22T22-12-26Z server --console-address <span class="string">&quot;:9001&quot;</span> /data</span><br></pre></td></tr></table></figure><p>.env 配置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MINIO_ROOT_USER=username</span><br><span class="line">MINIO_ROOT_PASSWORD=password</span><br><span class="line">MINIO_SERVER_URL=https://minio.xxx.com</span><br><span class="line">MINIO_BROWSER_REDIRECT_URL=https://minio.xxx.com/ui/</span><br><span class="line">MC_CONFIG_DIR=/root/.mc</span><br></pre></td></tr></table></figure><h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name minio.xxx.com;</span><br><span class="line">    client_max_body_size 0;</span><br><span class="line"></span><br><span class="line">    ssl_certificate         ssl/xxx.com.crt;</span><br><span class="line">    ssl_certificate_key     ssl/xxx.com.key;</span><br><span class="line">    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span><br><span class="line">    ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    ssl_session_cache shared:SSL:10m;</span><br><span class="line">    ssl_session_timeout 10m;</span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000&quot;;</span><br><span class="line">    error_page 497  https://$host$request_uri;</span><br><span class="line"></span><br><span class="line">    # API endpoint</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header Host $http_host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">        proxy_pass http://minio:9000;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # Console endpoint</span><br><span class="line">    location /ui/ &#123;</span><br><span class="line">        rewrite ^/ui/(.*) /$1 break;</span><br><span class="line">        proxy_set_header Host $http_host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">        proxy_pass http://minio:9001;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="mc-命令创建-apikey"><a href="#mc-命令创建-apikey" class="headerlink" title="mc 命令创建 apikey"></a>mc 命令创建 apikey</h2><p>在 <code>RELEASE.2025-04-22T22-12-26Z</code> 这个版本之后 minio 把控制台的管理功能给砍了，顺便还送了你一个每次打开都会弹出的通知。可以继续使用 <code>RELEASE.2025-04-22T22-12-26Z</code> 这个版本。如果你不幸更新了版本，你需要使用 mc 命令来创建 API key。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 增加节点管理，命名为minio</span></span><br><span class="line">mc <span class="built_in">alias</span> <span class="built_in">set</span> minio http://127.0.0.1:9000 &lt;USERNAME&gt; &lt;PASSWORD&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建用户 </span></span><br><span class="line">mc admin user add minio &lt;KEY ID&gt; &lt;KEY SECRET&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分配权限</span></span><br><span class="line">mc admin policy attach minio readwrite --user=&lt;KEY ID&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;docker-部署&quot;&gt;&lt;a href=&quot;#docker-部署&quot; class=&quot;headerlink&quot; title=&quot;docker 部署&quot;&gt;&lt;/a&gt;docker 部署&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;这里我指定了 network，我的 nginx 也是用的这个 network，可以直接用 名字 来访问&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>ingress-nginx 使用自定义的nginx配置</title>
@@ -565,36 +593,6 @@
     <category term="redis" scheme="https://zahui.fan/tags/redis/"/>
     
     <category term="性能优化" scheme="https://zahui.fan/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Python识别验证码 Muggle OCR</title>
-    <link href="https://zahui.fan/posts/sp3b30/"/>
-    <id>https://zahui.fan/posts/sp3b30/</id>
-    <published>2024-12-26T07:20:59.000Z</published>
-    <updated>2025-02-22T09:48:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近发现个 ddddocr，识别率很高，识别速度还很快：<a href="/posts/ss2wk6/">使用Python识别验证码 ddddocr</a></p><div class="note flat"><p>以前用过什么 pytesseract 识别效果很差，还需要电脑上安装 <code>Tesseract OCR</code> 的软件，但是使用下来，效果不好，后面也用过 <code>PaddleOCR</code> 可以识别，但是识别速度比较慢，成功率也不高。后面又看到了这个开源工具，吹牛逼比较厉害，号称自己是验证码识别的最高境界，就试试看。官方的 GitHub 地址是：<a href="https://github.com/litongjava/muggle_ocr">https://github.com/litongjava/muggle_ocr</a></p></div><h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20241226175928967.gif" alt="20241226175928967.gif|728"></p><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>OS： Windows 11<br>Python： python-3.10.10-amd64</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这个开源程序在 pypi 仓库上被移除了，需要在 GitHub 上将源码包下载下来安装。</p><p><img src= "https://static.zahui.fan/public/nes.gif" data-lazy-src="https://static.zahui.fan/images/20241226152841716.png" alt="image.png|595"></p><p>下载到本地，解压后，打开 cmd 命令提示符，</p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">REM 创建虚拟环境</span></span><br><span class="line">python -m venv venv</span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">REM 安装muggle_ocr</span></span><br><span class="line"><span class="built_in">cd</span> muggle_ocr-main</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure><h3 id="报错处理"><a href="#报错处理" class="headerlink" title="报错处理"></a>报错处理</h3><p><code>error: numpy 2.2.1 is installed but numpy&lt;2.1.0,&gt;=1.26.0 is required by &#123;&#39;tensorflow-intel&#39;&#125;</code></p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">REM 用这条命令查一下可用的版本</span></span><br><span class="line">pip index versions numpy</span><br><span class="line"></span><br><span class="line">pip install numpy==<span class="number">2</span>.<span class="number">0</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure><p>然后再重新安装 muggle_ocr</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>识别验证码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="keyword">import</span> muggle_ocr</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">使用预置模型，预置模型包含了[ModelType.OCR, ModelType.Captcha] 两种</span></span><br><span class="line"><span class="string">其中 ModelType.OCR 用于识别普通印刷文本, ModelType.Captcha 用于识别4-6位简单英数验证码</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开验证码图片</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&quot;1.png&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    captcha_bytes = f.read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># ModelType.Captcha 可识别4-6位验证码</span></span><br><span class="line">sdk = muggle_ocr.SDK(model_type=muggle_ocr.ModelType.Captcha)</span><br><span class="line"><span class="comment"># 3. 调用预测函数</span></span><br><span class="line">text = sdk.predict(image_bytes=captcha_bytes)</span><br><span class="line"><span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;最近发现个 ddddocr，识别率很高，识别速度还很快：&lt;a href=&quot;/posts/ss2wk6/&quot;&gt;使用Python识别验证码 ddddocr&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;note flat&quot;&gt;&lt;p&gt;以前用过什么 pytesseract 识别效果很差，还需要电脑上安装 &lt;code&gt;Tesseract OCR&lt;/code&gt; 的软件，但是使用下来，效果不好，后面也用过</summary>
-        
-      
-    
-    
-    
-    <category term="开发" scheme="https://zahui.fan/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="Python" scheme="https://zahui.fan/tags/Python/"/>
-    
-    <category term="OCR" scheme="https://zahui.fan/tags/OCR/"/>
     
   </entry>
   
