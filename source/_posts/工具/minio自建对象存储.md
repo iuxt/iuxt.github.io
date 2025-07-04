@@ -8,7 +8,7 @@ tags:
   - 存储
 abbrlink: syv4vu
 date: 2025-07-04 15:02:18
-cover: https://minio.babudiu.com/iuxt/2025/07/9b62bab970676aeef01b597ccff9a533.png
+cover: https://s3.babudiu.com/iuxt/2025/07/9b62bab970676aeef01b597ccff9a533.png
 updated: 2025-07-04 16:22:35
 ---
 
