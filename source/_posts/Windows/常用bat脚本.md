@@ -4,10 +4,9 @@ abbrlink: 54c97110
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
   - Windows
-tags:
-  - bat
-  - Script
+tags: [bat, Script]
 date: 2021-02-26 15:24:30
+updated: 2025-07-05 00:39:55
 ---
 
 这篇文章说的都是经常用到的 bat 脚本编写小技巧，比如获取管理员权限、注册表操作、进程操作、服务操作等
