@@ -3,9 +3,9 @@ title: 笔记本电脑CPU性能被锁定在0.78GHz的原因及解决方案
 abbrlink: 7a7fe042
 categories:
   - Windows
-tags:
-  - 配置记录
+tags: [配置记录, Windows]
 date: 2021-12-04 23:47:45
+updated: 2025-07-05 00:39:46
 ---
 
 > 家里的旧笔记本电脑使用电池正常工作，但是插上电源就锁频率 800MHz，非常的卡，Google 了一下，总结如下。
@@ -24,7 +24,7 @@ date: 2021-12-04 23:47:45
 
 Just download throttlestop and Disable BD PROCHOT and Turbo
 不过每次重启都需要重新设置一下
-![ThrottleStop](https://static.zahui.fan/images/throttlestop.png)
+![ThrottleStop|526](https://static.zahui.fan/images/throttlestop.png)
 官网下载地址：<https://www.techpowerup.com/download/techpowerup-throttlestop/>
 
 ## Ubuntu 系统怎么解决
