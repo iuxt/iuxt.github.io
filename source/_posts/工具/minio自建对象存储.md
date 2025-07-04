@@ -2,7 +2,10 @@
 title: minio自建对象存储
 categories:
   - 工具
-tags: []
+tags:
+  - 对象存储
+  - 搭建
+  - 存储
 abbrlink: syv4vu
 date: 2025-07-04 15:02:18
 cover: https://minio.babudiu.com/iuxt/2025/07/9b62bab970676aeef01b597ccff9a533.png
