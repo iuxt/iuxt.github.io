@@ -42,9 +42,9 @@
     <category term="工具" scheme="https://zahui.fan/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
-    
     <category term="存储" scheme="https://zahui.fan/tags/%E5%AD%98%E5%82%A8/"/>
+    
+    <category term="搭建" scheme="https://zahui.fan/tags/%E6%90%AD%E5%BB%BA/"/>
     
     <category term="对象存储" scheme="https://zahui.fan/tags/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/"/>
     
@@ -264,11 +264,11 @@
     <category term="监控" scheme="https://zahui.fan/categories/%E7%9B%91%E6%8E%A7/"/>
     
     
-    <category term="自动化" scheme="https://zahui.fan/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
-    
     <category term="Python" scheme="https://zahui.fan/tags/Python/"/>
     
     <category term="grafana" scheme="https://zahui.fan/tags/grafana/"/>
+    
+    <category term="自动化" scheme="https://zahui.fan/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
   </entry>
   
@@ -386,11 +386,11 @@
     <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
     
     
-    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
-    
     <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
     
     <category term="java" scheme="https://zahui.fan/tags/java/"/>
+    
+    <category term="Shell" scheme="https://zahui.fan/tags/Shell/"/>
     
   </entry>
   
