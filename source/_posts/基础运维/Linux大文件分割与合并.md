@@ -8,7 +8,7 @@ tags:
   - 文件
   - Linux
 abbrlink: lra06cl1
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2024-01-12 10:12:07
 ---
 

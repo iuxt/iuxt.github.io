@@ -3,7 +3,7 @@
   link_list:
     - name: 直链网盘
       link: https://file.babudiu.com/
-      avatar: https://static.zahui.fan/images/202307021107569.png
+      avatar: https://s3.babudiu.com/iuxt/images/202307021107569.png
       descr: 以存储无关的方式组织你的文件
 
     - name: 把布丢
@@ -31,12 +31,12 @@
   link_list:
     - name: 要红的网站
       link: https://linyaohong.com/
-      avatar: https://static.zahui.fan/public/dog.svg
+      avatar: https://s3.babudiu.com/iuxt/public/dog.svg
       descr: 运维日常
 
     - name: 文涛的网站
       link: https://blog.vrzbq.com/
-      avatar: https://static.zahui.fan/public/dog.svg
+      avatar: https://s3.babudiu.com/iuxt/public/dog.svg
       descr: 运维日常
 
     - name: 饼铛

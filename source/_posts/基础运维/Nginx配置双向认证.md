@@ -9,7 +9,7 @@ tags:
   - Nginx
   - 反向代理
   - Auth
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2022-05-28 14:40:02
 ---
 

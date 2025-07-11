@@ -1,7 +1,7 @@
 ---
 title: Windows右键菜单添加md5、sha1校验
 abbrlink: 19e40a49
-cover: 'https://static.zahui.fan/public/Windows.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 categories:
   - Windows
 tags:

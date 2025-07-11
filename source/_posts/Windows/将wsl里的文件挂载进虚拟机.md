@@ -1,7 +1,7 @@
 ---
 title: 将wsl里的文件挂载进虚拟机
 abbrlink: 49e7e3c2
-cover: 'https://static.zahui.fan/public/wsl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/wsl.svg'
 categories:
   - Windows
 tags:

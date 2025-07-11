@@ -218,4 +218,4 @@ systemctl enable --now radiusd
 
 secret 位置填写上面的 `/etc/raddb/clients.conf` 对应的 secret
 
-![AC config](https://static.zahui.fan/images/unifi_ac_controller_config.png)
+![AC config](https://s3.babudiu.com/iuxt/images/unifi_ac_controller_config.png)

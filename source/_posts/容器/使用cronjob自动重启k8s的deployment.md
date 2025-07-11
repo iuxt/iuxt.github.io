@@ -8,7 +8,7 @@ tags:
   - Kubernetes
   - Crontab
 abbrlink: se4t7a
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-05-27 14:40:22
 ---
 

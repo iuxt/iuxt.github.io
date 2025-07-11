@@ -1,7 +1,7 @@
 ---
 title: 快速搭建ipsec Vpn
 abbrlink: 759185f9
-cover: 'https://static.zahui.fan/public/vpn.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/vpn.svg'
 categories:
   - 基础运维
 tags:

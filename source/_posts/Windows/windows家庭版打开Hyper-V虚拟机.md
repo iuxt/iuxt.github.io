@@ -7,7 +7,7 @@ tags:
   - Hyper-V
   - 虚拟化
   - VirtualMachine
-cover: 'https://static.zahui.fan/public/Windows.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 date: 2022-10-10 21:35:54
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 使用certbot自动申请ssl证书
 abbrlink: 28c679c3
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags:

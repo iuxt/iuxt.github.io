@@ -1,7 +1,7 @@
 ---
 title: Windows系统环境变量
 abbrlink: 7468bc35
-cover: 'https://static.zahui.fan/public/Windows.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 categories:
   - Windows
 tags:

@@ -8,7 +8,7 @@ tags:
   - time
   - NTP
   - Systemd
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 date: 2022-04-05 10:53:50
 ---
 

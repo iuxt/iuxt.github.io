@@ -9,7 +9,7 @@ tags:
   - 命令行工具
   - 配置记录
 abbrlink: ls0614ms
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2021-01-30 17:38:01
 ---
 

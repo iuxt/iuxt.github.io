@@ -9,7 +9,7 @@ tags:
   - RHEL
   - CentOS
 abbrlink: lv23gkql
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2024-04-16 16:00:43
 ---
 
@@ -21,7 +21,7 @@ yum provides libncurses.so.5
 
 找不到这个包
 
-![image.png](https://static.zahui.fan/images/202404152343237.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404152343237.png)
 
 不考虑版本，再次搜索
 
@@ -29,7 +29,7 @@ yum provides libncurses.so.5
 yum provides libncurses.so.*
 ```
 
-![image.png](https://static.zahui.fan/images/202404152344067.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404152344067.png)
 
 发现可以找到 6.2 的版本, 安装这个包
 
@@ -43,7 +43,7 @@ yum install ncurses-libs
 rpm -ql ncurses-libs | grep libncurses.so
 ```
 
-![image.png](https://static.zahui.fan/images/202404152347847.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404152347847.png)
 
 此时需要做一个软链接（前提是此版本可以向后兼容，至少在 MySQL 5.7 这里运行是没问题的。）
 

@@ -7,7 +7,7 @@ tags:
   - hexo
   - seo
 abbrlink: lu96kcpp
-cover: 'https://static.zahui.fan/public/hexo.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/hexo.svg'
 date: 2024-03-27 10:22:18
 ---
 
@@ -15,7 +15,7 @@ date: 2024-03-27 10:22:18
 
 如果是 hugo，可以查看这篇文章：[Hugo博客批量更换url结构](/posts/b75ec1fe/)
 
-![image.png](https://static.zahui.fan/images/202403271024183.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202403271024183.png)
 
 在 hexo 中我们可以使用 `hexo-generator-alias` 对文章进行跳转。
 

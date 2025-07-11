@@ -7,7 +7,7 @@ tags:
   - Kubernetes
   - secret
 abbrlink: sc2yhw
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-04-17 17:32:19
 ---
 
@@ -16,7 +16,7 @@ date: 2024-04-17 17:32:19
 在每个 `namespace` 下都有一个默认的 `service account`, 假设命名空间是 `test`
 
 使用 `kubectl get sa -n test` 查看
-![image.png](https://static.zahui.fan/images/202404171737797.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404171737797.png)
 
 查看 serviceaccount 信息
 
@@ -24,7 +24,7 @@ date: 2024-04-17 17:32:19
 kubectl describe sa -n test
 ```
 
-![image.png](https://static.zahui.fan/images/202404171738437.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404171738437.png)
 
 Image pull secrets 是此 namespace 下拉取镜像的秘钥
 

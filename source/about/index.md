@@ -2,7 +2,7 @@
 title: 关于
 date: 2022-10-24 23:11:03
 comments: false
-top_img: 'https://static.zahui.fan/public/duck_hunt.png'
+top_img: 'https://s3.babudiu.com/iuxt/public/duck_hunt.png'
 ---
 
 ## 个人简介
@@ -80,7 +80,7 @@ top_img: 'https://static.zahui.fan/public/duck_hunt.png'
     始终保持对技术的热爱，致力于打造更智能、更高效的运维体系。
   </div>
   <div class="image-area">
-    <img src="https://static.zahui.fan/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/>
+    <img src="https://s3.babudiu.com/iuxt/public/zhanglikun.jpg" title="张理坤" alt="张理坤"/>
   </div>
 </div>
 

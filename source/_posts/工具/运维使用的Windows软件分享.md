@@ -71,7 +71,7 @@ Java 写的客户端，又重又不好用。不过是开源软件，跨平台。
 
 按下 `⊞ Win` + `v` 即可显示
 
-![image.png](https://static.zahui.fan/images/20241231101650495.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20241231101650495.png)
 
 ### ditto
 
@@ -81,7 +81,7 @@ Java 写的客户端，又重又不好用。不过是开源软件，跨平台。
 
 这个软件挺好用的，不过有可能有一些小问题，比如有时候复制了上面不显示，它支持将常用的固定在一个单独的页面上，方便直接粘贴。并且支持触发器，比如删除换行符，删除空格等。基本功能免费，高级功能收费。
 
-![image.png|357](https://static.zahui.fan/images/20241231101754204.png)
+![image.png|357](https://s3.babudiu.com/iuxt/images/20241231101754204.png)
 
 ## 截图工具
 

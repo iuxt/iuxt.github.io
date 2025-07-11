@@ -6,7 +6,7 @@ categories:
 tags:
   - BitLocker
   - 加密
-cover: 'https://static.zahui.fan/images/202210302313030.jpg'
+cover: 'https://s3.babudiu.com/iuxt/images/202210302313030.jpg'
 date: 2022-10-10 22:00:43
 ---
 

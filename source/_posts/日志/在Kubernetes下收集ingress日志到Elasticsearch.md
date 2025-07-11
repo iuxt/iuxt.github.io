@@ -8,7 +8,7 @@ tags:
   - logstash
   - filebeat
 abbrlink: skk1ln
-cover: https://static.zahui.fan/public/elasticsearch.svg
+cover: https://s3.babudiu.com/iuxt/public/elasticsearch.svg
 date: 2024-09-29 11:27:22
 updated: 2025-02-10 19:12:21
 ---
@@ -40,9 +40,9 @@ data:
 2. `/var/log/containers/`
 3. `/var/log/pods/`
 
-![image.png](https://static.zahui.fan/images/202409291142969.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202409291142969.png)
 
-![image.png](https://static.zahui.fan/images/202409291150198.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202409291150198.png)
 
 首先在 Kubernetes 环境下，我们认为 Pod 是并不固定的，可能会漂移到任意的节点，那么收集日志需要每台节点上都部署 filebeat 来搜集，那么使用 daemonset 是最合适的。
 

@@ -5,7 +5,7 @@ categories:
 tags:
   - prometheus
 abbrlink: sn6pu2
-cover: 'https://static.zahui.fan/images/202411151309207.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202411151309207.png'
 date: 2024-11-19 14:25:14
 ---
 
@@ -13,7 +13,7 @@ date: 2024-11-19 14:25:14
 
 ## 监控架构图
 
-![](https://static.zahui.fan/images/202411201501698.png)
+![](https://s3.babudiu.com/iuxt/images/202411201501698.png)
 
 说明：
 Prometheus Core 是一个核心的 Prometheus，所有其他 Prometheus 的数据都汇总到这里，查询、告警等都使用这个 Prometheus

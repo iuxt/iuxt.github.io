@@ -26,13 +26,13 @@ lower_case_table_names=1
 
 那么在容器中，参考官方文档，可以将 cnf 文件挂载到 `/etc/mysql/conf.d/` 中。
 
-![image.png|928](https://static.zahui.fan/images/202407091515566.png)
+![image.png|928](https://s3.babudiu.com/iuxt/images/202407091515566.png)
 
 ## 创建多个数据库
 
 业务需要用到多个库，检查官方环境变量，有个 `MYSQL_DATABASE` 不过我测试可以创建一个库，不满足我们的需求。并且除了建库，可能还有其他的操作。
 
-![image.png|944](https://static.zahui.fan/images/202407091520705.png)
+![image.png|944](https://s3.babudiu.com/iuxt/images/202407091520705.png)
 
 可以将你需要的 sql 文件放到 `/docker-entrypoint-initdb.d` 目录中，初始化的时候会自动执行。
 

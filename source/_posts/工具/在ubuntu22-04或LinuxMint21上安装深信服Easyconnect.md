@@ -1,6 +1,6 @@
 ---
 title: 在ubuntu22.04或LinuxMint21上安装深信服Easyconnect
-cover: 'https://static.zahui.fan/public/vpn.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/vpn.svg'
 categories:
   - 工具
 tags:
@@ -22,7 +22,7 @@ cd /usr/share/sangfor/EasyConnect
 ldd EasyConnect | grep pango
 ```
 
-![](https://static.zahui.fan/images/202306281905022.png)
+![](https://s3.babudiu.com/iuxt/images/202306281905022.png)
 
 ## 下载对应的 deb 包
 
@@ -56,4 +56,4 @@ sudo cp usr/lib/x86_64-linux-gnu/* /usr/share/sangfor/EasyConnect/
 
 再次检查链接库, 发现已经指向安装目录了
 
-![](https://static.zahui.fan/images/202306281923022.png)
+![](https://s3.babudiu.com/iuxt/images/202306281923022.png)

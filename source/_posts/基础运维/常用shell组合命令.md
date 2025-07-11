@@ -1,7 +1,7 @@
 ---
 title: 常用shell组合命令
 abbrlink: 90ca4905
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 categories:
   - 基础运维
 tags: [Linux, Shell, Script]

@@ -7,7 +7,7 @@ tags:
   - Kubernetes
   - 有状态服务
 abbrlink: sfbpoq
-cover: 'https://static.zahui.fan/public/apache_zookeeper.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/apache_zookeeper.svg'
 date: 2024-06-19 18:41:14
 ---
 
@@ -15,14 +15,14 @@ date: 2024-06-19 18:41:14
 
 ### 挂载目录没有写入权限
 
-![image.png](https://static.zahui.fan/images/202406191739203.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406191739203.png)
 
 修改容器启动命令，查看到用户 id 是 1001
 
-![image.png](https://static.zahui.fan/images/202406201606689.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406201606689.png)
 
 官方也有说明
-![image.png](https://static.zahui.fan/images/202406191741358.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406191741358.png)
 
 #### 解决方法 1: 使用 initcontainer 授权
 
@@ -37,7 +37,7 @@ date: 2024-06-19 18:41:14
 
 ```
 
-![image.png|580](https://static.zahui.fan/images/202406191826920.png)
+![image.png|580](https://s3.babudiu.com/iuxt/images/202406191826920.png)
 
 #### 解决方法 2： 增加安全上下文，使用 root 用户
 
@@ -49,7 +49,7 @@ date: 2024-06-19 18:41:14
             runAsGroup: 0
 ```
 
-![image.png](https://static.zahui.fan/images/202406191746763.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406191746763.png)
 
 ## 最终的 yaml 文件
 

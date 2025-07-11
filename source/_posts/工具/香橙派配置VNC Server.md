@@ -6,7 +6,7 @@ tags:
   - 香橙派
   - 开发版
 abbrlink: sghylv
-cover: 'https://static.zahui.fan/images/202407121920445.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202407121920445.png'
 date: 2024-07-12 14:13:06
 ---
 

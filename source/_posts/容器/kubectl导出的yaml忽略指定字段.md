@@ -3,7 +3,7 @@ title: kubectl导出的yaml忽略指定字段
 categories:
   - 容器
 abbrlink: sj8cec
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-09-03 17:15:48
 tags:
 ---

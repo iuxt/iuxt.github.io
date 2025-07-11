@@ -136,7 +136,7 @@ spec:
 
 在对应的面板，点击分享 就可以拿到渲染后的图像链接，浏览器打开可以拿到对应的图片。
 
-![image.png|637](https://static.zahui.fan/images/20250329003245507.png)
+![image.png|637](https://s3.babudiu.com/iuxt/images/20250329003245507.png)
 
 ## 代码
 

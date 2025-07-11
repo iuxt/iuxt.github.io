@@ -7,7 +7,7 @@ tags:
   - configmap
   - volume
 abbrlink: 75a76e3b
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-06-01 14:27:38
 ---
 

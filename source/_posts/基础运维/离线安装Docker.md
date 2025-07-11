@@ -5,7 +5,7 @@ categories:
 tags:
   - Docker
 abbrlink: b4ed6a46
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 date: 2023-05-24 14:40:05
 ---
 

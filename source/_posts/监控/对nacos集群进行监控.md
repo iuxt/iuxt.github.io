@@ -123,7 +123,7 @@ spec:
 ```
 
 查看 Prometheus 的 targets：
-![image.png](https://static.zahui.fan/images/202409301700141.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202409301700141.png)
 
 ### 手动接入
 

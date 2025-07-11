@@ -1,6 +1,6 @@
 ---
 title: Docker多阶段构建
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 categories:
   - 容器
 tags:

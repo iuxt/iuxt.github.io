@@ -1,7 +1,7 @@
 ---
 title: Windows个人文件夹名字变英文
 abbrlink: f6f77df5
-cover: 'https://static.zahui.fan/public/Windows.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 categories:
   - Windows
 tags:
@@ -10,7 +10,7 @@ date: 2021-07-22 09:19:04
 ---
 
 > 有时候 windows 用户文件夹里面有些会变成英文,虽然没什么影响,不过强迫症会不舒服 (比如我)
-![现象](https://static.zahui.fan/images/3356113696516.png)
+![现象](https://s3.babudiu.com/iuxt/images/3356113696516.png)
 
 这种情况是由于文件夹内没有 `desktop.ini` 导致的,或者 `desktop.ini` 权限不正确
 

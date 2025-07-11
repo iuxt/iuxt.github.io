@@ -5,7 +5,7 @@ categories:
   - Windows
 tags:
   - 注册表
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2022-10-10 21:40:12
 ---
 

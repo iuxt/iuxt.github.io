@@ -6,7 +6,7 @@ tags:
   - 备份还原
   - Linux
 abbrlink: a222390c
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 date: 2022-11-28 11:35:19
 ---
 

@@ -4,7 +4,7 @@ categories:
   - 工具
 tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
-cover: 'https://static.zahui.fan/public/macos.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
 updated: 2025-06-08 01:39:17
 ---
@@ -48,7 +48,7 @@ mac 的 ls 命令默认的颜色比较难看, 比如可执行程序显示红色,
 
 修改前:
 
-![image.png|790](https://static.zahui.fan/images/202401241214412.png)
+![image.png|790](https://s3.babudiu.com/iuxt/images/202401241214412.png)
 
 配置在.zshrc 内
 
@@ -60,7 +60,7 @@ export LSCOLORS=ExGxFxdaCxDaDahbadeche
 
 修改后:
 
-![image.png|799](https://static.zahui.fan/images/202401241215880.png)
+![image.png|799](https://s3.babudiu.com/iuxt/images/202401241215880.png)
 
 ## 在终端中使用 code 命令启动 vscode
 
@@ -78,13 +78,13 @@ export LSCOLORS=ExGxFxdaCxDaDahbadeche
 
 在显示器 高级里面 打开 使用电源适配器供电且显示器关闭时, 防止自动进入睡眠选项。
 
-![B7491094-21E7-4D08-9603-5D1574639FDD.png|484](https://static.zahui.fan/images/202401241101946.png)
+![B7491094-21E7-4D08-9603-5D1574639FDD.png|484](https://s3.babudiu.com/iuxt/images/202401241101946.png)
 
 ## 提示 程序损坏,需要移动到废纸篓
 
 或者提示应用未验证等, 可以到访达里, 找到应用程序, 按下 control 键点击, 选择打开
 
-![image.png|624](https://static.zahui.fan/images/202401241142254.png)
+![image.png|624](https://s3.babudiu.com/iuxt/images/202401241142254.png)
 
   或者到系统设置的隐私与安全性里进行打开
 
@@ -258,7 +258,7 @@ sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist*
 打开钥匙串 -- 登录 -- 证书 将证书文件拖进来
 然后双击证书, 查看信任, 设置为始终信任
 
-![0E07356E-2BBC-4C2C-BC5B-187C697CAECB.png|672](https://static.zahui.fan/images/202401241306196.png)
+![0E07356E-2BBC-4C2C-BC5B-187C697CAECB.png|672](https://s3.babudiu.com/iuxt/images/202401241306196.png)
 
 ## 开发组件
 
@@ -325,7 +325,7 @@ export PKG_CONFIG_PATH=$(find /usr/local/Cellar -name 'pkgconfig' -type d | grep
 sudo diskutil list
 ```
 
-![image.png|652](https://static.zahui.fan/images/202401241434966.png)
+![image.png|652](https://s3.babudiu.com/iuxt/images/202401241434966.png)
 
 ```bash
 # 挂载

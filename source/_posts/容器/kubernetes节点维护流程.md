@@ -7,7 +7,7 @@ tags:
   - kubernetes
   - k8s
 abbrlink: 52feaa76
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-06-26 23:06:49
 ---
 

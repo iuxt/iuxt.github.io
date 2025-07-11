@@ -6,7 +6,7 @@ categories:
 tags:
   - git
   - 配置记录
-cover: 'https://static.zahui.fan/public/CentOS.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2022-06-05 21:17:10
 ---
 

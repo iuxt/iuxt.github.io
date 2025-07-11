@@ -5,7 +5,7 @@ categories:
 tags:
   - Nginx
 abbrlink: ldsv2ssw
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2023-02-06 21:41:08
 ---
 

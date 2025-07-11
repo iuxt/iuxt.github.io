@@ -1,7 +1,7 @@
 ---
 title: Linux虚拟内存swap
 abbrlink: '25938561'
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags: [Linux]
@@ -78,9 +78,9 @@ sudo rm -f /swapfile
 ### 判断是否是 LVM 分区
 
 LVM 分区做 swap，如果你用 centos7 默认安装的话， 就是用的 LV 做 swap，可以 `cat /etc/fstab` 和 `lvdisplay` 确认下
-![image.png](https://static.zahui.fan/images/202404241305360.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404241305360.png)
 
-![image.png](https://static.zahui.fan/images/202404241305675.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404241305675.png)
 
 上图所示， 就是用的 lv 做 swap 分区
 
@@ -144,7 +144,7 @@ sudo ext2online /dev/sdb1
 
 CentOS7 系统修改 `/etc/default/grub`
 
-![image.png](https://static.zahui.fan/images/202404241418956.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404241418956.png)
 
 然后执行:
 

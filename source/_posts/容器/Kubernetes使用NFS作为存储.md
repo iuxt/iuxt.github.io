@@ -1,7 +1,7 @@
 ---
 title: Kubernetes使用NFS作为存储
 abbrlink: 179eb842
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 categories:
   - 容器
 tags:

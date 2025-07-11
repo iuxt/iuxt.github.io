@@ -5,7 +5,7 @@ categories:
   - Windows
 tags:
   - Windows
-cover: 'https://static.zahui.fan/public/vpn.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/vpn.svg'
 date: 2021-03-10 20:08:12
 ---
 

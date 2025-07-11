@@ -6,7 +6,7 @@ tags:
   - linux
   - 配置记录
 abbrlink: c1a3cdd
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 date: 2023-06-12 17:57:06
 ---
 

@@ -6,7 +6,7 @@ tags:
   - cmd
   - bat
 abbrlink: lmsslh3g
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2023-09-21 14:29:01
 ---
 

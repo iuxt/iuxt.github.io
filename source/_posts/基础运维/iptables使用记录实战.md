@@ -14,7 +14,7 @@ updated: 2025-01-13 16:33:46
 链就是位置：共有五个 进路由 (PREROUTING)、进系统 (INPUT) 、转发 (FORWARD)、出系统 (OUTPUT)、出路由 (POSTROUTING)；
 表就是存储的规则；数据包到了该链处，会去对应表中查询设置的规则，然后决定是否放行、丢弃、转发还是修改等等操作。
 
-![image.png](https://static.zahui.fan/images/20250113163327215.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250113163327215.png)
 
 ### 具体的四表
 
@@ -106,7 +106,7 @@ iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACC
 
 ### 本地端口转发到本地端口
 
-![image.png|631](https://static.zahui.fan/images/20250110160536647.png)
+![image.png|631](https://s3.babudiu.com/iuxt/images/20250110160536647.png)
 
 ```bash
 # 访问服务器的 2222 端口，转发到服务器的 22 端口
@@ -117,7 +117,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 2222 -j REDIRECT --to-port 22
 
 这是通过本主机做一个跳转，比如访问 `10.0.0.102` 的 80 端口转发到 `10.0.0.103` 的 8000 端口
 
-![image.png|740](https://static.zahui.fan/images/20250110162930990.png)
+![image.png|740](https://s3.babudiu.com/iuxt/images/20250110162930990.png)
 
 ```bash
 # 在10.0.0.102（Server A）上执行

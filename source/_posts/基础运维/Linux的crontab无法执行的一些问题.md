@@ -6,7 +6,7 @@ categories:
 tags:
   - Crontab
   - Linux
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2022-01-06 16:50:41
 ---
 

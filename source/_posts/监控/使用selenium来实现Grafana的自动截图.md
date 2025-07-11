@@ -62,7 +62,7 @@ driver.close()
 
 比如说在 grafana 登陆界面,我想自动输入账号密码进行登录,那么可以使用
 
-![image.png](https://static.zahui.fan/images/20250418173005375.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250418173005375.png)
 
 在这里可以找到名字, 可以根据 NAME 来定位,也可以根据 class 定位.
 
@@ -90,12 +90,12 @@ driver.close()
 ```
 
 这里的 XPATH 获取方式:
-![image.png](https://static.zahui.fan/images/20250418173503988.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250418173503988.png)
 
 ### 等待元素消失
 
 比如说查看一个长时间的监控图像, 会加载很久, 这个时候需要等待图加载出来后再进行截图,我们可以监视页面上的加载 icon,等这个 icon 消失表示加载完成.
-![image.png](https://static.zahui.fan/images/20250418173645372.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250418173645372.png)
 
 代码如下:
 
@@ -124,7 +124,7 @@ driver.close()
 ## 中文乱码问题
 
 截图如下:
-![image.png](https://static.zahui.fan/images/20250418172416136.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250418172416136.png)
 
 修复方式为: 安装中文字体:
 
@@ -133,7 +133,7 @@ driver.close()
 apt-get install -y ttf-wqy-microhei
 ```
 
-![image.png](https://static.zahui.fan/images/20250418172544525.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250418172544525.png)
 
 ## 完整代码
 

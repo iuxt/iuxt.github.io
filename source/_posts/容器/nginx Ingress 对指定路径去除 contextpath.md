@@ -6,7 +6,7 @@ tags:
   - ingress
   - contextpath
 abbrlink: sib2vi
-cover: 'https://static.zahui.fan/images/202408161820015.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202408161820015.png'
 date: 2024-08-16 18:09:17
 ---
 

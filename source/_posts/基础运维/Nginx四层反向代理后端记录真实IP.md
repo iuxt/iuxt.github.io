@@ -6,12 +6,12 @@ categories:
 tags:
   - proxy
   - 配置记录
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2022-06-08 09:58:58
 ---
 
 使用 k8s 的 ingress 暴露服务，会有使用负载均衡反向代理 ingress 的情况，那么我们的 ingress 获取到的 ip 都是 4 层负载的 ip，比如常用架构图
-![常用架构](https://static.zahui.fan/images/20220608100711.png)
+![常用架构](https://s3.babudiu.com/iuxt/images/20220608100711.png)
 
 4 层 Proxy Protocol 透传 tcp 工作在网络第 4 层,Proxy Protocol 就是在 tcp 中增加一个小的报头，用来存储额外的信息
 

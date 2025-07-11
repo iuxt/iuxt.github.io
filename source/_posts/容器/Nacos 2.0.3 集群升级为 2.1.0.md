@@ -5,14 +5,14 @@ categories:
 tags: [nacos, Kubernetes]
 abbrlink: srnwhe
 date: 2025-02-14 15:22:25
-cover: https://static.zahui.fan/public/Nacos.svg
+cover: https://s3.babudiu.com/iuxt/public/Nacos.svg
 updated: 2025-02-14 15:40:13
 ---
 
 ## 2.0.3 版本的 BUG
 
 详细 bug 在 GitHub 上有，比如：
-![image.png](https://static.zahui.fan/images/20250214153333408.webp)
+![image.png](https://s3.babudiu.com/iuxt/images/20250214153333408.webp)
 
 issue 链接见：
 <https://github.com/alibaba/nacos/issues/9332>

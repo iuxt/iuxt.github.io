@@ -6,7 +6,7 @@ tags:
   - Ingress
   - Nginx
 abbrlink: c4b9bd31
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-05-30 16:03:44
 ---
 

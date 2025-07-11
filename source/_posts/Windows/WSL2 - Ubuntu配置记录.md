@@ -8,7 +8,7 @@ tags:
   - wsl2
   - 配置记录
 abbrlink: lmeiruso
-cover: 'https://static.zahui.fan/public/wsl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/wsl.svg'
 date: 2023-09-11 14:45:16
 ---
 

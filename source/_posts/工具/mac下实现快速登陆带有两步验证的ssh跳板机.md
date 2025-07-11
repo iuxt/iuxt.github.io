@@ -8,7 +8,7 @@ tags:
   - pyotp
   - 效率工具
 abbrlink: ee380870
-cover: 'https://static.zahui.fan/images/202308242224563.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202308242224563.png'
 date: 2023-08-24 18:19:01
 ---
 

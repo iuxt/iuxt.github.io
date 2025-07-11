@@ -6,7 +6,7 @@ tags:
   - jenkins
   - 配置记录
 abbrlink: lm8t2usn
-cover: 'https://static.zahui.fan/images/202304111550061.svg'
+cover: 'https://s3.babudiu.com/iuxt/images/202304111550061.svg'
 date: 2023-09-07 14:47:08
 ---
 
@@ -21,7 +21,7 @@ date: 2023-09-07 14:47:08
 
 在 系统管理 -- 凭据 -- 系统 -- 全局凭据 里面增加一个新的凭据
 
-![凭据](https://static.zahui.fan/images/202309071447808.png)
+![凭据](https://s3.babudiu.com/iuxt/images/202309071447808.png)
 成功后记录一下 ID
 
 ## 编写流水线
@@ -50,4 +50,4 @@ branch 不支持 origin/master 这种格式, 所以需要用 split 处理一下
 
 ## 如何生成流水线
 
-![](https://static.zahui.fan/images/202309071527237.png)
+![](https://s3.babudiu.com/iuxt/images/202309071527237.png)

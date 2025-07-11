@@ -4,7 +4,7 @@ categories:
   - 基础运维
 tags: [加密, SSL, tls, https]
 abbrlink: lqxf8k8u
-cover: 'https://static.zahui.fan/public/certificate-ssl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/certificate-ssl.svg'
 date: 2024-01-03 14:52:44
 updated: 2025-04-11 01:47:15
 ---
@@ -18,7 +18,7 @@ nmap --script ssl-enum-ciphers -p 443 baidu.com
 ```
 
 比如 GitHub 只支持 TLS1.2 和 TLS1.3：
-![image.png](https://static.zahui.fan/images/202401031545944.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401031545944.png)
 
 ## 在线验证
 

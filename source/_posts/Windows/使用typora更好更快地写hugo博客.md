@@ -1,7 +1,7 @@
 ---
 title: 使用typora更好更快地写hugo博客
 abbrlink: b4cf69c3
-cover: 'https://static.zahui.fan/images/202303181541059.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202303181541059.png'
 categories:
   - Windows
 tags:
@@ -17,7 +17,7 @@ date: 2021-12-03 11:43:39
 
 ## 图片管理
 
-![typora配置图片位置](https://static.zahui.fan/images/typora_config_image.png)
+![typora配置图片位置](https://s3.babudiu.com/iuxt/images/typora_config_image.png)
 
 按照图示设置后，即可正常显示图片，复制粘贴图片也能复制到正确的位置，设置完成后，发现 markdown 的 frontmatter 增加了 2 行：
 

@@ -189,17 +189,17 @@ spec:
 ## 验证 LADP 字段配置
 
 配置好以后，使用默认管理员账户登录： 默认账号密码：`admin/admin` 登录以后，在 `管理` -- `身份验证` -- `LDAP` 里验证字段的映射情况。
-![image.png](https://static.zahui.fan/images/202410121607340.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202410121607340.png)
 
 ## LADP 用户权限调整
 
 默认情况下，权限是 viewer，只可以查看，不能编辑，系统后台也不能修改权限。如图：
-![image.png](https://static.zahui.fan/images/202410121551118.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202410121551118.png)
 
 需要到 ldap 来配置权限并同步到 Grafana，我们只希望 ldap 做个轻量的用户数据库，不希望赋予 ldap 太多的功能，这里我们直接修改数据库来修改权限。
 
 1. 先到 user 表查询用户 id
-    ![image.png](https://static.zahui.fan/images/202410121559413.png)
+    ![image.png](https://s3.babudiu.com/iuxt/images/202410121559413.png)
 2. 再到 org_user 表中修改 role 字段为 Admin 即可赋予该用户 Admin 权限
-    ![image.png](https://static.zahui.fan/images/202410121600773.png)
+    ![image.png](https://s3.babudiu.com/iuxt/images/202410121600773.png)
 

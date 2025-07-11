@@ -5,12 +5,12 @@ categories:
   - 基础运维
 tags:
   - Linux
-cover: https://static.zahui.fan/public/vim.svg
+cover: https://s3.babudiu.com/iuxt/public/vim.svg
 date: 2021-12-02 12:51:42
 updated: 2024-12-31 11:51:12
 ---
 
-![keymap](https://static.zahui.fan/images/vim_keymap.png)
+![keymap](https://s3.babudiu.com/iuxt/images/vim_keymap.png)
 
 ## 常用快捷键
 

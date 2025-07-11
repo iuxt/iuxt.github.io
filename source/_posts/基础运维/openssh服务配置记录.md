@@ -6,7 +6,7 @@ tags:
   - OpenSSH
   - 配置记录
 abbrlink: 658a72d5
-cover: 'https://static.zahui.fan/images/202411221801168.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202411221801168.png'
 date: 2023-06-13 10:43:40
 ---
 

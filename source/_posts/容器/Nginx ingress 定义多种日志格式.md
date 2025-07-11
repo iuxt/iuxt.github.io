@@ -1,7 +1,7 @@
 ---
 title: Nginx Ingress 定义多种日志格式
 abbrlink: dcab3f5f
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 categories:
   - 容器
 tags:

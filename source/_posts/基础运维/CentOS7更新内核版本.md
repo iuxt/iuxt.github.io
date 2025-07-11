@@ -7,7 +7,7 @@ tags:
   - Kernel
   - 配置记录
 abbrlink: 8a7e6530
-cover: 'https://static.zahui.fan/public/CentOS.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2022-12-23 11:05:24
 ---
 

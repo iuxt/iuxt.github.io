@@ -3,7 +3,7 @@ title: 基于Ubuntu的软路由搭建记录
 categories:
   - 工具
 tags: [ubuntu, 软路由]
-cover: 'https://static.zahui.fan/images/202212192147769.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202212192147769.png'
 abbrlink: cfedbd03
 date: 2022-12-16 16:41:30
 updated: 2025-06-05 18:18:21
@@ -14,11 +14,11 @@ updated: 2025-06-05 18:18:21
 我一直使用的是斐讯 k3 这款万元路由器😂，一直用的是 openwrt，不过 openwrt 信号真心不好，刷回官方 root 系统，感觉重获了新生，然后决定路由器只做 WiFi 共享，其他功能交给软路由。
 我的软路由是买的双网口机器，j4125 的 cpu 做软路由绰绰有余了, 东西如图:
 
-![双网口软路由|431](https://static.zahui.fan/images/202212192147769.png)
+![双网口软路由|431](https://s3.babudiu.com/iuxt/images/202212192147769.png)
 
 系统使用的是 ubuntu22.04，以下步骤都以此系统为基础进行，网络拓扑如下：
 
-![网络拓扑](https://static.zahui.fan/images/202212191312730.png)
+![网络拓扑](https://s3.babudiu.com/iuxt/images/202212191312730.png)
 
 我自己定义的网段，网段不可以有交叉。
 

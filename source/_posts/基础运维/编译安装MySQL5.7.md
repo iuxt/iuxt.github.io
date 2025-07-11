@@ -1,7 +1,7 @@
 ---
 title: 编译安装MySQL5.7
 abbrlink: b670229a
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 基础运维
 tags: [配置记录, MySQL]

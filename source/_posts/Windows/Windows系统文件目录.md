@@ -1,7 +1,7 @@
 ---
 title: Windows系统文件目录
 abbrlink: deff9f9f
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

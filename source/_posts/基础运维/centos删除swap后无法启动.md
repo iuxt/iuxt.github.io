@@ -7,13 +7,13 @@ tags:
   - 磁盘
   - 分区
 abbrlink: scfoaz
-cover: 'https://static.zahui.fan/public/CentOS.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2024-04-24 14:20:58
 ---
 
 删除了 CentOS 的 swap 分区后，重启系统报错，提示 `Warning: /dev/centos/swap does not exist`，如图：
 
-![image.png](https://static.zahui.fan/images/202404241243993.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404241243993.png)
 
 先挂载 /boot 分区, 不确定就一个一个挂载看看里面的文件对不对，正常情况下 /boot 分区大小在 1GB 以内
 

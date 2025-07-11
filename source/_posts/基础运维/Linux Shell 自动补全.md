@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags:
   - kubectl
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2022-02-27 18:17:43
 ---
 

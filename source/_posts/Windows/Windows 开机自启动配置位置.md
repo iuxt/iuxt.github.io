@@ -3,7 +3,7 @@ title: Windows 开机自启动配置位置
 categories:
   - Windows
 abbrlink: smvb2h
-cover: 'https://static.zahui.fan/images/202411191004480.jpg'
+cover: 'https://s3.babudiu.com/iuxt/images/202411191004480.jpg'
 date: 2024-11-13 10:32:40
 tags:
 ---
@@ -58,10 +58,10 @@ C:\Users\你的Windows用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Pro
 
 定时任务方式启动有个好处，就是可以以管理员权限运行，不用用户授权，也就是不会 UAC 弹窗。按照如图配置即可。
 
-![image.png|570](https://static.zahui.fan/images/202411191722190.png)
-![image.png|586](https://static.zahui.fan/images/202411191723758.png)
-![image.png](https://static.zahui.fan/images/202411191723472.png)
+![image.png|570](https://s3.babudiu.com/iuxt/images/202411191722190.png)
+![image.png|586](https://s3.babudiu.com/iuxt/images/202411191723758.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202411191723472.png)
 
-![image.png](https://static.zahui.fan/images/202411191724674.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202411191724674.png)
 
-![image.png](https://static.zahui.fan/images/202411191724869.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202411191724869.png)

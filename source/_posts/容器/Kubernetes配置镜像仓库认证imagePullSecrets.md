@@ -5,7 +5,7 @@ categories:
 tags:
   - 配置记录
 abbrlink: sjmzr1
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-09-11 15:06:36
 ---
 

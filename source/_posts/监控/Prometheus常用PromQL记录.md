@@ -1,6 +1,6 @@
 ---
 title: Prometheus常用PromQL记录
-cover: https://static.zahui.fan/public/Prometheus.svg
+cover: https://s3.babudiu.com/iuxt/public/Prometheus.svg
 categories:
   - 监控
 tags: [Prometheus, prometheus]

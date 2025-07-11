@@ -3,7 +3,7 @@ title: 使用Python开发一个Prometheus exporter
 categories:
   - 监控
 abbrlink: siij5o
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 date: 2024-08-20 18:44:11
 tags:
 ---
@@ -58,13 +58,13 @@ if __name__ == '__main__':
 ## 展示
 
 邮件登录正常：
-![image.png](https://static.zahui.fan/images/202408201734136.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408201734136.png)
 
 断开网络，或者修改邮箱密码：
-![image.png](https://static.zahui.fan/images/202408201741839.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408201741839.png)
 
 Prometheus 界面查询
-![image.png](https://static.zahui.fan/images/202408201838450.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408201838450.png)
 
 ## 使用方式
 

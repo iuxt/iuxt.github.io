@@ -8,7 +8,7 @@ tags:
   - 搭建
   - 记录
 abbrlink: sgba64
-cover: 'https://static.zahui.fan/public/hexo.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/hexo.svg'
 date: 2022-07-08 23:39:40
 ---
 

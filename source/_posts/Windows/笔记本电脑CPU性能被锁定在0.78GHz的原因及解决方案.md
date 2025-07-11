@@ -24,7 +24,7 @@ updated: 2025-07-05 00:39:46
 
 Just download throttlestop and Disable BD PROCHOT and Turbo
 不过每次重启都需要重新设置一下
-![ThrottleStop|526](https://static.zahui.fan/images/throttlestop.png)
+![ThrottleStop|526](https://s3.babudiu.com/iuxt/images/throttlestop.png)
 官网下载地址：<https://www.techpowerup.com/download/techpowerup-throttlestop/>
 
 ## Ubuntu 系统怎么解决

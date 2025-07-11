@@ -3,7 +3,7 @@ title: 使用 Elasticsearch 二进制 tar 包部署并初始化三节点集群
 categories:
   - 基础运维
 tags: [Elasticsearch, ES, 搭建]
-cover: https://static.zahui.fan/public/elasticsearch.svg
+cover: https://s3.babudiu.com/iuxt/public/elasticsearch.svg
 abbrlink: a07ebcb
 date: 2022-11-02 12:48:18
 updated: 2025-02-22 22:51:58

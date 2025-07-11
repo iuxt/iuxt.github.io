@@ -5,7 +5,7 @@ categories:
 tags:
   - prometheus
 abbrlink: smrno6
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 date: 2024-11-11 11:14:30
 ---
 

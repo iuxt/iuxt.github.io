@@ -1,7 +1,7 @@
 ---
 title: 二进制安装MySQL5.7
 abbrlink: 3b23b5cb
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
 tags: [配置记录, MySQL]

@@ -7,7 +7,7 @@ tags:
   - 配置记录
   - Kernel
 abbrlink: lr8yc0vu
-cover: 'https://static.zahui.fan/public/Ubuntu.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Ubuntu.svg'
 date: 2024-01-11 16:32:46
 ---
 
@@ -58,13 +58,13 @@ gnulinux-advanced-89ee03ba-6808-4977-a4fb-9b10174744f8>gnulinux-5.15.0-1005-azur
 ```
 
 uuid 对应关系：
-![image.png](https://static.zahui.fan/images/202401112216030.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401112216030.png)
 
 对应的启动界面 submenu:
-![image.png](https://static.zahui.fan/images/202401112224241.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401112224241.png)
 
 对应的启动界面 menuentry:
-![image.png](https://static.zahui.fan/images/202401112225292.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401112225292.png)
 
 ### 修改默认启动项
 

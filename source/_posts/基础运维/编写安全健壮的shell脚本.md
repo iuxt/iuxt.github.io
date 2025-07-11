@@ -1,7 +1,7 @@
 ---
 title: 编写安全健壮的shell脚本
 abbrlink: b82d63c2
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 categories:
   - 基础运维
 tags:

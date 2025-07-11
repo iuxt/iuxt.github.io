@@ -8,7 +8,7 @@ tags:
   - 效率工具
   - 命令行工具
 abbrlink: luam6g8o
-cover: 'https://static.zahui.fan/public/wsl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/wsl.svg'
 date: 2024-03-28 10:27:10
 ---
 
@@ -74,7 +74,7 @@ wsl
 
 ## WSL 网卡变化
 
-![image.png](https://static.zahui.fan/images/202403281045337.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202403281045337.png)
 
 ## 参考文档
 

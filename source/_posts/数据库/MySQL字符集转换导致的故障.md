@@ -9,7 +9,7 @@ cover: ""
 updated: 2025-06-10 19:34:42
 ---
 
-![image.png](https://static.zahui.fan/images/20250609183441693.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250609183441693.png)
 
 ```sql
 ALTER TABLE vehicle_user_role CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;

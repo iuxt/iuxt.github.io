@@ -5,7 +5,7 @@ categories:
 tags:
   - 配置记录
 abbrlink: 8c4ff9d2
-cover: 'https://static.zahui.fan/public/debian.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/debian.svg'
 date: 2023-04-17 18:08:56
 ---
 

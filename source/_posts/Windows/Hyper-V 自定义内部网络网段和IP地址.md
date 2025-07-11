@@ -54,7 +54,7 @@ New-NetFirewallRule -DisplayName "允许NAT网卡" -InterfaceAlias "vEthernet (N
 可以到 Hyper V 管理器 虚拟交换机管理器 新建虚拟交换机
 类型选择 `内部`
 
-![手动创建虚拟交换机|506](https://static.zahui.fan/images/Snipaste_2022-01-13_09-39-25.png)
+![手动创建虚拟交换机|506](https://s3.babudiu.com/iuxt/images/Snipaste_2022-01-13_09-39-25.png)
 <!-- endtab -->
 
 {% endtabs %}
@@ -78,7 +78,7 @@ New-NetIPAddress -IPAddress 10.0.0.1 -PrefixLength 24 -InterfaceIndex $ifindex
 
 进入 windows 设置，给网卡 `vEthernet (NAT)` 设置固定 ip 和子网掩码
 
-![手动设置|520](https://static.zahui.fan/images/Snipaste_2022-01-13_09-43-03.png)
+![手动设置|520](https://s3.babudiu.com/iuxt/images/Snipaste_2022-01-13_09-43-03.png)
 
 <!-- endtab -->
 
@@ -105,24 +105,24 @@ Remove-NetNat NAT           # 删除nat网络
 
 进入 Hyper-V 虚拟交换机管理器, 创建一个内部虚拟交换机
 
-![image.png|431](https://static.zahui.fan/images/202309141440799.png)
+![image.png|431](https://s3.babudiu.com/iuxt/images/202309141440799.png)
 
 ### 修改网卡 IP 信息
 
 在 控制面板 -- 更改适配器设置界面, 给内部虚拟交换机这个网卡设置 IP 地址, 只需要设置 IP 和掩码即可.
 
-![image.png|641](https://static.zahui.fan/images/202309141439136.png)
+![image.png|641](https://s3.babudiu.com/iuxt/images/202309141439136.png)
 
 ### 虚拟机增加网卡
 
 在虚拟机设置界面, 增加一个新的网络适配器, 交换机选择内部虚拟交换机
 
-![image.png|478](https://static.zahui.fan/images/202309141440651.png)
+![image.png|478](https://s3.babudiu.com/iuxt/images/202309141440651.png)
 
 ### 操作系统网卡配置固定 IP
 
 此时在操作系统中, 会多出来一张网卡, 多出来的网卡配置一下固定 IP 和掩码即可, IP 和交换机在同一个网段, 不要重复.
-![image.png|593](https://static.zahui.fan/images/202309141443040.png)
+![image.png|593](https://s3.babudiu.com/iuxt/images/202309141443040.png)
 
 此时主机可以通过 172.16.0.8 这个地址访问虚拟机, 虚拟机也可以通过 172.16.0.1 访问主机
 
@@ -130,6 +130,6 @@ Remove-NetNat NAT           # 删除nat网络
 
 创建外部虚拟机交换机, 选择一下桥接的网卡, 这种方式虚拟机也会获得一个 IP 地址, 虚拟机就会像主机一样可以对外提供服务, 常用于服务器
 
-![image.png|429](https://static.zahui.fan/images/202309141444528.png)
+![image.png|429](https://s3.babudiu.com/iuxt/images/202309141444528.png)
 
 操作系统内设置外部虚拟交换机网卡即可.

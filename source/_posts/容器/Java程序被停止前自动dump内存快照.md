@@ -7,13 +7,13 @@ tags:
   - k8s
   - java
 abbrlink: sh7n7f
-cover: 'https://static.zahui.fan/images/202407261107971.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202407261107971.png'
 date: 2024-07-26 11:04:26
 ---
 
 线上业务偶尔会出现重启现象，为了排查这个问题，决定在 OOM 的时候自动进行 dump 内存快照用于分析
 
-![image.png](https://static.zahui.fan/images/202407261022514.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202407261022514.png)
 
 ## 针对 JVM OOM 的情况
 
@@ -72,4 +72,4 @@ jmap -dump:format=b,file=/logs/dump.hprof 10
 由于在 command 中配置 `>>` 不生效， 所以换成了 `tee` 命令， 并把导出的 hprof 文件按照时间命名防止被覆盖。其中 `/logs` 目录通过 `hostpath` 持久化了。
 手动执行 `kubectl delete pod xxxx`，可以查看到生成的文件了
 
-![image.png](https://static.zahui.fan/images/202407261103592.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202407261103592.png)

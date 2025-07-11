@@ -10,7 +10,7 @@ updated: 2025-06-05 14:51:02
 ---
 
 让我们看看/proc 里面都有什么
-![image.png](https://static.zahui.fan/images/20250116150653346.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250116150653346.png)
 
 ## 查看进程打开的文件
 

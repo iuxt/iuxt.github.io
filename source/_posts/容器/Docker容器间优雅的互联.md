@@ -3,7 +3,7 @@ title: Docker容器间优雅的互联
 abbrlink: d083ba2e
 categories:
   - 容器
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 tags:
   - Docker
   - Container

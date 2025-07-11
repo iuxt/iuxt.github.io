@@ -1,7 +1,7 @@
 ---
 title: Kubernetes使用ingress反向代理外部IP
 abbrlink: 0ad6df1b
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 categories:
   - 容器
 tags:

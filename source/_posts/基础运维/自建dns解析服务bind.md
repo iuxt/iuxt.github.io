@@ -7,7 +7,7 @@ tags:
   - 开源软件
   - DNS
 abbrlink: sf0bjv
-cover: 'https://static.zahui.fan/images/202406131712673.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202406131712673.png'
 date: 2023-06-13 15:02:18
 ---
 

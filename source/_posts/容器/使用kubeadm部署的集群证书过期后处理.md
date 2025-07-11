@@ -7,7 +7,7 @@ tags:
   - kubeadm
   - 记录
 abbrlink: ltckjzor
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 date: 2024-03-04 14:37:32
 ---
 

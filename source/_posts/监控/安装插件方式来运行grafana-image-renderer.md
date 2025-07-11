@@ -17,10 +17,10 @@ grafana-cli plugins install grafana-image-renderer
 
 如果不能正常访问网络，或者下载速度太慢，可以使用离线包：到这里<https://grafana.com/grafana/plugins/grafana-image-renderer/?tab=installation>下载离线包，然后放到 plugins 文件夹下。需要注意下 plugins 文件夹的位置，可能使用命令安装的路径和真实的 plugins 目录不一致。
 
-![image.png|654](https://static.zahui.fan/images/20250402181200283.png)
+![image.png|654](https://s3.babudiu.com/iuxt/images/20250402181200283.png)
 
 如果插件启动失败，报错：可以检查下 `plugins/grafana-image-renderer/chrome-headless-shell/linux-136.0.7101.0/chrome-headless-shell-linux64` 这个程序能否正常运行，如果报错
-![image.png](https://static.zahui.fan/images/20250402181642753.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250402181642753.png)
 
 需要安装 `apt install -y libasound2t64`
 

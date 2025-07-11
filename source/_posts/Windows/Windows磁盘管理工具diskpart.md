@@ -5,7 +5,7 @@ categories:
   - Windows
 tags:
   - Windows
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2021-02-26 15:48:33
 ---
 

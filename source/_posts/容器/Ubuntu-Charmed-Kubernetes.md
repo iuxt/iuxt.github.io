@@ -3,7 +3,7 @@ title: Ubuntu_Charmed_Kubernetes
 abbrlink: efee88da
 categories:
   - 容器
-cover: 'https://static.zahui.fan/public/Canonical%20Kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Canonical%20Kubernetes.svg'
 tags:
   - Container
   - Kubernetes

@@ -15,10 +15,10 @@ updated: 2025-05-06 17:01:06
 
 这里添加好了之后，先打开 show on dashboard 显示
 
-![image.png](https://static.zahui.fan/images/20250506163411627.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250506163411627.png)
 
 然后选择自己需要的数据，保存的时候，勾选 update default variable values 保存当前选择的值
-![image.png](https://static.zahui.fan/images/20250506163204899.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250506163204899.png)
 最后再把变量隐藏起来。
 
 ## 在查询的时候调用变量
@@ -41,4 +41,4 @@ ORDER BY
 ## 如何调试
 
 点击面板设置上的 Query inspector 查询 里 可以看到原始的数据。
-![image.png](https://static.zahui.fan/images/20250506165823095.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250506165823095.png)

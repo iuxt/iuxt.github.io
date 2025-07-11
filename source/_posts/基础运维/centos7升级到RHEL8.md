@@ -4,7 +4,7 @@ abbrlink: 6d586ed1
 categories:
   - 基础运维
 tags: [Linux, CentOS]
-cover: 'https://static.zahui.fan/public/CentOS.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2021-08-04 21:39:02
 updated: 2025-01-17 10:47:47
 ---

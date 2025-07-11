@@ -1,7 +1,7 @@
 ---
 title: Windows恢复环境Windows RE
 abbrlink: c0eb591c
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

@@ -8,7 +8,7 @@ tags:
   - cmd
   - 命令行工具
 abbrlink: lmm46hng
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2023-09-16 22:18:54
 ---
 
@@ -28,7 +28,7 @@ ffmpeg -i "%~s1" -acodec libmp3lame "%~dp0%~n1.mp3"
 ```
 
 其中 chcp 65001 是为了防止 bat 脚本中包含中文导致的乱码。申明脚本编码为 UTF-8， 脚本保存的时候也要以 UTF-8 编码保存， 如果不加 `chcp 65001`, 那么需要使用 windows 记事本打开重新保存编码选择 `ANSI`， 因为 cmd 默认的编码就是 GBK
-![image.png](https://static.zahui.fan/images/202309162228582.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202309162228582.png)
 
 以下是一些常用的代码页。
 

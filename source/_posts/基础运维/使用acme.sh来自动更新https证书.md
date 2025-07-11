@@ -1,7 +1,7 @@
 ---
 title: 使用acme.sh来自动更新https证书
 abbrlink: 1e777b9e
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags: [Linux, SSL]
@@ -55,7 +55,7 @@ acme.sh 实现了 acme 协议支持的所有验证协议.
 #### DNSpod
 
 这里以 dnspod 为例，申请一个 dnspod 的 api key
-![申请dnspod api|861](https://static.zahui.fan/images/20220428083952.png)
+![申请dnspod api|861](https://s3.babudiu.com/iuxt/images/20220428083952.png)
 
 将 id 和 key 记录下来，执行
 
@@ -81,7 +81,7 @@ acme.sh --issue --dns dns_dp -d babudiu.com -d *.babudiu.com
 #### cloudflare dns
 
 获取 API 令牌
-![image.png|879](https://static.zahui.fan/images/202312091611899.png)
+![image.png|879](https://s3.babudiu.com/iuxt/images/202312091611899.png)
 
 ```bash
 export CF_Key="你的api key"

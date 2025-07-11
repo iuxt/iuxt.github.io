@@ -3,7 +3,7 @@ title: 使用kubeadm部署一套高可用k8s集群 for Ubuntu
 abbrlink: 526ffc9a
 categories:
   - 容器
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 tags:
   - Linux
   - Container

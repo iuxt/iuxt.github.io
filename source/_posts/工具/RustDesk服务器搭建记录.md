@@ -8,7 +8,7 @@ tags:
   - 部署
   - 搭建
 abbrlink: cb24765f
-cover: 'https://static.zahui.fan/public/RustDesk.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/RustDesk.svg'
 date: 2024-03-13 16:20:02
 ---
 
@@ -70,7 +70,7 @@ data 目录（容器内的 root 目录）下的文件：
 
 key 可以填可以不填， 不填的话， 连接不能加密。key 在 hbbs 服务的控制台日志里有， `cat id_ed25519.pub` 也可以看到 key
 
-![image.png|533](https://static.zahui.fan/images/202403131652971.png)
+![image.png|533](https://s3.babudiu.com/iuxt/images/202403131652971.png)
 
 到此为止就已经可以使用了
 
@@ -95,7 +95,7 @@ docker run -td --name hbbr \
 ```
 
 这个时候再次尝试连接：
-![image.png|808](https://static.zahui.fan/images/202403131705610.png)
+![image.png|808](https://s3.babudiu.com/iuxt/images/202403131705610.png)
 
 配置了正确的 key 后，可以正常使用。
 
@@ -104,7 +104,7 @@ docker run -td --name hbbr \
 ### 第一次无法连接
 
 可以尝试强制中继服务器连接， 只需要在 id 后面加上 `/r` 即可。如
-![image.png](https://static.zahui.fan/images/202403152226765.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202403152226765.png)
 
 连接成功后，可以打开 强制走中继连接
 

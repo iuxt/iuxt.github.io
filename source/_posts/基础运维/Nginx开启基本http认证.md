@@ -6,7 +6,7 @@ categories:
 tags:
   - Nginx
   - Auth
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2021-05-28 15:25:48
 ---
 

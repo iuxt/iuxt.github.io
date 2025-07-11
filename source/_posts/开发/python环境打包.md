@@ -5,7 +5,7 @@ categories:
   - 开发
 tags:
   - Python
-cover: 'https://static.zahui.fan/public/python.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/python.svg'
 date: 2021-05-27 19:26:20
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: adb常用操作记录
 abbrlink: b1ffa547
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt/images/202211041307268.jpg'
 categories:
   - 基础运维
 tags:
@@ -27,7 +27,7 @@ adb shell dumpsys activity activities
 
 搜索一下 `mActivityComponent` :
 
-![image.png](https://static.zahui.fan/images/202406241352443.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406241352443.png)
 
 ## 获取系统信息
 

@@ -7,7 +7,7 @@ tags:
   - kubeadm
   - 部署
 abbrlink: sfrqkr
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 date: 2024-06-28 10:22:03
 ---
 
@@ -48,7 +48,7 @@ spec:
 
 使用 `kubeadm` 部署的集群中，`etcd`、`kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 这些组件都是通过静态 Pod 来运行的，如图：
 
-![image.png|754](https://static.zahui.fan/images/202406281033638.png)
+![image.png|754](https://s3.babudiu.com/iuxt/images/202406281033638.png)
 
 但是有个奇怪的问题， 把这些静态 Pod 删除后，它会自己重建一个新的，不像静态 pod 一样删除了就没了。
 
@@ -56,21 +56,21 @@ spec:
 
 由于所有的 Pod 都是 `kubelet` 负责启动的，我们看下 `kubelet` 的配置
 
-![image.png|849](https://static.zahui.fan/images/202406281046264.png)
+![image.png|849](https://s3.babudiu.com/iuxt/images/202406281046264.png)
 
 找到配置文件在 `/var/lib/kubelet/config.yaml` , 查看下这个文件的内容：
 
-![image.png](https://static.zahui.fan/images/202406281047136.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406281047136.png)
 
 `staticPodPath` 定义了静态 Pod yaml 文件的位置，可以看到果然都在这里：
 
-![image.png](https://static.zahui.fan/images/202406281049578.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406281049578.png)
 
 ## 测试
 
 将上面的 Nginx 静态 Pod 的 yaml 文件复制到这个目录，可以看到 Pod 自动创建出来了
 
-![image.png](https://static.zahui.fan/images/202406281052803.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406281052803.png)
 
 `kubelet` 自动创建的静态 Pod 会在 Pod 名字后面加上 `-<计算机名>`
 

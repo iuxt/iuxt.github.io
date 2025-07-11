@@ -8,7 +8,7 @@ tags:
   - 脚本
   - Shell
 abbrlink: lqevsmdb
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2022-12-21 15:28:36
 ---
 

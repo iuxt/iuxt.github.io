@@ -28,7 +28,7 @@ updated: 2025-04-01 14:01:03
 
 或者 win + R 输入 `sysdm.cpl` 点击 高级 环境变量 进入环境变量配置界面：
 
-![image.png|753](https://static.zahui.fan/images/202411302227697.png)
+![image.png|753](https://s3.babudiu.com/iuxt/images/202411302227697.png)
 
 一般来说建议修改用户变量里面的 PATH 即可，添加一个路径：`C:\msys64\usr\bin`
 

@@ -8,7 +8,7 @@ tags:
   - k8s
   - kubeadm
 abbrlink: scpj14
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-04-29 22:03:03
 ---
 

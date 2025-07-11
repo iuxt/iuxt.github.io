@@ -180,6 +180,6 @@ New-NetFirewallRule -DisplayName "Allow Subnet 10.14.14.0/24" -Direction Inbound
 
 我的路由器 CPU 是 `mediatek/mt7981`，下载 `EasyTier-aarch64_cortex-a53-openwrt-22.03` 这个版本就行，不确定 CPU 架构可以问一下 ChatGPT，不用担心，错了会装不上。
 
-![image.png](https://static.zahui.fan/images/20250506225112105.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250506225112105.png)
 
 在 VPN 下面，有个 EasyTier，使用配置文件启动即可。

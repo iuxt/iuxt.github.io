@@ -7,7 +7,7 @@ tags:
   - django
   - Python
 abbrlink: ltmpr1yl
-cover: 'https://static.zahui.fan/public/DjangoRESTFramework.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/DjangoRESTFramework.svg'
 date: 2024-03-11 17:00:42
 ---
 

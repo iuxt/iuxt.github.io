@@ -1,7 +1,7 @@
 ---
 title: 使用mimikatz读取windows密码
 abbrlink: a80bd06b
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

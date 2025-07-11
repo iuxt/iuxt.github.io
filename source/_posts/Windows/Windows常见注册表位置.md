@@ -3,7 +3,7 @@ title: Windows常见注册表位置
 categories:
   - Windows
 abbrlink: smvadg
-cover: 'https://static.zahui.fan/images/202411191004480.jpg'
+cover: 'https://s3.babudiu.com/iuxt/images/202411191004480.jpg'
 date: 2024-11-13 10:17:40
 tags:
 ---

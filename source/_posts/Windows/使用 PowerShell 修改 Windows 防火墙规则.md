@@ -4,7 +4,7 @@ categories:
   - Windows
 tags: [PowerShell, 网络, 防火墙, 配置记录]
 abbrlink: seln9g
-cover: https://static.zahui.fan/public/Windows.svg
+cover: https://s3.babudiu.com/iuxt/public/Windows.svg
 date: 2024-06-05 16:51:16
 updated: 2025-03-27 22:57:12
 ---
@@ -13,11 +13,11 @@ updated: 2025-03-27 22:57:12
 
 在 windows 7 时代在控制面板里是可以直接修改的， 但是在 Windows 11 已经不能修改了。
 
-![image.png](https://static.zahui.fan/images/202406051653691.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406051653691.png)
 
 使用公用网络会影响到防火墙策略， 比如在专用网络下， 局域网内是可以网络发现其他设备的。
 
-![image.png](https://static.zahui.fan/images/202406051656111.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406051656111.png)
 
 比如我用 `zerotier` 这个软件会给电脑安装一个虚拟网卡，家里的电脑 `zerotier` 的网卡设置成了公用网络，那么就不能 rdp 远程连接家里电脑了。
 

@@ -1,7 +1,7 @@
 ---
 title: Prometheus手动打标签
 abbrlink: ac395656
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 categories:
   - 监控
 tags:

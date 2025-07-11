@@ -6,7 +6,7 @@ categories:
 tags:
   - Blog
   - hexo
-cover: 'https://static.zahui.fan/public/hexo.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/hexo.svg'
 date: 2021-02-02 17:28:26
 ---
 

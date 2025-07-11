@@ -1,7 +1,7 @@
 ---
 title: Windows常用命令记录
 abbrlink: 801c62c9
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

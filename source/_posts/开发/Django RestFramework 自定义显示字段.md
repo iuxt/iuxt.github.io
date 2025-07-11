@@ -7,7 +7,7 @@ tags:
   - drf
   - django
 abbrlink: lqz1imdm
-cover: 'https://static.zahui.fan/public/DjangoRESTFramework.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/DjangoRESTFramework.svg'
 date: 2024-01-04 18:04:11
 ---
 
@@ -73,7 +73,7 @@ class GameSerializer(serializers.ModelSerializer):
         }
 ```
 
-![image.png](https://static.zahui.fan/images/202401041811348.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401041811348.png)
 
 ### views:
 

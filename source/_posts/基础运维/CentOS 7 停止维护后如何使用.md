@@ -4,7 +4,7 @@ categories:
   - 基础运维
 tags: [配置记录]
 abbrlink: si78gg
-cover: 'https://static.zahui.fan/public/CentOS.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2024-08-14 16:19:28
 updated: 2025-01-03 16:11:23
 ---

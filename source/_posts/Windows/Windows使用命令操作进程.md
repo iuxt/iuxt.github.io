@@ -1,7 +1,7 @@
 ---
 title: Windows使用命令操作进程
 abbrlink: 222b586e
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

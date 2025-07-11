@@ -1,7 +1,7 @@
 ---
 title: 使用kubeadm部署一套高可用k8s集群 for CentOS
 abbrlink: b86d9e9f
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 categories:
   - 容器
 tags:

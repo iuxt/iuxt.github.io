@@ -4,7 +4,7 @@ categories:
   - 数据库
 tags: [记录, 编译]
 abbrlink: 1da8e73d
-cover: https://static.zahui.fan/public/redis.svg
+cover: https://s3.babudiu.com/iuxt/public/redis.svg
 date: 2021-12-02 12:51:44
 updated: 2025-06-18 15:45:39
 ---

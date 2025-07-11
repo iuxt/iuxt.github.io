@@ -1,7 +1,7 @@
 ---
 title: Linux网络管理命令
 abbrlink: 211e1b4c
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags: [Linux, Command, Network]

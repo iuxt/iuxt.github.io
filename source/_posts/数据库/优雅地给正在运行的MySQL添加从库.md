@@ -1,7 +1,7 @@
 ---
 title: 优雅地给正在运行的MySQL添加从库
 abbrlink: 86a9c8f5
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
 tags:

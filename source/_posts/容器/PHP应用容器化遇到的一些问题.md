@@ -9,7 +9,7 @@ tags:
   - 编译
 abbrlink: swpjjc
 date: 2024-05-23 17:25:59
-cover: https://static.zahui.fan/images/20250528184612107.png
+cover: https://s3.babudiu.com/iuxt/images/20250528184612107.png
 updated: 2025-05-28 18:46:38
 ---
 
@@ -44,7 +44,7 @@ upload_max_filesize = 1024M
 
 ## 安装 Core 扩展
 
-![image.png](https://static.zahui.fan/images/20250523172745533.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250523172745533.png)
 这个时候说明 php 正常工作了，但是缺扩展。
 
 ```dockerfile
@@ -55,7 +55,7 @@ RUN docker-php-ext-configure mysqli \
 
 ## 安装其他扩展
 
-![image.png|604](https://static.zahui.fan/images/20250523184214145.png)
+![image.png|604](https://s3.babudiu.com/iuxt/images/20250523184214145.png)
 
 比如安装 imagick，整合到 dockerfile 里构建个新的镜像。imagick 使用 pecl 安装
 
@@ -70,7 +70,7 @@ RUN apt-get update \
 ## 安装自定义 PHP 扩展
 
 比如安装主题的时候需要安装主题文件提供的扩展：
-![image.png|509](https://static.zahui.fan/images/20250523180749302.png)
+![image.png|509](https://s3.babudiu.com/iuxt/images/20250523180749302.png)
 
 查看 php 扩展目录
 
@@ -96,7 +96,7 @@ extension=/extensions/swoole_loader_81_nts.so
 
 ### post_max_size 的值小于 upload_max_filesize
 
-![image.png](https://static.zahui.fan/images/20250523184236383.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250523184236383.png)
 
 这个问题需要配置一下 php.ini
 

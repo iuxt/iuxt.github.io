@@ -1,7 +1,7 @@
 ---
 title: Linux网络设备命名规则及修改
 abbrlink: 69bcc649
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags:
@@ -65,11 +65,11 @@ GRUB_CMDLINE_LINUX="... net.ifnames=0 biosdevname=0"
 
 <!-- tab Debian -->
 
-![image.png](https://static.zahui.fan/images/202404262259986.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404262259986.png)
 
 这个界面按下 `e`
 
-![image.png](https://static.zahui.fan/images/202404262301459.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202404262301459.png)
 
 参数添加完成后，按下 `F10` 启动
 
@@ -77,7 +77,7 @@ GRUB_CMDLINE_LINUX="... net.ifnames=0 biosdevname=0"
 
 <!-- tab CentOS -->
 
-![202401301209674.png|592](https://static.zahui.fan/images/202401301209674.png)
+![202401301209674.png|592](https://s3.babudiu.com/iuxt/images/202401301209674.png)
 
 光标放在 install 上， 按下 tab 键， 在 quiet 后面输入 ` net.ifnames=0 biosdevname=0`
 

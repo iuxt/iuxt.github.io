@@ -7,7 +7,7 @@ tags:
   - 记录
   - 配置记录
 abbrlink: lr0clio1
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-01-05 16:02:08
 ---
 

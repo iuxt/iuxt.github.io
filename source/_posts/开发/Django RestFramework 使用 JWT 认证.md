@@ -7,7 +7,7 @@ tags:
   - django
   - Python
 abbrlink: lsbj20sj
-cover: 'https://static.zahui.fan/public/DjangoRESTFramework.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/DjangoRESTFramework.svg'
 date: 2024-02-07 16:28:06
 ---
 

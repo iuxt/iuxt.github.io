@@ -4,7 +4,7 @@ categories:
   - 容器
 tags: [Nginx, ingress, Kubernetes, 阿里云, ACK]
 abbrlink: lr01lzch
-cover: 'https://static.zahui.fan/public/aliyun.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/aliyun.svg'
 date: 2024-01-05 10:54:34
 updated: 2025-01-09 15:59:13
 ---
@@ -17,7 +17,7 @@ updated: 2025-01-09 15:59:13
 
 具体可以查看这里
 
-![image.png](https://static.zahui.fan/images/202401051108111.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401051108111.png)
 
 HTTPS 请求会在 CLB 层解密，然后以 HTTP 请求的形式发送给后端的 Pod。
 
@@ -74,18 +74,18 @@ spec:
 
 照着上面步骤配置了以后, Https 访问证书是生效了, 但是没法转发到后端, 会报错: `The plain HTTP request was sent to HTTPS port`
 
-![image.png](https://static.zahui.fan/images/202401051117258.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401051117258.png)
 
 ### 原因分析:
 
-![image.png](https://static.zahui.fan/images/20250109154725382.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250109154725382.png)
 
 这里 https 请求在 CLB 解密后, 请求后面的 Ingress 是用 http 协议来请求的, 按道理是所有请求都到 ingress-controller 的 HTTP 端口 才对（如上图）, 如果将 TCP SSL 的后端配置成了 HTTPS 就会出现报错: `The plain HTTP request was sent to HTTPS port`
 
 ### 解决方案
 
 第一种方法，修改 CLB 配置，后端指向 HTTP 端口。
-![Pasted image 20250109153734.webp|910](https://static.zahui.fan/images/20250109155853273.png)
+![Pasted image 20250109153734.webp|910](https://s3.babudiu.com/iuxt/images/20250109155853273.png)
 
 第二种方法：将 service 的 443 端口也转发到 pod 的 80 端口即可. 对应的 yaml 文件:
 

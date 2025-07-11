@@ -7,7 +7,7 @@ tags:
   - cli
   - 命令行工具
 abbrlink: lrcy3q4o
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2024-01-14 11:37:23
 ---
 

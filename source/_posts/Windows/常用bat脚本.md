@@ -1,7 +1,7 @@
 ---
 title: 常用bat脚本
 abbrlink: 54c97110
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt/images/202211041307268.jpg'
 categories:
   - Windows
 tags: [bat, Script]

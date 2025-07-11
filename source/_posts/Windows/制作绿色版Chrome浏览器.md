@@ -4,7 +4,7 @@ abbrlink: 8d9e31b7
 categories:
   - Windows
 tags: [浏览器, 绿色软件]
-cover: 'https://static.zahui.fan/public/Chrome.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Chrome.svg'
 date: 2022-10-10 21:50:55
 updated: 2025-05-07 10:25:55
 ---

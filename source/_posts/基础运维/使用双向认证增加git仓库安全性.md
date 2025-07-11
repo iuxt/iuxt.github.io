@@ -37,7 +37,7 @@ server {
 ```
 
 配置好之后，打开网页会提示：
-![image.png](https://static.zahui.fan/images/20250604105943557.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250604105943557.png)
 
 ## 操作系统信任 CA 证书
 
@@ -67,7 +67,7 @@ sudo update-ca-trust
 
 信任完成后，浏览器重启后再次打开 git 网页：
 选择证书，点击确定，就可以正常打开页面了。
-![image.png](https://static.zahui.fan/images/20250604110355773.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250604110355773.png)
 
 ## Git 客户端配置
 

@@ -6,7 +6,7 @@ categories:
 tags:
   - Linux
   - 配置记录
-cover: 'https://static.zahui.fan/public/OpenSUSE.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/OpenSUSE.svg'
 date: 2021-09-01 15:53:38
 ---
 

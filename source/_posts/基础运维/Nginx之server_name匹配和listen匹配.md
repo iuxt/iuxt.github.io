@@ -6,7 +6,7 @@ categories:
 tags:
   - Nginx
   - 配置文件
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2022-03-30 10:14:39
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Windows网络管理命令netsh
 abbrlink: f85b3ad3
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags: [Windows]

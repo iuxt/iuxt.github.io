@@ -6,7 +6,7 @@ tags:
   - Kubernetes
   - Service
 abbrlink: sfo7gw
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-06-26 12:36:32
 ---
 
@@ -88,21 +88,21 @@ spec:
 
 ### ping 的效果
 
-![image.png|745](https://static.zahui.fan/images/202406261238205.png)
+![image.png|745](https://s3.babudiu.com/iuxt/images/202406261238205.png)
 
 10.1.0.119、10.1.0.137、10.1.0.124 对应的正好是 Pod IP
 
 ### 使用 dig 来解析
 
-![image.png|738](https://static.zahui.fan/images/202406261308981.png)
+![image.png|738](https://s3.babudiu.com/iuxt/images/202406261308981.png)
 
 ### 反向解析 pod ip
 
 `headless service` 的 `pod ip` 可以反向解析，并且解析到的域名是个固定值（不会随着 pod 销毁重建而变化）
 
-![image.png|740](https://static.zahui.fan/images/202406261309782.png)
+![image.png|740](https://s3.babudiu.com/iuxt/images/202406261309782.png)
 
 看看另一个服务，创建了两个 Service，一个普通的 service，一个 headless service，那么这个 pod 的域名是什么：
 
-![image.png|737](https://static.zahui.fan/images/202406261313057.png)
+![image.png|737](https://s3.babudiu.com/iuxt/images/202406261313057.png)
 

@@ -5,7 +5,7 @@ categories:
 tags: [ES, 常用操作]
 abbrlink: snui2r
 date: 2024-12-02 10:40:03
-cover: https://static.zahui.fan/public/elasticsearch.svg
+cover: https://s3.babudiu.com/iuxt/public/elasticsearch.svg
 updated: 2025-02-26 11:53:02
 ---
 

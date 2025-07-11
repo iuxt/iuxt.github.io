@@ -6,7 +6,7 @@ tags:
   - macOS
   - 配置记录
 abbrlink: lrrec490
-cover: 'https://static.zahui.fan/public/macos.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 14:20:35
 ---
 
@@ -21,7 +21,7 @@ date: 2024-01-24 14:20:35
 
 打开「磁盘工具」，在顶部菜单选择「文件」>「新建映像」>「空白映像」，然后如下图：
 
-![52260C58-B232-452E-B8C8-FE5B35BBFA45.png](https://static.zahui.fan/images/202401241427615.png)
+![52260C58-B232-452E-B8C8-FE5B35BBFA45.png](https://s3.babudiu.com/iuxt/images/202401241427615.png)
 
 「大小」的设置，根据安装镜像大小, 再增加 2GB, 我这里粗略设置为 15 GB；
 「格式」设置为「Mac OS 扩展（日志式）」；
@@ -45,7 +45,7 @@ sudo /Applications/Install\ macOS\ Ventura.app/Contents/Resources/createinstallm
 
 上面创建的 dmg 磁盘大小为 15G, 为了保证空间足够写入, 数据量其实没到 15G, 可以压缩一下。 打开「磁盘工具」，顶部菜单选择「映像」>「转换」，选择 macOS.dmg 文件并存储命名为 InstallESD 到桌面：
 
-![B1A330BF-1FEF-48F1-948C-81CD79645DF2.png](https://static.zahui.fan/images/202401241508090.png)
+![B1A330BF-1FEF-48F1-948C-81CD79645DF2.png](https://s3.babudiu.com/iuxt/images/202401241508090.png)
 
 写入 dmg 到 u 盘或移动硬盘 (可选)
 

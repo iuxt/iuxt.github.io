@@ -1,7 +1,7 @@
 ---
 title: Linux内核参数
 abbrlink: 1b957a56
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags: [Linux, Kernel]

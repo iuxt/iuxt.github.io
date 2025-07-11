@@ -6,7 +6,7 @@ categories:
 tags:
   - Linux
   - Shell
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2021-06-01 18:02:17
 ---
 

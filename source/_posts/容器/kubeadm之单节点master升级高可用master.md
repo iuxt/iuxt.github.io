@@ -1,7 +1,7 @@
 ---
 title: Kubeadm之单节点master升级高可用master
 abbrlink: 34d8fad0
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 categories:
   - 容器
 tags:

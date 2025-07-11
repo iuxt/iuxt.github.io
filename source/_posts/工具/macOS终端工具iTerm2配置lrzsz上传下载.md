@@ -6,7 +6,7 @@ tags:
   - lrzsz
   - OpenSSH
 abbrlink: sgpjuj
-cover: 'https://static.zahui.fan/images/202411221801168.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202411221801168.png'
 date: 2020-07-16 16:35:07
 ---
 
@@ -132,5 +132,5 @@ brew install trzsz-ssh
 
 使用 tssh 就不用配置 iTerm2 的 Triggers 了，并且上传下载的时候可以显示速度和传输的大小。
 
-![image.png](https://static.zahui.fan/images/202407261625730.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202407261625730.png)
 

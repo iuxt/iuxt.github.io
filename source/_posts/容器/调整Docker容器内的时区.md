@@ -4,7 +4,7 @@ categories:
   - 容器
 tags: [docker, timezone, 时区]
 abbrlink: 3c828831
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 date: 2022-12-21 12:29:55
 updated: 2025-06-05 10:07:17
 ---

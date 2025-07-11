@@ -37,4 +37,4 @@ WHERE
 ```
 
 生效的话，会提示：
-![image.png](https://static.zahui.fan/images/20250604230002963.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250604230002963.png)

@@ -8,7 +8,7 @@ tags:
   - Linux
   - 常用操作
 abbrlink: sd9in4
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2021-05-10 17:06:40
 ---
 

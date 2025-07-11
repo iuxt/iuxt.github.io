@@ -1,7 +1,7 @@
 ---
 title: Prometheus开启basic_auth认证
 abbrlink: 165a0cd3
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 categories:
   - 监控
 tags:

@@ -1,7 +1,7 @@
 ---
 title: Windows的bat脚本默认变量
 abbrlink: 5157092d
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

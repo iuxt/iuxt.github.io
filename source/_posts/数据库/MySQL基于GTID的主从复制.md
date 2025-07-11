@@ -7,7 +7,7 @@ tags:
   - mysqld
   - 数据迁移
 abbrlink: luwwdbjr
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2024-04-13 00:43:22
 ---
 

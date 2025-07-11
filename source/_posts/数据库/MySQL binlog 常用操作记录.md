@@ -1,7 +1,7 @@
 ---
 title: MySQL Binlog 常用操作记录
 abbrlink: 4d67bced
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
 tags:

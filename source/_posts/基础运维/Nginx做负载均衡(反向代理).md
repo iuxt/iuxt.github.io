@@ -7,7 +7,7 @@ tags:
   - LoadBalance
   - Nginx
   - Proxy
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2021-06-26 22:03:21
 ---
 

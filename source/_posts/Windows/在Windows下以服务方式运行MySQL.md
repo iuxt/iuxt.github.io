@@ -14,7 +14,7 @@ updated: 2025-01-25 23:47:08
 
 下载地址: <https://dev.mysql.com/downloads/mysql/>
 
-![下载页面](https://static.zahui.fan/images/202307242242296.png)
+![下载页面](https://s3.babudiu.com/iuxt/images/202307242242296.png)
 
 ## 创建配置文件
 

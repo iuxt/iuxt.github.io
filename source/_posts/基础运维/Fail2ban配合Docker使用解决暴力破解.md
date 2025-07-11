@@ -8,7 +8,7 @@ tags:
   - iptables
   - docker
 abbrlink: 7b28cbbc
-cover: 'https://static.zahui.fan/public/fail2ban.png'
+cover: 'https://s3.babudiu.com/iuxt/public/fail2ban.png'
 date: 2023-01-16 15:50:06
 ---
 
@@ -56,17 +56,17 @@ ignoreregex =
 
 照此配置后，多次访问后，查看 `fail2ban-client status nginx-cc`，此时 fail2ban 已经显示 ip 被 ban 了：
 
-![fail2ban显示](https://static.zahui.fan/images/202301161607539.png)
+![fail2ban显示](https://s3.babudiu.com/iuxt/images/202301161607539.png)
 
 查看 iptables 规则：
 
-![iptables](https://static.zahui.fan/images/202301161608061.png)
+![iptables](https://s3.babudiu.com/iuxt/images/202301161608061.png)
 
 也已经 REJECT 了，但是并没有效果。
 
 ### 原因分析
 
-![架构图](https://static.zahui.fan/images/202301161608560.png)
+![架构图](https://s3.babudiu.com/iuxt/images/202301161608560.png)
 
 原因是 fail2ban 作用于 INPUT 链，而 Docker Host 走的是 Forward 链。
 
@@ -97,7 +97,7 @@ fail2ban-client reload
 
 重新加载配置。此时发生 ban ip，再次查看 iptables 规则：
 
-![更改后](https://static.zahui.fan/images/202301161632308.png)
+![更改后](https://s3.babudiu.com/iuxt/images/202301161632308.png)
 
 已经作用于 DOCKER-USER 链
 

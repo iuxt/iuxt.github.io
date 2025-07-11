@@ -6,7 +6,7 @@ categories:
 tags:
   - Nginx
   - Monitor
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2022-10-04 21:38:16
 ---
 

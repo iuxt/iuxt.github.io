@@ -83,7 +83,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test_top
 bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list alikafka-pre-cn-uax3b5ny1002-1-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-2-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-3-vpc.alikafka.aliyuncs.com:9092 --topic nova_event_topic --time -1
 ```
 
-![image.png](https://static.zahui.fan/images/202312051049856.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202312051049856.png)
 
 #### 根据每个 partition 的 offset 来消费最新消息
 
@@ -91,4 +91,4 @@ bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list alikafka-pre-cn-
 bin/kafka-console-consumer.sh --bootstrap-server alikafka-pre-cn-uax3b5ny1002-1-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-2-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-3-vpc.alikafka.aliyuncs.com:9092 --topic nova_event_topic --partition 0 --offset 12080
 ```
 
-![image.png](https://static.zahui.fan/images/202312051050803.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202312051050803.png)

@@ -7,7 +7,7 @@ tags:
   - 挂载
   - 配置记录
 abbrlink: lq292e56
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-12-12 19:19:07
 ---
 
@@ -16,7 +16,7 @@ date: 2023-12-12 19:19:07
 ## 需求
 
 此服务是 java 程序, 数据库使用的是内嵌的 h2 database, 下图中的两个文件就是数据库的文件. 这两个文件是存在于根目录下的, 假设此程序数据库文件是代码写死的 (真实情况是: 数据库路径是可以更改的), 现在要部署到 kubernetes 中, 并对数据库做持久化.
-![image.png](https://static.zahui.fan/images/202312121923294.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202312121923294.png)
 
 ## 使用 subpath
 

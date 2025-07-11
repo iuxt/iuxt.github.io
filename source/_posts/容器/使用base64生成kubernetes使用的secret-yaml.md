@@ -6,7 +6,7 @@ tags:
   - k8s
   - base64
 abbrlink: 462d0642
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 date: 2022-11-04 15:47:52
 ---
 

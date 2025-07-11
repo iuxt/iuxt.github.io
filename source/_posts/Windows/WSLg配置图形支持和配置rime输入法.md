@@ -7,7 +7,7 @@ tags:
   - WSL
   - 配置记录
 abbrlink: '81886814'
-cover: 'https://static.zahui.fan/public/wsl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/wsl.svg'
 date: 2023-06-07 14:50:20
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 使用expect来解决命令交互问题
 abbrlink: 751c3cf9
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 categories:
   - 基础运维
 tags:
@@ -94,7 +94,7 @@ expect test.sh
 
 手动登录的方式：
 
-![yuanshi.gif](https://static.zahui.fan/images/202408131814901.gif)
+![yuanshi.gif](https://s3.babudiu.com/iuxt/images/202408131814901.gif)
 
 使用脚本自动登录，效果如下图：
 
@@ -102,7 +102,7 @@ expect test.sh
 1. 自动输入密码
 2. 自动输入两步验证码（谷歌验证器 6 位数字动态密码）
 
-![test.gif](https://static.zahui.fan/images/202408131815193.gif)
+![test.gif](https://s3.babudiu.com/iuxt/images/202408131815193.gif)
 
 totp.py 获取验证码的脚本
 

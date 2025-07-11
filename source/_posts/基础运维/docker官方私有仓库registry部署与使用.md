@@ -9,7 +9,7 @@ tags:
   - 镜像
   - 搭建
 abbrlink: sc3b39
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 date: 2024-04-17 22:04:20
 ---
 

@@ -4,7 +4,7 @@ abbrlink: a3a12a0e
 categories:
   - Windows
 tags: [Windows]
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2021-03-10 17:01:05
 updated: 2025-02-17 23:45:14
 ---

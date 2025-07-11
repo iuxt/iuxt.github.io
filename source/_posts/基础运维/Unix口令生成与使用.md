@@ -1,7 +1,7 @@
 ---
 title: Unix口令生成与使用
 abbrlink: 6447a6a9
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags:

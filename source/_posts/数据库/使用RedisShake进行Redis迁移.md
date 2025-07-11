@@ -4,7 +4,7 @@ categories:
   - 数据库
 tags: [数据迁移, redis]
 abbrlink: lmojvw5l
-cover: 'https://static.zahui.fan/public/redis.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/redis.svg'
 date: 2024-12-02 12:51:47
 updated: 2024-12-31 11:52:34
 ---

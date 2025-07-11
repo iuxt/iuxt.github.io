@@ -1,7 +1,7 @@
 ---
 title: VMware Workstation常用操作记录
 abbrlink: 4bef6e47
-cover: 'https://static.zahui.fan/images/202211211238166.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202211211238166.png'
 categories:
   - 工具
 tags:

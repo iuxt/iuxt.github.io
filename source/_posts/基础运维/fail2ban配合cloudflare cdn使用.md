@@ -8,7 +8,7 @@ tags:
   - cc攻击
   - 反向代理
 abbrlink: lrt00szc
-cover: 'https://static.zahui.fan/public/Cloudflare.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Cloudflare.svg'
 date: 2024-01-25 17:15:25
 ---
 
@@ -73,4 +73,4 @@ cfuser   =  你的邮箱
 
 后续封禁是在 cloudflare 上封禁的, 可以在控制台查看到
 
-![image.png](https://static.zahui.fan/images/202401251813392.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202401251813392.png)

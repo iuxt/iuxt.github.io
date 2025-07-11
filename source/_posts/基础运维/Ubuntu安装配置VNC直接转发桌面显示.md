@@ -7,7 +7,7 @@ tags:
   - vnc
   - RemoteControl
   - Ubuntu
-cover: 'https://static.zahui.fan/public/Ubuntu.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Ubuntu.svg'
 date: 2022-02-14 10:30:08
 ---
 
@@ -60,4 +60,4 @@ sudo systemctl enable --now x11vnc.service
 
 `x11vnc` 包含一个 `/usr/share/applications/x11vnc.desktop` 桌面文件，你可以在桌面上找到 x11 vnc 的图标，然后通过图形界面来配置。比如：
 
-![image.png|654](https://static.zahui.fan/images/202407151440567.png)
+![image.png|654](https://s3.babudiu.com/iuxt/images/202407151440567.png)

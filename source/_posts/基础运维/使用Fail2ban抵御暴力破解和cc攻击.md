@@ -7,7 +7,7 @@ tags:
   - cc攻击
   - iptables
 abbrlink: c0880a78
-cover: 'https://static.zahui.fan/public/fail2ban.png'
+cover: 'https://s3.babudiu.com/iuxt/public/fail2ban.png'
 date: 2023-01-16 11:08:46
 ---
 

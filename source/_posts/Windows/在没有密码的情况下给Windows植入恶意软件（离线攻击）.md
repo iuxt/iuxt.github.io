@@ -36,9 +36,9 @@ SAM 文件的原理
 ## 使用 U 盘进入 PE 系统
 
 进入 PE 系统，将 SAM 文件备份（用于之后恢复密码）
-![image.png](https://static.zahui.fan/images/202408071251917.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408071251917.png)
 
 用 NTPWEdit 或者 Dism++ 修改账户密码
-![image.png](https://static.zahui.fan/images/202408071253647.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408071253647.png)
 
 保存重启后，即可正常进入桌面。植入木马程序后，再次重启进入 PE， 将上面备份的 SAM 文件恢复到原始位置。

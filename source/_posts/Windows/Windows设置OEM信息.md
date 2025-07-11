@@ -1,7 +1,7 @@
 ---
 title: Windows设置OEM信息
 abbrlink: 6f85bc6b
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

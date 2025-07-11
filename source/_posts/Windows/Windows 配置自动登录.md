@@ -7,7 +7,7 @@ tags:
   - 注册表
   - Windows
 abbrlink: sewhsk
-cover: 'https://static.zahui.fan/public/Windows.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 date: 2024-06-11 13:26:43
 ---
 
@@ -30,8 +30,8 @@ Windows Registry Editor Version 5.00
 
 win + R 输入 netplwiz 打开用户管理界面。
 
-![image.png](https://static.zahui.fan/images/202406111331601.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406111331601.png)
 
 取消勾选 要使用本计算机，用户必须输入用户名和密码 选项， 在弹出的框中输入当前用户密码。
 
-![image.png](https://static.zahui.fan/images/202406111331636.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202406111331636.png)

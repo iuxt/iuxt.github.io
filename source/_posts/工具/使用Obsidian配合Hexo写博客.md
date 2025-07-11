@@ -8,7 +8,7 @@ tags:
   - 编辑器
   - markdown
 abbrlink: ldle4xfe
-cover: 'https://static.zahui.fan/images/202301302341290.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202301302341290.png'
 date: 2023-02-01 16:12:30
 ---
 

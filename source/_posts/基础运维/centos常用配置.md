@@ -4,7 +4,7 @@ abbrlink: 6cc59126
 categories:
   - 基础运维
 tags: [Linux, 配置记录, CentOS, Systemd]
-cover: 'https://static.zahui.fan/public/CentOS.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2021-02-09 16:50:58
 updated: 2025-06-19 10:58:42
 ---

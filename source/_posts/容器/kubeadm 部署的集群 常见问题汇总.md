@@ -10,7 +10,7 @@ tags:
   - 搭建
   - kubeadm
 abbrlink: sepu3k
-cover: 'https://static.zahui.fan/public/Kubeadm.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 date: 2024-06-07 23:09:19
 ---
 
@@ -177,7 +177,7 @@ Jul 22 08:35:49 master1 kubelet[2079]: E0722 08:35:49.169395    2079 pod_workers
 
 问题原因：containerd 的配置文件里面指定了 pause 的镜像，这里会拉取这个版本的镜像，和 `kubeadm` 不一致。所以两个镜像都需要，或者修改下 containerd 的配置。
 
-![image.png|522](https://static.zahui.fan/images/202405052245258.png)
+![image.png|522](https://s3.babudiu.com/iuxt/images/202405052245258.png)
 
 ## 修改 NodePort 端口范围
 
@@ -241,14 +241,14 @@ kubectl -n kube-system edit configmap kube-proxy
 
 mode 参数修改成 ipvs
 
-![image.png](https://static.zahui.fan/images/202312112232082.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202312112232082.png)
 
 ```bash
 kubectl -n kube-system rollout restart daemonset kube-proxy
 ```
 
 查看 kube-proxy 日志，出现 Using ipvs Proxier 说明修改成功。
-![image.png](https://static.zahui.fan/images/202312112236807.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202312112236807.png)
 
 ## 自动补全功能
 

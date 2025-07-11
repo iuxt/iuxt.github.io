@@ -7,7 +7,7 @@ tags:
   - 部署
   - 配置记录
 abbrlink: sds4t1
-cover: 'https://static.zahui.fan/public/hadoop.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/hadoop.svg'
 date: 2024-05-20 18:22:12
 ---
 

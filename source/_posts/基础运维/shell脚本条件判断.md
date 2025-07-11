@@ -4,7 +4,7 @@ categories:
   - 基础运维
 tags: [shell]
 abbrlink: le2ugemu
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 date: 2023-02-13 21:21:25
 updated: 2025-01-07 22:50:36
 ---

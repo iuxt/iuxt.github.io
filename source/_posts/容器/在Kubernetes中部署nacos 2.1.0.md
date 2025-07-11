@@ -9,7 +9,7 @@ tags:
   - Kubernetes
   - nacos
 abbrlink: sebxm6
-cover: https://static.zahui.fan/public/Nacos.svg
+cover: https://s3.babudiu.com/iuxt/public/Nacos.svg
 date: 2024-05-31 10:58:54
 updated: 2025-02-14 15:22:15
 ---
@@ -471,7 +471,7 @@ nacos-2.nacos-headless.public.svc.cluster.local:8848
 
 ### 检查控制台
 
-![202404291522377.png|737](https://static.zahui.fan/images/202404291522377.png)
+![202404291522377.png|737](https://s3.babudiu.com/iuxt/images/202404291522377.png)
 
 状态为 UP 集群正常。
 

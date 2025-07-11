@@ -7,7 +7,7 @@ tags:
   - Container
   - CICD
 abbrlink: lmucp5lg
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 date: 2023-09-22 16:39:31
 ---
 

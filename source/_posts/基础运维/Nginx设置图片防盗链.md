@@ -6,7 +6,7 @@ categories:
 tags:
   - Nginx
   - 配置记录
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2022-05-26 00:27:14
 ---
 
@@ -39,7 +39,7 @@ date: 2022-05-26 00:27:14
       ~.*zahui.fan;
     if ($invalid_referer) {
       # 这里也可以 return 一个403 等
-      rewrite ^/ https://static.zahui.fan/images/babudiu_block.jpg;
+      rewrite ^/ https://s3.babudiu.com/iuxt/images/babudiu_block.jpg;
     }
     proxy_pass http://halo;
   }

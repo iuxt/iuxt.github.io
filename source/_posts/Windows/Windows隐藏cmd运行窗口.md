@@ -1,7 +1,7 @@
 ---
 title: Windows隐藏cmd运行窗口
 abbrlink: 3b6d9935
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

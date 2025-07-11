@@ -1,7 +1,7 @@
 ---
 title: Windows映射网络驱动器
 abbrlink: 88695286
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

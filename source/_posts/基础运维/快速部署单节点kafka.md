@@ -22,7 +22,7 @@ date: 2024-10-17 14:09:25
 
 打开 docker 镜像仓库 `https://hub.docker.com` 找了找， 按照下载量排序，有以下几种，我选择 bitnami 打包的 kafka
 
-![image.png|1048](https://static.zahui.fan/images/202410171116643.png)
+![image.png|1048](https://s3.babudiu.com/iuxt/images/202410171116643.png)
 
 ## 第三步 编写启动脚本
 
@@ -65,7 +65,7 @@ kafka 的启动用户 id 是 1001，所以需要给 kafka-data 目录授权，�
 docker run -it --network ops --rm bitnami/kafka:3.8.0 kafka-console-producer.sh --producer.config /opt/bitnami/kafka/config/producer.properties --bootstrap-server kafka-server:9092 --topic iuxt_test
 ```
 
-![image.png](https://static.zahui.fan/images/202410171408280.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202410171408280.png)
 
 ### 控制台消费
 
@@ -73,6 +73,6 @@ docker run -it --network ops --rm bitnami/kafka:3.8.0 kafka-console-producer.sh 
 docker run -it --network ops --rm bitnami/kafka:3.8.0 kafka-console-consumer.sh --consumer.config /opt/bitnami/kafka/config/consumer.properties --bootstrap-server kafka-server:9092 --topic iuxt_test --from-beginning
 ```
 
-![image.png](https://static.zahui.fan/images/202410171409368.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202410171409368.png)
 
 其他命令查看 [Kafka常用操作记录](/posts/12ab226e)

@@ -7,7 +7,7 @@ tags:
   - 配置记录
   - 常用操作
 abbrlink: lqyxid2z
-cover: 'https://static.zahui.fan/public/curl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/curl.svg'
 date: 2024-01-04 16:12:00
 ---
 

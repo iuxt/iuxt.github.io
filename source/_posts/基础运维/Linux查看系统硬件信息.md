@@ -1,7 +1,7 @@
 ---
 title: Linux查看系统硬件信息
 abbrlink: 6a0f629b
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags:

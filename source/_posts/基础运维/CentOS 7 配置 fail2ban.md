@@ -6,7 +6,7 @@ tags:
   - 自动化
   - 安全
 abbrlink: shxj0z
-cover: 'https://static.zahui.fan/public/fail2ban.png'
+cover: 'https://s3.babudiu.com/iuxt/public/fail2ban.png'
 date: 2020-08-09 10:31:46
 ---
 

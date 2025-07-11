@@ -7,7 +7,7 @@ tags:
   - Linux
   - Automatic
   - Crontab
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 date: 2021-06-01 18:05:02
 ---
 

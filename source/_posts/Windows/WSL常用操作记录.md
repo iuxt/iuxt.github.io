@@ -7,7 +7,7 @@ tags:
   - Windows
   - WSL
   - 配置记录
-cover: 'https://static.zahui.fan/public/wsl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/wsl.svg'
 date: 2021-03-11 11:21:46
 ---
 
@@ -163,7 +163,7 @@ cd /mnt/c/Users/iuxt/Desktop
 
 在资源管理器的地址栏直接输入 wsl 即可（输入 cmd 类似，是进入 cmd 命令行）
 
-![快速打开wsl命令行|572](https://static.zahui.fan/images/202305041640284.png)
+![快速打开wsl命令行|572](https://s3.babudiu.com/iuxt/images/202305041640284.png)
 
 ### bat 脚本里调用 wsl 命令
 

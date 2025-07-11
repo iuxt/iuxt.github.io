@@ -1,7 +1,7 @@
 ---
 title: ubuntu常用配置记录
 abbrlink: 27a660e
-cover: https://static.zahui.fan/public/Ubuntu.svg
+cover: https://s3.babudiu.com/iuxt/public/Ubuntu.svg
 categories:
   - 基础运维
 tags: [Linux, 配置记录, Ubuntu, Crontab]

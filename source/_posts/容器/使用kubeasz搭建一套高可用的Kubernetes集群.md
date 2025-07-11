@@ -1,7 +1,7 @@
 ---
 title: 使用kubeasz搭建一套高可用的Kubernetes集群
 abbrlink: 6f59afe4
-cover: 'https://static.zahui.fan/public/kubeasz.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubeasz.svg'
 categories:
   - 容器
 tags:

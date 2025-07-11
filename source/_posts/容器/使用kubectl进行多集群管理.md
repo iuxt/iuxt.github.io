@@ -8,7 +8,7 @@ tags:
   - 权限管理
   - 配置记录
 abbrlink: lqacdmqv
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-12-18 11:13:59
 ---
 
@@ -67,7 +67,7 @@ kubectl get pod --kubeconfig=config-uat
 
 确保每个 kubeconfig 里面部分参数唯一性,可以手动修改一下
 
-![image.png](https://static.zahui.fan/images/202312181126408.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202312181126408.png)
 
 ### 合并配置文件
 

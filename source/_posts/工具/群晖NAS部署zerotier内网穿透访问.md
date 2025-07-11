@@ -5,7 +5,7 @@ categories:
 tags: [nas, 网络]
 abbrlink: spi492
 date: 2025-01-03 15:17:25
-cover: https://static.zahui.fan/images/20250103233736228.png
+cover: https://s3.babudiu.com/iuxt/images/20250103233736228.png
 updated: 2025-01-03 23:40:32
 ---
 
@@ -96,7 +96,7 @@ docker exec -it zerotier zerotier-cli listnetworks
 
 在 zerotier 网站的 networks 里面的 Managed Routes 下配置路由表,增加如下内容
 
-![image.png](https://static.zahui.fan/images/20250103135337663.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250103135337663.png)
 
 加过路由后，可以访问这台 zerotier 节点的内网 ip（192.168.1.11） 了，但是不能访问内网的其他 ip，还需要做一下转发。
 
@@ -150,7 +150,7 @@ sudo iptables -A FORWARD -i $ZT_IF -o $PHY_IF -j ACCEPT
 
 网卡设备名参考 在机器上使用命令 `ip a` 查看：
 
-![image.png](https://static.zahui.fan/images/20250103232323506.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250103232323506.png)
 
 ## 引用与文献
 

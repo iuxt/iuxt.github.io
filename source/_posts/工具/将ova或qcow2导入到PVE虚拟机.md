@@ -8,11 +8,11 @@ tags:
   - 配置记录
   - proxmox
 abbrlink: lphwqhtr
-cover: 'https://static.zahui.fan/public/proxmox.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/proxmox.svg'
 date: 2023-11-28 13:38:33
 ---
 
-![Proxmox_logo_standard_hex_2000px-768x116.png](https://static.zahui.fan/images/202312011531317.png)
+![Proxmox_logo_standard_hex_2000px-768x116.png](https://s3.babudiu.com/iuxt/images/202312011531317.png)
 
 比如我们从 VMware Workstation 导出的虚拟机镜像 (ova 或者 ovf), 如果我想要导入到 proxmox 中, proxmox 默认是不支持导入 OVA 虚拟机的, 可以通过转换虚拟机虚拟磁盘的方法将虚拟磁盘附加到现有的 pve 虚拟机中.
 
@@ -52,7 +52,7 @@ disk-fs: 磁盘镜像格式  raw/vmdk/qcow2
 
 导入成功后, 在虚拟机界面可以看到一个未使用磁盘
 
-![image.png](https://static.zahui.fan/images/202311281414540.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202311281414540.png)
 
 双击未使用磁盘, 点击添加即可
 

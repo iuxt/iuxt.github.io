@@ -7,7 +7,7 @@ tags:
   - Linux
   - 配置记录
 abbrlink: lnmt2t0q
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 date: 2023-10-12 14:35:35
 ---
 

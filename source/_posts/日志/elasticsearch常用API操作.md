@@ -7,13 +7,13 @@ categories:
 tags:
   - Elasticsearch
   - log
-cover: 'https://static.zahui.fan/public/elasticsearch.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/elasticsearch.svg'
 date: 2022-04-25 10:26:56
 ---
 
 如果有 Kibana 的话，以下所有操作都可以在 Kibana 的 DevTools 页面进行调试，可以免去认证操作。
 
-![Kibana调试查看索引接口](https://static.zahui.fan/images/20220425224238.png)
+![Kibana调试查看索引接口](https://s3.babudiu.com/iuxt/images/20220425224238.png)
 
 | 接口                    | 功能                  |
 | --------------------- | ------------------- |

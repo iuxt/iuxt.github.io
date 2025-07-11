@@ -3,7 +3,7 @@ title: fail2ban失效排查
 categories:
   - 基础运维
 abbrlink: sjcnkn
-cover: https://static.zahui.fan/public/fail2ban.png
+cover: https://s3.babudiu.com/iuxt/public/fail2ban.png
 date: 2024-09-06 01:07:35
 tags:
 updated: 2025-02-10 19:10:08
@@ -24,7 +24,7 @@ Sep 09 10:44:01 zhangfei fail2ban-server[1795]: 2024-09-09 10:44:01,134 fail2ban
 fail2ban-regex /var/log/xxx.log /etc/fail2ban/filter.d/xxx.conf
 ```
 
-![image.png](https://static.zahui.fan/images/202409101104574.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202409101104574.png)
 
 ## IndexError
 
@@ -47,7 +47,7 @@ ignoreregex =
 
 fail2ban-regex 报错如下：
 
-![image.png](https://static.zahui.fan/images/202409060106166.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202409060106166.png)
 
 问题原因：日志中存在日期字段，docker 又给添加了一个日期字段，导致存在两个日期字段，fail2ban 无法解析。
 

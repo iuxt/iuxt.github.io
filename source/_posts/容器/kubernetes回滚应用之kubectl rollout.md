@@ -1,7 +1,7 @@
 ---
 title: Kubernetes回滚应用之kubectl rollout
 abbrlink: 8d88b8c4
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 categories:
   - 容器
 tags: [kubectl, Kubernetes, k8s]

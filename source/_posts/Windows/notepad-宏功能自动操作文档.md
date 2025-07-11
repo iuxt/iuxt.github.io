@@ -14,12 +14,12 @@ date: 2021-06-09 09:25:53
 ## 简单操作
 
 先看个例子, 我要删除所有的奇数行, 我的操作是: 点击录制, 光标放在第一行, 按下 `home` 键, 按住 `shift` 键,再按 `end` 键 (选中整行), 按一下 `delete` 键, 为了方便重复执行, 再按两下 `↓`, 停止录制
-![notepad++](https://static.zahui.fan/images/notepad++.gif)
+![notepad++](https://s3.babudiu.com/iuxt/images/notepad++.gif)
 
 ## 结合搜索功能
 
 比如这个文件有几千行, 我要在每个 service 里面添加一条数据
-![search](https://static.zahui.fan/images/search.png)
+![search](https://s3.babudiu.com/iuxt/images/search.png)
 
 可以这样操作
-![auto_search](https://static.zahui.fan/images/auto_search.gif)
+![auto_search](https://s3.babudiu.com/iuxt/images/auto_search.gif)

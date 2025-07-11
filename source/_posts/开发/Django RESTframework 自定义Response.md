@@ -7,7 +7,7 @@ tags:
   - Python
   - drf
 abbrlink: sfz4bc
-cover: 'https://static.zahui.fan/public/DjangoRESTFramework.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/DjangoRESTFramework.svg'
 date: 2024-01-02 10:01:59
 ---
 

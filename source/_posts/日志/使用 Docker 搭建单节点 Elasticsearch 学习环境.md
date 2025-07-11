@@ -11,7 +11,7 @@ tags:
   - 搭建
 abbrlink: st219s
 date: 2024-04-25 19:00:00
-cover: https://static.zahui.fan/images/202412031037042.png
+cover: https://s3.babudiu.com/iuxt/images/202412031037042.png
 updated: 2025-03-13 17:12:14
 ---
 

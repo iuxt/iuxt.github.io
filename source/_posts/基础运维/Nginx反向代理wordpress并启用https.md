@@ -7,7 +7,7 @@ tags:
   - Proxy
   - Nginx
   - Docker
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2021-09-03 21:51:03
 ---
 

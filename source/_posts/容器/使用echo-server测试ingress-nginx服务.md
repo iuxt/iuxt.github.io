@@ -6,7 +6,7 @@ tags:
   - echo-server
   - 测试
 abbrlink: 635c073a
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2023-08-11 14:10:29
 ---
 

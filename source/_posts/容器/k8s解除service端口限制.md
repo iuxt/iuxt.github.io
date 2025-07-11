@@ -6,7 +6,7 @@ tags:
   - k8s
   - Kubernetes
 abbrlink: lmri345s
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-09-20 16:47:02
 ---
 

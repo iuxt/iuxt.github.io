@@ -5,7 +5,7 @@ categories:
 tags: []
 abbrlink: ssqj2c
 date: 2025-03-07 11:58:59
-cover: https://static.zahui.fan/images/20250328110319656.png
+cover: https://s3.babudiu.com/iuxt/images/20250328110319656.png
 updated: 2025-03-28 11:05:24
 ---
 

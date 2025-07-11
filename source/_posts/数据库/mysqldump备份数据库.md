@@ -1,7 +1,7 @@
 ---
 title: Mysqldump备份数据库
 abbrlink: 913ca09b
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
 tags:
@@ -115,7 +115,7 @@ CREATE TABLE `db_sms_auth_code` (
 
 默认 mysqldump 备份的文件会在一条 insert 语句中插入很多条数据，这样可以缩小 sql 文件的大小，还能增加导入时候的速度，但是在某些场景下，我们还是希望一条 insert 对应一条数据。那么可以增加 `--skip-extended-insert` 参数
 
-![](https://static.zahui.fan/images/202402071656925.png)
+![](https://s3.babudiu.com/iuxt/images/202402071656925.png)
 
 ## 备份脚本
 

@@ -8,7 +8,7 @@ tags:
   - 配置记录
   - 有状态服务
 abbrlink: sds4db
-cover: 'https://static.zahui.fan/public/apache_zookeeper.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/apache_zookeeper.svg'
 date: 2021-05-20 18:12:46
 ---
 

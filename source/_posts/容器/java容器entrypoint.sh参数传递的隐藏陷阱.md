@@ -5,7 +5,7 @@ categories:
 tags: [Docker, java, Shell]
 abbrlink: stgvyr
 date: 2025-03-21 17:35:15
-cover: https://static.zahui.fan/images/20250321173954454.png
+cover: https://s3.babudiu.com/iuxt/images/20250321173954454.png
 updated: 2025-03-24 23:08:50
 ---
 
@@ -61,11 +61,11 @@ Error: A fatal exception has occurred. Program will exit.
 ```
 
 查看控制台，echo 出来的 `JAVA_CMD` 变量也是正常的
-![image.png](https://static.zahui.fan/images/20250321172510730.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250321172510730.png)
 
 中间排查过程忽略，最后增加了 `set -x` 参数后，重新打包镜像，再次查看控制台输出：
 
-![image.png](https://static.zahui.fan/images/20250321171117808.png)
+![image.png](https://s3.babudiu.com/iuxt/images/20250321171117808.png)
 
 注意以 + 开头的输出 这里 java 启动命令是被解析成了单引号引用，所以造成无法启动。把 java 启动参数中的环境变量双引号去掉，可以正常启动了。
 

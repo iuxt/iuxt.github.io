@@ -6,7 +6,7 @@ tags:
   - 加密
   - SSL
 abbrlink: lqxdtb6m
-cover: 'https://static.zahui.fan/public/openssl.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/openssl.svg'
 date: 2024-01-03 14:12:53
 ---
 

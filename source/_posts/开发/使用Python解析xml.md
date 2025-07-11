@@ -6,7 +6,7 @@ tags:
   - Python
   - xml
 abbrlink: 9f75a5fc
-cover: 'https://static.zahui.fan/public/python.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/python.svg'
 date: 2023-04-18 12:07:37
 ---
 

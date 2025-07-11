@@ -1,7 +1,7 @@
 ---
 title: Python脚本接受参数
 abbrlink: 6c12bda4
-cover: 'https://static.zahui.fan/public/python.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/python.svg'
 categories:
   - 开发
 tags:

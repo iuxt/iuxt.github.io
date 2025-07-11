@@ -8,7 +8,7 @@ tags:
   - 配置文件
   - Script
   - Shell
-cover: 'https://static.zahui.fan/public/python.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/python.svg'
 date: 2021-12-07 17:47:08
 ---
 

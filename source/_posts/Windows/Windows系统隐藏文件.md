@@ -1,7 +1,7 @@
 ---
 title: Windows系统隐藏文件
 abbrlink: adfa6bbb
-cover: 'https://static.zahui.fan/public/Windows-old.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
 tags:

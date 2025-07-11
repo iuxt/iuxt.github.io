@@ -7,7 +7,7 @@ tags:
   - Nginx
   - build
   - 配置记录
-cover: 'https://static.zahui.fan/public/Nginx.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Nginx.svg'
 date: 2022-04-14 12:54:55
 ---
 

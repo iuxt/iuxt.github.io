@@ -7,7 +7,7 @@ tags:
   - Container
   - 配置记录
   - Docker
-cover: 'https://static.zahui.fan/public/Docker.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Docker.svg'
 date: 2021-02-19 12:14:59
 ---
 

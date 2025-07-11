@@ -1,7 +1,7 @@
 ---
 title: Kubernetes之master高可用方案
 abbrlink: 10cef768
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 categories:
   - 容器
 tags:
@@ -19,7 +19,7 @@ date: 2022-03-14 20:50:24
 这种就是比较容易想到的一种方案，比如 3 个 master 节点，前面有一台负载均衡（nginx、haproxy、lvs）等，但是负载均衡本身就是一个单点故障，所以一般来说还需要另一台负载均衡，通过 keepalived 来实现 VIP 的切换
 [使用Keepalived来实现Nginx高可用](/posts/0cebb8ae)
 
-![针对master节点做负载均衡](https://static.zahui.fan/images/lb_keepalived.png)
+![针对master节点做负载均衡](https://s3.babudiu.com/iuxt/images/lb_keepalived.png)
 
 {% tabs TabName %}
 
@@ -176,7 +176,7 @@ backend https_ingress_traffic_be
 
 架构图如图所示， 使用 keepalived 维护 vip，每台 master 节点上都运行着一个负载均衡
 
-![在master上使用vip](https://static.zahui.fan/images/202207050032858.jpg)
+![在master上使用vip](https://s3.babudiu.com/iuxt/images/202207050032858.jpg)
 
 可以参考：[使用Keepalived来实现Nginx高可用](/posts/0cebb8ae/)
 
@@ -370,7 +370,7 @@ vrrp_instance VI_1 {
 是看到了有些开源项目不用额外的负载均衡器也可以完成 master 高可用
 方案就是所有节点上安装负载均衡，架构图如下, 监听的是 `127.0.0.1:6443`，所有的服务都连接 `127.0.0.1:6443` 端口，然后负载到 3 台 master，这样不用担心负载均衡挂掉，挂掉也只会影响自己，缺点就是每台机器都需要额外部署服务，master 节点发生变化后, 每台机器都需要更新负载均衡的配置。**负载均衡在所有机器上都要安装（包括 worker 节点）**
 
-![在worker节点搭建负载均衡](https://static.zahui.fan/images/worker_lb.jpg)
+![在worker节点搭建负载均衡](https://s3.babudiu.com/iuxt/images/worker_lb.jpg)
 
 ### 安装集群的时候
 
@@ -476,4 +476,4 @@ spec:
 
 查看监听端口, 此时可以正常启动 负载均衡了.
 
-![image.png](https://static.zahui.fan/images/202311171817270.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202311171817270.png)

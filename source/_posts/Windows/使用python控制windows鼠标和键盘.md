@@ -1,7 +1,7 @@
 ---
 title: 使用python控制windows鼠标和键盘
 abbrlink: 2426edfc
-cover: 'https://static.zahui.fan/public/Windows.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 categories:
   - Windows
 tags:
@@ -120,4 +120,4 @@ pyautogui.locateOnScreen('looksLikeThis.png', confidence=0.9)  # 用到opencv进
 
 在 win server 中， 可能会出现明明已经安装了 opencv-python 但是却报错： `NotImplementedError: The confidence keyword argument is only available if OpenCV` ， 你需要安装 桌面体验 功能：
 
-![服务器管理器](https://static.zahui.fan/images/202305041257094.png)
+![服务器管理器](https://s3.babudiu.com/iuxt/images/202305041257094.png)

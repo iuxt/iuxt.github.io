@@ -5,7 +5,7 @@ categories:
 tags:
   - 网络
 abbrlink: loz4xrye
-cover: 'https://static.zahui.fan/images/202311151021732.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202311151021732.png'
 date: 2023-11-15 10:20:32
 ---
 
@@ -14,7 +14,7 @@ date: 2023-11-15 10:20:32
 ## 群晖 nas 安装
 
 群晖国内应用商店已经下架了这个 APP, 你可以尝试着在应用中心搜索 tailscale, 如果可以搜索到, 就直接安装即可. 搜索不到的话, 可以使用离线安装的方式:
-![image.png](https://static.zahui.fan/images/202311151015762.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202311151015762.png)
 
 到官网下载离线 SPK 包:
 https://pkgs.tailscale.com/stable/#spks
@@ -26,20 +26,20 @@ https://pkgs.tailscale.com/stable/#spks
 
 安装成功后， 右键任务栏图标，点击 login 登录 tailscale 账号
 
-![image.png](https://static.zahui.fan/images/202311141320528.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202311141320528.png)
 
 登录成功后，可以在官网<https://login.tailscale.com/admin/machines> 查看到所有的设备和 IP 地址等信息。
 
 ## 访问方式
 
 tailscale 可以使用 ip 地址来访问，或者使用 tailscale 的 dns 域名，比如
-![image.png](https://static.zahui.fan/images/202311141324348.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202311141324348.png)
 
 建议给常用设备设置 `Disable key expiry` 防止登录过期.
 
 我可以使用 mac-mini 来访问我的其中一台机而不用记住 IP 地址。
 
-![image.png](https://static.zahui.fan/images/202311141324477.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202311141324477.png)
 
 ## 查看是否打洞成功
 

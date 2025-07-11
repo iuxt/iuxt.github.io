@@ -8,7 +8,7 @@ tags:
   - keepalived
   - HA
 abbrlink: 67853ccb
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-06-13 17:53:43
 ---
 

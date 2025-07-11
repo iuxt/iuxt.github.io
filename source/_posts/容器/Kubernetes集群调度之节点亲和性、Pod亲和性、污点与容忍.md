@@ -1,7 +1,7 @@
 ---
 title: Kubernetes集群调度之节点亲和性、Pod亲和性、污点与容忍
 abbrlink: aec8a52c
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 categories:
   - 容器
 tags:

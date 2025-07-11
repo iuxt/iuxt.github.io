@@ -4,7 +4,7 @@ categories:
   - 工具
 tags: [开发工具配置]
 abbrlink: sik0ul
-cover: 'https://static.zahui.fan/images/202408211408782.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202408211408782.png'
 date: 2024-08-21 14:03:57
 updated: 2025-02-20 18:46:48
 ---
@@ -28,7 +28,7 @@ updated: 2025-02-20 18:46:48
 使用方法：
 1. 进入 WSL 终端拉取代码（PyCharm 目前不支持拉代码到 WSL 里）
 2. 在 PyCharm 里打开项目，项目路径如图：
-![image.png](https://static.zahui.fan/images/202408161038687.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408161038687.png)
 
 打开 PyCharm 终端会自动进入 WSL 环境。但需要手动 source 才能进入虚拟环境。
 
@@ -37,13 +37,13 @@ updated: 2025-02-20 18:46:48
 备选方案
 
 远程开发需要在 WSL 里安装一个 PyCharm 服务版（使用远程开发会自动安装），并用 Windows 的 PyCharm 连接上它，使用方式和直接用 Linux 版的相似，缺点是每次更新 PyCharm 后，在 WSL 里也需要更新一下。还有一个缺点：不能直接启动，必须从 Windows 的 PyCharm 点击远程开发，然后会再运行一个 PyCharm。
-![image.png](https://static.zahui.fan/images/202408161023064.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408161023064.png)
 
 花里胡哨的终端会乱码
-![image.png](https://static.zahui.fan/images/202408161030953.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408161030953.png)
 
 毕竟走网络通信，远程开发会有一点延迟。
-![image.png](https://static.zahui.fan/images/202408161032027.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408161032027.png)
 
 远程开发优势： 可以直接使用 Linux 本地解释器，路径也都是 Linux 路径
 

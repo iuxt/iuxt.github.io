@@ -1,7 +1,7 @@
 ---
 title: Linux性能分析
 abbrlink: 8ea6978b
-cover: 'https://static.zahui.fan/public/linux.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/linux.svg'
 categories:
   - 基础运维
 tags:

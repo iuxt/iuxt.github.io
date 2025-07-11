@@ -3,7 +3,7 @@ title: Prometheus中查询无数据提供默认值
 categories:
   - 监控
 abbrlink: sjaoe0
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 date: 2024-09-04 23:30:00
 tags:
 ---

@@ -3,7 +3,7 @@ title: MySQL进行文件操作
 categories:
   - 数据库
 abbrlink: sio0v4
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2024-08-23 17:54:40
 tags:
 ---

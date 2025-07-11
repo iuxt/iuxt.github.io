@@ -8,7 +8,7 @@ tags:
   - 配置记录
   - node_exporter
 abbrlink: ln38vw8d
-cover: 'https://static.zahui.fan/public/Prometheus.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 date: 2023-09-28 22:02:43
 ---
 

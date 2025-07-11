@@ -5,7 +5,7 @@ categories:
 tags:
   - MySQL
 abbrlink: lmoa36fz
-cover: 'https://static.zahui.fan/public/MySQL.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2023-09-18 10:39:50
 ---
 

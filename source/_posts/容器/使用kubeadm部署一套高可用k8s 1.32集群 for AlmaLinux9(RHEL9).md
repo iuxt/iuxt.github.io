@@ -5,7 +5,7 @@ categories:
 tags: []
 abbrlink: sof9i3
 date: 2024-12-13 15:44:27
-cover: https://static.zahui.fan/public/kubernetes.avif
+cover: https://s3.babudiu.com/iuxt/public/kubernetes.avif
 updated: 2025-06-20 17:13:47
 ---
 

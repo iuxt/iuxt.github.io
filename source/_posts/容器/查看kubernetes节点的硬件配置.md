@@ -6,7 +6,7 @@ tags:
   - k8s
   - 常用操作
 abbrlink: lo57b8gx
-cover: 'https://static.zahui.fan/public/kubernetes.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-10-25 11:33:54
 ---
 
@@ -18,4 +18,4 @@ kubectl get node -o json | jq '.items[] | "=====================================
 
 输出结果类似于:
 
-![image.png](https://static.zahui.fan/images/202310251137563.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202310251137563.png)

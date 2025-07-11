@@ -6,7 +6,7 @@ tags:
 abbrlink: a7c8660c
 categories:
   - 基础运维
-cover: 'https://static.zahui.fan/public/samba.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/samba.svg'
 date: 2022-02-11 11:18:21
 ---
 

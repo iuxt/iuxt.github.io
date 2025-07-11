@@ -1,7 +1,7 @@
 ---
 title: Shell脚本接受参数
 abbrlink: 7635ef7e
-cover: 'https://static.zahui.fan/public/bash.svg'
+cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
 categories:
   - 基础运维
 tags:

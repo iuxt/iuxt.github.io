@@ -4,7 +4,7 @@ categories:
   - 工具
 tags: [OpenSSH, lrzsz, zmodem]
 abbrlink: shqeci
-cover: https://static.zahui.fan/images/202411221801168.png
+cover: https://s3.babudiu.com/iuxt/images/202411221801168.png
 date: 2024-08-05 14:07:29
 updated: 2025-04-18 15:09:10
 ---
@@ -57,7 +57,7 @@ Host ubuntu
 ### 使用方法
 
 直接执行 tssh 就会有一个终端组成的图形界面
-![image.png](https://static.zahui.fan/images/202408051438414.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408051438414.png)
 
 上面也可以使用 `tssh test-ubuntu` 来快速连接
 
@@ -83,7 +83,7 @@ Host *
 
 然后在终端里就可以执行 rz 和 sz 命令了 (**不需要**修改终端的配置，比如 iTerm2 配置 triggers)，并且支持上传速度和上传大小显示。
 
-![image.png](https://static.zahui.fan/images/202408051427004.png)
+![image.png](https://s3.babudiu.com/iuxt/images/202408051427004.png)
 
 ## macOS 下使用配置
 
