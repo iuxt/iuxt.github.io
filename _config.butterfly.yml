@@ -189,14 +189,15 @@ footer:
     </a>
     </br>
     <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021015230号-1</a>
-  copyright: false # Copyright of theme and framework
+  copyright: true
+
 
 baidu_analytics: 50b516d50102c8c9ac5f80529b81ca17
 google_analytics: G-YN0WWZGVYN
 
 theme_color:
   enable: true
-  main: "#5a544b"
+  main: "#3b3b3b"
 
 # Beautify (美化頁面顯示)
 beautify:
