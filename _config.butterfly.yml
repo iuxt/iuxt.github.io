@@ -283,6 +283,8 @@ lazyload:
 CDN:
   internal_provider: local
   third_party_provider: local
+  option:
+    busuanzi: https://events.vercount.one/js
 
 mask:
   header: true
