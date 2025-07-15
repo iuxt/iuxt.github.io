@@ -281,10 +281,11 @@ lazyload:
 
 
 CDN:
-  internal_provider: local
-  third_party_provider: local
-  option:
-    busuanzi: https://events.vercount.one/js
+  internal_provider: custom
+  third_party_provider: custom
+  custom_format: https://cdn.bootcdn.net/ajax/libs/${cdnjs_name}/${version}/${min_cdnjs_file}
+  # option:
+  #   busuanzi: https://events.vercount.one/js
 
 mask:
   header: true
