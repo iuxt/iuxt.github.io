@@ -6,8 +6,12 @@ tags: [SSL]
 abbrlink: sycvjt
 date: 2025-06-24 18:23:52
 cover: ""
-updated: 2025-06-24 18:33:14
+updated: 2025-07-18 00:21:46
 ---
+
+P12 证书是整合了公钥和私钥的，还可以给 P12 证书设置密码。
+
+## P12 转换为 PEM
 
 ```bash
 # 提取证书
@@ -40,4 +44,10 @@ openssl rsa -in encrypt.key -out nopassword.key
 -----BEGIN PRIVATE KEY-----
 ...
 -----END PRIVATE KEY-----
+```
+
+## PEM 公钥和私钥转换成 P12
+
+```bash
+openssl pkcs12 -export -out certificate.p12 -inkey privateKey.key -in certificate.crt
 ```
