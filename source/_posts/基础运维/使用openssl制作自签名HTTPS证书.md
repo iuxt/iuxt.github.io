@@ -1,17 +1,17 @@
 ---
-title: 制作和使用自签名证书
+title: 使用openssl制作自签名HTTPS证书
 abbrlink: 097e5b7c
 categories:
   - 基础运维
 tags: [SSL, Auth]
 date: 2022-05-28 14:05:52
 cover: https://s3.babudiu.com/iuxt/images/202411211426166.png
-updated: 2025-06-04 10:53:39
+updated: 2025-07-18 08:20:39
 ---
 
 在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:[使用certbot自动申请ssl证书](/posts/28c679c3) 或者 [使用acme.sh来自动更新https证书](/posts/1e777b9e), 本文介绍自签名证书.
 
-可以直接使用我制作好的工具，一键生成证书：<https://github.com/iuxt/my_cert>
+可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<https://github.com/iuxt/my_cert>
 
 ## SSL 协议加密方式
 
@@ -69,7 +69,7 @@ openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt
 
 就可以生成 `ca.crt` 文件, 这个文件需要加入到客户端的 `受信任的根证书颁发机构`
 
-## Server 证书
+## 生成服务器 HTTPS 证书
 
 ### 生成 server 端的私钥
 
@@ -77,7 +77,7 @@ openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt
 openssl genrsa -out server.key 4096
 ```
 
-### 生成 server 端数字证书请求
+### 生成 server 端证书请求
 
 {% tabs TabName %}
 
@@ -113,7 +113,7 @@ openssl req -utf8 -new -key server.key -out server.csr
 
 ### 用 CA 私钥签发 server 的数字证书
 
-> 解决 chrome 不受信任的问题
+> 解决 chrome 不受信任的问题，需要指定 `SubjectAlternativeName`
 
 `vim server.ext`
 
@@ -137,7 +137,7 @@ openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out s
 
 生成 `server.crt` 证书文件
 
-## 将 server 证书配置到 nginx
+### 将证书配置到 nginx
 
 ```conf
 server {
@@ -172,7 +172,7 @@ server {
 
 右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。
 
-![windows安装CA证书](https://s3.babudiu.com/iuxt/images/202305251008396.png)
+![windows安装CA证书|655](https://s3.babudiu.com/iuxt/images/202305251008396.png)
 
 <!-- endtab -->
 
@@ -183,8 +183,6 @@ sudo cp cacert.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates
 ```
 
-然后使用 curl 等工具就受信任了。
-
 <!-- endtab -->
 
 <!-- tab Redhat系信任CA -->
@@ -194,128 +192,10 @@ sudo cp cacert.crt /etc/pki/ca-trust/source/anchors/
 sudo update-ca-trust
 ```
 
-然后使用 curl 等工具就受信任了。
-
 <!-- endtab -->
 
 {% endtabs %}
-
-> 如果只是需要 https 证书，到这里就可以了，下面的步骤是双向认证以及吊销证书需要的。
-
----
-
-## 吊销证书
-
-我是在 `Ubuntu 24.04` 系统下操作。不同系统可能会有差别。
-
-### 生成证书吊销列表
-
-准备一份 `openssl.cnf` 配置文件
-
-```conf
-[ ca ]
-default_ca = CA_default
-
-[ CA_default ]
-# 根目录设置为自定义路径
-dir = ./ca
-
-# 默认算法
-default_md = sha256
-
-# CA 的数据库文件
-database = $dir/index.txt
-# 证书的序列号文件
-serial = $dir/serial
-# 新证书的默认有效期
-default_days = 365
-# 吊销证书的理由
-crl_reason = unspecified
-# 默认的证书颁发策略
-policy = policy_anything
-
-# CRL 选项
-crlnumber = $dir/crlnumber
-default_crl_days = 30
-crl_extensions = crl_ext
-
-[ policy_anything ]
-# 配置任何策略
-countryName = optional
-stateOrProvinceName = optional
-organizationName = optional
-organizationalUnitName = optional
-commonName = supplied
-emailAddress = optional
-
-[ crl_ext ]
-# CRL 的扩展配置
-authorityKeyIdentifier = keyid:always
-```
-
-### 吊销指定证书
-
-其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件
-
-```bash
-touch ca/index.txt
-
-# crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。
-[ ! -f ca/crlnumber ] && echo "01" > ca/crlnumber
-
-# 吊销指定证书
-openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt
-
-# 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置
-openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem
-```
-
-### 服务端 nginx 配置
-
-```conf
-server {
-  listen 80;
-  listen [::]:80;
-  listen 443 ssl;
-  listen [::]:443 ssl;
-  ssl_certificate   ssl/i.com.crt;
-  ssl_certificate_key ssl/i.com.key;
-  ssl_session_timeout 5m;
-  ssl_ciphers HIGH:!aNULL:!MD5;
-  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_prefer_server_ciphers on;
-  server_name i.com;
-
-  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者
-  ssl_verify_client on;                    # 启用客户端证书验证
-  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书
-
-  client_max_body_size 1024m;
-
-  location / {
-          default_type text/plain;
-          return 200 "hello";
-  }
-}
-
-```
-
-## 配置客户端 client 证书
-
-证书生成方式和上面一样，p12 格式包含私钥和证书，所以生成完成后需要转换成 P12 格式（Windows 系统），然后导入到 Windows 系统中。
-
-```bash
-openssl pkcs12 -export -in zhangsan.crt -inkey zhangsan.key -out zhangsan.p12
-```
-
-双击导入，存储位置选择个人
-![image.png](https://s3.babudiu.com/iuxt/images/202411071859189.png)
-
-访问对应网站的时候浏览器会提示让选择证书
-![image.png|845](https://s3.babudiu.com/iuxt/images/202411071900128.png)
-
-这是证书被吊销的样子：
-![image.png|843](https://s3.babudiu.com/iuxt/images/202411071900403.png)
+然后使用 curl 或 Chrome 浏览器等工具就受信任了。
 
 ## 其他
 
