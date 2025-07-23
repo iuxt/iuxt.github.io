@@ -3,11 +3,10 @@ title: 在CentOS7上安装新版本Git(2.x)
 abbrlink: 5a398dc9
 categories:
   - 基础运维
-tags:
-  - git
-  - 配置记录
+tags: [git, 配置记录]
 cover: 'https://s3.babudiu.com/iuxt/public/CentOS.svg'
 date: 2022-06-05 21:17:10
+updated: 2025-07-23 18:45:05
 ---
 
 > centos7 的默认源里面的 git 版本是 1.8.3, 比较老了, 对于有些操作会提示 git 版本太低, 可以使用第三方源的方式来安装新版本的 git
@@ -44,8 +43,8 @@ git version
 下载两个文件到本地
 
 ```bash
-wget https://file.babudiu.com/f/yXCL/perl-Git-2.41.0-1.WANdiscoRP.noarch.rpm
-wget https://file.babudiu.com/f/znF4/git-2.41.0-1.WANdiscoRP.x86_64.rpm
+wget https://file.babudiu.com/f/ErT0/perl-Git-2.41.0-1.WANdiscoRP.noarch.rpm
+wget https://file.babudiu.com/f/gDtE/git-2.41.0-1.WANdiscoRP.x86_64.rpm
 ```
 
 安装

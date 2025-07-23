@@ -2,14 +2,11 @@
 title: 二进制部署Kuberntes
 categories:
   - 容器
-tags:
-  - Kubernetes
-  - 配置记录
-  - keepalived
-  - HA
+tags: [Kubernetes, 配置记录, keepalived, HA]
 abbrlink: 67853ccb
 cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-06-13 17:53:43
+updated: 2025-07-23 18:41:49
 ---
 
 ## 一些基本信息
@@ -371,7 +368,7 @@ EOF
 Description=containerd container runtime
 描述该 unit 的作用是作为 containerd 容器运行时。
 
-Documentation=https://containerd.io
+Documentation=<https://containerd.io>
 指向容器运行时的文档的 URL。
 
 After=network.target local-fs.target
@@ -483,7 +480,7 @@ crictl info
 ```bash
 mkdir -p /etc/kube-lb/{conf,logs,sbin}
 
-curl -L -C - https://file.babudiu.com/f/qjhX/kube-lb -o /etc/kube-lb/sbin/kube-lb
+curl -L -C - https://file.babudiu.com/f/GkU7/kube-lb -o /etc/kube-lb/sbin/kube-lb
 chmod +x /etc/kube-lb/sbin/kube-lb
 
 

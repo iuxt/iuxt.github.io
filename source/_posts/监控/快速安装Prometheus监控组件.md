@@ -2,14 +2,11 @@
 title: 快速安装Prometheus监控组件
 categories:
   - 监控
-tags:
-  - prometheus
-  - 监控
-  - 配置记录
-  - node_exporter
+tags: [prometheus, 监控, 配置记录, node_exporter]
 abbrlink: ln38vw8d
 cover: 'https://s3.babudiu.com/iuxt/public/Prometheus.svg'
 date: 2023-09-28 22:02:43
+updated: 2025-07-23 18:42:42
 ---
 
 复制粘贴就能用，适用于非容器化安装， k8s 环境看这个， 更方便 [Kubernetes中使用Prometheus对集群节点做监控](/posts/61baae6f/)
@@ -21,7 +18,7 @@ date: 2023-09-28 22:02:43
 ```bash
 [ -d /data/src ] || mkdir -p /data/src
 cd /data/src/
-curl -OL -C - https://file.babudiu.com/f/rRi2/node_exporter-1.6.1.linux-amd64.tar.gz
+curl -OL -C - https://file.babudiu.com/f/pOs4/node_exporter-1.6.1.linux-amd64.tar.gz
 tar xf node_exporter-1.6.1.linux-amd64.tar.gz
 ln -sf /data/src/node_exporter-1.6.1.linux-amd64 ../node_exporter
 
@@ -47,7 +44,7 @@ systemctl enable --now node_exporter
 ```bash
 [ -d /data/src ] || mkdir -p /data/src
 cd /data/src/
-curl -OL -C - https://file.babudiu.com/f/vlsA/prometheus-2.49.1.linux-amd64.tar.gz
+curl -OL -C - https://file.babudiu.com/f/O3IP/prometheus-2.49.1.linux-amd64.tar.gz
 tar xf prometheus-2.49.1.linux-amd64.tar.gz
 ln -sf /data/src/prometheus-2.49.1.linux-amd64 ../prometheus
 

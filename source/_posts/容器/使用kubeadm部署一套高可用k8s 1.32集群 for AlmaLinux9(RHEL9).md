@@ -6,7 +6,7 @@ tags: []
 abbrlink: sof9i3
 date: 2024-12-13 15:44:27
 cover: https://s3.babudiu.com/iuxt/public/kubernetes.avif
-updated: 2025-06-20 17:13:47
+updated: 2025-07-23 18:44:19
 ---
 
 > 基于 AlmaLinux9 使用 kubeadm 搭建集群， [ubuntu部署文档](/posts/526ffc9a/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/), 本教程需要能访问 **国际互联网** 。不能的话，需要解决镜像拉取问题、yum 安装组件的问题。
@@ -162,7 +162,7 @@ sudo systemctl enable --now kubelet
 ```bash
 mkdir -p /etc/kube-lb/{conf,logs,sbin}
 
-curl -L -C - https://file.babudiu.com/f/qjhX/kube-lb -o /etc/kube-lb/sbin/kube-lb
+curl -L -C - https://file.babudiu.com/f/GkU7/kube-lb -o /etc/kube-lb/sbin/kube-lb
 chmod +x /etc/kube-lb/sbin/kube-lb
 
 

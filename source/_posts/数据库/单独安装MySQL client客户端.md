@@ -5,7 +5,8 @@ categories:
 abbrlink: sn8a2y
 cover: ''
 date: 2022-11-20 10:40:09
-tags:
+tags: []
+updated: 2025-07-23 18:41:23
 ---
 
 ## 方法一、直接下载二进制文件
@@ -16,7 +17,7 @@ tags:
 
 ```bash
 yum install -y ncurses-libs # 这个包centos默认自带了
-curl -OL https://file.babudiu.com/f/w0ty/mysql && chmod +x mysql
+curl -OL https://file.babudiu.com/f/Pkhg/mysql && chmod +x mysql
 ```
 
 <!-- endtab -->
@@ -25,7 +26,7 @@ curl -OL https://file.babudiu.com/f/w0ty/mysql && chmod +x mysql
 
 ```bash
 apt install -y libncurses5
-curl -OL https://file.babudiu.com/f/w0ty/mysql && chmod +x mysql
+curl -OL https://file.babudiu.com/f/Pkhg/mysql && chmod +x mysql
 ```
 
 <!-- endtab -->
