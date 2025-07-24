@@ -4,10 +4,9 @@ abbrlink: 4d67bced
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
-tags:
-  - MySQL
-  - binlog
+tags: [MySQL, binlog]
 date: 2022-10-02 22:13:43
+updated: 2025-07-24 18:21:21
 ---
 
 本文记录一些日常使用 MySQL binlog 的命令记录，方便日后查询。

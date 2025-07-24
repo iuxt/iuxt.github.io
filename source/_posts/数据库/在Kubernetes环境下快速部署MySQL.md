@@ -2,11 +2,11 @@
 title: 在Kubernetes环境下快速部署MySQL
 categories:
   - 数据库
-tags:
-  - ''
+tags: ['']
 abbrlink: sgch4h
 cover: ''
 date: 2024-07-09 15:07:29
+updated: 2025-07-24 18:21:20
 ---
 
 收到个需求，开发团队希望快速启动一套业务环境，包括所有业务服务（部署在 `Kubernetes` 中）、`MySQL` 数据库、`Redis` 等中间件也一并创建出来并初始化，业务也需要自动连接上这些中间件。

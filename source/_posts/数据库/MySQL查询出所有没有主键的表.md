@@ -2,11 +2,11 @@
 title: MySQL查询出所有没有主键的表
 categories:
   - 数据库
-tags:
-  - MySQL
+tags: [MySQL]
 abbrlink: lmoa36fz
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2023-09-18 10:39:50
+updated: 2025-07-24 18:21:23
 ---
 
 作者：May22Night
@@ -53,4 +53,3 @@ WHERE
 其查询原理就是 `information_schema` 库中存储了各个库与表的结构，在 `information_schema.TABLES` 表中存储了所有表，`information_schema.TABLE_CONSTRAINTS` 表中存储了表相关的约束，主键就是一种约束，所以 `CONSTRAINT_TYPE` 字段为 `PRIMARY KEY` 值的就是拥有主键的表。
 有了所有表的表名，还有了所有拥有主键的表，那么就简单了，以查询出的全部表为主表，左联一下，右表为空的就是没有主键的表。
 SQL 中排除了 mysql 自带的五个库，同时解决了不同名的库拥有相同名的表的情况，还有优化空间，不过我觉得不是业务 SQL，没必要优化了。
-

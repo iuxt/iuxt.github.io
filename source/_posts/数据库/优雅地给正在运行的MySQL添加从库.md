@@ -4,9 +4,9 @@ abbrlink: 86a9c8f5
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
-tags:
-  - MySQL
+tags: [MySQL]
 date: 2022-08-16 13:21:34
+updated: 2025-07-24 18:21:18
 ---
 
 ## 前言

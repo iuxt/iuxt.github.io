@@ -6,7 +6,7 @@ categories:
   - 数据库
 tags: [配置记录, MySQL]
 date: 2022-08-14 11:41:08
-updated: 2025-05-22 11:12:52
+updated: 2025-07-24 18:21:10
 ---
 
 如有特殊需求需要编译安装 MySQL 请看 [编译安装MySQL5.7](/posts/b670229a)

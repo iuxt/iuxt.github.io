@@ -2,13 +2,11 @@
 title: MySQL基于GTID的主从复制
 categories:
   - 数据库
-tags:
-  - MySQL
-  - mysqld
-  - 数据迁移
+tags: [MySQL, mysqld, 数据迁移]
 abbrlink: luwwdbjr
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2024-04-13 00:43:22
+updated: 2025-07-24 18:21:26
 ---
 
 没开启 GTID 的 MySQL 数据库增加从库请看：[优雅地给正在运行的MySQL添加从库](/posts/86a9c8f5/)

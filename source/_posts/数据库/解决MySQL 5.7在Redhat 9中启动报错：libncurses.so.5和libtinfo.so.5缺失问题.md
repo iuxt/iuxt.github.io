@@ -2,15 +2,11 @@
 title: 解决MySQL 5.7在Redhat 9中启动报错：libncurses.so.5和libtinfo.so.5缺失问题
 categories:
   - 数据库
-tags:
-  - MySQL
-  - mysqld
-  - 运行库
-  - RHEL
-  - CentOS
+tags: [MySQL, mysqld, 运行库, RHEL, CentOS]
 abbrlink: lv23gkql
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2024-04-16 16:00:43
+updated: 2025-07-24 18:21:15
 ---
 
 采用二进制安装 MySQL 服务的时候， 之前在 CentOS 7 系统中，直接 yum 安装依赖包就可以正常运行，但是到了 RHEL 9 系统下， 会报错找不到 libncurses.so.5， 根据经验需要查找一下这个库属于哪个包：

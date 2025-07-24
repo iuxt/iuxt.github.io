@@ -4,11 +4,9 @@ abbrlink: fa013442
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 categories:
   - 数据库
-tags:
-  - MySQL
-  - SQL
-  - 配置记录
+tags: [MySQL, SQL, 配置记录]
 date: 2022-04-22 00:43:48
+updated: 2025-07-24 18:21:25
 ---
 
 记录一下日常工作中常用到的 MySQL 语句和一些配置等，方便日后查询

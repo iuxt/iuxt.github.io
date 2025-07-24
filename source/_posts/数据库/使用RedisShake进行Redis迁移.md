@@ -6,7 +6,7 @@ tags: [数据迁移, redis]
 abbrlink: lmojvw5l
 cover: 'https://s3.babudiu.com/iuxt/public/redis.svg'
 date: 2024-12-02 12:51:47
-updated: 2024-12-31 11:52:34
+updated: 2025-07-24 18:21:17
 ---
 
 对于自建的 redis, 我们可以将 rdb/aof 文件拷贝到目的 redis, 启动恢复, 但是云 redis 或者某些特殊情况, 比如没有云平台的权限等等情况, 可以使用工具来进行迁移.
