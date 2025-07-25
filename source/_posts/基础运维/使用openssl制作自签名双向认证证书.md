@@ -1,12 +1,11 @@
 ---
 title: 使用openssl制作自签名双向认证证书
-categories:
-  - 基础运维
+categories: [基础运维]
 tags: [SSL, Auth]
 abbrlink: szkilc
 date: 2025-07-18 07:58:24
 cover: ""
-updated: 2025-07-18 08:20:46
+updated: 2025-07-25 10:54:49
 ---
 
 可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<https://github.com/iuxt/my_cert>

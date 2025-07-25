@@ -1,12 +1,11 @@
 ---
 title: 使用openssl制作自签名HTTPS证书
 abbrlink: 097e5b7c
-categories:
-  - 基础运维
+categories: [基础运维]
 tags: [SSL, Auth]
 date: 2022-05-28 14:05:52
 cover: https://s3.babudiu.com/iuxt/images/202411211426166.png
-updated: 2025-07-18 08:20:39
+updated: 2025-07-25 10:57:36
 ---
 
 在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:[使用certbot自动申请ssl证书](/posts/28c679c3) 或者 [使用acme.sh来自动更新https证书](/posts/1e777b9e), 本文介绍自签名证书.
@@ -168,12 +167,18 @@ server {
 
 {% tabs TabName %}
 
-<!-- tab windows信任CA -->
+<!-- tab Windows信任CA -->
 
 右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。
 
 ![windows安装CA证书|655](https://s3.babudiu.com/iuxt/images/202305251008396.png)
 
+<!-- endtab -->
+
+<!-- tab macOS信任CA -->
+
+双击 ca.crt 文件，然后打开钥匙串访问，进入 登录 -- 证书 找到自己的证书，显示简介，在信任里选择始终信任，关闭窗口。
+![image.png](https://s3.babudiu.com/iuxt/2025/07/33fd18d92d5471a473d126c36fff0c9c.png)
 <!-- endtab -->
 
 <!-- tab Debian系信任CA -->
