@@ -46,8 +46,6 @@ ifconfig -a
 
 ```yml
 network:
-  version: 2
-  renderer: networkd
   ethernets:
     eth0:
       dhcp4: no
@@ -65,8 +63,6 @@ dhcp 配置
 
 ```yml
 network:
-  version: 2
-  renderer: networkd
   ethernets:
     eth0:
       dhcp4: true
