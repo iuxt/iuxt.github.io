@@ -4,15 +4,9 @@ abbrlink: 526ffc9a
 categories:
   - 容器
 cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
-tags:
-  - Linux
-  - Container
-  - Kubernetes
-  - 配置记录
-  - Docker
-  - keepalived
-  - kubeadm
+tags: [Linux, Container, Kubernetes, 配置记录, Docker, keepalived, kubeadm]
 date: 2021-05-01 17:18:48
+updated: 2025-08-10 19:32:43
 ---
 
 > 基于 ubuntu 使用 kubeadm 搭建集群， [centos部署文档](/posts/b86d9e9f/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/)
@@ -190,17 +184,9 @@ sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl
 ```
 
-下载 Google Cloud 公开签名秘钥：
+下载 Google Cloud 公开签名秘钥与添加 Kubernetes apt 仓库：
 
-```bash
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-```
-
-添加 Kubernetes apt 仓库：
-
-```bash
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-```
+官方版本变更较快，详情查看官方文档<https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/>
 
 更新 apt 包索引，安装 kubelet、kubeadm 和 kubectl，并锁定其版本：
 
@@ -261,6 +247,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```bash
 kubeadm config images pull --kubernetes-version 1.21.10
 ```
+
+其中会拉下来一个 pause 镜像，尽量再修改一下 containerd 里面配置的 pause 镜像，版本保持一致。
 
 在 k8s-master0 上执行
 
@@ -325,4 +313,3 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 ## 常见问题
 
 [kubeadm 部署的集群 常见问题汇总](/posts/sepu3k/)
-
