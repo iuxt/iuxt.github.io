@@ -1,13 +1,14 @@
 ---
-title: k8s解除service端口限制
+title: k8s解除NodePort端口限制
 categories:
   - 容器
 tags:
   - k8s
   - Kubernetes
 abbrlink: lmri345s
-cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
+cover: https://s3.babudiu.com/iuxt/public/kubernetes.svg
 date: 2023-09-20 16:47:02
+updated: 2025-08-10 23:06:00
 ---
 
 我自己写了一个 svc 的 yaml 文件，部署的时候报错，不在默认的范围内，默认范围是: `30000-32767`
