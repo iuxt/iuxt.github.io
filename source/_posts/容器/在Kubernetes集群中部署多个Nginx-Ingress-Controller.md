@@ -2,12 +2,11 @@
 title: 在Kubernetes集群中部署多个Nginx Ingress Controller
 categories:
   - 容器
-tags:
-  - Ingress
-  - Nginx
+tags: [Ingress, Nginx]
 abbrlink: c4b9bd31
 cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-05-30 16:03:44
+updated: 2025-08-13 10:09:00
 ---
 
 为什么要在集群中部署两个 Nginx Ingress Controller？ 因为公司的入口目前是在一个 Ingress 上， 公网域名也解析到了这个 Ingress Controller 上面，不过有些内网的服务，我们并不想让它暴露在外，那么可以再部署一个内网使用的 Ingress Controller。
@@ -222,8 +221,20 @@ spec:
         - --validating-webhook-key=/usr/local/certificates/key
 ```
 
-## 一个例子
+## 简单制作方法
 
-这是我修改好的 yaml 文件，可以直接 apply 即可创建 ingress controller
+首先下载文件：
+<https://github.com/kubernetes/ingress-nginx/blob/main/deploy/static/provider/baremetal/deploy.yaml>
 
-<https://github.com/iuxt/ops/tree/master/kubernetes/infra/nginx-ingress/nginx-ingress-dual>
+批量替换：
+`ingress-nginx` --> `private-ingress-nginx`
+
+找到： kind: IngressClass
+
+name 改个名字
+![image.png](https://s3.babudiu.com/iuxt/2025/08/12b2d607422a5aa74b1599a23e1c2658.png)
+
+这里的 ingress-class 改个名字:
+![image.png](https://s3.babudiu.com/iuxt/2025/08/4654b7ec9001200afd35c321aa03a55a.png)
+
+误替换的镜像名字，改回来。
