@@ -276,7 +276,7 @@ instantpage: false
 lazyload:
   enable: true
   field: post # site/post
-  placeholder: https://s3.babudiu.com/iuxt/public/nes.gif
+  placeholder: https://s3.babudiu.com/iuxt/public/nes.svg
   blur: false
 
 
