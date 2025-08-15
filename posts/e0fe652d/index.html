@@ -196,7 +196,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 
 <p>确定后，依次输入姓名、电子邮件和注释 (可以不填)，然后选择 o 确定, 确定后会出现一个窗口让输入密码，自行设置一个密码。然后密钥就创建成功了， 通过命令 <code>gpg --list-keys</code> 可以查看当前的密钥</p>
 <p>这里有一串字符。就是 key 的 id，后面的操作都需要这个。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202212271033949.png" alt="查看key"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202212271033949.png" alt="查看key"></p>
 <h2 id="创建子密钥"><a href="#创建子密钥" class="headerlink" title="创建子密钥"></a>创建子密钥</h2><p>上面创建的是公钥，如果使用这个密钥加密， 那么如果密钥不小心泄露， 就必须吊销整个密钥。所以我们创建子密钥来使用。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --edit-key 4208C2FA114EE038F9EAD2374808D00D9D910E74</span><br></pre></td></tr></table></figure>
 

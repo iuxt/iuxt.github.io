@@ -190,7 +190,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>我们的 jenkins 的 node 节点在数据中心、办公室内网、azure 云上都有，因为这些环境都需要构建一遍镜像<br>围绕构建需要提供一些基础设施，比如我们 apt、maven、pypi 等的缓存服务（用的 nexus），容器镜像仓库（用的 jfrog）这些都需要在每个环境准备一套，每个服务还需要做高可用，简单算下来也有 6 个 nexus 和 4 个 jfrog</p>
 </blockquote>
 <p>如果我们换成办公室构建完成，上传到公网的 jfrog 仓库，后面所有的操作都以容器镜像为单位进行（比如测试测试的就是镜像、发布发布的也是镜像而不是代码），nexus 缓存和 jfrog 只需要 1 个就可以了，而且可以保证测试环境和生产环境一致。</p>
-<h2 id="为什么会这样"><a href="#为什么会这样" class="headerlink" title="为什么会这样"></a>为什么会这样</h2><p>我觉得还是公司在把容器当作虚拟机在用，并没有发挥容器的优势，反而增加了很多维护成本。<br>和领导提过这个方案，被否定了。原因如下：<br><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/Screenshot_20211015_111956.png" alt="建议"></p>
+<h2 id="为什么会这样"><a href="#为什么会这样" class="headerlink" title="为什么会这样"></a>为什么会这样</h2><p>我觉得还是公司在把容器当作虚拟机在用，并没有发挥容器的优势，反而增加了很多维护成本。<br>和领导提过这个方案，被否定了。原因如下：<br><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/Screenshot_20211015_111956.png" alt="建议"></p>
 <h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><h3 id="首先第一点：我们为什么要用容器（k8s），它解决了我们什么问题"><a href="#首先第一点：我们为什么要用容器（k8s），它解决了我们什么问题" class="headerlink" title="首先第一点：我们为什么要用容器（k8s），它解决了我们什么问题"></a>首先第一点：我们为什么要用容器（k8s），它解决了我们什么问题</h3><p>我觉得容器的好处有：</p>
 <ul>
 <li>一个是标准化，运行环境在测试环境和生产环境完全一致（除了内核层），标准化的另一个好处是 CICD 或者说运维、开发的效率更高</li>

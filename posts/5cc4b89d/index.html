@@ -190,7 +190,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli --cluster create --cluster-replicas 1 192.168.1.11:6379 192.168.1.12:6379 192.168.1.13:6379 192.168.1.14:6379 192.168.1.15:6379 192.168.1.16:6379</span><br></pre></td></tr></table></figure>
 
 <p>出现提示，输入 yes</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202212161407297.png" alt="创建集群"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202212161407297.png" alt="创建集群"></p>
 <h2 id="连接集群"><a href="#连接集群" class="headerlink" title="连接集群"></a>连接集群</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -c -h 192.168.1.11 -p 6379</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@ops_manage redis-cluster]<span class="comment"># ./redis-cli -c -h 127.0.0.1 -p 7001</span></span><br><span class="line">127.0.0.1:7001&gt; get foo</span><br><span class="line">-&gt; Redirected to slot [12182] located at 127.0.0.1:7003</span><br><span class="line"><span class="string">&quot;bar&quot;</span></span><br><span class="line">127.0.0.1:7003&gt;</span><br></pre></td></tr></table></figure>

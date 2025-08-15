@@ -196,7 +196,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker buildx build --push \</span><br><span class="line">    --tag iuxt/ubuntu:latest \</span><br><span class="line">    --platform linux/amd64,linux/arm64 .</span><br></pre></td></tr></table></figure>
 
 <p>这个时候登录 dockerhub 查看</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/20220518103637.png" alt="docker镜像"><br>可以看到已经是多平台支持了。</p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/20220518103637.png" alt="docker镜像"><br>可以看到已经是多平台支持了。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> iuxt/test</span><br><span class="line"></span><br><span class="line">&gt; x86_64</span><br></pre></td></tr></table></figure>
 
 <p>正常构建的时候，也需要考虑到不同的架构区别，在构建命令里面做判断，比如</p>

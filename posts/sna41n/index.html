@@ -191,8 +191,8 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>TLS 协议中最重要的就是 handshake 了，在握手阶段通信双方以安全的方式协商好用于之后数据传输的加密方式以及各种密钥。</p>
 <h2 id="HTTPS-连接过程"><a href="#HTTPS-连接过程" class="headerlink" title="HTTPS 连接过程"></a>HTTPS 连接过程</h2><p>大家可能都听说过 HTTPS 协议之所以是安全的是因为 HTTPS 协议会对传输的数据进行加密，而加密过程是使用了非对称加密实现。但其实，HTTPS 在内容传输的加密上使用的是对称加密，非对称加密只作用在证书验证阶段。</p>
 <p>HTTPS 的整体过程分为证书验证和数据传输阶段，具体的交互过程如下：</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211110422.webp" alt="41ac7d0df61046f0ab518fba866838dd.webp"></p>
-<h3 id="客户端请求建立连接"><a href="#客户端请求建立连接" class="headerlink" title="客户端请求建立连接"></a>客户端请求建立连接</h3><p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211139023.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211110422.webp" alt="41ac7d0df61046f0ab518fba866838dd.webp"></p>
+<h3 id="客户端请求建立连接"><a href="#客户端请求建立连接" class="headerlink" title="客户端请求建立连接"></a>客户端请求建立连接</h3><p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211139023.png" alt="image.png"></p>
 <p>客户端首先要向服务器请求建立一个安全连接。需要发送给服务器的必要信息有：</p>
 <ul>
 <li>TLS 协议版本。</li>
@@ -201,7 +201,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <li>Random。客户端生成的随机值，用来生成 <code>Master Secret</code>。</li>
 <li>server_name extension。表示访问的是哪个网站。</li>
 </ul>
-<h3 id="服务器确定加密套件"><a href="#服务器确定加密套件" class="headerlink" title="服务器确定加密套件"></a>服务器确定加密套件</h3><p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211418010.png" alt="image.png"></p>
+<h3 id="服务器确定加密套件"><a href="#服务器确定加密套件" class="headerlink" title="服务器确定加密套件"></a>服务器确定加密套件</h3><p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211418010.png" alt="image.png"></p>
 <p>服务器接收到建立连接的请求之后，要发送以下信息：</p>
 <ul>
 <li>TLS 协议版本。</li>
@@ -210,21 +210,21 @@ btf.addGlobalFn('pjaxComplete', () => {
 <li>Random。随机生成的值，用来生成 <code>Master Secret</code>。</li>
 </ul>
 <h3 id="服务器发送证书"><a href="#服务器发送证书" class="headerlink" title="服务器发送证书"></a>服务器发送证书</h3><p>在发送 <code>Server Hello</code> 之后，服务器还需要把其证书通过 <code>Certificate</code> 发给客户端。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211418690.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211418690.png" alt="image.png"></p>
 <p>证书的作用在 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://yieldnull.com/blog/001efdfe76e6f4f672faf785dff1cc54e4fd26ba/">“用数字证书证明你是你”</a> 一文中已经阐明。</p>
 <p>要是之前确定的加密套件中的秘钥交换算法还需要一些额外的信息，那么服务器还会发送一个 <code>Server Key Exchange</code>，用来传递额外的信息。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211419536.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211419536.png" alt="image.png"></p>
 <h3 id="双方完成身份认证"><a href="#双方完成身份认证" class="headerlink" title="双方完成身份认证"></a>双方完成身份认证</h3><p>（如果服务器要认证客户端的身份，那么会发送一个 <code>Certificate Request</code> 来向客户端请求证书，客户端收到请求之后会发送 <code>Certificate</code> 给服务器）</p>
 <p>最后，（确认客户端身份之后）服务器发送 <code>Server Done</code> 表示我想知道的都已经知道了，该发的也发给你了。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211419375.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211419375.png" alt="image.png"></p>
 <h3 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h3><p>通过之前的步骤，通信双方认证了对方的身份，明确了加密套件，现在就缺加密密钥了。</p>
 <p>此时，客户端会生成一个 <code>premaster secret</code>，并用服务器证书中的公钥进行加密，然后通过 <code>Client Key Exchange</code> 发送给服务器。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211420975.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211420975.png" alt="image.png"></p>
 <p>同时，客户端会在本地使用 <code>premaster secret</code>，以及之前在 <code>Hello</code> 阶段双方生成的两个随机数，生成最终的 <code>master secret</code></p>
 <p>服务器收到 <code>Client Key Exchange</code> 之后，使用其私钥解密出 <code>premaster secret</code>。然后使用与客户端相同的方式，生成与客户端相同的 <code>master secret</code>。</p>
 <h3 id="通知开始加密传输"><a href="#通知开始加密传输" class="headerlink" title="通知开始加密传输"></a>通知开始加密传输</h3><p>当双方都得到 <code>master secret</code> 之后，就会发送 <code>Change Cipher Spec</code> 通知对方：我开始用之前商量好的加密方式以及密钥传输数据了。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211420400.png" alt="image.png"></p>
-<h3 id="确保密钥可用"><a href="#确保密钥可用" class="headerlink" title="确保密钥可用"></a>确保密钥可用</h3><p>为了确保之前的协商的确是成功了，双方还需要确认一下双方使用的密钥是不是一致的。怎么确认呢？那就把从 <code>Client Hello</code> 以来握手过程中双方通信的所有信息加密之后，再给对方发送一遍。要是对方发过来的信息解密之后与自己记录的相同，则表示密钥生效了！<br><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211420778.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211420400.png" alt="image.png"></p>
+<h3 id="确保密钥可用"><a href="#确保密钥可用" class="headerlink" title="确保密钥可用"></a>确保密钥可用</h3><p>为了确保之前的协商的确是成功了，双方还需要确认一下双方使用的密钥是不是一致的。怎么确认呢？那就把从 <code>Client Hello</code> 以来握手过程中双方通信的所有信息加密之后，再给对方发送一遍。要是对方发过来的信息解密之后与自己记录的相同，则表示密钥生效了！<br><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211420778.png" alt="image.png"></p>
 <h3 id="加密套件与密钥"><a href="#加密套件与密钥" class="headerlink" title="加密套件与密钥"></a>加密套件与密钥</h3><p>上一节仅介绍了握手的流程，现在来仔细看看其中涉及到的加密套件（<a target="_blank" rel="noopener external nofollow noreferrer" href="https://en.wikipedia.org/wiki/Cipher_suite">Cipher_suite</a>）与 <code>master secret</code>。</p>
 <h3 id="加密套件"><a href="#加密套件" class="headerlink" title="加密套件"></a>加密套件</h3><p>加密套件定义的是在整个数据传输过程中使用到的加密方式。以 <code>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</code> 为例，其包含以下算法</p>
 <ul>
@@ -234,7 +234,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <li><strong>伪随机函数</strong>。生成 <code>master secret</code>。要用到信息摘要算法。</li>
 </ul>
 <h3 id="master-secret"><a href="#master-secret" class="headerlink" title="master secret"></a>master secret</h3><p>上一节提到，客户端与服务器会根据 <code>premaster secret</code> 以及二者在 <code>Hello</code> 阶段各自生成的随机数，产生相同的 <code>master secret</code>。二者使用的函数为</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211421527.png" alt="image.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211421527.png" alt="image.png"></p>
 <p>至于生成的 <code>master secret</code>，其格式为</p>
 <blockquote>
 <p>client write MAC key server write MAC key client write encryption key server write encryption key client write IV server write IV</p>
@@ -258,7 +258,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <h3 id="为什么需要-CA-认证机构颁发证书？"><a href="#为什么需要-CA-认证机构颁发证书？" class="headerlink" title="为什么需要 CA 认证机构颁发证书？"></a>为什么需要 CA 认证机构颁发证书？</h3><p>HTTP 协议被认为不安全是因为传输过程容易被监听者勾线监听、伪造 <a target="_blank" rel="noopener external nofollow noreferrer" href="https://cloud.tencent.com/product/cvm/?from_column=20065&from=20065">服务器</a>，而 HTTPS 协议主要解决的便是网络传输的安全性问题。</p>
 <p>首先我们假设不存在认证机构，任何人都可以制作证书，这带来的安全风险便是经典的 <strong>“中间人攻击”</strong> 问题。</p>
 <p>“中间人攻击”的具体过程如下：</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211111399.webp" alt="f35348523dd744408647d2b97d2534c6.webp"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211111399.webp" alt="f35348523dd744408647d2b97d2534c6.webp"></p>
 <p>过程原理：</p>
 <ol>
 <li>本地请求被劫持（如 DNS 劫持等），所有请求均发送到中间人的服务器</li>
@@ -287,7 +287,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <li>验证域名、有效期等信息是否正确。证书上都有包含这些信息，比较容易完成验证；</li>
 <li>判断证书来源是否合法。每份签发证书都可以根据验证链查找到对应的根证书，操作系统、浏览器会在本地存储权威机构的根证书，利用本地根证书可以对对应机构签发证书完成来源验证；</li>
 </ol>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211112715.webp" alt="e7d864735b9d4ff9a42e761bd44ce513.webp"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211112715.webp" alt="e7d864735b9d4ff9a42e761bd44ce513.webp"></p>
 <ol>
 <li>判断证书是否被篡改。需要与 CA 服务器进行校验；</li>
 <li>判断证书是否已吊销。通过 CRL（Certificate Revocation List 证书注销列表）和 OCSP（Online Certificate Status Protocol 在线证书状态协议）实现，其中 OCSP 可用于第 3 步中以减少与 CA 服务器的交互，提高验证效率</li>
@@ -297,7 +297,7 @@ btf.addGlobalFn('pjaxComplete', () => {
 <p>这里插一个我想了很久的但其实答案很简单的问题：  既然证书是公开的，如果要发起中间人攻击，我在官网上下载一份证书作为我的服务器证书，那客户端肯定会认同这个证书是合法的，如何避免这种证书冒用的情况？ 其实这就是非加密对称中公私钥的用处，虽然中间人可以得到证书，但私钥是无法获取的，一份公钥是不可能推算出其对应的私钥，中间人即使拿到证书也无法伪装成合法服务端，因为无法对客户端传入的加密数据进行解密。</p>
 </blockquote>
 <h4 id="4-只有认证机构可以生成证书吗？"><a href="#4-只有认证机构可以生成证书吗？" class="headerlink" title="4. 只有认证机构可以生成证书吗？"></a>4. 只有认证机构可以生成证书吗？</h4><p>如果需要浏览器不提示安全风险，那只能使用认证机构签发的证书。但浏览器通常只是提示安全风险，并不限制网站不能访问，所以从技术上谁都可以生成证书，只要有证书就可以完成网站的 HTTPS 传输。例如早期的 12306 采用的便是手动安装私有证书的形式实现 HTTPS 访问。</p>
-<p><img src= "https://s3.babudiu.com/iuxt/public/nes.gif" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211112378.png" alt="1e9f4c5925fc4929804b8a1bc94cdd87.png"></p>
+<p><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411211112378.png" alt="1e9f4c5925fc4929804b8a1bc94cdd87.png"></p>
 <p><strong>如何保证随机数不会被窃取？</strong></p>
 <p>其实 HTTPS 并不包含对随机数的安全保证，HTTPS 保证的只是传输过程安全，而随机数存储于本地，本地的安全属于另一安全范畴，应对的措施有安装杀毒软件、反木马、浏览器升级修复漏洞等。</p>
 <h3 id="用了-HTTPS-会被抓包吗？"><a href="#用了-HTTPS-会被抓包吗？" class="headerlink" title="用了 HTTPS 会被抓包吗？"></a>用了 HTTPS 会被抓包吗？</h3><p>HTTPS 的数据是加密的，常规下抓包工具代理请求后抓到的包内容是加密状态，无法直接查看。</p>
