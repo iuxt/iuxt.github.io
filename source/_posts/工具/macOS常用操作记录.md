@@ -6,12 +6,23 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-06-08 01:39:17
+updated: 2025-08-19 00:05:24
 ---
 
 ## 安装 HomeBrew
 
 <https://brew.sh/zh-cn/>
+
+## 常用工具安装
+
+```bash
+# 安装xcode工具集
+终端执行git命令。系统会自动弹窗，点击安装即可。
+
+# 安装git lfs
+brew install git-lfs
+git lfs install
+```
 
 ## 终端配置
 
@@ -19,7 +30,7 @@ updated: 2025-06-08 01:39:17
 
 ```bash
 # 安装字体
-brew install font-lxgw-wenkai font-meslo-for-powerlevel10k
+brew install font-lxgw-wenkai
 
 # 安装Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
