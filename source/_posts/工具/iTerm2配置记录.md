@@ -5,7 +5,7 @@ categories:
 tags: [效率工具, 常用操作]
 abbrlink: ltqmt2r2
 date: 2023-03-14 10:49:22
-updated: 2025-04-24 13:11:59
+updated: 2025-08-18 19:06:52
 cover: https://s3.babudiu.com/iuxt/images/20250424131148250.png
 ---
 
@@ -63,6 +63,10 @@ macOS 的快捷键图标表示
 | 删除光标之前的一个字符 | control + h         | 等同于 ⌫              |
 | 删除光标之前的单词   | control + w         |                    |
 | 删除到文本末尾     | control + k         |                    |
+
+## 配色
+
+德古拉配色：<https://draculatheme.com/iterm>
 
 ## 备份还原配置
 
