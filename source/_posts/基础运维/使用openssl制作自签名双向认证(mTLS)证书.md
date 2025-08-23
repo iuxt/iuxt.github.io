@@ -1,11 +1,12 @@
 ---
-title: 使用openssl制作自签名双向认证证书
-categories: [基础运维]
+title: 使用openssl制作自签名双向认证(mTLS)证书
+categories:
+  - 基础运维
 tags: [SSL, Auth]
 abbrlink: szkilc
 date: 2025-07-18 07:58:24
 cover: ""
-updated: 2025-07-25 10:54:49
+updated: 2025-08-24 01:02:24
 ---
 
 可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<https://github.com/iuxt/my_cert>
@@ -183,7 +184,68 @@ openssl pkcs12 -export -in zhangsan.crt -inkey zhangsan.key -out zhangsan.p12
 
 选择已下载的描述文件，进行安装。
 
+## 二级 CA
+
+可选使用二级 CA 证书，如果业务量比较大的情况下，可以使用二级 CA，这样如果二级 CA 出现私钥泄露，可以通过根 CA 吊销二级 CA 证书 (通过此二级 CA 签发的证书都会失效)。使用二级 CA 签发证书需要注意：
+1. 签发二级 CA 的时候需要执行证书扩展信息为 CA (`basicConstraints=CA:TRUE`)
+2. 在 Nginx 等配置认证证书的时候，需要配置证书链，即 二级 CA 和 根 CA 这两个证书合并到一个文件里。
+
+下面是一个一键生成各种证书脚本：
+
+```bash
+#!/bin/bash
+set -e
+
+WORKDIR=mtls_certs
+mkdir -p $WORKDIR
+cd $WORKDIR
+
+echo "[1/6] 生成 Root CA..."
+openssl genrsa -out rootCA.key 4096
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 3650 \
+  -subj "/C=CN/ST=Beijing/O=MyOrg/CN=MyRootCA" \
+  -out rootCA.crt
+
+echo "[2/6] 生成二级 Sub CA..."
+openssl genrsa -out subCA.key 4096
+openssl req -new -key subCA.key \
+  -subj "/C=CN/ST=Beijing/O=MyOrg/CN=MySubCA" \
+  -out subCA.csr
+
+openssl x509 -req -in subCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial \
+  -out subCA.crt -days 1825 -sha256 -extfile <(printf "basicConstraints=CA:TRUE,pathlen:0\nkeyUsage=critical,keyCertSign,cRLSign")
+
+echo "[3/6] 生成 Client Key & CSR..."
+openssl genrsa -out client.key 2048
+openssl req -new -key client.key \
+  -subj "/C=CN/ST=Beijing/O=MyOrg/CN=mtls-client" \
+  -out client.csr
+
+echo "[4/6] 用 Sub CA 签发 Client Cert..."
+openssl x509 -req -in client.csr -CA subCA.crt -CAkey subCA.key -CAcreateserial \
+  -out client.crt -days 825 -sha256
+
+echo "[5/6] 生成证书链 (SubCA + RootCA)..."
+cat subCA.crt rootCA.crt > ca-chain.crt
+
+echo "[6/6] 生成 PFX (可用于浏览器/工具)"
+openssl pkcs12 -export -out client.pfx -inkey client.key -in client.crt -certfile ca-chain.crt -password pass:123456
+
+echo "✅ 证书生成完成 (目录: $WORKDIR)"
+ls -l
+```
+
 ## 其他
+
+### 验证证书
+
+```bash
+# openssl 验证证书关系
+openssl verify -CAfile ca-chain.crt client.crt
+
+# curl测试
+curl --cert client.crt --key client.key https://test.babudiu.com
+```
 
 ### Windows 删除个人证书
 
