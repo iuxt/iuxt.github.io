@@ -3,10 +3,9 @@ title: 守护进程工具supervisor
 abbrlink: 4d9192f8
 categories:
   - 基础运维
-tags:
-  - Linux
-  - 配置记录
+tags: [Linux, 配置记录]
 date: 2021-06-01 17:26:04
+updated: 2025-08-30 01:33:34
 ---
 
 ## 安装
