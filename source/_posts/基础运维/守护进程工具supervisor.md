@@ -5,14 +5,19 @@ categories:
   - 基础运维
 tags: [Linux, 配置记录]
 date: 2021-06-01 17:26:04
-updated: 2025-08-30 01:33:34
+updated: 2025-08-31 16:34:34
 ---
 
 ## 安装
 
 ```bash
+# ubutnu
 apt-get install supervisor
+
+# CentOS
 yum install supervisor
+
+# 使用pip安装
 pip install supervisor
 ```
 
@@ -20,7 +25,7 @@ pip install supervisor
 
 ```conf
 [program:nginx]
-user=gsw945
+user=root
 directory=/data/exec/nginx/sbin/
 command=/data/exec/nginx/sbin/nginx -g "daemon off;"
 numprocs=1
