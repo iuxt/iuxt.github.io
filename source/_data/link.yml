@@ -1,20 +1,10 @@
 - class_name: 杂烩饭
   class_desc: 我的其他站点
   link_list:
-    - name: 直链网盘
-      link: https://file.babudiu.com/
-      avatar: https://s3.babudiu.com/iuxt/images/202307021107569.png
-      descr: 以存储无关的方式组织你的文件
-
     - name: 把布丢
       link: https://babudiu.com/
       avatar: https://babudiu.com/favicon.ico
       descr: 分享优秀软件
-
-    - name: 把布丢git
-      link: https://git.babudiu.com/
-      avatar: https://git.babudiu.com/assets/img/logo.svg
-      descr: 私有git仓库
 
     - name: 步步高游戏1
       link: https://bbk-games.zahui.fan/
@@ -27,7 +17,7 @@
       descr: 步步高伏魔记
 
 - class_name: 朋友们的博客
-  class_desc: 值得推荐的网站
+  class_desc: 技术大佬的博客
   link_list:
     - name: 要红的网站
       link: https://linyaohong.com/

@@ -162,7 +162,7 @@ sudo systemctl enable --now kubelet
 ```bash
 mkdir -p /etc/kube-lb/{conf,logs,sbin}
 
-curl -L -C - https://file.babudiu.com/f/GkU7/kube-lb -o /etc/kube-lb/sbin/kube-lb
+curl -L -C - https://s3.babudiu.com/src/linux/bin/kube-lb -o /etc/kube-lb/sbin/kube-lb
 chmod +x /etc/kube-lb/sbin/kube-lb
 
 

@@ -18,7 +18,7 @@ updated: 2025-07-23 18:42:42
 ```bash
 [ -d /data/src ] || mkdir -p /data/src
 cd /data/src/
-curl -OL -C - https://file.babudiu.com/f/pOs4/node_exporter-1.6.1.linux-amd64.tar.gz
+curl -OL -C - https://s3.babudiu.com/src/linux/tar/node_exporter-1.6.1.linux-amd64.tar.gz
 tar xf node_exporter-1.6.1.linux-amd64.tar.gz
 ln -sf /data/src/node_exporter-1.6.1.linux-amd64 ../node_exporter
 
@@ -44,7 +44,7 @@ systemctl enable --now node_exporter
 ```bash
 [ -d /data/src ] || mkdir -p /data/src
 cd /data/src/
-curl -OL -C - https://file.babudiu.com/f/O3IP/prometheus-2.49.1.linux-amd64.tar.gz
+curl -OL -C - https://s3.babudiu.com/src/linux/tar/prometheus-2.49.1.linux-amd64.tar.gz
 tar xf prometheus-2.49.1.linux-amd64.tar.gz
 ln -sf /data/src/prometheus-2.49.1.linux-amd64 ../prometheus
 

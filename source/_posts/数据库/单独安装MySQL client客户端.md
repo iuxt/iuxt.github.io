@@ -17,7 +17,7 @@ updated: 2025-07-23 18:41:23
 
 ```bash
 yum install -y ncurses-libs # 这个包centos默认自带了
-curl -OL https://file.babudiu.com/f/Pkhg/mysql && chmod +x mysql
+curl -OL https://s3.babudiu.com/src/linux/bin/mysql && chmod +x mysql
 ```
 
 <!-- endtab -->
@@ -26,7 +26,7 @@ curl -OL https://file.babudiu.com/f/Pkhg/mysql && chmod +x mysql
 
 ```bash
 apt install -y libncurses5
-curl -OL https://file.babudiu.com/f/Pkhg/mysql && chmod +x mysql
+curl -OL https://s3.babudiu.com/src/linux/bin/mysql && chmod +x mysql
 ```
 
 <!-- endtab -->

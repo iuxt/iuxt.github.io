@@ -14,7 +14,7 @@ kubectl 指定 -o yaml 输出的 yaml 文件包含一些默认字段，这些字
 ## 安装 yq
 
 ```bash
-curl -L https://file.babudiu.com/f/2afB/yq_linux_amd64 -o /bin/yq
+curl -L https://s3.babudiu.com/src/linux/bin/yq_linux_amd64 -o /bin/yq
 chmod +x /bin/yq
 ```
 

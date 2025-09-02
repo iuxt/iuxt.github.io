@@ -11,9 +11,8 @@ menu:
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
   工具||fas fa-list:
-    小游戏: https://bbk-games.zahui.fan/ || fas fa-gamepad
-    Aria2: https://aria2.babudiu.com/ || fas fa-download
-    网盘: https://file.babudiu.com/ || fa-solid fa-file
+    步步高小游戏: https://bbk-games.zahui.fan/ || fas fa-gamepad
+    Aria2NG: https://aria2.babudiu.com/ || fas fa-download
   林克: /link/ || fa-solid fa-paperclip
   关于: /about/ || fa-brands fa-apple fa-bounce
 
