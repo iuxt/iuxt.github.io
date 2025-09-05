@@ -6,7 +6,7 @@ tags: [网络, VPN]
 abbrlink: t22j7t
 date: 2025-09-04 22:35:52
 cover: ""
-updated: 2025-09-05 01:27:47
+updated: 2025-09-05 22:46:04
 ---
 
 要先打开服务器的内核转发：`net.ipv4.ip_forward = 1`
@@ -64,13 +64,13 @@ MTU = 1420
 PreUp =
 PostUp = iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 PostUp = iptables -A INPUT -p udp -m udp --dport 51820 -j ACCEPT
-PostUp = iptables -A FORWARD -i wg0 -j ACCEPT
-PostUp = iptables -A FORWARD -o wg0 -j ACCEPT
+PostUp = iptables -A FORWARD -i %i -j ACCEPT
+PostUp = iptables -A FORWARD -o %i -j ACCEPT
 PreDown =
 PostDown = iptables -t nat -D POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 PostDown = iptables -D INPUT -p udp -m udp --dport 51820 -j ACCEPT
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT
-PostDown = iptables -D FORWARD -o wg0 -j ACCEPT
+PostDown = iptables -D FORWARD -i %i -j ACCEPT
+PostDown = iptables -D FORWARD -o %i -j ACCEPT
 
 # Client 1
 [Peer]
@@ -106,7 +106,7 @@ MTU = 1420
 [Peer]
 PublicKey = $(cat server_publickey)
 PresharedKey = $(cat client1_preSharedKey)
-AllowedIPs = 0.0.0.0/0
+AllowedIPs = 10.8.0.0/24
 PersistentKeepalive = 0
 Endpoint = 124.221.31.148:51820 " > client1.conf
 ```
@@ -127,7 +127,7 @@ MTU = 1420
 [Peer]
 PublicKey = $(cat server_publickey)
 PresharedKey = $(cat client2_preSharedKey)
-AllowedIPs = 0.0.0.0/0
+AllowedIPs = 10.8.0.0/24
 PersistentKeepalive = 0
 Endpoint = 124.221.31.148:51820 " > client2.conf
 ```
@@ -150,7 +150,48 @@ wg-quick down wg0 && wg-quick up wg0 && wg
 
 wg-quick 可以自动创建网卡
 
-从 client1 可以直接访问 client2 的虚拟 IP：根据 AllowIPs 配置，client1 的所有流量都会转发给 server，server 接收到请求 10.8.0.3 的流量，根据 server 的 AllowIPs 配置，转发给了 client2，回包同理。
-![image.png](https://s3.babudiu.com/iuxt/2025/09/9218825ab5b76337fa0bbae5a24e3c8c.png)
+## 实际案例
 
-如果想打通两个内网，需要将对方的内网 IP 添加到 AllowIPs 列表里。有空了再测试。
+从 client1 可以直接访问 client2 的虚拟 IP：根据 AllowIPs 配置，client1 的所有流量都会转发给 server，server 接收到请求 10.8.0.3 的流量，根据 server 的 AllowIPs 配置，转发给了 client2，回包同理。
+![image.png|776](https://s3.babudiu.com/iuxt/2025/09/9218825ab5b76337fa0bbae5a24e3c8c.png)
+
+如果想打通两个内网，需要将对方的内网 IP 段添加到 AllowIPs 列表里。并且在内网机器上添加路由。
+
+| 名称     | 说明          |
+| ------ | ----------- |
+| 机器 A IP | 10.0.1.3/24 |
+| 机器 B IP | 10.0.2.3/24 |
+
+### 机器 A
+
+```conf
+# /etc/wireguard/wg0.conf on Server A
+[Interface]
+Address = 10.200.200.1/24
+ListenPort = 51820
+PrivateKey = <Server_A_Private_Key>
+# Enable IP forwarding
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+
+[Peer]
+# Server B
+PublicKey = <Server_B_Public_Key>
+AllowedIPs = 10.200.200.2/32, 10.0.2.0/24 # 关键：包含对端内网网段
+Endpoint = 10.0.2.3:51820
+PersistentKeepalive = 25
+```
+
+机器 A 局域网内的其他机器：
+
+```bash
+# Linux
+sudo ip route add 10.0.2.0/24 via 10.0.2.3
+
+# Windows (以管理员身份运行 PowerShell)
+route add 10.0.2.0 mask 255.255.255.0 10.0.2.3
+```
+
+### 机器 B
+
+和 A 同理，方向换一下而已。
