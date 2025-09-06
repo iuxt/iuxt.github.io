@@ -6,7 +6,7 @@ tags: [django, mysql]
 abbrlink: 28913a98
 cover: 'https://s3.babudiu.com/iuxt/public/django.svg'
 date: 2022-11-21 17:54:17
-updated: 2025-09-06 21:24:24
+updated: 2025-09-06 23:50:12
 ---
 
 Django 支持 MySQL 主要有两种方式, 一种是使用 `pymysql` 包, 这个是个纯 python 包, 可以跨平台运行, 不过性能较差, 另一种是 `mysqlclient`, 这个需要操作系统支持, 在 linux 平台可以获得更好的性能, 在 Windows 系统下安装比较麻烦。
@@ -21,28 +21,16 @@ mysqlclient 需要依赖操作系统的库
 首先你的 macOS 要装上 Homebrew，然后使用 Homebrew 安装 MySQL
 
 ```bash
-# 安装的是mysql服务端（服务端也包含客户端），如果不想安装mysql服务器，可以只安装mysql-client。
-brew install mysql@8.0
+# 如果你安装了MySQL服务端 brew install mysql@8.0，可以不用安装mysql-client
+brew install mysql-client
+echo 'export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"' >> ~/.zshrc
 
-# 查看一下安装位置
-brew --prefix mysql@8.0
-```
-
-在执行 `pip install mysqlclient` 之前：
-
-```bash
-# 这个命令直接在安装前执行即可，不需要放到.zshrc里。
+# 这些命令直接在安装前执行即可，不需要放到.zshrc里。
 export MYSQLCLIENT_CFLAGS=$(mysql_config --cflags)
 export MYSQLCLIENT_LDFLAGS=$(mysql_config --libs)
-```
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib -L/opt/homebrew/opt/zstd/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include -I/opt/homebrew/opt/zstd/include"
 
-上面的两个路径，需要确认 `mysql.h` 在这个目录里。
-![image.png|347](https://s3.babudiu.com/iuxt/2025/09/30c9b085d1a5a1f6fe6af45bfc54b14c.png)
-
-然后再正常安装 mysqlclient
-
-```bash
-pip install mysqlclient
 ```
 
 <!-- endtab -->
@@ -68,6 +56,12 @@ sudo yum install python3-devel mysql-devel
 
 ```bash
 pip install mysqlclient
+```
+
+验证安装是否成功
+
+```bash
+python -c "import MySQLdb; print('MySQLdb 导入成功')"
 ```
 
 ## pymysql

@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-08-19 00:05:24
+updated: 2025-09-06 23:47:05
 ---
 
 ## 安装 HomeBrew
@@ -375,7 +375,7 @@ osascript -e 'id of app "iterm2"'
 
 ## brew 常用操作
 
-```vim
+```bash
 # 更新 brew
 brew update
 
@@ -387,6 +387,9 @@ brew info <package name>
 
 # 查看软件包主页/官网
 brew home <package name>
+
+# 查看一下安装位置
+brew --prefix mysql@8.0
 ```
 
 ### 进程管理
