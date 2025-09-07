@@ -6,7 +6,7 @@ categories:
 tags: [Windows]
 cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2021-03-10 17:01:05
-updated: 2025-02-17 23:45:14
+updated: 2025-09-07 21:25:07
 ---
 
 > imagex 和 dism 都是 windows 官方处理 windows 安装镜像 wim 文件的工具，其中 dism 是自带的，imagex 是单文件，依赖简单
@@ -73,17 +73,27 @@ For a more extensive check that can repair issues with the store, use `DISM /Cle
 
 Dism 操作如下:
 
-```bat
-:: 检查镜像是否可被修复
+```powershell
+# 检查镜像是否可被修复
 Dism /Online /Cleanup-Image /ScanHealth
 Dism /Online /Cleanup-Image /CheckHealth
 
-:: 在线修复
+# 在线修复
 DISM /Online /Cleanup-Image /RestoreHealth
 
-:: 离线修复, 需要指定安装源
+# 离线修复, 需要指定安装源
 Dism /Image:C:\offline /Cleanup-Image /RestoreHealth /Source:c:\test\mount\windows
 
-:: 在线修复挂载的其他系统(被挂载到本机硬盘, 比如是wim挂载的)
+# 在线修复挂载的其他系统(被挂载到本机硬盘, 比如是wim挂载的)
 Dism /Online /Cleanup-Image /RestoreHealth /Source:c:\test\mount\windows /LimitAccess
+```
+
+### 导入导出驱动
+
+```powershell
+# 导出当前系统驱动
+dism /online /export-driver /destination:D:\MyDrivers
+
+# 导入驱动到当前系统
+dism /online /add-driver /driver:D:\MyDrivers /recurse
 ```
