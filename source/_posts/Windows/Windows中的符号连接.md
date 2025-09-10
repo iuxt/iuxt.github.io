@@ -6,7 +6,7 @@ tags: []
 abbrlink: so24vr
 date: 2023-12-06 13:35:51
 cover: ""
-updated: 2025-06-12 16:21:55
+updated: 2025-09-10 14:11:31
 ---
 
 ## mklink 命令
@@ -31,8 +31,8 @@ mklink  链接文件    原始文件/目录
 ## PowerShell 中的 New-Item
 
 ```powershell
-# 符号链接
-New-Item -ItemType SymbolicLink -Path C:\Users\iuxt\SynologyDrive -Target D:\SynologyDrive\
+# target 为真实位置，path为软链接的位置
+New-Item -ItemType SymbolicLink -target "C:\Users\iuxt\OneDrive\Appdata\NetSarang Computer" -path "C:\Users\iuxt\Documents\NetSarang Computer"
 
 # 目录连接
 New-Item -ItemType Junction
