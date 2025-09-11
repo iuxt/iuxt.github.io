@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-09-06 23:47:05
+updated: 2025-09-11 12:02:29
 ---
 
 ## 安装 HomeBrew
@@ -43,7 +43,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # 安装两个常用的插件
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-omz plugin enable zsh-autosuggestions zsh-syntax-highlighting
+omz plugin enable zsh-autosuggestions zsh-syntax-highlighting z
 ```
 
 ### 安装 FZF

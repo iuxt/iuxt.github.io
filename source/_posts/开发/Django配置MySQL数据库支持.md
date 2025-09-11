@@ -6,7 +6,7 @@ tags: [django, mysql]
 abbrlink: 28913a98
 cover: 'https://s3.babudiu.com/iuxt/public/django.svg'
 date: 2022-11-21 17:54:17
-updated: 2025-09-06 23:50:12
+updated: 2025-09-11 12:58:38
 ---
 
 Django 支持 MySQL 主要有两种方式, 一种是使用 `pymysql` 包, 这个是个纯 python 包, 可以跨平台运行, 不过性能较差, 另一种是 `mysqlclient`, 这个需要操作系统支持, 在 linux 平台可以获得更好的性能, 在 Windows 系统下安装比较麻烦。
