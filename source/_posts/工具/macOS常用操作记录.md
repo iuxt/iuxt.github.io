@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-09-11 12:02:29
+updated: 2025-09-12 21:00:40
 ---
 
 ## 安装 HomeBrew
@@ -318,7 +318,11 @@ export LDFLAGS="$LDFLAGS -L$(brew --prefix zstd)/lib"
 brew install pkg-config
 
 # 查看所有的pkg-config路径，需要配置到变量 PKG_CONFIG_PATH 中
+# Intel芯片的Mac
 export PKG_CONFIG_PATH=$(find /usr/local/Cellar -name 'pkgconfig' -type d | grep lib/pkgconfig | tr '\n' ':' | sed s/.$//)
+
+# Apple芯片的Mac
+export PKG_CONFIG_PATH=$(find /opt/homebrew/Cellar -name 'pkgconfig' -type d | grep lib/pkgconfig | tr '\n' ':' | sed s/.$//)
 
 # 查看openssl的 CPPFLAGS 参数， 需要配置到变量 CPPFLAGS 中
 ❯ pkg-config --cflags openssl

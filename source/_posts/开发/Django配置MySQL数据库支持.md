@@ -30,7 +30,6 @@ export MYSQLCLIENT_CFLAGS=$(mysql_config --cflags)
 export MYSQLCLIENT_LDFLAGS=$(mysql_config --libs)
 export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib -L/opt/homebrew/opt/zstd/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include -I/opt/homebrew/opt/zstd/include"
-
 ```
 
 <!-- endtab -->
