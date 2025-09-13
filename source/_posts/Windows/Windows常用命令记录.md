@@ -4,10 +4,9 @@ abbrlink: 801c62c9
 cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 categories:
   - Windows
-tags:
-  - Windows
-  - 配置记录
+tags: [Windows, 配置记录]
 date: 2021-03-10 19:04:51
+updated: 2025-09-10 14:23:16
 ---
 
 ## smb 操作
@@ -112,3 +111,12 @@ C:\Windows\System32\config\systemprofile\
 | ncpa.cpl                          | 控制面板 - 网络管理 |
 | systempropertiesprotection        | 系统保护设置页面    |
 | sysdm.cpl                         | 系统属性页面      |
+
+## 创建软链接
+
+```powershell
+# target 为真实位置，path为软链接的位置
+New-Item -ItemType SymbolicLink -target "C:\Users\iuxt\OneDrive\Appdata\NetSarang Computer" -path "C:\Users\iuxt\Documents\NetSarang Computer"
+
+New-Item -ItemType SymbolicLink -target "C:\Users\iuxt\OneDrive\Appdata\mRemoteNG Connection Manager" -path "C:\Users\iuxt\AppData\Roaming\mRemoteNG Connection Manager"
+```
