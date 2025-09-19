@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags: [Linux, Git, 配置记录]
 date: 2021-04-27 23:03:29
-updated: 2025-06-04 09:33:14
+updated: 2025-09-19 21:47:17
 ---
 
 ## 配置文件
@@ -231,6 +231,7 @@ git submodule update
 
 ```bash
 git submodule deinit -f -- themes/eureka
+rm .gitmodules
 rm -rf .git/modules/themes/eureka
 git rm -f themes/eureka
 ```
