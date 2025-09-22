@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-09-12 21:00:40
+updated: 2025-09-22 23:32:15
 ---
 
 ## 安装 HomeBrew
@@ -494,3 +494,17 @@ touch ~/Desktop/.localized
 ```
 
 重启 finder 后可恢复中文。
+
+## Rosetta
+
+终端切换到 `x86_64` 架构
+
+```bash
+arch -x86_64 zsh
+```
+
+安装 Rosetta 2
+
+```bash
+softwareupdate --install-rosetta --agree-to-license
+```
