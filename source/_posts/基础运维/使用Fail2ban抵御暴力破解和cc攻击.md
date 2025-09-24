@@ -2,13 +2,11 @@
 title: 使用Fail2ban抵御暴力破解和cc攻击
 categories:
   - 基础运维
-tags:
-  - fail2ban
-  - cc攻击
-  - iptables
+tags: [fail2ban, cc攻击, iptables]
 abbrlink: c0880a78
 cover: 'https://s3.babudiu.com/iuxt/public/fail2ban.png'
 date: 2023-01-16 11:08:46
+updated: 2025-09-24 23:55:24
 ---
 
 fail2ban 是一款防止暴力破解和 cc 攻击的开源工具，采用 Python 编写。
@@ -55,19 +53,19 @@ bantime = 2h
 logpath = /var/log/nginx/access.log
 ```
 
-| 配置 | 说明 | 备注 |
-| ---- | :--- | ---- |
-| enabled | 是否开启检测 |  |
-| port | 检查的端口 | 多个端口 , 分隔 |
-| ignoreip | 忽略 IP 地址（CIDR 格式）或机器名，以空格分隔。 |  |
-| bantime | 主机被禁止时长，默认 600 秒。 | 高版本 Fail2ban 支持 s （秒）, m （分）和 d （天）作为时间单位，如 10m 和 1d |
-| maxretry | 在 findtime 时间窗口中，允许主机认证失败次数。达到最大次数，主机将被禁止。 | 在 findtime 时间段内，发生 maxretry 次，就会触发封禁。 |
-| findtime | 查找主机认证失败的时间间隔。 不意味着每隔 findtime 时间扫描一次日志。 | 高版本 Fail2ban 支持 s （秒）, m （分）和 d （天）作为时间单位，如 10m 和 1d |
-| logpath | 扫描的日志文件 | fail2ban 按行扫描此文件，根据 filter 规则匹配失败的项目并统计 |
-| action | 用什么方式来封禁, iptables 或 ufw 或 firewalld 等 |  |
-| action = %(action_)s | 只封禁, 不发送邮件 |  |
-| action = %(action_mw)s | 发邮件通知 |  |
-| action = %(action_mwl)s | 发邮件通知并带上日志 |  |
+| 配置                      | 说明                                         | 备注                                                   |
+| ----------------------- | :----------------------------------------- | ---------------------------------------------------- |
+| enabled                 | 是否开启检测                                     |                                                      |
+| port                    | 检查的端口                                      | 多个端口 , 分隔                                            |
+| ignoreip                | 忽略 IP 地址（CIDR 格式）或机器名，以空格分隔。               |                                                      |
+| bantime                 | 主机被禁止时长，默认 600 秒。                          | 高版本 Fail2ban 支持 s （秒）, m （分）和 d （天）作为时间单位，如 10m 和 1d |
+| maxretry                | 在 findtime 时间窗口中，允许主机认证失败次数。达到最大次数，主机将被禁止。 | 在 findtime 时间段内，发生 maxretry 次，就会触发封禁。                |
+| findtime                | 查找主机认证失败的时间间隔。 不意味着每隔 findtime 时间扫描一次日志。   | 高版本 Fail2ban 支持 s （秒）, m （分）和 d （天）作为时间单位，如 10m 和 1d |
+| logpath                 | 扫描的日志文件                                    | fail2ban 按行扫描此文件，根据 filter 规则匹配失败的项目并统计              |
+| action                  | 用什么方式来封禁, iptables 或 ufw 或 firewalld 等     |                                                      |
+| action = %(action_)s    | 只封禁, 不发送邮件                                 |                                                      |
+| action = %(action_mw)s  | 发邮件通知                                      |                                                      |
+| action = %(action_mwl)s | 发邮件通知并带上日志                                 |                                                      |
 
 创建配置文件 `/etc/fail2ban/filter.d/nginx-cc.conf`
 
@@ -122,4 +120,3 @@ enabled = true
 ```
 
 配置 `mode   = aggressive` 可解决此问题
-
