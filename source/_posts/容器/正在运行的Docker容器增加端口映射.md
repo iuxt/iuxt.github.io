@@ -6,7 +6,7 @@ tags: [容器, Docker, iptables, 网络]
 abbrlink: t37flu
 date: 2025-09-27 00:39:30
 cover: ""
-updated: 2025-09-27 01:07:08
+updated: 2025-09-27 01:39:37
 ---
 
 ## 为什么有这个需求
@@ -73,3 +73,32 @@ sudo apt-get install socat  # Ubuntu/Debian
 socat TCP-LISTEN:5432,fork TCP:172.18.0.2:5432
 
 ```
+
+## 另一种传统的方式
+
+```bash
+#!/bin/bash
+
+IP=10.0.0.21
+PORT=8000
+CONTAINER_IP=172.17.0.2
+CONTAINER_PORT=80
+
+# 这个是DNAT，到本机的流量，重写目的地址为容器
+iptables -t nat -A PREROUTING -4 -p tcp -d ${IP} --dport ${PORT} -j DNAT --to-destination ${CONTAINER_IP}:${CONTAINER_PORT}
+
+# 这个是为了本机也可以通过访问自己的IP和端口来访问
+iptables -t nat -A OUTPUT -4 -p tcp -d ${IP} --dport ${PORT} -j DNAT --to-destination ${CONTAINER_IP}:${CONTAINER_PORT}
+
+# 注意这两条，需要将规则插到最上面，或者加入到DOCKER-USER链，配合下面的图理解
+iptables -I FORWARD -p tcp -d ${CONTAINER_IP} --dport ${CONTAINER_PORT} -j ACCEPT
+iptables -I FORWARD -p tcp -s ${CONTAINER_IP} --sport ${CONTAINER_PORT} -j ACCEPT
+
+# 这个是SNAT规则，数据包回包
+iptables -t nat -A POSTROUTING -4 -p tcp -d ${CONTAINER_IP} --dport ${CONTAINER_PORT} -j SNAT --to-source ${IP}
+
+```
+
+如果规则不加，或加在了 DOCKER-USER 的下面，会兜兜转转，最后匹配到了 DROP
+
+![image.png](https://s3.babudiu.com/iuxt/2025/09/415b32397c6d32a942372431287b7280.png)
