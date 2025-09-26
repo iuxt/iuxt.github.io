@@ -6,7 +6,7 @@ tags: [容器, Docker, iptables, 网络]
 abbrlink: t37flu
 date: 2025-09-27 00:39:30
 cover: ""
-updated: 2025-09-27 01:39:37
+updated: 2025-09-27 01:43:16
 ---
 
 ## 为什么有这个需求
@@ -102,3 +102,9 @@ iptables -t nat -A POSTROUTING -4 -p tcp -d ${CONTAINER_IP} --dport ${CONTAINER_
 如果规则不加，或加在了 DOCKER-USER 的下面，会兜兜转转，最后匹配到了 DROP
 
 ![image.png](https://s3.babudiu.com/iuxt/2025/09/415b32397c6d32a942372431287b7280.png)
+
+知道了原理后，那么还有一种方法：删除这个 DROP（不要这么做）
+
+```bash
+# iptables -D DOCKER ! -i docker0 -o docker0 -j DROP
+```
