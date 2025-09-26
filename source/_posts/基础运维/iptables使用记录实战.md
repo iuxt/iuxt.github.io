@@ -125,7 +125,8 @@ iptables -t nat -A PREROUTING -p tcp --dport 2222 -j REDIRECT --to-port 22
 # 这个是进来的数据包（不包含自身发出的数据包，如果是自身发出，使用OUTPUT链），目的地址是 10.0.0.102 且端口是80 的数据包转发到 10.0.0.103:8000
 iptables -t nat -A PREROUTING -4 -p tcp -d 10.0.0.102 --dport 80 -j DNAT --to-destination 10.0.0.103:8000
 
-# 转发出去的数据包 目的地址是 10.0.0.103 端口是 8000 的数据包进行伪装（就是把数据包来源地址换成本机的ip，这样另一台机器回包才会回给自己），也可以使用： iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j MASQUERADE
+# 转发出去的数据包 目的地址是 10.0.0.103 端口是 8000 的数据包进行伪装（就是把数据包来源地址换成本机的ip，这样另一台机器回包才会回给自己），也可以使用：
+# iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j MASQUERADE
 iptables -t nat -A POSTROUTING -4 -p tcp -d 10.0.0.103 --dport 8000 -j SNAT --to-source 10.0.0.102
 ```
 
