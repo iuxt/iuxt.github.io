@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-09-22 23:32:15
+updated: 2025-09-28 20:10:34
 ---
 
 ## 安装 HomeBrew
@@ -507,4 +507,22 @@ arch -x86_64 zsh
 
 ```bash
 softwareupdate --install-rosetta --agree-to-license
+```
+
+## 使用 GNU 工具
+
+macOS 自带的命令是 BSD 命令，有些语法和 Linux 不一样，可以手动安装 GNU 版本的工具替代
+
+```bash
+brew install gnu-sed
+brew install grep
+brew install gnu-tar
+```
+
+可以直接在命令前加 `g` 来调用，比如 `ggrep` `gtar` `gsed` 来直接使用，也可以配置在 zshrc 里，配置在 $PATH 之前
+
+```bash
+export  PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+export  PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export  PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 ```
