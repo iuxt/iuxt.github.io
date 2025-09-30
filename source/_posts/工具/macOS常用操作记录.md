@@ -6,14 +6,35 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-09-28 20:10:34
+updated: 2025-09-30 14:08:37
 ---
 
-## 安装 HomeBrew
+## HomeBrew
+
+### 安装 HomeBrew
 
 <https://brew.sh/zh-cn/>
 
-## 常用工具安装
+### brew 常用操作
+
+```bash
+# 更新 brew
+brew update
+
+# 搜索软件包
+brew search <package name>
+
+# 查看软件包信息
+brew info <package name>
+
+# 查看软件包主页/官网
+brew home <package name>
+
+# 查看一下安装位置
+brew --prefix mysql@8.0
+```
+
+### 常用工具安装
 
 ```bash
 # 安装xcode工具集
@@ -22,6 +43,115 @@ updated: 2025-09-28 20:10:34
 # 安装git lfs
 brew install git-lfs
 git lfs install
+```
+
+### 进程管理
+
+```bash
+# 查看受管理的服务
+brew services
+
+# 直接启动，不配置开机自启动
+brew services run mysql@8.0
+
+# 停止服务
+brew services kill mysql@8.0
+
+# 重启服务，配置开机自启动
+brew services restart mysql@8.0
+
+# 启动并且配置开机自启动
+brew services start mysql@8.0
+
+# 停止服务，取消开机自启动
+brew services stop mysql@8.0
+```
+
+### 安装卸载
+
+```bash
+# 查看需要升级的软件包
+brew outdated
+
+# 锁定指定软件包的版本
+brew pin <package name>
+
+# 解除对指定软件包版本的锁定
+brew unpin <package name>
+
+# 更新指定的软件包
+brew update <package name>
+
+# 更新所有需要升级的软件包
+brew upgrade
+
+# 允许 cask 仓库的软件也能被更新（建议关闭所有软件的内置更新，仅通过 brew 更新）
+brew upgrade --greedy
+
+# 查看已经安装的所有包
+brew list
+
+# 查看有哪些旧软件包会被清理
+brew cleanup --dry-run
+
+# 清理旧软件包
+brew cleanup
+
+# 列出已经安装的软件包
+brew list
+
+# 列出已经安装的软件包及版本信息
+brew list --versions
+
+# 以树状图展示「已安装包」的依赖信息
+brew deps --installed --tree
+
+# 安装指定的版本
+brew install mysql@5.7
+
+# 卸载包
+brew uninstall font-meslo-lg-nerd-font
+```
+
+### 安装字体
+
+```bash
+# brew 添加字体库
+brew tap homebrew/cask-fonts
+
+# 搜索可用 Nerd Font 字体
+brew search nerd-font
+
+# 安装适配了powerlevel10k的字体
+brew install font-meslo-for-powerlevel10k
+
+# 安装「霞鹜文楷」字体
+brew install font-lxgw-wenkai
+
+# Maple Mono
+brew install --cask font-maple-mono
+# Maple Mono NF
+brew install --cask font-maple-mono-nf
+# Maple Mono NF CN
+brew install --cask font-maple-mono-nf-cn
+```
+
+### 使用 GNU 工具
+
+macOS 自带的命令是 BSD 命令，有些语法和 Linux 不一样，可以手动安装 GNU 版本的工具替代
+
+```bash
+brew install gnu-sed
+brew install grep
+brew install gnu-tar
+```
+
+可以直接在命令前加 `g` 来调用，比如 `ggrep` `gtar` `gsed` 来直接使用，也可以配置在 zshrc 里，配置在 $PATH 之前
+
+```bash
+export  PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
+export  PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export  PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 ```
 
 ## 终端配置
@@ -85,11 +215,28 @@ export LSCOLORS=ExGxFxdaCxDaDahbadeche
 | code . | vscode 打开当前目录 |
 | code /Users/iuxt/code | 打开指定的目录 |
 
-## 防止自动睡眠
+## 系统设置
+
+### 防止自动睡眠
 
 在显示器 高级里面 打开 使用电源适配器供电且显示器关闭时, 防止自动进入睡眠选项。
 
 ![B7491094-21E7-4D08-9603-5D1574639FDD.png|484](https://s3.babudiu.com/iuxt/images/202401241101946.png)
+
+### 安装根证书
+
+打开钥匙串 -- 登录 -- 证书 将证书文件拖进来
+然后双击证书, 查看信任, 设置为始终信任
+
+![0E07356E-2BBC-4C2C-BC5B-187C697CAECB.png|672](https://s3.babudiu.com/iuxt/images/202401241306196.png)
+
+### finder 访达个人收藏变成英文
+
+```bash
+touch ~/Desktop/.localized
+```
+
+重启 finder 后可恢复中文。
 
 ## 提示 程序损坏,需要移动到废纸篓
 
@@ -264,13 +411,6 @@ sudo rm -rf /Library/Preferences/SystemConfiguration/preferences.plist
 sudo rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist*
 ```
 
-## 安装根证书
-
-打开钥匙串 -- 登录 -- 证书 将证书文件拖进来
-然后双击证书, 查看信任, 设置为始终信任
-
-![0E07356E-2BBC-4C2C-BC5B-187C697CAECB.png|672](https://s3.babudiu.com/iuxt/images/202401241306196.png)
-
 ## 开发组件
 
 ### zlib 库找不到
@@ -377,124 +517,6 @@ codesign -dr - /Applications/Microsoft\ Edge.app
 osascript -e 'id of app "iterm2"'
 ```
 
-## brew 常用操作
-
-```bash
-# 更新 brew
-brew update
-
-# 搜索软件包
-brew search <package name>
-
-# 查看软件包信息
-brew info <package name>
-
-# 查看软件包主页/官网
-brew home <package name>
-
-# 查看一下安装位置
-brew --prefix mysql@8.0
-```
-
-### 进程管理
-
-```bash
-# 查看受管理的服务
-brew services
-
-# 直接启动，不配置开机自启动
-brew services run mysql@8.0
-
-# 停止服务
-brew services kill mysql@8.0
-
-# 重启服务，配置开机自启动
-brew services restart mysql@8.0
-
-# 启动并且配置开机自启动
-brew services start mysql@8.0
-
-# 停止服务，取消开机自启动
-brew services stop mysql@8.0
-```
-
-### 安装卸载
-
-```bash
-# 查看需要升级的软件包
-brew outdated
-
-# 锁定指定软件包的版本
-brew pin <package name>
-
-# 解除对指定软件包版本的锁定
-brew unpin <package name>
-
-# 更新指定的软件包
-brew update <package name>
-
-# 更新所有需要升级的软件包
-brew upgrade
-
-# 允许 cask 仓库的软件也能被更新（建议关闭所有软件的内置更新，仅通过 brew 更新）
-brew upgrade --greedy
-
-# 查看已经安装的所有包
-brew list
-
-# 查看有哪些旧软件包会被清理
-brew cleanup --dry-run
-
-# 清理旧软件包
-brew cleanup
-
-# 列出已经安装的软件包
-brew list
-
-# 列出已经安装的软件包及版本信息
-brew list --versions
-
-# 以树状图展示「已安装包」的依赖信息
-brew deps --installed --tree
-
-# 安装指定的版本
-brew install mysql@5.7
-
-# 卸载包
-brew uninstall font-meslo-lg-nerd-font
-```
-
-## 安装字体
-
-```bash
-# brew 添加字体库
-brew tap homebrew/cask-fonts
-
-# 搜索可用 Nerd Font 字体
-brew search nerd-font
-
-# 安装适配了powerlevel10k的字体
-brew install font-meslo-for-powerlevel10k
-
-# 安装「霞鹜文楷」字体
-brew install font-lxgw-wenkai
-
-# Maple Mono
-brew install --cask font-maple-mono
-# Maple Mono NF
-brew install --cask font-maple-mono-nf
-# Maple Mono NF CN
-brew install --cask font-maple-mono-nf-cn
-```
-
-## finder 访达个人收藏变成英文
-
-```bash
-touch ~/Desktop/.localized
-```
-
-重启 finder 后可恢复中文。
-
 ## Rosetta
 
 终端切换到 `x86_64` 架构
@@ -507,22 +529,4 @@ arch -x86_64 zsh
 
 ```bash
 softwareupdate --install-rosetta --agree-to-license
-```
-
-## 使用 GNU 工具
-
-macOS 自带的命令是 BSD 命令，有些语法和 Linux 不一样，可以手动安装 GNU 版本的工具替代
-
-```bash
-brew install gnu-sed
-brew install grep
-brew install gnu-tar
-```
-
-可以直接在命令前加 `g` 来调用，比如 `ggrep` `gtar` `gsed` 来直接使用，也可以配置在 zshrc 里，配置在 $PATH 之前
-
-```bash
-export  PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
-export  PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-export  PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 ```
