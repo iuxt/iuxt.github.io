@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-09-30 14:08:37
+updated: 2025-10-05 17:17:24
 ---
 
 ## HomeBrew
@@ -250,6 +250,9 @@ touch ~/Desktop/.localized
 
 ```bash
 sudo xattr -r -d com.apple.quarantine /Applications/WebStrom.app
+
+# 或者删除所有属性
+# sudo xattr -cr /Applications/WebStrom.app
 ```
 
 ## 常见的系统文件位置
