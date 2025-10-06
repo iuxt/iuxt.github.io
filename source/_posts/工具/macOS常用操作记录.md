@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-10-06 21:33:41
+updated: 2025-10-06 22:30:40
 ---
 
 ## HomeBrew
@@ -45,7 +45,7 @@ brew install git-lfs
 git lfs install
 
 # 安装常用软件
-brew install stats clash-verge-rev keepassxc iterm2 orbstack iina squirrel visual-studio-code orbstack obsidian rustdesk lrzsz trzsz-ssh typora piclist keka python@3.12 mysql-client balenaetcher pixpin uninstallpkg
+brew install stats clash-verge-rev keepassxc iterm2 orbstack iina squirrel visual-studio-code orbstack obsidian rustdesk lrzsz trzsz-ssh typora piclist keka python@3.12 mysql-client balenaetcher pixpin uninstallpkg karabiner-elements
 ```
 
 ### 进程管理
