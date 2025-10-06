@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-10-05 17:17:24
+updated: 2025-10-06 21:33:41
 ---
 
 ## HomeBrew
@@ -43,6 +43,9 @@ brew --prefix mysql@8.0
 # 安装git lfs
 brew install git-lfs
 git lfs install
+
+# 安装常用软件
+brew install stats clash-verge-rev keepassxc iterm2 orbstack iina squirrel visual-studio-code orbstack obsidian rustdesk lrzsz trzsz-ssh typora piclist keka python@3.12 mysql-client balenaetcher pixpin uninstallpkg
 ```
 
 ### 进程管理
