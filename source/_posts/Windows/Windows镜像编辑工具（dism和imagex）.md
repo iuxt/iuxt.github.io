@@ -6,7 +6,7 @@ categories:
 tags: [Windows]
 cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2021-03-10 17:01:05
-updated: 2025-09-07 21:25:07
+updated: 2025-10-10 12:53:24
 ---
 
 > imagex 和 dism 都是 windows 官方处理 windows 安装镜像 wim 文件的工具，其中 dism 是自带的，imagex 是单文件，依赖简单
@@ -92,8 +92,9 @@ Dism /Online /Cleanup-Image /RestoreHealth /Source:c:\test\mount\windows /LimitA
 
 ```powershell
 # 导出当前系统驱动
+# 或者 pnputil /export-driver * c:\backup
 dism /online /export-driver /destination:D:\MyDrivers
 
 # 导入驱动到当前系统
-dism /online /add-driver /driver:D:\MyDrivers /recurse
+pnputil /add-driver *.inf /subdirs /install
 ```
