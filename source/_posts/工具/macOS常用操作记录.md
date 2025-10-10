@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-10-06 22:30:40
+updated: 2025-10-10 22:58:10
 ---
 
 ## HomeBrew
@@ -158,6 +158,14 @@ export  PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 ```
 
 ## 终端配置
+
+### sudo 免密码
+
+```bash
+sudo tee /etc/sudoers.d/nopass <<EOF
+$USER ALL=(ALL:ALL) NOPASSWD: ALL
+EOF
+```
 
 ### zsh 配置
 
@@ -521,18 +529,4 @@ codesign -dr - /Applications/Microsoft\ Edge.app
 
 # 或者：
 osascript -e 'id of app "iterm2"'
-```
-
-## Rosetta
-
-终端切换到 `x86_64` 架构
-
-```bash
-arch -x86_64 zsh
-```
-
-安装 Rosetta 2
-
-```bash
-softwareupdate --install-rosetta --agree-to-license
 ```
