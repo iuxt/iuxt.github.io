@@ -2,17 +2,11 @@
 title: 使用 Docker 搭建单节点 Elasticsearch 学习环境
 categories:
   - 日志
-tags:
-  - ES
-  - Elasticsearch
-  - 开源软件
-  - 部署
-  - Docker
-  - 搭建
+tags: [ES, Elasticsearch, 开源软件, 部署, Docker, 搭建]
 abbrlink: st219s
 date: 2024-04-25 19:00:00
 cover: https://s3.babudiu.com/iuxt/images/202412031037042.png
-updated: 2025-03-13 17:12:14
+updated: 2025-10-13 00:41:30
 ---
 
 一般来说，学习 ES 都是自己先搭建几台虚拟机，然后在虚拟机里部署 ES 集群，这样做资源消耗比较大，一般的电脑都没有这么高的配置，我们可以使用 Docker 来快速部署 Elasticsearch，这里搭建单节点：

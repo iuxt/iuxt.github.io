@@ -5,5 +5,7 @@
   "maple-basic@@setting-accent-h-light": 0,
   "maple-basic@@color-scheme": "color-use-custom",
   "maple-basic@@color-active-dark": "color-active-default-dark",
-  "maple-basic@@app-layout-card-border": true
+  "maple-basic@@app-layout-card-border": true,
+  "maple-editor@@image-zoom": false,
+  "maple-editor@@image-dark-hover": true
 }

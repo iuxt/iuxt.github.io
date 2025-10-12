@@ -5,7 +5,6 @@ updated: 2025-02-18 17:30:06
 
 ```powershell
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
-
 ```
 
 ```powershell

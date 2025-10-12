@@ -2,6 +2,9 @@
   "deleteOption": "system-trash",
   "logsModal": true,
   "dragResize": true,
+  "resizeInterval": 2,
   "clickView": false,
+  "adaptiveRatio": 0.9,
+  "moveFileMenu": false,
   "debug": false
 }
