@@ -1,11 +1,11 @@
 {
   "accentColor": "",
   "interfaceFontFamily": "JetBrains Mono NL,微软雅黑",
-  "theme": "moonstone",
+  "theme": "obsidian",
   "baseFontSize": 16,
   "translucency": false,
   "nativeMenus": false,
-  "cssTheme": "",
+  "cssTheme": "Maple",
   "textFontFamily": "JetBrains Mono NL,微软雅黑",
   "showRibbon": true,
   "monospaceFontFamily": "JetBrains Mono NL"
