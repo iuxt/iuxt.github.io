@@ -1,4 +1,4 @@
-/* Maple Theme v1.0.0-beta.36 For Obsidian */
+/* Maple Theme v1.0.0-beta.39 For Obsidian */
 /* @settings
 id: maple-basic
 name: Maple Basic
@@ -7,7 +7,7 @@ settings:
       type: variable-number-slider
       title: Animation Duration (ms)
       title.zh: 动画持续时间（毫秒）
-      default: 500
+      default: 250
       min: 0
       max: 1000
       step: 50
@@ -393,7 +393,7 @@ settings:
       type: variable-text
       title: Setting Panel Header Title
       title.zh: 设置面板标题
-      default: Maple 1.0.0-beta.36
+      default: Maple 1.0.0-beta.39
       quotes: true
     - id: enable-group-title
       type: class-toggle
@@ -1437,12 +1437,27 @@ settings:
       title: Full Width Table
       title.zh: 全宽表格
       default: true
-    - id: table-colorful
-      type: class-toggle
-      title: Colorful Table
+    - id: table-style
+      type: class-select
+      title: Table Style
       title.zh: 多彩表格
-      description: Accented header and line colors; ignore DataView table
-      description.zh: 加深表头和行的颜色；忽略 DataView 表格
+      description: "Ignore DataView table. Minimal: Academic style with only
+          horizontal lines; Colorful: Accented header and line background
+          colors"
+      description.zh: "忽略 DataView 表格。Minimal: 仅显示横线的学术风格；Colorful: 加深表头和行的背景色"
+      allow-empty: false
+      default: table-style-default
+      options:
+          - label: Default
+            value: table-style-default
+          - label: Minimal
+            value: table-style-minimal
+          - label: Colorful
+            value: table-style-colorful
+    - id: table-round
+      type: class-toggle
+      title: Add Round Corner
+      title.zh: 添加圆角
       default: true
     - id: setting-table-header-text
       type: variable-themed-color
@@ -1927,7 +1942,7 @@ body {
     var(--theme-accent-active-h),
     calc(var(--theme-accent-active-s) * 0.7),
     var(--theme-accent-active-l),
-    90%
+    60%
   );
   --background-primary: hsl(var(--background-primary-hsl));
   --background-secondary: hsl(var(--background-secondary-hsl));
@@ -1944,17 +1959,17 @@ body {
   --input-shadow-hover: 0 0.125px 0 0.5px var(--color-base-20),
     inset 0 -0.125px 1px 0px var(--color-base-40),
     0 0.75px 2px 0.5px var(--color-base-50);
-  --animation-dur: var(--setting-animation-time, 500ms);
+  --animation-dur: var(--setting-animation-time, 250ms);
   --animation: var(--animation-dur) var(--anim-motion-smooth);
-  --animation-fast: calc(var(--animation-dur) / 2) var(--anim-motion-smooth);
+  --animation-slow: calc(var(--animation-dur) * 2) var(--anim-motion-smooth);
   --animation-delay: calc(4 * var(--animation-dur));
-  --block-outline-width: var(--size-2-1);
   --divider-color: var(--color-base-30);
   --divider-width-hover: var(--size-4-1);
   --nav-item-background-active: var(--accent-active-bg);
   --nav-item-background-selected: var(--background-modifier-hover);
   --line-height-normal: var(--setting-line-height, 1.8);
   --line-height-tight: var(--setting-item-line-height, 1.5);
+  --menu-padding: 4px;
 }
 
 .theme-light {
@@ -1998,7 +2013,7 @@ body {
     calc(85% + var(--theme-accent-active-l) * 0.1)
   );
   --background-primary-hsl: var(--base-accent-h), 12%, 97%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95.5%);
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 95%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 8%, 93%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
@@ -2078,7 +2093,7 @@ body {
     calc(8% + var(--theme-accent-active-l) * 0.1 * var(--color-opacity))
   );
   --background-primary-hsl: var(--base-accent-h), 5%, 11%;
-  --background-primary-alt: hsl(var(--base-accent-h), 10%, 12%);
+  --background-primary-alt: hsl(var(--base-accent-h), 10%, 13%);
   --background-secondary-hsl: calc(var(--base-accent-h) - 18), 6%, 12%;
   --background-modifier-hover: hsl(
     var(--base-accent-h),
@@ -2314,7 +2329,7 @@ body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direc
 body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction],
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction],
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction],
-body:not(.table-colorful) .setting-item[data-id^=setting-table],
+body:not(.table-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]),
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon],
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) {
@@ -2373,7 +2388,7 @@ body:not(.heading-h3-full-line) .setting-item[data-id=heading-h3-full-line-direc
 body:not(.heading-h4-full-line) .setting-item[data-id=heading-h4-full-line-direction] + .style-settings-container,
 body:not(.heading-h5-full-line) .setting-item[data-id=heading-h5-full-line-direction] + .style-settings-container,
 body:not(.heading-h6-full-line) .setting-item[data-id=heading-h6-full-line-direction] + .style-settings-container,
-body:not(.table-colorful) .setting-item[data-id^=setting-table] + .style-settings-container,
+body:not(.table-colorful) .setting-item:is([data-id=table-round], [data-id^=setting-table]) + .style-settings-container,
 body:not(.hr-enable) .setting-item[data-id^=setting-hr-icon] + .style-settings-container,
 body:not(.tag-outline) .setting-item:is([data-id=setting-tag-border],
 [data-id=setting-tag-color]) + .style-settings-container {
@@ -2469,10 +2484,10 @@ body.app-layout-card:not(.is-mobile) {
   --app-layout-spacing: var(--setting-app-layout-spacing, var(--size-2-3));
 }
 body.app-layout-card:not(.is-mobile).theme-light {
-  --background-primary-alt: hsl(var(--base-accent-h), 14%, 95%);
+  --background-primary-alt: hsl(var(--base-accent-h), 18%, 93.5%);
 }
 body.app-layout-card:not(.is-mobile).theme-dark {
-  --background-primary-alt: hsl(var(--base-accent-h), 8%, 12%);
+  --background-primary-alt: hsl(var(--base-accent-h), 8%, 13.5%);
 }
 body.app-layout-card:not(.is-mobile):is(.app-layout-card-plain, .color-use-minimal) {
   background-color: var(--bg-surface);
@@ -2510,14 +2525,14 @@ body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-min
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-light {
   --app-bg-image: linear-gradient(
-    340deg,
+    320deg,
     hsl(calc(var(--base-accent-h) + 50), 50%, 92%),
     hsl(calc(var(--base-accent-h) - 30), 36%, 87%)
   );
 }
 body.app-layout-card:not(.is-mobile).app-layout-card-gradient:not(.color-use-minimal).theme-dark {
   --app-bg-image: linear-gradient(
-    340deg,
+    320deg,
     hsl(calc(var(--base-accent-h) + 60), 11%, 22%),
     hsl(calc(var(--base-accent-h) - 10), 24%, 28%)
   );
@@ -3760,6 +3775,7 @@ body:is(:not(.css-settings-manager), .code-language) .markdown-rendered pre code
 /* #endregion code */
 /* #region embed */
 body {
+  --block-outline-width: var(--size-2-1);
   --embed-background: var(--bg-editor);
   --embed-padding: var(--size-4-5) var(--size-4-4);
   --embed-block-shadow-hover: 0 0 0 1px var(--accent-inactive),
@@ -4164,7 +4180,7 @@ body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6
 body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .cm-indent::before {
   transform: translateX(-0.4rem);
 }
-body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .collapse-indicator {
+body:is(:not(.css-settings-manager), .list-enable) .markdown-source-view.mod-cm6 .cm-list .collapse-indicator {
   transform: translateX(-0.3rem) !important;
 }
 body:is(:not(.css-settings-manager), .list-enable) li .list-collapse-indicator {
@@ -4968,49 +4984,33 @@ body {
   --table-header-background: var(--background-primary-alt);
   --table-header-background-hover: var(--table-header-background);
   --table-cell-vertical-alignment: middle;
+  --table-add-button-border-width: 0;
   --table-add-button-background: var(--background-modifier-hover);
   --table-drag-handle-background: var(--background-modifier-hover);
   --table-selection-border-radius: var(--radius-m);
   --table-selection-border-color: var(--accent-inactive);
 }
-
-/* table radius */
-.markdown-rendered table {
-  border-collapse: initial;
-  border-spacing: 0;
-}
-.markdown-rendered table :is(th, td):not(:first-child) {
-  border-left: 0;
-}
-.markdown-rendered table tbody td {
-  border-top: 0;
-}
-.markdown-rendered table thead tr {
-  background-color: transparent;
-}
-.markdown-rendered table thead tr th {
-  background-color: var(--table-header-background) !important;
-}
-.markdown-rendered table th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)) {
-  border-top-left-radius: var(--radius-m);
-}
-.markdown-rendered table th:last-child:not(:has(.table-col-drag-handle:hover)) {
-  border-top-right-radius: var(--radius-m);
-}
-.markdown-rendered table tr:last-child td:first-child {
-  border-bottom-left-radius: var(--radius-m);
-}
-.markdown-rendered table tr:last-child td:last-child {
-  border-bottom-right-radius: var(--radius-m);
-}
-.markdown-rendered:has(.table-row-btn:hover) tr:last-child td {
-  border-radius: 0;
-}
-.markdown-rendered:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
-  border-radius: 0;
+body .table-drag-target::after {
+  background-color: var(--accent-active-bg);
 }
 
-.table-colorful {
+.table-style-minimal {
+  --table-header-background: transparent;
+  --table-border-color: transparent;
+  --table-header-border-color: var(--color-base-100);
+  --table-header-border-width: 3px;
+  --table-selection-border-radius: 0;
+  --table-row-last-border-width: var(--table-header-border-width);
+}
+.table-style-minimal table th {
+  border-bottom: var(--color-base-100) solid 2px;
+  border-inline: 0;
+}
+.table-style-minimal table tr:last-child > td {
+  border-bottom-color: var(--table-header-border-color);
+}
+
+.table-style-colorful {
   --table-background: var(--background-primary-alt);
   --table-header-background: var(
     --setting-table-header-text,
@@ -5021,14 +5021,50 @@ body {
   --table-column-alt-background: inherit;
   --table-column-alt-background-hover: inherit;
 }
-.table-colorful :is(.is-live-preview, .markdown-rendered) {
+.table-style-colorful :is(.is-live-preview, .markdown-rendered) {
   --table-header-color: var(--setting-table-header-bg, var(--text-on-accent));
 }
-.table-colorful th .cm-s-obsidian {
+.table-style-colorful th .cm-s-obsidian {
   color: var(--text-normal);
 }
-.table-colorful .cm-html-embed .edit-block-button {
+.table-style-colorful .cm-html-embed .edit-block-button {
   --background-modifier-hover: var(--background-secondary);
+}
+
+/* table radius */
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table {
+  border-collapse: initial;
+  border-spacing: 0;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table :is(th, td):not(:first-child) {
+  border-left: 0;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tbody td {
+  border-top: 0;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table thead tr {
+  background-color: transparent;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table thead tr th {
+  background-color: var(--table-header-background) !important;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table th:first-child:not(:has(:is(.table-col-drag-handle, .table-row-drag-handle):hover)) {
+  border-top-left-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table th:last-child:not(:has(.table-col-drag-handle:hover)) {
+  border-top-right-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tr:last-child td:first-child:not(:has(.table-row-drag-handle:hover)) {
+  border-bottom-left-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) table tr:last-child td:last-child {
+  border-bottom-right-radius: var(--radius-m);
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-row-btn:hover) tr:last-child td {
+  border-radius: 0 !important;
+}
+body:is(:not(.css-settings-manager), .table-round:not(.table-style-minimal)) .table-wrapper:has(.table-col-btn:hover) :is(tr:last-child td:last-child, th:last-child) {
+  border-radius: 0;
 }
 
 .markdown-source-view.mod-cm6 .cm-table-widget {
@@ -5290,137 +5326,112 @@ body .cm-contentContainer :first-child .cm-formatting.cm-formatting-header {
   line-height: var(--line-height-normal);
 }
 
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header) {
-  position: relative;
+:is(h1, .HyperMD-header-1) {
+  --h-indicator-content: "H1";
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header)::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  padding: 0.1rem;
-  background-color: transparent;
-  font-size: 0.7rem;
-  line-height: 1;
-  width: fit-content;
-  letter-spacing: 0.05rem;
-  opacity: 0;
-  pointer-events: none;
-  top: 50%;
-  transform: translateY(-50%);
-  left: calc(var(--size-4-5) * -1);
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header):hover::before {
-  opacity: 0.9;
-  pointer-events: all;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div.is-collapsed > :is(h1, h2, h3, h4, h5, h6), .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .cm-foldPlaceholder))::before {
-  opacity: 0.9;
-  text-decoration: underline 0.1rem;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder)))::before {
-  opacity: 0.4;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):not(:hover)::before {
-  color: var(--text-muted);
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(div.markdown-reading-view > div > div > div:not(.is-collapsed) > :is(h1, h2, h3, h4, h5, h6),
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:not(:has(> .cm-foldPlaceholder))):hover::before {
-  opacity: 1;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
-  left: calc(var(--size-4-6) * -1) !important;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1) {
+
+.link-heading :is(h1, .HyperMD-header-1) {
   --link-color: var(--h1-color);
   --link-color-underline: var(--h1-color);
   --link-external-color: var(--h1-color);
   --link-external-color-underline: var(--h1-color);
   --link-text-size: var(--h1-size);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h1, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1)::before {
-  content: "H1";
+
+:is(h2, .HyperMD-header-2) {
+  --h-indicator-content: "H2";
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2) {
+
+.link-heading :is(h2, .HyperMD-header-2) {
   --link-color: var(--h2-color);
   --link-color-underline: var(--h2-color);
   --link-external-color: var(--h2-color);
   --link-external-color-underline: var(--h2-color);
   --link-text-size: var(--h2-size);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h2, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2)::before {
-  content: "H2";
+
+:is(h3, .HyperMD-header-3) {
+  --h-indicator-content: "H3";
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3) {
+
+.link-heading :is(h3, .HyperMD-header-3) {
   --link-color: var(--h3-color);
   --link-color-underline: var(--h3-color);
   --link-external-color: var(--h3-color);
   --link-external-color-underline: var(--h3-color);
   --link-text-size: var(--h3-size);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h3, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3)::before {
-  content: "H3";
+
+:is(h4, .HyperMD-header-4) {
+  --h-indicator-content: "H4";
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4) {
+
+.link-heading :is(h4, .HyperMD-header-4) {
   --link-color: var(--h4-color);
   --link-color-underline: var(--h4-color);
   --link-external-color: var(--h4-color);
   --link-external-color-underline: var(--h4-color);
   --link-text-size: var(--h4-size);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h4, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-4)::before {
-  content: "H4";
+
+:is(h5, .HyperMD-header-5) {
+  --h-indicator-content: "H5";
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5) {
+
+.link-heading :is(h5, .HyperMD-header-5) {
   --link-color: var(--h5-color);
   --link-color-underline: var(--h5-color);
   --link-external-color: var(--h5-color);
   --link-external-color-underline: var(--h5-color);
   --link-text-size: var(--h5-size);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h5, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-5)::before {
-  content: "H5";
+
+:is(h6, .HyperMD-header-6) {
+  --h-indicator-content: "H6";
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).link-heading :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6) {
+
+.link-heading :is(h6, .HyperMD-header-6) {
   --link-color: var(--h6-color);
   --link-color-underline: var(--h6-color);
   --link-external-color: var(--h6-color);
   --link-external-color-underline: var(--h6-color);
   --link-text-size: var(--h6-size);
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(div.markdown-reading-view > div > div > div > h6, .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-6)::before {
-  content: "H6";
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)::before {
-  left: calc(-1 * var(--size-4-6)) !important;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .heading-collapse-indicator {
-  position: absolute;
-  z-index: 99;
-  height: var(--size-4-4);
-  width: var(--size-4-6);
-  top: 50%;
-  transform: translateY(-50%);
-  left: calc(var(--size-2-1) * -1);
-  padding: 0 !important;
-  --cursor: pointer;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .heading-collapse-indicator svg {
-  display: none;
-}
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .HyperMD-header {
+
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) {
   position: relative;
 }
-body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) .HyperMD-header .cm-fold-indicator .collapse-indicator {
-  --cursor: pointer;
-  z-index: 99;
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6))::before {
+  content: var(--h-indicator-content, "");
+  position: absolute;
+  font-size: 0.7rem;
+  translate: -150%;
+  color: var(--h-indicator-color, inherit);
+  text-decoration: var(--h-indicator-decoration, none);
+  pointer-events: none;
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)) :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) :is(.collapse-indicator, .header-collapse-indicator) {
   opacity: 0 !important;
-  width: var(--size-4-6);
-  height: var(--size-4-4) !important;
-  left: calc(var(--size-2-1) - var(--size-4-8));
-  top: 50% !important;
-  transform: translateY(-50%) !important;
+  padding-inline-start: var(--size-4-2);
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-auto :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) {
+  --h-indicator-color: transparent;
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-auto :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)):hover {
+  --h-indicator-color: inherit;
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-auto :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .is-collapsed), div.markdown-reading-view > div > div > div.is-collpased > :is(h1, h2, h3, h4, h5, h6)) {
+  --h-indicator-color: inherit;
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)) {
+  --h-indicator-color: var(--text-faint);
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header, div.markdown-reading-view > div > div > div > :is(h1, h2, h3, h4, h5, h6)):hover {
+  --h-indicator-color: inherit;
+}
+body:is(:not(.css-settings-manager), :not(.heading-indicator-disable)).heading-indicator-fixed :is(.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header:has(> .is-collapsed), div.markdown-reading-view > div > div > div.is-collpased > :is(h1, h2, h3, h4, h5, h6)) {
+  --h-indicator-color: inherit;
+  --h-indicator-decoration: underline;
 }
 
 body.line-active-left .cm-active.HyperMD-header::before {
@@ -5445,40 +5456,40 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   color: var(--h6-color) !important;
 }
 
-.heading-h1-underline :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), h1) {
+.heading-h1-underline .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting), h1) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h2-underline :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), h2) {
+.heading-h2-underline .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting), h2) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h3-underline :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), h3) {
+.heading-h3-underline .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting), h3) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h4-underline :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), h4) {
+.heading-h4-underline .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting), h4) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h5-underline :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), h5) {
+.heading-h5-underline .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting), h5) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h6-underline :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), h6) {
+.heading-h6-underline .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting), h6) {
   text-decoration: underline var(--size-2-1);
   text-underline-offset: var(--size-4-2);
 }
 
-.heading-h1-full-line :is(.HyperMD-header-1, h1) {
+.heading-h1-full-line .app-container :is(.HyperMD-header-1, h1) {
   position: relative;
 }
-.heading-h1-full-line :is(.HyperMD-header-1, h1)::after {
+.heading-h1-full-line .app-container :is(.HyperMD-header-1, h1)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5487,14 +5498,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h1-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h1-full-line.heading-h1-full-line-left {
+.heading-h1-full-line .app-container.heading-h1-full-line-left {
   --heading-h1-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h1-full-line.heading-h1-full-line-right {
+.heading-h1-full-line .app-container.heading-h1-full-line-right {
   --heading-h1-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5502,10 +5513,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h2-full-line :is(.HyperMD-header-2, h2) {
+.heading-h2-full-line .app-container :is(.HyperMD-header-2, h2) {
   position: relative;
 }
-.heading-h2-full-line :is(.HyperMD-header-2, h2)::after {
+.heading-h2-full-line .app-container :is(.HyperMD-header-2, h2)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5514,14 +5525,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h2-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h2-full-line.heading-h2-full-line-left {
+.heading-h2-full-line .app-container.heading-h2-full-line-left {
   --heading-h2-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h2-full-line.heading-h2-full-line-right {
+.heading-h2-full-line .app-container.heading-h2-full-line-right {
   --heading-h2-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5529,10 +5540,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h3-full-line :is(.HyperMD-header-3, h3) {
+.heading-h3-full-line .app-container :is(.HyperMD-header-3, h3) {
   position: relative;
 }
-.heading-h3-full-line :is(.HyperMD-header-3, h3)::after {
+.heading-h3-full-line .app-container :is(.HyperMD-header-3, h3)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5541,14 +5552,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h3-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h3-full-line.heading-h3-full-line-left {
+.heading-h3-full-line .app-container.heading-h3-full-line-left {
   --heading-h3-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h3-full-line.heading-h3-full-line-right {
+.heading-h3-full-line .app-container.heading-h3-full-line-right {
   --heading-h3-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5556,10 +5567,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h4-full-line :is(.HyperMD-header-4, h4) {
+.heading-h4-full-line .app-container :is(.HyperMD-header-4, h4) {
   position: relative;
 }
-.heading-h4-full-line :is(.HyperMD-header-4, h4)::after {
+.heading-h4-full-line .app-container :is(.HyperMD-header-4, h4)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5568,14 +5579,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h4-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h4-full-line.heading-h4-full-line-left {
+.heading-h4-full-line .app-container.heading-h4-full-line-left {
   --heading-h4-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h4-full-line.heading-h4-full-line-right {
+.heading-h4-full-line .app-container.heading-h4-full-line-right {
   --heading-h4-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5583,10 +5594,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h5-full-line :is(.HyperMD-header-5, h5) {
+.heading-h5-full-line .app-container :is(.HyperMD-header-5, h5) {
   position: relative;
 }
-.heading-h5-full-line :is(.HyperMD-header-5, h5)::after {
+.heading-h5-full-line .app-container :is(.HyperMD-header-5, h5)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5595,14 +5606,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h5-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h5-full-line.heading-h5-full-line-left {
+.heading-h5-full-line .app-container.heading-h5-full-line-left {
   --heading-h5-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h5-full-line.heading-h5-full-line-right {
+.heading-h5-full-line .app-container.heading-h5-full-line-right {
   --heading-h5-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5610,10 +5621,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h6-full-line :is(.HyperMD-header-6, h6) {
+.heading-h6-full-line .app-container :is(.HyperMD-header-6, h6) {
   position: relative;
 }
-.heading-h6-full-line :is(.HyperMD-header-6, h6)::after {
+.heading-h6-full-line .app-container :is(.HyperMD-header-6, h6)::after {
   content: "";
   position: absolute;
   bottom: var(--size-2-1);
@@ -5622,14 +5633,14 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   background: var(--heading-h6-full-line-bg, currentColor);
   border-radius: var(--size-2-1);
 }
-.heading-h6-full-line.heading-h6-full-line-left {
+.heading-h6-full-line .app-container.heading-h6-full-line-left {
   --heading-h6-full-line-bg: linear-gradient(
     to right,
     currentColor 10%,
     transparent 90%
   );
 }
-.heading-h6-full-line.heading-h6-full-line-right {
+.heading-h6-full-line .app-container.heading-h6-full-line-right {
   --heading-h6-full-line-bg: linear-gradient(
     to left,
     currentColor 10%,
@@ -5637,10 +5648,10 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   );
 }
 
-.heading-h1-block {
+.heading-h1-block .app-container {
   --h1-color-bg: rgba(var(--h1-color-rgb), 0.15);
 }
-.heading-h1-block.heading-color-accent {
+.heading-h1-block .app-container.heading-color-accent {
   --h1-color-bg: hsla(
     var(--theme-accent-active-h),
     var(--theme-accent-active-s),
@@ -5648,7 +5659,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
     0.15
   );
 }
-.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
+.heading-h1-block .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1) {
   --h1-color: rgb(var(--h1-color-rgb));
   background-color: var(--h1-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5656,20 +5667,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   caret-color: currentColor;
   -webkit-box-decoration-break: clone;
 }
-.heading-h1-block :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1)::selection {
+.heading-h1-block .app-container :is(.HyperMD-header-1 .cm-header:not(.cm-formatting-header), h1)::selection {
   color: var(--h1-color);
   background-color: var(--background-secondary);
 }
-.heading-h1-block h1 {
+.heading-h1-block .app-container h1 {
   width: fit-content;
   line-height: 1.2;
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h1-size));
 }
 
-.heading-h2-block {
+.heading-h2-block .app-container {
   --h2-color-bg: rgba(var(--h2-color-rgb), 0.15);
 }
-.heading-h2-block.heading-color-accent {
+.heading-h2-block .app-container.heading-color-accent {
   --h2-color-bg: hsla(
     var(--theme-accent-active-h),
     var(--theme-accent-active-s),
@@ -5677,7 +5688,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
     0.15
   );
 }
-.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
+.heading-h2-block .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2) {
   --h2-color: rgb(var(--h2-color-rgb));
   background-color: var(--h2-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5685,20 +5696,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   caret-color: currentColor;
   -webkit-box-decoration-break: clone;
 }
-.heading-h2-block :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2)::selection {
+.heading-h2-block .app-container :is(.HyperMD-header-2 .cm-header:not(.cm-formatting-header), h2)::selection {
   color: var(--h2-color);
   background-color: var(--background-secondary);
 }
-.heading-h2-block h2 {
+.heading-h2-block .app-container h2 {
   width: fit-content;
   line-height: 1.2;
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h2-size));
 }
 
-.heading-h3-block {
+.heading-h3-block .app-container {
   --h3-color-bg: rgba(var(--h3-color-rgb), 0.15);
 }
-.heading-h3-block.heading-color-accent {
+.heading-h3-block .app-container.heading-color-accent {
   --h3-color-bg: hsla(
     var(--theme-accent-active-h),
     var(--theme-accent-active-s),
@@ -5706,7 +5717,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
     0.15
   );
 }
-.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
+.heading-h3-block .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3) {
   --h3-color: rgb(var(--h3-color-rgb));
   background-color: var(--h3-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5714,20 +5725,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   caret-color: currentColor;
   -webkit-box-decoration-break: clone;
 }
-.heading-h3-block :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3)::selection {
+.heading-h3-block .app-container :is(.HyperMD-header-3 .cm-header:not(.cm-formatting-header), h3)::selection {
   color: var(--h3-color);
   background-color: var(--background-secondary);
 }
-.heading-h3-block h3 {
+.heading-h3-block .app-container h3 {
   width: fit-content;
   line-height: 1.2;
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h3-size));
 }
 
-.heading-h4-block {
+.heading-h4-block .app-container {
   --h4-color-bg: rgba(var(--h4-color-rgb), 0.15);
 }
-.heading-h4-block.heading-color-accent {
+.heading-h4-block .app-container.heading-color-accent {
   --h4-color-bg: hsla(
     var(--theme-accent-active-h),
     var(--theme-accent-active-s),
@@ -5735,7 +5746,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
     0.15
   );
 }
-.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
+.heading-h4-block .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4) {
   --h4-color: rgb(var(--h4-color-rgb));
   background-color: var(--h4-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5743,20 +5754,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   caret-color: currentColor;
   -webkit-box-decoration-break: clone;
 }
-.heading-h4-block :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4)::selection {
+.heading-h4-block .app-container :is(.HyperMD-header-4 .cm-header:not(.cm-formatting-header), h4)::selection {
   color: var(--h4-color);
   background-color: var(--background-secondary);
 }
-.heading-h4-block h4 {
+.heading-h4-block .app-container h4 {
   width: fit-content;
   line-height: 1.2;
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h4-size));
 }
 
-.heading-h5-block {
+.heading-h5-block .app-container {
   --h5-color-bg: rgba(var(--h5-color-rgb), 0.15);
 }
-.heading-h5-block.heading-color-accent {
+.heading-h5-block .app-container.heading-color-accent {
   --h5-color-bg: hsla(
     var(--theme-accent-active-h),
     var(--theme-accent-active-s),
@@ -5764,7 +5775,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
     0.15
   );
 }
-.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
+.heading-h5-block .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5) {
   --h5-color: rgb(var(--h5-color-rgb));
   background-color: var(--h5-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5772,20 +5783,20 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   caret-color: currentColor;
   -webkit-box-decoration-break: clone;
 }
-.heading-h5-block :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5)::selection {
+.heading-h5-block .app-container :is(.HyperMD-header-5 .cm-header:not(.cm-formatting-header), h5)::selection {
   color: var(--h5-color);
   background-color: var(--background-secondary);
 }
-.heading-h5-block h5 {
+.heading-h5-block .app-container h5 {
   width: fit-content;
   line-height: 1.2;
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h5-size));
 }
 
-.heading-h6-block {
+.heading-h6-block .app-container {
   --h6-color-bg: rgba(var(--h6-color-rgb), 0.15);
 }
-.heading-h6-block.heading-color-accent {
+.heading-h6-block .app-container.heading-color-accent {
   --h6-color-bg: hsla(
     var(--theme-accent-active-h),
     var(--theme-accent-active-s),
@@ -5793,7 +5804,7 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
     0.15
   );
 }
-.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
+.heading-h6-block .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6) {
   --h6-color: rgb(var(--h6-color-rgb));
   background-color: var(--h6-color-bg);
   padding: var(--size-4-1) 0.6rem;
@@ -5801,11 +5812,11 @@ body.line-active-left .cm-active.HyperMD-header-6::before {
   caret-color: currentColor;
   -webkit-box-decoration-break: clone;
 }
-.heading-h6-block :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6)::selection {
+.heading-h6-block .app-container :is(.HyperMD-header-6 .cm-header:not(.cm-formatting-header), h6)::selection {
   color: var(--h6-color);
   background-color: var(--background-secondary);
 }
-.heading-h6-block h6 {
+.heading-h6-block .app-container h6 {
   width: fit-content;
   line-height: 1.2;
   --heading-spacing: calc(var(--h2-line-height) - 1.2 * var(--h6-size));
@@ -6532,6 +6543,11 @@ body:not(.is-phone) :is(.horizontal-tab-nav-item, .vertical-tab-nav-item).is-act
   background-color: var(--nav-item-background-active) !important;
 }
 
+.clickable-icon {
+  transition: var(--animation);
+  transition-property: opacity, background-color;
+}
+
 button.mod-cta {
   transition: filter var(--animation);
   background: linear-gradient(to bottom, transparent -240%, var(--color-accent) 100%);
@@ -6560,36 +6576,32 @@ body:not(.is-phone) .modal-close-button::before {
   translate: -50% -50%;
 }
 
-input {
-  transition-duration: var(--setting-animation-time, 200ms) !important;
-}
-
 .checkbox-container {
-  background-color: var(--color-base-20);
+  background-color: var(--color-base-25);
+}
+.checkbox-container.is-enabled {
+  background: linear-gradient(to bottom, transparent -200%, var(--accent-active) 100%);
+}
+.theme-light .checkbox-container {
+  --toggle-thumb-color: #fafafa;
+}
+.theme-dark .checkbox-container {
+  --toggle-thumb-color: #e0e0e0;
 }
 
 body:not(.is-mobile) {
   --slider-track-background: var(--accent-inactive);
 }
 body:not(.is-mobile).modal-slider input[type=range]:focus {
-  --slider-thumb-ring-factor: 6;
+  --slider-thumb-ring-factor: 5.2;
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb {
   box-shadow: inset 0 0 0 calc(var(--slider-thumb-width) / var(--slider-thumb-ring-factor, 4) * 0.9) var(--color-base-20), inset 0 0 0 calc(var(--slider-thumb-width) / 2) var(--accent-active), var(--input-shadow);
-  transition: box-shadow var(--animation-fast);
+  transition: box-shadow var(--animation);
   border-width: 0;
 }
 body:not(.is-mobile).modal-slider input[type=range]::-webkit-slider-thumb:is(:hover, :active, :focus) {
-  --slider-thumb-ring-factor: 6;
-}
-body:not(.is-mobile) .checkbox-container.is-enabled {
-  background-color: var(--accent-active);
-}
-body:not(.is-mobile).theme-light .checkbox-container {
-  --toggle-thumb-color: #fafafa;
-}
-body:not(.is-mobile).theme-dark .checkbox-container {
-  --toggle-thumb-color: #e0e0e0;
+  --slider-thumb-ring-factor: 5.2;
 }
 body:not(.is-mobile).modal-toggle-square .checkbox-container {
   height: var(--size-4-5);
@@ -6606,7 +6618,7 @@ body:not(.is-mobile).modal-toggle-square .checkbox-container {
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container {
   --toggle-radius: var(--radius-m);
   height: var(--size-4-4);
-  transition: var(--animation-fast);
+  transition: var(--animation);
   border: var(--toggle-border-width) solid var(--text-faint);
 }
 body:not(.is-mobile):is(.modal-toggle-floating, .modal-toggle-thin) .checkbox-container:focus-within {
@@ -6627,14 +6639,14 @@ body:not(.is-mobile).modal-toggle-floating .checkbox-container::after {
   border-radius: calc(var(--toggle-width) / 2);
   border: var(--toggle-border-width) solid var(--text-faint);
   margin: 0;
-  transition: var(--animation-fast);
+  transition: var(--animation);
 }
 :is(body:not(.is-mobile).modal-toggle-floating .checkbox-container:hover, body:not(.is-mobile).modal-toggle-floating .checkbox-container:focus-within)::after {
   bottom: 10%;
 }
 body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled {
   border-color: var(--accent-active);
-  background-color: var(--accent-inactive);
+  background: var(--accent-inactive);
 }
 body:not(.is-mobile).modal-toggle-floating .checkbox-container.is-enabled::after {
   border-color: var(--accent-active);
@@ -6649,7 +6661,7 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container::after {
   border: var(--toggle-border-width) solid var(--text-faint);
   width: 20%;
   margin: 0;
-  transition: var(--animation-fast);
+  transition: var(--animation);
 }
 :is(body:not(.is-mobile).modal-toggle-thin .checkbox-container:hover, body:not(.is-mobile).modal-toggle-thin .checkbox-container:focus-within)::after {
   height: var(--size-4-2);
@@ -6659,7 +6671,7 @@ body:not(.is-mobile).modal-toggle-thin .checkbox-container:active::after {
 }
 body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled {
   border-color: var(--accent-active);
-  background-color: var(--accent-inactive);
+  background: var(--accent-inactive);
 }
 body:not(.is-mobile).modal-toggle-thin .checkbox-container.is-enabled::before {
   background-color: var(--accent-active-bg);
@@ -6685,7 +6697,7 @@ body {
   container-type: inline-size;
 }
 .modal-header:not(.is-mobile) .modal-container .mod-settings::before {
-  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.36");
+  content: var(--setting-modal-header-title, "Maple 1.0.0-beta.39");
   position: absolute;
   left: 50%;
   top: var(--size-4-6);
@@ -6890,11 +6902,11 @@ body.enable-group-title .modal-container .mod-settings .modal-content .vertical-
 }
 
 :is(.menu, .modal-bg, .document-search-container, .suggestion-container) {
-  animation: op var(--animation);
+  animation: op var(--animation-slow);
 }
 
 :is(.prompt, .popover, .modal) {
-  animation: op var(--animation), slide-up var(--animation);
+  animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
 :is(.menu-normal .menu,
@@ -7111,7 +7123,8 @@ body.tab-title-bar-text-small .view-header {
 
 body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container {
   opacity: 0;
-  transition: var(--animation) var(--animation-delay);
+  transition: var(--animation);
+  transition-delay: var(--animation-delay);
 }
 body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-container:hover {
   opacity: 1;
@@ -7119,15 +7132,15 @@ body.tab-title-bar-text-hidden .workspace-leaf-content .view-header-title-contai
 }
 
 /* tab switch animation, reference from https://github.com/hydescarf/Obsidian-Theme-Mado-Miniflow */
-body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) .view-content {
-  animation: op var(--animation), slide-up var(--animation);
+body.tab-slide-up:not(.is-mobile):not(.is-tablet) .workspace-split:not(.is-sidedock-collapsed) .workspace-tabs:not(.mod-stacked) .workspace-leaf-content:not([data-type=undefined]):not([data-type=empty]) :is(.view-content, .nav-files-container) {
+  animation: op var(--animation-slow), slide-up var(--animation-slow);
 }
 
 .workspace-split.mod-sidedock.is-sidedock-collapsed {
-  animation: fade-dock var(--animation);
+  animation: fade-dock var(--animation-slow);
 }
 .workspace-split.mod-sidedock:not(.is-sidedock-collapsed) {
-  animation: op var(--animation);
+  animation: op var(--animation-slow);
 }
 
 .search-result-file-matches {
@@ -7216,7 +7229,7 @@ body.status-bar-style-float.status-bar-scroll .status-bar:hover {
 /* #endregion statusbar */
 /* #region notice, tooltips */
 .tooltip {
-  animation: op var(--animation) !important;
+  animation: op var(--animation-slow) !important;
 }
 
 body.message-tooltip-hide .tooltip {
