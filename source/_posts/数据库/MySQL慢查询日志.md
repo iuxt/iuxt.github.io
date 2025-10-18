@@ -2,12 +2,11 @@
 title: MySQL慢查询日志
 categories:
   - 数据库
-tags:
-  - mysql
-  - MySQL
+tags: [mysql, MySQL]
 abbrlink: d7f12bf0
 cover: 'https://s3.babudiu.com/iuxt/public/MySQL.svg'
 date: 2023-07-20 16:31:08
+updated: 2025-10-18 15:45:14
 ---
 
 慢 SQL 一般都是指慢查询
@@ -61,9 +60,11 @@ long_query_time=5
 
 ### 执行 sql 命令方式
 
+可以实时生效，无须重启 MySQL
+
 ```sql
 SET GLOBAL slow_query_log=ON/OFF;
-SET GLOBAL long_query_time=5;
+SET GLOBAL slow_query_log_file = '/var/log/mysql/slow.log';
 ```
 
 ## 删除慢查询日志
