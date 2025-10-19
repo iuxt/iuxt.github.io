@@ -6,7 +6,7 @@ tags: [Kubernetes, 配置记录, keepalived, HA]
 abbrlink: 67853ccb
 cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2023-06-13 17:53:43
-updated: 2025-07-23 18:41:49
+updated: 2025-10-19 23:00:22
 ---
 
 ## 一些基本信息
@@ -21,13 +21,11 @@ updated: 2025-07-23 18:41:49
 | worker1 | 10.0.0.21 | node 节点   | kubelet、kube-proxy                                                            | containerd                    |
 | worker2 | 10.0.0.22 | node 节点   | kubelet、kube-proxy                                                            | containerd                    |
 
-| 名称                         | IP 地址          | 说明                  |
-| -------------------------- | ------------- | ------------------- |
-| SERVICE_CIDR               | 10.96.0.0/12  |                     |
-| CLUSTER_CIDR / Pod CIDR    | 10.244.0.0/16 | 这个配置需要和网络插件中的配置保持一致 |
+| 名称                           | IP 地址         | 说明                  |
+| ---------------------------- | ------------- | ------------------- |
+| SERVICE_CIDR                 | 10.96.0.0/12  |                     |
+| CLUSTER_CIDR / Pod CIDR      | 10.244.0.0/16 | 这个配置需要和网络插件中的配置保持一致 |
 | 集群 DNS kube-dns 的 Cluster IP | 10.96.0.10    |                     |
-
-本文使用到的所有包，可以在这里下载到：<https://www.123pan.com/s/fjQkjv-MCUJH.html> 提取码:4zyF
 
 ## 服务器基础配置
 
