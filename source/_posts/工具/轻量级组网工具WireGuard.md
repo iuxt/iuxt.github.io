@@ -2,10 +2,12 @@
 title: 轻量级组网工具WireGuard
 categories:
   - 工具
-tags: [网络, VPN]
+tags:
+  - 网络
+  - VPN
 abbrlink: t22j7t
 date: 2025-09-04 22:35:52
-cover: ""
+cover: https://s3.babudiu.com/iuxt/public/wireguard.svg
 updated: 2025-09-05 23:03:45
 ---
 
