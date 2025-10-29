@@ -149,7 +149,7 @@ EOF
 # 查看可用的版本
 yum list kubelet kubeadm kubectl --showduplicates --disableexcludes=kubernetes
 
-sudo yum install -y kubelet-1.32.0 kubeadm-1.32.0 kubectl-1.32.0 --disableexcludes=kubernetes
+sudo yum install -y kubelet-1.32.9 kubeadm-1.32.9 kubectl-1.32.9 --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 ```
 
@@ -235,7 +235,7 @@ configure arguments: --with-stream --without-http --without-http_uwsgi_module --
 
 ```bash
 kubeadm config images pull \
---kubernetes-version 1.32.0 \
+--kubernetes-version 1.32.9 \
 --image-repository registry.aliyuncs.com/google_containers
 ```
 
@@ -246,7 +246,7 @@ kubeadm config images pull \
 ```bash
 sudo kubeadm init \
 --control-plane-endpoint "127.0.0.1:8443" \
---kubernetes-version 1.32.0 \
+--kubernetes-version 1.32.9 \
 --upload-certs \
 --service-cidr=10.96.0.0/12 \
 --pod-network-cidr=10.244.0.0/16
