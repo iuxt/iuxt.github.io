@@ -1,7 +1,7 @@
 ---
-title: 使用kubeadm部署一套高可用k8s集群 for CentOS
+title: 使用kubeadm部署一套高可用k8s集群1.21 for CentOS
 abbrlink: b86d9e9f
-cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
+cover: https://s3.babudiu.com/iuxt/public/Kubeadm.svg
 categories:
   - 容器
 tags:
@@ -12,6 +12,7 @@ tags:
   - Docker
   - kubeadm
 date: 2022-05-07 11:22:50
+updated: 2025-10-29 14:36:46
 ---
 
 > 基于 centos 使用 kubeadm 搭建集群， [ubuntu部署文档](/posts/526ffc9a/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/)

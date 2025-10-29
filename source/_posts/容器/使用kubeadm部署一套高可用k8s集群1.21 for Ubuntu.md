@@ -1,10 +1,17 @@
 ---
-title: 使用kubeadm部署一套高可用k8s集群 for Ubuntu
+title: 使用kubeadm部署一套高可用k8s集群1.21 for Ubuntu
 abbrlink: 526ffc9a
 categories:
   - 容器
-cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
-tags: [Linux, Container, Kubernetes, 配置记录, Docker, keepalived, kubeadm]
+cover: https://s3.babudiu.com/iuxt/public/Kubeadm.svg
+tags:
+  - Linux
+  - Container
+  - Kubernetes
+  - 配置记录
+  - Docker
+  - keepalived
+  - kubeadm
 date: 2021-05-01 17:18:48
 updated: 2025-08-10 19:32:43
 ---
