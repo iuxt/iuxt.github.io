@@ -4,12 +4,9 @@ abbrlink: 10cef768
 cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 categories:
   - 容器
-tags:
-  - Kubernetes
-  - k8s
-  - HA
-  - keepalived
+tags: [Kubernetes, k8s, HA, keepalived]
 date: 2022-03-14 20:50:24
+updated: 2025-11-01 08:52:35
 ---
 
 之前一直用使用的负载方案是搭建一台负载均衡器，可以是 haproxy 或 nginx 或 lvs，来将多个 master 节点的 6443 端口做个负载均衡，但是考虑到负载均衡也需要高可用，所以会引入类似 keepalived 的方案来解决问题。偶然看到了 kubeasz 这个开源项目，宣称解决了 master 高可用问题，部署了一遍发现并没有额外搭建负载均衡器，研究了一下，发现了另一种思路。

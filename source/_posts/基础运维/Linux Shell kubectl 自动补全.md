@@ -1,12 +1,13 @@
 ---
-title: Linux Shell 自动补全
+title: Linux Shell kubectl 自动补全
 abbrlink: 7ce4e1fc
 categories:
   - 基础运维
 tags:
   - kubectl
-cover: 'https://s3.babudiu.com/iuxt/public/bash.svg'
+cover: https://s3.babudiu.com/iuxt/public/bash.svg
 date: 2022-02-27 18:17:43
+updated: 2025-11-01 10:00:36
 ---
 
 一直使用 kubectl 操作 k8s 集群，每次都需要查看 pod 名字、查看 service 名字等，比较麻烦，看了 kubectl 官方就支持 bash 自动补全，所以记录一下。

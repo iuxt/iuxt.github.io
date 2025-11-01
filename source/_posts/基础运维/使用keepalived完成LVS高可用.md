@@ -3,14 +3,9 @@ title: 使用keepalived完成LVS高可用
 abbrlink: 675d47a9
 categories:
   - 基础运维
-tags:
-  - LoadBalance
-  - 配置记录
-  - Network
-  - HA
-  - keepalived
-  - lvs
+tags: [LoadBalance, 配置记录, Network, HA, keepalived, lvs]
 date: 2022-07-29 13:09:47
+updated: 2025-11-01 08:52:11
 ---
 
 > 有了 keepalived 可以不用执行 ipvsadm 了， 并且可以实现自动剔除节点，还可以两台 Director 做高可用。
