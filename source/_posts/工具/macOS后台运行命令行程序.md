@@ -2,11 +2,11 @@
 title: macOS自定义后台运行程序
 categories:
   - 工具
-tags: ['']
+tags: [配置记录, macOS]
 abbrlink: t3e151
-date: 2025-09-30 14:10:12
-cover: ''
-updated: 2025-09-30 15:23:39
+date: 2022-09-30 14:10:12
+cover: ""
+updated: 2025-11-03 22:48:41
 ---
 
 在 macOS 中运行命令行程序，如果你不想开一个终端窗口，并且希望实现开机自启动等等功能，可以使用 macOS 自带的服务管理。这里以 easytier 这个组网工具为例：

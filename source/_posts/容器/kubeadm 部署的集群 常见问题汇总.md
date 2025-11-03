@@ -2,16 +2,11 @@
 title: kubeadm 部署的集群 常见问题汇总
 categories:
   - 容器
-tags:
-  - 配置记录
-  - 常用操作
-  - Kubernetes
-  - 部署
-  - 搭建
-  - kubeadm
+tags: [配置记录, 常用操作, Kubernetes, 部署, 搭建, kubeadm]
 abbrlink: sepu3k
 cover: 'https://s3.babudiu.com/iuxt/public/Kubeadm.svg'
 date: 2024-06-07 23:09:19
+updated: 2025-11-01 10:12:53
 ---
 
 ## 扩容节点
