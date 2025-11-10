@@ -58,6 +58,9 @@ docker.io:
 ### 镜像配置 image.yaml
 
 ```yaml
+# 常用的单个镜像转移
+nginx:latest: registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:latest
+
 quay.io/coreos/kube-rbac-proxy: quay.io/ruohe/kube-rbac-proxy
 quay.io/coreos/kube-rbac-proxy:v1.0: quay.io/ruohe/kube-rbac-proxy
 quay.io/coreos/kube-rbac-proxy:v1.0,v2.0: quay.io/ruohe/kube-rbac-proxy
