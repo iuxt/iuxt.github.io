@@ -4,11 +4,10 @@ abbrlink: ee708f6b
 description: Elasticsearch常用API操作，比如通过api进行查看索引、删除索引、增加用户、修改密码等。
 categories:
   - 日志
-tags:
-  - Elasticsearch
-  - log
+tags: [Elasticsearch, log]
 cover: 'https://s3.babudiu.com/iuxt/public/elasticsearch.svg'
 date: 2022-04-25 10:26:56
+updated: 2025-11-10 15:25:38
 ---
 
 如果有 Kibana 的话，以下所有操作都可以在 Kibana 的 DevTools 页面进行调试，可以免去认证操作。
@@ -28,6 +27,8 @@ date: 2022-04-25 10:26:56
 
 ## 索引
 
+### 查看、创建、删除
+
 ```bash
 # 查看有哪些索引
 curl -u elastic:password localhost:9200/_cat/indices
@@ -40,6 +41,19 @@ curl -u elastic:password -s -XDELETE 10.0.0.127:9200/索引名字
 ```
 
 > 索引名字可以通过查看索引接口查看
+
+### 排序
+
+```bash
+# 按索引名称反向排序
+curl "localhost:9200/_cat/indices?v&s=index:desc"
+
+# 按索引文档数量正向排序
+curl "localhost:9200/_cat/indices?v&s=docs.count"
+
+# 按索引大小反向排序
+curl "localhost:9200/_cat/indices?v&s=store.size:desc"
+```
 
 ## 修改密码
 
@@ -115,4 +129,35 @@ curl -X PUT localhost:9200/_cluster/settings -H "Content-Type: application/json"
 
 # 查看未分配的分片数
 curl -XGET http://localhost:9200/_cluster/health\?pretty | grep unassigned_shards
+```
+
+### 修改索引配置
+
+```bash
+# 修改指定索引的设置
+PUT pod-logs-*/_settings
+{
+  "index": {
+    "number_of_replicas": 0
+  }
+}
+
+# 修改所有索引的设置
+PUT _all/_settings
+{
+  "index.number_of_replicas": 0
+}
+
+# 修改es默认新索引的配置
+PUT _index_template/global_default
+{
+  "index_patterns": ["*"],
+  "priority": 1,
+  "template": {
+    "settings": {
+      "number_of_replicas": 0,
+      "number_of_shards": 1
+    }
+  }
+}
 ```
