@@ -2,12 +2,10 @@
 title: 使用image-syncer来实现容器镜像同步
 categories:
   - 容器
-tags:
-  - 镜像
-  - 同步
-  - 容器
+tags: [镜像, 同步, 容器]
 abbrlink: le5lzctq
 date: 2023-02-15 19:47:31
+updated: 2025-11-10 19:05:50
 ---
 
 `image-syncer` 是一个 docker 镜像同步工具，可用来进行多对多的镜像仓库同步，支持目前绝大多数主流的 docker 镜像仓库服务
@@ -40,21 +38,16 @@ go build main.go
 
 由于我们需求是进行单镜像同步，所以用不到 image-syncer 的仓库同步功能，仓库同步配置注释在了配置文件中。
 
-### 账号密码配置： auth.json
+### 账号密码配置： auth.yaml
 
-```json
-{
-    "registry.cn-hangzhou.aliyuncs.com": {
-        "username": "dk",
-        "password": "xxxxxxxx",
-        "insecure": true
-    },
-    "registry.k8s.io": {
-        "username": "admin",
-        "password": "xxxxxxxx",
-        "insecure": false
-    }
-}
+```yaml
+registry.cn-hangzhou.aliyuncs.com:
+  username: <username>
+  password: <password>
+docker.io:
+  username: <username>
+  password: <password>
+  insecure: true
 ```
 
 - 仓库名支持 "registry" 和 "registry/namespace"（v1.0.3 之后的版本） 的形式，需要跟下面 images 中的 registry(registry/namespace) 对应 ,images 中被匹配到的的 url 会使用对应账号密码进行镜像同步, 优先匹配 "registry/namespace" 的形式
@@ -62,12 +55,17 @@ go build main.go
 - "password": "xxxxxxxxx", // 密码，可选，（v1.3.1 之后支持）valuse 使用 "${env}" 或者 "$env" 类型的字符串可以引用环境变量
 - "insecure": true // registry 是否是 http 服务，如果是，insecure 字段需要为 true，默认是 false，可选，支持这个选项需要 image-syncer 版本 > v1.0.1
 
-### 镜像配置 image.json
+### 镜像配置 image.yaml
 
-```json
-{
-"registry.k8s.io/pause:3.9":"registry.cn-hangzhou.aliyuncs.com/iuxt/pause"
-}
+```yaml
+quay.io/coreos/kube-rbac-proxy: quay.io/ruohe/kube-rbac-proxy
+quay.io/coreos/kube-rbac-proxy:v1.0: quay.io/ruohe/kube-rbac-proxy
+quay.io/coreos/kube-rbac-proxy:v1.0,v2.0: quay.io/ruohe/kube-rbac-proxy
+quay.io/coreos/kube-rbac-proxy@sha256:14b267eb38aa85fd12d0e168fffa2d8a6187ac53a14a0212b0d4fce8d729598c: quay.io/ruohe/kube-rbac-proxy
+quay.io/coreos/kube-rbac-proxy:v1.1:
+  - quay.io/ruohe/kube-rbac-proxy1
+  - quay.io/ruohe/kube-rbac-proxy2
+quay.io/coreos/kube-rbac-proxy:/a+/: quay.io/ruohe/kube-rbac-proxy
 ```
 
 ```txt
@@ -91,5 +89,5 @@ go build main.go
 ### 同步命令
 
 ```bat
-image-syncer.exe --proc=6 --auth=auth.json --images=image.json --retries=3
+image-syncer.exe --proc=6 --auth=auth.yaml --images=image.yaml --retries=3
 ```
