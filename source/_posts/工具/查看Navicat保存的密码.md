@@ -218,4 +218,4 @@ done
 
 脚本会读取 `connections.ncx` 文件，并按照格式将内容输出：
 
-![image.png](https://s3.babudiu.com/iuxt/images/202407041658550.png)
+![image.png|418](https://s3.babudiu.com/iuxt/images/202407041658550.png)
