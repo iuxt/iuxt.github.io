@@ -47,7 +47,8 @@ crpy push nginx_1.29.tar.gz registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29
 
 ## crane 的使用
 
-这个工具是 Golang 写的，支持 Windows，单文件直接运行，比较方便。
+这个工具是 Golang 写的，支持 Windows，单文件直接运行，比较方便，支持指定架构。
+
 <https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md>
 
 ### 安装
@@ -65,7 +66,8 @@ crane auth login registry.cn-hangzhou.aliyuncs.com -u <username> -p <password>
 ### 拉取镜像
 
 ```bash
-crane pull nginx:1.27 nginx_1.27.tar
+# --platform linux/arm64 可以指定拉取特定架构的镜像
+crane pull --platform linux/arm64 nginx:1.27 nginx_1.27.tar
 ```
 
 ### 推送镜像
