@@ -103,6 +103,15 @@ PUT ingress-2024.12.01/_settings
     "lifecycle.name": "ingress-log-retention-policy"
   }
 }
+
+# 也可以批量进行索引修改
+PUT pod-logs-*/_settings
+{
+  "index": {
+    "number_of_replicas": 0,
+    "lifecycle.name": "pod-log-retention-policy"
+  }
+}
 ```
 
 ## 对于 logstash
