@@ -45,7 +45,7 @@ brew install git-lfs
 git lfs install
 
 # 安装常用软件
-brew install stats clash-verge-rev keepassxc iterm2 orbstack iina squirrel visual-studio-code orbstack obsidian rustdesk lrzsz trzsz-ssh typora piclist keka python@3.12 mysql-client balenaetcher pixpin uninstallpkg karabiner-elements
+brew install stats clash-verge-rev keepassxc iterm2 iina squirrel visual-studio-code orbstack obsidian rustdesk lrzsz trzsz-ssh typora piclist keka python@3.12 mysql-client balenaetcher pixpin uninstallpkg karabiner-elements
 ```
 
 ### 进程管理
@@ -444,26 +444,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$(brew --prefix zlib)/lib/pkgconfig"
 
 ### 安装 mysqlclient
 
-`pip install mysqlclient` 报错，需要先安装依赖包 `brew install mysql-client` 然后配置环境变量, 添加以下 3 行到 `.zshrc`
-
-```bash
-export PATH="$(brew --prefix mysql-client)/bin:$PATH"
-export LDFLAGS="$LDFLAGS -L$(brew --prefix mysql-client)/lib"
-export CPPFLAGS="$CPPFLAGS -I$(brew --prefix mysql-client)/include"
-```
-
-如果报错 `ld: library 'ssl' not found` ，需要安装 openssl `brew install openssl` 环境变量需要增加：
-
-```bash
-export LDFLAGS="$LDFLAGS -L$(brew --prefix openssl)/lib"
-export CPPFLAGS="$CPPFLAGS -I$(brew --prefix openssl)/include"
-```
-
-如果报错 `ld: library 'zstd' not found`， 需要安装 zstd `brew install zstd` 环境变量需要增加：
-
-```bash
-export LDFLAGS="$LDFLAGS -L$(brew --prefix zstd)/lib"
-```
+[[Django配置MySQL数据库支持]]
 
 ### 使用 pkg-config 查找参数
 
