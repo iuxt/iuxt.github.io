@@ -3,89 +3,106 @@ title: 使用s6-Overlay来管理多进程容器
 abbrlink: ea811085
 categories:
   - 容器
-tags:
-  - Container
-  - Crontab
+tags: [Container, Crontab]
 date: 2021-12-30 18:21:43
+updated: 2025-12-04 11:13:12
 ---
 
 容器使用最佳实践是：一个容器运行一个进程，进程退出容器也就退出，很优雅是不是？但是...在日常工作中总有一些你懂的的原因，就需要多个进程塞在一个容器里面，那么我们可以怎么来管理容器内进程呢？这个时候容器内的进程管理工具就派上用场了。s6-Overlay 就是其中之一
 s6-Overlay 官方 github 地址：<https://github.com/just-containers/s6-overlay>
 
+v2 和 v3 有配置区别，这里以 v3 版本为例。
+
 ## 安装
 
 容器是通过判断 pid=1 的进程来判断容器是否工作正常的，也就是说 s6-Overlay 进程 pid 为 1
 
-通过官方安装脚本来安装
+通过官方安装脚本来安装， 在 Dockerfile 里加上这些配置：
+
+> 需要安装 xz 解压缩工具，不然 docker build 的时候会报错。
 
 ```dockerfile
-FROM ubuntu
-ADD https://github.com/just-containers/s6-overlay/releases/download/v2.2.0.1/s6-overlay-amd64-installer /tmp/
-RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer /
-RUN apt-get update && \
-    apt-get install -y nginx && \
-    echo "daemon off;" >> /etc/nginx/nginx.conf
+ARG S6_OVERLAY_VERSION=3.2.1.0
+
+RUN apt-get update && apt-get install -y xz-utils
+
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
+ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp
+RUN tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
+
 ENTRYPOINT ["/init"]
-CMD ["nginx"]
 ```
 
-这样即可生效，当 nginx 挂掉的时候，容器一样会退出的。
-
-## 配置服务
-
-首先主服务，可以这么理解，这个服务挂掉了，整个容器就没有存在的意义了，这个服务应该写在 CMD 里面，这样遵循容器规范。
-
-辅助服务，应该放在/etc/service.d/里面，以项目名做区分。
-
-文件结构如下：
+## 目录结构
 
 ```tree
-root@2ae83d42ee34:/etc/services.d# tree
-.
-|-- testapp
-|   |-- finish
-|   `-- run
-`-- testapp2
-    |-- finish
-    `-- run
+/etc/
+   └──s6-overlay/
+       └──s6-rc.d/                 # 新版服务管理目录
+           |-- app1/               # 用户定义的服务应用1
+           |   |-- dependencies.d/ # 服务依赖目录
+           |   |   └── init        # 空文件，表示依赖 init
+           |   |-- log
+           |   |   └── run         # 收集控制台日志的配置
+           |   |-- finish          # 服务结束脚本（可选）
+           |   |-- run             # 服务启动脚本
+           |   └── type            # 服务类型 longrun
+           |-- app2/               # 用户定义的服务应用2
+           |   |-- dependencies.d/
+           |   |   └── init        # 空文件
+           |   |-- finish          # 服务结束脚本（可选）
+           |   |-- run             # 服务启动脚本
+           |   └── type            # 服务类型 longrun
+           |-- init/               # 用户定义的服务3，用于容器初始化
+           |   |-- type            # 服务类型 oneshot
+           |   └── up              # 初始化脚本
+           └── user/               # 用户服务集
+               └── contents.d/
+                   |-- app1        # 空文件，表示 app1 属于 user bundle
+                   |-- app2        # 空文件
+                   └── init        # 空文件
 ```
 
 其中 run 和 finish 都是可执行文件（bash 或 python 或二进制等），容器启动会运行 run 程序，如果 run 意外退出则会运行 finish，并且会被自动拉起。整个过程容器不会退出。
 
-### 举个栗子
+type 文件的内容可以是 `oneshot` (执行一次就退出) 或 `longrun` （长期前台运行）
+
+run 文件里面运行程序，需要加上 `exec `
+
+## 举个栗子
 
 - 容器里面运行 crontab
 
-一般的容器镜像都没有 crontab，首先安装 crontab
-
 ```bash
-yum install crontabs
+apt-get install -y cron
 ```
 
-然后容器里面编写服务启动脚本 run
+然后容器里面编写服务启动脚本 run， 前面加上 `exec` ，`-f` 参数让 cron 前台运行。
 
 ```bash
 #!/bin/bash
-crond -f
+exec cron -f
 ```
 
-服务结束脚本 finish
+服务结束脚本 finish， 用于清理日志等善后操作。
 
 ```bash
 #!/bin/bash
+rm -f /var/log/xxx.log
 exit 0
 ```
 
 这样就可以在容器里面运行 crontab 了
 
-## 其他
+init 里面可以执行一些初始化操作，比如创建目录，修改文件权限等。
 
-瞎扯一句，如果有一个程序不提供前台运行的选项，只能后台运行，那么在容器中也可以这么做
+收集控制台日志：
 
-写一个 `entrypoint.sh`
+`logs/run` 文件内容为：
 
 ```bash
-/usr/sbin/sshd && /bin/bash
+#!/bin/sh
+# 将这个程序的控制台日志按照规则存储在 /var/log/nginx 目录下。
+exec logutil-service /var/log/nginx
 ```
-
-容器的 CMD 执行 `entrypoint.sh` 即可不退出，但是问题是 sshd 退出了容器也不会退出。
