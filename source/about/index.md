@@ -166,7 +166,6 @@ top_img: 'https://s3.babudiu.com/iuxt/public/duck_hunt.png'
 
 |<i class="fa-solid fa-user"></i>|<i class="fa-solid fa-star"></i>|
 |---|---|
-|<i class="fa-brands fa-qq"></i> QQ|393991732|
 |<i class="fa-brands fa-weixin"></i> 微信|keepassxc|
 |<i class="fa-solid fa-envelope"></i> 邮箱|[x@zahui.fan](mailto:x@zahui.fan)  |
 
@@ -177,10 +176,10 @@ top_img: 'https://s3.babudiu.com/iuxt/public/duck_hunt.png'
 
 本站是静态博客, 框架为[hexo](https://hexo.io), 主题为[butterfly](https://butterfly.js.org/)  
 静态文件部署在 `GitHub Pages` 上, 采用 `GitHub Actions` 自动构建  
-使用又拍云CDN加速, 图床使用又拍云存储  
-本地编辑器为Obsidian, Obsidian插件使用到了Obsidian-git(用于提交git)和templater(用于生成frontmatter), 本地编辑不依赖hexo  
-头像是`FC`游戏《duck hunt》里面的贱狗  
+使用腾讯云`Edge One`加速, 图床使用自建S3存储  
+本地编辑器为Obsidian, Obsidian插件使用到了Obsidian-git和templater  
+头像是`FC`游戏《打鸭子》里面的贱狗  
 favicon是`FC`游戏 《炸弹人》里面的主角  
 本站很多图标用的都是svg, 一个很好的svg生成网站: <https://cn.pattern.monster/>  
 加载动画和背景一部分取自网站：<https://loading.io/pattern/>
-像素画绘画工具: Aseprite 使用到的svg编辑器: Inkscape  VSCode  
+像素画绘画工具: `Aseprite` 使用到的svg编辑器: `Inkscape`  `VSCode`  
