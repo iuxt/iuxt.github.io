@@ -18,9 +18,9 @@ updated: 2025-07-23 18:42:42
 ```bash
 [ -d /data/src ] || mkdir -p /data/src
 cd /data/src/
-curl -OL -C - https://s3.babudiu.com/src/linux/tar/node_exporter-1.6.1.linux-amd64.tar.gz
-tar xf node_exporter-1.6.1.linux-amd64.tar.gz
-ln -sf /data/src/node_exporter-1.6.1.linux-amd64 ../node_exporter
+curl -OL -C - https://s3.babudiu.com/src/linux/tar/node_exporter-1.10.2.linux-amd64.tar.gz
+tar xf node_exporter-1.10.2.linux-amd64.tar.gz
+ln -sf /data/src/node_exporter-1.10.2.linux-amd64 ../node_exporter
 
 cat >/etc/systemd/system/node_exporter.service <<EOF
 [Unit]
