@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>容器调试工具之BusyBox | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="很早之前我在上学的时候给安卓手机刷机，root 后还可以安装了个号称 Linux 瑞士军刀的 App，不过没搞懂有什么用，不过记住了这个难忘的名字 – BusyBox BusyBox 是什么BusyBox 是一款超轻量级的 Linux 工具集，也被称为 “Linux 瑞士军刀”—— 它把数百个常用的 Linux 命令（如 ls、cat、ps、telnet、unzip 等）打包进一个单一的可执行文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="容器调试工具之BusyBox">
+<meta property="og:url" content="https://zahui.fan/posts/t79irt/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="很早之前我在上学的时候给安卓手机刷机，root 后还可以安装了个号称 Linux 瑞士军刀的 App，不过没搞懂有什么用，不过记住了这个难忘的名字 – BusyBox BusyBox 是什么BusyBox 是一款超轻量级的 Linux 工具集，也被称为 “Linux 瑞士军刀”—— 它把数百个常用的 Linux 命令（如 ls、cat、ps、telnet、unzip 等）打包进一个单一的可执行文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg">
+<meta property="article:published_time" content="2025-12-14T13:57:28.000Z">
+<meta property="article:modified_time" content="2025-12-14T14:44:56.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="容器">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="busybox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "容器调试工具之BusyBox",
+  "url": "https://zahui.fan/posts/t79irt/",
+  "image": "https://s3.babudiu.com/iuxt/public/skeleton1.svg",
+  "datePublished": "2025-12-14T13:57:28.000Z",
+  "dateModified": "2025-12-14T14:44:56.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张理坤",
+      "url": "https://zahui.fan/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/t79irt/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '容器调试工具之BusyBox',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://s3.babudiu.com/iuxt/libs/lxgw-wenkai-screen-webfont/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">373</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://s3.babudiu.com/iuxt/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://s3.babudiu.com/iuxt/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">容器调试工具之BusyBox</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">容器调试工具之BusyBox</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-14T13:57:28.000Z" title="发表于 2025-12-14 21:57:28">2025-12-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-14T14:44:56.000Z" title="更新于 2025-12-14 22:44:56">2025-12-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%B9%E5%99%A8/">容器</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;此文章距离发布已经&quot;,&quot;messageNext&quot;:&quot;天了，内容可能已经过时，请自行判断是否可用或联系博主更新。&quot;,&quot;postUpdate&quot;:&quot;2025-12-14 22:44:56&quot;}" hidden></div><p>很早之前我在上学的时候给安卓手机刷机，root 后还可以安装了个号称 Linux 瑞士军刀的 App，不过没搞懂有什么用，不过记住了这个难忘的名字 – BusyBox</p>
+<h2 id="BusyBox-是什么"><a href="#BusyBox-是什么" class="headerlink" title="BusyBox 是什么"></a>BusyBox 是什么</h2><p>BusyBox 是一款超轻量级的 Linux 工具集，也被称为 “Linux 瑞士军刀”—— 它把数百个常用的 Linux 命令（如 ls、cat、ps、telnet、unzip 等）打包进一个单一的可执行文件，体积仅 1-2MB，且支持静态编译，是嵌入式 Linux、精简系统、应急运维场景的 “神器”。</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p>官方编译好的可执行文件：<a target="_blank" rel="noopener external nofollow noreferrer" href="https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/">https://busybox.net/downloads/binaries/1.35.0-x86_64-linux-musl/</a>， 可以下载主文件 <code>busybox</code>，也可以下载单个命令使用。</p>
+<h2 id="BusyBox-使用方法"><a href="#BusyBox-使用方法" class="headerlink" title="BusyBox 使用方法"></a>BusyBox 使用方法</h2><h3 id="包含的命令"><a href="#包含的命令" class="headerlink" title="包含的命令"></a>包含的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">BusyBox v1.35.0 (2022-01-17 19:57:02 CET) multi-call binary.</span><br><span class="line">BusyBox is copyrighted by many authors between 1998-2015.</span><br><span class="line">Licensed under GPLv2. See <span class="built_in">source</span> distribution <span class="keyword">for</span> detailed</span><br><span class="line">copyright notices.</span><br><span class="line"></span><br><span class="line">Usage: busybox [<span class="keyword">function</span> [arguments]...]</span><br><span class="line">   or: busybox --list[-full]</span><br><span class="line">   or: busybox --show SCRIPT</span><br><span class="line">   or: busybox --install [-s] [DIR]</span><br><span class="line">   or: <span class="keyword">function</span> [arguments]...</span><br><span class="line"></span><br><span class="line">	BusyBox is a multi-call binary that combines many common Unix</span><br><span class="line">	utilities into a single executable.  Most people will create a</span><br><span class="line">	<span class="built_in">link</span> to busybox <span class="keyword">for</span> each <span class="keyword">function</span> they wish to use and BusyBox</span><br><span class="line">	will act like whatever it was invoked as.</span><br><span class="line"></span><br><span class="line">Currently defined <span class="built_in">functions</span>:</span><br><span class="line">	[, [[, acpid, add-shell, addgroup, adduser, adjtimex, ar, <span class="built_in">arch</span>, arp, arping, ascii, ash, awk, <span class="built_in">base32</span>, <span class="built_in">base64</span>, <span class="built_in">basename</span>, bc, blkdiscard, blkid, blockdev, bootchartd,</span><br><span class="line">	brctl, bunzip2, bzcat, bzip2, cal, <span class="built_in">cat</span>, chat, chattr, <span class="built_in">chgrp</span>, <span class="built_in">chmod</span>, <span class="built_in">chown</span>, chpasswd, chpst, <span class="built_in">chroot</span>, chrt, chvt, <span class="built_in">cksum</span>, clear, cmp, <span class="built_in">comm</span>, conspy, <span class="built_in">cp</span>, cpio, crc32, crond,</span><br><span class="line">	crontab, cryptpw, cttyhack, <span class="built_in">cut</span>, <span class="built_in">date</span>, dc, <span class="built_in">dd</span>, deallocvt, delgroup, deluser, depmod, devmem, <span class="built_in">df</span>, dhcprelay, diff, <span class="built_in">dirname</span>, dmesg, dnsd, dnsdomainname, dos2unix, dpkg,</span><br><span class="line">	dpkg-deb, <span class="built_in">du</span>, dumpkmap, dumpleases, <span class="built_in">echo</span>, ed, egrep, eject, <span class="built_in">env</span>, envdir, envuidgid, <span class="built_in">expand</span>, <span class="built_in">expr</span>, <span class="built_in">factor</span>, fakeidentd, fallocate, <span class="literal">false</span>, fatattr, fbset, fbsplash,</span><br><span class="line">	fdflush, fdformat, fdisk, fgconsole, fgrep, find, findfs, flash_eraseall, flash_lock, flash_unlock, flashcp, flock, <span class="built_in">fold</span>, free, freeramdisk, fsck, fsck.minix, fsfreeze,</span><br><span class="line">	fstrim, fsync, ftpd, ftpget, ftpput, fuser, getopt, getty, grep, <span class="built_in">groups</span>, gunzip, gzip, halt, hd, hdparm, <span class="built_in">head</span>, hexdump, hexedit, <span class="built_in">hostid</span>, hostname, httpd, hush, hwclock,</span><br><span class="line">	i2cdump, i2cget, i2cset, i2ctransfer, <span class="built_in">id</span>, ifconfig, ifenslave, ifplugd, inetd, init, inotifyd, insmod, install, ionice, iostat, ip, ipaddr, ipcalc, ipcrm, ipcs, iplink,</span><br><span class="line">	ipneigh, iproute, iprule, iptunnel, kbd_mode, <span class="built_in">kill</span>, killall, killall5, klogd, last, less, <span class="built_in">link</span>, linux32, linux64, linuxrc, <span class="built_in">ln</span>, loadfont, loadkmap, logger, login,</span><br><span class="line">	<span class="built_in">logname</span>, losetup, lpd, lpq, lpr, <span class="built_in">ls</span>, lsattr, lsmod, lsof, lspci, lsscsi, lsusb, lzcat, lzma, lzop, lzopcat, makedevs, makemime, man, <span class="built_in">md5sum</span>, mdev, mesg, microcom, mim,</span><br><span class="line">	<span class="built_in">mkdir</span>, mkdosfs, mke2fs, <span class="built_in">mkfifo</span>, mkfs.ext2, mkfs.minix, mkfs.reiser, mkfs.vfat, <span class="built_in">mknod</span>, mkpasswd, mkswap, <span class="built_in">mktemp</span>, modinfo, modprobe, more, mount, mountpoint, mpstat, mt,</span><br><span class="line">	<span class="built_in">mv</span>, nameif, nbd-client, nc, netstat, <span class="built_in">nice</span>, <span class="built_in">nl</span>, nmeter, <span class="built_in">nohup</span>, nologin, <span class="built_in">nproc</span>, nsenter, nslookup, ntpd, nuke, <span class="built_in">od</span>, openvt, partprobe, passwd, <span class="built_in">paste</span>, patch, pgrep, pidof,</span><br><span class="line">	ping, ping6, pipe_progress, pivot_root, pkill, pmap, popmaildir, poweroff, powertop, <span class="built_in">printenv</span>, <span class="built_in">printf</span>, ps, pscan, pstree, <span class="built_in">pwd</span>, pwdx, raidautorun, rdate, rdev, <span class="built_in">readlink</span>,</span><br><span class="line">	readprofile, <span class="built_in">realpath</span>, reboot, reformime, remove-shell, renice, reset, resize, resume, rev, <span class="built_in">rm</span>, <span class="built_in">rmdir</span>, rmmod, route, rpm, rpm2cpio, rtcwake, run-init, run-parts,</span><br><span class="line">	runlevel, runsv, runsvdir, rx, script, scriptreplay, sed, sendmail, <span class="built_in">seq</span>, setarch, setconsole, setfattr, setfont, setkeycodes, setlogcons, setpriv, setserial, setsid,</span><br><span class="line">	setuidgid, sh, <span class="built_in">sha1sum</span>, <span class="built_in">sha256sum</span>, sha3sum, <span class="built_in">sha512sum</span>, showkey, <span class="built_in">shred</span>, <span class="built_in">shuf</span>, slattach, <span class="built_in">sleep</span>, smemcap, softlimit, <span class="built_in">sort</span>, <span class="built_in">split</span>, ssl_client, start-stop-daemon, <span class="built_in">stat</span>,</span><br><span class="line">	strings, <span class="built_in">stty</span>, su, sulogin, <span class="built_in">sum</span>, sv, svc, svlogd, svok, swapoff, swapon, switch_root, <span class="built_in">sync</span>, sysctl, syslogd, <span class="built_in">tac</span>, <span class="built_in">tail</span>, tar, taskset, tc, tcpsvd, <span class="built_in">tee</span>, telnet, telnetd,</span><br><span class="line">	<span class="built_in">test</span>, tftp, tftpd, time, <span class="built_in">timeout</span>, top, <span class="built_in">touch</span>, <span class="built_in">tr</span>, traceroute, traceroute6, <span class="literal">true</span>, <span class="built_in">truncate</span>, ts, <span class="built_in">tty</span>, ttysize, tunctl, tune2fs, ubiattach, ubidetach, ubimkvol, ubirename,</span><br><span class="line">	ubirmvol, ubirsvol, ubiupdatevol, udhcpc, udhcpc6, udhcpd, udpsvd, uevent, umount, <span class="built_in">uname</span>, uncompress, <span class="built_in">unexpand</span>, <span class="built_in">uniq</span>, unix2dos, <span class="built_in">unlink</span>, unlzma, unlzop, unshare, unxz,</span><br><span class="line">	unzip, <span class="built_in">uptime</span>, <span class="built_in">users</span>, usleep, uudecode, uuencode, vconfig, vi, vlock, volname, w, wall, watch, watchdog, <span class="built_in">wc</span>, wget, <span class="built_in">which</span>, <span class="built_in">who</span>, <span class="built_in">whoami</span>, whois, xargs, xxd, xz, xzcat, <span class="built_in">yes</span>,</span><br><span class="line">	zcat, zcip</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><h4 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># zip 解压 jar 包</span></span><br><span class="line">./busybox unzip app.jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># ps查看进程</span></span><br><span class="line">./busybox ps aux</span><br><span class="line"></span><br><span class="line"><span class="comment"># df查看磁盘</span></span><br><span class="line">./busybox <span class="built_in">df</span> -h</span><br><span class="line"></span><br><span class="line"><span class="comment"># ping测试网络</span></span><br><span class="line">./busybox ping -c 4 baidu.com</span><br></pre></td></tr></table></figure>
+
+<h4 id="简化使用"><a href="#简化使用" class="headerlink" title="简化使用"></a>简化使用</h4><p>如果想像原生命令一样直接用 busybox 自带的命令，可创建软链接：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s busybox ps</span><br><span class="line"><span class="built_in">ln</span> -s busybox <span class="built_in">df</span></span><br><span class="line"><span class="built_in">ln</span> -s busybox /usr/local/bin/ping</span><br><span class="line"></span><br><span class="line"><span class="comment"># 之后直接调用</span></span><br><span class="line">./ps aux</span><br><span class="line">./df -h</span><br><span class="line">ping baidu.com</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/t79irt/">https://zahui.fan/posts/t79irt/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AE%B9%E5%99%A8/">容器</a><a class="post-meta__tags" href="/tags/%E8%AE%B0%E5%BD%95/">记录</a><a class="post-meta__tags" href="/tags/busybox/">busybox</a></div><div class="post-share"><div class="social-share" data-image="https://s3.babudiu.com/iuxt/public/skeleton1.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/t5tiax/" title="无Docker环境进行容器镜像操作"><img class="cover" src="https://s3.babudiu.com/iuxt/public/Docker.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">无Docker环境进行容器镜像操作</div></div><div class="info-2"><div class="info-item-1">找了有两个开源项目比较不错，都可以完成镜像的迁移。 crpy 的使用crpy 使用 python 开发，有本地缓存，拉取和推送镜像速度比较快。使用体验比较接近 docker。开源地址： https://github.com/bvanelli/crpy 安装12# 也可以安装到虚拟环境pip install crpy  认证1crpy login registry.cn-hangzhou.aliyuncs.com -u &lt;username&gt; -p &lt;password&gt;  认证信息存储在：~/.crpy/config.json 拉取镜像1crpy pull nginx:1.29 nginx_1.29.tar.gz  缓存数据存储在：~/.crpy/blobs 推送镜像1crpy push nginx_1.29.tar.gz registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29  crane 的使用这个工具是 Golang 写的，支持...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/8b932a1b/" title="harbor接入外部trivy镜像漏洞扫描"><img class="cover" src="https://s3.babudiu.com/iuxt/images/202305181012814.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">harbor接入外部trivy镜像漏洞扫描</div></div><div class="info-2"><div class="info-item-1">harbor 接入 trivy 漏洞扫描, 用到的开源工具 harbor-scanner-trivy 安装需要依赖 Redis, 先安装 Redis 安装 trivytrivy 是扫描核心组件， 需要安装，参考 trivy 官网安装文档 https://aquasecurity.github.io/trivy/v0.41/getting-started/installation/ 12345678910RELEASE_VERSION=$(grep -Po &#x27;(?&lt;=VERSION_ID=&quot;)[0-9]&#x27; /etc/os-release)cat &lt;&lt; EOF | sudo tee -a /etc/yum.repos.d/trivy.repo[trivy]name=Trivy...</div></div></div></a><a class="pagination-related" href="/posts/lt41mupw/" title="通过docker容器查看run命令"><img class="cover" src="https://s3.babudiu.com/iuxt/images/202412031037042.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">通过docker容器查看run命令</div></div><div class="info-2"><div class="info-item-1">公司有一台服务器上运行着一个服务，通过 docker start 启动，已经没有文档记录如何搭建的了。现在需要迁移，记录一下获取 docker run 命令的方法 通过模版处理 docker inspect 的数据来获取使用 runlike 来获取模版文件来自https://gist.githubusercontent.com/efrecon/8ce9c75d518b6eb863f667442d7bc679/raw/run.tpl 假设容器名是 mysql， 命令后面可以跟容器名或者容器...</div></div></div></a><a class="pagination-related" href="/posts/swpjjc/" title="PHP应用容器化遇到的一些问题"><img class="cover" src="https://s3.babudiu.com/iuxt/images/20250528184612107.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-05-28</div><div class="info-item-2">PHP应用容器化遇到的一些问题</div></div><div class="info-2"><div class="info-item-1">这里以 WordPress 为例，我们不用官方的镜像，而是用 php 镜像 php 官方有个自带 apache 的版本，如：php:8.1.32-apache， 建议用这个版本，这个版本不用考虑 Nginx 和 php 的文件共享问题，启动容器： 1234docker run --rm -d --name php-test \	-v ./app:/var/www/html \	-p 8080:80 \php:8.1.32-apache  自定义 php 配置文件比如调整 PHP 上传文件大小限制 docker run 的时候挂载 php.ini 123docker run ... \	-v ./php.ini:/usr/local/etc/php/conf.d/php.ini \...  php.ini 增加 1upload_max_filesize = 1024M  安装 Core 扩展这个时候说明 php 正常工作了，但是缺扩展。 123FROM php:8.1.32-apacheRUN docker-php-ext-configure mysqli...</div></div></div></a><a class="pagination-related" href="/posts/le5lzctq/" title="使用image-syncer来实现容器镜像同步"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-11-10</div><div class="info-item-2">使用image-syncer来实现容器镜像同步</div></div><div class="info-2"><div class="info-item-1">image-syncer 是一个 docker 镜像同步工具，可用来进行多对多的镜像仓库同步，支持目前绝大多数主流的 docker 镜像仓库服务  支持多对多镜像仓库同步 支持基于 Docker Registry V2 搭建的 docker 镜像仓库服务 (如 Docker Hub、 Quay、 阿里云镜像服务 ACR、 Harbor 等) 同步只经过内存和网络，不依赖磁盘存储，同步速度快 增量同步, 通过对同步过的镜像 blob 信息落盘，不重复同步已同步的镜像 并发同步，可以通过配置文件调整并发数 自动重试失败的同步任务，可以解决大部分镜像同步中的网络抖动问题 不依赖 docker 以及其他程序  image-syncer 的官方地址是：https://github.com/AliyunContainerService/image-syncer, 是 golang 开发的， 官方没有给打包成 windows 版， 所以 windows 和 mac 用户需要自己编译一下。 编译安装 golang 环境略 开始构建1go build main.go  会在当前目录下生成...</div></div></div></a><a class="pagination-related" href="/posts/t5tiax/" title="无Docker环境进行容器镜像操作"><img class="cover" src="https://s3.babudiu.com/iuxt/public/Docker.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-11-16</div><div class="info-item-2">无Docker环境进行容器镜像操作</div></div><div class="info-2"><div class="info-item-1">找了有两个开源项目比较不错，都可以完成镜像的迁移。 crpy 的使用crpy 使用 python 开发，有本地缓存，拉取和推送镜像速度比较快。使用体验比较接近 docker。开源地址： https://github.com/bvanelli/crpy 安装12# 也可以安装到虚拟环境pip install crpy  认证1crpy login registry.cn-hangzhou.aliyuncs.com -u &lt;username&gt; -p &lt;password&gt;  认证信息存储在：~/.crpy/config.json 拉取镜像1crpy pull nginx:1.29 nginx_1.29.tar.gz  缓存数据存储在：~/.crpy/blobs 推送镜像1crpy push nginx_1.29.tar.gz registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29  crane 的使用这个工具是 Golang 写的，支持...</div></div></div></a><a class="pagination-related" href="/posts/t37flu/" title="正在运行的Docker容器增加端口映射"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-10-04</div><div class="info-item-2">正在运行的Docker容器增加端口映射</div></div><div class="info-2"><div class="info-item-1">为什么有这个需求假设有如下情况：  这个服务很重要，很多服务在连，停服不知道会有什么影响。 服务是运行在 docker 里的，但是 docker 启动命令找不到了。 想给 docker 容器临时增加一个端口映射。  方法一、使用工具反向代理这个方法性能不如上面的 iptables 规则，比如可以用 nginx 的 stream 四层代理，或者用 socat 一条命令搞定。 查看容器的 IP 地址1docker inspect postgres   在结果中找到 NetworkSettings -&gt; Networks -&gt; &lt;你的网络名称&gt; -&gt; IPAddress 123456# 安装 socatsudo apt-get install socat  # Ubuntu/Debian# 创建端口转发，172.18.0.2 是容器的IPsocat TCP-LISTEN:5432,fork TCP:172.18.0.2:5432  方法二、参照 Docker 原生的方式docker 的 -p 命令来进行端口映射，本质上也是维护了一套 iptables...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">373</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:x@zahui.fan" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BusyBox-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">BusyBox 是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-number">1.1.</span> <span class="toc-text">下载地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BusyBox-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">BusyBox 使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E5%90%AB%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">包含的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">直接使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">简化使用</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/t79irt/" title="容器调试工具之BusyBox"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="容器调试工具之BusyBox"/></a><div class="content"><a class="title" href="/posts/t79irt/" title="容器调试工具之BusyBox">容器调试工具之BusyBox</a><time datetime="2025-12-14T14:44:56.000Z" title="更新于 2025-12-14 22:44:56">2025-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/syv4vu/" title="minio自建对象存储"><img src="https://s3.babudiu.com/iuxt/2025/07/9b62bab970676aeef01b597ccff9a533.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="minio自建对象存储"/></a><div class="content"><a class="title" href="/posts/syv4vu/" title="minio自建对象存储">minio自建对象存储</a><time datetime="2025-12-07T05:34:57.000Z" title="更新于 2025-12-07 13:34:57">2025-12-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ea811085/" title="使用s6-Overlay来管理多进程容器"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用s6-Overlay来管理多进程容器"/></a><div class="content"><a class="title" href="/posts/ea811085/" title="使用s6-Overlay来管理多进程容器">使用s6-Overlay来管理多进程容器</a><time datetime="2025-12-04T10:53:21.000Z" title="更新于 2025-12-04 18:53:21">2025-12-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/t5tiax/" title="无Docker环境进行容器镜像操作"><img src="https://s3.babudiu.com/iuxt/public/Docker.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无Docker环境进行容器镜像操作"/></a><div class="content"><a class="title" href="/posts/t5tiax/" title="无Docker环境进行容器镜像操作">无Docker环境进行容器镜像操作</a><time datetime="2025-11-16T13:01:20.000Z" title="更新于 2025-11-16 21:01:20">2025-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/le5lzctq/" title="使用image-syncer来实现容器镜像同步"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用image-syncer来实现容器镜像同步"/></a><div class="content"><a class="title" href="/posts/le5lzctq/" title="使用image-syncer来实现容器镜像同步">使用image-syncer来实现容器镜像同步</a><time datetime="2025-11-10T11:05:50.000Z" title="更新于 2025-11-10 19:05:50">2025-11-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://s3.babudiu.com/iuxt/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.babudiu.com/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDOMszkdA',
+      'data-category-id': 'DIC_kwDOMszkdM4CiMyw',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.babudiu.com')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async data-pjax src="https://events.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜搜搜" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
