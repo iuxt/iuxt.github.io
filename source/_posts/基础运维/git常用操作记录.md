@@ -5,7 +5,7 @@ categories:
   - 基础运维
 tags: [Linux, Git, 配置记录]
 date: 2021-04-27 23:03:29
-updated: 2025-09-19 21:47:17
+updated: 2025-12-20 21:26:16
 ---
 
 ## 配置文件
@@ -271,6 +271,16 @@ git lfs push origin master --all
 git lfs push --all
 ```
 
+git lfs 是通过 http 协议来拉取/上传的，如果是自签名或不受信任的证书，可以禁用证书验证:
+
+```bash
+# 针对单个仓库配置
+git config http.sslVerify false
+
+# 针对所有仓库配置
+git config --global http.sslVerify false
+```
+
 ## 小技巧
 
 ### 指定密码拉取 git
@@ -279,7 +289,7 @@ git lfs push --all
 
 ```bash
 # %40 表示 @
-git clone http://admin:admin%401234@203.156.235.84:10000/r/app/client.git
+git clone http://admin:admin%401234@git.xxx.com:10000/r/app/client.git
 ```
 
 ### 删除历史记录中的大文件
