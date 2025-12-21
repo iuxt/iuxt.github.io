@@ -2,17 +2,14 @@
 title: 单节点Kubernetes更换ip地址
 categories:
   - 容器
-tags:
-  - Kubernetes
-  - 记录
-  - k8s
-  - kubeadm
+tags: [Kubernetes, 记录, k8s, kubeadm]
 abbrlink: scpj14
 cover: 'https://s3.babudiu.com/iuxt/public/kubernetes.svg'
 date: 2024-04-29 22:03:03
+updated: 2025-12-21 21:03:00
 ---
 
-如果是个多节点的集群，更换一台 master 节点的 ip 有个更简单的办法，那就是先把这台机器下线，然后再扩容一台新的 master，安全无副作用，如果是单节点更换 ip 地址（如果旧 ip 不用回收，那么可以直接在网卡上再绑定一个 ip 地址，不用对 k8s 进行修改）
+如果是个多节点的集群，更换一台 master 节点的 ip 有个更简单的办法，那就是先扩容一台新的 master，再把旧的 master 节点下线，安全无副作用，如果是单节点更换 ip 地址（如果旧 ip 不用回收，那么可以直接在网卡上再绑定一个 ip 地址，不用对 k8s 进行修改）
 
 和 [kubeadm之单节点master升级高可用master](/posts/34d8fad0/) 有点类似
 
