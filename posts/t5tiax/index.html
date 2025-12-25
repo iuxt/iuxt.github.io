@@ -185,10 +185,10 @@ btf.addGlobalFn('pjaxComplete', () => {
 <h3 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crpy login registry.cn-hangzhou.aliyuncs.com -u &lt;username&gt; -p &lt;password&gt;</span><br></pre></td></tr></table></figure>
 
 <p>认证信息存储在：<code>~/.crpy/config.json</code></p>
-<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crpy pull nginx:1.29 nginx_1.29.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crpy pull nginx:1.29 nginx_1.29.tar</span><br></pre></td></tr></table></figure>
 
 <p>缓存数据存储在：<code>~/.crpy/blobs</code></p>
-<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crpy push nginx_1.29.tar.gz registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29</span><br></pre></td></tr></table></figure>
+<h3 id="推送镜像"><a href="#推送镜像" class="headerlink" title="推送镜像"></a>推送镜像</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crpy push nginx_1.29.tar registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29</span><br></pre></td></tr></table></figure>
 
 <h2 id="crane-的使用"><a href="#crane-的使用" class="headerlink" title="crane 的使用"></a>crane 的使用</h2><p>这个工具是 Golang 写的，支持 Windows，单文件直接运行，比较方便，支持指定架构。</p>
 <p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md">https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md</a></p>
