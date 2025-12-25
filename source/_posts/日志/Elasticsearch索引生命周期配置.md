@@ -6,7 +6,7 @@ tags: [ES, 常用操作]
 abbrlink: snui2r
 date: 2024-12-02 10:40:03
 cover: https://s3.babudiu.com/iuxt/public/elasticsearch.svg
-updated: 2025-02-26 11:53:02
+updated: 2025-12-25 13:15:03
 ---
 
 参考
@@ -116,6 +116,8 @@ PUT pod-logs-*/_settings
 
 ## 对于 logstash
 
+### 由 ES 来管理生命周期
+
 logstash 会创建自己的默认 template，所以想要应用 template 需要禁用 logstash 的 manage_template
 
 `logstash.conf`
@@ -158,3 +160,50 @@ output {
 ```
 
 需要在 output 中添加一行：`manage_template => false`
+
+### 由 logstash 来管理生命周期
+
+logstash 配置文件
+
+```json
+    input {
+        ...
+    }
+
+    filter {
+        ...
+    }
+
+    output {
+      elasticsearch {
+        action   => "index"
+        hosts    => ["1.1.1.1:9200"]
+        index    => "%{[fields][type]}-%{+YYYY.MM.dd}"
+        user     => "elastic"
+        password => "password"
+        retry_max_interval => 30
+        manage_template => true
+        # 如果已经存在相同名称的索引模板，设置 template_overwrite => true 会覆盖现有模板。
+        template_overwrite => true
+        template => '/template/template.json'
+      }
+    }
+```
+
+/template/template.json
+
+```json
+    {
+      "index_patterns": "k8s-pod-logs-*",
+      "order": 1,
+      "settings": {
+        "index": {
+          "lifecycle": {
+            "name": "pod-logs-retention-policy"
+          },
+          "number_of_shards": 3,
+          "number_of_replicas": 0
+        }
+      }
+    }
+```
