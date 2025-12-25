@@ -34,7 +34,7 @@ crpy login registry.cn-hangzhou.aliyuncs.com -u <username> -p <password>
 ### 拉取镜像
 
 ```bash
-crpy pull nginx:1.29 nginx_1.29.tar.gz
+crpy pull nginx:1.29 nginx_1.29.tar
 ```
 
 缓存数据存储在：`~/.crpy/blobs`
@@ -42,7 +42,7 @@ crpy pull nginx:1.29 nginx_1.29.tar.gz
 ### 推送镜像
 
 ```bash
-crpy push nginx_1.29.tar.gz registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29
+crpy push nginx_1.29.tar registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.29
 ```
 
 ## crane 的使用
