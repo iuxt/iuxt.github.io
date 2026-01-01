@@ -9,7 +9,7 @@ cover: ""
 updated: 2025-12-14 22:47:12
 ---
 
-很早之前我在上学的时候给安卓手机刷机，root 后还可以安装了个号称 Linux 瑞士军刀的 App，不过没搞懂有什么用，不过记住了这个难忘的名字 -- BusyBox
+很早之前我在上学的时候给安卓手机刷机，root 后还可以安装了个号称 Linux 瑞士军刀的 App，不过没搞懂有什么用，不过记住了这个特别的名字 -- BusyBox
 
 ## BusyBox 是什么
 
@@ -68,6 +68,9 @@ Currently defined functions:
 #### 直接使用
 
 ```bash
+# 从我的镜像仓库下载
+curl -OL https://s3.babudiu.com/src/linux/bin/busybox && chmod +x busybox
+
 # zip 解压 jar 包
 ./busybox unzip app.jar
 

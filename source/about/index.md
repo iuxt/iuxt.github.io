@@ -106,9 +106,9 @@ top_img: 'https://s3.babudiu.com/iuxt/public/duck_hunt.png'
 
 {% note blue 'fas fa-bullhorn' flat %}
 {% label 上海亦存网络科技有限公司 pink %} {% label 坚果云 blue %} 
-1. 吃饭
-2. 睡觉
-3. 打豆豆
+1. 使用自动化工具 Puppet 进行基础环境的自动搭建与维护（物理机、虚拟机、交换机等）
+2. 容器平台管理、自动化构建与部署。
+3. 监控系统 nagios 维护。
 {% endnote %}
 
 
