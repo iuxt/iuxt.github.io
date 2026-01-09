@@ -1,7 +1,7 @@
 ---
 title: Kubernetes 1.34 + Cilium + kube-vip 高可用集群部署实战
 date: 2026-01-09 17:49:43
-updated: 2026-01-09 17:50:25
+updated: 2026-01-09 17:57:09
 ---
 
 > 适用场景：
@@ -20,13 +20,11 @@ updated: 2026-01-09 17:50:25
 
 **基础环境**
 
-- 操作系统：openEuler 22.03 SP4
+- 操作系统：CentOS Stream 10
 - Kubernetes：v1.34.3
 - 容器运行时：containerd
 - CNI：Cilium
 - 高可用方式：kube-vip（ARP 模式）
-
----
 
 ## 二、准备工作（所有节点）
 
@@ -91,23 +89,7 @@ sysctl -p
 
 ### 7\. 启用 cgroup v2（Cilium 强烈推荐）
 
-```plaintext
-sed -i 's/^GRUB_DEFAULT=.*/GRUB_DEFAULT=0/' /etc/default/grub
-vim /etc/default/grub
-GRUB_CMDLINE_LINUX="rd.lvm.lv=openeuler/root apparmor=0 crashkernel=512M systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all"
-```
-
-根据启动方式生成 grub：
-
-```plaintext
-grub2-mkconfig -o /boot/grub2/grub.cfg
-# 或 EFI
-grub2-mkconfig -o /boot/efi/EFI/openEuler/grub.cfg
-grub2-editenv /boot/grub2/grubenv unset saved_entry
-reboot
-```
-
----
+CentOS Stream 10 默认已经启用了 cgroup v2
 
 ## 三、安装 Containerd（所有节点）
 
