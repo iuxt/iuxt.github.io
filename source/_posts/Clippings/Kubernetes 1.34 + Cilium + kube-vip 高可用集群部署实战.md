@@ -1,7 +1,7 @@
 ---
 title: Kubernetes 1.34 + Cilium + kube-vip 高可用集群部署实战
 date: 2026-01-09 17:49:43
-updated: 2026-01-09 17:57:09
+updated: 2026-01-09 19:11:12
 ---
 
 > 适用场景：
@@ -38,13 +38,13 @@ sed -i "s/^SELINUX=.*/SELINUX=disabled/g" /etc/selinux/config
 
 ### 2\. 配置主机名
 
-```plaintext
+```bash
 hostnamectl set-hostname master1
 ```
 
 ### 3\. 配置 hosts
 
-```plaintext
+```bash
 cat > /etc/hosts <<EOF
 10.0.0.11 master1
 10.0.0.12 master2
@@ -54,21 +54,21 @@ EOF
 
 ### 4\. 关闭 Swap
 
-```plaintext
+```bash
 swapoff -a
 sed -ri 's/.*swap.*/#&/' /etc/fstab
 ```
 
 ### 5\. 时间同步
 
-```plaintext
+```bash
 dnf install -y chrony
 systemctl enable --now chronyd
 ```
 
 ### 6\. 内核参数与模块
 
-```plaintext
+```bash
 cat > /etc/modules-load.d/k8s.conf <<EOF
 overlay
 br_netfilter
@@ -95,14 +95,14 @@ CentOS Stream 10 默认已经启用了 cgroup v2
 
 ### 1\. 安装 containerd
 
-```plaintext
+```bash
 wget https://github.com/containerd/containerd/releases/download/v2.2.1/containerd-2.2.1-linux-amd64.tar.gz
 tar xvf containerd-2.2.1-linux-amd64.tar.gz -C /usr/local
 ```
 
 ### 2\. 配置 systemd 服务
 
-```plaintext
+```bash
 wget -O /usr/lib/systemd/system/containerd.service https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
 systemctl daemon-reload
 systemctl enable --now containerd
@@ -110,27 +110,25 @@ systemctl enable --now containerd
 
 ### 3\. 安装 runc
 
-```plaintext
+```bash
 wget https://github.com/opencontainers/runc/releases/download/v1.4.0/runc.amd64
 install -m 755 runc.amd64 /usr/local/sbin/runc
 ```
 
 ### 4\. 启用 SystemdCgroup
 
-```plaintext
+```bash
 mkdir -p /etc/containerd
 containerd config default > /etc/containerd/config.toml
 sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 systemctl restart containerd
 ```
 
----
-
 ## 四、安装 Kubernetes 组件
 
 配置 yum 源：
 
-```plaintext
+```bash
 $ cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
@@ -143,14 +141,14 @@ EOF
 
 安装：
 
-```plaintext
+```bash
 dnf install -y kubelet-1.34.3 kubeadm-1.34.3 kubectl-1.34.3
 systemctl enable --now kubelet
 ```
 
 配置 crictl：
 
-```plaintext
+```bash
 crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock
 ```
 
@@ -158,7 +156,7 @@ crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock
 
 ## 五、初始化 Kubernetes（首个 Master）
 
-```plaintext
+```bash
 kubeadm init \
   --kubernetes-version=v1.34.3 \
   --service-cidr=10.15.0.0/16 \
@@ -168,19 +166,17 @@ kubeadm init \
 
 配置 kubectl：
 
-```plaintext
+```bash
 mkdir -p ~/.kube
 cp /etc/kubernetes/admin.conf ~/.kube/config
 chown $(id -u):$(id -g) ~/.kube/config
 ```
 
----
-
 ## 六、安装 Cilium（kube-proxy-free）
 
 ### 1\. 安装 cilium-cli
 
-```plaintext
+```bash
 CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
 CLI_ARCH=amd64
 if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
@@ -192,7 +188,7 @@ rm -f cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 
 ### 2\. 原生路由模式（推荐裸机）
 
-```plaintext
+```bash
 cilium install \
   --set kubeProxyReplacement=true \
   --set ipam.mode=cluster-pool \
@@ -206,7 +202,7 @@ cilium install \
 
 ### 3\. VXLAN 模式（云环境兜底方案）
 
-```plaintext
+```bash
 cilium install \
   --set kubeProxyReplacement=true \
   --set tunnel=vxlan \
@@ -218,7 +214,7 @@ cilium install \
 
 ### 4\. 检查状态
 
-```plaintext
+```bash
 cilium status --wait
     /¯¯\
  /¯¯\__/¯¯\    Cilium:             OK
@@ -243,7 +239,7 @@ Helm chart version:    1.18.3
 
 ## 七、部署 kube-vip（控制平面高可用）
 
-```plaintext
+```bash
 export VIP=10.0.3.10
 export INTERFACE=ens33
 kubectl apply -f https://kube-vip.io/manifests/rbac.yaml
@@ -259,7 +255,7 @@ kube-vip manifest pod \
 
 重新生成 apiserver 证书
 
-```plaintext
+```bash
 cd /etc/kubernetes/pki
 mkdir -p backup-$(date +%F)
 cp apiserver.* backup-$(date +%F)/
@@ -308,7 +304,7 @@ CoreDNS is running at https://10.0.3.10:6443/api/v1/namespaces/kube-system/servi
 
 修改配置文件：
 
-```plaintext
+```bash
 kubectl -n kube-system get cm kubeadm-config -o yaml > ~/kubeadm-config.yaml
 ​
 vim ~/kubeadm-config.yaml
@@ -320,7 +316,7 @@ kubectl apply -f ~/kubeadm-config.yaml
 
 生成 token：
 
-```plaintext
+```bash
 kubeadm token create --print-join-command --ttl 30m
 kubeadm join 10.0.3.10:6443 --token 8r5e5o.yk3i9ymqqq8cd3pk --discovery-token-ca-cert-hash sha256:41d97ee7e5375bf4895a207c9a484efae7a9ce26e7b160080eddd25876a79ee5
 ​
@@ -333,7 +329,7 @@ I0104 21:48:23.698346    5515 version.go:260] remote version is much newer: v1.3
 
 发送 kube-vip 配置文件到其他 Master 节点
 
-```plaintext
+```bash
 cd /etc/kubernetes/manifests
 scp kube-vip.yaml 10.0.0.12:$PWD
 scp kube-vip.yaml 10.0.0.13:$PWD
@@ -341,13 +337,13 @@ scp kube-vip.yaml 10.0.0.13:$PWD
 
 Master 节点：
 
-```plaintext
+```bash
 kubeadm join 10.0.3.10:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash> --control-plane --certificate-key <key>
 ```
 
 Node 节点：
 
-```plaintext
+```bash
 kubeadm join 10.0.3.10:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
 
@@ -355,7 +351,7 @@ kubeadm join 10.0.3.10:6443 --token <token> --discovery-token-ca-cert-hash sha25
 
 master01 上：
 
-```plaintext
+```bash
 vi /etc/kubernetes/manifests/etcd.yaml
 ​
 将--initial-cluster=master01=https://10.0.1.201:2380 改为 --initial-cluster=master01=https://10.0.1.201:2380,master02=https://10.0.1.202:2380,master03=https://10.0.1.203:2380
@@ -363,7 +359,7 @@ vi /etc/kubernetes/manifests/etcd.yaml
 
 master02 上：
 
-```plaintext
+```bash
 $ vi /etc/kubernetes/manifests/etcd.yaml
 ​
 将--initial-cluster=master01=https://10.0.1.201:2380,master02=https://10.0.1.202:2380改为 --initial-cluster=master01=https://10.0.1.201:2380,master02=https://10.0.1.202:2380,master03=https://10.0.1.203:2380
@@ -373,7 +369,7 @@ master03 不用修改
 
 再次检查 cilium 状态：
 
-```plaintext
+```bash
 [root@master1 ~]# cilium status
     /¯¯\
  /¯¯\__/¯¯\    Cilium:             OK
@@ -398,7 +394,7 @@ Helm chart version:    1.18.3
 
 ## 九、验证部署
 
-```plaintext
+```bash
 kubectl create deployment testdp --image=nginx:1.23.2
 kubectl expose deployment testdp --port=80 --type=NodePort
 kubectl get pods,svc
@@ -406,7 +402,7 @@ kubectl get pods,svc
 
 浏览器访问：
 
-```plaintext
+```bash
 http://<任意节点IP>:NodePort
 ```
 
