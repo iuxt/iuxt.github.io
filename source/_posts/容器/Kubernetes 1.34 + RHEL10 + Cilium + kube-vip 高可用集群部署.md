@@ -1,7 +1,12 @@
 ---
-title: Kubernetes 1.34 + Cilium + kube-vip 高可用集群部署实战
-date: 2026-01-09 17:49:43
-updated: 2026-01-10 18:46:28
+title: Kubernetes 1.34 + RHEL10 + Cilium + kube-vip 高可用集群部署
+categories:
+  - 容器
+tags: [部署]
+abbrlink: 786c9442
+date: 2026-01-10 23:19:23
+cover: ""
+updated: 2026-01-10 23:21:50
 ---
 
 > 适用场景：
@@ -10,10 +15,10 @@ updated: 2026-01-10 18:46:28
 > - 无云厂商 LB
 > - 追求 eBPF + 原生路由的高性能网络
 
-## 一、环境介绍
+## 环境介绍
 
-| 主机名   | IP        | 安装组件                                                                            |
-| ----- | --------- | ------------------------------------------------------------------------------- |
+| 主机名     | IP        | 安装组件                                                                            |
+| ------- | --------- | ------------------------------------------------------------------------------- |
 | master1 | 10.0.0.11 | etcd、apiserver、controller-manager、scheduler、kubelet、containerd、kubeadm、kube-vip |
 | master2 | 10.0.0.12 | etcd、apiserver、controller-manager、scheduler、kubelet、containerd、kubeadm、kube-vip |
 | master3 | 10.0.0.13 | etcd、apiserver、controller-manager、scheduler、kubelet、containerd、kubeadm、kube-vip |
@@ -26,7 +31,7 @@ updated: 2026-01-10 18:46:28
 - CNI：Cilium
 - 高可用方式：kube-vip（ARP 模式）
 
-## 二、准备工作（所有节点）
+## 准备工作（所有节点）
 
 ### 1\. 关闭防火墙与 SELinux
 
@@ -74,20 +79,18 @@ timedatectl status
 ```bash
 cat > /etc/modules-load.d/k8s.conf <<EOF
 overlay
-br_netfilter
 EOF
-​
+
 modprobe overlay
-modprobe br_netfilter
-​
-cat >> /etc/sysctl.conf <<EOF
+
+cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-net.ipv4.ip_forward = 1
-vm.swappiness = 0
 EOF
-​
+
 sysctl -p
+# rhel10 测试要重启
 ```
 
 ### 7\. 启用 cgroup v2（Cilium 强烈推荐）
@@ -96,26 +99,23 @@ CentOS Stream 10 默认已经启用了 cgroup v2
 
 ## 三、安装 Containerd（所有节点）
 
-### 1\. 安装 containerd
-
 ```bash
-wget https://github.com/containerd/containerd/releases/download/v2.2.1/containerd-2.2.1-linux-amd64.tar.gz
-tar xvf containerd-2.2.1-linux-amd64.tar.gz -C /usr/local
-```
+# 卸载旧版本Docker
+sudo yum remove docker \
+              docker-client \
+              docker-client-latest \
+              docker-common \
+              docker-latest \
+              docker-latest-logrotate \
+              docker-logrotate \
+              docker-engine
 
-### 2\. 配置 systemd 服务
+# 安装docker仓库
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-```bash
-wget -O /usr/lib/systemd/system/containerd.service https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
-systemctl daemon-reload
-systemctl enable --now containerd
-```
-
-### 3\. 安装 runc
-
-```bash
-wget https://github.com/opencontainers/runc/releases/download/v1.4.0/runc.amd64
-install -m 755 runc.amd64 /usr/local/sbin/runc
+# 安装containerd
+sudo yum install containerd.io -y
 ```
 
 ### 4\. 启用 SystemdCgroup
@@ -124,12 +124,17 @@ install -m 755 runc.amd64 /usr/local/sbin/runc
 mkdir -p /etc/containerd
 containerd config default > /etc/containerd/config.toml
 sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+systemctl enable --now containerd
 systemctl restart containerd
 ```
 
-## 四、安装 Kubernetes 组件
+## 四、安装 Kubernetes 组件（所有节点）
 
 配置 yum 源：
+
+{% tabs TabName %}
+
+<!-- tab 国内源 -->
 
 ```bash
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -139,13 +144,38 @@ baseurl=https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.34/rpm/
 enabled=1
 gpgcheck=1
 gpgkey=https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.34/rpm/repodata/repomd.xml.key
+exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
 EOF
 ```
+
+<!-- endtab -->
+
+<!-- tab 官方源 -->
+
+```bash
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.34/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.34/rpm/repodata/repomd.xml.key
+exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
+EOF
+```
+
+<!-- endtab -->
+
+{% endtabs %}
 
 安装：
 
 ```bash
-dnf install -y kubelet-1.34.3 kubeadm-1.34.3 kubectl-1.34.3
+# 查看可用的版本
+yum list kubelet kubeadm kubectl --showduplicates --disableexcludes=kubernetes
+
+sudo yum install -y kubelet-1.34.3 kubeadm-1.34.3 kubectl-1.34.3 --disableexcludes=kubernetes
+
 systemctl enable --now kubelet
 ```
 
@@ -158,11 +188,18 @@ crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock
 ## 五、初始化 Kubernetes（首个 Master）
 
 ```bash
-kubeadm init \
-  --kubernetes-version=v1.34.3 \
+ip addr add 10.0.0.10/24 dev ens160
+
+sudo kubeadm init \
+  --control-plane-endpoint "10.0.0.10:6443" \
+  --kubernetes-version 1.34.3 \
+  --upload-certs \
   --service-cidr=10.96.0.0/12 \
   --pod-network-cidr=10.244.0.0/16 \
   --skip-phases=addon/kube-proxy
+
+# 也可以先拉取镜像
+kubeadm config images pull --kubernetes-version 1.34.3
 ```
 
 配置 kubectl：
@@ -178,6 +215,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ### 1\. 安装 cilium-cli
 
 ```bash
+dnf install tar -y
 CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
 CLI_ARCH=amd64
 if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
@@ -248,6 +286,7 @@ export VIP=10.0.0.10
 export INTERFACE=ens160
 kubectl apply -f https://kube-vip.io/manifests/rbac.yaml
 
+
 ctr image pull docker.io/plndr/kube-vip:v1.0.3
 ctr run --rm --net-host docker.io/plndr/kube-vip:v1.0.3 kube-vip /kube-vip manifest pod \
   --interface $INTERFACE \
@@ -259,55 +298,7 @@ ctr run --rm --net-host docker.io/plndr/kube-vip:v1.0.3 kube-vip /kube-vip manif
   | tee /etc/kubernetes/manifests/kube-vip.yaml
 ```
 
-重新生成 apiserver 证书
-
-```bash
-cd /etc/kubernetes/pki
-mkdir -p backup-$(date +%F)
-cp apiserver.* backup-$(date +%F)/
-mv apiserver.crt apiserver.crt.bak
-mv apiserver.key apiserver.key.bak
-systemctl stop kubelet
-echo "apiVersion: kubeadm.k8s.io/v1beta4
-kind: ClusterConfiguration
-clusterName: kubernetes
-controlPlaneEndpoint: 10.0.0.10:6443
-apiServer:
-  certSANs:
-    - 10.0.0.10
-    - 10.0.0.11
-    - 10.0.0.12
-    - 10.0.0.13
-    - 10.96.0.1
-networking:
-  serviceSubnet: 10.96.0.0/12
-  podSubnet: 10.244.0.0/16
-kubernetesVersion: v1.34.3" > /root/kubeadm-apiserver.yaml
-​
-kubeadm init phase certs apiserver \
-  --config /root/kubeadm-apiserver.yaml
-
-systemctl restart kubelet
-​
-kubectl config set-cluster kubernetes \
-  --server=https://10.0.0.10:6443
-​
-kubectl cluster-info
-```
-
 ## 八、其余节点加入集群
-
-修改配置文件：
-
-```bash
-kubectl -n kube-system get cm kubeadm-config -o yaml > ~/kubeadm-config.yaml
-​
-vim ~/kubeadm-config.yaml
-在ClusterConfiguration: |下面添加
-controlPlaneEndpoint: 10.0.0.10:6443
-​
-kubectl apply -f ~/kubeadm-config.yaml
-```
 
 生成 token：
 
