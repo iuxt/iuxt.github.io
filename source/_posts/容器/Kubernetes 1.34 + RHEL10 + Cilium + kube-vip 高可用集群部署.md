@@ -39,6 +39,9 @@ updated: 2026-01-11 11:54:01
 sudo systemctl disable --now firewalld
 setenforce 0
 sed -i "s/^SELINUX=.*/SELINUX=disabled/g" /etc/selinux/config
+
+# 验证，结果为0
+getenforce
 ```
 
 ### 配置主机名
@@ -62,6 +65,9 @@ EOF
 ```bash
 swapoff -a
 sed -ri 's/.*swap.*/#&/' /etc/fstab
+
+# 验证, swap为0
+free -h
 ```
 
 ### 时间同步
@@ -70,7 +76,7 @@ sed -ri 's/.*swap.*/#&/' /etc/fstab
 dnf install -y chrony
 systemctl enable --now chronyd
 
-# 查看时间状态
+# 验证，查看时间状态
 timedatectl status
 ```
 
@@ -83,32 +89,34 @@ EOF
 
 modprobe overlay
 
-cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
+cat > /etc/sysctl.d/99-kubernetes-cri.conf <<EOF
 net.bridge.bridge-nf-call-iptables  = 1
 net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 EOF
 
 sysctl -p
-# rhel10 测试要重启
+
+# RHEL 10 测试要重启 net.ipv4.ip_forward 才能生效, 或者临时修改一下
+echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
 ### 启用 cgroup v2
 
-CentOS Stream 10 默认已经启用了 cgroup v2
+CentOS Stream 10 / RHEL 10 / Rocky Linux 10 / AlmaLinux 10 默认已经启用了 cgroup v2
 
 ## 安装 Containerd（所有节点）
 
 ```bash
 # 卸载旧版本Docker
 sudo yum remove docker \
-              docker-client \
-              docker-client-latest \
-              docker-common \
-              docker-latest \
-              docker-latest-logrotate \
-              docker-logrotate \
-              docker-engine
+        docker-client \
+        docker-client-latest \
+        docker-common \
+        docker-latest \
+        docker-latest-logrotate \
+        docker-logrotate \
+        docker-engine
 
 # 安装docker仓库
 sudo yum install -y yum-utils
@@ -121,11 +129,15 @@ sudo yum install containerd.io -y
 ### 启用 SystemdCgroup
 
 ```bash
+systemctl stop containerd
+
 mkdir -p /etc/containerd
 containerd config default > /etc/containerd/config.toml
 sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 systemctl enable --now containerd
-systemctl restart containerd
+
+# 验证
+sudo ctr version
 ```
 
 ## 安装 Kubernetes 组件（所有节点）
@@ -192,6 +204,7 @@ crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock
 ```bash
 # 也可以先拉取镜像
 # kubeadm config images pull --kubernetes-version 1.34.3
+# --skip-phases=addon/kube-proxy 是为了 Cilium 网络插件，如果用flannel，不用加这个参数
 
 ip addr add 10.0.0.10/24 dev ens160
 
@@ -298,6 +311,7 @@ export VIP=10.0.0.10
 export INTERFACE=ens160
 kubectl apply -f https://kube-vip.io/manifests/rbac.yaml
 
+ip addr del 10.0.0.10/24 dev ens160
 
 ctr image pull docker.io/plndr/kube-vip:v1.0.3
 ctr run --rm --net-host docker.io/plndr/kube-vip:v1.0.3 kube-vip /kube-vip manifest pod \
@@ -308,6 +322,9 @@ ctr run --rm --net-host docker.io/plndr/kube-vip:v1.0.3 kube-vip /kube-vip manif
   --arp \
   --leaderElection \
   | tee /etc/kubernetes/manifests/kube-vip.yaml
+  
+# 验证，如果有 kube-vip-master1 就说明成功了
+kubectl get pod -n kube-system
 ```
 
 ## 其余节点加入集群
@@ -332,6 +349,9 @@ scp kube-vip.yaml 10.0.0.13:$PWD
 
 # 参考上一步的生成token的结果
 kubeadm join 10.0.0.10:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash> --control-plane --certificate-key <key>
+
+# 验证 ETCD 状态
+kubectl exec -it -n kube-system etcd-master1 -- etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member list
 ```
 
 ### 增加 Node 节点
