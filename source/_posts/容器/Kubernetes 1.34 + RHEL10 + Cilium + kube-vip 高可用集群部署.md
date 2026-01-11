@@ -6,7 +6,7 @@ tags: [部署]
 abbrlink: 786c9442
 date: 2026-01-10 23:19:23
 cover: ""
-updated: 2026-01-10 23:21:50
+updated: 2026-01-11 11:54:01
 ---
 
 > 适用场景：
@@ -33,7 +33,7 @@ updated: 2026-01-10 23:21:50
 
 ## 准备工作（所有节点）
 
-### 1\. 关闭防火墙与 SELinux
+### 关闭防火墙与 SELinux
 
 ```bash
 sudo systemctl disable --now firewalld
@@ -41,13 +41,13 @@ setenforce 0
 sed -i "s/^SELINUX=.*/SELINUX=disabled/g" /etc/selinux/config
 ```
 
-### 2\. 配置主机名
+### 配置主机名
 
 ```bash
 hostnamectl set-hostname master1
 ```
 
-### 3\. 配置 hosts
+### 配置 hosts
 
 ```bash
 cat >> /etc/hosts <<EOF
@@ -57,14 +57,14 @@ cat >> /etc/hosts <<EOF
 EOF
 ```
 
-### 4\. 关闭 Swap
+### 关闭 Swap
 
 ```bash
 swapoff -a
 sed -ri 's/.*swap.*/#&/' /etc/fstab
 ```
 
-### 5\. 时间同步
+### 时间同步
 
 ```bash
 dnf install -y chrony
@@ -74,7 +74,7 @@ systemctl enable --now chronyd
 timedatectl status
 ```
 
-### 6\. 内核参数与模块
+### 内核参数与模块
 
 ```bash
 cat > /etc/modules-load.d/k8s.conf <<EOF
@@ -93,11 +93,11 @@ sysctl -p
 # rhel10 测试要重启
 ```
 
-### 7\. 启用 cgroup v2（Cilium 强烈推荐）
+### 启用 cgroup v2
 
 CentOS Stream 10 默认已经启用了 cgroup v2
 
-## 三、安装 Containerd（所有节点）
+## 安装 Containerd（所有节点）
 
 ```bash
 # 卸载旧版本Docker
@@ -118,7 +118,7 @@ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo yum install containerd.io -y
 ```
 
-### 4\. 启用 SystemdCgroup
+### 启用 SystemdCgroup
 
 ```bash
 mkdir -p /etc/containerd
@@ -128,9 +128,9 @@ systemctl enable --now containerd
 systemctl restart containerd
 ```
 
-## 四、安装 Kubernetes 组件（所有节点）
+## 安装 Kubernetes 组件（所有节点）
 
-配置 yum 源：
+### 配置 yum 源
 
 {% tabs TabName %}
 
@@ -168,26 +168,31 @@ EOF
 
 {% endtabs %}
 
-安装：
+### 安装
 
 ```bash
 # 查看可用的版本
 yum list kubelet kubeadm kubectl --showduplicates --disableexcludes=kubernetes
 
-sudo yum install -y kubelet-1.34.3 kubeadm-1.34.3 kubectl-1.34.3 --disableexcludes=kubernetes
+yum install -y kubelet-1.34.3 kubeadm-1.34.3 kubectl-1.34.3 --disableexcludes=kubernetes
 
 systemctl enable --now kubelet
 ```
 
-配置 crictl：
+### 配置 crictl
 
 ```bash
 crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock
 ```
 
-## 五、初始化 Kubernetes（首个 Master）
+## 初始化 Kubernetes（首个 Master）
+
+### 创建集群
 
 ```bash
+# 也可以先拉取镜像
+# kubeadm config images pull --kubernetes-version 1.34.3
+
 ip addr add 10.0.0.10/24 dev ens160
 
 sudo kubeadm init \
@@ -197,12 +202,9 @@ sudo kubeadm init \
   --service-cidr=10.96.0.0/12 \
   --pod-network-cidr=10.244.0.0/16 \
   --skip-phases=addon/kube-proxy
-
-# 也可以先拉取镜像
-kubeadm config images pull --kubernetes-version 1.34.3
 ```
 
-配置 kubectl：
+### 配置 kubectl
 
 ```bash
 mkdir -p $HOME/.kube
@@ -210,14 +212,16 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## 六、安装 Cilium（kube-proxy-free）
+## 安装 Cilium（首个 master）
 
-### 1\. 安装 cilium-cli
+### 安装 cilium-cli
 
 ```bash
 dnf install tar -y
+
 CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
 CLI_ARCH=amd64
+
 if [ "$(uname -m)" = "aarch64" ]; then CLI_ARCH=arm64; fi
 curl -L --fail --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
@@ -225,7 +229,9 @@ sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
 rm -f cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 ```
 
-### 2\. 原生路由模式（推荐裸机）
+{% tabs TabName %}
+
+<!-- tab 原生路由模式（适合自建机房） -->
 
 ```bash
 cilium install \
@@ -239,7 +245,9 @@ cilium install \
   --set bpf.masquerade=true
 ```
 
-### 3\. VXLAN 模式（云环境兜底方案）
+<!-- endtab -->
+
+<!-- tab VXLAN 模式（云环境） -->
 
 ```bash
 cilium install \
@@ -251,7 +259,11 @@ cilium install \
   --set bpf.masquerade=true
 ```
 
-### 4\. 检查状态
+<!-- endtab -->
+
+{% endtabs %}
+
+### 检查状态
 
 ```bash
 cilium status --wait
@@ -279,7 +291,7 @@ Image versions         cilium             quay.io/cilium/cilium:v1.18.3@sha256:5
                        cilium-operator    quay.io/cilium/operator-generic:v1.18.3@sha256:b5a0138e1a38e4437c5215257ff4e35373619501f4877dbaf92c89ecfad81797: 1
 ```
 
-## 七、部署 kube-vip（控制平面高可用）
+## 部署 kube-vip（首个 master）
 
 ```bash
 export VIP=10.0.0.10
@@ -298,36 +310,38 @@ ctr run --rm --net-host docker.io/plndr/kube-vip:v1.0.3 kube-vip /kube-vip manif
   | tee /etc/kubernetes/manifests/kube-vip.yaml
 ```
 
-## 八、其余节点加入集群
+## 其余节点加入集群
 
-生成 token：
+### 生成 token
 
 ```bash
+# 这条命令生成加入命令
 kubeadm token create --print-join-command --ttl 30m
+
+# 这条命令会生成一个key
 kubeadm init phase upload-certs --upload-certs
 ```
 
-发送 kube-vip 配置文件到其他 Master 节点
+### 增加 Master 节点
 
 ```bash
+# 发送 kube-vip 配置文件到其他 Master 节点
 cd /etc/kubernetes/manifests
 scp kube-vip.yaml 10.0.0.12:$PWD
 scp kube-vip.yaml 10.0.0.13:$PWD
-```
 
-Master 节点：
-
-```bash
+# 参考上一步的生成token的结果
 kubeadm join 10.0.0.10:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash> --control-plane --certificate-key <key>
 ```
 
-Node 节点：
+### 增加 Node 节点
 
 ```bash
+# 参考上面生成token步骤的输出结果
 kubeadm join 10.0.0.10:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
 
-## 九、验证部署
+## 验证部署
 
 ```bash
 kubectl create deployment testdp --image=nginx:1.23.2
@@ -338,5 +352,7 @@ kubectl get pods,svc
 浏览器访问：
 
 ```bash
-http://<任意节点IP>:NodePort
+http://10.0.0.11:NodePort
+http://10.0.0.12:NodePort
+http://10.0.0.13:NodePort
 ```

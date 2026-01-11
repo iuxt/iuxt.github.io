@@ -64,13 +64,11 @@ kubectl delete node worker2
 如果要移除 master 节点，并且 master 节点上部署了 etcd ，那除了上一步操作，还需要从 etcd 集群中移除这个节点。
 
 ```bash
-kubectl exec -it -n kube-system etcd-master1 -- /bin/sh
-
 # 查看etcd member list
-etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member list
+kubectl exec -it -n kube-system etcd-master1 -- etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member list
 
 # 通过ID来删除etcd member
-etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member remove 12637f5ec2bd02b8
+kubectl exec -it -n kube-system etcd-master1 -- etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member remove 12637f5ec2bd02b8
 ```
 
 ## 升级集群
