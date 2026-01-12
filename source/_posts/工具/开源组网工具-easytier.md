@@ -22,11 +22,8 @@ updated: 2025-08-13 10:02:50
 ### config.toml
 
 ```toml
+# hostname可以省略，默认是计算机名
 hostname = "guanyu"
-
-# 用于标识当前实例，instance_id 每次随机生成即可。
-instance_name = "iuxt"
-instance_id = "28e75dc1-a317-4a8b-ad32-ba6db6765d79"
 
 # 当前节点的虚拟IP，不同节点IP不一样。
 ipv4 = "10.233.233.1/24"
@@ -40,8 +37,8 @@ rpc_portal = "0.0.0.0:0"
 
 # 这两个配置相当于账号和密码，用于标识网络，所有节点保持一致才能相互访问。
 [network_identity]
-network_name = "iuxt"
-network_secret = "6d062b06-e3bb-40ab-849c-a4e5bc19b7ee"
+network_name = "你的网络名称，同一个网络保持一致"
+network_secret = "你自己的网络secret，同一个网络保持一致"
 
 # wireguard配置，iPhone不支持easytier，可以借助wireguard来访问。
 [vpn_portal_config]
@@ -67,82 +64,11 @@ docker run --name easytier -d \
     --mount type=bind,source=./config.toml,target=/app/config.toml,readonly \
     --privileged \
     --restart=always \
-    easytier/easytier:v2.2.4 \
+    easytier/easytier:v2.5.0 \
     -c /app/config.toml
 ```
 
-## MacBook
-
-### config.toml
-
-```toml
-hostname = "MacBook"
-instance_name = "iuxt"
-instance_id = "afb5668d-3d7c-4dd7-9d1e-a2e711de76d7"
-ipv4 = "10.233.233.2/24"
-dhcp = false
-listeners = [
-    "tcp://0.0.0.0:11010",
-    "udp://0.0.0.0:11010",
-    "wg://0.0.0.0:11011",
-]
-rpc_portal = "0.0.0.0:0"
-
-[network_identity]
-network_name = "iuxt"
-network_secret = "6d062b06-e3bb-40ab-849c-a4e5bc19b7ee"
-
-[[peer]]
-# 这里是服务器的地址
-uri = "tcp://119.45.171.27:11010"
-
-[flags]
-enable_kcp_proxy = true
-```
-
-### 启动命令
-
-```bash
-sudo easytier-core -c ./config.toml
-```
-
-## Windows 电脑
-
-### 无配置文件启动
-
-```bat
-easytier-core.exe --ipv4 10.233.233.3 --network-name iuxt --network-secret 6d062b06-e3bb-40ab-849c-a4e5bc19b7ee -p tcp://119.45.171.27:11010
-```
-
-### 安装成系统服务
-
-安装成系统服务可以开机自启动，并且不会有执行的命令行界面。
-
-```bash
-# 指定参数安装成服务
-easytier-cli.exe service install --ipv4 10.233.233.3 --network-name iuxt --network-secret 6d062b06-e3bb-40ab-849c-a4e5bc19b7ee -p tcp://119.45.171.27:11010
-
-# 卸载服务
-# easytier-cli.exe service uninstall
-```
-
-## 群晖 nas 部署
-
-可以加多个 -n 参数指定多个网段。
-
-```bash
-docker run --name easytier -d \
-    --network host \
-    -e TZ=Asia/Shanghai \
-    --privileged \
-    registry.cn-hangzhou.aliyuncs.com/iuxt/easytier:v2.1.2 \
-    --ipv4 10.233.233.11 --network-name iuxt --network-secret 6d062b06-e3bb-40ab-849c-a4e5bc19b7ee -n 192.168.1.0/24 -p tcp://119.45.171.27:11010
-```
-
-参数说明：
-- -n 这里写了内网的网段，意思是这个网段的 IP 通过这台机器来代理转发，在其他机器上可以直接访问这个网段的任意 IP
-
-## 生成 WireGuard 配置文件
+### 生成 WireGuard 配置文件
 
 ```bash
 # 在服务器上执行
@@ -159,13 +85,93 @@ Address = 10.14.14.10/32                        # 这里修改成本机的虚拟
 [Peer]
 PublicKey = Mp7H/sHXZW+NqxrtsPnEtHMWIbFWPYjyxEir3uWY3WA=
 AllowedIPs = 10.233.233.0/24,10.14.14.0/24      # 这些网段走wireguard转发
-Endpoint = 119.45.171.27:11013                  # 服务器的wireguard接口地址
+Endpoint = <服务器的IP>:11013                   # 服务器的wireguard接口地址
 PersistentKeepalive = 25
 ```
 
 修改完成后，导入客户端即可使用。
 
-## windows 防火墙配置
+## MacBook
+
+### config.toml
+
+```toml
+hostname = "MacBook"
+ipv4 = "10.233.233.2/24"
+dhcp = false
+listeners = [
+    "tcp://0.0.0.0:11010",
+    "udp://0.0.0.0:11010",
+    "wg://0.0.0.0:11011",
+]
+rpc_portal = "0.0.0.0:0"
+
+[network_identity]
+network_name = "你的网络名称，同一个网络保持一致"
+network_secret = "你自己的网络secret，同一个网络保持一致"
+
+[[peer]]
+# 这里是服务器的地址
+uri = "tcp://<服务器的IP>:11010"
+
+[flags]
+enable_kcp_proxy = true
+```
+
+### 启动命令
+
+```bash
+sudo easytier-core -c ./config.toml
+```
+
+## Windows 电脑
+
+### config.toml
+
+```toml
+hostname = "SER6"
+ipv4 = "10.233.233.4/24"
+dhcp = false
+listeners = [
+    "tcp://0.0.0.0:11010",
+    "udp://0.0.0.0:11010",
+    "wg://0.0.0.0:11011",
+]
+rpc_portal = "0.0.0.0:0"
+
+[network_identity]
+network_name = "你的网络名称，同一个网络保持一致"
+network_secret = "你自己的网络secret，同一个网络保持一致"
+
+# 这里是需要代理的内网网段，后续可以远程访问这些内网地址。
+[[proxy_network]]
+cidr = "192.168.6.0/24"
+
+[[proxy_network]]
+cidr = "192.168.1.11/32"
+
+
+[[peer]]
+# 这里是服务器的地址
+uri = "tcp://<服务器的IP>:11010"
+
+[flags]
+enable_kcp_proxy = true
+```
+
+### 安装成系统服务
+
+安装成系统服务可以开机自启动，并且不会有执行的命令行界面。
+
+```bash
+# 指定参数安装成服务
+easytier-cli.exe service install -c C:\app\easytier\config.toml
+
+# 卸载服务
+# easytier-cli.exe service uninstall
+```
+
+### Windows 防火墙配置
 
 如果发现不能连接记得防火墙放通 easytier 的虚拟网段和 wireguard 网段。
 
@@ -174,12 +180,28 @@ New-NetFirewallRule -DisplayName "Allow Subnet 10.233.233.0/24" -Direction Inbou
 New-NetFirewallRule -DisplayName "Allow Subnet 10.14.14.0/24" -Direction Inbound -Action Allow -RemoteAddress 10.14.14.0/24 -Protocol Any -Enabled True
 ```
 
-## OpenWrt 路由器配置
+## 群晖 NAS
+
+可以加多个 -n 参数指定多个网段。
+
+```bash
+docker run --name easytier -d \
+    --network host \
+    -e TZ=Asia/Shanghai \
+    --privileged \
+    registry.cn-hangzhou.aliyuncs.com/iuxt/easytier:v2.1.2 \
+    --ipv4 10.233.233.11 --network-name <你的网络名称，同一个网络保持一致> --network-secret <你自己的网络secret，同一个网络保持一致> -n 192.168.1.0/24 -p tcp://<服务器的IP>:11010
+```
+
+参数说明：
+- -n 这里写了内网的网段，意思是这个网段的 IP 通过这台机器来代理转发，在其他机器上可以直接访问这个网段的任意 IP
+
+## OpenWrt 路由器
 
 我用的是 <https://github.com/EasyTier/luci-app-easytier> 来生成配置文件，先 fork 仓库，然后进入 GitHub Actions 手动构建。
 
 我的路由器 CPU 是 `mediatek/mt7981`，下载 `EasyTier-aarch64_cortex-a53-openwrt-22.03` 这个版本就行，不确定 CPU 架构可以问一下 ChatGPT，不用担心，错了会装不上。
 
-![image.png](https://s3.babudiu.com/iuxt/images/20250506225112105.png)
+![image.png|648](https://s3.babudiu.com/iuxt/images/20250506225112105.png)
 
 在 VPN 下面，有个 EasyTier，使用配置文件启动即可。
