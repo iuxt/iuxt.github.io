@@ -2,12 +2,11 @@
 title: ssh不能登录常见问题调试
 categories:
   - 基础运维
-tags:
-  - OpenSSH
+tags: [OpenSSH]
 abbrlink: t9lver
 date: 2024-01-29 11:08:51
 cover: ""
-updated: 2026-02-02 19:08:40
+updated: 2026-02-02 19:39:33
 ---
 
 ## 常见问题
@@ -20,10 +19,14 @@ updated: 2026-02-02 19:08:40
 
 ### 密钥类型兼容问题
 
-略
+比如在 OpenSSH 8.8+ 版本中，出于安全考虑，默认禁用了基于 ssh-rsa（SHA-1 签名）的公钥算法。这会导致旧的 RSA 密钥在连接时出现 no mutual signature algorithm 或认证失败的问题。
+
+比如可以修改客户端指定的算法 `~/.ssh/config`
 
 ```bash
-
+Host * # 第一行说明对所有主机生效
+  PubkeyAcceptedKeyTypes=+ssh-rsa # 第二行是将ssh-rsa加会允许使用的范围, 没配置会提示no mutual signature supported.表示找不到匹配的签名算法
+  # HostKeyAlgorithms +ssh-rsa # 第三行是指定所有主机使用的都是ssh-rsa算法的key, 我个人测试可以不写,如果仍不生效可以打开测试
 ```
 
 ## 客户端调试
