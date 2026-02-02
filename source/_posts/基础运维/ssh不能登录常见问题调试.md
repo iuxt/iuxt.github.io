@@ -21,7 +21,7 @@ updated: 2026-02-02 19:39:33
 
 比如在 OpenSSH 8.8+ 版本中，出于安全考虑，默认禁用了基于 ssh-rsa（SHA-1 签名）的公钥算法。这会导致旧的 RSA 密钥在连接时出现 no mutual signature algorithm 或认证失败的问题。
 
-比如可以修改客户端指定的算法 `~/.ssh/config`
+比如高版本客户端连接低版本服务端可以修改客户端指定的算法 `~/.ssh/config`
 
 ```bash
 Host * # 第一行说明对所有主机生效
