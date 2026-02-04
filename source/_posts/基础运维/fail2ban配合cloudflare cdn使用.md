@@ -2,14 +2,11 @@
 title: fail2ban配合cloudflare cdn使用
 categories:
   - 基础运维
-tags:
-  - cdn
-  - fail2ban
-  - cc攻击
-  - 反向代理
+tags: [cdn, fail2ban, cc攻击, 反向代理]
 abbrlink: lrt00szc
-cover: 'https://s3.babudiu.com/iuxt/public/Cloudflare.svg'
+cover: https://s3.babudiu.com/iuxt/public/Cloudflare.svg
 date: 2024-01-25 17:15:25
+updated: 2026-02-04 11:15:26
 ---
 
 Cloudflare 是一家全球最著名的 CDN 加速服务商，提供了免费和付费的网站加速和保护服务。即使是免费版，也提供了比较全面和强大的功能，非常不错。
