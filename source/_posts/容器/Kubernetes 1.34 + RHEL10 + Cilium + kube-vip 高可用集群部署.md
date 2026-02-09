@@ -85,9 +85,11 @@ timedatectl status
 ```bash
 cat > /etc/modules-load.d/k8s.conf <<EOF
 overlay
+br_netfilter
 EOF
 
 modprobe overlay
+modprobe br_netfilter
 
 cat > /etc/sysctl.d/99-kubernetes-cri.conf <<EOF
 net.bridge.bridge-nf-call-iptables  = 1
