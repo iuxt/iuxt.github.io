@@ -1,6 +1,6 @@
 ---
 date: 2025-11-16 19:52:09
-updated: 2025-11-16 21:01:20
+updated: 2026-02-09 18:48:37
 title: 无Docker环境进行容器镜像操作
 categories:
   - 容器
@@ -73,5 +73,19 @@ crane pull --platform linux/arm64 nginx:1.27 nginx_1.27.tar
 ### 推送镜像
 
 ```bash
-crane push .\nginx_1.27.tar registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.27
+crane push ./nginx_1.27.tar registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.27
+```
+
+### 同步镜像
+
+同步镜像会根据两个仓库的镜像摘要来确定是否同步对应的层，如果指定的层目标已存在是不会进行同步的，同步会更高效。
+
+```bash
+crane copy --platform linux/amd64 nginx:1.27 registry.cn-hangzhou.aliyuncs.com/iuxt/nginx:1.27
+```
+
+查看仓库里有哪些 tag
+
+```bash
+crane ls registry.cn-hangzhou.aliyuncs.com/iuxt/nginx
 ```
