@@ -4,9 +4,9 @@ abbrlink: 7468bc35
 cover: 'https://s3.babudiu.com/iuxt/public/Windows.svg'
 categories:
   - Windows
-tags:
-  - Windows
+tags: [Windows]
 date: 2021-05-22 10:49:40
+updated: 2026-02-21 22:17:50
 ---
 
 > 环境变量简单来说就是一个键值对，比较常见的是 `path` 环境变量，定义的是全局程序存放的位置
@@ -50,3 +50,27 @@ Windows 查看环境变量 使用 `echo %date%`
 | %PUBLIC%                  | C:\Users\Public                          |
 | %COMPUTERNAME%            | 计算机名                                 |
 | %RANDOM%                  | 随机数（0-32767）                        |
+
+## 修改环境变量
+
+### PowerShell
+
+永久生效（写入注册表，User 级别，不需要管理员权限。Machine 级别的需要管理员权限）
+
+```powershell
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\xxx\bin", "User")
+
+[Environment]::SetEnvironmentVariable("KUBECONFIG", "C:\Users\xxx\kubeconfig\prod1-kubeconfig.txt", "User")
+[Environment]::SetEnvironmentVariable("KUBECONFIG", "C:\Users\xxx\kubeconfig\prod2-kubeconfig.txt", "User")
+[Environment]::SetEnvironmentVariable("KUBECONFIG", "C:\Users\xxx\kubeconfig\staging-kubeconfig.txt", "User")
+
+```
+
+关闭命令行窗口，重新打开即可生效。
+
+在当前控制台生效：
+
+```powershell
+$env:KUBECONFIG = "C:\Users\xxx\kubeconfig\prod1-kubeconfig.txt"
+
+```

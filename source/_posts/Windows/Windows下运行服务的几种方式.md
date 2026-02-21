@@ -6,12 +6,17 @@ tags: [服务, service]
 abbrlink: 5d4cbfad
 cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2023-01-04 13:56:47
-updated: 2025-06-04 11:44:34
+updated: 2026-02-21 22:22:42
 ---
 
 ## 原生命令 sc
 
 微软官方文档： <https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/sc-create>
+
+## 开源工具 servy
+
+Windows 服务管理工具
+<https://github.com/aelassas/servy>
 
 ## 第三方工具 winsw 2.x
 

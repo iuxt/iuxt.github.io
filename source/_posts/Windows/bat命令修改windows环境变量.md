@@ -2,14 +2,11 @@
 title: bat命令修改windows环境变量
 categories:
   - Windows
-tags:
-  - cmd
-  - bat
-  - Script
-  - 脚本
+tags: [cmd, bat, Script, 脚本]
 abbrlink: lqgfuqik
 cover: 'https://s3.babudiu.com/iuxt/public/Windows-old.svg'
 date: 2023-12-22 17:37:53
+updated: 2026-02-21 22:22:14
 ---
 
 在 bat 下修改环境变量有几种方式, 比如 `set` `setx` `vmic ENVIRONMENT`
@@ -24,23 +21,6 @@ set a=b
 echo %a%
 b
 ```
-
-## setx
-
-setx 和 set 类似, 不一样的是 setx 会把设置持久化保存起来
-
-```bat
-setx a c
-```
-
-因为 setx 直接将环境变量保存在注册表中, 所以 cmd 终端需要关闭重新打开才能生效
-
-```bat
-echo %a%
-c
-```
-
-后续就算重启电脑, 也会生效, 不过数据量比较大的时候会报错： `WARNING: The data being saved is truncated to 1024 characters`， 最终修改的内容也是不完整的。所以不建议使用
 
 ## vmic
 
