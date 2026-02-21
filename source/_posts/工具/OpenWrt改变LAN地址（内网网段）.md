@@ -1,6 +1,14 @@
 ---
-date: 2026-01-01 10:25:54
-updated: 2026-01-01 10:27:06
+title: OpenWrt改变LAN地址（内网网段）
+categories:
+  - 工具
+tags:
+  - OpenWrt
+  - 软路由
+abbrlink: tataw2
+date: 2024-02-21 22:00:02
+cover: ""
+updated: 2026-02-21 22:00:24
 ---
 
 ![PixPin_2026-01-01_10-26-29.png|638](https://s3.babudiu.com/iuxt/2026/01/f51dd390e058664cbf9d84b2f84405d7.png)
