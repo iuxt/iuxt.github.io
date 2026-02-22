@@ -9,7 +9,7 @@ cover: ""
 updated: 2026-02-21 21:52:44
 ---
 
-比如我想起吊 url 中的 `/a`
+比如我想去掉 url 中的 `/a`
 
 ```yaml
 curl test.example.com/a/b/xxx/xxx

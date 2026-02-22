@@ -6,7 +6,7 @@ tags: [macOS, wine]
 abbrlink: tat9z4
 date: 2026-02-21 21:40:15
 cover: ""
-updated: 2026-02-21 21:40:57
+updated: 2026-02-22 09:29:41
 ---
 
 我的环境：
@@ -14,7 +14,7 @@ OS：macOS Tahoe & macOS Sequoia
 CrossOver 版本：26.0
 MusicPlayer2 版本：2.78
 
-在 macOS 上没有找到我想要的本地音乐播放软件，倒是 Windows 上有个开源的播放器很不错: [MusicPlayer2官方地址](https://github.com/zhongyang219/MusicPlayer2)，由于是 Windows 应用程序，想要在 macOS 上使用，我用的是 CrossOver 来运行
+在 macOS 上没有找到我想要的本地音乐播放软件，倒是 Windows 上有个开源的播放器很不错: [MusicPlayer2官方地址](https://github.com/zhongyang219/MusicPlayer2)，由于是 Windows 应用程序，想要在 macOS 上使用，我用的是 CrossOver 来运行，凑合使用，就是 CPU 使用率有亿点高。
 
 ## 配置软件
 
