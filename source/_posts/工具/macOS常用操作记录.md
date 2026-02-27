@@ -6,7 +6,7 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2026-02-27 10:26:08
+updated: 2026-02-27 10:28:27
 ---
 
 ## 主机名 Hostname
@@ -298,10 +298,7 @@ sudo xattr -r -d com.apple.quarantine /Applications/WebStrom.app
 
 ## 远程访问 Windows
 
-可以使用 parallels client (appstore 就有) 或者使用微软官方的 ~~microsoft remote desktop 客户端 (商店版需要美区 apple id),~~ Windows App 现在国区就可以下载的到. 或者在微软官方下载
-
-[正式版pkg包(程色图标)](https://go.microsoft.com/fwlink/?linkid=868963)
-[beta版zip包(蓝色图标)](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+AppStore 搜索 Windows App 现在国区就可以下载的到。
 
 ## 解包 pkg
 
