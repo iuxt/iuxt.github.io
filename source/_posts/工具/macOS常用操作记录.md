@@ -6,8 +6,29 @@ tags: [macOS, 配置记录, 常用操作]
 abbrlink: lrr6ze9h
 cover: 'https://s3.babudiu.com/iuxt/public/macos.svg'
 date: 2024-01-24 10:54:44
-updated: 2025-10-10 22:58:10
+updated: 2026-02-27 10:26:08
 ---
+
+## 主机名 Hostname
+
+在 macOS 上有 3 个主机名，查看方式：
+
+```bash
+# 对应终端执行hostname命令
+scutil --get HostName
+
+# 对应设置 - 通用 - 共享，本地主机名
+scutil --get LocalHostName
+
+# 对应设置 - 关于本机 - 名称
+scutil --get ComputerName
+```
+
+```bash
+sudo scutil --set HostName <主机名>
+sudo scutil --set LocalHostName <主机名>
+sudo scutil --set ComputerName <电脑名>
+```
 
 ## HomeBrew
 
