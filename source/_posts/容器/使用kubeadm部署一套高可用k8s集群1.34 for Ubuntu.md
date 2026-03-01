@@ -6,7 +6,7 @@ categories:
 cover: ""
 tags: [Linux, Container, Kubernetes, 配置记录, Docker, keepalived, kubeadm]
 date: 2025-10-29 09:42:58
-updated: 2025-10-29 14:16:16
+updated: 2026-03-01 21:43:47
 ---
 
 > 基于 ubuntu 使用 kubeadm 搭建集群， [centos部署文档](/posts/b86d9e9f/), 有疑问的地方可以看 [官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/)
@@ -45,16 +45,6 @@ vim /etc/hosts
 
 ```bash
 sudo systemctl disable --now ufw
-
-cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
-br_netfilter
-EOF
-
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-EOF
-sudo sysctl --system
 ```
 
 ### 安装 runtime
@@ -131,11 +121,11 @@ sed -i 's#sandbox_image = .*#sandbox_image = "registry.k8s.io/pause:3.10.1"#g' /
 
 之前使用 docker 的时候，docker 给我们做了很多好用的工具，现在用了 containerd，管理容器我们用 cri 管理工具 crictl，创建配置文件
 
-vim /etc/crictl.yaml
-
 ```yaml
+cat > /etc/crictl.yaml <<-'EOF'
 runtime-endpoint: unix:///run/containerd/containerd.sock
 debug: false
+EOF
 ```
 
 <!-- endtab -->
@@ -194,7 +184,7 @@ sudo apt update
 
 # 查看可用的版本号
 sudo apt-cache madison kubeadm
-sudo apt install -y kubeadm=1.34.1-1.1 kubelet=1.34.1-1.1 kubectl=1.34.1-1.1
+sudo apt install -y kubeadm=1.34.5-1.1 kubelet=1.34.5-1.1 kubectl=1.34.5-1.1
 
 # 锁定版本，不随 apt upgrade 更新
 sudo apt-mark hold kubelet kubeadm kubectl
@@ -289,7 +279,7 @@ configure arguments: --with-stream --without-http --without-http_uwsgi_module --
 在 init 之前先将镜像拉取到本地（可选步骤）
 
 ```bash
-kubeadm config images pull --kubernetes-version 1.34.1
+kubeadm config images pull --kubernetes-version 1.34.5
 ```
 
 其中会拉下来一个 pause 镜像，尽量再修改一下 containerd 里面配置的 pause 镜像，版本保持一致。
@@ -298,7 +288,7 @@ kubeadm config images pull --kubernetes-version 1.34.1
 
 ```bash
 sudo kubeadm init \
---kubernetes-version 1.34.1 \
+--kubernetes-version 1.34.5 \
 --control-plane-endpoint "127.0.0.1:8443" \
 --upload-certs \
 --service-cidr=10.96.0.0/12 \
@@ -312,14 +302,14 @@ sudo kubeadm init \
 在 init 之前先将镜像拉取到本地（可选步骤）
 
 ```bash
-kubeadm config images pull --kubernetes-version 1.34.1 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
+kubeadm config images pull --kubernetes-version 1.34.5 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
 ```
 
 在 k8s-master0 上执行
 
 ```bash
 sudo kubeadm init \
---kubernetes-version 1.34.1 \
+--kubernetes-version 1.34.5 \
 --control-plane-endpoint "127.0.0.1:8443" \
 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers \
 --upload-certs \
