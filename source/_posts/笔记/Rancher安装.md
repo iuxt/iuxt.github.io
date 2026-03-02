@@ -45,3 +45,12 @@ helm install rancher rancher-stable/rancher \
   vim /etc/kubernetes/manifests/kube-apiserver.yaml
       - --service-node-port-range=1-65535
 ```
+
+
+
+```bash
+kubectl annotate ingressclass private-nginx ingressclass.kubernetes.io/is-default-class=true --overwrite
+
+kubectl create secret tls i-com --cert=i.com.crt --key=i.com.key -n default --dry-run -o yaml |kubectl apply -f -
+kubectl create secret tls i-com --cert=i.com.crt --key=i.com.key -n cattle-system --dry-run -o yaml |kubectl apply -f -
+```
