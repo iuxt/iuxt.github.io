@@ -26,7 +26,7 @@ updated: 2026-01-11 11:54:01
 **基础环境**
 
 - 操作系统：CentOS Stream 10
-- Kubernetes：v1.34.3
+- Kubernetes：v1.34.5
 - 容器运行时：containerd
 - CNI：Cilium
 - 高可用方式：kube-vip（ARP 模式）
@@ -83,6 +83,8 @@ timedatectl status
 ### 内核参数与模块
 
 ```bash
+yum install -y kernel-modules-extra
+
 cat > /etc/modules-load.d/k8s.conf <<EOF
 overlay
 br_netfilter
@@ -188,7 +190,7 @@ EOF
 # 查看可用的版本
 yum list kubelet kubeadm kubectl --showduplicates --disableexcludes=kubernetes
 
-yum install -y kubelet-1.34.3 kubeadm-1.34.3 kubectl-1.34.3 --disableexcludes=kubernetes
+yum install -y kubelet-1.34.5 kubeadm-1.34.5 kubectl-1.34.5 --disableexcludes=kubernetes
 
 systemctl enable --now kubelet
 ```
@@ -205,14 +207,14 @@ crictl config --set runtime-endpoint=unix:///run/containerd/containerd.sock
 
 ```bash
 # 也可以先拉取镜像
-# kubeadm config images pull --kubernetes-version 1.34.3
+# kubeadm config images pull --kubernetes-version 1.34.5
 # --skip-phases=addon/kube-proxy 是为了 Cilium 网络插件，如果用flannel，不用加这个参数
 
 ip addr add 10.0.0.10/24 dev ens160
 
 sudo kubeadm init \
   --control-plane-endpoint "10.0.0.10:6443" \
-  --kubernetes-version 1.34.3 \
+  --kubernetes-version 1.34.5 \
   --upload-certs \
   --service-cidr=10.96.0.0/12 \
   --pod-network-cidr=10.244.0.0/16 \
