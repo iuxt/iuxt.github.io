@@ -192,8 +192,7 @@ EOF
 
 ```bash
 # 安装字体
-brew install font-lxgw-wenkai
-
+brew install font-lxgw-wenkai font-meslo-for-powerlevel10k
 # 安装Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
