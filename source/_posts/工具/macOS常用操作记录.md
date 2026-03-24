@@ -140,9 +140,6 @@ brew uninstall font-meslo-lg-nerd-font
 ### 安装字体
 
 ```bash
-# brew 添加字体库
-brew tap homebrew/cask-fonts
-
 # 搜索可用 Nerd Font 字体
 brew search nerd-font
 
