@@ -19,10 +19,10 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Use Node.js 20.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 24.x
 
       - name: Restore file modification time
         run: |
@@ -37,26 +37,13 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: master # The branch the action should deploy to.
-          FOLDER: public # The folder the action should deploy.
+          BRANCH: master
+          FOLDER: public
           ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}
           repository-name: iuxt/iuxt.github.io
 
-      # 沙壁百度推送老是失败。
       - name: 💩Baidu Push
         run: |
-          # python <<END
-          # import requests
-          # import re
-          # with open('public/sitemap.xml', 'r') as sitemap:
-          #   pattern = re.compile(r'(?<=<loc>).+?(?=</loc>)')
-          #   data = pattern.findall(sitemap.read())
-          #   data = '\n'.join(data)
-          #   print(data)
-          #   req = requests.post(url = 'http://data.zz.baidu.com/urls?site=https://zahui.fan&token=${{ secrets.BAIDU_PUSH_TOKEN }}', data = data)
-          #   print(req.text)
-          # END
-          
           python <<END
           import requests
           with open('public/sitemap.txt', 'r') as sitemap:

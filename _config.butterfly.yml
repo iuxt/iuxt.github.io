@@ -33,7 +33,7 @@ code_blocks:
 
 social:
   fab fa-github: https://github.com/iuxt || Github
-  fas fa-envelope: mailto:x@zahui.fan || Email
+  fas fa-envelope: mailto:iuxt@qq.com || Email
   fa-brands fa-bilibili: https://space.bilibili.com/165330963 || Bilibili
   fa-brands fa-stack-overflow: https://stackoverflow.com/users/15620461/ || StackOverflow
   fa-solid fa-square-rss: /atom.xml || RSS
@@ -43,7 +43,7 @@ search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
   use: local_search
-  placeholder: 搜搜搜
+  placeholder: 输入关键词，开始搜索
 
   # Local Search
   local_search:
@@ -164,17 +164,16 @@ share:
 comments:
   use: Giscus # Valine,Disqus
   text: true # Display the comment name next to the button
-  lazyload: false
+  lazyload: true
   count: false # Display comment count in post's top_img
   card_post_count: false # Display comment count in Home Page
 
 giscus:
   repo: iuxt/iuxt.github.io
-  repo_id: R_kgDOMszkdA
-  category_id: DIC_kwDOMszkdM4CiMyw
+  repo_id: R_kgDORvjPkg
+  category_id: DIC_kwDORvjPks4C5LMJ
   light_theme: light
   dark_theme: dark
-  js: https://giscus.babudiu.com/client.js
   option:
 
 footer:
@@ -190,8 +189,7 @@ footer:
     <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021015230号-1</a>
   copyright: true
 
-
-baidu_analytics: 50b516d50102c8c9ac5f80529b81ca17
+# baidu_analytics: 50b516d50102c8c9ac5f80529b81ca17
 google_analytics: G-YN0WWZGVYN
 
 theme_color:
