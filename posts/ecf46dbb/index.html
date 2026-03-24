@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>检查端口是否能通的几种方法 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="服务器上运行了一个服务，想测试一下端口通不通，可以通过以下一些方法来测试。 telnet常见的 tcp 端口测试都是用的 telnet，用法也很简单 1telnet 10.0.0.7 22  成功会显示： 1234Trying 10.0.0.7...Connected to 10.0.0.7.Escape character is &#x27;^]&#x27;.SSH-2.0-OpenSSH_7.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="检查端口是否能通的几种方法">
+<meta property="og:url" content="https://zahui.fan/posts/ecf46dbb/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="服务器上运行了一个服务，想测试一下端口通不通，可以通过以下一些方法来测试。 telnet常见的 tcp 端口测试都是用的 telnet，用法也很简单 1telnet 10.0.0.7 22  成功会显示： 1234Trying 10.0.0.7...Connected to 10.0.0.7.Escape character is &#x27;^]&#x27;.SSH-2.0-OpenSSH_7.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg">
+<meta property="article:published_time" content="2021-12-20T12:26:07.000Z">
+<meta property="article:modified_time" content="2025-07-11T15:21:31.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="测试">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="Command">
+<meta property="article:tag" content="Bash">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "检查端口是否能通的几种方法",
+  "url": "https://zahui.fan/posts/ecf46dbb/",
+  "image": "https://s3.babudiu.com/iuxt/public/skeleton1.svg",
+  "datePublished": "2021-12-20T12:26:07.000Z",
+  "dateModified": "2025-07-11T15:21:31.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张理坤",
+      "url": "https://zahui.fan/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/ecf46dbb/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '检查端口是否能通的几种方法',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://s3.babudiu.com/iuxt/libs/lxgw-wenkai-screen-webfont/style.min.css" /><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">379</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">226</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://s3.babudiu.com/iuxt/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://s3.babudiu.com/iuxt/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">检查端口是否能通的几种方法</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">检查端口是否能通的几种方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-20T12:26:07.000Z" title="发表于 2021-12-20 20:26:07">2021-12-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-11T15:21:31.000Z" title="更新于 2025-07-11 23:21:31">2025-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;此文章距离发布已经&quot;,&quot;messageNext&quot;:&quot;天了，内容可能已经过时，请自行判断是否可用或联系博主更新。&quot;,&quot;postUpdate&quot;:&quot;2025-07-11 23:21:31&quot;}" hidden></div><p>服务器上运行了一个服务，想测试一下端口通不通，可以通过以下一些方法来测试。</p>
+<h2 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h2><p>常见的 tcp 端口测试都是用的 telnet，用法也很简单</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 10.0.0.7 22</span><br></pre></td></tr></table></figure>
+
+<p>成功会显示：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Trying 10.0.0.7...</span><br><span class="line">Connected to 10.0.0.7.</span><br><span class="line">Escape character is &#x27;^]&#x27;.</span><br><span class="line">SSH-2.0-OpenSSH_7.4</span><br></pre></td></tr></table></figure>
+
+<p>失败会显示：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Trying 10.0.0.7...</span><br><span class="line">telnet: Unable to connect to remote host: Connection refused</span><br></pre></td></tr></table></figure>
+
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost -p 8000</span><br></pre></td></tr></table></figure>
+
+<p>失败会显示</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh: connect to host localhost port 8001: Connection refused</span><br></pre></td></tr></table></figure>
+
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>curl ip:port</p>
+<p>失败会显示</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl: (7) Failed to connect to localhost port 8001: Connection refused</span><br></pre></td></tr></table></figure>
+
+<h2 id="netcat"><a href="#netcat" class="headerlink" title="netcat"></a>netcat</h2><h3 id="检查-TCP-端口"><a href="#检查-TCP-端口" class="headerlink" title="检查 TCP 端口"></a>检查 TCP 端口</h3><p>下面的命令会检查远程主机上是否打开了端口 80、22 和 9000：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -zv 192.168.2.1 80 22 9000</span><br></pre></td></tr></table></figure>
+
+<p>也可以指定端口扫描的范围 (速度非常快)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -zv 192.168.2.1 20-9000</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查-UDP-端口"><a href="#检查-UDP-端口" class="headerlink" title="检查 UDP 端口"></a>检查 UDP 端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -vuz 10.16.83.10 161</span><br></pre></td></tr></table></figure>
+
+<p>通的话, 会显示:<br><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202309121124086.png"></p>
+<p>不通的话, 会显示:<br><img src= "https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202309121126143.png" alt="image.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/ecf46dbb/">https://zahui.fan/posts/ecf46dbb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B5%8B%E8%AF%95/">测试</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/Command/">Command</a><a class="post-meta__tags" href="/tags/Bash/">Bash</a></div><div class="post-share"><div class="social-share" data-image="https://s3.babudiu.com/iuxt/public/skeleton1.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/c0e7cc9a/" title="使用radius和OpenLDAP来认证unifi AP"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">使用radius和OpenLDAP来认证unifi AP</div></div><div class="info-2"><div class="info-item-1"> 公司目前用的 WIFI 是 unifi 的 AP，员工离职后仍然可以连接公司 WIFI，是一个安全隐患，所以准备将 AP 接入 radius 来认证，数据取自 openldap，员工离职删除 openldap 账号即可。  本次操作系统使用的是 CentOS 7 OpenLDAP 参考文章：https://www.server-world.info/en/note?os=CentOS_7&amp;p=openldap  安装 OpenLDAP1234yum install -y openldap openldap-clients openldap-serverscp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIGchown ldap. /var/lib/ldap/DB_CONFIGsystemctl enable --now slapd  OpenLDAP 基础配置 生成一个密码 slappasswd 将生成的密码复制保存  设置 root 密码  chrootpw.ldif ...</div></div></div></a><a class="pagination-related" href="/posts/f2ce6df5/" title="Flask之服务端持久化session"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Flask之服务端持久化session</div></div><div class="info-2"><div class="info-item-1">需求如下：开发一个 web 界面，用户经过 oauth 认证后，给用户生成一个随机密码显示出来，并将用户名和密码发送给 radiusserver 用来当作 WIFI 密码。因为希望密码不要随便就更换，那样员工出去再进来，手机就需要重新输入新密码才能连 WIFI，容易被人打。所以用 session 存储的方式，将密码保存一定时间。 什么是 sessionsession 基于 cookie 实现，保存在服务端的键值对（dict 类型），同时在浏览器中的 cookie 中也对应一相同的随机字符串，用来再次请求的时候验证Flask 中的 session 是加密的，所以需要配置 SECRET_KEY 开始使用导入模块1from flask import Flask, render_template, request, session  配置 SECRET_KEY1app.secret_key = os.getenv(&quot;SECRET_KEY&quot;, &quot;not set key&quot;)  设置 session 类型可以存临时文件，还可以存...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/635c073a/" title="使用echo server测试ingress-nginx服务"><img class="cover" src="https://s3.babudiu.com/iuxt/public/Nginx.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">使用echo server测试ingress-nginx服务</div></div><div class="info-2"><div class="info-item-1">这个是 灰度的方案 创建正式环境的服务1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677# DeploymentapiVersion: apps/v1kind: Deploymentmetadata:  name: production  labels:    app: productionspec:  replicas: 1  selector:    matchLabels:      app: production  template:    metadata:      labels:        app: production    spec:      containers:      - name: production        image:...</div></div></div></a><a class="pagination-related" href="/posts/t37flu/" title="正在运行的Docker容器增加端口映射"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-10-04</div><div class="info-item-2">正在运行的Docker容器增加端口映射</div></div><div class="info-2"><div class="info-item-1">为什么有这个需求假设有如下情况：  这个服务很重要，很多服务在连，停服不知道会有什么影响。 服务是运行在 docker 里的，但是 docker 启动命令找不到了。 想给 docker 容器临时增加一个端口映射。  方法一、使用工具反向代理这个方法性能不如上面的 iptables 规则，比如可以用 nginx 的 stream 四层代理，或者用 socat 一条命令搞定。 查看容器的 IP 地址1docker inspect postgres   在结果中找到 NetworkSettings -&gt; Networks -&gt; &lt;你的网络名称&gt; -&gt; IPAddress 123456# 安装 socatsudo apt-get install socat  # Ubuntu/Debian# 创建端口转发，172.18.0.2 是容器的IPsocat TCP-LISTEN:5432,fork TCP:172.18.0.2:5432  方法二、参照 Docker 原生的方式docker 的 -p 命令来进行端口映射，本质上也是维护了一套 iptables...</div></div></div></a><a class="pagination-related" href="/posts/luam6g8o/" title="WSL新的网络模式-mirrored镜像网络"><img class="cover" src="https://s3.babudiu.com/iuxt/public/wsl.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">WSL新的网络模式-mirrored镜像网络</div></div><div class="info-2"><div class="info-item-1">刚开始我用 Hyper-V 自定义内部网络网段和IP地址 配置 Hyper-V 并创建了几台虚拟机， 但是和 WSL 的网络不通， 解决方案可以是将 Hyper-V 虚拟机只接使用 WSL 的网络适配器。不过 2023 年 9 月的 WSL 更新添加了一些新的实验性功能，其中包括一些关于新的网络模式“镜像”。镜像网络带来了一些实用的特性，例如将 WSL 中的服务开放到局域网（之前是 NAT 网络，只有主机可以通过 localhost 访问）。更新日志中提到，镜像网络带来的新特性如下：  IPv6 支持 在 Linux 中通过 127.0.0.1 访问 Windows 服务 通过局域网直接连接 WSL 对 VPN 更好的兼容性 多播支持  安装使用首先，这项特性需要 22621.2359 及以上版本的 Windows 11 以及 2.0 以上版本的 WSL。使用 wsl --version 命令可以检查是否符合需求，wsl --update 命令可以更新 WSL。 12345678C:\Users\iuxt&gt;wsl --versionWSL 版本： 2.1.5.0内核版本：...</div></div></div></a><a class="pagination-related" href="/posts/seln9g/" title="使用 PowerShell 修改 Windows 防火墙规则"><img class="cover" src="https://s3.babudiu.com/iuxt/public/Windows.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-03-27</div><div class="info-item-2">使用 PowerShell 修改 Windows 防火墙规则</div></div><div class="info-2"><div class="info-item-1">修改网络位置（专用网络或共用网络）在 windows 7 时代在控制面板里是可以直接修改的， 但是在 Windows 11 已经不能修改了。  使用公用网络会影响到防火墙策略， 比如在专用网络下， 局域网内是可以网络发现其他设备的。  比如我用 zerotier 这个软件会给电脑安装一个虚拟网卡，家里的电脑 zerotier 的网卡设置成了公用网络，那么就不能 rdp 远程连接家里电脑了。 修改方法需要以管理员身份运行 PowerShell 来执行： 12345678910111213141516171819PS C:\Users\iuxt&gt; Get-NetConnectionProfileName                     : CMCC-CaptainInterfaceAlias           : WLANInterfaceIndex           : 13NetworkCategory          : PrivateDomainAuthenticationKind : NoneIPv4Connectivity         :...</div></div></div></a><a class="pagination-related" href="/posts/loz4xrye/" title="使用tailscale打通内网"><img class="cover" src="https://s3.babudiu.com/iuxt/images/202311151021732.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">使用tailscale打通内网</div></div><div class="info-2"><div class="info-item-1">家里有一台群晖 nas, 通过 quickconnect 连接太慢了, 并且有些操作不能通过 quickconnect, 比如直接 smb 挂载目录 群晖 nas 安装群晖国内应用商店已经下架了这个 APP, 你可以尝试着在应用中心搜索 tailscale, 如果可以搜索到, 就直接安装即可. 搜索不到的话, 可以使用离线安装的方式: 到官网下载离线 SPK 包:https://pkgs.tailscale.com/stable/#spks根据你的系统架构来下载包, intel cpu 下载 x86_64 架构的包. 然后进入群晖软件中心, 点击手动安装, 上传 spk 包安装 第一次打开 tailscale 需要登录, 登录页面不支持 quickconnect 远程连接, 所以建议在家配置好 tailscale windows 安装安装成功后， 右键任务栏图标，点击 login 登录 tailscale 账号  登录成功后，可以在官网https://login.tailscale.com/admin/machines 查看到所有的设备和 IP...</div></div></div></a><a class="pagination-related" href="/posts/sq6bmc/" title="开源组网工具-easytier"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-08-13</div><div class="info-item-2">开源组网工具-easytier</div></div><div class="info-2"><div class="info-item-1">这个工具是利用 NAT 打洞实现，需要有一台服务器（可以自建也可以用官方提供的）做中介。经测试打洞成功率很高，速度也不错。打洞成功后，异地的机器就像在同一个内网一样方便，访问 smb、家里的 nas、远程桌面等等，并且支持自动对内网网段进行转发（zerotier 需要配置 iptables 转发）自建服务器后感觉比 zerotier 好用。zerotier 的文档可以看 群晖NAS部署zerotier内网穿透访问 附上官方的配置文件生成工具：https://easytier.cn/web/index.html#/config_generator 自建服务端这个步骤可以省略，不自建可以用社区提供的免费服务器。一个官方服务器地址：uri = &quot;tcp://public.easytier.top:11010&quot; 我安装的是 easytier 的 docker 版本。 config.toml123456789101112131415161718192021222324252627# hostname可以省略，默认是计算机名hostname =...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">379</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">226</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:iuxt@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#telnet"><span class="toc-number">1.</span> <span class="toc-text">telnet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh"><span class="toc-number">2.</span> <span class="toc-text">ssh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#curl"><span class="toc-number">3.</span> <span class="toc-text">curl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#netcat"><span class="toc-number">4.</span> <span class="toc-text">netcat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5-TCP-%E7%AB%AF%E5%8F%A3"><span class="toc-number">4.1.</span> <span class="toc-text">检查 TCP 端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5-UDP-%E7%AB%AF%E5%8F%A3"><span class="toc-number">4.2.</span> <span class="toc-text">检查 UDP 端口</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/t4ve3m/" title="使用kubeadm部署一套高可用k8s集群1.34 for Ubuntu"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用kubeadm部署一套高可用k8s集群1.34 for Ubuntu"/></a><div class="content"><a class="title" href="/posts/t4ve3m/" title="使用kubeadm部署一套高可用k8s集群1.34 for Ubuntu">使用kubeadm部署一套高可用k8s集群1.34 for Ubuntu</a><time datetime="2026-03-01T13:43:47.000Z" title="更新于 2026-03-01 21:43:47">2026-03-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/lrr6ze9h/" title="macOS常用操作记录"><img src="https://s3.babudiu.com/iuxt/public/macos.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="macOS常用操作记录"/></a><div class="content"><a class="title" href="/posts/lrr6ze9h/" title="macOS常用操作记录">macOS常用操作记录</a><time datetime="2026-02-27T02:28:27.000Z" title="更新于 2026-02-27 10:28:27">2026-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/tat9z4/" title="在macOS上使用MusicPlayer2听本地音乐"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在macOS上使用MusicPlayer2听本地音乐"/></a><div class="content"><a class="title" href="/posts/tat9z4/" title="在macOS上使用MusicPlayer2听本地音乐">在macOS上使用MusicPlayer2听本地音乐</a><time datetime="2026-02-22T01:29:41.000Z" title="更新于 2026-02-22 09:29:41">2026-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5d4cbfad/" title="Windows下运行服务的几种方式"><img src="https://s3.babudiu.com/iuxt/public/Windows-old.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下运行服务的几种方式"/></a><div class="content"><a class="title" href="/posts/5d4cbfad/" title="Windows下运行服务的几种方式">Windows下运行服务的几种方式</a><time datetime="2026-02-21T14:22:42.000Z" title="更新于 2026-02-21 22:22:42">2026-02-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/lqgfuqik/" title="bat命令修改windows环境变量"><img src="https://s3.babudiu.com/iuxt/public/Windows-old.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="bat命令修改windows环境变量"/></a><div class="content"><a class="title" href="/posts/lqgfuqik/" title="bat命令修改windows环境变量">bat命令修改windows环境变量</a><time datetime="2026-02-21T14:22:14.000Z" title="更新于 2026-02-21 22:22:14">2026-02-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://s3.babudiu.com/iuxt/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDORvjPkg',
+      'data-category-id': 'DIC_kwDORvjPks4C5LMJ',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async data-pjax src="https://events.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="输入关键词，开始搜索" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
