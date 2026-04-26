@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>在 Linux 系统中搭建 OpenVPN | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OpenVPN 是一款开源的虚拟私人网络（VPN）软件，基于 SSL&#x2F;TLS 协议实现安全的点对点或站点对站点连接。它广泛应用于远程访问、数据加密传输、绕过网络限制等场景。对于 Linux 用户而言，掌握 OpenVPN 的安装与配置不仅能提升网络安全性，还能灵活应对多样化的网络需求。 安装 OpenVPN 服务端12345# Ubuntu&#x2F;Debiansudo apt install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Linux 系统中搭建 OpenVPN">
+<meta property="og:url" content="https://zahui.fan/posts/te3udg/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="OpenVPN 是一款开源的虚拟私人网络（VPN）软件，基于 SSL&#x2F;TLS 协议实现安全的点对点或站点对站点连接。它广泛应用于远程访问、数据加密传输、绕过网络限制等场景。对于 Linux 用户而言，掌握 OpenVPN 的安装与配置不仅能提升网络安全性，还能灵活应对多样化的网络需求。 安装 OpenVPN 服务端12345# Ubuntu&#x2F;Debiansudo apt install">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg">
+<meta property="article:published_time" content="2023-04-26T14:17:40.000Z">
+<meta property="article:modified_time" content="2026-04-26T14:19:31.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="VPN">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="配置记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "在 Linux 系统中搭建 OpenVPN",
+  "url": "https://zahui.fan/posts/te3udg/",
+  "image": "https://s3.babudiu.com/iuxt/public/skeleton1.svg",
+  "datePublished": "2023-04-26T14:17:40.000Z",
+  "dateModified": "2026-04-26T14:19:31.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张理坤",
+      "url": "https://zahui.fan"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/te3udg/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.1.0"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css?v=6.1.9" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.13.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '在 Linux 系统中搭建 OpenVPN',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://s3.babudiu.com/iuxt/libs/lxgw-wenkai-screen-webfont/style.min.css" /><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">381</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">226</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://s3.babudiu.com/iuxt/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://s3.babudiu.com/iuxt/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">在 Linux 系统中搭建 OpenVPN</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">在 Linux 系统中搭建 OpenVPN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-26T14:17:40.000Z" title="发表于 2023-04-26 22:17:40">2023-04-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-26T14:19:31.000Z" title="更新于 2026-04-26 22:19:31">2026-04-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%9F%BA%E7%A1%80%E8%BF%90%E7%BB%B4/">基础运维</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;此文章距离发布已经&quot;,&quot;messageNext&quot;:&quot;天了，内容可能已经过时，请自行判断是否可用或联系博主更新。&quot;,&quot;postUpdate&quot;:&quot;2026-04-26 22:19:31&quot;}" hidden></div><p>OpenVPN 是一款开源的虚拟私人网络（VPN）软件，基于 SSL&#x2F;TLS 协议实现安全的点对点或站点对站点连接。它广泛应用于远程访问、数据加密传输、绕过网络限制等场景。对于 Linux 用户而言，掌握 OpenVPN 的安装与配置不仅能提升网络安全性，还能灵活应对多样化的网络需求。</p>
+<h2 id="安装-OpenVPN-服务端"><a href="#安装-OpenVPN-服务端" class="headerlink" title="安装 OpenVPN 服务端"></a>安装 OpenVPN 服务端</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line">sudo apt install openvpn -y</span><br><span class="line"> </span><br><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line">sudo dnf install openvpn -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成加密证书与密钥（使用-EasyRSA）"><a href="#生成加密证书与密钥（使用-EasyRSA）" class="headerlink" title="生成加密证书与密钥（使用 EasyRSA）"></a>生成加密证书与密钥（使用 EasyRSA）</h2><h3 id="下载-EasyRSA"><a href="#下载-EasyRSA" class="headerlink" title="下载 EasyRSA"></a>下载 EasyRSA</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 git（若未安装）</span></span><br><span class="line">sudo apt install git -y  <span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="comment"># 或 sudo dnf install git -y  # CentOS/RHEL</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 克隆 EasyRSA 仓库（使用 3.x 版本，兼容 OpenVPN 2.4+）</span></span><br><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/OpenVPN/easy-rsa.git /etc/openvpn/easy-rsa</span><br><span class="line"><span class="built_in">cd</span> /etc/openvpn/easy-rsa/easyrsa3</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化-PKI（公钥基础设施）"><a href="#初始化-PKI（公钥基础设施）" class="headerlink" title="初始化 PKI（公钥基础设施）"></a>初始化 PKI（公钥基础设施）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./easyrsa init-pki  <span class="comment"># 初始化 PKI 目录（生成 /tmp/easy-rsa/easyrsa3/pki/）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-CA-根证书"><a href="#生成-CA-根证书" class="headerlink" title="生成 CA 根证书"></a>生成 CA 根证书</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ./easyrsa build-ca nopass  <span class="comment"># &quot;nopass&quot; 表示 CA 私钥不加密（服务端自动启动需此设置）</span></span><br><span class="line"><span class="comment"># 提示输入 CA 名称（如 &quot;MyOpenVPN-CA&quot;），直接回车默认即可</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-Diffie-Hellman-参数（DH）"><a href="#生成-Diffie-Hellman-参数（DH）" class="headerlink" title="生成 Diffie-Hellman 参数（DH）"></a>生成 Diffie-Hellman 参数（DH）</h3><p>DH 参数用于密钥交换，增强前向安全性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./easyrsa gen-dh  <span class="comment"># 生成 pki/dh.pem，耗时可能较长（1-5 分钟，取决于服务器性能）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-TLS-加密密钥"><a href="#生成-TLS-加密密钥" class="headerlink" title="生成 TLS 加密密钥"></a>生成 TLS 加密密钥</h3><p>用于加密 TLS 握手过程，防止中间人攻击：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./easyrsa gen-tls-crypt-key</span><br></pre></td></tr></table></figure>
+
+<h3 id="启用-证书吊销列表（CRL）"><a href="#启用-证书吊销列表（CRL）" class="headerlink" title="启用 证书吊销列表（CRL）"></a>启用 证书吊销列表（CRL）</h3><p>通过吊销客户端证书实现禁止指定客户端访问</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成crl</span></span><br><span class="line">./easyrsa gen-crl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定客户端</span></span><br><span class="line"><span class="comment"># ./easyrsa revoke client1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成服务端证书与密钥"><a href="#生成服务端证书与密钥" class="headerlink" title="生成服务端证书与密钥"></a>生成服务端证书与密钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成服务端证书请求（CSR）和私钥，名称为 &quot;server&quot;（可自定义）</span></span><br><span class="line">sudo ./easyrsa build-server-full server nopass  <span class="comment"># &quot;nopass&quot; 表示服务端私钥不加密</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成客户端证书与密钥"><a href="#生成客户端证书与密钥" class="headerlink" title="生成客户端证书与密钥"></a>生成客户端证书与密钥</h3><p>假设客户端名为 client1，每个客户端都需要生成</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./easyrsa build-client-full client1 nopass  <span class="comment"># 客户端私钥同样不加密（便于自动连接）</span></span><br></pre></td></tr></table></figure>
+
+<p>生成后，客户端证书位于 <code>pki/issued/client1.crt</code> ，私钥位于 <code>pki/private/client1.key</code> ，还有个集成了所有证书的配置，可以直接复制到客户端的 <code>ovpn</code> 配置文件中：<code>pki/inline/private/client1.inline</code></p>
+<h3 id="复制证书-密钥到服务端目录"><a href="#复制证书-密钥到服务端目录" class="headerlink" title="复制证书&#x2F;密钥到服务端目录"></a>复制证书&#x2F;密钥到服务端目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/openvpn/server/keys</span><br><span class="line">sudo <span class="built_in">cp</span> pki/ca.crt /etc/openvpn/server/keys/</span><br><span class="line">sudo <span class="built_in">cp</span> pki/issued/server.crt /etc/openvpn/server/keys/</span><br><span class="line">sudo <span class="built_in">cp</span> pki/private/server.key /etc/openvpn/server/keys/</span><br><span class="line">sudo <span class="built_in">cp</span> pki/dh.pem /etc/openvpn/server/keys/</span><br><span class="line">sudo <span class="built_in">cp</span> pki/private/easyrsa-tls.key /etc/openvpn/server/keys/ta.key</span><br><span class="line">sudo <span class="built_in">cp</span> pki/crl.pem /etc/openvpn/server/keys/crl.pem</span><br><span class="line">sudo <span class="built_in">chmod</span> -R 600 /etc/openvpn/server/keys/  <span class="comment"># 权限设为 600，仅 root 可访问</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置服务端参数"><a href="#配置服务端参数" class="headerlink" title="配置服务端参数"></a>配置服务端参数</h2><p>创建服务端配置文件 <code>/etc/openvpn/server/server.conf</code> ，以下为推荐配置（关键参数已标注）：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本设置</span></span><br><span class="line">port 1194                               <span class="comment"># 监听端口（UDP 速度快，TCP 可用于端口封锁场景）</span></span><br><span class="line">proto udp                               <span class="comment"># 传输协议（推荐 UDP，TCP 可选）</span></span><br><span class="line">dev tun                                 <span class="comment"># 使用 TUN 设备（路由模式，适合远程访问；TAP 为桥接模式）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 证书/密钥路径</span></span><br><span class="line">ca keys/ca.crt</span><br><span class="line">cert keys/server.crt</span><br><span class="line">key keys/server.key                      <span class="comment"># 服务端私钥（需保密）</span></span><br><span class="line">dh keys/dh.pem</span><br><span class="line">tls-crypt keys/ta.key                    <span class="comment"># 启用 tls-crypt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密与认证（安全关键）</span></span><br><span class="line">cipher AES-256-GCM                       <span class="comment"># 数据加密算法（GCM 模式带认证，推荐 AES-256-GCM）</span></span><br><span class="line">tls-version-min 1.3                      <span class="comment"># 最低 TLS 版本（强制 TLS 1.3，禁用不安全的 TLS 1.0/1.1）</span></span><br><span class="line">tls-cert-profile preferred               <span class="comment"># 使用推荐的证书配置文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网络设置</span></span><br><span class="line">server 10.8.0.0 255.255.255.0            <span class="comment"># 客户端分配的子网（如 10.8.0.0/24）</span></span><br><span class="line">ifconfig-pool-persist ipp.txt            <span class="comment"># 记录客户端 IP 分配（重启后保持固定 IP）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># push &quot;route 192.168.1.0 255.255.255.0&quot; # 推送内网路由（如允许客户端访问服务端所在内网 192.168.1.0/24）</span></span><br><span class="line">push &quot;redirect-gateway def1 bypass-dhcp&quot; <span class="comment"># 推送所有流量到openvpn</span></span><br><span class="line"></span><br><span class="line">push &quot;dhcp-option DNS 8.8.8.8&quot;           <span class="comment"># 推送 DNS 服务器（可选，如 Google DNS 8.8.8.8）</span></span><br><span class="line">push &quot;dhcp-option DNS 8.8.4.4&quot;</span><br><span class="line">keepalive 10 120                         <span class="comment"># 每 10 秒发送 ping，120 秒无响应则断开</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他设置</span></span><br><span class="line"><span class="comment"># user nobody                             # 降权运行（非 root 用户，增强安全性）</span></span><br><span class="line"><span class="comment"># group nogroup</span></span><br><span class="line">persist-key</span><br><span class="line">persist-tun</span><br><span class="line">status openvpn-status.log                <span class="comment"># 状态日志（客户端连接信息）</span></span><br><span class="line">log-append openvpn.log                   <span class="comment"># 详细日志（调试用，verb 3 时记录关键信息）</span></span><br><span class="line">verb 3                                   <span class="comment"># 日志详细程度（1-9，3 为默认，调试时可设为 6-9）</span></span><br><span class="line">crl-verify keys/crl.pem                  <span class="comment"># 启用证书吊销列表</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置防火墙与端口转发"><a href="#配置防火墙与端口转发" class="headerlink" title="配置防火墙与端口转发"></a>配置防火墙与端口转发</h2><h3 id="启用-IPv4-转发（服务端必须）"><a href="#启用-IPv4-转发（服务端必须）" class="headerlink" title="启用 IPv4 转发（服务端必须）"></a>启用 IPv4 转发（服务端必须）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">tee</span> -a /etc/sysctl.conf &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">net.ipv4.ip_forward=1</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="comment"># 生效配置</span></span><br><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置服务器防火墙"><a href="#配置服务器防火墙" class="headerlink" title="配置服务器防火墙"></a>配置服务器防火墙</h3><p>根据系统防火墙工具（ <code>ufw</code> 或 <code>firewalld</code> ）开放 OpenVPN 端口并允许转发。</p>
+<div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">通用方案 使用 iptables</button><button type="button" class="tab">CentOS 使用 firewalld</button><button type="button" class="tab">Debian/Ubuntu 使用 ufw</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -A INPUT -p udp --dport 1194 -j ACCEPT</span><br><span class="line">sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许 OpenVPN 端口</span></span><br><span class="line">sudo firewall-cmd --add-port=1194/udp --permanent</span><br><span class="line"><span class="comment"># 允许转发（临时生效，永久需修改 /etc/firewalld/firewalld.conf 中 ForwardPolicy=ACCEPT）</span></span><br><span class="line">sudo firewall-cmd --add-masquerade --permanent  <span class="comment"># 启用地址伪装（NAT），允许客户端访问互联网</span></span><br><span class="line">sudo firewall-cmd --reload</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许 OpenVPN 端口（UDP 1194）</span></span><br><span class="line">sudo ufw allow 1194/udp</span><br><span class="line"><span class="comment"># 允许转发（关键：允许 VPN 子网 10.8.0.0/24 的流量）</span></span><br><span class="line">sudo ufw default allow forward</span><br><span class="line"><span class="comment"># 重启 ufw</span></span><br><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h2 id="启动服务端并验证状态"><a href="#启动服务端并验证状态" class="headerlink" title="启动服务端并验证状态"></a>启动服务端并验证状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务（服务名默认 openvpn-server@server，对应配置文件 /etc/openvpn/server/server.conf）</span></span><br><span class="line">sudo systemctl start openvpn-server@server</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看状态（确认 active (running)）</span></span><br><span class="line">sudo systemctl status openvpn-server@server</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 设置开机自启</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> openvpn-server@server</span><br></pre></td></tr></table></figure>
+
+<p>验证服务运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看监听端口（确认 1194/UDP 已被 openvpn 占用）</span></span><br><span class="line">sudo ss -uln | grep 1194</span><br><span class="line"><span class="comment"># 输出示例：UNCONN 0 0 0.0.0.0:1194 0.0.0.0:*  # 表示成功监听</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看日志（排查问题用）</span></span><br><span class="line">sudo journalctl -u openvpn-server@server -f  <span class="comment"># -f 实时跟踪日志</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="生成客户端配置文件"><a href="#生成客户端配置文件" class="headerlink" title="生成客户端配置文件"></a>生成客户端配置文件</h2><p>客户端需使用服务端的 CA 证书、客户端证书&#x2F;密钥，以及与服务端匹配的加密参数。以下为手动生成 <code>client1.ovpn</code> 的示例：</p>
+<p>证书相关的配置，可以直接从 inline 文件复制。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">client</span><br><span class="line">dev tun</span><br><span class="line">proto udp</span><br><span class="line">remote 146.56.243.106 1194</span><br><span class="line">nobind</span><br><span class="line">persist-key</span><br><span class="line">persist-tun</span><br><span class="line"></span><br><span class="line">remote-cert-tls server</span><br><span class="line">cipher AES-256-GCM</span><br><span class="line">tls-version-min 1.3</span><br><span class="line">verb 3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 内联证书/密钥（避免单独文件）</span></span><br><span class="line"><span class="comment"># ca ca.crt          # CA 根证书（可内联或指定路径）</span></span><br><span class="line">&lt;ca&gt;</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line"><span class="comment"># 粘贴 /etc/openvpn/server/keys/ca.crt 的内容</span></span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">&lt;/ca&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># cert client.crt    # 客户端证书（可内联）</span></span><br><span class="line">&lt;cert&gt;</span><br><span class="line">-----BEGIN CERTIFICATE-----</span><br><span class="line"><span class="comment"># 粘贴 /etc/openvpn/server/keys/client1.crt 的内容（客户端证书）</span></span><br><span class="line">-----END CERTIFICATE-----</span><br><span class="line">&lt;/cert&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># key client.key     # 客户端私钥（可内联）</span></span><br><span class="line">&lt;key&gt;</span><br><span class="line">-----BEGIN PRIVATE KEY-----</span><br><span class="line"><span class="comment"># 粘贴 /etc/openvpn/server/keys/client1.key 的内容（客户端私钥）</span></span><br><span class="line">-----END PRIVATE KEY-----</span><br><span class="line">&lt;/key&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># tls-crypt /path/to/ta.key</span></span><br><span class="line">&lt;tls-crypt&gt;</span><br><span class="line"><span class="comment"># 完整的 ta.key 内容</span></span><br><span class="line">&lt;/tls-crypt&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo openvpn --config /etc/openvpn/client/client.ovpn --verb 6  <span class="comment"># --verb 6 输出详细调试日志</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="证书有效期查看"><a href="#证书有效期查看" class="headerlink" title="证书有效期查看"></a>证书有效期查看</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> client1.crt -noout -dates</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务端日志提示“Cannot-open-TUN-TAP-dev-dev-net-tun-No-such-file-or-directory”"><a href="#服务端日志提示“Cannot-open-TUN-TAP-dev-dev-net-tun-No-such-file-or-directory”" class="headerlink" title="服务端日志提示“Cannot open TUN&#x2F;TAP dev &#x2F;dev&#x2F;net&#x2F;tun: No such file or directory”"></a>服务端日志提示“Cannot open TUN&#x2F;TAP dev &#x2F;dev&#x2F;net&#x2F;tun: No such file or directory”</h3><ul>
+<li><strong>原因</strong> ：系统未加载 TUN 模块。</li>
+<li><strong>解决</strong> ：手动加载模块： <code>sudo modprobe tun</code> ，并添加到开机加载： <code>echo &quot;tun&quot; | sudo tee -a /etc/modules</code> 。</li>
+</ul>
+<h3 id="可以连接，但是无法上网"><a href="#可以连接，但是无法上网" class="headerlink" title="可以连接，但是无法上网"></a>可以连接，但是无法上网</h3><p>检查 服务器 的 NAT 转发配置</p>
+<h3 id="如何吊销客户端"><a href="#如何吊销客户端" class="headerlink" title="如何吊销客户端"></a>如何吊销客户端</h3><p>这里以吊销 client1 为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./easyrsa revoke client1</span><br><span class="line">./easyrsa gen-crl</span><br><span class="line">sudo <span class="built_in">cp</span> pki/crl.pem /etc/openvpn/server/keys/crl.pem</span><br><span class="line">sudo systemctl restart openvpn-server@server</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/te3udg/">https://zahui.fan/posts/te3udg/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/VPN/">VPN</a></div><div class="post-share"><div class="social-share" data-image="https://s3.babudiu.com/iuxt/public/skeleton1.svg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/svmr15/" title="macOS 的 Rosetta 2 使用记录"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">macOS 的 Rosetta 2 使用记录</div></div><div class="info-2"><div class="info-item-1">Rosetta 2 是什么Rosetta 2 是一个兼容层，是苹果 macOS 在 2020 年为了从 intel 芯片转向 Apple Silicon 芯片，又不能失去对现有软件生态的兼容（本来生态就不太好，再不兼容就完蛋了。）为什么叫 Rosetta 2，因为 Rosetta 是苹果上一次变换架构所开发的软件。 如何判断 Rosetta 2 是否被安装终端执行命令, 能成功运行说明支持 x86_64 程序。 12arch -x86_64 bashuname -m  查看进程 1pgrep oahd  手动安装 Rosetta 21softwareupdate --install-rosetta --agree-to-license </div></div></div></a><a class="pagination-related" href="/posts/bad354d3/" title="使用Nginx反向代理域名"><img class="cover" src="https://s3.babudiu.com/iuxt/public/Nginx.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">使用Nginx反向代理域名</div></div><div class="info-2"><div class="info-item-1">需求如下：研发代码里写死了地址 https://b.com 现在在不想发布新代码的情况下修改地址为 https://a.com 手动增加反向代理的 header先 ping a.com 获取到服务器的 ip 所以临时在 pod 里面新增了 nginx 服务，配置如下，由于是代理 https 服务，还需要配置 ssl 证书，刚好有证书。。。 1234567891011121314151617181920212223server &#123;  listen 80;  listen [::]:80;  listen 443 ssl;  listen [::]:443 ssl;  ssl_certificate   /etc/nginx/ssl.crt;  ssl_certificate_key /etc/nginx/ssl.key;  ssl_session_timeout 5m;  ssl_ciphers HIGH:!aNULL:!MD5;  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  ssl_prefer_server_ciphers on;  s...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/seln9g/" title="使用 PowerShell 修改 Windows 防火墙规则"><img class="cover" src="https://s3.babudiu.com/iuxt/public/Windows.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-03-27</div><div class="info-item-2">使用 PowerShell 修改 Windows 防火墙规则</div></div><div class="info-2"><div class="info-item-1">修改网络位置（专用网络或共用网络）在 windows 7 时代在控制面板里是可以直接修改的， 但是在 Windows 11 已经不能修改了。  使用公用网络会影响到防火墙策略， 比如在专用网络下， 局域网内是可以网络发现其他设备的。  比如我用 zerotier 这个软件会给电脑安装一个虚拟网卡，家里的电脑 zerotier 的网卡设置成了公用网络，那么就不能 rdp 远程连接家里电脑了。 修改方法需要以管理员身份运行 PowerShell 来执行： 12345678910111213141516171819PS C:\Users\iuxt&gt; Get-NetConnectionProfileName                     : CMCC-CaptainInterfaceAlias           : WLANInterfaceIndex           : 13NetworkCategory          : PrivateDomainAuthenticationKind : NoneIPv4Connectivity         : Inte...</div></div></div></a><a class="pagination-related" href="/posts/t22j7t/" title="轻量级组网工具WireGuard"><img class="cover" src="https://s3.babudiu.com/iuxt/public/wireguard.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-09-05</div><div class="info-item-2">轻量级组网工具WireGuard</div></div><div class="info-2"><div class="info-item-1">要先打开服务器的内核转发：net.ipv4.ip_forward = 1假设 WireGuard 自身的虚拟网段是 10.8.0.0/24, 给服务器分配的 IP 是：10.8.0.1，服务器的公网 IP 是：124.221.31.148 服务器基础配置1234567891011121314# Ubuntu安装 WireGuardsudo apt-get install -y wireguard# CentOS 安装 WireGuardsudo yum install -y wireguard-tools# 开启内核转发echo &quot;net.ipv4.ip_forward = 1&quot; &gt;&gt; /etc/sysctl.confsysctl -p# 配置目录创建mkdir -p /etc/wireguardcd /etc/wireguardumask 077  生成公私钥对先生成一些公私钥对，服务器需要 1 个，每个客户端 1 个。 12345678910111213# 生成服务器公私钥wg genkey &gt; server_privatekeywg p...</div></div></div></a><a class="pagination-related" href="/posts/c1a3cdd/" title="Linux的ulimit限制"><img class="cover" src="https://s3.babudiu.com/iuxt/public/linux.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">Linux的ulimit限制</div></div><div class="info-2"><div class="info-item-1">临时设置   命令 说明    ulimit -a 查看所有限制值   ulimit -n 65535 临时调整 open files 限制值   永久设置配置文件:&#x2F;etc&#x2F;security&#x2F;limits.conf Ubuntu和DebianCentOS和Fedora12345678*               soft    nofile          65535*               hard    nofile          65535*               hard    nproc           65535*               soft    nproc           65535root            soft    nofile          65535root            hard    nofile          65535root            hard    nproc           65535root            soft    ...</div></div></div></a><a class="pagination-related" href="/posts/4b677f68/" title="搭建NFS服务"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2024-10-31</div><div class="info-item-2">搭建NFS服务</div></div><div class="info-2"><div class="info-item-1"> k8s 集群需要存储，本地测试环境懒得搞些复杂的，开始回忆回忆入门时学的 nfs 的搭建，记录下吧，方便查看  搭建服务器Ubuntu和DebianCentOS和Fedora1sudo apt install -y nfs-kernel-server1sudo yum install -y nfs-utils  1234567891011121314# 创建共享目录sudo mkdir /nfs# 删除权限限制sudo chown -R nobody:nogroup /nfs# RHEL 9 系统# sudo chown -R nobody:nobody /nfs# 修改配置文件echo &quot;/nfs *(rw,sync,no_subtree_check,no_root_squash)&quot; &gt;&gt; /etc/exports# 使配置生效sudo exportfs -a  重启服务 Ubuntu和DebianCentOS 7CentOS 9 或 RHEL 912sudo systemctl restart nfs-serversudo systemctl...</div></div></div></a><a class="pagination-related" href="/posts/sf0bjv/" title="自建dns解析服务bind9"><img class="cover" src="https://s3.babudiu.com/iuxt/images/202406131712673.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-11</div><div class="info-item-2">自建dns解析服务bind9</div></div><div class="info-2"><div class="info-item-1">安装1yum install bind  我是 AlmaLinux 9 安装的是 9.16.23 版本 修改主配置文件修改监听地址默认监听地址为 127.0.0.1 需要对外提供服务，修改监听地址，可以改成本机内网 ip，也可以直接修改成 any， 表示任意接口都监听。 vim /etc/named.conf 123listen-on port 53 &#123; any; &#125;;...allow-query     &#123; any; &#125;;  去掉默认配置vim /etc/named.conf 下面这几行配置我是直接注释掉的 123456789/*zone &quot;.&quot; IN &#123;      type hint;      file &quot;named.ca&quot;;&#125;;include &quot;/etc/named.rfc1912.zones&quot;;include &quot;/etc/named.root.key&quot;;*/  增加 zone 配置放在 /etc/named.conf 文件最后面 1...</div></div></div></a><a class="pagination-related" href="/posts/fa013442/" title="MySQL常用操作记录"><img class="cover" src="https://s3.babudiu.com/iuxt/public/MySQL.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="fas fa-history fa-fw"></i> 2025-07-24</div><div class="info-item-2">MySQL常用操作记录</div></div><div class="info-2"><div class="info-item-1">记录一下日常工作中常用到的 MySQL 语句和一些配置等，方便日后查询 用户授权相关创建用户123-- CREATE USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27;;CREATE USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;;  修改密码123-- ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;123456&#x27;;ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;;  授权1Grant all privileges on *.* to &#x27;root&#x27;@&#x27;%&#x27; with grant...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">381</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">226</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:iuxt@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加入技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/wechat_ops_group.JPG" title="微信群" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-OpenVPN-%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">安装 OpenVPN 服务端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%8A%A0%E5%AF%86%E8%AF%81%E4%B9%A6%E4%B8%8E%E5%AF%86%E9%92%A5%EF%BC%88%E4%BD%BF%E7%94%A8-EasyRSA%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">生成加密证书与密钥（使用 EasyRSA）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-EasyRSA"><span class="toc-number">2.1.</span> <span class="toc-text">下载 EasyRSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-PKI%EF%BC%88%E5%85%AC%E9%92%A5%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">初始化 PKI（公钥基础设施）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-CA-%E6%A0%B9%E8%AF%81%E4%B9%A6"><span class="toc-number">2.3.</span> <span class="toc-text">生成 CA 根证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-Diffie-Hellman-%E5%8F%82%E6%95%B0%EF%BC%88DH%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">生成 Diffie-Hellman 参数（DH）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-TLS-%E5%8A%A0%E5%AF%86%E5%AF%86%E9%92%A5"><span class="toc-number">2.5.</span> <span class="toc-text">生成 TLS 加密密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-%E8%AF%81%E4%B9%A6%E5%90%8A%E9%94%80%E5%88%97%E8%A1%A8%EF%BC%88CRL%EF%BC%89"><span class="toc-number">2.6.</span> <span class="toc-text">启用 证书吊销列表（CRL）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%AF%81%E4%B9%A6%E4%B8%8E%E5%AF%86%E9%92%A5"><span class="toc-number">2.7.</span> <span class="toc-text">生成服务端证书与密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%81%E4%B9%A6%E4%B8%8E%E5%AF%86%E9%92%A5"><span class="toc-number">2.8.</span> <span class="toc-text">生成客户端证书与密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E8%AF%81%E4%B9%A6-%E5%AF%86%E9%92%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9B%AE%E5%BD%95"><span class="toc-number">2.9.</span> <span class="toc-text">复制证书&#x2F;密钥到服务端目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%82%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">配置服务端参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-number">4.</span> <span class="toc-text">配置防火墙与端口转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-IPv4-%E8%BD%AC%E5%8F%91%EF%BC%88%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BF%85%E9%A1%BB%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">启用 IPv4 转发（服务端必须）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">4.2.</span> <span class="toc-text">配置服务器防火墙</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%B9%B6%E9%AA%8C%E8%AF%81%E7%8A%B6%E6%80%81"><span class="toc-number">5.</span> <span class="toc-text">启动服务端并验证状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">生成客户端配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E6%9C%89%E6%95%88%E6%9C%9F%E6%9F%A5%E7%9C%8B"><span class="toc-number">7.1.</span> <span class="toc-text">证书有效期查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%97%A5%E5%BF%97%E6%8F%90%E7%A4%BA%E2%80%9CCannot-open-TUN-TAP-dev-dev-net-tun-No-such-file-or-directory%E2%80%9D"><span class="toc-number">7.2.</span> <span class="toc-text">服务端日志提示“Cannot open TUN&#x2F;TAP dev &#x2F;dev&#x2F;net&#x2F;tun: No such file or directory”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%86%E6%98%AF%E6%97%A0%E6%B3%95%E4%B8%8A%E7%BD%91"><span class="toc-number">7.3.</span> <span class="toc-text">可以连接，但是无法上网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%90%8A%E9%94%80%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">7.4.</span> <span class="toc-text">如何吊销客户端</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/te3udg/" title="在 Linux 系统中搭建 OpenVPN"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在 Linux 系统中搭建 OpenVPN"/></a><div class="content"><a class="title" href="/posts/te3udg/" title="在 Linux 系统中搭建 OpenVPN">在 Linux 系统中搭建 OpenVPN</a><time datetime="2026-04-26T14:19:31.000Z" title="更新于 2026-04-26 22:19:31">2026-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/tdx76u/" title="使用 Easytier-web 管理 easytier 节点"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Easytier-web 管理 easytier 节点"/></a><div class="content"><a class="title" href="/posts/tdx76u/" title="使用 Easytier-web 管理 easytier 节点">使用 Easytier-web 管理 easytier 节点</a><time datetime="2026-04-23T00:31:33.000Z" title="更新于 2026-04-23 08:31:33">2026-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/spc5z0/" title="运维使用的Windows软件分享"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="运维使用的Windows软件分享"/></a><div class="content"><a class="title" href="/posts/spc5z0/" title="运维使用的Windows软件分享">运维使用的Windows软件分享</a><time datetime="2026-04-20T15:18:56.000Z" title="更新于 2026-04-20 23:18:56">2026-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/t3e151/" title="macOS自定义后台运行程序"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="macOS自定义后台运行程序"/></a><div class="content"><a class="title" href="/posts/t3e151/" title="macOS自定义后台运行程序">macOS自定义后台运行程序</a><time datetime="2026-04-08T15:18:56.000Z" title="更新于 2026-04-08 23:18:56">2026-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/sewhsk/" title="Windows 配置自动登录"><img src="https://s3.babudiu.com/iuxt/public/Windows.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows 配置自动登录"/></a><div class="content"><a class="title" href="/posts/sewhsk/" title="Windows 配置自动登录">Windows 配置自动登录</a><time datetime="2026-03-28T15:39:56.000Z" title="更新于 2026-03-28 23:39:56">2026-03-28</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://s3.babudiu.com/iuxt/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js?v=6.1.9"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDORvjPkg',
+      'data-category-id': 'DIC_kwDORvjPks4C5LMJ',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async data-pjax src="https://events.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="输入关键词，开始搜索" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
