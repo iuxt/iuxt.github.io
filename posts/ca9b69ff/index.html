@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用create-dmg工具制作dmg安装包 - 技术栈 | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="create-dmg 是一个用来创建磁盘镜像文件（dmg）的 shell 脚本命令行工具。本文将介绍如何使用 create-dmg 来创建一个 dmg 磁盘镜像文件，即 macOS 系统的安装包。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用create-dmg工具制作dmg安装包 - 技术栈">
+<meta property="og:url" content="https://zahui.fan/posts/ca9b69ff/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="create-dmg 是一个用来创建磁盘镜像文件（dmg）的 shell 脚本命令行工具。本文将介绍如何使用 create-dmg 来创建一个 dmg 磁盘镜像文件，即 macOS 系统的安装包。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg">
+<meta property="article:published_time" content="2026-07-03T15:59:51.508Z">
+<meta property="article:modified_time" content="2026-07-03T15:59:25.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="clippings">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用create-dmg工具制作dmg安装包 - 技术栈",
+  "url": "https://zahui.fan/posts/ca9b69ff/",
+  "image": "https://s3.babudiu.com/iuxt/public/skeleton1.svg",
+  "datePublished": "2026-07-03T15:59:51.508Z",
+  "dateModified": "2026-07-03T15:59:25.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张理坤",
+      "url": "https://zahui.fan"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/ca9b69ff/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.1.0"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css?v=6.1.9" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'G-YN0WWZGVYN')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'G-YN0WWZGVYN', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.13.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用create-dmg工具制作dmg安装包 - 技术栈',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://s3.babudiu.com/iuxt/libs/lxgw-wenkai-screen-webfont/style.min.css" /><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">385</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">227</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://s3.babudiu.com/iuxt/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://s3.babudiu.com/iuxt/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">使用create-dmg工具制作dmg安装包 - 技术栈</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">使用create-dmg工具制作dmg安装包 - 技术栈</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-03T15:59:51.508Z" title="发表于 2026-07-03 23:59:51">2026-07-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-03T15:59:25.000Z" title="更新于 2026-07-03 23:59:25">2026-07-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;此文章距离发布已经&quot;,&quot;messageNext&quot;:&quot;天了，内容可能已经过时，请自行判断是否可用或联系博主更新。&quot;,&quot;postUpdate&quot;:&quot;2026-07-03 23:59:25&quot;}" hidden></div><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://link.juejin.cn/?target=https://github.com/create-dmg/create-dmg" rel="external nofollow noreferrer" title="https:&#x2F;&#x2F;github.com&#x2F;create-dmg&#x2F;create-dmg">create-dmg</a> 是一个用来创建磁盘镜像文件（dmg）的 shell 脚本命令行工具。本文将介绍如何使用 <code>create-dmg</code> 来创建一个 dmg 磁盘镜像文件，即 macOS 系统的安装包。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><strong>create-dmg</strong> 可以通过 Homebrew 来安装，使用以下命令安装 <code>create-dmg</code> ：</p>
+<p>bash 复制代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install create-dmg</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建-DMG-文件"><a href="#创建-DMG-文件" class="headerlink" title="创建 DMG 文件"></a>创建 DMG 文件</h2><p>在创建 dmg 文件之前，确保你的应用程序已经打包好，并且所有的资源文件都已经放置在正确的位置。通常为 <code>xxx.app</code> 的 bundle 形式文件。</p>
+<p>创建一个文件夹，将你的应用程序拖放进去。这个文件夹将作为 dmg 文件的根目录。这里以 <code>dmg-demo</code> 作为目录为例：</p>
+<p>复制代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dmg-demo</span><br><span class="line">├── QtProjectDemo.app</span><br><span class="line">├── bg.svg</span><br></pre></td></tr></table></figure>
+
+<p>只需要额外提供一张背景图即可。当然也可再提供一个 <code>icns</code> 图标文件作为磁盘镜像文件的图标（双击 dmg 后，桌面显示的磁盘镜像图标）</p>
+<p>如图，上面为默认的磁盘镜像图标，下图为自行替换的图标：</p>
+<p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52e838bd2b6b47bd8edd6a78dc8734e9~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp"></p>
+<p>这里提供的是SVG格式的背景图：</p>
+<p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0cca93142d84f14a99b6af9c34c325b~tplv-k3u1fbpfcp-image.image"></p>
+<p>在应用程序文件夹所在的目录打开终端。然后运行以下命令：</p>
+<p>bash 复制代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create-dmg \</span><br><span class="line">  --volname <span class="string">&quot;Application Installer&quot;</span> \</span><br><span class="line">  --background <span class="string">&quot;bg.svg&quot;</span> \</span><br><span class="line">  --window-pos 400 200 \</span><br><span class="line">  --window-size 660 400 \</span><br><span class="line">  --icon-size 100 \</span><br><span class="line">  --icon <span class="string">&quot;QtProjectDemo.app&quot;</span> 160 185 \</span><br><span class="line">  --hide-extension <span class="string">&quot;QtProjectDemo.app&quot;</span> \</span><br><span class="line">  --app-drop-link 500 185 \</span><br><span class="line">  <span class="string">&quot;Installer.dmg&quot;</span> \</span><br><span class="line">  <span class="string">&quot;QtProjectDemo.app/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个命令中包含了多个参数：</p>
+<ul>
+<li><code>--volname</code> ：设置卷的名称。</li>
+<li><code>--background</code> ：设置窗口的背景图。</li>
+<li><code>--window-pos</code> ：设置双击 dmg，打开窗口的位置坐标。</li>
+<li><code>--window-size</code> ：设置窗口的大小。</li>
+<li><code>--icon-size</code> ：设置应用程序图标的大小。</li>
+<li><code>--icon</code> ：设置应用程序的图标和位置坐标。</li>
+<li><code>--hide-extension</code> ：隐藏应用程序文件的扩展名。</li>
+<li>最后两个参数分别是输出的 dmg 文件名和包含应用程序的文件夹名称。</li>
+</ul>
+<p>输出信息：</p>
+<p>bash 复制代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">Creating disk image...</span><br><span class="line">..................................................................................................</span><br><span class="line">created: /Users/leo/Downloads/dmg-demo/rw.74691.Installer.dmg</span><br><span class="line">Mounting disk image...</span><br><span class="line">Device name:     /dev/disk5</span><br><span class="line">Searching <span class="keyword">for</span> mounted interstitial disk image using /dev/disk5s...</span><br><span class="line">Mount <span class="built_in">dir</span>:       /Volumes/dmg.kaLqeq</span><br><span class="line">Copying background file <span class="string">&#x27;bg.svg&#x27;</span>...</span><br><span class="line">Making <span class="built_in">link</span> to Applications <span class="built_in">dir</span>...</span><br><span class="line">/Volumes/dmg.kaLqeq</span><br><span class="line">Running AppleScript to make Finder stuff pretty: /usr/bin/osascript <span class="string">&quot;/var/folders/mn/vvr3gxpn7b38rlkyfl_j5m2h0000gn/T/createdmg.tmp.XXXXXXXXXX.SfFuKvgIMf&quot;</span> <span class="string">&quot;dmg.kaLqeq&quot;</span></span><br><span class="line">waited 1 seconds <span class="keyword">for</span> .DS_STORE to be created.</span><br><span class="line">Done running the AppleScript...</span><br><span class="line">Fixing permissions...</span><br><span class="line">Done fixing permissions</span><br><span class="line">Skipping blessing on sandbox</span><br><span class="line">Deleting .fseventsd</span><br><span class="line">Unmounting disk image...</span><br><span class="line"><span class="string">&quot;disk5&quot;</span> ejected.</span><br><span class="line">Compressing disk image...</span><br><span class="line">正在准备映像引擎...</span><br><span class="line">正在读取Protective Master Boot Record（MBR：0）...</span><br><span class="line">   (CRC32 <span class="variable">$0821720F</span>：Protective Master Boot Record（MBR：0）)</span><br><span class="line">正在读取GPT Header（Primary GPT Header：1）...</span><br><span class="line">   (CRC32 <span class="variable">$2718773B</span>：GPT Header（Primary GPT Header：1）)</span><br><span class="line">正在读取GPT Partition Data（Primary GPT Table：2）...</span><br><span class="line">   (CRC32 <span class="variable">$D08A2D56</span>：GPT Partition Data（Primary GPT Table：2）)</span><br><span class="line">正在读取（Apple_Free：3）...</span><br><span class="line">   (CRC32 <span class="variable">$00000000</span>：（Apple_Free：3）)</span><br><span class="line">正在读取disk image（Apple_HFS：4）...</span><br><span class="line">.........................................................................................................................</span><br><span class="line">   (CRC32 <span class="variable">$FC0F7A84</span>：disk image（Apple_HFS：4）)</span><br><span class="line">正在读取（Apple_Free：5）...</span><br><span class="line">.........................................................................................................................</span><br><span class="line">   (CRC32 <span class="variable">$00000000</span>：（Apple_Free：5）)</span><br><span class="line">正在读取GPT Partition Data（Backup GPT Table：6）...</span><br><span class="line">.........................................................................................................................</span><br><span class="line">   (CRC32 <span class="variable">$D08A2D56</span>：GPT Partition Data（Backup GPT Table：6）)</span><br><span class="line">正在读取GPT Header（Backup GPT Header：7）...</span><br><span class="line">.........................................................................................................................</span><br><span class="line">   (CRC32 <span class="variable">$E02061DB</span>：GPT Header（Backup GPT Header：7）)</span><br><span class="line">正在添加资源...</span><br><span class="line">.........................................................................................................................</span><br><span class="line">已耗时： 3.355s</span><br><span class="line">文件大小：31846419字节，校验和：CRC32 <span class="variable">$7457A18C</span></span><br><span class="line">已处理扇区：213072，已压缩158148</span><br><span class="line">速度：23.0MB/秒</span><br><span class="line">节省：70.8%</span><br><span class="line">created: /Users/leo/Downloads/dmg-demo/Installer.dmg</span><br><span class="line">hdiutil does not support internet-enable. Note it was removed <span class="keyword">in</span> macOS 10.15.</span><br><span class="line">Disk image <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>创建完成后，双击 dmg 文件，检查它是否按照预期显示和工作。</p>
+<p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/07/1783043128_4b1b5699192a4af382ffd6bb996b2f24_clipboard.png" alt="image.png"></p>
+<p>这里指定了宽度 660 px 和高度 400 px 的窗口大小，是整个窗口（包含标题栏），而标题栏本身会占有 30 px 的高度，也就是实际上的区域只有 (660，370)，这就导致，如果你要想要图标都居中，那么图标的的中心坐标位置将是 (x, 370&#x2F;2)。</p>
+<p>背景图的制作也是，中间的▶️图标如果要中心居中，那么实际上需要向上偏移 30 px 高度，才会居中。</p>
+<p>另外，虽然 create-dmg 文档说支持 png、gif、jpg，但实测还支持 SVG、tiff 格式。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过使用 <code>create-dmg</code> ，你可以为你的 Mac 应用程序创建 DMG 磁盘镜像文件，同时也能方便地集成到 CI&#x2F;CD 流程中。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><code>create-dmg</code> 用法：</p>
+<p>xml 复制代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-dmg [options ...] <span class="tag">&lt;<span class="name">output_name.dmg</span>&gt;</span> <span class="tag">&lt;<span class="name">source_folder</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参数选项：</p>
+<ul>
+<li><code>--volname &lt;name&gt;</code> ：设置卷标名称（在 Finder 侧边栏和窗口标题中显示）</li>
+<li><code>--volicon &lt;icon.icns&gt;</code> ：设置卷标图标</li>
+<li><code>--background &lt;pic.png&gt;</code> ：设置文件夹背景图像（提供 png、gif、jpg 格式）</li>
+<li><code>--window-pos &lt;x&gt; &lt;y&gt;</code> ：设置文件夹窗口的位置</li>
+<li><code>--window-size &lt;width&gt; &lt;height&gt;</code> ：设置文件夹窗口的大小</li>
+<li><code>--text-size &lt;text_size&gt;</code> ：设置窗口文本大小（10-16）</li>
+<li><code>--icon-size &lt;icon_size&gt;</code> ：设置窗口图标大小（最大 128）</li>
+<li><code>--icon &lt;file_name&gt; &lt;x&gt; &lt;y&gt;</code> ：设置文件图标的位置</li>
+<li><code>--hide-extension &lt;file_name&gt;</code> ：隐藏文件的扩展名</li>
+<li><code>--app-drop-link &lt;x&gt; &lt;y&gt;</code> ：在位置 x, y 创建一个指向应用程序的快捷链接</li>
+<li><code>--ql-drop-link &lt;x&gt; &lt;y&gt;</code> ：在位置 x, y 创建一个指向 <code>/Library/QuickLook</code> 的快捷链接</li>
+<li><code>--eula &lt;eula_file&gt;</code> ：附加一个许可协议文件到 dmg</li>
+<li><code>--rez &lt;rez_path&gt;</code> ：指定包含许可协议文件的 Rez 工具的自定义路径</li>
+<li><code>--no-internet-enable</code> ：禁用自动挂载和复制</li>
+<li><code>--format</code> ：指定最终图像格式（UDZO|UDBZ|ULFO|ULMO）（默认为 UDZO）</li>
+<li><code>--filesystem</code> ：指定图像文件系统（HFS+|APFS）（默认为 HFS+，APFS 支持 macOS 10.13 或更新版本）</li>
+<li><code>--encrypt</code> ：启用结果磁盘镜像的加密（AES-256 - 将提示输入密码）</li>
+<li><code>--encrypt-aes128</code> ：启用结果磁盘镜像的加密（AES-128 - 将提示输入密码）</li>
+<li><code>--add-file &lt;target_name&gt; &lt;file|folder&gt; &lt;x&gt; &lt;y&gt;</code> ：添加额外的文件或文件夹（可多次使用）</li>
+<li><code>--disk-image-size &lt;x&gt;</code> ：手动设置磁盘镜像大小为 x MB</li>
+<li><code>--hdiutil-verbose</code> ：以详细模式执行 hdiutil</li>
+<li><code>--hdiutil-quiet</code> ：以安静模式执行 hdiutil</li>
+<li><code>--codesign &lt;signature&gt;</code> ：使用指定的签名对磁盘镜像进行代码签名</li>
+<li><code>--notarize &lt;credentials&gt;</code> ：使用存储在钥匙串中的凭据对磁盘镜像进行签名（等待并装订）。更多信息请查看 <a href="https://link.juejin.cn/?target=https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow" rel="external nofollow noreferrer" title="https:&#x2F;&#x2F;developer.apple.com&#x2F;documentation&#x2F;security&#x2F;notarizing_macos_software_before_distribution&#x2F;customizing_the_notarization_workflow">Apple的文档</a></li>
+<li><code>--skip-jenkins</code> ：跳过 Finder 美化 AppleScript，适用于沙盒和非 GUI 环境</li>
+<li><code>--sandbox-safe</code> ：与沙盒兼容的 hdiutil，不祝福也不执行 AppleScript（不支持 APFS 磁盘镜像）</li>
+<li><code>--version</code> ：显示工具版本号</li>
+<li><code>-h, --help</code> ：显示帮助</li>
+</ul>
+<blockquote>
+<p><a href="https://link.juejin.cn/?target=https://github.com/create-dmg/create-dmg" rel="external nofollow noreferrer" title="https:&#x2F;&#x2F;github.com&#x2F;create-dmg&#x2F;create-dmg">create-dmg&#x2F;create-dmg: A shell script to build fancy DMGs (github.com)</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/ca9b69ff/">https://zahui.fan/posts/ca9b69ff/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/clippings/">clippings</a></div><div class="post-share"><div class="social-share" data-image="https://s3.babudiu.com/iuxt/public/skeleton1.svg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/tgipzz/" title="superpowers"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">superpowers</div></div><div class="info-2"><div class="info-item-1">安装https://github.com/obra/superpowers 按照教程安装 使用/brainstorming进行头脑风暴 回答问题后，会生成 md 文件的设计文档，然后它会根据这个设计文档来写实现步骤，最后根据步骤来一一实现。 </div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">385</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">227</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:iuxt@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加博主微信，进微信运维技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://src.babudiu.com/card/WeChat.JPG" title="微信" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-DMG-%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">创建 DMG 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">5.</span> <span class="toc-text">附录</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/ca9b69ff/" title="使用create-dmg工具制作dmg安装包 - 技术栈"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用create-dmg工具制作dmg安装包 - 技术栈"/></a><div class="content"><a class="title" href="/posts/ca9b69ff/" title="使用create-dmg工具制作dmg安装包 - 技术栈">使用create-dmg工具制作dmg安装包 - 技术栈</a><time datetime="2026-07-03T15:59:25.000Z" title="更新于 2026-07-03 23:59:25">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/52feaa76/" title="kubernetes节点维护流程"><img src="https://s3.babudiu.com/iuxt/public/kubernetes.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kubernetes节点维护流程"/></a><div class="content"><a class="title" href="/posts/52feaa76/" title="kubernetes节点维护流程">kubernetes节点维护流程</a><time datetime="2026-07-01T16:35:44.000Z" title="更新于 2026-07-02 00:35:44">2026-07-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/lo47lj11/" title="找出占用Kubernetes节点磁盘的Pod"><img src="https://s3.babudiu.com/iuxt/public/kubernetes.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="找出占用Kubernetes节点磁盘的Pod"/></a><div class="content"><a class="title" href="/posts/lo47lj11/" title="找出占用Kubernetes节点磁盘的Pod">找出占用Kubernetes节点磁盘的Pod</a><time datetime="2026-07-01T08:00:29.000Z" title="更新于 2026-07-01 16:00:29">2026-07-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/518e617c/" title="git常用操作记录"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git常用操作记录"/></a><div class="content"><a class="title" href="/posts/518e617c/" title="git常用操作记录">git常用操作记录</a><time datetime="2026-06-17T14:13:26.000Z" title="更新于 2026-06-17 22:13:26">2026-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/tgipzz/" title="superpowers"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="superpowers"/></a><div class="content"><a class="title" href="/posts/tgipzz/" title="superpowers">superpowers</a><time datetime="2026-06-17T14:07:32.000Z" title="更新于 2026-06-17 22:07:32">2026-06-17</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src='https://s3.babudiu.com/iuxt/public/upyun.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js?v=6.1.9"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'R_kgDORvjPkg',
+      'data-category-id': 'DIC_kwDORvjPks4C5LMJ',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async data-pjax src="https://events.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="输入关键词，开始搜索" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
