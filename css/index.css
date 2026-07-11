@@ -198,6 +198,7 @@ template {
 #recent-posts .recent-post-item >.recent-post-info > .content,
 #aside-content .aside-list > .aside-list-item .content > .name,
 #aside-content .aside-list > .aside-list-item .content > .title,
+#aside-content .aside-list > .aside-list-item .content > .comment,
 #page-header #site-title,
 #post-info .post-title,
 .pagination-related .info .info-1 .info-item-2,
@@ -1756,7 +1757,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: "LXGW WenKai Screen", sans-serif;;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   scroll-behavior: smooth;
@@ -3074,6 +3075,22 @@ figure.highlight pre .javascript .function {
   -webkit-align-items: center;
   align-items: center;
 }
+#article-container .shuoshuo-footer.flex-between {
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+#article-container .shuoshuo-footer.flex-end {
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -o-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
 #article-container .shuoshuo-footer .shuoshuo-tag {
   display: inline-block;
   margin-right: 8px;
@@ -3093,6 +3110,20 @@ figure.highlight pre .javascript .function {
 #article-container .shuoshuo-footer .shuoshuo-tag:hover {
   background: #3b3b3b;
   color: var(--white);
+}
+#article-container .shuoshuo-footer .shuoshuo-comment-btn {
+  padding: 2px;
+  color: #90a4ae;
+  cursor: pointer;
+}
+#article-container .shuoshuo-footer .shuoshuo-comment-btn:hover {
+  color: #3b3b3b;
+}
+#article-container .shuoshuo-comment {
+  padding-top: 10px;
+}
+#article-container .shuoshuo-comment.no-comment {
+  display: none;
 }
 .shuoshuo-navigation {
   display: -webkit-box;
@@ -3763,12 +3794,14 @@ figure.highlight pre .javascript .function {
   color: var(--card-meta);
   font-size: 0.85em;
 }
-#aside-content .aside-list > .aside-list-item .content > .title {
+#aside-content .aside-list > .aside-list-item .content > .title,
+#aside-content .aside-list > .aside-list-item .content > .comment {
   color: var(--font-color);
   line-height: 1.5;
   -webkit-line-clamp: 2;
 }
-#aside-content .aside-list > .aside-list-item .content > .title:hover {
+#aside-content .aside-list > .aside-list-item .content > .title:hover,
+#aside-content .aside-list > .aside-list-item .content > .comment:hover {
   color: #3b3b3b;
 }
 #aside-content .aside-list > .aside-list-item.no-cover {
@@ -4290,6 +4323,35 @@ figure.highlight pre .javascript .function {
     -ms-transform: scale(0.7);
     transform: scale(0.7);
   }
+}
+#post-comment .comment-head {
+  margin-bottom: 20px;
+}
+#post-comment .comment-head:after {
+  display: block;
+  clear: both;
+  content: '';
+}
+#post-comment .comment-head .comment-headline {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 1.43em;
+}
+#post-comment .comment-head .comment-provider {
+  float: right;
+  margin: 2px auto 0;
+  padding: 4px 16px;
+  border-radius: 8px;
+  background: #f6f8fa;
+  color: #49b1f5;
+}
+#post-comment .comment-wrap > div {
+  -webkit-animation: tabshow 0.5s;
+  -moz-animation: tabshow 0.5s;
+  -o-animation: tabshow 0.5s;
+  -ms-animation: tabshow 0.5s;
+  animation: tabshow 0.5s;
 }
 #footer {
   position: relative;
@@ -7337,6 +7399,9 @@ blockquote.pullquote.right {
   -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
   box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
 }
+[data-theme='dark'] #post-comment .comment-provider {
+  background: #2c2c2c !important;
+}
 [data-theme='dark'] .hide-button,
 [data-theme='dark'] .toggle-button,
 [data-theme='dark'] #post-outdate-notice,
@@ -7647,15 +7712,13 @@ blockquote.pullquote.right {
   color: #3b3b3b;
 }
 .search-dialog .local-search-input,
-.search-dialog #algolia-search-input {
+.search-dialog .google-search-input {
   margin: 0 auto;
   max-width: 100%;
   width: 100%;
 }
 .search-dialog .local-search-input input,
-.search-dialog #algolia-search-input input,
-.search-dialog .local-search-input .ais-SearchBox-input,
-.search-dialog #algolia-search-input .ais-SearchBox-input {
+.search-dialog .google-search-input input {
   padding: 5px 14px;
   width: 100%;
   outline: none;
@@ -7666,22 +7729,41 @@ blockquote.pullquote.right {
   -webkit-appearance: none;
 }
 .search-dialog .local-search-input input::placeholder,
-.search-dialog #algolia-search-input input::placeholder,
-.search-dialog .local-search-input .ais-SearchBox-input::placeholder,
-.search-dialog #algolia-search-input .ais-SearchBox-input::placeholder {
+.search-dialog .google-search-input input::placeholder {
   color: var(--text-color);
 }
-.search-dialog .search-result-list,
-.search-dialog .ais-Hits-list {
+.search-dialog .google-search-input {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  gap: 10px;
+}
+.search-dialog .google-search-input .google-search-submit {
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  width: 42px;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+.search-dialog .google-search-input .google-search-submit:hover {
+  background: var(--btn-hover-color);
+}
+.search-dialog .search-result-list {
   overflow-y: overlay;
   margin: 0 -20px;
   padding: 0 22px;
   max-height: calc(80vh - 220px);
 }
-.search-dialog .search-result-list .local-search-hit-item,
-.search-dialog .ais-Hits-list .local-search-hit-item,
-.search-dialog .search-result-list .ais-Hits-item,
-.search-dialog .ais-Hits-list .ais-Hits-item {
+.search-dialog .search-result-list .local-search-hit-item {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -7702,26 +7784,17 @@ blockquote.pullquote.right {
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.search-dialog .search-result-list .local-search-hit-item:hover,
-.search-dialog .ais-Hits-list .local-search-hit-item:hover,
-.search-dialog .search-result-list .ais-Hits-item:hover,
-.search-dialog .ais-Hits-list .ais-Hits-item:hover {
+.search-dialog .search-result-list .local-search-hit-item:hover {
   -webkit-transform: translateY(-1px);
   -moz-transform: translateY(-1px);
   -o-transform: translateY(-1px);
   -ms-transform: translateY(-1px);
   transform: translateY(-1px);
 }
-.search-dialog .search-result-list .local-search-hit-item:not([value])::before,
-.search-dialog .ais-Hits-list .local-search-hit-item:not([value])::before,
-.search-dialog .search-result-list .ais-Hits-item:not([value])::before,
-.search-dialog .ais-Hits-list .ais-Hits-item:not([value])::before {
+.search-dialog .search-result-list .local-search-hit-item:not([value])::before {
   display: none;
 }
-.search-dialog .search-result-list .local-search-hit-item[value]::before,
-.search-dialog .ais-Hits-list .local-search-hit-item[value]::before,
-.search-dialog .search-result-list .ais-Hits-item[value]::before,
-.search-dialog .ais-Hits-list .ais-Hits-item[value]::before {
+.search-dialog .search-result-list .local-search-hit-item[value]::before {
   display: -webkit-inline-box;
   display: -moz-inline-box;
   display: -webkit-inline-flex;
@@ -7751,16 +7824,10 @@ blockquote.pullquote.right {
   font-style: italic;
   font-size: 0.9em;
 }
-.search-dialog .search-result-list .local-search-hit-item::marker,
-.search-dialog .ais-Hits-list .local-search-hit-item::marker,
-.search-dialog .search-result-list .ais-Hits-item::marker,
-.search-dialog .ais-Hits-list .ais-Hits-item::marker {
+.search-dialog .search-result-list .local-search-hit-item::marker {
   content: none;
 }
-.search-dialog .search-result-list .local-search-hit-item a,
-.search-dialog .ais-Hits-list .local-search-hit-item a,
-.search-dialog .search-result-list .ais-Hits-item a,
-.search-dialog .ais-Hits-list .ais-Hits-item a {
+.search-dialog .search-result-list .local-search-hit-item a {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
@@ -7770,30 +7837,13 @@ blockquote.pullquote.right {
   flex: 1;
   color: var(--search-a-color);
 }
-.search-dialog .search-result-list .local-search-hit-item a:hover,
-.search-dialog .ais-Hits-list .local-search-hit-item a:hover,
-.search-dialog .search-result-list .ais-Hits-item a:hover,
-.search-dialog .ais-Hits-list .ais-Hits-item a:hover {
+.search-dialog .search-result-list .local-search-hit-item a:hover {
   color: #3b3b3b;
 }
-.search-dialog .search-result-list .local-search-hit-item .search-result-title,
-.search-dialog .ais-Hits-list .local-search-hit-item .search-result-title,
-.search-dialog .search-result-list .ais-Hits-item .search-result-title,
-.search-dialog .ais-Hits-list .ais-Hits-item .search-result-title,
-.search-dialog .search-result-list .local-search-hit-item .algolia-hits-item-title,
-.search-dialog .ais-Hits-list .local-search-hit-item .algolia-hits-item-title,
-.search-dialog .search-result-list .ais-Hits-item .algolia-hits-item-title,
-.search-dialog .ais-Hits-list .ais-Hits-item .algolia-hits-item-title {
+.search-dialog .search-result-list .local-search-hit-item .search-result-title {
   font-weight: 600;
 }
-.search-dialog .search-result-list .local-search-hit-item .search-result,
-.search-dialog .ais-Hits-list .local-search-hit-item .search-result,
-.search-dialog .search-result-list .ais-Hits-item .search-result,
-.search-dialog .ais-Hits-list .ais-Hits-item .search-result,
-.search-dialog .search-result-list .local-search-hit-item .algolia-hit-item-content,
-.search-dialog .ais-Hits-list .local-search-hit-item .algolia-hit-item-content,
-.search-dialog .search-result-list .ais-Hits-item .algolia-hit-item-content,
-.search-dialog .ais-Hits-list .ais-Hits-item .algolia-hit-item-content {
+.search-dialog .search-result-list .local-search-hit-item .search-result {
   margin: 0 0 8px;
   word-break: break-all;
   font-size: 0.9em;
@@ -7933,8 +7983,7 @@ blockquote.pullquote.right {
   display: none;
   background: rgba(0,0,0,0.6);
 }
-.search-result-stats,
-.ais-Stats-text {
+.search-result-stats {
   margin: 15px 0 0;
   color: var(--text-color);
   text-align: center;

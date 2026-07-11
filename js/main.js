@@ -630,7 +630,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return
     }
 
-    Object.values(themeChange).forEach(fn => fn(mode))
+    Object.keys(themeChange).forEach(key => {
+      const themeChangeFn = themeChange[key]
+      themeChangeFn(mode)
+    })
   }
 
   /**
