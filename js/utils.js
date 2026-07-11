@@ -68,19 +68,6 @@
       }
     },
 
-    snackbarShow: (text, showAction = false, duration = 2000) => {
-      const { position, bgLight, bgDark } = GLOBAL_CONFIG.Snackbar
-      const bg = document.documentElement.getAttribute('data-theme') === 'light' ? bgLight : bgDark
-      Snackbar.show({
-        text,
-        backgroundColor: bg,
-        showAction,
-        duration,
-        pos: position,
-        customClass: 'snackbar-css'
-      })
-    },
-
     diffDate: (inputDate, more = false) => {
       const dateNow = new Date()
       const datePost = new Date(inputDate)
@@ -168,94 +155,6 @@
     isHidden: ele => ele.offsetHeight === 0 && ele.offsetWidth === 0,
 
     getEleTop: ele => ele.getBoundingClientRect().top + window.scrollY,
-
-    loadLightbox: ele => {
-      const service = GLOBAL_CONFIG.lightbox
-
-      if (service === 'medium_zoom') {
-        mediumZoom(ele, { background: 'var(--zoom-bg)' })
-        return
-      }
-
-      if (service === 'fancybox') {
-        ele.forEach(i => {
-          if (i.parentNode.tagName !== 'A') {
-            const dataSrc = i.dataset.lazySrc || i.src
-            const dataCaption = i.title || i.alt || ''
-            btf.wrap(i, 'a', { href: dataSrc, 'data-fancybox': 'gallery', 'data-caption': dataCaption, 'data-thumb': dataSrc })
-          }
-        })
-
-        if (!window.fancyboxRun) {
-          let options = ''
-          if (Fancybox.version < '6') {
-            options = {
-              Hash: false,
-              Thumbs: {
-                showOnStart: false
-              },
-              Images: {
-                Panzoom: {
-                  maxScale: 4
-                }
-              },
-              Carousel: {
-                transition: 'slide'
-              },
-              Toolbar: {
-                display: {
-                  left: ['infobar'],
-                  middle: [
-                    'zoomIn',
-                    'zoomOut',
-                    'toggle1to1',
-                    'rotateCCW',
-                    'rotateCW',
-                    'flipX',
-                    'flipY'
-                  ],
-                  right: ['slideshow', 'thumbs', 'close']
-                }
-              }
-            }
-          } else {
-            options = {
-              Hash: false,
-              Carousel: {
-                transition: 'slide',
-                Thumbs: {
-                  showOnStart: false
-                },
-                Toolbar: {
-                  display: {
-                    left: ['counter'],
-                    middle: [
-                      'zoomIn',
-                      'zoomOut',
-                      'toggle1to1',
-                      'rotateCCW',
-                      'rotateCW',
-                      'flipX',
-                      'flipY',
-                      'reset'
-                    ],
-                    right: ['autoplay', 'thumbs', 'close']
-                  }
-                },
-                Zoomable: {
-                  Panzoom: {
-                    maxScale: 4
-                  }
-                }
-              }
-            }
-          }
-
-          Fancybox.bind('[data-fancybox]', options)
-          window.fancyboxRun = true
-        }
-      }
-    },
 
     setLoading: {
       add: ele => {

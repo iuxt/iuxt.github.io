@@ -76,30 +76,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const highlightFullpageEle = highlightFullpage ? '<i class="fa-solid fa-up-right-and-down-left-from-center fullpage-button"></i>' : ''
 
     const alertInfo = (ele, text) => {
-      if (GLOBAL_CONFIG.Snackbar !== undefined) {
-        btf.snackbarShow(text)
-      } else {
-        const newEle = document.createElement('div')
-        newEle.className = 'copy-notice'
-        newEle.textContent = text
-        document.body.appendChild(newEle)
+      const newEle = document.createElement('div')
+      newEle.className = 'copy-notice'
+      newEle.textContent = text
+      document.body.appendChild(newEle)
 
-        const buttonRect = ele.getBoundingClientRect()
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+      const buttonRect = ele.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
 
         // X-axis boundary check
-        const halfWidth = newEle.offsetWidth / 2
-        const centerLeft = buttonRect.left + scrollLeft + buttonRect.width / 2
-        const finalLeft = Math.max(halfWidth + 10, Math.min(window.innerWidth - halfWidth - 10, centerLeft))
+      const halfWidth = newEle.offsetWidth / 2
+      const centerLeft = buttonRect.left + scrollLeft + buttonRect.width / 2
+      const finalLeft = Math.max(halfWidth + 10, Math.min(window.innerWidth - halfWidth - 10, centerLeft))
 
         // Show tooltip below button if too close to top
-        const normalTop = buttonRect.top + scrollTop - 40
-        const shouldShowBelow = buttonRect.top < 60 || normalTop < 10
+      const normalTop = buttonRect.top + scrollTop - 40
+      const shouldShowBelow = buttonRect.top < 60 || normalTop < 10
 
-        const topValue = shouldShowBelow ? buttonRect.top + scrollTop + buttonRect.height + 10 : normalTop
+      const topValue = shouldShowBelow ? buttonRect.top + scrollTop + buttonRect.height + 10 : normalTop
 
-        newEle.style.cssText = `
+      newEle.style.cssText = `
       top: ${topValue + 10}px;
       left: ${finalLeft}px;
       transform: translateX(-50%);
@@ -107,19 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
       transition: opacity 0.3s ease, top 0.3s ease;
     `
 
-        requestAnimationFrame(() => {
-          newEle.style.opacity = '1'
-          newEle.style.top = `${topValue}px`
-        })
+      requestAnimationFrame(() => {
+        newEle.style.opacity = '1'
+        newEle.style.top = `${topValue}px`
+      })
 
+      setTimeout(() => {
+        newEle.style.opacity = '0'
+        newEle.style.top = `${topValue + 10}px`
         setTimeout(() => {
-          newEle.style.opacity = '0'
-          newEle.style.top = `${topValue + 10}px`
-          setTimeout(() => {
-            newEle?.remove()
-          }, 300)
-        }, 800)
-      }
+          newEle?.remove()
+        }, 300)
+      }, 800)
     }
 
     const copy = async (text, ctx) => {
@@ -257,13 +253,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
-   * Lightbox
-   */
-  const runLightbox = () => {
-    btf.loadLightbox(document.querySelectorAll('#article-container img:not(.no-lightbox)'))
-  }
-
-  /**
    * justified-gallery 圖庫排版
    */
 
@@ -346,8 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const { updated, isResize, mounted } = e
       if (!updated.length || !mounted.length || isResize) return
-
-      btf.loadLightbox(container.querySelectorAll('img:not(.medium-zoom-image)'))
 
       if (ig.getGroups().length === maxGroupKey) {
         btf.setLoading.remove(container)
@@ -442,7 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const innerHeight = window.innerHeight + 56
     let initTop = 0
     const $header = document.getElementById('page-header')
-    const isChatBtn = typeof chatBtn !== 'undefined'
     const isShowPercent = GLOBAL_CONFIG.percent.rightside
 
     // 檢查文檔高度是否小於視窗高度
@@ -477,13 +463,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isDown) {
           if (flag !== 'down') {
             $header.classList.remove('nav-visible')
-            isChatBtn && window.chatBtn.hide()
             flag = 'down'
           }
         } else {
           if (flag !== 'up') {
             $header.classList.add('nav-visible')
-            isChatBtn && window.chatBtn.show()
             flag = 'up'
           }
         }
@@ -661,10 +645,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const willChangeMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
       if (willChangeMode === 'dark') {
         btf.activateDarkMode()
-        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
       } else {
         btf.activateLightMode()
-        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
       }
       btf.saveToLocal.set('theme', willChangeMode, 2)
       handleThemeChange(willChangeMode)
@@ -705,9 +687,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tocEle.addEventListener('transitionend', () => {
         tocEle.style.cssText = ''
       }, { once: true })
-    },
-    'chat-btn': () => { // Show chat
-      window.chatBtnFn()
     },
     translateLink: () => { // switch between traditional and simplified chinese
       window.translateFn.translatePage()
@@ -939,7 +918,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addHighlightTool()
     addPhotoFigcaption()
     addJustifiedGallery(document.querySelectorAll('#article-container .gallery-container'))
-    runLightbox()
     scrollFnToDo()
     addTableWrap()
     clickFnOfTagHide()
