@@ -630,14 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return
     }
 
-    Object.keys(themeChange).forEach(key => {
-      const themeChangeFn = themeChange[key]
-      if (['disqus', 'disqusjs'].includes(key)) {
-        setTimeout(() => themeChangeFn(mode), 300)
-      } else {
-        themeChangeFn(mode)
-      }
-    })
+    Object.values(themeChange).forEach(fn => fn(mode))
   }
 
   /**
@@ -968,7 +961,6 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollFn()
 
     forPostFn()
-    GLOBAL_CONFIG_SITE.pageType !== 'shuoshuo' && btf.switchComments(document)
     openMobileMenu()
   }
 

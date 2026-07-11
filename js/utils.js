@@ -102,20 +102,6 @@
       return dateSuffix.just
     },
 
-    loadComment: (dom, callback) => {
-      if ('IntersectionObserver' in window) {
-        const observerItem = new IntersectionObserver(entries => {
-          if (entries[0].isIntersecting) {
-            callback()
-            observerItem.disconnect()
-          }
-        }, { threshold: [0] })
-        observerItem.observe(dom)
-      } else {
-        callback()
-      }
-    },
-
     scrollToDest: (pos, time = 500) => {
       const currentPos = window.scrollY
       const isNavFixed = document.getElementById('page-header').classList.contains('fixed')
@@ -315,22 +301,6 @@
       Object.keys(keyObj).forEach(i => keyObj[i]())
 
       delete globalFn[key]
-    },
-
-    switchComments: (el = document, path) => {
-      const switchBtn = el.querySelector('#switch-btn')
-      if (!switchBtn) return
-
-      let switchDone = false
-      const postComment = el.querySelector('#post-comment')
-      const handleSwitchBtn = () => {
-        postComment.classList.toggle('move')
-        if (!switchDone && typeof loadOtherComment === 'function') {
-          switchDone = true
-          loadOtherComment(el, path)
-        }
-      }
-      btf.addEventListenerPjax(switchBtn, 'click', handleSwitchBtn)
     }
   }
 

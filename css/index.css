@@ -198,7 +198,6 @@ template {
 #recent-posts .recent-post-item >.recent-post-info > .content,
 #aside-content .aside-list > .aside-list-item .content > .name,
 #aside-content .aside-list > .aside-list-item .content > .title,
-#aside-content .aside-list > .aside-list-item .content > .comment,
 #page-header #site-title,
 #post-info .post-title,
 .pagination-related .info .info-1 .info-item-2,
@@ -1757,7 +1756,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: "LXGW WenKai Screen", sans-serif;;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   scroll-behavior: smooth;
@@ -3075,22 +3074,6 @@ figure.highlight pre .javascript .function {
   -webkit-align-items: center;
   align-items: center;
 }
-#article-container .shuoshuo-footer.flex-between {
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
-#article-container .shuoshuo-footer.flex-end {
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  -o-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
-}
 #article-container .shuoshuo-footer .shuoshuo-tag {
   display: inline-block;
   margin-right: 8px;
@@ -3110,20 +3093,6 @@ figure.highlight pre .javascript .function {
 #article-container .shuoshuo-footer .shuoshuo-tag:hover {
   background: #3b3b3b;
   color: var(--white);
-}
-#article-container .shuoshuo-footer .shuoshuo-comment-btn {
-  padding: 2px;
-  color: #90a4ae;
-  cursor: pointer;
-}
-#article-container .shuoshuo-footer .shuoshuo-comment-btn:hover {
-  color: #3b3b3b;
-}
-#article-container .shuoshuo-comment {
-  padding-top: 10px;
-}
-#article-container .shuoshuo-comment.no-comment {
-  display: none;
 }
 .shuoshuo-navigation {
   display: -webkit-box;
@@ -3794,14 +3763,12 @@ figure.highlight pre .javascript .function {
   color: var(--card-meta);
   font-size: 0.85em;
 }
-#aside-content .aside-list > .aside-list-item .content > .title,
-#aside-content .aside-list > .aside-list-item .content > .comment {
+#aside-content .aside-list > .aside-list-item .content > .title {
   color: var(--font-color);
   line-height: 1.5;
   -webkit-line-clamp: 2;
 }
-#aside-content .aside-list > .aside-list-item .content > .title:hover,
-#aside-content .aside-list > .aside-list-item .content > .comment:hover {
+#aside-content .aside-list > .aside-list-item .content > .title:hover {
   color: #3b3b3b;
 }
 #aside-content .aside-list > .aside-list-item.no-cover {
@@ -4323,92 +4290,6 @@ figure.highlight pre .javascript .function {
     -ms-transform: scale(0.7);
     transform: scale(0.7);
   }
-}
-#post-comment .comment-head {
-  margin-bottom: 20px;
-}
-#post-comment .comment-head:after {
-  display: block;
-  clear: both;
-  content: '';
-}
-#post-comment .comment-head .comment-headline {
-  display: inline-block;
-  vertical-align: middle;
-  font-weight: 700;
-  font-size: 1.43em;
-}
-#post-comment .comment-head .comment-switch {
-  display: inline-block;
-  float: right;
-  margin: 2px auto 0;
-  padding: 4px 16px;
-  width: max-content;
-  border-radius: 8px;
-  background: #f6f8fa;
-}
-#post-comment .comment-head .comment-switch .first-comment {
-  color: #49b1f5;
-}
-#post-comment .comment-head .comment-switch .second-comment {
-  color: #ff7242;
-}
-#post-comment .comment-head .comment-switch #switch-btn {
-  position: relative;
-  display: inline-block;
-  margin: -4px 8px 0;
-  width: 42px;
-  height: 22px;
-  border-radius: 34px;
-  background-color: #49b1f5;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
-  -ms-transition: 0.4s;
-  transition: 0.4s;
-}
-#post-comment .comment-head .comment-switch #switch-btn:before {
-  position: absolute;
-  bottom: 4px;
-  left: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #fff;
-  content: '';
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
-  -ms-transition: 0.4s;
-  transition: 0.4s;
-}
-#post-comment .comment-wrap > div {
-  -webkit-animation: tabshow 0.5s;
-  -moz-animation: tabshow 0.5s;
-  -o-animation: tabshow 0.5s;
-  -ms-animation: tabshow 0.5s;
-  animation: tabshow 0.5s;
-}
-#post-comment .comment-wrap > div:nth-child(2) {
-  display: none;
-}
-#post-comment.move #switch-btn {
-  background-color: #ff7242;
-}
-#post-comment.move #switch-btn:before {
-  -webkit-transform: translateX(20px);
-  -moz-transform: translateX(20px);
-  -o-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
-}
-#post-comment.move .comment-wrap > div:first-child {
-  display: none;
-}
-#post-comment.move .comment-wrap > div:last-child {
-  display: block;
 }
 #footer {
   position: relative;
@@ -5904,46 +5785,6 @@ figure.highlight pre .javascript .function {
   -ms-transform: scaleY(1);
   transform: scaleY(1);
 }
-#vcomment {
-  font-size: 1.1em;
-}
-#vcomment .vbtn {
-  border: none;
-  background: var(--btn-bg);
-  color: var(--btn-color);
-}
-#vcomment .vbtn:hover {
-  background: var(--btn-hover-color);
-}
-#vcomment .vimg {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
-}
-#vcomment .vimg:hover {
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
-#vcomment .vcards .vcard .vcontent.expand:before,
-#vcomment .vcards .vcard .vcontent.expand:after {
-  z-index: 22;
-}
-#waline-wrap {
-  --waline-font-size: 1.1em;
-  --waline-theme-color: #3b3b3b;
-  --waline-active-color: #ff7242;
-}
-#waline-wrap .wl-comment-actions > button:not(last-child) {
-  padding-right: 4px;
-}
-.twikoo .tk-content p {
-  margin: 3px 0;
-}
 .fireworks {
   position: fixed;
   top: 0;
@@ -5957,14 +5798,6 @@ figure.highlight pre .javascript .function {
 }
 .medium-zoom-overlay {
   z-index: 99999 !important;
-}
-.utterances,
-.fb-comments iframe {
-  width: 100% !important;
-}
-#gitalk-container .gt-meta {
-  margin: 0 0 0.8em;
-  padding: 6px 0 16px;
 }
 .aplayer {
   color: #4c4948;
@@ -7504,12 +7337,6 @@ blockquote.pullquote.right {
   -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
   box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
 }
-[data-theme='dark'] #post-comment .comment-switch {
-  background: #2c2c2c !important;
-}
-[data-theme='dark'] #post-comment .comment-switch #switch-btn {
-  filter: brightness(0.8);
-}
 [data-theme='dark'] .hide-button,
 [data-theme='dark'] .toggle-button,
 [data-theme='dark'] #post-outdate-notice,
@@ -7526,31 +7353,6 @@ blockquote.pullquote.right {
 [data-theme='dark'] #aside-content .aside-list > .aside-list-item:not(:last-child) {
   border-bottom: 1px dashed rgba(255,255,255,0.1);
 }
-[data-theme='dark'] #gitalk-container {
-  filter: brightness(0.8);
-}
-[data-theme='dark'] #gitalk-container svg {
-  fill: rgba(255,255,255,0.9) !important;
-}
-[data-theme='dark'] #disqusjs #dsqjs:hover,
-[data-theme='dark'] #disqusjs #dsqjs:focus,
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-tab-active,
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-no-comment {
-  color: rgba(255,255,255,0.7);
-}
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-order-label {
-  background-color: #1f1f1f;
-}
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body {
-  color: rgba(255,255,255,0.7);
-}
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body code,
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body pre {
-  background: #2c2c2c;
-}
-[data-theme='dark'] #disqusjs #dsqjs .dsqjs-post-body blockquote {
-  color: rgba(255,255,255,0.7);
-}
 [data-theme='dark'] #artitalk_main #lazy {
   background: #121212;
 }
@@ -7561,21 +7363,6 @@ blockquote.pullquote.right {
   [data-theme='dark'] #card-toc {
     background: #1f1f1f;
   }
-}
-[data-theme='dark'] .artalk.atk-dark-mode,
-[data-theme='dark'] .atk-layer-wrap.atk-dark-mode {
-  --at-color-font: rgba(255,255,255,0.7);
-  --at-color-meta: rgba(255,255,255,0.7);
-  --at-color-grey: rgba(255,255,255,0.7);
-}
-[data-theme='dark'] .atk-send-btn,
-[data-theme='dark'] .atk-badge {
-  color: rgba(255,255,255,0.7) !important;
-}
-[data-theme='dark'] #waline-wrap {
-  --waline-color: rgba(255,255,255,0.7);
-  --waline-dark-grey: rgba(255,255,255,0.7);
-  --waline-info-color: rgba(255,255,255,0.5);
 }
 .read-mode {
   --font-color: #4c4948;
