@@ -4266,7 +4266,7 @@ figure.highlight pre .javascript .function {
   transition: all 0.3s ease-in-out;
 }
 #footer a:hover {
-  color: #3b3b3b;
+  text-decoration: underline;
 }
 #footer .footer-separator {
   margin: 0 4px;
