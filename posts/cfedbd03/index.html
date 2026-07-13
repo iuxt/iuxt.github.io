@@ -226,7 +226,7 @@
 </ol>
 <p>验证： 连接斐讯路由器， 路由器 WAN 口 IP 配置成 <code>192.168.3.2</code>，WAN 口网关配置成 <code>192.168.3.1</code>，WAN 口 DNS 配置成 <code>114.114.114.114</code>，检查通过斐讯路由器是否可以上网</p>
 <h2 id="部署-DHCP-服务（可选）"><a href="#部署-DHCP-服务（可选）" class="headerlink" title="部署 DHCP 服务（可选）"></a>部署 DHCP 服务（可选）</h2><p>部署 DHCP 服务可以自动分配 IP，省去手动设置 IP 的烦恼，比如上一步的斐讯路由器手动配置 WAN 口 IP，有了 DHCP 后设置 WAN 口 DHCP 获取 IP 即可。另外如果路由器设置成 AP 模式， 可以利用软路由上面的 DHCP 来给客户端分配 IP 地址。</p>
-<h3 id="安装-DNSMASQ"><a href="#安装-DNSMASQ" class="headerlink" title="安装 DNSMASQ"></a>安装 DNSMASQ</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dnsmasq</span><br></pre></td></tr></table></figure>
+<h3 id="安装-DNSMASQ"><a href="#安装-DNSMASQ" class="headerlink" title="安装 DNSMASQ"></a>安装 DNSMASQ</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install dnsmasq</span><br></pre></td></tr></table></figure>
 
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>dnsmasq 的 dns 服务和 systemd-resolved.service 冲突（都占用 udp53 端口），所以需要关闭 systemd-resolved.service 或者 dnsmasq 的 dns 服务。这里关闭 dnsmasq 的 dns 服务</p>
 <p>注意：&#x2F;etc&#x2F;dnsmasq.d 里面的其他文件不要有冲突的配置项，同一项配置注意删除只保留一个。</p>

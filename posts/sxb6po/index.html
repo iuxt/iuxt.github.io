@@ -165,10 +165,10 @@
 <h2 id="操作系统信任-CA-证书"><a href="#操作系统信任-CA-证书" class="headerlink" title="操作系统信任 CA 证书"></a>操作系统信任 CA 证书</h2><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>Windows 将证书导入到系统的个人分类下。</p>
 <h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>macOS– 待补充。</p>
 <h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>Debian 系 Linux：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line"><span class="built_in">sudo</span> update-ca-certificates</span><br></pre></td></tr></table></figure>
 
 <p>RedHat 系 Linux：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">sudo update-ca-trust</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line"><span class="built_in">sudo</span> update-ca-trust</span><br></pre></td></tr></table></figure>
 
 <p>信任完成后，浏览器重启后再次打开 git 网页：<br>选择证书，点击确定，就可以正常打开页面了。<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/20250604110355773.png" alt="image.png"></p>
 <h2 id="Git-客户端配置"><a href="#Git-客户端配置" class="headerlink" title="Git 客户端配置"></a>Git 客户端配置</h2><p>上面的配置，浏览器已经可以正常携带证书来访问指定的服务了，但是 git 客户端还不行，需要对 git 仓库进行配置。</p>
