@@ -142,6 +142,57 @@
 
     getEleTop: ele => ele.getBoundingClientRect().top + window.scrollY,
 
+    loadLightbox: elements => {
+      if (GLOBAL_CONFIG.lightbox !== 'fancybox' || typeof Fancybox === 'undefined') return
+
+      elements.forEach(image => {
+        if (image.closest('a') || image.classList.contains('no-lightbox')) return
+
+        const dataSrc = image.dataset.lazySrc || image.src
+        const dataCaption = image.title || image.alt || ''
+        btf.wrap(image, 'a', {
+          href: dataSrc,
+          'data-fancybox': 'gallery',
+          'data-caption': dataCaption,
+          'data-thumb': dataSrc
+        })
+      })
+
+      if (window.fancyboxRun) return
+
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        Hash: false,
+        Carousel: {
+          transition: 'slide',
+          Thumbs: {
+            showOnStart: false
+          },
+          Toolbar: {
+            display: {
+              left: ['counter'],
+              middle: [
+                'zoomIn',
+                'zoomOut',
+                'toggle1to1',
+                'rotateCCW',
+                'rotateCW',
+                'flipX',
+                'flipY',
+                'reset'
+              ],
+              right: ['autoplay', 'thumbs', 'close']
+            }
+          },
+          Zoomable: {
+            Panzoom: {
+              maxScale: 4
+            }
+          }
+        }
+      })
+      window.fancyboxRun = true
+    },
+
     setLoading: {
       add: ele => {
         const html = `

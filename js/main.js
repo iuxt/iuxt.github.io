@@ -253,6 +253,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * Lightbox
+   */
+  const runLightbox = () => {
+    btf.loadLightbox(document.querySelectorAll('#article-container img:not(.no-lightbox)'))
+  }
+
+  /**
    * justified-gallery 圖庫排版
    */
 
@@ -335,6 +342,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const { updated, isResize, mounted } = e
       if (!updated.length || !mounted.length || isResize) return
+
+      btf.loadLightbox(container.querySelectorAll('img:not(.no-lightbox)'))
 
       if (ig.getGroups().length === maxGroupKey) {
         btf.setLoading.remove(container)
@@ -918,6 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addHighlightTool()
     addPhotoFigcaption()
     addJustifiedGallery(document.querySelectorAll('#article-container .gallery-container'))
+    runLightbox()
     scrollFnToDo()
     addTableWrap()
     clickFnOfTagHide()

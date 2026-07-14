@@ -5757,6 +5757,11 @@ figure.highlight pre .javascript .function {
 .container .aplayer ul li:before {
   content: none;
 }
+@media screen and (max-width: 768px) {
+  .fancybox__toolbar__column.is-middle {
+    display: none;
+  }
+}
 .container .btn-center {
   margin: 0 0 20px;
   text-align: center;
