@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>彻底删除CCLibrary | 杂烩饭</title><meta name="author" content="张理坤"><meta name="copyright" content="张理坤"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="尽量使用干净的方式来安装 Photoshop 了，但还是有个 CCLibrary 的启动项 正常来说，启动项的删除只需要检查下这几个文件夹，把 Adobe 的 plist 删除即可： 123ls ~&#x2F;Library&#x2F;LaunchAgents | grep -i adobels &#x2F;Library&#x2F;LaunchAgents | grep -i adobels &#x2F;Library&#x2F;LaunchDaemon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="彻底删除CCLibrary">
+<meta property="og:url" content="https://zahui.fan/posts/tiou4x/">
+<meta property="og:site_name" content="杂烩饭">
+<meta property="og:description" content="尽量使用干净的方式来安装 Photoshop 了，但还是有个 CCLibrary 的启动项 正常来说，启动项的删除只需要检查下这几个文件夹，把 Adobe 的 plist 删除即可： 123ls ~&#x2F;Library&#x2F;LaunchAgents | grep -i adobels &#x2F;Library&#x2F;LaunchAgents | grep -i adobels &#x2F;Library&#x2F;LaunchDaemon">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg">
+<meta property="article:published_time" content="2026-07-24T16:36:33.000Z">
+<meta property="article:modified_time" content="2026-07-24T16:48:23.000Z">
+<meta property="article:author" content="张理坤">
+<meta property="article:tag" content="Kubernetes,Prometheus,ElasticSearch,OPS,DevOps,运维,MySQL,Linux,云原生">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.babudiu.com/iuxt/public/skeleton1.svg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "彻底删除CCLibrary",
+  "url": "https://zahui.fan/posts/tiou4x/",
+  "image": "https://s3.babudiu.com/iuxt/public/skeleton1.svg",
+  "datePublished": "2026-07-24T16:36:33.000Z",
+  "dateModified": "2026-07-24T16:48:23.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "张理坤",
+      "url": "https://zahui.fan"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://zahui.fan/posts/tiou4x/"><link rel="preconnect"/><link rel="manifest" href="/site.webmanifest"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=7.1.0"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css?v=6.1.9" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.13.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '彻底删除CCLibrary',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://s3.babudiu.com/iuxt/libs/lxgw-wenkai-screen-webfont/style.min.css" /><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="杂烩饭" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">392</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">227</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(https://s3.babudiu.com/iuxt/public/skeleton1.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://s3.babudiu.com/iuxt/public/boob.png" alt="Logo"><span class="site-name">杂烩饭</span></a><a class="nav-page-title" href="/"><span class="site-name">彻底删除CCLibrary</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://bbk-games.zahui.fan/"><i class="fa-fw fas fa-gamepad"></i><span> 步步高小游戏</span></a></li><li><a class="site-page child" target="_blank" rel="noopener external nofollow noreferrer" href="https://aria2.babudiu.com/"><i class="fa-fw fas fa-download"></i><span> Aria2NG</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa-solid fa-paperclip"></i><span> 林克</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">彻底删除CCLibrary</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-24T16:36:33.000Z" title="发表于 2026-07-25 00:36:33">2026-07-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-24T16:48:23.000Z" title="更新于 2026-07-25 00:48:23">2026-07-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Macintosh/">Macintosh</a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;此文章距离发布已经&quot;,&quot;messageNext&quot;:&quot;天了，内容可能已经过时，请自行判断是否可用或联系博主更新。&quot;,&quot;postUpdate&quot;:&quot;2026-07-25 00:48:23&quot;}" hidden></div><p>尽量使用干净的方式来安装 Photoshop 了，但还是有个 CCLibrary 的启动项<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/07/1784911006_cc2b408d73f24dafa32d15b2c66d131b_clipboard.png" alt="image.png|514"></p>
+<p>正常来说，启动项的删除只需要检查下这几个文件夹，把 Adobe 的 plist 删除即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> ~/Library/LaunchAgents | grep -i adobe</span><br><span class="line"><span class="built_in">ls</span> /Library/LaunchAgents | grep -i adobe</span><br><span class="line"><span class="built_in">ls</span> /Library/LaunchDaemons | grep -i adobe</span><br></pre></td></tr></table></figure>
+
+<p>但是这几个文件夹删干净了之后，还是有。</p>
+<p>于是使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfltool dumpbtm | grep -i cclibrary</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/07/1784911160_2304fd86ebb54623895a4d2cdc43ae25_clipboard.png" alt="image.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pkill -f CCLibrary</span><br><span class="line">ps aux | grep -i cclibrary</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf <span class="string">&quot;/Library/Application Support/Adobe/Creative Cloud Libraries/CCLibrary.app&quot;</span></span><br><span class="line">launchctl list | grep -i adobe</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/07/1784911679_8ec44e6e499242e1ab875c34f9be36b4_clipboard.png" alt="image.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl remove application.com.adobe.AdobeCRDaemon.13556605.13556611</span><br></pre></td></tr></table></figure>
+
+<p>刷新缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfltool resetbtm</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://zahui.fan">张理坤</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://zahui.fan/posts/tiou4x/">https://zahui.fan/posts/tiou4x/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://zahui.fan" target="_blank">杂烩饭</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="https://s3.babudiu.com/iuxt/public/skeleton1.svg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css?v=1.1.6" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js?v=1.1.6" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/tijdbt/" title="在 Nginx 中禁止 IP 直连与域名暴露"><img class="cover" src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">在 Nginx 中禁止 IP 直连与域名暴露</div></div><div class="info-2"><div class="info-item-1">说明比如漏洞扫描工具会扫描出这种漏洞（直接访问 https://1.1.1.1 ）：SSL Certificate Is About To ExpireSSL Certificate Name Hostname Mismatch只是 Nginx 开放到公网，也并不会直接通过 IP 地址来访问，为了消除这个漏洞影响。 不返回数据可以修改 nginx 的默认站点配置，直接返回 444（444 状态码是 Nginx 特有的，即直接关闭链接）   这是一个最简单的配置，配置完成后，浏览器访问效果： 虽然不返回数据了，但是还是会泄露证书信息。 禁止发送证书加上配置：ssl_reject_handshake on   IP 地址直接访问的效果，不但被禁止打开。而且浏览器里看不到证书信息。  访问正常的域名正常： </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://s3.babudiu.com/iuxt/public/dog.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">张理坤</div><div class="author-info-description">张理坤的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">392</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">227</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/iuxt" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:iuxt@qq.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/165330963" rel="external nofollow noreferrer" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15620461/" rel="external nofollow noreferrer" target="_blank" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。</br>
+<strong style="color: red;">欢迎加博主微信，进微信运维技术交流群：</strong>
+<div class="aside-qrcode" >
+<img src="https://s3.babudiu.com/iuxt/public/WeChat.webp" title="微信" width="100%" height="auto">
+</div>
+</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/tiou4x/" title="彻底删除CCLibrary"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="彻底删除CCLibrary"/></a><div class="content"><a class="title" href="/posts/tiou4x/" title="彻底删除CCLibrary">彻底删除CCLibrary</a><time datetime="2026-07-24T16:48:23.000Z" title="更新于 2026-07-25 00:48:23">2026-07-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/tijdbt/" title="在 Nginx 中禁止 IP 直连与域名暴露"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在 Nginx 中禁止 IP 直连与域名暴露"/></a><div class="content"><a class="title" href="/posts/tijdbt/" title="在 Nginx 中禁止 IP 直连与域名暴露">在 Nginx 中禁止 IP 直连与域名暴露</a><time datetime="2026-07-21T18:05:18.000Z" title="更新于 2026-07-22 02:05:18">2026-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ti662j/" title="使用 RustFS 自建对象存储"><img src="https://s3.babudiu.com/iuxt/2026/07/1784188361_1b715d785fe04effac3fa22bdaab49ac_clipboard.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 RustFS 自建对象存储"/></a><div class="content"><a class="title" href="/posts/ti662j/" title="使用 RustFS 自建对象存储">使用 RustFS 自建对象存储</a><time datetime="2026-07-16T07:52:54.000Z" title="更新于 2026-07-16 15:52:54">2026-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/lpuzlvhd/" title="前后端跨域问题"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前后端跨域问题"/></a><div class="content"><a class="title" href="/posts/lpuzlvhd/" title="前后端跨域问题">前后端跨域问题</a><time datetime="2026-07-14T15:02:57.000Z" title="更新于 2026-07-14 23:02:57">2026-07-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ti62bh/" title="使用cURL命令管理对象存储(s3)"><img src="https://s3.babudiu.com/iuxt/public/skeleton1.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用cURL命令管理对象存储(s3)"/></a><div class="content"><a class="title" href="/posts/ti62bh/" title="使用cURL命令管理对象存储(s3)">使用cURL命令管理对象存储(s3)</a><time datetime="2026-07-14T14:39:08.000Z" title="更新于 2026-07-14 22:39:08">2026-07-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/iuxt/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" target="_blank">沪ICP备2021015230号-1</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js?v=6.1.9"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js?v=19.1.3"></script><div class="js-pjax"></div><div id="google-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button" type="button" aria-label="Close search"><i class="fas fa-times"></i></button></nav><form class="google-search-input"><input type="search" placeholder="输入关键词，开始搜索" autocomplete="off" aria-label="Search"/><button class="google-search-submit" type="submit" aria-label="Search with Google"><i class="fab fa-google"></i></button></form></div><div id="search-mask"></div><script>(() => {
+  const configuredSite = "zahui.fan"
+  const searchRoot = document.getElementById('google-search')
+  const searchDialog = searchRoot.querySelector('.search-dialog')
+  const searchMask = searchRoot.querySelector('#search-mask')
+  const form = searchRoot.querySelector('form')
+  const input = form.querySelector('input')
+
+  const fixSafariHeight = () => {
+    if (window.innerWidth < 768) {
+      searchDialog.style.setProperty('--search-height', `${window.innerHeight}px`)
+    }
+  }
+
+  const closeSearch = () => {
+    btf.overflowPaddingR.remove()
+    btf.animateOut(searchDialog, 'search_close .5s')
+    btf.animateOut(searchMask, 'to_hide 0.5s')
+    window.removeEventListener('resize', fixSafariHeight)
+  }
+
+  const handleKeydown = event => {
+    if (event.code !== 'Escape') return
+    closeSearch()
+    document.removeEventListener('keydown', handleKeydown)
+  }
+
+  const openSearch = () => {
+    btf.overflowPaddingR.add()
+    btf.animateIn(searchMask, 'to_show 0.5s')
+    btf.animateIn(searchDialog, 'titleScale 0.5s')
+    setTimeout(() => input.focus(), 300)
+    document.addEventListener('keydown', handleKeydown)
+    fixSafariHeight()
+    window.addEventListener('resize', fixSafariHeight)
+  }
+
+  const bindSearchButton = () => {
+    btf.addEventListenerPjax(document.querySelector('#search-button > .search'), 'click', openSearch)
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault()
+    const keywords = input.value.trim()
+    if (!keywords) return
+    const site = configuredSite || location.hostname
+    const params = new URLSearchParams({ q: `site:${site} ${keywords}` })
+    window.open(`https://www.google.com/search?${params}`, '_blank', 'noopener,noreferrer')
+  })
+
+  searchRoot.querySelector('.search-close-button').addEventListener('click', closeSearch)
+  searchMask.addEventListener('click', closeSearch)
+  bindSearchButton()
+
+  window.addEventListener('pjax:complete', () => {
+    !btf.isHidden(searchMask) && closeSearch()
+    bindSearchButton()
+  })
+})()</script></div></div></body></html>
