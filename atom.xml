@@ -11,7 +11,7 @@
   <rights>All rights reserved 2026, 张理坤</rights>
   <subtitle>张理坤的博客 - 运维技术分享</subtitle>
   <title>杂烩饭</title>
-  <updated>2026-07-24T16:48:23.000Z</updated>
+  <updated>2026-07-25T15:02:09.000Z</updated>
   <entry>
     <author>
       <name>张理坤</name>
@@ -27,7 +27,7 @@
       <![CDATA[<p>尽量使用干净的方式来安装 Photoshop 了，但还是有个 CCLibrary 的启动项<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg"]]>
     </summary>
     <title>彻底删除CCLibrary</title>
-    <updated>2026-07-24T16:48:23.000Z</updated>
+    <updated>2026-07-25T15:02:09.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -47,7 +47,7 @@
       <![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>比如漏洞扫描工具会扫描出这种漏洞（直接访问 <a href="https://1.1.1.1/">https://1.1.1.1</a> ）：<br><code>SSL Certificate Is About To]]>
     </summary>
     <title>在 Nginx 中禁止 IP 直连与域名暴露</title>
-    <updated>2026-07-21T18:05:18.000Z</updated>
+    <updated>2026-07-25T15:04:01.000Z</updated>
   </entry>
   <entry>
     <author>
@@ -84,7 +84,7 @@
       <![CDATA[<h2 id="公共存储桶（无须认证）"><a href="#公共存储桶（无须认证）" class="headerlink" title="公共存储桶（无须认证）"></a>公共存储桶（无须认证）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span]]>
     </summary>
     <title>使用cURL命令管理对象存储(s3)</title>
-    <updated>2026-07-14T14:39:08.000Z</updated>
+    <updated>2026-07-25T15:05:21.000Z</updated>
   </entry>
   <entry>
     <author>
