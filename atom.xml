@@ -11,7 +11,26 @@
   <rights>All rights reserved 2026, 张理坤</rights>
   <subtitle>张理坤的博客 - 运维技术分享</subtitle>
   <title>杂烩饭</title>
-  <updated>2026-07-25T15:02:09.000Z</updated>
+  <updated>2026-08-04T14:34:48.000Z</updated>
+  <entry>
+    <author>
+      <name>张理坤</name>
+    </author>
+    <category term="Macintosh" scheme="https://zahui.fan/categories/Macintosh/"/>
+    <content>
+      <![CDATA[<p><a href="https://github.com/ThisBoringWorld/gam4980">https://github.com/ThisBoringWorld/gam4980</a> 这个是一个 步步高 4980 的电子词典模拟器项目。</p><p>先编译出动态链接库文件，作为 RetroArch 的核心。</p><p>打开 RetroArch，找到 设置 – 文件夹<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/08/1785853243_6fc7bc341124402d8182d74a9ae2508b_clipboard.png" alt="image.png"></p><p>找到系统 BIOS，把 8.bin 和 E.bin 放到这个文件夹下的 gam4980 目录下<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/08/1785853290_d9914a209f824a59a4e55bae4a8b397c_clipboard.png" alt="image.png"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/Users/iuxt/Documents/RetroArch/system/</span><br><span class="line">└── gam4980</span><br><span class="line">    ├── 8.BIN</span><br><span class="line">    ├── E.BIN</span><br><span class="line">    └── README.md</span><br><span class="line"></span><br><span class="line">2 directories, 3 files</span><br></pre></td></tr></table></figure><p>直接启动核心，就相当于启动了一台 步步高朗文 4980 电子词典。。</p><p>看到这个小和尚，我的眼泪流了下来。</p><p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2026/08/1785853973_bdcf1a7e02944df7a45ec211d291a116_clipboard.png" alt="image.png"></p>]]>
+    </content>
+    <id>https://zahui.fan/posts/tj911g/</id>
+    <link href="https://zahui.fan/posts/tj911g/"/>
+    <published>2026-08-04T14:17:40.000Z</published>
+    <summary>
+      <![CDATA[<p><a href="https://github.com/ThisBoringWorld/gam4980">https://github.com/ThisBoringWorld/gam4980</a> 这个是一个 步步高 4980 的电子词典模拟器项目。</p>
+<p>先编译出动态链接库文件，作为 RetroArch 的核心。</p>
+<p>打开 RetroArch，找到 设置 –]]>
+    </summary>
+    <title>使用RetroArch玩步步高电子词典游戏</title>
+    <updated>2026-08-04T14:34:48.000Z</updated>
+  </entry>
   <entry>
     <author>
       <name>张理坤</name>
@@ -393,29 +412,5 @@
     </summary>
     <title>使用kubeadm部署一套高可用k8s集群1.34 for Ubuntu</title>
     <updated>2026-03-01T13:43:47.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>张理坤</name>
-    </author>
-    <category term="容器" scheme="https://zahui.fan/categories/%E5%AE%B9%E5%99%A8/"/>
-    <category term="网络" scheme="https://zahui.fan/tags/%E7%BD%91%E7%BB%9C/"/>
-    <category term="iptables" scheme="https://zahui.fan/tags/iptables/"/>
-    <category term="Docker" scheme="https://zahui.fan/tags/Docker/"/>
-    <category term="容器" scheme="https://zahui.fan/tags/%E5%AE%B9%E5%99%A8/"/>
-    <content>
-      <![CDATA[<h2 id="为什么有这个需求"><a href="#为什么有这个需求" class="headerlink" title="为什么有这个需求"></a>为什么有这个需求</h2><p>假设有如下情况：</p><ol><li>这个服务很重要，很多服务在连，停服不知道会有什么影响。</li><li>服务是运行在 docker 里的，但是 docker 启动命令找不到了。</li><li>想给 docker 容器临时增加一个端口映射。</li></ol><h2 id="方法一、使用工具反向代理"><a href="#方法一、使用工具反向代理" class="headerlink" title="方法一、使用工具反向代理"></a>方法一、使用工具反向代理</h2><p>这个方法性能不如上面的 <code>iptables</code> 规则，比如可以用 <code>nginx</code> 的 <code>stream</code> 四层代理，或者用 <code>socat</code> 一条命令搞定。</p><h3 id="查看容器的-IP-地址"><a href="#查看容器的-IP-地址" class="headerlink" title="查看容器的 IP 地址"></a>查看容器的 IP 地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect postgres</span><br></pre></td></tr></table></figure><p> 在结果中找到 <code>NetworkSettings</code> -&gt; <code>Networks</code> -&gt; <code>&lt;你的网络名称&gt;</code> -&gt; <code>IPAddress</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 socat</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install socat  <span class="comment"># Ubuntu/Debian</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建端口转发，172.18.0.2 是容器的IP</span></span><br><span class="line">socat TCP-LISTEN:5432,fork TCP:172.18.0.2:5432</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="方法二、参照-Docker-原生的方式"><a href="#方法二、参照-Docker-原生的方式" class="headerlink" title="方法二、参照 Docker 原生的方式"></a>方法二、参照 Docker 原生的方式</h2><p>docker 的 -p 命令来进行端口映射，本质上也是维护了一套 iptables 规则来实现的，docker-proxy 会维护 docker 需要的 iptables 规则，执行 <code>iptables-save</code> 可以查看所有的规则 (<code>iptables-save</code> 并不会真的 save，想保存 <code>iptables</code> 规则还需要额外的操作)。</p><h3 id="获取容器的-IP-地址"><a href="#获取容器的-IP-地址" class="headerlink" title="获取容器的 IP 地址"></a>获取容器的 IP 地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect postgres</span><br></pre></td></tr></table></figure><p> 在结果中找到 <code>NetworkSettings</code> -&gt; <code>Networks</code> -&gt; <code>&lt;你的网络名称&gt;</code> -&gt; <code>IPAddress</code></p><h3 id="查看-docker-的虚拟网卡"><a href="#查看-docker-的虚拟网卡" class="headerlink" title="查看 docker 的虚拟网卡"></a>查看 docker 的虚拟网卡</h3><p>docker 的一个 bridge 网卡就对应了 linux 机器上的一个网卡，要新增端口映射，需要知道你的容器连接的虚拟网卡是什么。</p><p>比如我想让 Postgres 的 5432 端口映射到外网，先查看 Postgres 的容器信息。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect postgres</span><br></pre></td></tr></table></figure><p>在结果中找到 <code>NetworkSettings</code> -&gt; <code>Networks</code> -&gt; <code>&lt;你的网络名称&gt;</code> -&gt; <code>Gateway</code> ，记录一下网关的 IP</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure><p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/09/32b6758667d0085e2bc258757097522b.png" alt="image.png|511"></p><p>可以知道网卡的名称是 <code>br-342eceae259f</code></p><h3 id="配置-iptables-规则"><a href="#配置-iptables-规则" class="headerlink" title="配置 iptables 规则"></a>配置 iptables 规则</h3><p>比如我的容器 IP：172.18.0.2<br>Docker 虚拟网卡：br-342eceae259f<br>要映射的端口：5432</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A DOCKER-USER -o br-342eceae259f ! -i br-342eceae259f -d 172.18.0.2/32 -m tcp -p tcp --dport 5432 -j ACCEPT</span><br><span class="line">iptables -t nat -A DOCKER ! -i br-342eceae259f -p tcp -m tcp --dport 5432 -j DNAT --to-destination 172.18.0.2:5432</span><br></pre></td></tr></table></figure><p>不需要做 SNAT，因为 Docker 默认已经做了 SNAT 了。<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/09/7c09d3c4ce37d93f4a75f3a645d45d2f.png" alt="image.png|705"></p><h2 id="方法三、传统的-iptables-规则"><a href="#方法三、传统的-iptables-规则" class="headerlink" title="方法三、传统的 iptables 规则"></a>方法三、传统的 iptables 规则</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">IP=10.0.0.21</span><br><span class="line">PORT=8000</span><br><span class="line">CONTAINER_IP=172.17.0.2</span><br><span class="line">CONTAINER_PORT=80</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个是DNAT，到本机的流量，重写目的地址为容器</span></span><br><span class="line">iptables -t nat -A PREROUTING -4 -p tcp -d <span class="variable">$&#123;IP&#125;</span> --dport <span class="variable">$&#123;PORT&#125;</span> -j DNAT --to-destination <span class="variable">$&#123;CONTAINER_IP&#125;</span>:<span class="variable">$&#123;CONTAINER_PORT&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个是为了本机也可以通过访问自己的IP和端口来访问</span></span><br><span class="line">iptables -t nat -A OUTPUT -4 -p tcp -d <span class="variable">$&#123;IP&#125;</span> --dport <span class="variable">$&#123;PORT&#125;</span> -j DNAT --to-destination <span class="variable">$&#123;CONTAINER_IP&#125;</span>:<span class="variable">$&#123;CONTAINER_PORT&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意这两条，需要将规则插到最上面，或者加入到DOCKER-USER链，配合下面的图理解</span></span><br><span class="line">iptables -I FORWARD -p tcp -d <span class="variable">$&#123;CONTAINER_IP&#125;</span> --dport <span class="variable">$&#123;CONTAINER_PORT&#125;</span> -j ACCEPT</span><br><span class="line">iptables -I FORWARD -p tcp -s <span class="variable">$&#123;CONTAINER_IP&#125;</span> --sport <span class="variable">$&#123;CONTAINER_PORT&#125;</span> -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个是SNAT规则，数据包回包</span></span><br><span class="line">iptables -t nat -A POSTROUTING -4 -p tcp -d <span class="variable">$&#123;CONTAINER_IP&#125;</span> --dport <span class="variable">$&#123;CONTAINER_PORT&#125;</span> -j SNAT --to-source <span class="variable">$&#123;IP&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>如果规则不加，或加在了 DOCKER-USER 的下面，会兜兜转转，最后匹配到了 DROP</p><p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/09/415b32397c6d32a942372431287b7280.png" alt="image.png|534"></p><p>知道了原理后，那么还有一种方法：删除这个 DROP（不要这么做）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -D DOCKER ! -i docker0 -o docker0 -j DROP</span></span><br></pre></td></tr></table></figure>]]>
-    </content>
-    <id>https://zahui.fan/posts/t37flu/</id>
-    <link href="https://zahui.fan/posts/t37flu/"/>
-    <published>2025-09-26T16:39:30.000Z</published>
-    <summary>
-      <![CDATA[<h2 id="为什么有这个需求"><a href="#为什么有这个需求" class="headerlink" title="为什么有这个需求"></a>为什么有这个需求</h2><p>假设有如下情况：</p>
-<ol>
-<li>这个服务很重要，很多服务在连，停服不知道会有什么影响。</li>
-<li>服务是运行在 docker 里的，但是 docker]]>
-    </summary>
-    <title>正在运行的Docker容器增加端口映射</title>
-    <updated>2025-10-04T15:24:34.000Z</updated>
   </entry>
 </feed>
