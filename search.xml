@@ -236,9 +236,9 @@
             
             <tag> 镜像 </tag>
             
-            <tag> 开源软件 </tag>
-            
             <tag> 仓库 </tag>
+            
+            <tag> 开源软件 </tag>
             
         </tags>
       
@@ -577,7 +577,7 @@
       <link href="/posts/szkilc/"/>
       <url>/posts/szkilc/</url>
       
-        <content type="html"><![CDATA[<p>可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><p>双向认证用途是什么： 双向认证就是客户端需要携带证书来请求服务器，证书校验通过了才会正常返回。比如说我有个网站只有自己访问，就可以配置双向认证，自己电脑安装一下证书就可以访问，还可以通过吊销证书的方式来禁止对应的人访问网站。</p><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#117;&#x78;&#x74;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;">iuxt@qq.com</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="制作双向认证客户端证书"><a href="#制作双向认证客户端证书" class="headerlink" title="制作双向认证客户端证书"></a>制作双向认证客户端证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书（iPhone 想导入的话，必须设置密码。）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><h3 id="Windows-系统"><a href="#Windows-系统" class="headerlink" title="Windows 系统"></a>Windows 系统</h3><p>双击导入，存储位置选择个人<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411071900128.png" alt="image.png|593"></p><p>这是证书被吊销的样子：<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411071900403.png" alt="image.png|593"></p><h3 id="iPhone-手机"><a href="#iPhone-手机" class="headerlink" title="iPhone 手机"></a>iPhone 手机</h3><p>先在文件里点击一下 p12 文件<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/07/fa3a67c3a23c675bc5d1c9a0b1c64fbc.png" alt="IMG_5978-1.png|283"></p><p>然后到 VPN 与设备管理里<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/07/7e78a2fe2e97dc9cd3bfc41d883cd953.png" alt="IMG_5979-1.png|302"></p><p>选择已下载的描述文件，进行安装。</p><h2 id="二级-CA"><a href="#二级-CA" class="headerlink" title="二级 CA"></a>二级 CA</h2><p>可选使用二级 CA 证书，如果业务量比较大的情况下，可以使用二级 CA，这样如果二级 CA 出现私钥泄露，可以通过根 CA 吊销二级 CA 证书 (通过此二级 CA 签发的证书都会失效)。使用二级 CA 签发证书需要注意：</p><ol><li>签发二级 CA 的时候需要执行证书扩展信息为 CA (<code>basicConstraints=CA:TRUE</code>)</li><li>在 Nginx 等配置认证证书的时候，需要配置证书链，即 二级 CA 和 根 CA 这两个证书合并到一个文件里。</li></ol><p>下面是一个一键生成各种证书脚本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">WORKDIR=mtls_certs</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$WORKDIR</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$WORKDIR</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[1/6] 生成 Root CA...&quot;</span></span><br><span class="line">openssl genrsa -out rootCA.key 4096</span><br><span class="line">openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 3650 \</span><br><span class="line">  -subj <span class="string">&quot;/C=CN/ST=Beijing/O=MyOrg/CN=MyRootCA&quot;</span> \</span><br><span class="line">  -out rootCA.crt</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[2/6] 生成二级 Sub CA...&quot;</span></span><br><span class="line">openssl genrsa -out subCA.key 4096</span><br><span class="line">openssl req -new -key subCA.key \</span><br><span class="line">  -subj <span class="string">&quot;/C=CN/ST=Beijing/O=MyOrg/CN=MySubCA&quot;</span> \</span><br><span class="line">  -out subCA.csr</span><br><span class="line"></span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> subCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial \</span><br><span class="line">  -out subCA.crt -days 1825 -sha256 -extfile &lt;(<span class="built_in">printf</span> <span class="string">&quot;basicConstraints=CA:TRUE,pathlen:0\nkeyUsage=critical,keyCertSign,cRLSign&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[3/6] 生成 Client Key &amp; CSR...&quot;</span></span><br><span class="line">openssl genrsa -out client.key 2048</span><br><span class="line">openssl req -new -key client.key \</span><br><span class="line">  -subj <span class="string">&quot;/C=CN/ST=Beijing/O=MyOrg/CN=mtls-client&quot;</span> \</span><br><span class="line">  -out client.csr</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[4/6] 用 Sub CA 签发 Client Cert...&quot;</span></span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> client.csr -CA subCA.crt -CAkey subCA.key -CAcreateserial \</span><br><span class="line">  -out client.crt -days 825 -sha256</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[5/6] 生成证书链 (SubCA + RootCA)...&quot;</span></span><br><span class="line"><span class="built_in">cat</span> subCA.crt rootCA.crt &gt; ca-chain.crt</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[6/6] 生成 PFX (可用于浏览器/工具)&quot;</span></span><br><span class="line">openssl pkcs12 -<span class="built_in">export</span> -out client.pfx -inkey client.key -<span class="keyword">in</span> client.crt -certfile ca-chain.crt -password pass:123456</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;✅ 证书生成完成 (目录: <span class="variable">$WORKDIR</span>)&quot;</span></span><br><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="验证证书"><a href="#验证证书" class="headerlink" title="验证证书"></a>验证证书</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># openssl 验证证书关系</span></span><br><span class="line">openssl verify -CAfile ca-chain.crt client.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># curl测试</span></span><br><span class="line">curl --cert client.crt --key client.key https://test.babudiu.com</span><br></pre></td></tr></table></figure><h3 id="Windows-删除个人证书"><a href="#Windows-删除个人证书" class="headerlink" title="Windows 删除个人证书"></a>Windows 删除个人证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p><h3 id="iPhone-删除证书"><a href="#iPhone-删除证书" class="headerlink" title="iPhone 删除证书"></a>iPhone 删除证书</h3><p>删除描述文件即可。</p>]]></content>
+        <content type="html"><![CDATA[<p>可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><p>双向认证用途是什么： 双向认证就是客户端需要携带证书来请求服务器，证书校验通过了才会正常返回。比如说我有个网站只有自己访问，就可以配置双向认证，自己电脑安装一下证书就可以访问，还可以通过吊销证书的方式来禁止对应的人访问网站。</p><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#120;&#116;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#109;">iuxt@qq.com</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="制作双向认证客户端证书"><a href="#制作双向认证客户端证书" class="headerlink" title="制作双向认证客户端证书"></a>制作双向认证客户端证书</h2><p>我是在 <code>Ubuntu 24.04</code> 系统下操作。不同系统可能会有差别。</p><h3 id="生成证书吊销列表"><a href="#生成证书吊销列表" class="headerlink" title="生成证书吊销列表"></a>生成证书吊销列表</h3><p>准备一份 <code>openssl.cnf</code> 配置文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[ ca ]</span><br><span class="line">default_ca = CA_default</span><br><span class="line"></span><br><span class="line">[ CA_default ]</span><br><span class="line"># 根目录设置为自定义路径</span><br><span class="line">dir = ./ca</span><br><span class="line"></span><br><span class="line"># 默认算法</span><br><span class="line">default_md = sha256</span><br><span class="line"></span><br><span class="line"># CA 的数据库文件</span><br><span class="line">database = $dir/index.txt</span><br><span class="line"># 证书的序列号文件</span><br><span class="line">serial = $dir/serial</span><br><span class="line"># 新证书的默认有效期</span><br><span class="line">default_days = 365</span><br><span class="line"># 吊销证书的理由</span><br><span class="line">crl_reason = unspecified</span><br><span class="line"># 默认的证书颁发策略</span><br><span class="line">policy = policy_anything</span><br><span class="line"></span><br><span class="line"># CRL 选项</span><br><span class="line">crlnumber = $dir/crlnumber</span><br><span class="line">default_crl_days = 30</span><br><span class="line">crl_extensions = crl_ext</span><br><span class="line"></span><br><span class="line">[ policy_anything ]</span><br><span class="line"># 配置任何策略</span><br><span class="line">countryName = optional</span><br><span class="line">stateOrProvinceName = optional</span><br><span class="line">organizationName = optional</span><br><span class="line">organizationalUnitName = optional</span><br><span class="line">commonName = supplied</span><br><span class="line">emailAddress = optional</span><br><span class="line"></span><br><span class="line">[ crl_ext ]</span><br><span class="line"># CRL 的扩展配置</span><br><span class="line">authorityKeyIdentifier = keyid:always</span><br></pre></td></tr></table></figure><h3 id="吊销指定证书"><a href="#吊销指定证书" class="headerlink" title="吊销指定证书"></a>吊销指定证书</h3><p>其他的证书都是 ca 签发的, 不管是 nginx 用的 server 证书,还是双向认证用到的 client 证书, 吊销证书后需要重新生成 crl 文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> ca/index.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># crlnumber初始化，第一次给个初始值即可，后面不需要修改，每次重新生成crl的时候会自增。</span></span><br><span class="line">[ ! -f ca/crlnumber ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;01&quot;</span> &gt; ca/crlnumber</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销指定证书</span></span><br><span class="line">openssl ca  -config openssl.cnf -cert ca/ca.crt  -keyfile  ca/ca.key  -revoke ssl/i.com.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 吊销完成后，重新生成吊销列表，建议定期重新生成 CRL 文件，并在 Nginx 上 reload 配置</span></span><br><span class="line">openssl ca -config openssl.cnf  -cert ca/ca.crt  -keyfile  ca/ca.key  -gencrl -out ca/crl.pem</span><br></pre></td></tr></table></figure><h3 id="服务端-nginx-配置"><a href="#服务端-nginx-配置" class="headerlink" title="服务端 nginx 配置"></a>服务端 nginx 配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  ssl_client_certificate ssl/ca.crt;       # 配置 CA 证书，用于验证客户端证书的签发者</span><br><span class="line">  ssl_verify_client on;                    # 启用客户端证书验证</span><br><span class="line">  ssl_crl ssl/crl.pem;                     # 配置 CRL 文件路径，用于检查吊销的证书</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="配置客户端-client-证书"><a href="#配置客户端-client-证书" class="headerlink" title="配置客户端 client 证书"></a>配置客户端 client 证书</h2><p>证书生成方式和上面一样，p12 格式包含私钥和证书（iPhone 想导入的话，必须设置密码。）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -<span class="built_in">export</span> -<span class="keyword">in</span> zhangsan.crt -inkey zhangsan.key -out zhangsan.p12</span><br></pre></td></tr></table></figure><h3 id="Windows-系统"><a href="#Windows-系统" class="headerlink" title="Windows 系统"></a>Windows 系统</h3><p>双击导入，存储位置选择个人<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411071859189.png" alt="image.png"></p><p>访问对应网站的时候浏览器会提示让选择证书<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411071900128.png" alt="image.png|593"></p><p>这是证书被吊销的样子：<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202411071900403.png" alt="image.png|593"></p><h3 id="iPhone-手机"><a href="#iPhone-手机" class="headerlink" title="iPhone 手机"></a>iPhone 手机</h3><p>先在文件里点击一下 p12 文件<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/07/fa3a67c3a23c675bc5d1c9a0b1c64fbc.png" alt="IMG_5978-1.png|283"></p><p>然后到 VPN 与设备管理里<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/07/7e78a2fe2e97dc9cd3bfc41d883cd953.png" alt="IMG_5979-1.png|302"></p><p>选择已下载的描述文件，进行安装。</p><h2 id="二级-CA"><a href="#二级-CA" class="headerlink" title="二级 CA"></a>二级 CA</h2><p>可选使用二级 CA 证书，如果业务量比较大的情况下，可以使用二级 CA，这样如果二级 CA 出现私钥泄露，可以通过根 CA 吊销二级 CA 证书 (通过此二级 CA 签发的证书都会失效)。使用二级 CA 签发证书需要注意：</p><ol><li>签发二级 CA 的时候需要执行证书扩展信息为 CA (<code>basicConstraints=CA:TRUE</code>)</li><li>在 Nginx 等配置认证证书的时候，需要配置证书链，即 二级 CA 和 根 CA 这两个证书合并到一个文件里。</li></ol><p>下面是一个一键生成各种证书脚本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">WORKDIR=mtls_certs</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$WORKDIR</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$WORKDIR</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[1/6] 生成 Root CA...&quot;</span></span><br><span class="line">openssl genrsa -out rootCA.key 4096</span><br><span class="line">openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 3650 \</span><br><span class="line">  -subj <span class="string">&quot;/C=CN/ST=Beijing/O=MyOrg/CN=MyRootCA&quot;</span> \</span><br><span class="line">  -out rootCA.crt</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[2/6] 生成二级 Sub CA...&quot;</span></span><br><span class="line">openssl genrsa -out subCA.key 4096</span><br><span class="line">openssl req -new -key subCA.key \</span><br><span class="line">  -subj <span class="string">&quot;/C=CN/ST=Beijing/O=MyOrg/CN=MySubCA&quot;</span> \</span><br><span class="line">  -out subCA.csr</span><br><span class="line"></span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> subCA.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial \</span><br><span class="line">  -out subCA.crt -days 1825 -sha256 -extfile &lt;(<span class="built_in">printf</span> <span class="string">&quot;basicConstraints=CA:TRUE,pathlen:0\nkeyUsage=critical,keyCertSign,cRLSign&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[3/6] 生成 Client Key &amp; CSR...&quot;</span></span><br><span class="line">openssl genrsa -out client.key 2048</span><br><span class="line">openssl req -new -key client.key \</span><br><span class="line">  -subj <span class="string">&quot;/C=CN/ST=Beijing/O=MyOrg/CN=mtls-client&quot;</span> \</span><br><span class="line">  -out client.csr</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[4/6] 用 Sub CA 签发 Client Cert...&quot;</span></span><br><span class="line">openssl x509 -req -<span class="keyword">in</span> client.csr -CA subCA.crt -CAkey subCA.key -CAcreateserial \</span><br><span class="line">  -out client.crt -days 825 -sha256</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[5/6] 生成证书链 (SubCA + RootCA)...&quot;</span></span><br><span class="line"><span class="built_in">cat</span> subCA.crt rootCA.crt &gt; ca-chain.crt</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[6/6] 生成 PFX (可用于浏览器/工具)&quot;</span></span><br><span class="line">openssl pkcs12 -<span class="built_in">export</span> -out client.pfx -inkey client.key -<span class="keyword">in</span> client.crt -certfile ca-chain.crt -password pass:123456</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;✅ 证书生成完成 (目录: <span class="variable">$WORKDIR</span>)&quot;</span></span><br><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="验证证书"><a href="#验证证书" class="headerlink" title="验证证书"></a>验证证书</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># openssl 验证证书关系</span></span><br><span class="line">openssl verify -CAfile ca-chain.crt client.crt</span><br><span class="line"></span><br><span class="line"><span class="comment"># curl测试</span></span><br><span class="line">curl --cert client.crt --key client.key https://test.babudiu.com</span><br></pre></td></tr></table></figure><h3 id="Windows-删除个人证书"><a href="#Windows-删除个人证书" class="headerlink" title="Windows 删除个人证书"></a>Windows 删除个人证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p><h3 id="iPhone-删除证书"><a href="#iPhone-删除证书" class="headerlink" title="iPhone 删除证书"></a>iPhone 删除证书</h3><p>删除描述文件即可。</p>]]></content>
       
       
       <categories>
@@ -589,9 +589,9 @@
       
         <tags>
             
-            <tag> Auth </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> Auth </tag>
             
         </tags>
       
@@ -647,9 +647,9 @@
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> Kubernetes </tag>
+            
+            <tag> ingress </tag>
             
             <tag> Nginx </tag>
             
@@ -810,11 +810,11 @@
       
         <tags>
             
+            <tag> 自动化 </tag>
+            
             <tag> Python </tag>
             
             <tag> grafana </tag>
-            
-            <tag> 自动化 </tag>
             
         </tags>
       
@@ -1479,9 +1479,9 @@
       
         <tags>
             
-            <tag> grafana </tag>
-            
             <tag> OpenLDAP </tag>
+            
+            <tag> grafana </tag>
             
         </tags>
       
@@ -1506,9 +1506,9 @@
       
         <tags>
             
-            <tag> nacos </tag>
-            
             <tag> prometheus </tag>
+            
+            <tag> nacos </tag>
             
         </tags>
       
@@ -1535,9 +1535,9 @@
             
             <tag> Elasticsearch </tag>
             
-            <tag> filebeat </tag>
-            
             <tag> Kafka </tag>
+            
+            <tag> filebeat </tag>
             
             <tag> logstash </tag>
             
@@ -1836,9 +1836,9 @@
       
         <tags>
             
-            <tag> OpenSSH </tag>
-            
             <tag> lrzsz </tag>
+            
+            <tag> OpenSSH </tag>
             
             <tag> zmodem </tag>
             
@@ -2085,9 +2085,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 注册表 </tag>
             
@@ -2116,15 +2116,15 @@
             
             <tag> 配置记录 </tag>
             
+            <tag> 常用操作 </tag>
+            
             <tag> Kubernetes </tag>
             
             <tag> 部署 </tag>
             
-            <tag> 常用操作 </tag>
+            <tag> kubeadm </tag>
             
             <tag> 搭建 </tag>
-            
-            <tag> kubeadm </tag>
             
         </tags>
       
@@ -2149,9 +2149,9 @@
       
         <tags>
             
-            <tag> PowerShell </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> PowerShell </tag>
             
             <tag> 网络 </tag>
             
@@ -2465,11 +2465,11 @@
       
         <tags>
             
-            <tag> CentOS </tag>
-            
             <tag> 分区 </tag>
             
             <tag> 磁盘 </tag>
+            
+            <tag> CentOS </tag>
             
         </tags>
       
@@ -2558,13 +2558,13 @@
             
             <tag> mysqld </tag>
             
+            <tag> CentOS </tag>
+            
             <tag> MySQL </tag>
             
             <tag> 运行库 </tag>
             
             <tag> RHEL </tag>
-            
-            <tag> CentOS </tag>
             
         </tags>
       
@@ -2591,9 +2591,9 @@
             
             <tag> mysqld </tag>
             
-            <tag> 数据迁移 </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> 数据迁移 </tag>
             
         </tags>
       
@@ -2618,11 +2618,11 @@
       
         <tags>
             
+            <tag> 效率工具 </tag>
+            
             <tag> wsl2 </tag>
             
             <tag> 网络 </tag>
-            
-            <tag> 效率工具 </tag>
             
             <tag> 命令行工具 </tag>
             
@@ -2767,9 +2767,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
             <tag> 注册表 </tag>
             
@@ -2796,11 +2796,11 @@
       
         <tags>
             
+            <tag> 常用操作 </tag>
+            
             <tag> Docker </tag>
             
             <tag> 容器 </tag>
-            
-            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -2937,11 +2937,11 @@
       
         <tags>
             
-            <tag> 反向代理 </tag>
-            
             <tag> fail2ban </tag>
             
             <tag> cc攻击 </tag>
+            
+            <tag> 反向代理 </tag>
             
             <tag> cdn </tag>
             
@@ -2968,9 +2968,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> macOS </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -2995,11 +2995,11 @@
       
         <tags>
             
+            <tag> macOS </tag>
+            
             <tag> 配置记录 </tag>
             
             <tag> 常用操作 </tag>
-            
-            <tag> macOS </tag>
             
         </tags>
       
@@ -3167,9 +3167,9 @@
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> Kubernetes </tag>
+            
+            <tag> ingress </tag>
             
             <tag> Nginx </tag>
             
@@ -3664,9 +3664,9 @@
       
         <tags>
             
-            <tag> k8s </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> k8s </tag>
             
         </tags>
       
@@ -3950,13 +3950,13 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
             
             <tag> wsl2 </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -4064,9 +4064,9 @@
       
         <tags>
             
-            <tag> 数据迁移 </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> 数据迁移 </tag>
             
             <tag> mysql </tag>
             
@@ -4093,13 +4093,13 @@
       
         <tags>
             
-            <tag> 效率工具 </tag>
+            <tag> mac </tag>
             
             <tag> python </tag>
             
-            <tag> mac </tag>
-            
             <tag> pyotp </tag>
+            
+            <tag> 效率工具 </tag>
             
         </tags>
       
@@ -4269,9 +4269,9 @@
             
             <tag> cli </tag>
             
-            <tag> webdav </tag>
-            
             <tag> curl </tag>
+            
+            <tag> webdav </tag>
             
         </tags>
       
@@ -4522,11 +4522,11 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -4894,11 +4894,11 @@
       
         <tags>
             
+            <tag> lrzsz </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> lrzsz </tag>
             
             <tag> zmodem </tag>
             
@@ -4956,9 +4956,9 @@
       
         <tags>
             
-            <tag> 效率工具 </tag>
-            
             <tag> 常用操作 </tag>
+            
+            <tag> 效率工具 </tag>
             
         </tags>
       
@@ -4983,9 +4983,9 @@
       
         <tags>
             
-            <tag> nginx </tag>
-            
             <tag> Ingress </tag>
+            
+            <tag> nginx </tag>
             
             <tag> ssl </tag>
             
@@ -5336,9 +5336,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 文件 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -5452,9 +5452,9 @@
             
             <tag> Shell </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> 备份还原 </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -6221,9 +6221,9 @@
       
         <tags>
             
-            <tag> 配置记录 </tag>
-            
             <tag> macOS </tag>
+            
+            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -6750,9 +6750,9 @@
             
             <tag> prometheus </tag>
             
-            <tag> Prometheus </tag>
-            
             <tag> Auth </tag>
+            
+            <tag> Prometheus </tag>
             
         </tags>
       
@@ -6777,9 +6777,9 @@
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -6862,11 +6862,11 @@
             
             <tag> Nginx </tag>
             
-            <tag> 反向代理 </tag>
+            <tag> SSL </tag>
             
             <tag> Auth </tag>
             
-            <tag> SSL </tag>
+            <tag> 反向代理 </tag>
             
         </tags>
       
@@ -6879,7 +6879,7 @@
       <link href="/posts/097e5b7c/"/>
       <url>/posts/097e5b7c/</url>
       
-        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#120;&#x74;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">iuxt@qq.com</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="生成服务器-HTTPS-证书"><a href="#生成服务器-HTTPS-证书" class="headerlink" title="生成服务器 HTTPS 证书"></a>生成服务器 HTTPS 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端证书请求"><a href="#生成-server-端证书请求" class="headerlink" title="生成 server 端证书请求"></a>生成 server 端证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#x75;&#120;&#116;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">iuxt@qq.com</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题，需要指定 <code>SubjectAlternativeName</code></p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h3 id="将证书配置到-nginx"><a href="#将证书配置到-nginx" class="headerlink" title="将证书配置到 nginx"></a>将证书配置到 nginx</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">Windows信任CA</button><button type="button" class="tab">macOS信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202305251008396.png" alt="windows安装CA证书|655"></p></div><div class="tab-item-content"><p>双击 ca.crt 文件，然后打开钥匙串访问，进入 登录 – 证书 找到自己的证书，显示简介，在信任里选择始终信任，关闭窗口。<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/07/33fd18d92d5471a473d126c36fff0c9c.png" alt="image.png"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line"><span class="built_in">sudo</span> update-ca-certificates</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line"><span class="built_in">sudo</span> update-ca-trust</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>然后使用 curl 或 Chrome 浏览器等工具就受信任了。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
+        <content type="html"><![CDATA[<p>在很多使用到证书的场景, 比如 HTTPS, 可以选择去申请一个免费的证书, 也可以尝试自签名证书, 申请免费证书请看:<a href="/posts/28c679c3">使用certbot自动申请ssl证书</a> 或者 <a href="/posts/1e777b9e">使用acme.sh来自动更新https证书</a>, 本文介绍自签名证书.</p><p>可以直接使用我制作好的工具，支持自签名 HTTPS 证书和双向认证证书，纯 shell 脚本，支持 Docker 使用，一键生成证书：<a href="https://github.com/iuxt/my_cert">https://github.com/iuxt/my_cert</a></p><h2 id="SSL-协议加密方式"><a href="#SSL-协议加密方式" class="headerlink" title="SSL 协议加密方式"></a>SSL 协议加密方式</h2><p>SSL 协议即用到了对称加密也用到了非对称加密 (公钥加密)，在建立传输链路时，SSL 首先对对称加密的密钥使用公钥进行非对称加密，链路建立好之后，SSL 对传输内容使用对称加密。</p><ul><li><p>对称加密<br>  速度高，可加密内容较大，用来加密会话过程中的消息。</p></li><li><p>公钥加密<br>  加密速度较慢，但能提供更好的身份认证技术，用来加密对称加密的密钥。</p></li></ul><h2 id="CA-证书"><a href="#CA-证书" class="headerlink" title="CA 证书"></a>CA 证书</h2><h3 id="生成-CA-私钥"><a href="#生成-CA-私钥" class="headerlink" title="生成 CA 私钥"></a>生成 CA 私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 4096</span><br></pre></td></tr></table></figure><p>生成一个 <code>ca.key</code> 文件</p><h3 id="生成-CA-证书"><a href="#生成-CA-证书" class="headerlink" title="生成 CA 证书"></a>生成 CA 证书</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=www.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -x509 -days 3650 -key ca.key -out ca.crt</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>zhanglikun</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#x69;&#x75;&#x78;&#116;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">iuxt@qq.com</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>就可以生成 <code>ca.crt</code> 文件, 这个文件需要加入到客户端的 <code>受信任的根证书颁发机构</code></p><h2 id="生成服务器-HTTPS-证书"><a href="#生成服务器-HTTPS-证书" class="headerlink" title="生成服务器 HTTPS 证书"></a>生成服务器 HTTPS 证书</h2><h3 id="生成-server-端的私钥"><a href="#生成-server-端的私钥" class="headerlink" title="生成 server 端的私钥"></a>生成 server 端的私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 4096</span><br></pre></td></tr></table></figure><h3 id="生成-server-端证书请求"><a href="#生成-server-端证书请求" class="headerlink" title="生成 server 端证书请求"></a>生成 server 端证书请求</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">非交互式创建</button><button type="button" class="tab">交互式创建</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr -subj <span class="string">&#x27;/C=CN/ST=Shanghai/L=Pudong/O=iuxt/OU=张理坤/CN=*.i.com/emailAddress=iuxt@qq.com&#x27;</span></span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -utf8 -new -key server.key -out server.csr</span><br></pre></td></tr></table></figure><p>需要交互式输入:</p><table><thead><tr><th>提示</th><th>含义</th><th>输入内容</th></tr></thead><tbody><tr><td>Country Name</td><td>国家</td><td>CN</td></tr><tr><td>State or Province Name</td><td>省</td><td>Shanghai</td></tr><tr><td>Locality Name</td><td>市</td><td>留空</td></tr><tr><td>Organization Name</td><td>组织名,公司名</td><td>iuxt</td></tr><tr><td>Organizational Unit Name</td><td>团体名</td><td>留空</td></tr><tr><td>Common Name</td><td>你的名字或域名</td><td>这里必须写域名或者 ip</td></tr><tr><td>Email Address</td><td>电子邮箱</td><td><a href="mailto:&#105;&#117;&#x78;&#x74;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#x6d;">iuxt@qq.com</a></td></tr></tbody></table></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="用-CA-私钥签发-server-的数字证书"><a href="#用-CA-私钥签发-server-的数字证书" class="headerlink" title="用 CA 私钥签发 server 的数字证书"></a>用 CA 私钥签发 server 的数字证书</h3><blockquote><p>解决 chrome 不受信任的问题，需要指定 <code>SubjectAlternativeName</code></p></blockquote><p><code>vim server.ext</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyUsage = nonRepudiation, digitalSignature, keyEncipherment</span><br><span class="line">extendedKeyUsage = serverAuth, clientAuth</span><br><span class="line">subjectAltName=@SubjectAlternativeName</span><br><span class="line"></span><br><span class="line">[ SubjectAlternativeName ]</span><br><span class="line">DNS.1=i.com</span><br><span class="line">DNS.2=*.i.com</span><br><span class="line">IP.1=192.168.1.1</span><br><span class="line">IP.2=192.168.1.2</span><br></pre></td></tr></table></figure><p>在里面填写证书绑定的 IP 和域名, 支持通配符</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -<span class="keyword">in</span> server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -sha256 -extfile server.ext</span><br></pre></td></tr></table></figure><p>生成 <code>server.crt</code> 证书文件</p><h3 id="将证书配置到-nginx"><a href="#将证书配置到-nginx" class="headerlink" title="将证书配置到 nginx"></a>将证书配置到 nginx</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  ssl_certificate   ssl/i.com.crt;              # server 证书</span><br><span class="line">  ssl_certificate_key ssl/i.com.key;            # server 私钥</span><br><span class="line">  ssl_session_timeout 5m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line">  server_name i.com;</span><br><span class="line"></span><br><span class="line">  client_max_body_size 1024m;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">          default_type text/plain;</span><br><span class="line">          return 200 &quot;hello&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="配置客户端信任-CA-证书"><a href="#配置客户端信任-CA-证书" class="headerlink" title="配置客户端信任 CA 证书"></a>配置客户端信任 CA 证书</h2><p>使用自签名的证书的域名，客户端是不信任的， 除非客户端信任对应的自签名 CA 证书。</p><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">Windows信任CA</button><button type="button" class="tab">macOS信任CA</button><button type="button" class="tab">Debian系信任CA</button><button type="button" class="tab">Redhat系信任CA</button></div><div class="tab-contents"><div class="tab-item-content active"><p>右键 cacert.crt 选择安装证书， 放进受信任的根证书颁发机构。</p><p><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/images/202305251008396.png" alt="windows安装CA证书|655"></p></div><div class="tab-item-content"><p>双击 ca.crt 文件，然后打开钥匙串访问，进入 登录 – 证书 找到自己的证书，显示简介，在信任里选择始终信任，关闭窗口。<br><img src="https://s3.babudiu.com/iuxt/public/nes.svg" data-lazy-src="https://s3.babudiu.com/iuxt/2025/07/33fd18d92d5471a473d126c36fff0c9c.png" alt="image.png"></p></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> cacert.crt /usr/local/share/ca-certificates/</span><br><span class="line"><span class="built_in">sudo</span> update-ca-certificates</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> cacert.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line"><span class="built_in">sudo</span> update-ca-trust</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><p>然后使用 curl 或 Chrome 浏览器等工具就受信任了。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="查看证书有效期"><a href="#查看证书有效期" class="headerlink" title="查看证书有效期"></a>查看证书有效期</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -<span class="keyword">in</span> cacert.crt -noout -dates</span><br></pre></td></tr></table></figure><h3 id="Windows-删除证书"><a href="#Windows-删除证书" class="headerlink" title="Windows 删除证书"></a>Windows 删除证书</h3><p>win + r 运行，输入 <code>certmgr.msc</code> 进入证书管理器。或者在开始菜单搜索 <code>管理用户证书</code> 进入。找到证书，右键删除即可。</p>]]></content>
       
       
       <categories>
@@ -6891,9 +6891,9 @@
       
         <tags>
             
-            <tag> Auth </tag>
-            
             <tag> SSL </tag>
+            
+            <tag> Auth </tag>
             
         </tags>
       
@@ -7073,11 +7073,11 @@
       
         <tags>
             
+            <tag> Disk </tag>
+            
             <tag> 开发版 </tag>
             
             <tag> 树莓派 </tag>
-            
-            <tag> Disk </tag>
             
         </tags>
       
@@ -7308,7 +7308,7 @@
       <link href="/posts/d90d2aa0/"/>
       <url>/posts/d90d2aa0/</url>
       
-        <content type="html"><![CDATA[<p>通常来说编译不通过都是因为系统环境不满足条件，如缺少包等，本文以 CentOS 7 系统为例，其中有些包如 xxx-devel 在 ubuntu 下一般都是叫做 xxx-dev 的，实在找不到可以使用 apt-file 查找文件属于哪个包。</p><p>需要准备好这些包（不用监控可以不用准备 nginx-module-vts）:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://nginx.org/download/nginx-1.22.0.tar.gz</span><br><span class="line">wget https://github.com/vozlt/nginx-module-vts/archive/refs/tags/v0.2.2.tar.gz</span><br><span class="line">wget https://ftp.openssl.org/source/openssl-1.1.1p.tar.gz</span><br><span class="line">wget https://ftp.exim.org/pub/pcre/pcre-8.45.tar.gz</span><br></pre></td></tr></table></figure><p>全部解压，然后进入 <code>nginx-1.22.0</code> 目录操作</p><h2 id="首先运行一遍-configure-命令"><a href="#首先运行一遍-configure-命令" class="headerlink" title="首先运行一遍 configure 命令"></a>首先运行一遍 configure 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx \</span><br><span class="line">            --user=www --group=www \</span><br><span class="line">            --with-stream \</span><br><span class="line">            --with-http_stub_status_module \</span><br><span class="line">            --with-http_sub_module \</span><br><span class="line">            --with-http_v2_module \</span><br><span class="line">            --with-http_ssl_module \</span><br><span class="line">            --with-http_gzip_static_module \</span><br><span class="line">            --with-http_realip_module \</span><br><span class="line">            --with-http_flv_module \</span><br><span class="line">            --with-http_mp4_module \</span><br><span class="line">            --with-openssl=../openssl-1.1.1p \</span><br><span class="line">            --with-pcre=../pcre-8.45 \</span><br><span class="line">            --with-pcre-jit \</span><br><span class="line">            --with-ld-opt=-ljemalloc \</span><br><span class="line">            --add-module=../nginx-module-vts-0.1.18</span><br></pre></td></tr></table></figure><blockquote><p>nginx-module-vts 是监控模块，如果不用监控，可以将这一行删除<br>user group prefix 这些参数只是个默认值，是可以被配置文件的配置覆盖的</p></blockquote><h3 id="常见报错解决"><a href="#常见报错解决" class="headerlink" title="常见报错解决"></a>常见报错解决</h3><ul><li><p><code>./configure: error: C compiler cc is not found</code></p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc-c++</span><br></pre></td></tr></table></figure></li><li><p><code>checking for --with-ld-opt=&quot;-ljemalloc&quot; ... not found</code></p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># centos</span></span><br><span class="line">yum install -y epel-release</span><br><span class="line">yum install -y jemalloc-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y libjemalloc-dev</span><br></pre></td></tr></table></figure></li><li><p><code>checking for zlib library ... not found</code></p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zlib-devel</span><br></pre></td></tr></table></figure></li><li><p><code>You need Perl 5.</code></p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-devel</span><br></pre></td></tr></table></figure></li></ul><h2 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h2><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">单核心编译</button><button type="button" class="tab">多核心编译</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j 4</span><br></pre></td></tr></table></figure><blockquote><p>4 表示用 4 个核心来编译</p></blockquote></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="创建用户组和用户"><a href="#创建用户组和用户" class="headerlink" title="创建用户组和用户"></a>创建用户组和用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd www</span><br><span class="line">useradd -g www -M -s /sbin/nologin www</span><br></pre></td></tr></table></figure><h3 id="安装可执行文件"><a href="#安装可执行文件" class="headerlink" title="安装可执行文件"></a>安装可执行文件</h3><p>可以用 <code>make install</code> 来快速安装，也可以自己进入 objs 目录把 nginx 复制到其他地方，配置文件放在&#x2F;usr&#x2F;loca&#x2F;nginx 下</p><h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><h3 id="生成-systemd-文件"><a href="#生成-systemd-文件" class="headerlink" title="生成 systemd 文件"></a>生成 systemd 文件</h3><p>vim &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;nginx.service</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=nginx - high performance web server</span><br><span class="line"><span class="attr">Documentation</span>=http://nginx.org/en/docs/</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=forking</span><br><span class="line"><span class="attr">PIDFile</span>=/usr/local/nginx/logs/nginx.pid</span><br><span class="line"><span class="attr">ExecStartPost</span>=/bin/sleep <span class="number">0.1</span></span><br><span class="line"><span class="attr">ExecStartPre</span>=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="attr">ExecReload</span>=/bin/kill -s HUP <span class="variable">$MAINPID</span></span><br><span class="line"><span class="attr">ExecStop</span>=/bin/kill -s QUIT <span class="variable">$MAINPID</span></span><br><span class="line"><span class="attr">TimeoutStartSec</span>=<span class="number">120</span></span><br><span class="line"><span class="attr">LimitNOFILE</span>=<span class="number">1000000</span></span><br><span class="line"><span class="attr">LimitNPROC</span>=<span class="number">1000000</span></span><br><span class="line"><span class="attr">LimitCORE</span>=<span class="number">1000000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure><p>然后就可以愉快的使用 Nginx 了。</p><h3 id="创建软链接"><a href="#创建软链接" class="headerlink" title="创建软链接"></a>创建软链接</h3><p>添加后就可以直接使用 nginx 命令了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/nginx/sbin/nginx /usr/bin/nginx</span><br></pre></td></tr></table></figure><p>配置文件软链接</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/nginx/conf/ /etc/nginx</span><br></pre></td></tr></table></figure><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h3><p>监控的使用方法可以查看 <a href="/posts/c6a32841">Nginx使用module_vts模块来做监控</a></p><h3 id="查看编译参数"><a href="#查看编译参数" class="headerlink" title="查看编译参数"></a>查看编译参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="简易编译"><a href="#简易编译" class="headerlink" title="简易编译"></a>简易编译</h2><p>openssl 和 pcre 等组件，使用源里的包，源里面的包版本比较低，可能还有漏洞，但是比较方便。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">./configure \</span><br><span class="line">    --prefix=/usr/share/nginx \</span><br><span class="line">    --sbin-path=/usr/sbin/nginx \</span><br><span class="line">    --conf-path=/etc/nginx/nginx.conf \</span><br><span class="line">    --error-log-path=/var/log/nginx/error.log \</span><br><span class="line">    --http-log-path=/var/log/nginx/access.log \</span><br><span class="line">    --http-client-body-temp-path=/var/lib/nginx/tmp/client_body \</span><br><span class="line">    --http-proxy-temp-path=/var/lib/nginx/tmp/proxy \</span><br><span class="line">    --http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi \</span><br><span class="line">    --http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi \</span><br><span class="line">    --http-scgi-temp-path=/var/lib/nginx/tmp/scgi \</span><br><span class="line">    --pid-path=/run/nginx.pid \</span><br><span class="line">    --lock-path=/run/lock/subsys/nginx \</span><br><span class="line">    --user=nginx \</span><br><span class="line">    --group=nginx \</span><br><span class="line">    --with-http_gzip_static_module \</span><br><span class="line">    --with-http_flv_module \</span><br><span class="line">    --with-http_ssl_module \</span><br><span class="line">    --with-http_sub_module \</span><br><span class="line">    --with-http_mp4_module \</span><br><span class="line">    --with-http_stub_status_module \</span><br><span class="line">    --with-pcre \</span><br><span class="line">    --with-stream \</span><br><span class="line">    --with-stream_ssl_preread_module \</span><br><span class="line">    --with-stream_ssl_module \</span><br><span class="line">    --with-stream_realip_module \</span><br><span class="line">    --with-http_v2_module \</span><br><span class="line">    --with-http_realip_module</span><br></pre></td></tr></table></figure><h2 id="静态编译-openssl-和-pcre"><a href="#静态编译-openssl-和-pcre" class="headerlink" title="静态编译 openssl 和 pcre"></a>静态编译 openssl 和 pcre</h2><p>通常来说编译不通过都是因为系统环境不满足条件，如缺少包等，本文以 CentOS 7 系统为例，其中有些包如 xxx-devel 在 ubuntu 下一般都是叫做 xxx-dev 的，实在找不到可以使用 apt-file 查找文件属于哪个包。</p><p>需要准备好这些包（不用监控可以不用准备 nginx-module-vts）:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://nginx.org/download/nginx-1.22.0.tar.gz</span><br><span class="line">wget https://github.com/vozlt/nginx-module-vts/archive/refs/tags/v0.2.2.tar.gz</span><br><span class="line">wget https://ftp.openssl.org/source/openssl-1.1.1p.tar.gz</span><br><span class="line">wget https://ftp.exim.org/pub/pcre/pcre-8.45.tar.gz</span><br></pre></td></tr></table></figure><p>全部解压，然后进入 <code>nginx-1.22.0</code> 目录操作</p><h2 id="首先运行一遍-configure-命令"><a href="#首先运行一遍-configure-命令" class="headerlink" title="首先运行一遍 configure 命令"></a>首先运行一遍 configure 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/nginx \</span><br><span class="line">            --user=www --group=www \</span><br><span class="line">            --with-stream \</span><br><span class="line">            --with-http_stub_status_module \</span><br><span class="line">            --with-http_sub_module \</span><br><span class="line">            --with-http_v2_module \</span><br><span class="line">            --with-http_ssl_module \</span><br><span class="line">            --with-http_gzip_static_module \</span><br><span class="line">            --with-http_realip_module \</span><br><span class="line">            --with-http_flv_module \</span><br><span class="line">            --with-http_mp4_module \</span><br><span class="line">            --with-openssl=../openssl-1.1.1p \</span><br><span class="line">            --with-pcre=../pcre-8.45 \</span><br><span class="line">            --with-pcre-jit \</span><br><span class="line">            --with-ld-opt=-ljemalloc \</span><br><span class="line">            --add-module=../nginx-module-vts-0.1.18</span><br></pre></td></tr></table></figure><blockquote><p>nginx-module-vts 是监控模块，如果不用监控，可以将这一行删除<br>user group prefix 这些参数只是个默认值，是可以被配置文件的配置覆盖的</p></blockquote><h3 id="常见报错解决"><a href="#常见报错解决" class="headerlink" title="常见报错解决"></a>常见报错解决</h3><h4 id="C-compiler-cc-is-not-found"><a href="#C-compiler-cc-is-not-found" class="headerlink" title="C compiler cc is not found"></a><code>C compiler cc is not found</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum -y install gcc gcc-c++ autoconf automake make</span><br></pre></td></tr></table></figure><h4 id="checking-for-with-ld-opt-ljemalloc-not-found"><a href="#checking-for-with-ld-opt-ljemalloc-not-found" class="headerlink" title="checking for --with-ld-opt=&quot;-ljemalloc&quot; ... not found"></a><code>checking for --with-ld-opt=&quot;-ljemalloc&quot; ... not found</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># centos</span></span><br><span class="line">yum install -y epel-release</span><br><span class="line">yum install -y jemalloc-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line"><span class="built_in">sudo</span> apt install -y libjemalloc-dev</span><br></pre></td></tr></table></figure><h4 id="checking-for-zlib-library-not-found"><a href="#checking-for-zlib-library-not-found" class="headerlink" title="checking for zlib library ... not found"></a><code>checking for zlib library ... not found</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install zlib-devel</span><br></pre></td></tr></table></figure><h4 id="You-need-Perl-5"><a href="#You-need-Perl-5" class="headerlink" title="You need Perl 5."></a><code>You need Perl 5.</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install perl-devel</span><br></pre></td></tr></table></figure><h4 id="the-HTTP-rewrite-module-requires-the-PCRE-library"><a href="#the-HTTP-rewrite-module-requires-the-PCRE-library" class="headerlink" title="the HTTP rewrite module requires the PCRE library"></a><code>the HTTP rewrite module requires the PCRE library</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install pcre pcre-devel -y</span><br></pre></td></tr></table></figure><h4 id="SSL-modules-require-the-OpenSSL-library"><a href="#SSL-modules-require-the-OpenSSL-library" class="headerlink" title="SSL modules require the OpenSSL library"></a><code>SSL modules require the OpenSSL library</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install openssl openssl-devel -y</span><br></pre></td></tr></table></figure><h2 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h2><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">单核心编译</button><button type="button" class="tab">多核心编译</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j 4</span><br></pre></td></tr></table></figure><blockquote><p>4 表示用 4 个核心来编译</p></blockquote></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="创建用户组和用户"><a href="#创建用户组和用户" class="headerlink" title="创建用户组和用户"></a>创建用户组和用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd www</span><br><span class="line">useradd -g www -M -s /sbin/nologin www</span><br></pre></td></tr></table></figure><h3 id="安装可执行文件"><a href="#安装可执行文件" class="headerlink" title="安装可执行文件"></a>安装可执行文件</h3><p>可以用 <code>make install</code> 来快速安装，也可以自己进入 objs 目录把 nginx 复制到其他地方，配置文件放在&#x2F;usr&#x2F;loca&#x2F;nginx 下</p><h2 id="收尾工作"><a href="#收尾工作" class="headerlink" title="收尾工作"></a>收尾工作</h2><h3 id="生成-systemd-文件"><a href="#生成-systemd-文件" class="headerlink" title="生成 systemd 文件"></a>生成 systemd 文件</h3><p>vim &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;nginx.service</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=nginx - high performance web server</span><br><span class="line"><span class="attr">Documentation</span>=http://nginx.org/en/docs/</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=forking</span><br><span class="line"><span class="attr">PIDFile</span>=/usr/local/nginx/logs/nginx.pid</span><br><span class="line"><span class="attr">ExecStartPost</span>=/bin/sleep <span class="number">0.1</span></span><br><span class="line"><span class="attr">ExecStartPre</span>=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="attr">ExecReload</span>=/bin/kill -s HUP <span class="variable">$MAINPID</span></span><br><span class="line"><span class="attr">ExecStop</span>=/bin/kill -s QUIT <span class="variable">$MAINPID</span></span><br><span class="line"><span class="attr">TimeoutStartSec</span>=<span class="number">120</span></span><br><span class="line"><span class="attr">LimitNOFILE</span>=<span class="number">1000000</span></span><br><span class="line"><span class="attr">LimitNPROC</span>=<span class="number">1000000</span></span><br><span class="line"><span class="attr">LimitCORE</span>=<span class="number">1000000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure><p>然后就可以愉快的使用 Nginx 了。</p><h3 id="创建软链接"><a href="#创建软链接" class="headerlink" title="创建软链接"></a>创建软链接</h3><p>添加后就可以直接使用 nginx 命令了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/nginx/sbin/nginx /usr/bin/nginx</span><br></pre></td></tr></table></figure><p>配置文件软链接</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/local/nginx/conf/ /etc/nginx</span><br></pre></td></tr></table></figure><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h3><p>监控的使用方法可以查看 <a href="/posts/c6a32841">Nginx使用module_vts模块来做监控</a></p><h3 id="查看编译参数"><a href="#查看编译参数" class="headerlink" title="查看编译参数"></a>查看编译参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -V</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -7378,9 +7378,9 @@
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -7676,9 +7676,9 @@
       
         <tags>
             
-            <tag> ingress </tag>
-            
             <tag> nginx </tag>
+            
+            <tag> ingress </tag>
             
         </tags>
       
@@ -8100,13 +8100,13 @@
       
         <tags>
             
-            <tag> OpenLDAP </tag>
+            <tag> Network </tag>
             
             <tag> Auth </tag>
             
-            <tag> Network </tag>
-            
             <tag> Radius </tag>
+            
+            <tag> OpenLDAP </tag>
             
         </tags>
       
@@ -8197,9 +8197,9 @@
             
             <tag> Shell </tag>
             
-            <tag> Python </tag>
-            
             <tag> 配置文件 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -8224,9 +8224,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -9069,9 +9069,9 @@
       
         <tags>
             
-            <tag> VirtualMachine </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> VirtualMachine </tag>
             
         </tags>
       
@@ -9642,13 +9642,13 @@
       
         <tags>
             
+            <tag> 常用操作 </tag>
+            
             <tag> 命令行工具 </tag>
             
             <tag> Linux </tag>
             
             <tag> Shell </tag>
-            
-            <tag> 常用操作 </tag>
             
         </tags>
       
@@ -9673,9 +9673,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> adb </tag>
+            
+            <tag> Android </tag>
             
         </tags>
       
@@ -10063,11 +10063,11 @@
       
         <tags>
             
+            <tag> 配置记录 </tag>
+            
             <tag> Windows </tag>
             
             <tag> WSL </tag>
-            
-            <tag> 配置记录 </tag>
             
         </tags>
       
@@ -10142,9 +10142,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -10263,9 +10263,9 @@
       
         <tags>
             
-            <tag> WSL </tag>
-            
             <tag> 配置记录 </tag>
+            
+            <tag> WSL </tag>
             
             <tag> Linux </tag>
             
@@ -10711,9 +10711,9 @@
       
         <tags>
             
-            <tag> OpenSSH </tag>
-            
             <tag> lrzsz </tag>
+            
+            <tag> OpenSSH </tag>
             
         </tags>
       
