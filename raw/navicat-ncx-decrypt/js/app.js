@@ -75,7 +75,6 @@
 					return {
 						name: getAttribute(profile, "ProfileName", "未知配置"),
 						username: getAttribute(profile, "UserName", "未知用户"),
-						passwordEncrypted: encrypted,
 						password: decryptPassword(encrypted)
 					};
 				});
@@ -87,9 +86,7 @@
 				host: getAttribute(node, "Host", "未知主机"),
 				port: getAttribute(node, "Port", "默认端口"),
 				username: getAttribute(node, "UserName", "未知用户"),
-				passwordEncrypted,
 				password: decryptPassword(passwordEncrypted),
-				savePassword: getAttribute(node, "SavePassword", "false").toLowerCase() === "true" ? "是" : "否",
 				profiles
 			};
 		});
@@ -102,32 +99,34 @@
 		return node;
 	}
 
-	function detail(label, value, options) {
-		const wrapper = el("div", "detail");
-		wrapper.append(el("span", "detail-label", label));
-		const valueNode = el("div", "detail-value" + (options && options.error ? " status-error" : ""));
-		if (options && options.password) {
-			const password = el("span", "password-text masked", value === "无密码" ? value : "••••••••");
-			password.dataset.value = value;
-			valueNode.append(password);
-			if (value !== "无密码") {
-				const reveal = el("button", "btn btn-secondary btn-small", "显示");
-				reveal.type = "button";
-				reveal.addEventListener("click", () => {
-					const masked = password.classList.toggle("masked");
-					password.textContent = masked ? "••••••••" : password.dataset.value;
-					reveal.textContent = masked ? "显示" : "隐藏";
-				});
-				const copy = el("button", "btn btn-secondary btn-small", "复制");
-				copy.type = "button";
-				copy.addEventListener("click", () => copyText(value));
-				valueNode.append(reveal, copy);
-			}
-		} else {
-			valueNode.append(el("span", "", value));
+	function passwordControl(result) {
+		const control = el("div", "password-control");
+		if (result.error) {
+			control.append(el("span", "password-error", result.value));
+			return control;
 		}
-		wrapper.append(valueNode);
-		return wrapper;
+		if (result.value === "无密码") {
+			control.append(el("span", "password-empty", "无密码"));
+			return control;
+		}
+
+		const password = el("span", "password-text masked", "••••••••");
+		password.dataset.value = result.value;
+		const reveal = el("button", "text-action", "显示");
+		reveal.type = "button";
+		reveal.setAttribute("aria-label", "显示密码");
+		reveal.addEventListener("click", () => {
+			const masked = password.classList.toggle("masked");
+			password.textContent = masked ? "••••••••" : password.dataset.value;
+			reveal.textContent = masked ? "显示" : "隐藏";
+			reveal.setAttribute("aria-label", masked ? "显示密码" : "隐藏密码");
+		});
+		const copy = el("button", "text-action", "复制");
+		copy.type = "button";
+		copy.setAttribute("aria-label", "复制密码");
+		copy.addEventListener("click", () => copyText(result.value));
+		control.append(password, reveal, copy);
+		return control;
 	}
 
 	function connectionCard(connection) {
@@ -138,8 +137,12 @@
 		const iconText = connection.type === "未知类型" ? "DB" : connection.type.slice(0, 3);
 		const icon = el("span", "db-icon", iconText);
 		const summaryMain = el("span", "summary-main");
-		summaryMain.append(el("span", "summary-title", connection.name));
-		summaryMain.append(el("span", "summary-subtitle", connection.host + ":" + connection.port + " · " + connection.username));
+		const titleLine = el("span", "summary-title-line");
+		titleLine.append(el("span", "summary-title", connection.name), el("span", "type-tag", connection.type));
+		summaryMain.append(titleLine);
+		const subtitle = el("span", "summary-subtitle");
+		subtitle.append(el("span", "", connection.host + ":" + connection.port), el("span", "meta-divider", "·"), el("span", "", connection.username));
+		summaryMain.append(subtitle);
 		summary.append(icon, summaryMain);
 		if (connection.profiles.length) summary.append(el("span", "profile-count", connection.profiles.length + " 个子配置"));
 		const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -153,23 +156,20 @@
 		});
 
 		const details = el("div", "connection-details");
-		const grid = el("div", "detail-grid");
-		grid.append(
-			detail("类型", connection.type), detail("地址", connection.host + ":" + connection.port),
-			detail("用户名", connection.username), detail("保存密码", connection.savePassword),
-			detail("明文密码", connection.password.value, { password: true, error: connection.password.error }),
-			detail("加密值", connection.passwordEncrypted || "—")
-		);
-		details.append(grid);
+		const passwordRow = el("div", "password-row");
+		passwordRow.append(el("span", "row-label", "连接密码"), passwordControl(connection.password));
+		details.append(passwordRow);
 
 		if (connection.profiles.length) {
 			const profiles = el("div", "profiles");
-			profiles.append(el("h3", "", "子配置"));
+			const profilesHead = el("div", "profiles-head");
+			profilesHead.append(el("h3", "", "子配置"), el("span", "", connection.profiles.length + " 个"));
+			profiles.append(profilesHead);
 			connection.profiles.forEach((profile) => {
 				const row = el("div", "profile-row");
-				row.append(el("span", "", profile.name), el("span", "", profile.username));
-				const password = el("span", profile.password.error ? "status-error" : "", profile.password.value);
-				row.append(password);
+				const identity = el("div", "profile-identity");
+				identity.append(el("strong", "", profile.name), el("span", "", profile.username));
+				row.append(identity, passwordControl(profile.password));
 				profiles.append(row);
 			});
 			details.append(profiles);
@@ -235,7 +235,7 @@
 	function exportJson() {
 		const output = connections.map((connection) => ({
 			name: connection.name, type: connection.type, host: connection.host, port: connection.port,
-			username: connection.username, password: connection.password.value, save_password: connection.savePassword,
+			username: connection.username, password: connection.password.value,
 			profiles: connection.profiles.map((profile) => ({ name: profile.name, username: profile.username, password: profile.password.value }))
 		}));
 		const blob = new Blob([JSON.stringify(output, null, 2)], { type: "application/json;charset=utf-8" });

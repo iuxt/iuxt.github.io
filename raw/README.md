@@ -6,4 +6,4 @@ https://zahui.fan/raw/gauth-tools/index.html
 工具列表：
 
 - `gauth-tools/`：Google Authenticator 迁移助手
-- `navicat-decrypt/`：Navicat 12–16 NCX 连接密码查看器（纯浏览器离线处理）
+- `navicat-ncx-decrypt/`：Navicat 12–16 NCX 连接密码查看器（纯浏览器离线处理）
