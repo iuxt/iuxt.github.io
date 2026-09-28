@@ -48,6 +48,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 1rem;
 }
 .nav-actions {
 	display: flex;
@@ -88,6 +89,7 @@ nav {
 	color: white;
 }
 .brand-icon {
+	flex-shrink: 0;
 	width: 32px;
 	height: 32px;
 	background: linear-gradient(135deg, #4f46e5, #818cf8);
@@ -132,6 +134,12 @@ main {
 	color: var(--text-sub);
 	margin-bottom: 1.5rem;
 	font-size: 0.9rem;
+}
+.upload-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
 }
 
 /* Buttons */
@@ -180,10 +188,11 @@ main {
 /* Grid */
 .grid-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
 	gap: 1rem;
 }
 .card {
+	min-width: 0;
 	background: white;
 	border: 1px solid var(--border);
 	border-radius: var(--radius-md);
@@ -236,6 +245,7 @@ main {
 }
 .tags {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 6px;
 	margin-top: 6px;
 }
@@ -292,6 +302,20 @@ main {
 	border-radius: var(--radius-md);
 	border: 1px solid var(--border);
 	box-shadow: var(--shadow-sm);
+	gap: 1rem;
+}
+.stats-actions {
+	display: flex;
+	gap: 10px;
+	min-width: 0;
+}
+#searchInput {
+	width: 100%;
+	min-width: 0;
+	flex: 1;
+}
+.stats-actions .btn {
+	flex-shrink: 0;
 }
 .hidden {
 	display: none !important;
@@ -310,6 +334,7 @@ main {
 	opacity: 0;
 	visibility: hidden;
 	transition: 0.2s;
+	padding: 1rem;
 }
 .modal-overlay.show {
 	opacity: 1;
@@ -317,8 +342,13 @@ main {
 }
 .modal {
 	background: white;
-	width: 90%;
+	width: 100%;
 	max-width: 450px;
+	max-height: calc(100vh - 2rem);
+	max-height: calc(100dvh - 2rem);
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	min-width: 0;
 	padding: 1.5rem;
 	border-radius: 16px;
 	box-shadow: var(--shadow-lg);
@@ -327,6 +357,9 @@ main {
 }
 .modal-overlay.show .modal {
 	transform: scale(1);
+}
+#manualInput {
+	font-size: 0.85rem;
 }
 
 /* Export Menu */
@@ -362,6 +395,10 @@ main {
 	margin: 0 0 2px 0;
 	font-size: 0.95rem;
 }
+.export-info {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
 .export-info p {
 	margin: 0;
 	font-size: 0.8rem;
@@ -392,6 +429,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	max-width: calc(100% - 40px);
 }
 .toast {
 	background: white;
@@ -405,6 +443,7 @@ main {
 	animation: slideIn 0.3s;
 	font-size: 0.9rem;
 	font-weight: 500;
+	overflow-wrap: anywhere;
 }
 .toast.success {
 	border-left: 4px solid var(--success);
@@ -445,6 +484,8 @@ main {
 	text-align: center;
 }
 .qr-canvas {
+	display: block;
+	height: auto;
 	margin: 1.5rem auto;
 	border: 1px solid var(--border);
 	border-radius: 12px;
@@ -582,9 +623,57 @@ main {
 }
 
 @media (max-width: 640px) {
+	nav {
+		height: auto;
+		padding: 0.75rem 1rem;
+	}
+	.nav-inner {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.75rem;
+	}
+	.nav-actions {
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	main {
+		padding: 1.5rem 1rem;
+	}
+	.upload-section {
+		padding: 2rem 1rem;
+	}
+	.upload-content h2 {
+		font-size: 1.25rem;
+		overflow-wrap: anywhere;
+	}
 	.stats-bar {
 		flex-direction: column;
 		align-items: stretch;
 		gap: 1rem;
+	}
+	#searchInput,
+	#manualInput {
+		font-size: 1rem;
+	}
+	.info-banner {
+		position: static;
+	}
+	.modal {
+		padding: 1rem;
+	}
+	.export-option {
+		gap: 0.75rem;
+		padding: 0.75rem;
+	}
+	.qr-info-row {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		gap: 0.5rem;
+	}
+	.copy-btn {
+		grid-column: 2;
+		justify-self: end;
+		margin-left: 0;
 	}
 }

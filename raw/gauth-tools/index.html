@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>GAuth Migrator Pro</title>
 		<link
@@ -132,13 +132,7 @@
 							>全程浏览器离线处理</span
 						>、双引擎解析、自动增强去噪、支持批量处理
 					</p>
-					<div
-						style="
-							display: flex;
-							gap: 10px;
-							justify-content: center;
-						"
-					>
+					<div class="upload-actions">
 						<button
 							class="btn btn-primary"
 							onclick="document.getElementById('fileInput').click()"
@@ -186,7 +180,7 @@
 					>
 					个账户
 				</div>
-				<div style="display: flex; gap: 10px">
+				<div class="stats-actions">
 					<input
 						type="text"
 						id="searchInput"
@@ -386,7 +380,6 @@
 						border-radius: 10px;
 						padding: 12px;
 						font-family: monospace;
-						font-size: 0.85rem;
 						resize: vertical;
 					"
 					placeholder="粘贴 otpauth-migration://..."
